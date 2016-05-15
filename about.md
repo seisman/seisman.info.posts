@@ -1,9 +1,9 @@
 ---
 title: 关于
-layout: post
 author: SeisMan
 date: 2013-06-22
 updated: 2014-09-13
+layout: post
 ---
 
 ## 关于博主
