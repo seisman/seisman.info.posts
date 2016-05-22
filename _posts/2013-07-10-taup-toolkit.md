@@ -30,7 +30,7 @@ tags: [走时, TauP]
 
 目前来看的缺点是：
 
-1.  不支持 Pg、PKPab、PKPbc 等震相名
+1.  不支持 PKPab、PKPbc 等震相名
 2.  输出的格式不够灵活，有时需要自己写脚本从输出中提取信息
 
 ## 工具
@@ -41,7 +41,9 @@ TauP 提供了多个工具，包括有图形界面的 `taup` ，交互式的 `ta
 
 ## TauP 系列博文
 
-1.  [安装 TauP](/install-taup.html)
-2.  [用 taup\_time 计算震相走时及射线信息](/calculate-travel-time-using-taup.html)
-3.  [用 taup\_pierce 计算射线的界面的穿透点](/calculate-pierce-points-using-taup.html)
-4.  [用 taup\_setsac 将走时信息写入 SAC 文件](/mark-travel-time-using-taup.html)
+1. [安装 TauP](/install-taup.html)
+2. [用 taup\_time 计算震相走时及射线信息](/calculate-travel-time-using-taup.html)
+3. [用 taup\_pierce 计算射线的界面的穿透点](/calculate-pierce-points-using-taup.html)
+4. [用 taup\_setsac 将走时信息写入 SAC 文件](/mark-travel-time-using-taup.html)
+5. [TauP 自定义速度模型](/taup-custom-models.html)
+6. [识别 TauP 输出中的多个 P 震相](/taup-identify-multiple-P-phases.html)
