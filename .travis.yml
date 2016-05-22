@@ -12,7 +12,9 @@ install:
   - git clone https://github.com/seisman/seisman.info.git seisman.info
   - cd seisman.info
   - git submodule update --init --recursive --remote
-  - sudo apt-get -y install pandoc
+  # install the latest version of pandoc
+  - curl -s https://api.github.com/repos/jgm/pandoc/releases/latest | grep 'browser_download_url.*deb' | awk '{print "wget", $2}' | sh
+  - sudo dpkg -i pandoc-*-amd64.deb
   - npm install hexo gulp -g
   - npm install
 

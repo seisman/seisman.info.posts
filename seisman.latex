@@ -14,6 +14,8 @@
 \linespread{1.3}                        % 行间距
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % 标题设置
 \usepackage{titlesec}
@@ -89,6 +91,9 @@ $if(author)$
 $endif$
 $if(date)$
 \textbf{发布日期} & $date$   \\
+$endif$
+$if(updated)$
+\textbf{更新日期} & $updated$   \\
 $endif$
 $if(categories)$
 \textbf{分类} & $categories$  \\
