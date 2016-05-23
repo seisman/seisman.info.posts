@@ -18,7 +18,7 @@
 3. 对于CentOS用户，直接
    ```bash
    # 使用新版本替换旧版本
-   $ ar p pandoc-xxx-amd64.deb data.tar.gz | sudo tar xvz --strip-components 2 -C /usr/local
+   $ ar p pandoc-xxx-amd64.deb data.tar.gz | sudo tar xvz --strip-components 2 -C /usr
    # 检查版本
    $ pandoc -v
    ```
