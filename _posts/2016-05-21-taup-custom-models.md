@@ -92,7 +92,7 @@ TauP 模型的格式。TauP 支持两种速度模型格式： `nd` 和 `tvel`。
 出现这个现象是因为，TauP 已经针对每个标准模型计算了其对应的 tau 表。这个表的计算量很大，但只与模型
 有关，与震中距、震源深度等都无关。因而先把这个表计算出来，则可以实现走时计算的加速。
 
-计算表的方式也很简答：
+计算表的方式也很简单：
 ```bash
 $ taup_create -nd model1.nd
 $ taup_time -mod model1.taup -ph p,P,Pn -h 5 -km 200
