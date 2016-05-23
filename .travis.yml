@@ -5,7 +5,7 @@ sudo: required
 dist: trusty
 branches:
   only:
-    - dev
+    - master
 
 install:
   - cd ..
