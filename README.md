@@ -22,6 +22,7 @@
    # 检查版本
    $ pandoc -v
    ```
+
 4. 安装依赖 `pip install pandocfilters`
 5. 执行脚本实现转换 `python makepdf.py _posts/*.md`，生成的PDF位于 `_pdfs` 目录
 6. 执行 `qrsync ~/.qiniu` 将PDF同步至七牛（本步骤一般用户无法执行）
