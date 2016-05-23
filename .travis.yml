@@ -17,9 +17,11 @@ install:
   - sudo dpkg -i pandoc-*-amd64.deb
   - npm install hexo gulp -g
   - npm install
+  # install pandocfilters
+  - pip install --user pandocfilters
 
 script:
-  - hexo generate
+  - hexo generate --silent
   - gulp
 
 after_success:
