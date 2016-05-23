@@ -19,11 +19,9 @@ template = "seisman.latex"
 
 
 def md2pdf(md, pdf, permalink):
-    json = subprocess.Popen(['pandoc', '-t', 'json', md], stdout=subprocess.PIPE)
-    filtered = subprocess.Popen([filter], stdin=json.stdout, stdout=subprocess.PIPE)
 
-    cmd = ["pandoc",
-           "-f", "json",
+    cmd = ["pandoc", md,
+           "--filter", filter,
            "-t", "latex",
            "-o", pdf,
            "-s",
@@ -34,7 +32,7 @@ def md2pdf(md, pdf, permalink):
            "--latex-engine=xelatex",
            "-Vpermalink="+permalink,
            ]
-    subprocess.run(cmd, stdin=filtered.stdout)
+    subprocess.run(cmd)
 
 
 if __name__ == '__main__':

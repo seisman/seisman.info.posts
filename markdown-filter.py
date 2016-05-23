@@ -9,6 +9,7 @@ Pandoc filter to deal with image and links
 
 Usage:
     pandoc -t json post.md | ./markdown-filter.py | pandoc -f json -t markdown
+    pandoc post.md --filter ./markdown-filter.py -t markdown
 """
 
 import os
