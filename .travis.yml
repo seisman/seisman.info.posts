@@ -9,7 +9,7 @@ branches:
 
 install:
   - cd ..
-  - git clone https://github.com/seisman/seisman.info.git seisman.info
+  - git clone --depth=50 --branch=master https://github.com/seisman/seisman.info.git seisman.info
   - cd seisman.info
   - git submodule update --init --recursive --remote
   # install the latest version of pandoc
@@ -17,8 +17,6 @@ install:
   - sudo dpkg -i pandoc-*-amd64.deb
   - npm install hexo gulp -g
   - npm install
-  # install pandocfilters
-  - pip install --user pandocfilters
 
 script:
   - hexo generate --silent
