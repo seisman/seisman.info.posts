@@ -7,11 +7,13 @@ branches:
   only:
     - master
 
-install:
+before_install:
   - cd ..
   - git clone --depth=50 --branch=master https://github.com/seisman/seisman.info.git seisman.info
   - cd seisman.info
   - git submodule update --init --recursive --remote
+
+install:
   # install the latest version of pandoc
   - curl -s https://api.github.com/repos/jgm/pandoc/releases/latest | grep 'browser_download_url.*deb' | awk '{print "wget", $2}' | sh
   - sudo dpkg -i pandoc-*-amd64.deb
@@ -25,5 +27,22 @@ script:
 after_success:
   - git config --global user.name "Dongdong Tian"
   - git config --global user.email "seisman.info@gmail.com"
-  - sed -i "s~git@github.com:~https://${GH_TOKEN}@github.com/~" _config.yml
-  - hexo deploy
+
+  # deploy to coding.net
+  - cd public
+  - git init && git add . && git commit -m "pages for coding"
+  - git push -u -f "https://${CODING_USER}:${CODING_PASSWD}@${CODING_URL}" master:${CODING_BRANCH}
+  - cd ..
+
+  # deploy to github.com
+  - hexo clean
+  - sed -i 's!//cdn.bootcss.com/.*.js$!!' themes/next/_config.yml
+  - sed -i 's!//cdn.bootcss.com/.*.css$!!' themes/next/_config.yml
+  - sed -i 's!http://o7l077v4h.bkt.clouddn.com/!!' themes/next/_config.yml
+  - sed -i 's/- .\/pandoc-filters.js//' _config.yml
+  - sed -i 's!http://7j1zxm.com1.z0.glb.clouddn.com/!!' themes/next/_config.yml
+  - hexo generate --silent
+  - gulp
+  - cd public
+  - git init && git add . && git commit -m "pages for github"
+  - git push -u -f "https://${GH_TOKEN}@github.com/seisman/seisman.info.git" master:gh-pages
