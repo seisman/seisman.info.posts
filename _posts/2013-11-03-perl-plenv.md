@@ -8,6 +8,8 @@ tags: [安装, Perl]
 
 官方网站：<https://github.com/tokuhirom/plenv>
 
+<!--more-->
+
 ## 安装 plenv
 
 ``` bash

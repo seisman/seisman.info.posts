@@ -8,6 +8,8 @@ tags: [Hinet, 数据, 台网]
 
 Hi-net，全称为 High Sensitivity Seismograph Network，是 NIED 下的一个覆盖日本全境的高密度地震台网。
 
+<!--more-->
+
 ## 网址
 
 以前的网站只有日文版，从 2012 年左右建立了英文版网站，目前英文版网站尚为 beta 版。

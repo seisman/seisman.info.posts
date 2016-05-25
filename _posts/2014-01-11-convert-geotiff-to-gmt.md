@@ -8,6 +8,8 @@ tags: [格式转换, GMT]
 
 [GDAL](http://www.gdal.org/) 提供了不少小工具，其中， `gdal_translate` 可用于网格数据的格式转换。
 
+<!--more-->
+
 GDAL 的安装方法如下：
 
 1.  Ubuntu/Debian 下:

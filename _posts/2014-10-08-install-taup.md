@@ -10,6 +10,8 @@ TauP 是用 Java 写的一个用来计算震相走时的软件。
 
 官方主页: <http://www.seis.sc.edu/taup/index.html>
 
+<!--more-->
+
 1.  确认 Java 运行环境已安装
 
     在终端中键入 `java -version`，若显示版本信息，则表示 Java 运行环境已安装:

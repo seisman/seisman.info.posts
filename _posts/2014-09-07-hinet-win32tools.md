@@ -7,7 +7,9 @@ categories: 地震学基础
 tags: [Hinet, 格式转换]
 ---
 
-从 Hi-net 获取的波形数据为不常见 / 用的 WIN32 格式，Hi-net 提供了 win32tools 来实现波形数据的基本处理和转换。
+从 Hi-net 获取的波形数据为不常见/用的WIN32 格式，Hi-net 提供了 win32tools 来实现波形数据的基本处理和转换。
+
+<!--more-->
 
 ## 下载
 

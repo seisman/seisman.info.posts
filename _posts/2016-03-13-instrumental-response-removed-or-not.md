@@ -12,6 +12,8 @@ tags: [仪器响应]
 
 > 若一个 SAC 数据中每个数据点的值都是整数，则这个数据的仪器响应没有被去除的概率为 99.9%
 
+<!--more-->
+
 几点说明：
 
 1.  可以使用 [sac2col](https://github.com/seisman/sac_tools)

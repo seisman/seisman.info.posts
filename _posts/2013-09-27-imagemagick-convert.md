@@ -16,6 +16,8 @@ GMT 中 `psconvert` 可以将 GMT 生成的 PS 文件转换成其他常见的图
 
 这个时候就需要使用 ImageMagick 提供的 `convert` 命令。
 
+<!--more-->
+
 `psconvert` 中常用的选项有 `-A`、`-E`、`-T`、`-P`。 `convert` 众多选项中与之对应的选项如下：
 
 -   **-trim：**切边，等效于 `psconvert` 的 `-A` 选项；其可以解决上面的第一个问题；

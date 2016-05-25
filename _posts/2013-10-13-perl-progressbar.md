@@ -8,6 +8,8 @@ tags: [Perl, 模块, 用法]
 
 `Term::ProgressBar` 模块是一个可以用于生成进度条的 Perl 模块。
 
+<!--more-->
+
 最小脚本，展示如何最快学会使用该模块：
 
 ``` perl

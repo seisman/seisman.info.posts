@@ -8,6 +8,8 @@ tags: [breq_fast, IRIS, 数据, Perl]
 
 前文说到了 IRIS 官方给出的几种 FTP 数据下载方式，除此之外，还有很多方法。比如直接浏览器右键另存为，比如 Windows 下迅雷的下载链接自动识别，再比如 Firefox 浏览器 + 附加组件 "DownThemAll!"。这些工具其实和前文说的下载方法类似，都有各种各样的缺点。
 
+<!--more-->
+
 下面的 Perl 脚本实现了 IRIS FTP 数据的下载，其思路如下：
 
 1.  登录 IRIS 的 ftp，获取 ftp 内的全部文件列表，保存到本地文件 `ftp.filelist` 中；

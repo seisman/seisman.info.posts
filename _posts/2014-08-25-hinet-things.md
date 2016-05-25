@@ -11,6 +11,8 @@ Hi-net 是日本境内的一个高质量、高密度的短周期地震台网，�
 
 本文是系列博文的目录页。
 
+<!--more-->
+
 1.  [Hi-net 简介](/intorduction-to-hinet.html)
 2.  [Hi-net 连续波形数据](/hinet-continuous-waveform-data.html)
 3.  [Hi-net 连续波形数据申请的源码分析](/hinet-continuous-waveform-data-source-code.html)

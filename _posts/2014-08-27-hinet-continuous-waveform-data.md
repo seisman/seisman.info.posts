@@ -11,6 +11,8 @@ tags: [Hinet, 数据, 申请, 下载]
 
 连续波形数据申请地址： <https://hinetwww11.bosai.go.jp/auth/download/cont/?LANG=en>
 
+<!--more-->
+
 ## 第一印象
 
 下图是数据申请页面的具体样子，看上去还是相当直观的。

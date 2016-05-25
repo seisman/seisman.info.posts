@@ -12,6 +12,8 @@ Prof. Lupei Zhu 最近又在网上公开了两个程序包，CCP 和 CAP。
 CCP，即 Common-Conversion-Point，用于共转换点地震数据的叠加，这个程序主要与
 [hk1.3](/compilation-of-hk.html) 一起使用，用于接收函数的研究。
 
+<!--more-->
+
 安装方法以及一些修改与 hk1.3 类似：
 
 ## 下载与解压

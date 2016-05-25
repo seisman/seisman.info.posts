@@ -11,6 +11,8 @@ TauP 的 `taup_time` 命令可以计算各震相的理论走时，但是不能�
 
 `taup_setsac` 帮我们完成了这一点，可以直接计算理论到时并将到时信息写入到 SAC 文件中。
 
+<!--more-->
+
 其用法很简单，示例如下:
 
     taup_setsac -mod prem -ph P-0,S-1,PcP-8,ScS-9 -evdpkm *.U

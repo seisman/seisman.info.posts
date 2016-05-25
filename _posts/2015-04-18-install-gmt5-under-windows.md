@@ -9,6 +9,8 @@ tags: [GMT, Windows, 安装]
 
 本文介绍如何在 Windows 7 下安装 GMT5.1.2。
 
+<!--more-->
+
 ## 下载
 
 Windows 下安装 GMT5.1.2 需要下载三个文件：

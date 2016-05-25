@@ -14,6 +14,8 @@ numpy、scipy 和 matplotlib。要利用 Python 进行科学计算，就需要�
 
 主页： <https://store.continuum.io/cshop/anaconda/>
 
+<!--more-->
+
 Anaconda 的特点：
 
 -   包含了众多流行的科学、数学、工程、数据分析的 [Python 包](http://docs.continuum.io/anaconda/pkgs.html)

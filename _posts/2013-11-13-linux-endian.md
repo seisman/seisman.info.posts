@@ -12,6 +12,8 @@ tags: [endian, Bash, Python]
 
     lscpu | grep -i byte
 
+<!--more-->
+
 Bash 版:
 
     echo -n I | od -to2 | head -n1 | cut -f2 -d" " | cut -c6

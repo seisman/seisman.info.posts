@@ -16,6 +16,8 @@ PZ 仪器响应文件。但是实际上 Channel Table 有一定的局限性，�
 
 由于需要注意的是，对于 Hinet 而言，channel table 可以完整的描述仪器响应，而对于 Fnet 而言，channel table 给出的信息不足。因而关于 channel table 的内容，仅适用于 Hinet，不适用于 Fnet，不确定是否适用于其他台网。
 
+<!--more-->
+
 ## 规律分析
 
 看一看 Channel Table 文件的内容，很容易总结出如下规律：

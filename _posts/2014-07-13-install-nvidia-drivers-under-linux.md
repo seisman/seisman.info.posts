@@ -11,6 +11,8 @@ tags: CentOS
 
 对于 CentOS 用户而言，有两种安装 NVIDIA 显卡驱动的方法，从 ELRepo 源中安装或从源码编译驱动。对于一般的 CentOS 用户，建议使用第一种方法。
 
+<!--more-->
+
 ## 从 ELRepo 源中安装驱动
 
 ELRepo 源中包含了一系列驱动程序。

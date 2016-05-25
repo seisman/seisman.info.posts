@@ -17,6 +17,8 @@ PDFtk 是什么？我觉得官网的一句话解释得很好。
 
 其官方网站为： <http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit>
 
+<!--more-->
+
 PDFtk 目前分为三个版本：
 
 -   PDFtk Server：命令行工具。支持 windows、Linux、Mac。

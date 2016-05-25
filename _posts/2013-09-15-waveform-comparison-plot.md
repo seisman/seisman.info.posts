@@ -16,6 +16,8 @@ tags: [GMT技巧, pssac]
 
 ![](/images/2013091501.jpg)
 
+<!--more-->
+
 画地震波形肯定是要用 pssac 的，当初的做法是先用 psbasemap 绘制整体的边框，然后用六个 pssac 命令分别绘制
 每个 trace，并使用 - Y 选项分别微调每个 trace 的垂直位置，这显然是一种非常笨的方法，尤其是在有很多个 trace 的情况下。
 

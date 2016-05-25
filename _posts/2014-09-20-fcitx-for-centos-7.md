@@ -15,6 +15,8 @@ tags: [CentOS, 中文]
 
 今天恰好发现了 CentOS 7 下安装 fcitx 输入法的简单方法，如下。
 
+<!--more-->
+
 ## 加入 EPEL 源
 
 EPEL7 几乎是 CentOS 必备的源:

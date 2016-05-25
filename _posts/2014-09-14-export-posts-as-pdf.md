@@ -10,6 +10,8 @@ tags: [博客, PDF, Pandoc]
 
 好吧，被你识破了。所谓的 PDF 导出，实际上是我自己将每篇博文转换为 PDF 并上传到服务器，供读者点击下载。
 
+<!--more-->
+
 转换过程中的一些细节如下：
 
 -   利用 [Pandoc](http://johnmacfarlane.net/pandoc/) 实现从 rST 源码到 PDF 的转换

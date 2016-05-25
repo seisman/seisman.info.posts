@@ -9,6 +9,8 @@ tags: [Hinet, Python, 数据]
 
 该脚本用于实现 Hinet WIN32 格式到 SAC 格式的转换，脚本位于 [rdhinet.py](https://github.com/seisman/HinetScripts/blob/master/rdhinet.py)。
 
+<!--more-->
+
 ## 用法
 
     $ python rdhinet.py -h

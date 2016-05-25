@@ -10,6 +10,8 @@ SeisMan 博客刚刚开通了微信公众号，欢迎大家关注。
 
 微信公众号的名字是 “SeisMan 博客”，微信号是 “seismaninfo”。
 
+<!--more-->
+
 可以直接在公众号中搜索 “seisman”，搜索结果中唯一的一个就是。也可以微信扫下面的二维码直接添加：
 
 ![](/images/wechat.png)

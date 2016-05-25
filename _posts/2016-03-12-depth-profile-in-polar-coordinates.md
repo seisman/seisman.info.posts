@@ -14,6 +14,8 @@ tags: GMT技巧
 
     gmt psbasemap -R60/80/5571/6371 -JPa15c/70z -Bx5 -By200 -BWNse > test.ps
 
+<!--more-->
+
 要想理解这样一张图，首先要对极坐标投影有一定的了解。以 `-JP` 为例，其语法为:
 
     -JP[a]<width>[/<base>][r|z]

@@ -10,6 +10,8 @@ tags: [SAC, 格式转换, 软件]
 
 主页： <https://seiscode.iris.washington.edu/projects/evt2sac>
 
+<!--more-->
+
 `evt2sac` 最近一次更新是 1993 年，20 多年前的代码编译起来还是有些困难的，因而
 一点一点介绍如何修改代码就太麻烦了，本文直接给出我修改后可编译的版本。
 

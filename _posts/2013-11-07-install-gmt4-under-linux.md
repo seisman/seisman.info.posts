@@ -15,6 +15,8 @@ tags: [安装, GMT]
 
 注意：GMT 4.5.14 的官方文档中漏了很重要的一章，所以不建议以此版本的文档作为参考。
 
+<!--more-->
+
 ## 下载
 
 官方 ftp：<ftp://ftp.soest.hawaii.edu/gmt>

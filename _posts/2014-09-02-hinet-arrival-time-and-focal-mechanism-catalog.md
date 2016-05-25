@@ -13,6 +13,8 @@ Hi-net 基于 JMA Unified Hypocenter Catalog，提供了到时数据以及震源
 
 本文不谈数据格式，只讨论数据的下载问题。
 
+<!--more-->
+
 走时和震源机制数据不需要申请可以直接下载。因为省略了申请的步骤，实现下载也更简单一些。
 
 ## HinetJMADownload

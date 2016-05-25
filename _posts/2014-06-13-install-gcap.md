@@ -17,8 +17,7 @@ gCAP3D 与 gCAP 的不同。
 
 <!--more-->
 
-gCAP 安装步骤
-------------
+## gCAP 安装步骤
 
 1.  下载 gCAP 源码： <http://www.eas.slu.edu/People/LZhu/downloads/gcap1.0.tar>
 2.  解压:

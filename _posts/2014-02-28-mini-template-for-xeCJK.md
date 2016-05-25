@@ -14,6 +14,8 @@ LaTeX 的中文支持一直是个问题，11 年左右刚开始学习 LaTeX 的�
 后来，CTEX 学会将 xeCJK 的功能进行打包，发布了 ctex 宏包，进一步简化了用 LaTeX
 写中文文档的问题。
 
+<!--more-->
+
 下面是利用 `xeLaTeX` 和 `xeCJK` 实现中文支持的最小模板:
 
 ``` latex

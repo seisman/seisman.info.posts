@@ -9,6 +9,8 @@ tags: [走时, TauP]
 
 地震波走时的计算是地震学的一个基本问题。下面列出几个目前已知的几个可以计算地震波走时的包。
 
+<!--more-->
+
 1.  IASPEI Travel Time Software - AK135 version
 
     网址： <http://rses.anu.edu.au/seismology/soft/ttsoft.html>

@@ -13,6 +13,8 @@ tags: [CentOS, 中文]
 -   官方网址： <http://yong.dgod.net/>
 -   下载地址： <http://yongim.ys168.com/>
 
+<!--more-->
+
 曾经试图在 CentOS 6.5 下安装该输入法，无奈 CentOS6.5 的库版本太低，一直安不上。下面记录一下在 CentOS 7.0 下的安装过程。
 
 1.  从官方网站下载 Linux 下的最新版本 `yong-lin-2.2.0-1.7z` 。

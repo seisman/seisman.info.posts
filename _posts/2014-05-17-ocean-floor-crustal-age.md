@@ -14,6 +14,8 @@ tags: [数据, 网格, GMT]
 
 数据下载地址：<ftp://ftp.earthbyte.org/earthbyte/agegrid/2008/Grids/>
 
+<!--more-->
+
 数据文件名的命名方式为:
 
     数据类型. 数据版本. 数据分辨率. 数据格式. bz2

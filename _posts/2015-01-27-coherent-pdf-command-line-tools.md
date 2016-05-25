@@ -8,6 +8,8 @@ tags:  [PDF, Linux, Windows]
 
 日常生活中对 PDF 的最基本的操作大概就是合并和切割了。之前一直在用强大的 PDFtk，但是由于一些底层依赖的问题，PDFtk 在短时间内是不可能出现在 CentOS7 下了，只能寻找新的 PDF 替代工具了。
 
+<!--more-->
+
 ## 简介
 
 Coherent PDF，简称 cpdf，是个用于处理 PDF 的命令行工具。该软件支持 Windows、Linux 和 Mac，且对于非商业用途是免费的。

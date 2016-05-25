@@ -19,6 +19,8 @@ Hinet 网站自带的台站工具有如下优缺点：
 因此，写了一个可以用于选择台站的 Python 工具，即 `StationSelector.py`，其是
 [HinetScripts](https://github.com/seisman/HinetScripts) 项目下中的一个脚本。
 
+<!--more-->
+
 其用法如下:
 
     $ python StationSelector.py -h

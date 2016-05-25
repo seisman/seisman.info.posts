@@ -14,6 +14,8 @@ tags: [Hinet, 数据, 申请, Python]
 3.  等待数据准备
 4.  下载数据
 
+<!--more-->
+
 ## HinetContRequest.py
 
 `HinetContRequest.py` 是 [HinetScripts](https://github.com/seisman/HinetScripts/)

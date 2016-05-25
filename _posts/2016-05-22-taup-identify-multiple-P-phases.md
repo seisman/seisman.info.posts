@@ -106,7 +106,7 @@ Moho 面的首波， `Pv15P` 代表 15 km 界面的反射波， `PvmP` 代表 Mo
 执行相同的命令，可以看到
 
     $ taup_time -mod prem2 -h 5 -km 100 -ph p,P,Pn,Pg,Pv15P,PvmP,Pv24.4P
-    
+
     Model: prem2
     Distance   Depth   Phase     Travel    Ray Param  Takeoff  Incident  Purist    Purist
       (deg)     (km)   Name      Time (s)  p (s/deg)   (deg)    (deg)   Distance   Name
@@ -124,3 +124,5 @@ Moho 面的首波， `Pv15P` 代表 15 km 界面的反射波， `PvmP` 代表 Mo
 新模型下 Moho 界面在 15 km 处，所以此时 PvmP 是 15 km 的反射波，而 Pn 则是 15 km 的首波。
 
 至此，所有的 5 个 P 震相都被正确识别出来啦。
+
+对于更复杂的自定义模型，同理。

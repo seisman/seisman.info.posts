@@ -9,6 +9,8 @@ tags: [SEED, 比例, 软件]
 `rdseed` 是 IRIS 提供的工具，用于读取 SEED 格式，从中提取出波形信息，并将波形数据保存为
 SAC、AH、CSS、SEGY 或 ASCII 等多种数据格式。
 
+<!--more-->
+
 ## 语法说明
 
 安装好 `rdseed` 之后在终端键入 `rdseed -h` 或 `rdseed -u` 即可查看命令的选项及语法说明。

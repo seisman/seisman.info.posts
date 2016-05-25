@@ -12,6 +12,8 @@ tags: [CentOS, GMT]
 
 CentOS 官方源中没有 netcdf，因而需要使用第三方源，直接将别人已经编译好的文件拿过来使用。其中最常用的就是 EPEL 和 RPMforge。而恰好二者都包含了 netcdf、netcdf-devel、hdf5、hdf5-devel 包。由此引发了一些冲突。
 
+<!--more-->
+
 EPEL 中的 netcdf 版本为 4.1.1，其编译过程中依赖于 hdf5，因而当通过
 
     sudo yum install netcdf netcdf-devel

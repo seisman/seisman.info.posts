@@ -12,6 +12,8 @@ tags: [数据, 格式]
 这种格式一般只包含单个台站单个分量或多分量的数据。这里简介一下 IRIS 提供的
 以归档和交换为目的的数据格式。
 
+<!--more-->
+
 ## SEED
 
 全称是 The Standard for the Exchange of Earthquake Data，其设计的目的是为
