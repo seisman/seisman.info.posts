@@ -30,7 +30,6 @@ after_success:
 
   # deploy to coding.net
   - cd public
-  - mkdir feeds; cp atom.xml feeds/all.atom.xml
   - git init && git add . && git commit -m "pages for coding"
   - git push -u -f "https://${CODING_USER}:${CODING_PASSWD}@${CODING_URL}" master:${CODING_BRANCH}
   - cd ..
@@ -45,6 +44,5 @@ after_success:
   - hexo generate --silent
   - gulp
   - cd public
-  - mkdir feeds; cp atom.xml feeds/all.atom.xml
   - git init && git add . && git commit -m "pages for github"
   - git push -u -f "https://${GH_TOKEN}@github.com/seisman/seisman.info.git" master:gh-pages
