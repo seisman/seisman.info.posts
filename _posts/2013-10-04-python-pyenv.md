@@ -19,10 +19,10 @@ Python 的多版本共存。[pyenv](https://github.com/yyuu/pyenv) 就是这样�
 ## 安装 pyenv
 
 ``` bash
-$ git clone git://github.com/yyuu/pyenv.git ~/.pyenv
+$ git clone https://github.com/yyuu/pyenv.git ~/.pyenv
 $ echo 'export PYENV_ROOT="$HOME/.pyenv"'>> ~/.bashrc
 $ echo 'export PATH="$PYENV_ROOT/bin:$PATH"'>> ~/.bashrc
-$ echo 'eval"$(pyenv init -)"' >> ~/.bashrc
+$ echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 $ exec $SHELL -l
 ```
 
@@ -54,6 +54,13 @@ $ pyenv install --list
     sudo yum install openssl openssl-devel openssl-static
     sudo yum install sqlite-devel
     sudo yum install bzip2-devel bzip2-libs
+
+在 Ubuntu下：
+
+    sudo apt-get update
+    sudo apt-get install make build-essential libssl-dev zlib1g-dev
+    sudo apt-get install libbz2-dev libreadline-dev libsqlite3-dev wget curl
+    sudo apt-get install llvm libncurses5-dev libncursesw5-dev
 
 ### 安装指定版本
 
