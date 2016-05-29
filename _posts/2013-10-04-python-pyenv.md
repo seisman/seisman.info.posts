@@ -70,7 +70,8 @@ $ pyenv install --list
 $ pyenv install 3.4.1 -v
 ```
 
-该命令会从 github 上下载 python 的源代码，并解压到 / tmp 目录下，然后在 / tmp 中执行编译工作。
+该命令会从 github 上下载 python 的源代码，并解压到 `/tmp` 目录下，然后在
+`/tmp` 中执行编译工作。
 若依赖包没有安装，则会出现编译错误，需要在安装依赖包后重新执行该命令。
 
 如果网络不太好，用 pyenv 下载会比较慢，可以先执行该命令，然后到 `~/.pyenv/cache`
