@@ -32,7 +32,7 @@ $ cd pssac
 
 源码中的 Makefile 有些问题，需要进一步修改。修改之后的 Makefile 内容如下：
 
-``` bash
+``` makefile
 GMTHOME=/opt/GMT-4.5.13
 GMT_INC=-I${GMTHOME}/include
 GMT_LIBS=-L${GMTHOME}/lib -lgmt -lpsl -lgmtps -lnetcdf -lm
@@ -40,16 +40,16 @@ GMT_LIBS=-L${GMTHOME}/lib -lgmt -lpsl -lgmtps -lnetcdf -lm
 CFLAGS = -O ${GMT_INC}
 
 pssac: pssac.o sacio.o
-     $(LINK.c) -o $@ $@.o sacio.o $(GMT_LIBS)
+    $(LINK.c) -o $@ $@.o sacio.o $(GMT_LIBS)
 
 clean:
-     rm -f pssac *.o
+    rm -f pssac *.o
 ```
 
--   `GMTHOME` 是当前系统中 GMT4 的安装路径，需要根据自己的情况修改
--   `GMT_INC` 指定了 GMT 的头文件的位置
--   `GMT_LIBS` 指定了编译过程中所需要的库文件
--   `-L` 指定了在编译过程中要在哪些路径下寻找库文件
+- `GMTHOME` 是当前系统中 GMT4 的安装路径，需要根据自己的情况修改
+- `GMT_INC` 指定了 GMT 的头文件的位置
+- `GMT_LIBS` 指定了编译过程中所需要的库文件
+- `-L` 指定了在编译过程中要在哪些路径下寻找库文件
 
 通常情况下，只需要根据自己的情况修改 `GMTHOME` 即可。
 
@@ -81,9 +81,9 @@ cc -O -I/opt/GMT-4.5.13/include    -o pssac pssac.o sacio.o -L/opt/GMT-4.5.13/li
 
 ## 修订历史
 
--   2013-04-17：初稿；
--   2013-04-19：加入了对旧版本 `pssac.c` 的讨论；
--   2014-06-24：GMT4 的最近几个版本，都不再建议自己安装 netcdf3 了，最好还是自己利用系统自带的
-    软件包管理器安装 netcdf4。在这种情况下，netcdf 会被安装到系统默认路径中，因而 Makefile 中不需要再指明 netcdf 的安装路径；
--   2014-07-16：在某些系统下，`GMT_LIBS` 需要加上 `-lm` ；
--   2015-07-16：整理，并删除对旧版本 `pssac.c` 的说明；
+- 2013-04-17：初稿；
+- 2013-04-19：加入了对旧版本 `pssac.c` 的讨论；
+- 2014-06-24：GMT4 的最近几个版本，都不再建议自己安装 netcdf3 了，最好还是自己利用系统自带的
+  软件包管理器安装 netcdf4。在这种情况下，netcdf 会被安装到系统默认路径中，因而 Makefile 中不需要再指明 netcdf 的安装路径；
+- 2014-07-16：在某些系统下，`GMT_LIBS` 需要加上 `-lm` ；
+- 2015-07-16：整理，并删除对旧版本 `pssac.c` 的说明；
