@@ -28,4 +28,4 @@ after_success:
   - git config --global user.name "Dongdong Tian"
   - git config --global user.email "seisman.info@gmail.com"
   - sed -i "s~git@github.com:~https://${GH_TOKEN}@github.com/~" _config.yml
-  - hexo d
+  - hexo d --silent
