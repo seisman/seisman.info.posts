@@ -9,9 +9,9 @@ tags: [breq_fast, 邮件, Python]
 利用 Python 的标准库 [smtplib](https://docs.python.org/3/library/smtplib.html)
 实现了通过脚本发送邮件的功能。
 
-<!--more-->
+源码地址：[send-mail-to-iris.py](https://github.com/seisman/python-notes/blob/master/send-mail-to-iris.py)
 
-源码地址：[sendmail.py](https://github.com/seisman/PyScripts/blob/master/sendmail.py)
+<!--more-->
 
 说明：
 
