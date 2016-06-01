@@ -9,6 +9,8 @@ tag: [web, Python, USTC]
 最近几日在学 Python 以及相关的网页请求模块，练习着重写了 USTC 网络通的登录脚本，比之前的
 Perl 版要简短了很多，其中使用了 `Requests` 模块。
 
+下载地址：[USTC-wlt.py](https://github.com/seisman/python-notes/blob/master/USTC-wlt.py)
+
 <!--more-->
 
 ``` python

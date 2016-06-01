@@ -32,7 +32,7 @@ updated: 2016-05-17
 
 [Global CMT](http://www.globalcmt.org/)
 [ISC Focal Mechanism](http://www.isc.ac.uk/iscbulletin/search/fmechanisms/)
-[UCB (University of California Berkeley) Moment Tensor Catalog](http://www.ncedc.org/ncedc/mt.html)
+[UCB Moment Tensor Catalog](http://www.ncedc.org/ncedc/mt.html "University of California Berkeley Moment Tensor Catalog")
 [NIED CMT solutions](http://www.fnet.bosai.go.jp/event/joho.php?LANG=en)
 [SCSN Moment Tensor Catalog](http://service.scedc.caltech.edu/eq-catalogs/CMTsearch.php)
 [JMA Focal Mechanism Catalog](https://hinetwww11.bosai.go.jp/auth/JMA/?LANG=en)
