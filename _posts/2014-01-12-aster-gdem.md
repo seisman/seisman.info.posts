@@ -8,9 +8,15 @@ tags: [地形, 数据, 格式转换, GMT, 高程]
 
 ## 简介
 
-ASTER GDEM，即先进星载热发射和反射辐射仪全球数字高程模型，与 SRTM 一样为数字高程 DEM，其全球空间分辨率为 30 米。该数据是根据 NASA 的新一代对地观测卫星 Terra 的详尽观测结果制作完成的。其数据覆盖范围为北纬 83° 到南纬 83° 之间的所有陆地区域，达到了地球陆地表面的 99%。（摘自百度百科）。号称是 “迄今最完整的全球地形数据”。
+ASTER GDEM，即先进星载热发射和反射辐射仪全球数字高程模型，与 SRTM 一样为数字高程 DEM，
+其全球空间分辨率为 30 米。该数据是根据 NASA 的新一代对地观测卫星 Terra 的详尽观测结果
+制作完成的。其数据覆盖范围为北纬 83° 到南纬 83° 之间的所有陆地区域，达到了地球陆地表面的
+99%。号称是 “迄今最完整的全球地形数据”。
 
-网站： <http://gdem.ersdac.jspacesystems.or.jp>
+数据下载地址：
+
+#. [NASA Reverb](http://reverb.echo.nasa.gov/reverb/)
+#. [LP DAAC Global Data Explorer](http://gdem.ersdac.jspacesystems.or.jp)
 
 <!--more-->
 
