@@ -92,6 +92,7 @@ updated: 2016-05-17
 [Earth Model](http://ds.iris.edu/ds/products/emc/)
 [Slab Model for Subduction Zones](http://earthquake.usgs.gov/data/slab/)
 [Volcanos Datas](https://www.ngdc.noaa.gov/hazard/volcano.shtml)
+[Shear-wave splitting database](http://splitting.gm.univ-montp2.fr/DB/index.html)
 
 ## 其他
 

@@ -123,12 +123,14 @@ tags: [理论地震图, SAC, GMT]
 - [IRFFM][]: 带界面的接收函数软件包。
 - [astack][]: 自适应迭代以实现震相对齐。
 - [LASIF][]: 基于 Python 的大规模全波形反演框架，似乎是层析成像。
+- [SplitLab][]: 基于 Matlab 的 S 波分裂处理工具
 
 [hk]: http://www.eas.slu.edu/People/LZhu/home.html
 [CCP]: http://www.eas.slu.edu/People/LZhu/home.html
 [IRFFM]: http://rses.anu.edu.au/~hrvoje/IRFFMv1.1.html
 [astack]: http://rses.anu.edu.au/seismology/soft/astack/index.html
 [LASIF]: http://www.lasif.net/
+[SplitLab]: http://splitting.gm.univ-montp2.fr/
 
 ## 数学处理类
 
