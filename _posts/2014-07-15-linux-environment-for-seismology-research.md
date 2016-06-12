@@ -28,7 +28,7 @@ CentOS 7 的安装与其他 Linux 发行版的安装差不多，个别地方稍�
 
 1.  准备材料
     -   U 盘：容量 700M 以上，用于制作 U 盘启动盘，因为在制作启动盘时会格式化 U 盘，所以 U 盘内不要包含重要资料
-    -   [CentOS 7.1 LiveCD ISO 镜像文件](http://mirrors.ustc.edu.cn/centos/7.1.1503/isos/x86_64/CentOS-7-x86_64-LiveCD-1503.iso)
+    -   [CentOS 7.1 LiveCD ISO 镜像文件](http://mirrors.ustc.edu.cn/centos/7.2.1511/isos/x86_64/CentOS-7-x86_64-Minimal-1511.iso)
     -   [Universal USB installer](http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/)：Windows 下的 U 盘启动盘制作工具
     -   一个已安装 Windows 的电脑：用于制作 U 盘启动盘
 
