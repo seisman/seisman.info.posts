@@ -93,6 +93,7 @@ updated: 2016-05-17
 [Slab Model for Subduction Zones](http://earthquake.usgs.gov/data/slab/)
 [Volcanos Datas](https://www.ngdc.noaa.gov/hazard/volcano.shtml)
 [Shear-wave splitting database](http://splitting.gm.univ-montp2.fr/DB/index.html)
+[Central Asia Fault Database](http://www.geo.uni-tuebingen.de/projekte/openfaults/)
 
 ## 其他
 
