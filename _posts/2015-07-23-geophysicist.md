@@ -49,6 +49,7 @@ categories: 地球物理相关资源
 | [Hongfeng Yang]         |          |
 | [Huajian Yao]           |          |
 | [Haijiang Zhang]        |          |
+| [Dapeng Zhao]           |          |
 | [Shijie Zhong]          |          |
 | [Lupei Zhu]             |          |
 
@@ -92,6 +93,7 @@ categories: 地球物理相关资源
 [Lianxing Wen]: http://seis.ustc.edu.cn/
 [Hongfeng Yang]: http://www.cuhk.edu.hk/sci/essc/people/yang.html
 [Huajian Yao]: http://staff.ustc.edu.cn/~hjyao/
+[Dapeng Zhao]: http://www.aob.gp.tohoku.ac.jp/kazan/zhao_English.html
 [Haijiang Zhang]: http://staff.ustc.edu.cn/~zhang11/
 [Shijie Zhong]: http://anquetil.colorado.edu/szhong/
 [Lupei Zhu]: http://www.eas.slu.edu/People/LZhu/home.html
