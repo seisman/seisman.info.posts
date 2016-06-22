@@ -145,7 +145,7 @@ $ gedit cmake/ConfigUser.cmake
 
 向 `cmake/ConfigUser.cmake` 文件中加入如下语句:
 
-    set (CMAKE_INSTALL_PREFIX"/opt/GMT-5.2.1")
+    set (CMAKE_INSTALL_PREFIX "/opt/GMT-5.2.1")
     set (GMT_INSTALL_MODULE_LINKS FALSE)
     set (COPY_GSHHG TRUE)
     set (COPY_DCW TRUE)
