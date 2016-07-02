@@ -3,7 +3,7 @@ title: 在 GMT 中使用 LaTeX
 date: 2013-10-24
 author: SeisMan
 categories: GMT
-tags: [GMT 技巧, 图像, 格式转换, LaTeX]
+tags: [GMT技巧, 图像, 格式转换, LaTeX]
 ---
 
 GMT 的 `pstext` 命令支持一些简单的文本特效以及特殊字符，但是如果想在 GMT 中显示一些
