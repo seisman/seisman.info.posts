@@ -45,3 +45,6 @@ Wiley、ScienceDirect和GeoScienceWorld算是期刊合集，每一个都包含�
     - [Nature](http://www.nature.com/)
     - [Science](http://www.sciencemag.org/)
     - [PNAS](http://www.pnas.org/)
+	- [Annual Review of Earth and Planetary Sciences](http://www.annualreviews.org/journal/earth): 一年出一期的专门出 Review 的期刊
+
+5.	Google Scholar 关键词邮件订阅
