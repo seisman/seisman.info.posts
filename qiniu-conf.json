@@ -1,0 +1,17 @@
+{
+   "src_dir"            :   "/Users/seisman/Gits/Blogs/_pdfs/",
+   "access_key"         :   "xxxxxxxxxx",
+   "secret_key"         :   "xxxxxxxxxx",
+   "bucket"             :   "seisman",
+   "ignore_dir"         :   false,
+   "key_prefix"         :   "pdfs/",
+   "overwrite"          :   true,
+   "check_exists"       :   true,
+   "check_hash"         :   true,
+   "check_size"         :   false,
+   "skip_file_prefixes" :   ".git,bin",
+   "skip_fixed_strings" :   ".svn",
+   "skip_suffixes"      :   ".DS_Store,.exe",
+   "rescan_local"       :   true,
+   "log_level"          :   "warn"
+}
