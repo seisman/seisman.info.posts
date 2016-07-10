@@ -75,7 +75,7 @@ updated: 2016-05-17
 
 ## 研究小组
 
-[Harvard Seismology](http://www.seismology.harvard.edu/index.html)
+[Harvard Seismology](http://seismology.harvard.edu/)
 [Global Seismology Group at Rice University](http://www.gseis.rice.edu/)
 [Berkeley Global Seismology](http://seismo.berkeley.edu/wiki_br/Main_Page)
 
