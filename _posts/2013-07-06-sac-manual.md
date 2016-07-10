@@ -154,13 +154,13 @@ tags: [书籍, PDF]
 
 ## 2012-09-18 v1.2 版
 
-下载地址：[SAC 帮助文档中文版 v1.2.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v1.2.pdf)
+下载地址：[SAC 帮助文档中文版 v1.2.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v1.2.pdf) [SAC 帮助文档中文版 v1.2.doc](http://seisman.qiniudn.com/downloads/sac_manual_v1.2.doc)
 
 - 增加了封面配图。
 
 ## 2012-09-03 v1.1 版
 
-下载地址：[SAC 帮助文档中文版 v1.1.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v1.1.pdf)
+下载地址：[SAC 帮助文档中文版 v1.1.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v1.1.pdf) [SAC 帮助文档中文版 v1.1.doc](http://seisman.qiniudn.com/downloads/sac_manual_v1.1.doc)
 
 - 重新格式化整个文档，使得其看上去更规范，也易于以后的修改
 - 文档中的所有 C 或 Fortran 代码从 notepad++ 中直接导出，代码支持语法高亮
@@ -171,7 +171,7 @@ tags: [书籍, PDF]
 
 ## 2012-01-08 v1.0 版
 
-下载地址：[SAC 帮助文档中文版 v1.0.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v1.0.pdf)
+下载地址：[SAC 帮助文档中文版 v1.0.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v1.0.pdf)  [SAC 帮助文档中文版 v1.0.doc](http://seisman.qiniudn.com/downloads/sac_manual_v1.0.doc)
 
 - 参考《数字地震波形分析》一书，翻译了大部分的用户指南以及几乎全部的命令
 - 结合了 SAC v101.4 增加、删除和修改了一些命令
