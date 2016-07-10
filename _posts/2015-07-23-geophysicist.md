@@ -28,6 +28,7 @@ categories: 地球物理相关资源
 | [Gabi Laske]            |          |
 | [Fan-Chi Lin]           |          |
 | [Thorne Lay]            |          |
+| [Guy Master]            |          |
 | [Fenglin Niu]           |          |
 | [Zhigang Peng]          |          |
 | [Barbara Romanowicz]    |          |
@@ -73,6 +74,7 @@ categories: 地球物理相关资源
 [Gabi Laske]: http://igppweb.ucsd.edu/~gabi/
 [Fan-Chi Lin]: http://web.gps.caltech.edu/~linf/
 [Thorne Lay]: http://es.ucsc.edu/~thorne/
+[Guy Master]: http://igppweb.ucsd.edu/~guy/
 [Fenglin Niu]: http://earthscience.rice.edu/faculty/niu/
 [Zhigang Peng]: http://geophysics.eas.gatech.edu/people/zpeng/
 [Barbara Romanowicz]: http://seismo.berkeley.edu/~barbara/
