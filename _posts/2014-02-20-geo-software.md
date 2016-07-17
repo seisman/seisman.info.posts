@@ -124,6 +124,7 @@ tags: [理论地震图, SAC, GMT]
 - [astack][]: 自适应迭代以实现震相对齐。
 - [LASIF][]: 基于 Python 的大规模全波形反演框架，似乎是层析成像。
 - [SplitLab][]: 基于 Matlab 的 S 波分裂处理工具
+- [CitcomS][]: 求解地幔可压缩热动力学对流问题的有限元代码
 
 [hk]: http://www.eas.slu.edu/People/LZhu/home.html
 [CCP]: http://www.eas.slu.edu/People/LZhu/home.html
@@ -131,6 +132,8 @@ tags: [理论地震图, SAC, GMT]
 [astack]: http://rses.anu.edu.au/seismology/soft/astack/index.html
 [LASIF]: http://www.lasif.net/
 [SplitLab]: http://splitting.gm.univ-montp2.fr/
+[CitcomS]: https://github.com/geodynamics/citcoms
+
 
 ## 数学处理类
 

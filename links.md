@@ -56,23 +56,6 @@ updated: 2016-05-17
 [中国地震科学探测台站数据中心](http://www.chinarraydmc.org/)
 [国家测震台网数据备份中心](http://www.seisdmc.ac.cn/)
 
-## 期刊
-
-[Nature](http://www.nature.com/)
-[PNAS](http://www.pnas.org/)
-[GJI](http://gji.oxfordjournals.org/)
-[BSSA](http://bssa.geoscienceworld.org/)
-[SRL](http://srl.geoscienceworld.org/)
-[Geophysics](http://geophysics.geoscienceworld.org/)
-[Reviews of Geophysics](http://agupubs.onlinelibrary.wiley.com/agu/journal/10.1002/(ISSN)1944-9208/)
-[EOS Transactions](http://onlinelibrary.wiley.com/journal/10.1002/(ISSN)2324-9250)
-[Geochemistry, Geophysics, Geosystems](http://agupubs.onlinelibrary.wiley.com/agu/journal/10.1002/(ISSN)1525-2027/)
-[GRL](http://agupubs.onlinelibrary.wiley.com/agu/journal/10.1002/(ISSN)1944-8007/)
-[JGR: Solid Earth](http://agupubs.onlinelibrary.wiley.com/agu/jgr/journal/10.1002/(ISSN)2169-9356/)
-[Tectonics](http://agupubs.onlinelibrary.wiley.com/agu/journal/10.1002/(ISSN)1944-9194/)
-[Chinese Journal of Geophysics](http://agupubs.onlinelibrary.wiley.com/agu/journal/10.1002/(ISSN)2326-0440/)
-[EPSL](http://www.journals.elsevier.com/earth-and-planetary-science-letters/)
-
 ## 研究小组
 
 [Harvard Seismology](http://seismology.harvard.edu/)
