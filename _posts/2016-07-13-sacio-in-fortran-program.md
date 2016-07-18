@@ -18,11 +18,11 @@ http://wangliang1989.github.io/sacio_Fortran/
 下载后，有如下文件:
 
 1. `sacio.f90`: sacio模块的源代码 (这个文件就是你需要加入你自己的程序的全部!)
-2. 例子程序文件: `test_sacio_*.f90` 如何使用sacio模块内的子程序的示例
+2. 例子程序文件: `test/test_sacio_*.f90` 如何使用sacio模块内的子程序的示例
 3. `Makefile`: Makefile 文件
 4. `README.md`: 说明文件
 5. `.log.md`: 日志文件(中文，其他文件都是英文)
-6. 例子数据: `testin.sac`: 用于试验的 SAC 二进制文件
+6. 例子数据: `test/testin.sac`: 用于试验的 SAC 二进制文件
 
 所有文件都是 Unicode 字符，并用Linux/Unix换行符，Windows 记事本用户打开文件会出现中文字符乱码或者换行不正常。
 
