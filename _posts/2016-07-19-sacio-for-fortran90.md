@@ -8,7 +8,7 @@ tags: [Fortran, SAC技巧]
 
 sacio_Fortran 是一个用 Fortran 90 写的 SAC 读写模块。在自己的程序中调用该模块，即可实现 SAC 二进制文件的读写。
 
-官方主页： [http://wangliang1989.github.io/sacio_Fortran/](http://wangliang1989.github.io/sacio_Fortran/)
+项目主页： [http://wangliang1989.github.io/sacio_Fortran/](http://wangliang1989.github.io/sacio_Fortran/)
 
 ## 文件列表
 
