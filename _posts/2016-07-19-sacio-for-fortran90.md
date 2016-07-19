@@ -47,4 +47,4 @@ sacio_Fortran 是[我](https://wangliang1989.github.io/)和 SeisMan 在 2015 年
 
 ## 修订历史
 
--   2017-07-19：王亮 原稿；
+-   2016-07-19：王亮 原稿；
