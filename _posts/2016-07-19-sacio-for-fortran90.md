@@ -1,6 +1,6 @@
 ---
 title: SAC 文件读写模块 sacio_Fortran
-date: 2017-07-19
+date: 2016-07-19
 author: 王亮
 categories: SAC
 tags: [Fortran, SAC技巧]
