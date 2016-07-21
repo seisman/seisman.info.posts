@@ -21,7 +21,7 @@ tags: [Hinet, 仪器响应, Python]
     Convert Hi-net Channel Table file to SAC PZ files
 
     Usage:
-        ch2pz.py CHFILE [-C <comps>] [-D <outdir>] [-S <suffix>]
+        ch2pz.py DIRNAME [-C <comps>] [-D <outdir>] [-S <suffix>]
 
     Options:
         -C <comps>      Channel Components to convert. Choose from U,N,E,X,Y.
@@ -29,6 +29,8 @@ tags: [Hinet, 仪器响应, Python]
         -D <outdir>     Output directory of SAC PZ files. Use the directory of
                         Channel Table file as default.
         -S <suffix>     Suffix for SAC PZ files. [default: SAC_PZ]
+
+其中， `DIRNAME` 是目录名，其中包含了一个 Channel Table 文件。Channel Table 文件的文件名格式为 `XX_YYYYMMDD.ch`。
 
 ## 说明
 
