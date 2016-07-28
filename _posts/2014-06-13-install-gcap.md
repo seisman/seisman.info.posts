@@ -36,7 +36,7 @@ gCAP3D 与 gCAP 的不同。
     `free_matrix` 、 `free_convert_matrix` 、 `jacobi` 、 `eigsrt` 。
     由于 NR 是非开源非免费的软件，所以 gCAP 并没有将 NR 相关的代码放在包里。
 
-    网络上可以下载到 NR 的完整代码，这里仅给出 gCAP 所需的代码（注：此处存在版本问题！）。
+    网络上可以下载到 NR 的完整代码，这里仅给出 gCAP 所需的部分（注：此处存在版权问题！）。
     下载该压缩包，解压，并将解压后的源代码放到 gCAP 的目录中。
 
     gCAP_util 下载：[gcap_utils.tar.gz](http://seisman.qiniudn.com/downloads/gcap_utils.tar.gz)
@@ -47,8 +47,8 @@ gCAP3D 与 gCAP 的不同。
 
     新 Makefile 下载地址：[Makefile.gCAP](http://seisman.qiniudn.com/downloads/Makefile.gCAP)
 
-    下载之后，将其重命名为 Makefile，替换原目录中的同名文件，并根据自身情况修改
-    `SACHOME` 、 `FC` 、`CC` 。
+    下载之后，将其重命名为 Makefile，替换原目录中的同名文件，并根据自身情况修改 Makefile 文件中的
+    变量 `SACHOME` 、 `FC` 、`CC` 。
 
 6.  编译:
 
@@ -56,15 +56,12 @@ gCAP3D 与 gCAP 的不同。
 
 7.  修改环境变量
 
-    要能够正确运行 gcap，首先需要系统能够正确找到二进制文件 `cap` 、`cap_dir` 、
-    `mtdcmp` 、 `radpttn` 。有两种方式可以选择：
+    要想在终端运行 gcap，需要系统能够正确找到二进制文件 `cap` 、`cap_dir` 、
+    `mtdcmp` 、 `radpttn` 以及脚本文件 `cap.pl` 和 `depth.pl`。
+    
+    直接将 gcap 的源码路径加入到 PATH 环境变量中，即在 `~/.bashrc` 中加入类似如下语句:
 
-    1.  直接将 gcap 的源码路径加入到 PATH 环境变量中，即在 `~/.bashrc` 中加入类似如下语句:
-
-            export PATH=/path/to/gcap:${PATH}
-
-    2.  直接将这几个二进制文件复制到 `/usr/local/bin` 或 `${HOME}/bin` 等已经
-        在 PATH 环境变量中的目录内
+        export PATH=/path/to/gcap:${PATH}
 
 8.  修改绝对路径
 
@@ -75,20 +72,20 @@ gCAP3D 与 gCAP 的不同。
 
     直接执行:
 
-        $ perl cap.pl
+        $ cap.pl
 
     就会出现软件的用法说明。
 
     软件包中自带了一个示例数据，因而可以通过如下命令来尝试运行:
 
-        $ perl cap.pl -H0.2 -P0.3 -S2/5/0 -T35/70 -F -D2/1/0.5 -C0.05/0.3/0.02/0.1 -W1 -X10 -Mcus_15/5.0 20080418093700
+        $ cap.pl -H0.2 -P0.3 -S2/5/0 -T35/70 -F -D2/1/0.5 -C0.05/0.3/0.02/0.1 -W1 -X10 -Mcus_15/5.0 20080418093700
 
     更多用法见软件的用法说明。
 
     需要注意：直接运行二进制文件 `cap` 时会出现段错误:
 
-        $ ./cap
-        [1]    12763 segmentation fault  ./cap
+        $ cap
+        [1]    12763 segmentation fault  cap
 
     看看源码 `cap.c` 即可知道为何会出现这个错误。只要记住，直接使用 `cap.pl` 即可，不要直接使用 `cap`
 
