@@ -7,6 +7,9 @@ updated: 2016-05-17
 
 本页面列出一些常用链接。鼠标在链接上悬停可看到更详细的名称。
 
+- [地球物理学家列表](/geophysicist.html)
+- [地球物理相关软件列表](/geo-software.html)
+
 <div class="tag-cloud">
 
 ## 机构/大学
