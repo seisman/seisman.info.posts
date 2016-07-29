@@ -8,6 +8,7 @@ updated: 2016-05-17
 本页面列出一些常用链接。鼠标在链接上悬停可看到更详细的名称。
 
 <div class="tag-cloud">
+
 ## 机构/大学
 
 [IRIS](http://www.iris.edu/hq/ "Incorporated Research Institutions for Seismology")
@@ -68,6 +69,7 @@ updated: 2016-05-17
 [ORFEUS Seismological Software Library](http://www.orfeus-eu.org/software.html)
 [S&MG Research Group Software](http://rses.anu.edu.au/seismology/index.php?p=software)
 [CIG Software](https://geodynamics.org/cig/software/)
+[USGS Software](http://earthquake.usgs.gov/research/software/)
 
 ## 地球物理数据
 
@@ -89,4 +91,5 @@ updated: 2016-05-17
 [IRIS DMC Google Map Service](http://ds.iris.edu/gmap/)
 [Google Maps API](https://developers.google.com/maps/get-started/)
 [IRIS Synthetics Engine](http://service.iris.edu/irisws/syngine/1/)
+
 </div>
