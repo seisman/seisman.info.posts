@@ -1,6 +1,7 @@
 ---
 title: Python 多版本共存之 pyenv
-date: 2013-10-04 00:27
+date: 2013-10-04
+updated: 2016-07-30
 author: SeisMan
 categories: 编程
 tags: [安装, Python]
@@ -18,11 +19,14 @@ Python 的多版本共存。[pyenv](https://github.com/yyuu/pyenv) 就是这样�
 
 ## 安装 pyenv
 
-``` bash
-$ git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+在终端执行如下命令以安装 pyenv 以及几个插件：
+
+```bash
+$ curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 $ echo 'export PYENV_ROOT="$HOME/.pyenv"'>> ~/.bashrc
 $ echo 'export PATH="$PYENV_ROOT/bin:$PATH"'>> ~/.bashrc
 $ echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+$ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 $ exec $SHELL -l
 ```
 
@@ -139,3 +143,4 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 -   2013-10-04：初稿；
 -   2014-10-07：将 Python 依赖包一段的位置提前；
+-   2016-07-30：使用 `pyenv-installer` 安装；
