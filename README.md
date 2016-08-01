@@ -26,17 +26,3 @@
 4. 安装依赖 `pip install pandocfilters`
 5. 执行脚本实现转换 `python makepdf.py _posts/*.md`，生成的PDF位于 `_pdfs` 目录
 6. 执行 `qshell qupload qiniu-conf.json` 将PDF同步至七牛（本步骤一般用户无法执行）
-
-## 在中英文之间加上空格
-
-`cjk_spacing.py` 用于在 markdown 文件中的中英文之间自动加上空格。
-
-```
-$ pip install pangu
-$ python cjk_spacing.py *.md
-```
-
-对 markdown 文件处理时的若干错误:
-
-1. `**中文**` 会变成 `** 中文 **`
-2. `-10` 会变成 `- 10`

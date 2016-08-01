@@ -5,7 +5,7 @@
 Pandoc filter to deal with image and links
 
 1. ![](/images/xxx.png) => ![](/absoulute/path/to/iamges/xxx.png)
-2. [Link](/xxxx.html)   => [Link](http://seisman.info/xxxx.html)
+2. [Link](/xxxx.html)   => [Link](https://seisman.info/xxxx.html)
 
 Usage:
     pandoc -t json post.md | ./markdown-filter.py | pandoc -f json -t markdown
@@ -16,7 +16,7 @@ import os
 import sys
 from pandocfilters import toJSONFilter, Image
 
-siteurl = "http://seisman.info"
+siteurl = "https://seisman.info"
 base = os.getcwd()
 
 

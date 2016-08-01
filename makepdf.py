@@ -12,7 +12,7 @@ import glob
 import subprocess
 
 
-siteurl = "http://seisman.info/"
+siteurl = "https://seisman.info/"
 pdf_dir = "_pdfs"
 filter = "./markdown-filter.py"
 template = "seisman.latex"
