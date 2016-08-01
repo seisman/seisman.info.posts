@@ -1,5 +1,5 @@
 ---
-title:  Python 发送邮件到 BREQ_FAST
+title: Python 发送邮件到 BREQ_FAST
 date: 2014-08-23
 author: SeisMan
 categories: 编程

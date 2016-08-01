@@ -93,4 +93,4 @@ updated: 2016-05-17
 - [Google Maps API](https://developers.google.com/maps/get-started/)
 - [IRIS Synthetics Engine](http://service.iris.edu/irisws/syngine/1/)
 - [IRIS Message Center](http://ds.iris.edu/message-center/)
-- [Scanned Eeismograms from Historical Earthquakes](http://ds.iris.edu/seismo/)
+- [Scanned Seismograms from Historical Earthquakes](http://ds.iris.edu/seismo/)
