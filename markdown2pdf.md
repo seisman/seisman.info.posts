@@ -1,11 +1,3 @@
-# SeisMan 博客
-
-本项目保存了 [SeisMan博客](https://seisman.info) 中的博文源码。
-
-- Hexo配置: https://github.com/seisman/seisman.info
-- 主题配置: https://github.com/seisman/hexo-theme-next
-
-
 ## 将 markdown 转换为 PDF
 
 利用 pandoc 和 TeXLive 2016 将 markdown 转换为 PDF。
