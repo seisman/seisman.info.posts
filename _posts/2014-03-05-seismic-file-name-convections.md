@@ -36,13 +36,12 @@ tag: 数据
 
 ## Location ID: LL
 
-什么是 Location ID 呢？我也没有找到比较权威的解释。
+关于 Location ID 的详细介绍，见 [IRIS: DS Newsletter: Vol. 1, No. 1](http://ds.iris.edu/ds/newsletter/vol1/no1/specification-of-seismograms-the-location-identifier/)
+
+Location ID 用于区分同一个台站下多个传感器的不同数据，或者同一个传感器传来的多个数据流。
+通常来说，同一个台站不同 location ID 的两个地震数据具有极为相似但有略有不同的波形。
 
 常见的 Location ID 为空，偶尔会见到 `00` , `01` , `10` 这样的，也有遇到 `60` 这样的。
-
-Location ID 其实是台站下的 subcode，即一个台站处，有多套仪器，这些仪器可能是相同的型号，但是位于不同的深度或者指向不同的方位；也有可能是两个仪器是不同的型号。
-
-经常见到的情况是，同一个台站，不同 location ID 的两个地震数据具有极为相似但有略有不同的波形，这个就自己慢慢领悟吧。
 
 ## 质量控制: Q
 

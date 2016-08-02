@@ -10,7 +10,7 @@ tags: [理论地震图, SAC, GMT]
 
 - [SAC][]: Seismic Analysis Code，地震学数据处理的常用软件。
 - [CPS330][]
-- [ObsPy][]: 基于 Python 的地震学数据处理框架
+- [ObsPy][]: 基于 Python 的地震学数据获取、处理、绘图工具
 
 [SAC]: http://www.iris.edu/ds/nodes/dmc/forms/sac/
 [CPS330]: http://www.eas.slu.edu/eqc/eqccps.html
