@@ -19,9 +19,14 @@ updated: 2016-05-17
 
 ## 地震事件目录
 
+### 全球地震目录
+
 - [IRIS Catalog](http://service.iris.edu/fdsnws/event/1/)
 - [ISC Bulletin](http://www.isc.ac.uk/iscbulletin/search/catalogue/)
 - [PDE](http://earthquake.usgs.gov/data/pde.php)
+
+### 区域地震目录
+
 - [ANSS Catalog](http://www.ncedc.org/anss/)
 - [NCEC Catalog](http://www.ncedc.org/ncedc/catalogs.html)
 - [ANSS Comprehensive Catalog](http://earthquake.usgs.gov/earthquakes/search/)
@@ -41,8 +46,8 @@ updated: 2016-05-17
 
 ## 走时数据
 
-- [JMA Arrival Time Data](https://hinetwww11.bosai.go.jp/auth/JMA/?LANG=en)
 - [ISC Arrival Time Data](http://www.isc.ac.uk/iscbulletin/search/arrivals/)
+- [JMA Arrival Time Data](https://hinetwww11.bosai.go.jp/auth/JMA/?LANG=en)
 
 ## 地震台网/波形数据
 
@@ -86,11 +91,13 @@ updated: 2016-05-17
 - [IRIS Data Request Status](http://www.iris.edu/ds/nodes/dmc/data/request-status/)
 - [IASPEI standard phase list](http://www.isc.ac.uk/standards/phases/)
 - [GMT cpt](http://soliton.vm.bytemark.co.uk/pub/cpt-city/)
-- [FDSN Network Codes](http://www.fdsn.org/networks/)
-- [Virtual Network Codes](http://ds.iris.edu/mda/#vnetlist)
+- [FDSN Network Codes](http://www.fdsn.org/networks/): 在 FDSN 注册的永久和临时台网列表
+- [IRIS DMC MetaData Aggregator](http://ds.iris.edu/mda/): 永久、临时、虚拟台网列表
 - [IRIS Wilber 3](http://www.iris.edu/wilber3/find_event)
 - [IRIS DMC Google Map Service](http://ds.iris.edu/gmap/)
 - [Google Maps API](https://developers.google.com/maps/get-started/)
 - [IRIS Synthetics Engine](http://service.iris.edu/irisws/syngine/1/)
 - [IRIS Message Center](http://ds.iris.edu/message-center/)
 - [Scanned Seismograms from Historical Earthquakes](http://ds.iris.edu/seismo/)
+- [国家地质资料数据中心](http://www.ngac.org.cn/Distribute/List)
+- [全球地质资料数据中心](http://portal.onegeology.org/OnegeologyGlobal/)
