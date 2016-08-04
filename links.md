@@ -101,3 +101,4 @@ updated: 2016-05-17
 - [Scanned Seismograms from Historical Earthquakes](http://ds.iris.edu/seismo/)
 - [国家地质资料数据中心](http://www.ngac.org.cn/Distribute/List)
 - [全球地质资料数据中心](http://portal.onegeology.org/OnegeologyGlobal/)
+- [Data Center](http://www.fdsn.org/webservices/datacenters/): 支持 FDSN Web Services 的地震数据中心
