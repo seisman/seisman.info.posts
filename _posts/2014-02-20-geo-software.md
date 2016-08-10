@@ -22,6 +22,7 @@ tags: [理论地震图, SAC, GMT]
 - [win32tools][]: Hi-net 提供的工具，用于将 WIN32 格式的数据转换为 SAC 格式
 - [mseed2sac][]: 将 miniSEED 格式转换为 SAC 格式
 - [dataselect][]:  miniSEED 数据处理
+- [ObsPy][]: 基于 Python 的地震学数据获取、处理、绘图工具
 
 [rdseed]: http://www.iris.edu/ds/nodes/dmc/forms/rdseed/
 [win32tools]: http://www.hinet.bosai.go.jp/REGS/manual/dlDialogue.php?r=win32tools
@@ -32,9 +33,12 @@ tags: [理论地震图, SAC, GMT]
 
 - [jweed][]: 用 Java 实现的 IRIS 数据申请客户端。
 - [SOD][]: 数据自动下载命令行工具。
+- [IRIS Wilber 3][]: 单事件波形数据下载工具（网页版）
+- [ObsPy][]: 基于 Python 的地震学数据获取、处理、绘图工具
 
 [jweed]: http://ds.iris.edu/ds/nodes/dmc/software/downloads/jweed/
 [SOD]: http://www.seis.sc.edu/sod
+[IRIS Wilber 3]: http://www.iris.edu/wilber3/find_event
 
 ## 绘图类
 
@@ -43,6 +47,7 @@ tags: [理论地震图, SAC, GMT]
 - [JPlotResp][]: 绘制 RESP 仪器响应文件的振幅相位响应谱。可以直接联网查询某台网某台站某个时间的仪器响应，也可以直接处理本地的 RESP 文件。
 - [MoPad][]: 地震矩分析和绘图软件，可以做地震矩的各种分解以及分析，绘制各种类型的震源球，可控性非常强，比 GMT 的 psmeca 命令要灵活，且可以与 GMT 联合使用
 - [GmtPy][]: GMT4 的非官方 Python 接口。
+- [ObsPy][]: 基于 Python 的地震学数据获取、处理、绘图工具
 
 [GMT]: http://gmt.soest.hawaii.edu/
 [pssac]: http://www.eas.slu.edu/People/LZhu/home.html
@@ -120,7 +125,7 @@ tags: [理论地震图, SAC, GMT]
 
 - [hk][]: 用于接收函数研究的代码。
 - [CCP][]: 共转换点地震数据叠加，用于接收函数研究。
-- [IRFFM][]: 带界面的接收函数软件包。
+- [IRFFM][]: 带 GUI 的接收函数软件包。
 - [astack][]: 自适应迭代以实现震相对齐。
 - [LASIF][]: 基于 Python 的大规模全波形反演框架，似乎是层析成像。
 - [SplitLab][]: 基于 Matlab 的 S 波分裂处理工具

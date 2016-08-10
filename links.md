@@ -92,8 +92,8 @@ updated: 2016-05-17
 - [IASPEI standard phase list](http://www.isc.ac.uk/standards/phases/)
 - [GMT cpt](http://soliton.vm.bytemark.co.uk/pub/cpt-city/)
 - [FDSN Network Codes](http://www.fdsn.org/networks/): 在 FDSN 注册的永久和临时台网列表
+- [Data Centers Supporting FDSN Web Services](http://www.fdsn.org/webservices/datacenters/): 支持 FDSN Web Service 的数据中心
 - [IRIS DMC MetaData Aggregator](http://ds.iris.edu/mda/): 永久、临时、虚拟台网列表
-- [IRIS Wilber 3](http://www.iris.edu/wilber3/find_event)
 - [IRIS DMC Google Map Service](http://ds.iris.edu/gmap/)
 - [Google Maps API](https://developers.google.com/maps/get-started/)
 - [IRIS Synthetics Engine](http://service.iris.edu/irisws/syngine/1/)
