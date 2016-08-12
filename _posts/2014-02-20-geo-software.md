@@ -72,22 +72,32 @@ tags: [理论地震图, SAC, GMT]
 
 ## 理论地震图
 
+### 解析解
+
 - [fk][]: 频率 - 波数法，计算水平分层各向同性介质下理论地震图位移静态解和动态解
 - [QSEIS][]: 层状粘弹介质下的理论地震图
-- [SHaxi][]: 有限差分方法计算全球尺度高精度 SH 波场。
 - [QSSP][]: Normal modes 方法计算球形地球下的理论地震图
 - [Mineos][]: Normal modes 方法计算球对称非旋转地球模型下的合成地震图
 - [yaseis][]: 频率 - 波数法，球状分层介质下的理论地震图
-- [AxiSEM][]: 球层介质中的 3D 弹性、非弹性、各向异性、声波理论地震图
-- [Instaseis][]: 用 Python 写的，基于 AxiSEM 的地震图合成工具
 - [GEMINI][]:
 - [DSM][]: Direct Solution Method ([tish][], [tipsv][], [spcsac][])
+
+### 有限差分法
+
+- [SHaxi][]: 有限差分方法计算全球尺度高精度 SH 波场。
 - [SOFI2D][]: 二维有限差分计算 (粘) 弹性介质下的 PSV 波场
 - [SOFI2D-sh][]: 二维有限差分计算 (粘) 弹性介质下的 SH 波场
 - [SOFI3D][]: 三维有限差分计算 (粘) 弹性介质下的波场
+- [SEISMIC_CPML][]: 2D/3D 有限差分+CPML吸收边界
+
+### 谱元法
+
+- [SPECFEM1D][]: 谱元法 1D
 - [SPECFEM2D][]: 谱元法 2D
 - [SPECFEM3D][]: 谱元法 3D(笛卡尔坐标系)
 - [SPECFEM3D Global][]: 谱元法 3D(球坐标系)
+- [AxiSEM][]: 球层介质中的 3D 弹性、非弹性、各向异性、声波理论地震图
+- [Instaseis][]: 用 Python 写的，基于 AxiSEM 的地震图合成工具
 
 [fk]: http://www.eas.slu.edu/People/LZhu/home.html
 [QSEIS]: http://www.gfz-potsdam.de/en/section/physics-of-earthquakes-and-volcanoes/data-products-services/downloads-software/
@@ -105,9 +115,26 @@ tags: [理论地震图, SAC, GMT]
 [SOFI2D]: https://git.scc.kit.edu/GPIAG-Software/SOFI2D/
 [SOFI2D-sh]: https://git.scc.kit.edu/GPIAG-Software/SOFI2D_sh
 [SOFI3D]: https://git.scc.kit.edu/GPIAG-Software/SOFI3D
-[SPECFEM2D]: https://geodynamics.org/cig/software/specfem2d/
-[SPECFEM3D]: https://geodynamics.org/cig/software/specfem3d/
-[SPECFEM3D Global]: https://geodynamics.org/cig/software/specfem3d_globe/
+[SEISMIC_CPML]: https://github.com/geodynamics/seismic_cpml
+[SPECFEM1D]: https://github.com/geodynamics/specfem1d
+[SPECFEM2D]: https://github.com/geodynamics/specfem2d
+[SPECFEM3D]: https://github.com/geodynamics/specfem3d
+[SPECFEM3D Global]: https://github.com/geodynamics/specfem3d_globe
+
+## 全波形反演
+
+- [TOY2DAC][]: 2D Acoustic frequency-domain Full Waveform modeling and inversion code.
+- [ASKI][]: modularized program suite for sensitivity analysis and iterative full waveform inversion
+- [FWI.jl][]: 2D/3D acoustic FWI in Julia
+- [IFOS2D][]: 2D弹性波FWI
+- [IFOS3D][]: 3D弹性波FWI
+
+[TOY2DAC]: https://seiscope2.osug.fr/TOY2DAC,82
+[ASKI]: http://www.gmg.ruhr-uni-bochum.de/geophysik/seismology/aski.html
+[FWI.jl]: https://github.com/JuliaInv/FWI.jl
+[IFOS2D]: https://git.scc.kit.edu/GPIAG-Software/IFOS2D
+[IFOS3D]: https://git.scc.kit.edu/GPIAG-Software/IFOS3D
+
 
 ## 震源机制
 

@@ -25,6 +25,7 @@ categories: 地球物理相关资源
 | [Miaki Ishii]           |          |
 | [Chen Ji]               |          |
 | [Keith D. Koper]        |          |
+| [Dimitri Komatitsch]    | 谱元法   |
 | [Gabi Laske]            |          |
 | [Fan-Chi Lin]           |          |
 | [Thorne Lay]            |          |
@@ -71,6 +72,7 @@ categories: 地球物理相关资源
 [Miaki Ishii]: http://www.seismology.harvard.edu/ishii.html
 [Chen Ji]: http://www.geol.ucsb.edu/faculty/ji/
 [Keith D. Koper]: http://quake.utah.edu/koper/Home.html
+[Dimitri Komatitsch]: http://komatitsch.free.fr/
 [Gabi Laske]: http://igppweb.ucsd.edu/~gabi/
 [Fan-Chi Lin]: http://web.gps.caltech.edu/~linf/
 [Thorne Lay]: http://es.ucsc.edu/~thorne/
