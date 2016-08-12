@@ -54,6 +54,7 @@ updated: 2016-05-17
 - [NIED Hi-net](http://www.hinet.bosai.go.jp/)
 - [NIED F-net](http://www.fnet.bosai.go.jp/)
 - [NIED K-net, KiK-net](http://www.kyoshin.bosai.go.jp/)
+- [Jarray](http://jarray.eri.u-tokyo.ac.jp/)
 - [Northern California Earthquake Data Center](http://www.ncedc.org/)
 - [Southern California Seismic Network](http://www.scsn.org)
 - [Southern California Seismic Network at Caltech](http://scedc.caltech.edu/)

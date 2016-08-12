@@ -71,7 +71,7 @@ categories: 地球物理相关资源
 [Kei Hirose]: http://www.geo.titech.ac.jp/lab/hirose/en/home.html
 [Miaki Ishii]: http://www.seismology.harvard.edu/ishii.html
 [Chen Ji]: http://www.geol.ucsb.edu/faculty/ji/
-[Keith D. Koper]: http://quake.utah.edu/koper/Home.html
+[Keith D. Koper]: http://quake.utah.edu/about-us/uuss-staff-directory/dr-keith-koper
 [Dimitri Komatitsch]: http://komatitsch.free.fr/
 [Gabi Laske]: http://igppweb.ucsd.edu/~gabi/
 [Fan-Chi Lin]: http://web.gps.caltech.edu/~linf/
