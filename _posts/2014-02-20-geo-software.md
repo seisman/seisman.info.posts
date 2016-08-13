@@ -31,14 +31,20 @@ tags: [理论地震图, SAC, GMT]
 
 ## 数据获取工具
 
+- [BREQ_FAST][]: 通过发送邮件申请数据
 - [jweed][]: 用 Java 实现的 IRIS 数据申请客户端。
 - [SOD][]: 数据自动下载命令行工具。
 - [IRIS Wilber 3][]: 单事件波形数据下载工具（网页版）
 - [ObsPy][]: 基于 Python 的地震学数据获取、处理、绘图工具
+- [IRIS DMC Web Services][]: 通过网页服务申请数据
+- [Web Service Fetch scripts][]: 获取数据的Perl脚本
 
 [jweed]: http://ds.iris.edu/ds/nodes/dmc/software/downloads/jweed/
 [SOD]: http://www.seis.sc.edu/sod
 [IRIS Wilber 3]: http://www.iris.edu/wilber3/find_event
+[BREQ_FAST]: http://ds.iris.edu/ds/nodes/dmc/manuals/breq_fast/
+[IRIS DMC Web Services]: http://service.iris.edu/
+[Web Service Fetch scripts]: https://seiscode.iris.washington.edu/projects/ws-fetch-scripts
 
 ## 绘图类
 
