@@ -128,12 +128,20 @@ tags: [理论地震图, SAC, GMT]
 - [FWI.jl][]: 2D/3D acoustic FWI in Julia
 - [IFOS2D][]: 2D弹性波FWI
 - [IFOS3D][]: 3D弹性波FWI
+- [DENISE-SH][]: 2D SH有限差分模拟及FWI
+- [DENISE][]: 2D PSV有限差分模拟及FWI
+- [SES3D][]: 3D谱元法FWI
+- [LASIF][]: 基于 Python 的大规模全波形反演框架，似乎是层析成像。
 
 [TOY2DAC]: https://seiscope2.osug.fr/TOY2DAC,82
 [ASKI]: http://www.gmg.ruhr-uni-bochum.de/geophysik/seismology/aski.html
 [FWI.jl]: https://github.com/JuliaInv/FWI.jl
 [IFOS2D]: https://git.scc.kit.edu/GPIAG-Software/IFOS2D
 [IFOS3D]: https://git.scc.kit.edu/GPIAG-Software/IFOS3D
+[DENISE-SH]: https://github.com/daniel-koehn/DENISE-SH
+[DENISE]: https://github.com/daniel-koehn/DENISE-Black-Edition
+[SES3D]: http://www.cos.ethz.ch/software/ses3d.html
+[LASIF]: http://www.lasif.net/
 
 
 ## 震源机制
@@ -154,7 +162,6 @@ tags: [理论地震图, SAC, GMT]
 - [CCP][]: 共转换点地震数据叠加，用于接收函数研究。
 - [IRFFM][]: 带 GUI 的接收函数软件包。
 - [astack][]: 自适应迭代以实现震相对齐。
-- [LASIF][]: 基于 Python 的大规模全波形反演框架，似乎是层析成像。
 - [SplitLab][]: 基于 Matlab 的 S 波分裂处理工具
 - [CitcomS][]: 求解地幔可压缩热动力学对流问题的有限元代码
 
@@ -162,7 +169,6 @@ tags: [理论地震图, SAC, GMT]
 [CCP]: http://www.eas.slu.edu/People/LZhu/home.html
 [IRFFM]: http://rses.anu.edu.au/~hrvoje/IRFFMv1.1.html
 [astack]: http://rses.anu.edu.au/seismology/soft/astack/index.html
-[LASIF]: http://www.lasif.net/
 [SplitLab]: http://splitting.gm.univ-montp2.fr/
 [CitcomS]: https://github.com/geodynamics/citcoms
 
