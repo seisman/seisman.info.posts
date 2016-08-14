@@ -21,9 +21,11 @@ updated: 2016-05-17
 
 ### 全球地震目录
 
-- [IRIS Catalog](http://service.iris.edu/fdsnws/event/1/)
-- [ISC Bulletin](http://www.isc.ac.uk/iscbulletin/search/catalogue/)
-- [PDE](http://earthquake.usgs.gov/data/pde.php)
+- [IRIS web service](http://service.iris.edu/fdsnws/event/1/)
+- [ISC Bulletin](http://www.isc.ac.uk/iscbulletin/search/catalogue/) |
+  [ISC web service](http://www.isc.ac.uk/fdsnws/event/1/)
+- [PDE](http://earthquake.usgs.gov/data/pde.php) |
+  [USGS web service](http://earthquake.usgs.gov/fdsnws/event/1/)
 
 ### 区域地震目录
 

@@ -11,10 +11,14 @@ tags: [理论地震图, SAC, GMT]
 - [SAC][]: Seismic Analysis Code，地震学数据处理的常用软件。
 - [CPS330][]
 - [ObsPy][]: 基于 Python 的地震学数据获取、处理、绘图工具
+- [SeisIO.jl][]: 基于 Julia 的地震学数据获取、处理、绘图工具
+- [GISMO][]: 基于 Matlab 的地震学数据获取、处理、绘图工具
 
 [SAC]: http://www.iris.edu/ds/nodes/dmc/forms/sac/
 [CPS330]: http://www.eas.slu.edu/eqc/eqccps.html
 [ObsPy]: https://github.com/obspy/obspy/wiki
+[SeisIO.jl]: https://github.com/jpjones76/SeisIO.jl
+[GISMO]: http://geoscience-community-codes.github.io/GISMO/
 
 ## 数据格式转换
 
