@@ -41,3 +41,9 @@ IRIS DMC 就实现了这一套 Web Services，并且给出了详细的解释与�
 1. [ObsPy](http://www.obspy.org/): Python写的地震数据处理工具
 2. [SeisIO.jl](https://github.com/jpjones76/SeisIO.jl): Julia写的地震数据处理工具
 3. [GISMO](http://geoscience-community-codes.github.io/GISMO/): Matlab写的地震数据处理工具
+
+参考资料：
+
+- [FDSN Web Services](http://www.fdsn.org/webservices/)
+- [支持 Web Services 的地震数据中心](http://www.fdsn.org/webservices/datacenters/)
+- [IRIS Web Services](https://service.iris.edu/)
