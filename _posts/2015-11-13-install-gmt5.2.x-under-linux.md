@@ -6,9 +6,9 @@ categories: GMT
 tags: [安装]
 ---
 
-**注意：** 为 Ubuntu 和 CentOS 用户写了一个快速安装脚本，见
-[gmt-easy-installer](https://github.com/gmt-china/gmt-easy-installer)。
-有兴趣的可以试着安装，也欢迎测试各种不同的平台。
+**本文不再维护更新，最新版本的GMT的安装方法见 <http://docs.gmt-china.org/installation.html> **
+
+**注意：** 为 Ubuntu 和 CentOS 用户写了一个快速安装脚本，见 [gmt-easy-installer](https://github.com/gmt-china/gmt-easy-installer)。有兴趣的可以试着安装，也欢迎测试各种不同的平台。
 
 本文介绍如何在 Linux 下安装 GMT 5.2.x。
 
@@ -25,9 +25,9 @@ GMT 5.2.x 系列的安装与 GMT 5.1.x 系列的安装稍有不同，故而在�
 
 GMT 5.2.1 需要下载三个文件：
 
-1.  GMT 源码： [gmt-5.2.1-src.tar.gz](ftp://ftp.soest.hawaii.edu/gmt/gmt-5.2.1-src.tar.gz)
-2.  全球海岸线数据 GSHHG： [gshhg-gmt-2.3.5.tar.gz](http://gmt.soest.hawaii.edu/files/download?name=gshhg-gmt-2.3.5.tar.gz)
-3.  全球数字图表 DCW： [dcw-gmt-1.1.2.tar.gz](ftp://ftp.soest.hawaii.edu/gmt/dcw-gmt-1.1.2.tar.gz)
+1.  GMT 源码： [gmt-5.2.1-src.tar.gz](http://mirrors.ustc.edu.cn/gmt/gmt-5.2.1-src.tar.gz)
+2.  全球海岸线数据 GSHHG： [gshhg-gmt-2.3.5.tar.gz](http://mirrors.ustc.edu.cn/gmt/gshhg-gmt-2.3.5.tar.gz)
+3.  全球数字图表 DCW： [dcw-gmt-1.1.2.tar.gz](http://mirrors.ustc.edu.cn/gmt/dcw-gmt-1.1.2.tar.gz)
 
 GMT 5.2.1 的源码包中，没有自带官方的 PDF 文档，需要额外下载：
 

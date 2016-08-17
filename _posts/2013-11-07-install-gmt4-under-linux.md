@@ -19,14 +19,16 @@ tags: [安装, GMT]
 
 ## 下载
 
-官方 ftp：<ftp://ftp.soest.hawaii.edu/gmt>
+- 官方 ftp：<ftp://ftp.soest.hawaii.edu/gmt>
+- 国内镜像：<http://mirrors.ustc.edu.cn/gmt/>
+
 
 需要下载的包包括：
 
--   [gmt-4.5.14-src.tar.bz2](ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.14-src.tar.bz2)
--   [gshhg-gmt-2.3.4.tar.gz](ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.4.tar.gz)
+- [gmt-4.5.14-src.tar.bz2](http://mirrors.ustc.edu.cn/gmt/gmt-4.5.14-src.tar.bz2)
+- [gshhg-gmt-2.3.4.tar.gz](http://mirrors.ustc.edu.cn/gmt/gshhg-gmt-2.3.5.tar.gz)
 
-注：GMT 中的 `triangulate` 命令有两个不同的源码，其中一个遵循 GPL 协议，另一个不遵循 GPL 协议。GMT 的 src 包中包含了前者。若有特殊需求，需要使用后者源码的功能，可以下载 [gmt-4.5.14-non-gpl-src.tar.bz2](ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.14-non-gpl-src.tar.bz2)
+注：GMT 中的 `triangulate` 命令有两个不同的源码，其中一个遵循 GPL 协议，另一个不遵循 GPL 协议。GMT 的 src 包中包含了前者。若有特殊需求，需要使用后者源码的功能，可以下载 [gmt-4.5.14-non-gpl-src.tar.bz2](http://mirrors.ustc.edu.cn/gmt/gmt-4.5.14-non-gpl-src.tar.bz2)
 ，并将解压后的 triangulate 源码覆盖 `gmt-4.5.14-src.tar.bz2` 中的相应源码。
 
 下载完成后，可以用 `md5sum` 检查压缩文件的 md5 值，以保证该文件是完整且未被篡改的:

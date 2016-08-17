@@ -15,7 +15,7 @@ tags: 数据
 -   `nuvel_1_plates.orig` ：最原始的数据，来自于 NUVEL-1A 包；
 -   `nuvel_1_plates` ：在原始数据的基础上修正了一些小的错误；
 -   `<plate-name>_plate`：给出了板块 plate-name 与其它板块的分界线，即多段数据。
--   `<plate-name>.txt`：给出了板块 plate-name 的轮廓，即相当于将 \<plate-name\>\_plate 的数据进行整理使其成为一个封闭的曲线。
+-   `<plate-name>.txt`：给出了板块 plate-name 的轮廓，即相当于将 `<plate-name>_plate` 的数据进行整理使其成为一个封闭的曲线。
 
 <!--more-->
 

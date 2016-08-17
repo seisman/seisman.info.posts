@@ -25,9 +25,10 @@ categories: 地球物理相关资源
 | [Miaki Ishii]           |          |
 | [Chen Ji]               |          |
 | [Keith D. Koper]        |          |
-| [Dimitri Komatitsch]    | 谱元法   |
+| [Dimitri Komatitsch]    | SEM      |
 | [Gabi Laske]            |          |
 | [Fan-Chi Lin]           |          |
+| [Qinya Liu]             | SEM, Adjoint Tomography |
 | [Thorne Lay]            |          |
 | [Guy Master]            |          |
 | [Fenglin Niu]           |          |
