@@ -27,19 +27,19 @@ TauP 是用 Java 写的一个用来计算震相走时的软件。
 
 2.  下载 TauP:
 
-        wget http://www.seis.sc.edu/downloads/TauP/TauP-2.4.0.tgz
+        wget http://www.seis.sc.edu/downloads/TauP/TauP-2.4.1.tgz
 
 3.  解压:
 
-        tar -xvf TauP-2.4.0.tgz
+        tar -xvf TauP-2.4.1.tgz
 
 4.  安装:
 
-        sudo mv TauP-2.4.0 /opt
+        sudo mv TauP-2.4.1 /opt
 
 5.  修改环境变量:
 
-        echo 'export TAUPHOME=/opt/TauP-2.4.0' >> ~/.bashrc
+        echo 'export TAUPHOME=/opt/TauP-2.4.1' >> ~/.bashrc
         echo 'export PATH=${TAUPHOME}/bin:${PATH}' >> ~/.bashrc
         source ~/.bashrc
 
