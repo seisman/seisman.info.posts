@@ -115,7 +115,7 @@ tags: [理论地震图, SAC, GMT]
 [QSSP]: http://www.gfz-potsdam.de/en/section/physics-of-earthquakes-and-volcanoes/data-products-services/downloads-software/
 [Mineos]: https://github.com/geodynamics/mineos
 [yaseis]: https://seiscode.iris.washington.edu/projects/yaseis
-[AxiSEM]: http://seis.earth.ox.ac.uk/axisem/
+[AxiSEM]: https://github.com/geodynamics/axisem
 [Instaseis]: http://instaseis.net/
 [GEMINI]: http://www.quest-itn.org/library/software/gemini-greens-function-of-the-earth-by-minor-integration
 [DSM]: http://www-solid.eps.s.u-tokyo.ac.jp/~dsm/software/software.htm
