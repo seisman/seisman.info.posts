@@ -35,7 +35,8 @@ updated: 2016-05-17
 - [NIED Earthquake Mechanism Search](http://www.fnet.bosai.go.jp/event/search.php?LANG=en)
 - [EHB Bulletin](http://www.isc.ac.uk/ehbbulletin/)
 - [SCSN catalog](http://service.scedc.caltech.edu/eq-catalogs/date_mag_loc.php)
-- [JMA Unified Hypocenter Catalog](https://hinetwww11.bosai.go.jp/auth/JMA/?LANG=en)
+- [JMA Unified Hypocenter Catalog](http://www.data.jma.go.jp/svd/eqev/data/bulletin/hypo_e.html)
+- [JMA Preliminary Unified Hypocenter Catalog](https://hinetwww11.bosai.go.jp/auth/JMA/jmalist.php)
 
 ## 震源机制
 
@@ -44,12 +45,13 @@ updated: 2016-05-17
 - [UCB Moment Tensor Catalog](http://www.ncedc.org/ncedc/mt.html "University of California Berkeley Moment Tensor Catalog")
 - [NIED CMT solutions](http://www.fnet.bosai.go.jp/event/joho.php?LANG=en)
 - [SCSN Moment Tensor Catalog](http://service.scedc.caltech.edu/eq-catalogs/CMTsearch.php)
-- [JMA Focal Mechanism Catalog](https://hinetwww11.bosai.go.jp/auth/JMA/?LANG=en)
+- [JMA Focal Mechanism Catalog](http://www.data.jma.go.jp/svd/eqev/data/bulletin/cmt_e.html)
+- [JMA Nodal Plane Solution](http://www.data.jma.go.jp/svd/eqev/data/bulletin/mech_e.html)
 
 ## 走时数据
 
 - [ISC Arrival Time Data](http://www.isc.ac.uk/iscbulletin/search/arrivals/)
-- [JMA Arrival Time Data](https://hinetwww11.bosai.go.jp/auth/JMA/?LANG=en)
+- [JMA Arrival Time Data](http://www.data.jma.go.jp/svd/eqev/data/bulletin/deck_e.html)
 
 ## 地震台网/波形数据
 

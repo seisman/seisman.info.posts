@@ -47,16 +47,6 @@ tags: [Hinet, 数据, 申请, Python]
 
 要执行 HinetContRequest.py，需要先修改配置文件 [Hinet.cfg](https://github.com/seisman/HinetScripts/blob/master/Hinet.cfg)，其内容如下:
 
-    [URL]
-    # DO NOT MODIFY URLs
-    AUTH = https://hinetwww11.bosai.go.jp/auth
-    CONT = %(AUTH)s/download/cont
-    STATUS = %(CONT)s/cont_status.php
-    SELECT = %(CONT)s/select_confirm.php
-    STATION = %(CONT)s/select_info.php
-    REQUEST = %(CONT)s/cont_request.php
-    DOWNLOAD = %(CONT)s/cont_download.php
-
     [Account]
     User = xxxxxxx
     Password = xxxxxxxxxxx
@@ -74,7 +64,6 @@ tags: [Hinet, 数据, 申请, Python]
 
 其中：
 
--   `[URL]` 中定义了一些网址，是脚本所需要使用的全局变量，不需要做任何修改
 -   `User` 和 `Password` 为 Hi-net 网站的用户名和密码
 -   由于不同台网的数据不能一起申请，因而需要指定要申请的台网的台网代码；`Net` 为默认的台站代码；比如 `0101` 即代表 Hi-net 台网
 -   在将一个数据时间跨度很长的申请分割成多个子申请时，每个子申请的数据时间跨度由 `MaxSpan` 决定。可以通过运行 `HinetDoctor.py` 来检查该值是否满足要求。
