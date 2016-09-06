@@ -26,5 +26,5 @@ for year in range(2013, 2017, 1):
     for md in sorted(glob.glob("_posts/{}-*-*-*.md".format(year))):
         date = '-'.join(os.path.basename(md).split('-')[0:3])
         title = open(md, "r").readlines()[1][7:].strip(' \n"\'')
-        f.write("- {0}: {1} \n".format(date, title))
+        f.write("- {0}: {1}\n".format(date, title))
     f.write("\n")
