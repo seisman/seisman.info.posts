@@ -25,13 +25,16 @@ C、Fortran、 Perl、Python3、Bash、LaTeX、reStructureText、Markdown
 
 2   [atom][]            GitHub出品。速度有点慢，但是功能很强大
 
-3   [Sublime Text 3][]  免费版会不定期弹出注册提醒
+3   [VSCode][]          微软出品的跨平台编辑器
 
-4   [Notepad++][]       仅在Windows下使用
+4   [Sublime Text 3][]  不再使用
+
+5   [Notepad++][]       不再使用
 -----------------------------------------------------------------------------
 
 [Atom]: https://atom.io/
 [Vim]: http://www.vim.org/
+[VSCode]: https://code.visualstudio.com
 [Sublime Text 3]: https://www.sublimetext.com/
 [Notepad++]: https://notepad-plus-plus.org/
 
@@ -125,7 +128,7 @@ C、Fortran、 Perl、Python3、Bash、LaTeX、reStructureText、Markdown
 --- ------------------- -----------------------------------------------------
 1   [Google Chrome][]
 
-2   [feedly][]          RSS阅读器网页版
+2   [Inoreader][]       RSS 阅读器
 
 3   [Pocket][]          稍后阅读工具，Chrome下有原生App
 
@@ -136,10 +139,13 @@ C、Fortran、 Perl、Python3、Bash、LaTeX、reStructureText、Markdown
 6   [LastPass][]        密码管理工具
 
 7   [网易云音乐][]      手机听歌
+
+8   [feedly][]          RSS阅读器（不再使用）
 -----------------------------------------------------------------------------
 
 [Google Chrome]: https://www.google.com/chrome/
 [feedly]: http://feedly.com/
+[Inoreader]: https://www.inoreader.com
 [Pocket]: http://getpocket.com/
 [OneNote]: https://www.onenote.com
 [Wunderlist]: https://www.wunderlist.com/zh/
@@ -152,10 +158,13 @@ C、Fortran、 Perl、Python3、Bash、LaTeX、reStructureText、Markdown
 -----------------------------------------------------------------------------
     Name                Notes
 --- ------------------- -----------------------------------------------------
-1   [EndNote][]         文献管理
+1   [Papers][]          文献管理软件
+
+2   [EndNote][]         文献管理软件，只在写文章时使用
 -----------------------------------------------------------------------------
 
 [EndNote]: http://endnote.com/
+[Papers]: http://papersapp.com/
 
 ## 影音应用
 

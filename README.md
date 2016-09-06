@@ -207,4 +207,5 @@
 - 2016-07-04: [地学学术期刊](/_posts/2016-07-04-journals.md) 
 - 2016-07-19: [SAC 文件读写模块 sacio_Fortran](/_posts/2016-07-19-sacio-for-fortran90.md) 
 - 2016-08-14: [使用 Web Services 获取地震数据](/_posts/2016-08-14-web-service-clients.md) 
+- 2016-08-24: [文件管理与备份](/_posts/2016-08-24-file-organization.md) 
 
