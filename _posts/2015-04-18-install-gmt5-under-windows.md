@@ -15,10 +15,10 @@ tags: [GMT, Windows, 安装]
 
 Windows 下安装 GMT5.1.2 需要下载三个文件：
 
-1.  [GMT 64 位安装包](http://gmt.soest.hawaii.edu/files/download?name=gmt-5.1.2-win64.exe)
-    或 [GMT 32 位安装包](http://gmt.soest.hawaii.edu/files/download?name=gmt-5.1.2-win32.exe)
-2.  [ghostscript 64 位安装包](http://downloads.ghostscript.com/public/gs916w64.exe) 或
-    [ghostscript 32 位安装包](http://downloads.ghostscript.com/public/gs916w32.exe)
+1.  [GMT 64 位安装包](http://mirrors.ustc.edu.cn/gmt/bin/gmt-5.1.2-win64.exe)
+    或 [GMT 32 位安装包](http://mirrors.ustc.edu.cn/gmt/bin/gmt-5.1.2-win32.exe)
+2.  [ghostscript 64 位安装包](https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs919/gs919w64.exe) 或
+    [ghostscript 32 位安装包](https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs919/gs919w32.exe)
 3.  [GSView 64 位安装包](http://pages.cs.wisc.edu/~ghost/gsview/download/gsv50w64.exe)
     或 [GSView 32 位安装包](http://pages.cs.wisc.edu/~ghost/gsview/download/gsv50w32.exe)
 
