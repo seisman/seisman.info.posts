@@ -455,6 +455,12 @@ FTP 客户端，还是有界面的 filezilla 比较方便些。
 
     sudo yum install filezilla
 
+### Google Earth
+
+到 https://www.google.com/earth/download/ge/agree.html 下载64位rpm包，执行如下命令安装:
+
+    sudo yum localinstall google-earth-stable_current_x86_64.rpm
+
 ## 效率类软件
 
 这一类工具能够在不同方面提高科研的效率，也提高了使用者的体验。
@@ -712,23 +718,6 @@ Nux Dextop 提供了 mplayer 和 VLC，可以用于播放常见格式的音频�
 
     sudo yum install 2048-cli   # 2048 命令行版
 
-## 未完成
-
-### Google Earth
-
-理论上 Google Earth 应该可以跟 Google Chrome 用类似的方法来安装的，但是由于 Google Earth 的
-rpm 包存在 bug，导致无法通过上面的方法安装。
-
-    $ cd -
-    $ wget https://dl.google.com/dl/earth/client/current/google-earth-stable_current_x86_64.rpm
-    $ rpm2cpio google-earth-stable_current_x86_64.rpm | cpio -div
-    $ sudo cp -r opt/google/earth /opt/google/
-    $ sudo cp etc/cron.daily/google-earth /etc/cron.daily/
-    $ rm -rf usr opt etc
-    $ sudo ln -s /opt/google/earth/free/googleearth /usr/bin/google-earth
-
-安装完成后，启动后奔溃。。
-
 ## 参考
 
 1.  [ELRepo 官方网站](http://elrepo.org/tiki/tiki-index.php)
@@ -758,3 +747,4 @@ rpm 包存在 bug，导致无法通过上面的方法安装。
 -   2015-07-14：新增 Nux Dextop 源，uGet、shutter；
 -   2015-09-03：删除地球物理相关软件；
 -   2015-09-18：删除显卡驱动安装的具体步骤，直接链接到相关博文；
+-   2016-09-12：新增google earth的安装；
