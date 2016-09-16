@@ -597,7 +597,7 @@ VirtuabBox 的安装:
 需要注意两点：
 
 -   若机器性能不够，虚拟机的使用体验会非常差，所以不建议在老机器上使用；
--   更新 kernel 之后需要执行 `sudo /etc/init.d/vboxdrv setup` ；
+-   更新 kernel 之后需要执行 `sudo /sbin/rcvboxdrv setup` ；
 -   在 VirtualBox 安装虚拟系统后，记得使用 “设备”->“安装增强功能”，使用效果会更好；
 
 ### gnome-boxes
