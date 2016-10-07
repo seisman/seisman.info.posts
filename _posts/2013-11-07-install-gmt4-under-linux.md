@@ -1,19 +1,17 @@
 ---
-title: GMT 4.5.14 在 Linux 下的安装
+title: GMT 4.5.15 在 Linux 下的安装
 date: 2013-11-07 00:17
 author: SeisMan
-updated: 2015-11-01
+updated: 2016-10-07
 categories: GMT
 tags: [安装, GMT]
 ---
 
 ## 说明
 
-本文介绍如何在 Linux 下编译 GMT4 的最新版本：GMT 4.5.14。
+本文介绍如何在 Linux 下编译 GMT4 的最新版本：GMT 4.5.15。
 
 很多 Linux 发行版的源中带有 GMT 软件包，但是版本一般较老，因而这里假定想要自己编译 GMT4 的读者，下载和编译的都是 GMT4 的最新版本，因而本文会随着 GMT4 新版本的发行而不断作出修改。
-
-注意：GMT 4.5.14 的官方文档中漏了很重要的一章，所以不建议以此版本的文档作为参考。
 
 <!--more-->
 
@@ -25,17 +23,16 @@ tags: [安装, GMT]
 
 需要下载的包包括：
 
-- [gmt-4.5.14-src.tar.bz2](http://mirrors.ustc.edu.cn/gmt/gmt-4.5.14-src.tar.bz2)
-- [gshhg-gmt-2.3.4.tar.gz](http://mirrors.ustc.edu.cn/gmt/gshhg-gmt-2.3.5.tar.gz)
+- [gmt-4.5.15-src.tar.bz2](http://mirrors.ustc.edu.cn/gmt/gmt-4.5.15-src.tar.bz2)
+- [gshhg-gmt-2.3.6.tar.gz](http://mirrors.ustc.edu.cn/gmt/gshhg-gmt-2.3.6.tar.gz)
 
-注：GMT 中的 `triangulate` 命令有两个不同的源码，其中一个遵循 GPL 协议，另一个不遵循 GPL 协议。GMT 的 src 包中包含了前者。若有特殊需求，需要使用后者源码的功能，可以下载 [gmt-4.5.14-non-gpl-src.tar.bz2](http://mirrors.ustc.edu.cn/gmt/gmt-4.5.14-non-gpl-src.tar.bz2)
-，并将解压后的 triangulate 源码覆盖 `gmt-4.5.14-src.tar.bz2` 中的相应源码。
+注：GMT 中的 `triangulate` 命令有两个不同的源码，其中一个遵循 GPL 协议，另一个不遵循 GPL 协议。GMT 的 src 包中包含了前者。若有特殊需求，需要使用后者源码的功能，可以下载 [gmt-4.5.15-non-gpl-src.tar.bz2](http://mirrors.ustc.edu.cn/gmt/gmt-4.5.15-non-gpl-src.tar.bz2) ，并将解压后的 triangulate 源码覆盖 `gmt-4.5.15-src.tar.bz2` 中的相应源码。
 
 下载完成后，可以用 `md5sum` 检查压缩文件的 md5 值，以保证该文件是完整且未被篡改的:
 
-    $ md5sum gmt-4.5.14-src.tar.bz2 gshhg-gmt-2.3.4.tar.gz
-    2d5bad3aaf593c46f0ff57264c2d3a47  gmt-4.5.14-src.tar.bz2
-    80947a92cc88927aff070556ca5ab133  gshhg-gmt-2.3.4.tar.gz
+    $  md5sum gmt-4.5.15-src.tar.bz2 gshhg-gmt-2.3.6.tar.gz
+    9572138a0105a210638038171617daae  gmt-4.5.15-src.tar.bz2
+    108fd757939d3e5f8eaf385e185d6d14  gshhg-gmt-2.3.6.tar.gz
 
 ## 依赖关系
 
@@ -97,9 +94,9 @@ GMT4 中的 `xgridedit` 命令是一个很简易的带 GUI 的网格文件编辑
 ### 编译 GMT 源码
 
 ``` bash
-$ tar -xvf gmt-4.5.14-src.tar.bz2
-$ cd gmt-4.5.14
-$ ./configure --prefix=/opt/GMT-4.5.14
+$ tar -xvf gmt-4.5.15-src.tar.bz2
+$ cd gmt-4.5.15
+$ ./configure --prefix=/opt/GMT-4.5.15
 $ make
 $ sudo make install-all       # 注意：这里是 install-all 不是 install
 ```
@@ -110,8 +107,8 @@ $ sudo make install-all       # 注意：这里是 install-all 不是 install
 
 ``` bash
 $ cd ../
-$ tar -xvf gshhg-gmt-2.3.4.tar.gz
-$ sudo mv gshhg-gmt-2.3.4 /opt/GMT-4.5.14/share/coast
+$ tar -xvf gshhg-gmt-2.3.6.tar.gz
+$ sudo mv gshhg-gmt-2.3.6 /opt/GMT-4.5.15/share/coast
 ```
 
 ### 修改环境变量
@@ -119,7 +116,7 @@ $ sudo mv gshhg-gmt-2.3.4 /opt/GMT-4.5.14/share/coast
 向 `~/.bashrc` 中加入 GMT4 的环境变量，并使环境变量生效：
 
 ``` bash
-$ echo 'export GMT4HOME=/opt/GMT-4.5.14' >> ~/.bashrc
+$ echo 'export GMT4HOME=/opt/GMT-4.5.15' >> ~/.bashrc
 $ echo 'export PATH=${GMT4HOME}/bin:$PATH'>> ~/.bashrc
 $ echo 'export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${GMT4HOME}/lib64'>> ~/.bashrc
 $ exec $SHELL -l
@@ -137,17 +134,17 @@ $ exec $SHELL -l
 在终端键入 `psxy -` ，若出现如下输出，则安装成功:
 
     $ psxy -
-    psxy 4.5.14 [64-bit] - Plot lines, polygons, and symbols on maps
+    psxy 4.5.15 [64-bit] - Plot lines, polygons, and symbols on maps
 
 ## 个人笔记
 
 1.  查看 GMT 需要哪些动态链接库:
 
-        $ cd /opt/GMT-4.5.14/bin
+        $ cd /opt/GMT-4.5.15/bin
         $ readelf -d * | grep 'Shared library' | sort -u
 
 2.  Ubuntu 下查找哪个软件包提供某个特定库文件： <http://packages.ubuntu.com/>
-3.  CentOS 下查找哪个软件包提供某个特定库文件：`yum provides libICE.so.6`
+3.  CentOS 下查找哪个软件包提供某个特定库文件： `yum provides libICE.so.6`
 
 ## 修订历史
 
@@ -164,3 +161,4 @@ $ exec $SHELL -l
 -   2015-09-18：下载后检查压缩文件的 md5 值
 -   2015-10-11：重新整理了软件的依赖关系
 -   2015-11-01：更新至 GMT 4.5.14
+-   2016-10-07：更新至 GMT 4.5.14 和 GSHHG 2.3.6

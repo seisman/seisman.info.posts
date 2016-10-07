@@ -59,7 +59,7 @@
 - 2013-10-31: [PDF 合并和分割工具 --PDFtk](/_posts/2013-10-31-introduction-to-pdftk.md) 
 - 2013-11-03: [Perl 多版本共存之 plenv](/_posts/2013-11-03-perl-plenv.md) 
 - 2013-11-06: [GMT 5.1.2 在 Linux 下的安装](/_posts/2013-11-06-install-gmt5-under-linux.md) 
-- 2013-11-07: [GMT 4.5.14 在 Linux 下的安装](/_posts/2013-11-07-install-gmt4-under-linux.md) 
+- 2013-11-07: [GMT 4.5.15 在 Linux 下的安装](/_posts/2013-11-07-install-gmt4-under-linux.md) 
 - 2013-11-09: [GMT4 与 GMT5 双版本共存](/_posts/2013-11-09-multiple-versions-of-gmt.md) 
 - 2013-11-10: [GMT5 的图层透明效果](/_posts/2013-11-10-gmt5-transparency.md) 
 - 2013-11-13: [判断字节序的多种方法](/_posts/2013-11-13-linux-endian.md) 
