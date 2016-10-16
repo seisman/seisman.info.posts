@@ -140,7 +140,7 @@ B=a1g1
 gmt set MAP_FRAME_TYPE=inside MAP_GRID_PEN_PRIMARY=0p,red,.
 gmt psbasemap -R$R -J$J -B$B -BWSEN -K -O -Xf0c -Yf0c >> $PS
 
-# 在辅助底图坐标系中绘制两条连线，注意 - Xf0c 和 - Yf0c
+# 在辅助底图坐标系中绘制两条连线，注意 -Xf0c 和 -Yf0c
 gmt psxy -R$R -J$J -W2p,blue -K -O -Xf0c -Yf0c >> $PS << EOF
 >
 10.5 10.5
