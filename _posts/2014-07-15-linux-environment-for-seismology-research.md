@@ -2,13 +2,12 @@
 title: 用 CentOS 7 打造合适的科研环境
 author: SeisMan
 date: 2014-07-15
-updated: 2015-09-18
+updated: 2016-10-19
 categories: Linux
 tags: [CentOS, Perl, Python]
 ---
 
-这篇博文记录了我用 CentOS 7 搭建 **地震学科研环境** 的过程，供我个人在未来重装系统时参考。
-对于其他地震学科研人员，也许有借鉴意义。
+这篇博文记录了我用 CentOS 7 搭建 **地震学科研环境** 的过程，供我个人在未来重装系统时参考。对于其他地震学科研人员，也许有借鉴意义。
 
 阅读须知：
 
@@ -27,7 +26,7 @@ CentOS 7 的安装与其他 Linux 发行版的安装差不多，个别地方稍�
 ### 准备工作
 
 1.  准备材料
-    -   U 盘：容量 700M 以上，用于制作 U 盘启动盘，因为在制作启动盘时会格式化 U 盘，所以 U 盘内不要包含重要资料
+    -   U 盘：容量 2GB 以上，用于制作 U 盘启动盘，因为在制作启动盘时会格式化 U 盘，所以 U 盘内不要包含重要资料
     -   [CentOS 7.2 LiveCD ISO 镜像文件](http://mirrors.ustc.edu.cn/centos/7/isos/x86_64/CentOS-7-x86_64-LiveGNOME-1511.iso)
     -   [Universal USB installer](http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/)：Windows 下的 U 盘启动盘制作工具
     -   一个已安装 Windows 的电脑：用于制作 U 盘启动盘
@@ -41,8 +40,8 @@ CentOS 7 的安装与其他 Linux 发行版的安装差不多，个别地方稍�
 
 ### 安装过程
 
-1.  选择安装过程中使用的语言，这里应 ** 使用英语，不要使用汉语 **。若安装界面使用汉语，最终安装的系统中会出现两个比较麻烦的问题：
-    1.  家目录下的系统文件夹，比如 Downloads、Desktop 等会以中文表示，这使得在命令行 `cd` 变得很麻烦；
+1.  选择安装过程中使用的语言，这里应 **使用英语，不要使用汉语**。若安装界面使用汉语，最终安装的系统中会出现两个比较麻烦的问题：
+    1.  家目录下的系统文件夹如 Downloads、Desktop 等会以中文表示，这使得在命令行 `cd` 变得很麻烦；
     2.  终端中某些字符用英文字体，某些字符用中文字体，效果非常差，需要自己修改终端字体方可；
 
 2.  选择区域和城市：Asia 和 Shanghai
@@ -113,14 +112,14 @@ sudo yum install epel-release
 
 执行完该命令后，在 `/etc/yum.repos.d` 目录下会多一个 `epel.repo` 文件。
 
-#### Nux Dextop
+<!-- #### Nux Dextop
 
 [Nux Dextop](http://li.nux.ro/repos.html) 中包含了一些与多媒体相关的软件包，作者尽量
 保证不覆盖 base 源。官方说明中说该源与 EPEL 兼容，实际上个别软件包存在冲突，但基本不会造成影响:
 
     sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
 
-完成该命令后，在 `/etc/yum.repos.d` 目录下会多一个 `nux-dextop.repo` 文件。
+完成该命令后，在 `/etc/yum.repos.d` 目录下会多一个 `nux-dextop.repo` 文件。-->
 
 #### ELRepo
 
@@ -150,7 +149,7 @@ ELRepo 包含了一些硬件相关的驱动程序，比如显卡、声卡驱动:
 
 ### 重启
 
-此处建议重启。
+第一次全面更新完之后建议重启。
 
 ### 删除多余的 kernel
 
@@ -174,8 +173,7 @@ ELRepo 包含了一些硬件相关的驱动程序，比如显卡、声卡驱动:
     kernel-tools-3.10.0-123.9.3.el7.x86_64
     kernel-tools-libs-3.10.0-123.9.3.el7.x86_64
 
-可以看出有三个版本的 kernel，123.8.1、123.9.2 和 123.9.3。除了最新的 kernel 外，建议多保留一个旧 kernel，
-以免新 kernel 出现问题时可以通过旧 kernel 进入系统。因而此处删除 123.8.1 版本的 kernel:
+可以看出有三个版本的 kernel，123.8.1、123.9.2 和 123.9.3。除了最新的 kernel 外，建议多保留一个旧 kernel，以免新 kernel 出现问题时可以通过旧 kernel 进入系统。因而此处删除 123.8.1 版本的 kernel:
 
     sudo yum remove kernel-3.10.0-123.8.1.el7.x86_64
     sudo yum remove kernel-devel-3.10.0-123.8.1.el7.x86_64
@@ -198,8 +196,6 @@ ELRepo 包含了一些硬件相关的驱动程序，比如显卡、声卡驱动:
     sudo yum install gdb     # 代码调试器
     sudo yum install cmake   # Cmake
     sudo yum install git     # 版本控制
-    sudo yum install tig     # git 的文本模式接口
-    sudo yum install git-svn # git 的 svn 插件
 
 ## 驱动程序
 
@@ -249,7 +245,7 @@ Intel 软件的申请以及安装参考《[Intel 非商业免费开发工具](/i
 
 ### 并行计算
 
-并行可以用 openmpi，也可以用 mpich，二者应该是并列的。但是由于二者提供了几乎一样的命令，
+并行可以用 openmpi，也可以用 mpich，二者的功能可以认为是完全相同的。由于二者提供了几乎一样的命令，
 所以二者可以同时安装，但是不可以同时处于使用状态。
 
 #### openmpi
@@ -332,9 +328,13 @@ Python2 与 Python3 之间是不完全兼容的，而我以 Python3 为主，所
 
 ### 编辑器
 
+写代码的时候选一个好用的编辑器很重要，用的比较多的编辑器如下：
+
 1.  vim
-2.  sublime text 3
-3.  Visual Studio Code
+2.  emacs
+3.  atom
+4.  sublime text 3
+5.  Visual Studio Code
 
 ### IDE
 

@@ -135,12 +135,23 @@ Type "help", "copyright", "credits" or "license" for more information.
     不会和系统模块发生冲突。
 -   使用 `pip` 安装模块后，可能需要执行 `pyenv rehash` 更新数据库；
 
+## 使用 USTC 镜像
+
+如果使用 pip 安装模块时速度比较慢，可以考虑使用中科大 LUG 提供的镜像，可以大大提供 pip 安装模块的速度。
+
+编辑 `~/.pip/pip.conf` 文件（如果没有则创建之），将 `index-url` 开头的一行修改为下面一行：
+
+    [global]
+    index-url = https://pypi.mirrors.ustc.edu.cn/simple
+
 ## 参考
 
 1.  <https://github.com/yyuu/pyenv>
+2.  <https://lug.ustc.edu.cn/wiki/mirrors/help/pypi>
 
 ## 修订历史
 
 -   2013-10-04：初稿；
 -   2014-10-07：将 Python 依赖包一段的位置提前；
 -   2016-07-30：使用 `pyenv-installer` 安装；
+-   2016-10-19：中科大 pypi 镜像；

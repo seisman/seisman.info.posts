@@ -15,7 +15,7 @@ tags: [安装, Perl]
 ``` bash
 $ git clone git://github.com/tokuhirom/plenv.git ~/.plenv
 $ echo 'export PATH="$HOME/.plenv/bin:$PATH"'>> ~/.bashrc
-$ echo 'eval"$(plenv init -)"' >> ~/.bashrc
+$ echo 'eval "$(plenv init -)"' >> ~/.bashrc
 $ exec $SHELL -l
 ```
 
