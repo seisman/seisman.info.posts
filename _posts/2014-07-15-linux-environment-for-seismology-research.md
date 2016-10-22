@@ -445,9 +445,9 @@ Flash 插件主要是看在线视频的时候要用。Google 浏览器自带了 
 
     sudo yum install p7zip
 
-解压 rar 格式需要 unrar，该软件由 Nux Dextop 提供:
+解压 rar 格式可以使用 [unar](https://unarchiver.c3.cx/commandline)，该软件位于 EPEL 源中：
 
-    sudo yum install unrar
+    sudo yum install unar
 
 ### FTP 客户端
 
