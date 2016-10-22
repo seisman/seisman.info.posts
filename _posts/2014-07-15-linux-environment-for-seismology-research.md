@@ -556,19 +556,9 @@ chsh 命令修改的是 login shell，因而需要退出当前用户并重新登
 
 ### 中文输入法
 
-刚安装的系统可能是没有中文输入法的，源中带的中文输入法应该是 ibus，使用效果一般。fcitx 是更好的选择，基于 fcitx 框架的搜狗输入法或许是更好的选择。
+由于使用的是全英文安装，所以默认是没有中文输入法的。
 
-参考 [CentOS7 安装 fcitx 中文输入法](/fcitx-for-centos-7.html)。
-
-### HostTool
-
-科学上网几乎已经成为每个搞科研的人的必备技能。
-
-科学上网的方式有很多，这里只说 HostTool： <https://hosts.huhamhire.com/>
-
-HostTool 科学上网本质上就是用最新的 host 文件替代了系统自带的 host 文件。
-
-下载解压后，进入目录，直接 `sudo python2 hoststool.py` 即可运行，具体的用法自己研究一下。
+在“Application”->“Settings”->“Region & Language” 中将“Chinese（Intelligent Pinyin）”添加到“Input Sources” 中即可使用中文输入法。默认使用“Shift”键切换中文输入法。
 
 ### 等宽字体
 
@@ -579,8 +569,7 @@ HostTool 科学上网本质上就是用最新的 host 文件替代了系统自�
 3.  易于区分中文下的左引号和右引号
 4.  美观
 
-目前选择的 Source Code Pro。将解压后的字体文件放在 `~/.fonts` 目录下，
-并修改终端、gedit 以及其他编辑器、IDE 等的默认字体。
+目前选择的 Source Code Pro。将解压后的字体文件放在 `~/.fonts` 目录下，并修改终端、gedit 以及其他编辑器、IDE 等的默认字体。
 
 ## 虚拟机
 
