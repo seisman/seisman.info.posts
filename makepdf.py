@@ -28,7 +28,7 @@ def md2pdf(md, pdf, permalink):
            "--template", template,
            "--listings",
            "--number-sections",
-           "--chapters",
+           "--top-level-division=chapter",
            "--latex-engine=xelatex",
            "-Vpermalink="+permalink,
            ]
