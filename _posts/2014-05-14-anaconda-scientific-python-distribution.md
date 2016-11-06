@@ -96,3 +96,20 @@ pip 是 Python 自带的模块安装工具，比如:
 
     conda update conda
     conda update anaconda
+
+## 添加 anaconda 镜像
+
+清华大学为 anaconda 提供了镜像服务，可以大大提高下载速度。
+
+执行如下命令即可使用清华大学提供的anaconda镜像服务：
+
+```
+conda config --add channels 'https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/'
+conda config --set show_channel_urls yes
+```
+
+## 修订历史
+
+- 2014-05-14: 初稿
+- 2016-10-06: 增加清华镜像服务
+

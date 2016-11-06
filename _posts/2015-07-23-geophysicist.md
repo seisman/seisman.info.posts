@@ -40,7 +40,7 @@ categories: 地球物理相关资源
 | [Brian Savage]          |          |
 | [Nicholas Schmerr]      |          |
 | [Peter M. Shearer]      |          |
-| [Roel Snieder]          |          |
+| [Roel Snieder]          | Code Wave Interferometry    |
 | [Xiaodong Song]         |          |
 | [Satoru Tanaka]         |          |
 | [Hrvoje Tkalčić]        |          |
