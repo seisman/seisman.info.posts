@@ -166,6 +166,13 @@ tags: [理论地震图, SAC, GMT]
 [WPhase]: http://eost.u-strasbg.fr/wphase/
 [focmec]: https://seiscode.iris.washington.edu/projects/focmec
 
+## 震相拾取
+
+- [PhasePApy][]: Python 写的震相拾取软件包
+
+[PhasePApy]: https://github.com/austinholland/PhasePApy
+
+
 ## 特定功能类
 
 - [hk][]: 用于接收函数研究的代码。
