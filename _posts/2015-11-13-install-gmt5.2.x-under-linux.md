@@ -6,7 +6,7 @@ categories: GMT
 tags: [安装]
 ---
 
-**本文不再维护更新，最新版本的GMT的安装方法见 <http://docs.gmt-china.org/installation.html> **
+**本文不再维护更新，最新版本的GMT的安装方法见 <http://docs.gmt-china.org/install-linux.html> **
 
 **注意：** 为 Ubuntu 和 CentOS 用户写了一个快速安装脚本，见 [gmt-easy-installer](https://github.com/gmt-china/gmt-easy-installer)。有兴趣的可以试着安装，也欢迎测试各种不同的平台。
 
