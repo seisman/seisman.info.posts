@@ -131,6 +131,12 @@ tags: [理论地震图, SAC, GMT]
 [SPECFEM3D]: https://github.com/geodynamics/specfem3d
 [SPECFEM3D Global]: https://github.com/geodynamics/specfem3d_globe
 
+## 层析成像
+
+- [ASWMS][]: Automated Surface-Wave Phase-Velocity Measuring System, Matlab
+
+[ASWMS]: https://ds.iris.edu/ds/products/aswms/
+
 ## 全波形反演
 
 - [TOY2DAC][]: 2D Acoustic frequency-domain Full Waveform modeling and inversion code.
