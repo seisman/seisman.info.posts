@@ -186,6 +186,7 @@ tags: [理论地震图, SAC, GMT]
 - [IRFFM][]: 带 GUI 的接收函数软件包。
 - [astack][]: 自适应迭代以实现震相对齐。
 - [SplitLab][]: 基于 Matlab 的 S 波分裂处理工具
+- [mutlisplit][]: S 波分裂处理工具
 - [CitcomS][]: 求解地幔可压缩热动力学对流问题的有限元代码
 
 [hk]: http://www.eas.slu.edu/People/LZhu/home.html
@@ -194,6 +195,7 @@ tags: [理论地震图, SAC, GMT]
 [astack]: http://rses.anu.edu.au/seismology/soft/astack/index.html
 [SplitLab]: http://splitting.gm.univ-montp2.fr/
 [CitcomS]: https://github.com/geodynamics/citcoms
+[multisplit]: https://github.com/ftilmann/multisplit
 
 
 ## 数学处理类
