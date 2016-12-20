@@ -143,10 +143,8 @@ BREQ\_FAST 对邮件内容的格式有严格的要求，但对邮件主题无要
 根据上面的规则生成了邮件内容，直接将内容作为邮件正文（不是附件）以纯文本格式发送到指定邮箱，不同的邮箱功能不同；
 
 -   `breq_fast@iris.washington.edu` ：申请完整的 SEED 文件，最常用的方式；
--   `DATALESS@iris.washington.edu`
-    ：无数据的 SEED 文件，包含仪器响应、仪器坐标等台站信息，一般与 miniSEED 数据联合使用；
--   `miniseed@iris.washington.edu`
-    ：miniSEED 数据，只有数据没有台站信息；
+-   `DATALESS@iris.washington.edu`  ：无数据的 SEED 文件，包含仪器响应、仪器坐标等台站信息，一般与 miniSEED 数据联合使用；
+-   `miniseed@iris.washington.edu`  ：miniSEED 数据，只有数据没有台站信息；
 -   `sync@iris.washington.edu` ：合成数据
 
 ## 申请回应
