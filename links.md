@@ -47,6 +47,7 @@ updated: 2016-05-17
 - [SCSN Moment Tensor Catalog](http://service.scedc.caltech.edu/eq-catalogs/CMTsearch.php)
 - [JMA Focal Mechanism Catalog](http://www.data.jma.go.jp/svd/eqev/data/bulletin/cmt_e.html)
 - [JMA Nodal Plane Solution](http://www.data.jma.go.jp/svd/eqev/data/bulletin/mech_e.html)
+- [意大利周边震源机制](http://cnt.rm.ingv.it/en/tdmt)
 
 ## 走时数据
 
