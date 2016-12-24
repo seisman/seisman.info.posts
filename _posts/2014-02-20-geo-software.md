@@ -152,6 +152,7 @@ tags: [理论地震图, SAC, GMT]
 - [DENISE][]: 2D PSV有限差分模拟及FWI
 - [SES3D][]: 3D谱元法FWI
 - [LASIF][]: 基于 Python 的大规模全波形反演框架，似乎是层析成像。
+- [seisDD][]: Double-difference adjoint seismic tomography
 
 [TOY2DAC]: https://seiscope2.osug.fr/TOY2DAC,82
 [ASKI]: http://www.gmg.ruhr-uni-bochum.de/geophysik/seismology/aski.html
@@ -162,6 +163,7 @@ tags: [理论地震图, SAC, GMT]
 [DENISE]: https://github.com/daniel-koehn/DENISE-Black-Edition
 [SES3D]: http://www.cos.ethz.ch/software/ses3d.html
 [LASIF]: http://www.lasif.net/
+[seisDD]: https://github.com/yanhuay/seisDD
 
 ## 震源机制
 
