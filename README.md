@@ -182,7 +182,6 @@
 - 2015-10-10: [判断点在多边形内](/_posts/2015-10-10-points-inside-polygons.md) 
 - 2015-10-13: [rdseed 用法笔记](/_posts/2015-10-13-rdseed-notes.md) 
 - 2015-10-27: [地震数据申请](/_posts/2015-10-27-seismic-waveform-data-request.md) 
-- 2015-11-05: [安装 SOD](/_posts/2015-11-05-install-sod.md) 
 - 2015-11-13: [GMT 5.2.1 在 Linux 下的安装](/_posts/2015-11-13-install-gmt5.2.x-under-linux.md) 
 - 2015-11-19: [绘制事件与台站间的连线](/_posts/2015-11-19-raypath-between-events-and-stations.md) 
 - 2015-12-08: [SOFI2D 笔记](/_posts/2015-12-08-sofi2d-notes.md) 
@@ -208,4 +207,5 @@
 - 2016-07-19: [SAC 文件读写模块 sacio_Fortran](/_posts/2016-07-19-sacio-for-fortran90.md) 
 - 2016-08-14: [使用 Web Services 获取地震数据](/_posts/2016-08-14-web-service-clients.md) 
 - 2016-08-24: [文件管理与备份](/_posts/2016-08-24-file-organization.md) 
+- 2016-12-24: [SOD 入门教程](/_posts/2016-12-24-sod-notes.md) 
 

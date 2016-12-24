@@ -22,7 +22,8 @@ base = os.getcwd()
 
 def filters(key, value, format, meta):
     if key == "Image":
-        value[2][0] = base + value[2][0]
+        if not value[2][0].startswith("http"):
+           value[2][0] = base + value[2][0]
 
     if key == "Link":
         if value[2][0].startswith("/"):
