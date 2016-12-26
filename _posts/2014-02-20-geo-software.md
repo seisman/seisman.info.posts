@@ -191,12 +191,20 @@ tags: [理论地震图, SAC, GMT]
 [SplitLab]: http://splitting.gm.univ-montp2.fr/
 [multisplit]: https://github.com/ftilmann/multisplit
 
+## 接收函数
+
+- [hk][]: 用于接收函数研究的代码。
+- [CCP][]: 共转换点地震数据叠加，用于接收函数研究。
+- [rf][]: 接收函数
+
+[hk]: http://www.eas.slu.edu/People/LZhu/home.html
+[CCP]: http://www.eas.slu.edu/People/LZhu/home.html
+[rf]: https://github.com/trichter/rf
+
 ## 特定功能类
 
 - [distaz][]: 给定震中和台站经纬度，计算震中距、方位角和反方位角的经典代码。
 - [DigitSeis][]: 利用图像处理技术将模拟地震仪记录到的波形图片转换成数字信号（Matlab）
-- [hk][]: 用于接收函数研究的代码。
-- [CCP][]: 共转换点地震数据叠加，用于接收函数研究。
 - [IRFFM][]: 带 GUI 的接收函数软件包。
 - [astack][]: 自适应迭代以实现震相对齐。
 - [CitcomS][]: 求解地幔可压缩热动力学对流问题的有限元代码
@@ -204,8 +212,6 @@ tags: [理论地震图, SAC, GMT]
 
 [distaz]: http://www.seis.sc.edu/software/distaz/
 [DigitSeis]: http://www.seismology.harvard.edu/research/DigitSeis.html
-[hk]: http://www.eas.slu.edu/People/LZhu/home.html
-[CCP]: http://www.eas.slu.edu/People/LZhu/home.html
 [IRFFM]: http://rses.anu.edu.au/~hrvoje/IRFFMv1.1.html
 [astack]: http://rses.anu.edu.au/seismology/soft/astack/index.html
 [CitcomS]: https://github.com/geodynamics/citcoms
