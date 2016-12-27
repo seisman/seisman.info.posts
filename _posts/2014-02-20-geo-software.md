@@ -135,13 +135,15 @@ tags: [理论地震图, SAC, GMT]
 [OpenSWPC]: https://github.com/takuto-maeda/OpenSWPC
 [AxiSEM3D]: https://github.com/kuangdai/AxiSEM3D
 
-## 层析成像
+## 特定研究类
+
+### 层析成像
 
 - [ASWMS][]: Automated Surface-Wave Phase-Velocity Measuring System, Matlab
 
 [ASWMS]: https://ds.iris.edu/ds/products/aswms/
 
-## 全波形反演
+### 全波形反演
 
 - [TOY2DAC][]: 2D Acoustic frequency-domain Full Waveform modeling and inversion code.
 - [ASKI][]: modularized program suite for sensitivity analysis and iterative full waveform inversion
@@ -165,7 +167,7 @@ tags: [理论地震图, SAC, GMT]
 [LASIF]: http://www.lasif.net/
 [seisDD]: https://github.com/yanhuay/seisDD
 
-## 震源机制
+### 震源机制
 
 - [gcap][]: 通用 Cut and Paste 方法反演震源机制
 - [pyTDMT][]: 时间域震源机制反演的 Python 实现
@@ -177,13 +179,15 @@ tags: [理论地震图, SAC, GMT]
 [WPhase]: http://eost.u-strasbg.fr/wphase/
 [focmec]: https://seiscode.iris.washington.edu/projects/focmec
 
-## 震相拾取
+### 震相拾取
 
 - [PhasePApy][]: Python 写的震相拾取软件包
+- [astack][]: 自适应迭代以实现震相对齐。
 
 [PhasePApy]: https://github.com/austinholland/PhasePApy
+[astack]: http://rses.anu.edu.au/seismology/soft/astack/index.html
 
-## S波分裂
+### S波分裂
 
 - [SplitLab][]: 基于 Matlab 的 S 波分裂处理工具
 - [mutlisplit][]: S 波分裂处理工具
@@ -191,31 +195,25 @@ tags: [理论地震图, SAC, GMT]
 [SplitLab]: http://splitting.gm.univ-montp2.fr/
 [multisplit]: https://github.com/ftilmann/multisplit
 
-## 接收函数
+### 接收函数
 
 - [hk][]: 用于接收函数研究的代码。
 - [CCP][]: 共转换点地震数据叠加，用于接收函数研究。
 - [rf][]: 接收函数
+- [IRFFM][]: 带 GUI 的接收函数软件包。
 
 [hk]: http://www.eas.slu.edu/People/LZhu/home.html
 [CCP]: http://www.eas.slu.edu/People/LZhu/home.html
 [rf]: https://github.com/trichter/rf
-
-## 特定功能类
-
-- [distaz][]: 给定震中和台站经纬度，计算震中距、方位角和反方位角的经典代码。
-- [DigitSeis][]: 利用图像处理技术将模拟地震仪记录到的波形图片转换成数字信号（Matlab）
-- [IRFFM][]: 带 GUI 的接收函数软件包。
-- [astack][]: 自适应迭代以实现震相对齐。
-- [CitcomS][]: 求解地幔可压缩热动力学对流问题的有限元代码
-- [MSNoise][]: 利用地震背景噪声检测地下速度结构变化
-
-[distaz]: http://www.seis.sc.edu/software/distaz/
-[DigitSeis]: http://www.seismology.harvard.edu/research/DigitSeis.html
 [IRFFM]: http://rses.anu.edu.au/~hrvoje/IRFFMv1.1.html
-[astack]: http://rses.anu.edu.au/seismology/soft/astack/index.html
-[CitcomS]: https://github.com/geodynamics/citcoms
+
+### 噪声成像
+
+- [MSNoise][]: 利用地震背景噪声检测地下速度结构变化
+- [seismic-noise-tomography][]: 噪声面波成像
+
 [MSNoise]: http://www.msnoise.org/
+[seismic-noise-tomography]: https://github.com/bgoutorbe/seismic-noise-tomography
 
 ## 数学处理类
 
@@ -228,3 +226,13 @@ tags: [理论地震图, SAC, GMT]
 - [libmseed][]: 用于读写 miniSEED 格式的 C 函数库
 
 [libmseed]: https://seiscode.iris.washington.edu/projects/libmseed
+
+## 其他
+
+- [distaz][]: 给定震中和台站经纬度，计算震中距、方位角和反方位角的经典代码。
+- [DigitSeis][]: 利用图像处理技术将模拟地震仪记录到的波形图片转换成数字信号（Matlab）
+- [CitcomS][]: 求解地幔可压缩热动力学对流问题的有限元代码
+
+[distaz]: http://www.seis.sc.edu/software/distaz/
+[DigitSeis]: http://www.seismology.harvard.edu/research/DigitSeis.html
+[CitcomS]: https://github.com/geodynamics/citcoms
