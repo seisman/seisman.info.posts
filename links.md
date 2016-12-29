@@ -13,9 +13,9 @@ updated: 2016-05-17
 ## 机构
 
 - [IRIS](http://www.iris.edu/hq/ "Incorporated Research Institutions for Seismology")
+- [ORFEUS](http://www.orfeus-eu.org/index.html "Observatories and Research Facilities for European Seismology")
 - [AGU](http://sites.agu.org/ "American Geophysical Union")
 - [ISC](http://www.isc.ac.uk/ "International Seismological Centre")
-- [ORFEUS](http://www.orfeus-eu.org/index.html "Observatories and Research Facilities for European Seismology")
 
 ## 地震事件目录
 
@@ -48,6 +48,7 @@ updated: 2016-05-17
 - [JMA Focal Mechanism Catalog](http://www.data.jma.go.jp/svd/eqev/data/bulletin/cmt_e.html)
 - [JMA Nodal Plane Solution](http://www.data.jma.go.jp/svd/eqev/data/bulletin/mech_e.html)
 - [意大利周边震源机制](http://cnt.rm.ingv.it/en/tdmt)
+- [台湾震源机制解](http://tecws.earth.sinica.edu.tw/BATS/cmtbyform.php)
 
 ## 走时数据
 
@@ -85,6 +86,8 @@ updated: 2016-05-17
 
 ## 地球物理数据
 
+- [EARS](http://ds.iris.edu/ds/products/ears/): 美国地区接收函数数据库
+- [GLImER](http://stephanerondenay.com/glimermap/): 全球接收函数库
 - [Source Time Function](http://ds.iris.edu/spud/sourcetimefunction)
 - [Earth Model](http://ds.iris.edu/ds/products/emc/)
 - [Slab Model for Subduction Zones](http://earthquake.usgs.gov/data/slab/)
