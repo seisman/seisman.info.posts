@@ -37,6 +37,7 @@ updated: 2016-05-17
 - [SCSN catalog](http://service.scedc.caltech.edu/eq-catalogs/date_mag_loc.php)
 - [JMA Unified Hypocenter Catalog](http://www.data.jma.go.jp/svd/eqev/data/bulletin/hypo_e.html)
 - [JMA Preliminary Unified Hypocenter Catalog](https://hinetwww11.bosai.go.jp/auth/JMA/jmalist.php)
+- [澳大利亚](http://www.ga.gov.au/earthquakes/searchQuake.do)
 
 ## 震源机制
 
