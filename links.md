@@ -95,6 +95,7 @@ updated: 2016-05-17
 - [Volcanos Datas](https://www.ngdc.noaa.gov/hazard/volcano.shtml)
 - [Shear-wave splitting database](http://splitting.gm.univ-montp2.fr/DB/index.html)
 - [Central Asia Fault Database](http://www.geo.uni-tuebingen.de/projekte/openfaults/)
+- [AuSREM](http://rses.anu.edu.au/seismology/AuSREM/index.php): 澳大利亚区域模型
 
 ## 其他
 

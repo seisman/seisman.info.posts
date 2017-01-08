@@ -66,17 +66,19 @@ tags: [理论地震图, SAC, GMT]
 [MoPad]: http://www.larskrieger.de/mopad/
 [obspy-mopad]: https://docs.obspy.org/packages/autogen/obspy.imaging.scripts.mopad.html
 
-## 走时计算工具
+## 走时计算/射线追踪
 
 - [TauP][]: 强大的走时计算器，不过其功能可不仅仅只是计算走时这么简单。射线参数、射线路径、反射点、投射点都可以计算，支持自定义速度模型、支持不常见的震相。
 - [Cake][]: Python 写的走时计算工具，支持自定义速度模型，支持更复杂的震相路径。
 - [ANISOtime][]: 横向各向同性球状对称模型下的射线走时工具。
 - [pySeismicFMM][]: Fast Marching Method 计算 3D 走时
+- [FM3D][]: 3D Fast Marching Code
 
 [TauP]: http://www.seis.sc.edu/taup/
 [Cake]: http://emolch.github.io/pyrocko/current/cake_doc.html
 [ANISOtime]: http://www-solid.eps.s.u-tokyo.ac.jp/~dsm/anisotime.html
 [pySeismicFMM]: https://github.com/gozwei/pySeismicFMM
+[FM3D]: http://rses.anu.edu.au/seismology/soft/fmmcode/
 
 ## 理论地震图
 
