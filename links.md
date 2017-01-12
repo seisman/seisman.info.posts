@@ -29,6 +29,8 @@ updated: 2016-05-17
 
 ### 区域地震目录
 
+- [中国历史地震目录](http://data.earthquake.cn/data/data/history_query.jsp)
+- [中国台网统一地震目录](http://data.earthquake.cn/data/datashare_tyml_query.jsp)
 - [ANSS Catalog](http://www.ncedc.org/anss/)
 - [NCEC Catalog](http://www.ncedc.org/ncedc/catalogs.html)
 - [ANSS Comprehensive Catalog](http://earthquake.usgs.gov/earthquakes/search/)
@@ -51,10 +53,12 @@ updated: 2016-05-17
 - [意大利周边震源机制](http://cnt.rm.ingv.it/en/tdmt)
 - [台湾震源机制解](http://tecws.earth.sinica.edu.tw/BATS/cmtbyform.php)
 
-## 走时数据
+## 走时/震相数据
 
 - [ISC Arrival Time Data](http://www.isc.ac.uk/iscbulletin/search/arrivals/)
 - [JMA Arrival Time Data](http://www.data.jma.go.jp/svd/eqev/data/bulletin/deck_e.html)
+- [中国台网震相数据](http://data.earthquake.cn/data/datashare_weekphase_query.jsp)
+- [中国国家台网震相数据](http://data.earthquake.cn/data/csn24_phase_p001_new.jsp)
 
 ## 地震台网/波形数据
 
