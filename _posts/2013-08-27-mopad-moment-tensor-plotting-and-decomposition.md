@@ -16,7 +16,7 @@ MoPaD，全称Moment tensor Plotting and Decomposition，是一个用于分析�
 
 **作者：**Lars Krieger and Sebastian Heimann
 
-**语言：**Python，需要安装numpy和matplotlib模块
+**语言：**Python2，需要安装numpy和matplotlib模块
 
 **官方主页：** <http://www.larskrieger.de/mopad/>
 
