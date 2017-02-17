@@ -197,7 +197,7 @@ tags: [理论地震图, SAC, GMT]
 
 [SplitLab]: http://splitting.gm.univ-montp2.fr/
 [multisplit]: https://github.com/ftilmann/multisplit
-[SplitRacer]: geophysik.uni-frankfurt.de/64002762/Software
+[SplitRacer]: http://www.geophysik.uni-frankfurt.de/64002762/Software
 
 ### 接收函数
 
