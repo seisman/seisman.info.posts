@@ -193,9 +193,11 @@ tags: [理论地震图, SAC, GMT]
 
 - [SplitLab][]: 基于 Matlab 的 S 波分裂处理工具
 - [mutlisplit][]: S 波分裂处理工具
+- [SplitRacer][]: S 波分裂处理工具
 
 [SplitLab]: http://splitting.gm.univ-montp2.fr/
 [multisplit]: https://github.com/ftilmann/multisplit
+[SplitRacer]: geophysik.uni-frankfurt.de/64002762/Software
 
 ### 接收函数
 
