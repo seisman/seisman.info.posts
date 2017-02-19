@@ -58,7 +58,7 @@ rdseed 可以直接提取波形数据:
 
 ## rdseed: miniSEED => SAC
 
-利用 rdseed 将 miniSEED 数据转换为 SAC 格式时，需要使用 ** 对应 ** 的 dataless SEED 数据。
+利用 rdseed 将 miniSEED 数据转换为 SAC 格式时，需要使用 **对应** 的 dataless SEED 数据。
 
 从 miniSEED 中提取波形数据:
 
