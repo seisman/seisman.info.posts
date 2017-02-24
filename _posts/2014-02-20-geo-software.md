@@ -184,10 +184,12 @@ tags: [理论地震图, SAC, GMT]
 ### 震相拾取
 
 - [PhasePApy][]: Python 写的震相拾取软件包
-- [astack][]: 自适应迭代以实现震相对齐。
+- [astack][]: 自适应迭代以实现震相对齐
+- [CrazySeismic_Pick][]: 多通道相关实现震相对齐
 
 [PhasePApy]: https://github.com/austinholland/PhasePApy
 [astack]: http://rses.anu.edu.au/seismology/soft/astack/index.html
+[CrazySeismic_Pick]: http://web.gps.caltech.edu/~yucq/software.html
 
 ### S波分裂
 
@@ -204,12 +206,14 @@ tags: [理论地震图, SAC, GMT]
 - [hk][]: 用于接收函数研究的代码。
 - [CCP][]: 共转换点地震数据叠加，用于接收函数研究。
 - [rf][]: 接收函数
-- [IRFFM][]: 带 GUI 的接收函数软件包。
+- [IRFFM][]: 带 GUI 的接收函数软件包
+- [CrazySeismic_Decon][]: 基于Matlab的带GUI的接收函数软件包
 
 [hk]: http://www.eas.slu.edu/People/LZhu/home.html
 [CCP]: http://www.eas.slu.edu/People/LZhu/home.html
 [rf]: https://github.com/trichter/rf
 [IRFFM]: http://rses.anu.edu.au/~hrvoje/IRFFMv1.1.html
+[CrazySeismic_Decon]: http://web.gps.caltech.edu/~yucq/software.html
 
 ### 噪声成像
 
