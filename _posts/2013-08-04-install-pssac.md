@@ -10,7 +10,9 @@ tags: [pssac, 安装, GMT]
 `pssac` 是 Prof. Lupei Zhu 根据 GMT 的 `psxy` 命令修改得到，用于绘制 SAC 格式的波形数据的
 一个小程序。
 
-该程序调用了 GMT 的绘图库，因而安装该程序之前需要首先安装 GMT4。需要注意，该程序不支持 GMT5。
+该程序调用了 GMT 的绘图库，因而安装该程序之前需要首先安装 GMT4。
+
+**GMT5用户请注意，GMT 从 5.3.1 起自带了 pssac 模块，可以直接使用 `gmt pssac` 来调用。**
 
 <!--more-->
 

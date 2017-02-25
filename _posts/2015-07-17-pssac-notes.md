@@ -6,6 +6,14 @@ categories: 地震学软件
 tags: [pssac, 教程, GMT]
 ---
 
+**注意：本文仅针对 Prof. Lupei Zhu 的 pssac 程序，其仅可在 GMT 4下使用。
+对于GMT5用户，GMT 在 5.3.1 之后自带了 pssac，可以使用 `gmt pssac` 直接调用。**
+
+相关文档见:
+
+- http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html
+- http://modules.gmt-china.org/pssac.html
+
 `pssac` 可以读取 SAC 波形数据，并利用 GMT 的绘图功能将波形数据绘制在 PS 文件中。
 `pssac` 绘制的波形图，大致可以分为三类：
 
