@@ -240,7 +240,9 @@ tags: [理论地震图, SAC, GMT]
 - [distaz][]: 给定震中和台站经纬度，计算震中距、方位角和反方位角的经典代码。
 - [DigitSeis][]: 利用图像处理技术将模拟地震仪记录到的波形图片转换成数字信号（Matlab）
 - [CitcomS][]: 求解地幔可压缩热动力学对流问题的有限元代码
+- [AFAT][]: 根据 Cijkl 计算各向异性介质不同方向的速度
 
 [distaz]: http://www.seis.sc.edu/software/distaz/
 [DigitSeis]: http://www.seismology.harvard.edu/research/DigitSeis.html
 [CitcomS]: https://github.com/geodynamics/citcoms
+[AFAT]: http://cpc.cs.qub.ac.uk/summaries/AFAT_v1_0.html
