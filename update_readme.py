@@ -7,7 +7,7 @@ import glob
 f = open("README.md", "w")
 f.write("# SeisMan 博客\n\n")
 
-for year in range(2013, 2017, 1):
+for year in range(2013, 2018, 1):
     f.write("## {} 年\n\n".format(year))
     for md in sorted(glob.glob("_posts/{}-*-*-*.md".format(year))):
         date = '-'.join(os.path.basename(md).split('-')[0:3])

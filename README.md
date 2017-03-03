@@ -209,3 +209,7 @@
 - 2016-08-24: [文件管理与备份](/_posts/2016-08-24-file-organization.md) 
 - 2016-12-24: [SOD 入门教程](/_posts/2016-12-24-sod-notes.md) 
 
+## 2017 年
+
+- 2017-01-12: [地震学中的坐标系](/_posts/2017-01-12-coordinate-systems-in-seismology.md) 
+
