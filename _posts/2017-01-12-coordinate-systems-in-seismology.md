@@ -119,9 +119,9 @@ Mrr & Mrt & Mrp \\
 Mtr & Mtt & Mtp \\
 Mpr & Mpt & Mpp
 \end{bmatrix}$=$\begin{bmatrix}
-Mnn & Mne & Mnd \\
-Men & Mee & Med \\
-Mdn & Mde & Mdd
+Mdd & Mdn & -Mde \\
+Mnd & Mnn & -Mne \\
+-Med & -Men & Mee
 \end{bmatrix}$
 
 ## 参考
