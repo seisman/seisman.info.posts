@@ -75,7 +75,7 @@ tags: [理论地震图, SAC, GMT]
 - [FM3D][]: 3D Fast Marching Code
 
 [TauP]: http://www.seis.sc.edu/taup/
-[Cake]: http://emolch.github.io/pyrocko/current/cake_doc.html
+[Cake]: http://pyrocko.org/
 [ANISOtime]: http://www-solid.eps.s.u-tokyo.ac.jp/~dsm/anisotime.html
 [pySeismicFMM]: https://github.com/gozwei/pySeismicFMM
 [FM3D]: http://rses.anu.edu.au/seismology/soft/fmmcode/
