@@ -41,7 +41,7 @@ Jg=M7c              # 大区域地图的投影方式 - J
 # 绘制大区域地图的海岸线及边框
 gmt pscoast -R$Rg -J$Jg -B0 -B+gwhite -Df -N1 -W -A5000 -K -O --MAP_FRAME_TYPE=plain >> $PS
 # 利用 psbasemap 在大区域地图内绘制小区域所在的方框
-gmt psbasemap -R$Rg -J$Jg -D$R+p2p,blue -K -O >> $PS
+gmt psbasemap -R$Rg -J$Jg -D$R -F+p2p,blue -K -O >> $PS
 
 # 结束 GMT 绘图
 gmt psxy -R$R -J$J -T -O >> $PS
