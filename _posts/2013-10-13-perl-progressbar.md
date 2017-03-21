@@ -1,5 +1,5 @@
 ---
-title: Perl 进度条模型
+title: Perl 进度条模块
 date: 2013-10-13
 author: SeisMan
 categories: 编程
