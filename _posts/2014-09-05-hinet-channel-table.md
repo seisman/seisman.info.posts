@@ -11,8 +11,7 @@ tags: [Hinet, 仪器响应]
 即 Channel Table 文件。两个文件内容是相同的，区别在于一个是 `euc` 编码，
 一个是 `sjis` 编码。只需要用其中一个即可，这里选择 `euc` 编码的文件。
 
-Channel Table 文件描述了每个 channel 的仪器信息，某种程度上等效于常见的 RESP 或 SAC
-PZ 仪器响应文件。但是实际上 Channel Table 有一定的局限性，无法理解 Hi-net 为什么会用这种格式来指定仪器响应信息。
+Channel Table 文件描述了每个 channel 的仪器信息，某种程度上等效于常见的 RESP 或 SAC PZ 仪器响应文件。但是实际上 Channel Table 有一定的局限性，无法理解 Hi-net 为什么会用这种格式来指定仪器响应信息。
 
 由于需要注意的是，对于 Hinet 而言，channel table 可以完整的描述仪器响应，而对于 Fnet 而言，channel table 给出的信息不足。因而关于 channel table 的内容，仅适用于 Hinet，不适用于 Fnet，不确定是否适用于其他台网。
 
@@ -112,4 +111,3 @@ Hi-net 官方回复指出，FAQ08 中的解释是正确的，即第 10 列为 �
 
 -   2014-09-05：初稿；
 -   2014-09-09：Hi-net 官方确定了第 10 列的含义；
-

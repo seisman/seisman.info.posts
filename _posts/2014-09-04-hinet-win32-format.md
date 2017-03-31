@@ -14,4 +14,7 @@ tags: [Hinet, 格式, 数据]
 
 [WIN32 格式官方文档](http://www.hinet.bosai.go.jp/REGS/manual/dlDialogue.php?r=win32format&LANG=en)
 
-WIN32 格式是很线性的，如果需要的话很容易自己写程序实现 win32 格式数据的合并、转换的。Hi-net 提供了 win32tools，可以实现一些基本的功能。
+WIN32 是个相当变态的格式，为了对数据大小进行压缩，win32在存储的过程中使用了差异压缩算法，以0.5、1、2、3、4个字节来保存数据，自己写程序去读数据时需要非常小心。
+
+
+幸好，Hi-net 提供了 win32tools，可以实现一些基本的功能。
