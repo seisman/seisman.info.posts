@@ -42,8 +42,9 @@ TauP 提供了多个工具，包括有图形界面的 `taup` ，交互式的 `ta
 ## TauP 系列博文
 
 1. [安装 TauP](/install-taup.html)
-2. [用 taup\_time 计算震相走时及射线信息](/calculate-travel-time-using-taup.html)
-3. [用 taup\_pierce 计算射线的界面的穿透点](/calculate-pierce-points-using-taup.html)
-4. [用 taup\_setsac 将走时信息写入 SAC 文件](/mark-travel-time-using-taup.html)
+2. [用 taup_time 计算震相走时及射线信息](/calculate-travel-time-using-taup.html)
+3. [用 taup_pierce 计算射线的界面的穿透点](/calculate-pierce-points-using-taup.html)
+4. [用 taup_setsac 将走时信息写入 SAC 文件](/mark-travel-time-using-taup.html)
 5. [TauP 自定义速度模型](/taup-custom-models.html)
 6. [识别 TauP 输出中的多个 P 震相](/taup-identify-multiple-P-phases.html)
+7. [计算任意深度处下表面反射波走时](/calculate-travel-time-of-deep-mantle-underside-reflection.html)
