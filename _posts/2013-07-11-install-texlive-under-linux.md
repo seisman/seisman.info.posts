@@ -52,8 +52,8 @@ $ su
 在当前用户的 `~/.bashrc` 中加入如下语句：
 
 ``` bash
-# TeX Live 2015
-export MANPATH=${MANPATH}:/urs/local/texlive/2016/texmf-dist/doc/man
+# TeX Live 2016
+export MANPATH=${MANPATH}:/usr/local/texlive/2016/texmf-dist/doc/man
 export INFOPATH=${INFOPATH}:/usr/local/texlive/2016/texmf-dist/doc/info
 export PATH=${PATH}:/usr/local/texlive/2016/bin/x86_64-linux
 ```
