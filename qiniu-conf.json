@@ -1,7 +1,7 @@
 {
    "src_dir"            :   "/home/seisman/Gits/seisman.info/source/_pdfs",
-   "access_key"         :   "xxxxxxxxxx",
-   "secret_key"         :   "xxxxxxxxxx",
+   "access_key"         :   ${QUNIU_ACCESS_KEY},
+   "secret_key"         :   ${QINIU_SECRET_KEY},
    "bucket"             :   "seisman",
    "ignore_dir"         :   false,
    "key_prefix"         :   "pdfs/",
