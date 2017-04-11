@@ -40,11 +40,11 @@ tags:  [C, Fortran, Java, Python, Matlab, 名词解释]
 
 仅以 C 语言版本的 `distaz` 为例，用如下命令即可编译:
 
-    cc distaz.c -o cdistaz -lm
+    cc distaz.c -o distaz -lm
 
 其输入为 `sta_lat sta_lon evt_lat evt_lon` ，输出为 `Delta Baz Az` 。
 
-    $ distaz 10 14 40 50
+    $ ./distaz 10 14 40 50
     43.731 40.781 236.882
 
 ## 修订历史
