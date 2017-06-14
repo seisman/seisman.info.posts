@@ -1,13 +1,13 @@
 ---
-title: Linux 下安装 TeXLive 2016
+title: Linux 下安装 TeXLive 2017
 date: 2013-07-11
-updated: 2016-06-06
+updated: 2017-06-14
 author: SeisMan
 categories: 编程
 tags: [安装, LaTeX]
 ---
 
-本文将介绍如何在 Linux 下安装 TeXLive 2016。
+本文将介绍如何在 Linux 下安装 TeXLive 2017。
 
 <!--more-->
 
@@ -30,8 +30,8 @@ Ubuntu:
 
 下载地址：
 
-- 官方镜像: [texlive2016.iso](http://mirrors.ctan.org/systems/texlive/Images/texlive2016.iso)
-- USTC 镜像: [texlive2016.iso](http://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/texlive2016.iso)
+- 官方镜像: [texlive2017.iso](http://mirrors.ctan.org/systems/texlive/Images/texlive2017.iso)
+- USTC 镜像: [texlive2017.iso](http://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/texlive2017.iso)
 
 Linux 下可以用 wget、axel，windows 下可以用迅雷，怎么快怎么来。
 
@@ -39,7 +39,7 @@ Linux 下可以用 wget、axel，windows 下可以用迅雷，怎么快怎么来
 
 ``` bash
 $ su
-# mount -o loop texlive2016.iso  /mnt/
+# mount -o loop texlive2017.iso  /mnt/
 # cd /mnt
 # ./install-tl
 ```
@@ -52,10 +52,10 @@ $ su
 在当前用户的 `~/.bashrc` 中加入如下语句：
 
 ``` bash
-# TeX Live 2016
-export MANPATH=${MANPATH}:/usr/local/texlive/2016/texmf-dist/doc/man
-export INFOPATH=${INFOPATH}:/usr/local/texlive/2016/texmf-dist/doc/info
-export PATH=${PATH}:/usr/local/texlive/2016/bin/x86_64-linux
+# TeX Live 2017
+export MANPATH=${MANPATH}:/usr/local/texlive/2017/texmf-dist/doc/man
+export INFOPATH=${INFOPATH}:/usr/local/texlive/2017/texmf-dist/doc/info
+export PATH=${PATH}:/usr/local/texlive/2017/bin/x86_64-linux
 ```
 
 ### 卸载 ISO 镜像
@@ -99,7 +99,7 @@ $ su
 
 ## 安装额外的字体
 
-TeXLive 2016 在使用 xeLaTeX 处理中文时，有自己的默认字体。大多数 Linux 发行版下，
+TeXLive 2017 在使用 xeLaTeX 处理中文时，有自己的默认字体。大多数 Linux 发行版下，
 都使用自带的 Fandol 字体。
 
 如果想要使用 Windows 字体，可以将字体文件复制到 `~/.fonts` 目录下，并在 tex 源码中
@@ -114,3 +114,4 @@ TeXLive 2016 在使用 xeLaTeX 处理中文时，有自己的默认字体。大�
 - 2015-03-20：指定更新源以及 GUI 更新；
 - 2015-06-13：更新至 TeXLive 2015；
 - 2016-06-07：更新至 TeXLive 2016；
+- 2017-06-14：更新至 TeXLive 2017；
