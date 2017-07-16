@@ -40,6 +40,7 @@ updated: 2016-05-17
 - [JMA Unified Hypocenter Catalog](http://www.data.jma.go.jp/svd/eqev/data/bulletin/hypo_e.html)
 - [JMA Preliminary Unified Hypocenter Catalog](https://hinetwww11.bosai.go.jp/auth/JMA/jmalist.php)
 - [澳大利亚](http://www.ga.gov.au/earthquakes/searchQuake.do)
+- [加拿大](http://www.earthquakescanada.nrcan.gc.ca/stndon/NEDB-BNDS/bull-en.php)
 
 ## 震源机制
 
