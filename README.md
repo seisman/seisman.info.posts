@@ -16,7 +16,7 @@
 - 2013-07-06: [SAC 参考手册中文版](/_posts/2013-07-06-sac-manual.md) 
 - 2013-07-07: [GMT 使用 -K 和 -O 的技巧](/_posts/2013-07-07-how-to-use-gmt-ko.md) 
 - 2013-07-10: [走时计算软件 TauP](/_posts/2013-07-10-taup-toolkit.md) 
-- 2013-07-11: [Linux 下安装 TeXLive 2016](/_posts/2013-07-11-install-texlive-under-linux.md) 
+- 2013-07-11: [Linux 下安装 TeXLive 2017](/_posts/2013-07-11-install-texlive-under-linux.md) 
 - 2013-07-11: [Firefox 安装 Java 插件](/_posts/2013-07-11-java-plugin-of-firefox.md) 
 - 2013-07-16: [由矩张量计算双力偶断层参数](/_posts/2013-07-16-from-moment-tensor-to-double-couple.md) 
 - 2013-07-19: [JPlotResp：绘制地震仪器响应](/_posts/2013-07-19-jplotresp.md) 
@@ -205,4 +205,5 @@
 
 - 2017-01-12: [地震学中的坐标系](/_posts/2017-01-12-coordinate-systems-in-seismology.md) 
 - 2017-03-31: [计算任意深度处下表面反射波走时](/_posts/2017-03-31-calculate-travel-time-of-deep-mantle-underside-reflection.md) 
+- 2017-04-01: [HinetPy: Hi-net 数据申请与处理模块](/_posts/2017-04-01-hinetpy.md) 
 
