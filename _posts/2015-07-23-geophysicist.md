@@ -58,7 +58,7 @@ categories: 地球物理相关资源
 
 
 [Charles J. Ammon]: http://eqseis.geosc.psu.edu/~cammon/
-[Don L. Anderson]: http://www.mantleplumes.org/DLA.html>
+[Don L. Anderson]: http://www.mantleplumes.org/DLA.html
 [Andrew Curtis]: http://www.geos.ed.ac.uk/homes/acurtis/
 [Chris Chapman]: http://bullard.esc.cam.ac.uk/~chapman/
 [Robert W. Clayton]: http://web.gps.caltech.edu/~clay/
