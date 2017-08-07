@@ -80,6 +80,7 @@ categories: 地球物理相关资源
 - [Satoru Tanaka](http://www.jamstec.go.jp/res/ress/stan/TanakaHome/Welcome.html)
 - [Hrvoje Tkalčić](http://rses.anu.edu.au/~hrvoje/)
 - [Michael Thorne](http://web.utah.edu/thorne/index.html)
+- [Dongdong Tian](http://home.ustc.edu.cn/~dongzhi/)
 - [Jeroen Tromp](http://www.princeton.edu/geosciences/tromp/index.xml)
 - [Victor C. Tsai](http://web.gps.caltech.edu/~tsai/)
 
@@ -91,7 +92,7 @@ categories: 地球物理相关资源
 - [Lianxing Wen](http://seis.ustc.edu.cn/)
 
 ## Y
-- [Hongfeng Yang](http://www.cuhk.edu.hk/sci/essc/people/yang.html)
+- [Hongfeng Yang](http://www.cuhk.edu.hk/sci/essc/people/yang_hf.html)
 - [Huajian Yao](http://staff.ustc.edu.cn/~hjyao/)
 
 ## Z
