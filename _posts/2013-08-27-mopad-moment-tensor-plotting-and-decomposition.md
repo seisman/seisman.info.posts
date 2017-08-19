@@ -52,7 +52,7 @@ method可以取如下四种形式：
 -   gmt
 
 四种method，各自有自己独立的options，options太多，主要是调节一些细节参数，不细说。可以使用
-`mapad method --help` 查看每个method对应的选项。
+`mopad method --help` 查看每个method对应的选项。
 
 ## Method
 
