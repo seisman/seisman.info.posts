@@ -9,6 +9,7 @@ updated: 2016-05-17
 
 - [地球物理学家列表](/geophysicist.html)
 - [地球物理相关软件列表](/geo-software.html)
+- [地学期刊](/journals.html)
 
 ## 机构
 
