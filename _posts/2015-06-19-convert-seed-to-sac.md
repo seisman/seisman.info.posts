@@ -20,7 +20,7 @@ SEED 格式又可以细分为三种格式：
 
 1.  Full SEED 格式：也就是一般说的 SEED 格式，包含波形数据以及仪器相关信息；
 2.  miniSEED 格式：仅包含波形数据；
-3.  dateless SEED 格式：仅包含仪器相关信息；
+3.  dataless SEED 格式：仅包含仪器相关信息；
 
 ## rdseed: SEED => SAC
 
