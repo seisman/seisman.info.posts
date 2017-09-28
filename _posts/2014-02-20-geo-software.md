@@ -210,12 +210,14 @@ tags: [理论地震图, SAC, GMT]
 - [rf][]: 接收函数
 - [IRFFM][]: 带 GUI 的接收函数软件包
 - [CrazySeismic_Decon][]: 基于Matlab的带GUI的接收函数软件包
+- [FuncLab][]: 基于 Matlab的带 GUI 的接收函数软件包
 
 [hk]: http://www.eas.slu.edu/People/LZhu/home.html
 [CCP]: http://www.eas.slu.edu/People/LZhu/home.html
 [rf]: https://github.com/trichter/rf
 [IRFFM]: http://rses.anu.edu.au/~hrvoje/IRFFMv1.1.html
 [CrazySeismic_Decon]: http://web.gps.caltech.edu/~yucq/software.html
+[FuncLab]: https://robporritt.wordpress.com/software/
 
 ### 噪声成像
 
