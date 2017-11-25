@@ -29,7 +29,7 @@ def md2pdf(md, pdf, permalink):
            "--listings",
            "--number-sections",
            "--top-level-division=chapter",
-           "--latex-engine=xelatex",
+           "--pdf-engine=xelatex",
            "-Vpermalink="+permalink,
            ]
     subprocess.run(cmd)
