@@ -15,8 +15,7 @@ before_install:
 
 install:
   # install the latest version of pandoc
-  #- curl -s https://api.github.com/repos/jgm/pandoc/releases/latest | grep 'browser_download_url.*deb' | awk '{print "wget", $2}' | sh
-  - wget https://github.com/jgm/pandoc/releases/download/1.19.2.1/pandoc-1.19.2.1-1-amd64.deb
+  - curl -s https://api.github.com/repos/jgm/pandoc/releases/latest | grep 'browser_download_url.*deb' | awk '{print "wget", $2}' | sh
   - sudo dpkg -i pandoc-*-amd64.deb
   - npm install hexo gulp -g
   - npm install
