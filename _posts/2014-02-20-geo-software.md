@@ -31,8 +31,8 @@ tags: [理论地震图, SAC, GMT]
 
 [rdseed]: http://www.iris.edu/ds/nodes/dmc/forms/rdseed/
 [win32tools]: http://www.hinet.bosai.go.jp/REGS/manual/dlDialogue.php?r=win32tools
-[mseed2sac]: https://seiscode.iris.washington.edu/projects/mseed2sac
-[dataselect]: https://seiscode.iris.washington.edu/projects/dataselect
+[mseed2sac]: https://github.com/iris-edu/mseed2sac
+[dataselect]: https://github.com/iris-edu/dataselect
 
 ## 数据获取工具
 
@@ -43,6 +43,7 @@ tags: [理论地震图, SAC, GMT]
 - [IRIS DMC Web Services][]: 通过网页服务申请数据
 - [Web Service Fetch scripts][]: 获取数据的Perl脚本
 - [jweed][]: 用 Java 实现的 IRIS 数据申请客户端
+- [HinetPy][]: 从日本Hinet下载数据的Python模块
 
 [jweed]: http://ds.iris.edu/ds/nodes/dmc/software/downloads/jweed/
 [SOD]: http://www.seis.sc.edu/sod
@@ -50,10 +51,12 @@ tags: [理论地震图, SAC, GMT]
 [BREQ_FAST]: http://ds.iris.edu/ds/nodes/dmc/manuals/breq_fast/
 [IRIS DMC Web Services]: http://service.iris.edu/
 [Web Service Fetch scripts]: https://seiscode.iris.washington.edu/projects/ws-fetch-scripts
+[HinetPy]: https://seisman.github.io/HinetPy/
 
 ## 绘图类
 
 - [GMT][]: 地球物理方向绘制地图必备神器
+- [GMT/Python][]: GMT的Python接口
 - [pssac][]: 利用 GMT 强大的绘图库直接绘制地震图
 - [ObsPy][]: 基于 Python 的地震学数据获取、处理、绘图工具
 - [JPlotResp][]: 绘制 RESP 仪器响应文件的振幅相位响应谱。可以直接联网查询某台网某台站某个时间的仪器响应，也可以直接处理本地的 RESP 文件。
@@ -61,6 +64,7 @@ tags: [理论地震图, SAC, GMT]
 - [obspy-mopad][]: ObsPy 中提供的另一个版本的 mopad 工具
 
 [GMT]: http://gmt.soest.hawaii.edu/
+[GMT/Python]: http://www.gmtpython.xyz/
 [pssac]: http://www.eas.slu.edu/People/LZhu/home.html
 [JPlotResp]: http://www.isti2.com/JPlotResp/
 [MoPad]: http://www.larskrieger.de/mopad/
@@ -86,11 +90,11 @@ tags: [理论地震图, SAC, GMT]
 
 ### 解析解
 
-- [fk][]: 频率 - 波数法，计算水平分层各向同性介质下理论地震图位移静态解和动态解
+- [fk][]: 频率-波数法，计算水平分层各向同性介质下理论地震图位移静态解和动态解
+- [yaseis][]: 频率-波数法，球状分层介质下的理论地震图
 - [QSEIS][]: 层状粘弹介质下的理论地震图
 - [QSSP][]: Normal modes 方法计算球形地球下的理论地震图
 - [Mineos][]: Normal modes 方法计算球对称非旋转地球模型下的合成地震图
-- [yaseis][]: 频率 - 波数法，球状分层介质下的理论地震图
 - [GEMINI][]:
 - [DSM][]: Direct Solution Method ([tish][], [tipsv][], [spcsac][])
 
@@ -113,6 +117,7 @@ tags: [理论地震图, SAC, GMT]
 - [AxiSEM][]: 球层介质中的 3D 弹性、非弹性、各向异性、声波理论地震图
 - [Instaseis][]: 用 Python 写的，基于 AxiSEM 的地震图合成工具
 - [AxiSEM3D][]:
+- [NEXD][]: Nodal Discontinuous Galerkin Method
 
 [fk]: http://www.eas.slu.edu/People/LZhu/home.html
 [QSEIS]: http://www.gfz-potsdam.de/en/section/physics-of-earthquakes-and-volcanoes/data-products-services/downloads-software/
@@ -138,6 +143,7 @@ tags: [理论地震图, SAC, GMT]
 [SW4]: https://github.com/geodynamics/sw4
 [OpenSWPC]: https://github.com/takuto-maeda/OpenSWPC
 [AxiSEM3D]: https://github.com/kuangdai/AxiSEM3D
+[NEXD]: http://www.gmg.ruhr-uni-bochum.de/geophysik/seismology/nexd.html
 
 ## 特定研究类
 
@@ -156,9 +162,13 @@ tags: [理论地震图, SAC, GMT]
 - [IFOS3D][]: 3D弹性波FWI
 - [DENISE-SH][]: 2D SH有限差分模拟及FWI
 - [DENISE][]: 2D PSV有限差分模拟及FWI
+- [GERMAINE][]: 2D频率域声波差分模拟及全波形反演
+- [SAVA][]: 3D seismic modelling, FWI and RTM code for wave propagation in isotropic (visco)-acoustic/elastic and anisotropic orthorhombic/triclinic elastic media
 - [SES3D][]: 3D谱元法FWI
 - [LASIF][]: 基于 Python 的大规模全波形反演框架，似乎是层析成像。
 - [seisDD][]: Double-difference adjoint seismic tomography
+- [Salvus][]: full waveform modelling and inversion
+
 
 [TOY2DAC]: https://seiscope2.osug.fr/TOY2DAC,82
 [ASKI]: http://www.gmg.ruhr-uni-bochum.de/geophysik/seismology/aski.html
@@ -167,9 +177,12 @@ tags: [理论地震图, SAC, GMT]
 [IFOS3D]: https://git.scc.kit.edu/GPIAG-Software/IFOS3D
 [DENISE-SH]: https://github.com/daniel-koehn/DENISE-SH
 [DENISE]: https://github.com/daniel-koehn/DENISE-Black-Edition
-[SES3D]: http://www.cos.ethz.ch/software/ses3d.html
+[SES3D]: http://www.cos.ethz.ch/software/production/ses3d.html
 [LASIF]: http://www.lasif.net/
 [seisDD]: https://github.com/yanhuay/seisDD
+[Salvus]: https://salvus.io/
+[GERMAINE]: https://github.com/daniel-koehn/GERMAINE
+[SAVA]: https://github.com/daniel-koehn/SAVA
 
 ### 震源机制
 
@@ -177,12 +190,13 @@ tags: [理论地震图, SAC, GMT]
 - [pyTDMT][]: 时间域震源机制反演的 Python 实现
 - [WPhase][]: W Phase 方法反演震源机制
 - [focmec][]: 确定并绘制震源机制
+- [HASH][]: 初动极性
 
 [gcap]: http://www.eas.slu.edu/People/LZhu/home.html
 [pyTDMT]: https://github.com/fabriziobernardi/pydmt
 [WPhase]: http://eost.u-strasbg.fr/wphase/
 [focmec]: https://seiscode.iris.washington.edu/projects/focmec
-
+[HASH]: https://earthquake.usgs.gov/research/software/#HASH
 ### 震相拾取
 
 - [PhasePApy][]: Python 写的震相拾取软件包
@@ -196,12 +210,14 @@ tags: [理论地震图, SAC, GMT]
 ### S波分裂
 
 - [SplitLab][]: 基于 Matlab 的 S 波分裂处理工具
-- [mutlisplit][]: S 波分裂处理工具
+- [multisplit][]: S 波分裂处理工具
 - [SplitRacer][]: S 波分裂处理工具
+- [SHEBA][]: Shear-wave birefringence analysis code
 
 [SplitLab]: http://splitting.gm.univ-montp2.fr/
 [multisplit]: https://github.com/ftilmann/multisplit
 [SplitRacer]: http://www.geophysik.uni-frankfurt.de/64002762/Software
+[SHEBA]: https://github.com/jwookey/sheba
 
 ### 接收函数
 
@@ -235,7 +251,7 @@ tags: [理论地震图, SAC, GMT]
 
 ## 函数库
 
-- [libmseed][]: 用于读写 miniSEED 格式的 C 函数库
+- [libmseed][]: https://github.com/iris-edu/libmseed
 
 [libmseed]: https://seiscode.iris.washington.edu/projects/libmseed
 
