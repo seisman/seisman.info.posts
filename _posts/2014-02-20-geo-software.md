@@ -197,6 +197,7 @@ tags: [理论地震图, SAC, GMT]
 [WPhase]: http://eost.u-strasbg.fr/wphase/
 [focmec]: https://seiscode.iris.washington.edu/projects/focmec
 [HASH]: https://earthquake.usgs.gov/research/software/#HASH
+
 ### 震相拾取
 
 - [PhasePApy][]: Python 写的震相拾取软件包
@@ -242,6 +243,14 @@ tags: [理论地震图, SAC, GMT]
 
 [MSNoise]: http://www.msnoise.org/
 [seismic-noise-tomography]: https://github.com/bgoutorbe/seismic-noise-tomography
+
+### 地震检测
+
+- [EQcorrscan][]: 地震检测与分析
+- [FastMatchedFilter][]: An efficient seismic matched-filter search for both CPU and GPU architectures.
+
+[EQcorrscan]: https://github.com/eqcorrscan/EQcorrscan
+[FastMatchedFilter]: https://github.com/beridel/fast_matched_filter
 
 ## 数学处理类
 
