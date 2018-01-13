@@ -147,11 +147,16 @@ tags: [理论地震图, SAC, GMT]
 
 ## 特定研究类
 
-### 层析成像
+### 面波成像
 
+- [tomo_sp_cu_s](http://ciei.colorado.edu/Products/): 基于射线理论的面波成像
+- [AFTAN][]: 自动的频率-时间分析软件
 - [ASWMS][]: Automated Surface-Wave Phase-Velocity Measuring System, Matlab
+- [senskernel][]: 群/相速度敏感核
 
 [ASWMS]: https://ds.iris.edu/ds/products/aswms/
+[AFTAN]: http://ciei.colorado.edu/Products/
+[senskernel]: http://ciei.colorado.edu/Products/
 
 ### 全波形反演
 

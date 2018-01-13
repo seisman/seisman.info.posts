@@ -102,6 +102,7 @@ updated: 2016-05-17
 - [Shear-wave splitting database](http://splitting.gm.univ-montp2.fr/DB/index.html)
 - [Central Asia Fault Database](http://www.geo.uni-tuebingen.de/projekte/openfaults/)
 - [AuSREM](http://rses.anu.edu.au/seismology/AuSREM/index.php): 澳大利亚区域模型
+- [ANCC-CIEI](http://ds.iris.edu/ds/products/ancc-ciei/): 美国西部背景噪声互相关函数库
 
 ## 其他
 
