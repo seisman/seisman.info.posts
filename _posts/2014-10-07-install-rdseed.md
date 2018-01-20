@@ -10,11 +10,10 @@ rdseed 用于将 SEED 格式的数据转换为 SAC 格式。
 
 <!--more-->
 
-## 软件申请与下载
+## 下载
 
-申请地址： <http://www.iris.edu/forms/rdseed_request.htm>
-
-简单填写申请信息后，无需等待即可直接下载，目前的最新版本为 `rdseedv5.3.1.tar.gz` 。
+到这个地址找到最新版本的rdseed： <http://ds.iris.edu/pub/programs/>。
+目前最新的是 `rdseedv5.3.1.tar.gz` 。
 
 ## 解压
 
