@@ -62,6 +62,7 @@ tags: [理论地震图, SAC, GMT]
 - [JPlotResp][]: 绘制 RESP 仪器响应文件的振幅相位响应谱。可以直接联网查询某台网某台站某个时间的仪器响应，也可以直接处理本地的 RESP 文件。
 - [MoPad][]: 地震矩分析和绘图软件，可以做地震矩的各种分解以及分析，绘制各种类型的震源球，可控性非常强，比 GMT 的 psmeca 命令要灵活，且可以与 GMT 联合使用
 - [obspy-mopad][]: ObsPy 中提供的另一个版本的 mopad 工具
+- [SeisTomoPy][]: 3D模型可视化，3D走时计算
 
 [GMT]: http://gmt.soest.hawaii.edu/
 [GMT/Python]: http://www.gmtpython.xyz/
@@ -69,6 +70,7 @@ tags: [理论地震图, SAC, GMT]
 [JPlotResp]: http://www.isti2.com/JPlotResp/
 [MoPad]: http://www.larskrieger.de/mopad/
 [obspy-mopad]: https://docs.obspy.org/packages/autogen/obspy.imaging.scripts.mopad.html
+[SeisTomoPy]: https://github.com/stephaniedurand/SeisTomoPy
 
 ## 走时计算/射线追踪
 
