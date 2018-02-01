@@ -1,15 +1,16 @@
 ---
-title: 科研收藏夹
-layout: post
+title: 链接
 date: 2014-09-30
-updated: 2016-05-17
+lastmod: 2016-05-17
+menu: main
+weight: 30
 ---
 
 本页面列出一些常用链接。鼠标在链接上悬停可看到更详细的名称。
 
-- [地球物理学家列表](/geophysicist.html)
-- [地球物理相关软件列表](/geo-software.html)
-- [地学期刊](/journals.html)
+- [地球物理学家列表](/geophysicist/)
+- [地球物理相关软件列表](/geo-software/)
+- [地学期刊](/journals/)
 
 ## 机构
 

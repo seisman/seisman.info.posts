@@ -1,8 +1,8 @@
-language: node_js
-node_js: "4"
+language: python
+python: 3.6
+env:
+  - HUGO_VERSIO=0.35
 
-sudo: required
-dist: trusty
 branches:
   only:
     - master
@@ -14,18 +14,16 @@ before_install:
   - git submodule update --init --recursive --remote
 
 install:
-  # install the latest version of pandoc
-  - curl -s https://api.github.com/repos/jgm/pandoc/releases/latest | grep 'browser_download_url.*deb' | awk '{print "wget", $2}' | sh
-  - sudo dpkg -i pandoc-*-amd64.deb
-  - npm install hexo gulp -g
-  - npm install
+  # install latest hugo
+  - https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
+  - tar -xvf hugo_${HUGO_VERSION}_Linux-64bit.tar.gz hugo
+  - pip install pygments
 
 script:
-  - hexo generate
-  - gulp
+  - ./hugo
 
-after_success:
-  - git config --global user.name "Dongdong Tian"
-  - git config --global user.email "seisman.info@gmail.com"
-  - sed -i "s~git@github.com:~https://${GH_TOKEN}@github.com/~" _config.yml
-  - hexo d --silent
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: ${GH_TOKEN}
+  local_dir: public

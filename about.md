@@ -1,9 +1,9 @@
 ---
 title: 关于
-author: SeisMan
 date: 2013-06-22
-updated: 2014-09-13
-layout: post
+lastmod: 2014-09-13
+menu: "main"
+weight: 50
 ---
 
 ## 关于博主
@@ -14,11 +14,11 @@ layout: post
 
 博客名:
 
-    SeisMan = Seismology Manual
+> SeisMan = Seismology Manual
 
 博主名:
 
-    SeisMan = A Man Learning Seismology
+> SeisMan = A Man Learning Seismology
 
 ## 博文原则
 
