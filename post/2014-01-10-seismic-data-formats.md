@@ -7,7 +7,7 @@ categories:
 tags:
   - 数据
   - 格式
-slug: iris-data-formats
+slug: seismic-data-formats
 ---
 
 地震数据的格式，大概分为两种：一种是以归档和交换为目的的格式，比如 SEED，

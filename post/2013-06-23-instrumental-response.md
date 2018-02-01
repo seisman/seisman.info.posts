@@ -7,7 +7,7 @@ categories:
 tags:
   - 仪器响应
 mathjax: true
-slug: instrumental-response-in-seismology
+slug: instrumental-response
 ---
 
 地震仪观测到的地面运动记录可以表示为 $$u(t)=s(t) \ast g(t) \ast i(t)$$

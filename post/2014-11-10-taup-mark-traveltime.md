@@ -7,7 +7,7 @@ categories:
 tags:
   - TauP
   - 走时
-slug: mark-travel-time-using-taup
+slug: taup-mark-traveltime
 ---
 
 TauP 的 `taup_time` 命令可以计算各震相的理论走时，但是不能帮我们把到时信息

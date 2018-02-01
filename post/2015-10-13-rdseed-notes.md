@@ -6,8 +6,8 @@ categories:
   - 地震学软件
 tags:
   - SEED
-  - 比例
-  - 软件
+  - SAC
+  - IRIS
 slug: rdseed-notes
 ---
 
