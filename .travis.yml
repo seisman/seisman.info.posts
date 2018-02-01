@@ -1,7 +1,7 @@
 language: python
 python: 3.6
 env:
-  - HUGO_VERSIO=0.35
+  - HUGO_VERSION=0.35
 
 branches:
   only:
@@ -15,7 +15,7 @@ before_install:
 
 install:
   # install latest hugo
-  - https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
+  - wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
   - tar -xvf hugo_${HUGO_VERSION}_Linux-64bit.tar.gz hugo
   - pip install pygments
 
@@ -26,4 +26,4 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: ${GH_TOKEN}
-  local_dir: public
+  local_dir: ../seisman.info/public
