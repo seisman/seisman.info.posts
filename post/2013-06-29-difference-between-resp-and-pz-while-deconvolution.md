@@ -10,8 +10,8 @@ tags:
 slug: difference-between-resp-and-pz-while-deconvolution
 ---
 
-前面介绍了 [仪器响应文件 RESP](/simple-analysis-of-resp.html) 和
-[仪器响应文件 SAC\_PZ](/simple-analysis-of-sac-pz.html)，下面分别用两种
+前面介绍了 [仪器响应文件 RESP](/simple-analysis-of-resp/) 和
+[仪器响应文件 SAC\_PZ](/simple-analysis-of-sac-pz/)，下面分别用两种
 响应文件进行去仪器响应，比较二者的区别。
 
 <!--more-->

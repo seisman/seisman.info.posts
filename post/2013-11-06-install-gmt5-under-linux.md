@@ -14,7 +14,7 @@ slug: install-gmt5-under-linux
 
 **本文不再维护更新！**
 
-本文介绍如何在 Linux 下安装 GMT 5.1.x。GMT 5.2.x 在 Linux 下的安装见 [GMT 5.2.x 在 Linux 下的安装](/install-gmt5.2.x-under-linux.html)
+本文介绍如何在 Linux 下安装 GMT 5.1.x。GMT 5.2.x 在 Linux 下的安装见 [GMT 5.2.x 在 Linux 下的安装](/install-gmt5.2.x-under-linux/)
 
 说明：
 

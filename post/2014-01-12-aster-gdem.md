@@ -52,7 +52,7 @@ ASTER GDEM，即先进星载热发射和反射辐射仪全球数字高程模型�
 
     gdal_translate -of GMT ASTGTM2_N36E111_dem.tif ASTGTM2_N36E111_dem.nc
 
-关于 GDAL，见 [GeoTiff 格式转 GMT netCDF 格式](/convert-geotiff-to-gmt.html) 一文。
+关于 GDAL，见 [GeoTiff 格式转 GMT netCDF 格式](/convert-geotiff-to-gmt/) 一文。
 
 ## 与 SRTM 的区别
 

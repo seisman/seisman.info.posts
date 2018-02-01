@@ -39,7 +39,7 @@ slug: hinet-instrumental-response
 
 ## 流程
 
-根据 [《仪器响应的物理细节》](/physical-details-of-instrumental-response.html) 一文的分析，将 7-13 列按照仪器响应的过程再细分一下：
+根据 [《仪器响应的物理细节》](/physical-details-of-instrumental-response/) 一文的分析，将 7-13 列按照仪器响应的过程再细分一下：
 
 -   输入：波场振幅（[9]）
 -   输入增强：对输入波场进行放大（[12]）
@@ -75,7 +75,7 @@ $$G \frac{s^2}{s^2+2 h \omega s + \omega^2}$$
 -   $h$：damping constant， 即 $h$= [11]
 -   $\omega$： natural angular frequency，即 $\omega=\frac{2\pi}{[10]}$
 
-从 channel table 即可计算出这三个量，代入 transfer 函数，根据 [仪器响应实例分析](/deep-analysis-of-response.html) 中的类似步骤，即可计算出零点和极点，以及归一化因子 $A_0$。
+从 channel table 即可计算出这三个量，代入 transfer 函数，根据 [仪器响应实例分析](/deep-analysis-of-response/) 中的类似步骤，即可计算出零点和极点，以及归一化因子 $A_0$。
 
 PS：对于速度场而言，可以推导得到 $A_0 = 2*[11]$
 

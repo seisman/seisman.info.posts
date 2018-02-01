@@ -50,7 +50,7 @@ GMT 官方没有为 Mac 提供 GMT4 的安装包，因而只能通过其他方�
 4.  安装海岸线数据
 5.  修改环境变量
 
-具体操作参考 [Linux 下安装 GMT4](/install-gmt4-under-linux.html) 一文，Linux 与 Mac 唯一的不同仅仅是 “解决依赖关系” 这一步。
+具体操作参考 [Linux 下安装 GMT4](/install-gmt4-under-linux/) 一文，Linux 与 Mac 唯一的不同仅仅是 “解决依赖关系” 这一步。
 
 ### 解决依赖关系
 

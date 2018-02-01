@@ -15,7 +15,7 @@ slug: sac-manual
 
     https://github.com/seisman/SAC_Docs_zh/releases.atom
 
-征集《SAC 参考手册》维护者，有意者点 [这里](/maintainers-for-sac-manual-wanted.html)，长期有效。
+征集《SAC 参考手册》维护者，有意者点 [这里](/maintainers-for-sac-manual-wanted/)，长期有效。
 
 <!--more-->
 

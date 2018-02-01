@@ -12,7 +12,7 @@ slug: jplotresp
 
 要理解仪器响应，就要看 RESP 的格式，更重要是直观地看仪器响应的振幅相位谱。
 
-前面介绍的 [RESP 文件](/simple-analysis-of-resp.html) 和 [SAC PZ](/simple-analysis-of-sac-pz.html)
+前面介绍的 [RESP 文件](/simple-analysis-of-resp/) 和 [SAC PZ](/simple-analysis-of-sac-pz/)
 文件都只是给出了一堆零极点以及放大系数等各种参数。JPlotResp 是用来绘制地震仪器响应的
 软件，可以帮助直观地看到任意台站的仪器响应。
 

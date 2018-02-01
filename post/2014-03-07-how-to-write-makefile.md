@@ -29,4 +29,4 @@ Makefile，顺便学习一下 Sphinx，重新制作一个更精美的 PDF 版本
 ## sphinx 中文支持
 
 sphinx 在利用 LaTeX 生成 PDF 时，对中文支持不够，因而需要做特殊配置，详情
-见 [sphinx的中文支持](/chinese-support-for-sphinx.html)。
+见 [sphinx的中文支持](/chinese-support-for-sphinx/)。

@@ -40,7 +40,7 @@ DCW-GMT 是为了解决这个问题而存在的，当你想绘制中国国界时
 
 ## DCW-GMT 详情
 
-下载安装什么的在博文《[GMT5.1.0 在 Linux 下的安装](/install-gmt5-under-linux.html)》中已经说过了，不再多说。
+下载安装什么的在博文《[GMT5.1.0 在 Linux 下的安装](/install-gmt5-under-linux/)》中已经说过了，不再多说。
 
 DCW-GMT 包含了如下文件：
 

@@ -10,7 +10,7 @@ mathjax: true
 slug: simple-analysis-of-sac-pz
 ---
 
-RESP 文件是 SEED 格式默认的仪器响应文件，在上一篇博文《[仪器响应文件 RESP](/simple-analysis-of-resp.html)》
+RESP 文件是 SEED 格式默认的仪器响应文件，在上一篇博文《[仪器响应文件 RESP](/simple-analysis-of-resp/)》
 中已经分析了一个例子。RESP 响应文件完整地描述了仪器响应的全部信息，与此同时也包含了不少冗余信息。
 
 SAC 对 RESP 文件进行了简化，仅包含了一些必要信息，这个新的文件格式叫做 SAC\_PZ。

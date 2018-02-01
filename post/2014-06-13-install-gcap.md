@@ -95,8 +95,8 @@ gCAP 是 Prof. Lupei Zhu 发展的一种反演震源机制解的一种方法。�
 
 要运行 gcap，使用要使用 fk 建立格林函数库。如果你不知道 fk 是什么，请参考：
 
-1. [安装fk](/fk-installation.html)
-2. [fk 用法笔记](/fk-notes.html)
+1. [安装fk](/fk-installation/)
+2. [fk 用法笔记](/fk-notes/)
 
 要建立格林函数库，首先需要一个模型文件。gcap 的示例使用的是一个名为 cus 的模型，由于 gcap
 没有使用 cus 这个模型文件，所以这里使用的是 fk 自带的 hk 模型。

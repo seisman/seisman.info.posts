@@ -73,9 +73,9 @@ GMT 自带了一些例子，可以把 `C:\programs\gmt5\share\doc\examples` 目�
 
 安装完成后，你可以对如下几篇博文感兴趣：
 
-1.  [GMT4 脚本风格指南](/gmt4-style-guide.html)：虽然是针对 GMT4 的，但是对 GMT5 也有一定的指导意义
-2.  [Windows 下使用 GMT 的正确姿势](how-to-use-gmt-under-windows.html)：教你如何在 Windows 下更愉快地使用 GMT
-3.  [GMT 在 Windows 下的中文支持](/gmt-chinese-support-under-windows.html)：如何在 GMT 中添加中文
+1.  [GMT4 脚本风格指南](/gmt4-style-guide/)：虽然是针对 GMT4 的，但是对 GMT5 也有一定的指导意义
+2.  [Windows 下使用 GMT 的正确姿势](how-to-use-gmt-under-windows/)：教你如何在 Windows 下更愉快地使用 GMT
+3.  [GMT 在 Windows 下的中文支持](/gmt-chinese-support-under-windows/)：如何在 GMT 中添加中文
 
 ## 修订历史
 

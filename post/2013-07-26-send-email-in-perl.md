@@ -15,7 +15,7 @@ slug: send-email-in-perl
 BREQ\_FAST 的优势在于可脚本化生成数据申请文件，要真正申请数据还得将这些文件作为邮件内容发送过去，
 因而想要解放双手，利用脚本自动发送邮件是必须的。
 
-本文给出如何用 Perl 发送邮件到 BREQ\_FAST，另一篇博文《[Python 发送邮件到 BREQ\_FAST](/send-mail-in-python.html)》
+本文给出如何用 Perl 发送邮件到 BREQ\_FAST，另一篇博文《[Python 发送邮件到 BREQ\_FAST](/send-mail-in-python/)》
 给出了同样功能的 Python 脚本。相比而言，Python 版本更简单、简洁。
 
 <!--more-->

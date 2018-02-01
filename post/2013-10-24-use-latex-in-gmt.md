@@ -112,4 +112,4 @@ EOF
 4.  这个方法或许也可以用来在 GMT 上写中文。目前对中文支持最好的应该是 xelatex 了，
     其好像只能生成 pdf，转换为 ps 后精度必然不够。一个解决办法是写足够大的字，转换之后
     用 psimage 缩小到需要的尺寸，这样或许精度上看上去效果更好。另一个办法是查一查 pdf
-    到 ps 转换有没有高精度的实现方法。不过 GMT 的中文问题还是用 [Linux 下的 GMT 中文显示](/gmt-chinese-under-linux.html) 的方法更好。
+    到 ps 转换有没有高精度的实现方法。不过 GMT 的中文问题还是用 [Linux 下的 GMT 中文显示](/gmt-chinese-under-linux/) 的方法更好。

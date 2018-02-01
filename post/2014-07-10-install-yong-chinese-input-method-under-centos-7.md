@@ -10,7 +10,7 @@ tags:
 slug: install-yong-chinese-input-method-under-centos-7
 ---
 
-另一篇博文： [CentOS7.0 下安装搜狗输入法](/fcitx-for-centos-7.html)
+另一篇博文： [CentOS7.0 下安装搜狗输入法](/fcitx-for-centos-7/)
 
 小小输入法也叫 yong 输入法，是一个免费但不开源的中文输入法，其作者为 dgod，2008 年发布第一个版本，至今六年时间依然在不断的更新。以一人之力默默维护一个项目 6 年时间，不得不让人佩服。
 

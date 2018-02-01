@@ -16,11 +16,11 @@ Hi-net 是日本境内的一个高质量、高密度的短周期地震台网，�
 
 <!--more-->
 
-1. [Hi-net 简介](/intorduction-to-hinet.html)
-2. [Hi-net 连续波形数据](/hinet-continuous-waveform-data.html)
-3. [Hi-net 连续波形数据申请的源码分析](/hinet-continuous-waveform-data-source-code.html)
-4. [win32 格式](/hinet-win32-format.html)
-5. [Hi-net 的 channel table 文件](/hinet-channel-table.html)
-6. [Hi-net 的仪器响应](/hinet-instrumental-response.html)
-7. [Hi-net win32tools](/hinet-win32tools.html)
-8. [HinetPy: Hinet数据申请与处理模块](/hinetpy.html)
+1. [Hi-net 简介](/intorduction-to-hinet/)
+2. [Hi-net 连续波形数据](/hinet-continuous-waveform-data/)
+3. [Hi-net 连续波形数据申请的源码分析](/hinet-continuous-waveform-data-source-code/)
+4. [win32 格式](/hinet-win32-format/)
+5. [Hi-net 的 channel table 文件](/hinet-channel-table/)
+6. [Hi-net 的仪器响应](/hinet-instrumental-response/)
+7. [Hi-net win32tools](/hinet-win32tools/)
+8. [HinetPy: Hinet数据申请与处理模块](/hinetpy/)

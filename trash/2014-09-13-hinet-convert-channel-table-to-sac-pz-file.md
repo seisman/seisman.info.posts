@@ -11,7 +11,7 @@ tags:
 slug: hinet-convert-channel-table-to-sac-pz-file
 ---
 
-前文 [Hinet 仪器响应](/hinet-instrumental-response.html) 中介绍了 Hi-net 的
+前文 [Hinet 仪器响应](/hinet-instrumental-response/) 中介绍了 Hi-net 的
 仪器响应的详细信息。据此，用 Python 写了一个脚本，将 Hi-net 的 Channel Table
 文件转换为常用的 SAC PZ 文件。
 
@@ -39,4 +39,4 @@ slug: hinet-convert-channel-table-to-sac-pz-file
 
 ## 说明
 
-参考 [Hi-net WIN32 转 SAC](/hinet-convert-win32-files-to-sac.html) 一文中对选项的解释。
+参考 [Hi-net WIN32 转 SAC](/hinet-convert-win32-files-to-sac/) 一文中对选项的解释。

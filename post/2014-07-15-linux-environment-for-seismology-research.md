@@ -82,7 +82,7 @@ CentOS7 的分区似乎比较特别，自认为经验很丰富的我在第一次
 ### 若干原则
 
 为了搭建一个稳定的系统，尽量避免因为各种瞎折腾而导致的系统问题，特订立了一些软件安装的原则。
-具体参见《[CentOS7 下的软件安装方法与策略](/how-to-install-softwares-under-centos-7.html)》。
+具体参见《[CentOS7 下的软件安装方法与策略](/how-to-install-softwares-under-centos-7/)》。
 
 ### 给一般账号 root 权限
 
@@ -210,7 +210,7 @@ Linux 默认只使用开源的显卡驱动，就目前的情况来看，开源�
 闭源驱动相比还是有一定差距。最明显的区别是，在使用 SAC 的 ppk 功能放大波形时，使用开源驱动会
 出现延迟，而使用官方闭源则整个过程非常顺畅。
 
-关于显卡驱动的安装，请参考 [Linux 下安装 nvidia 显卡驱动](/install-nvidia-drivers-under-linux.html)
+关于显卡驱动的安装，请参考 [Linux 下安装 nvidia 显卡驱动](/install-nvidia-drivers-under-linux/)
 一文中的 “从 ELRepo 源中安装驱动” 部分。
 
 **注意**：目前的显卡驱动似乎有问题，安装后终端有时会出现屏幕闪烁、一屏文字上下重复跳动的情况，

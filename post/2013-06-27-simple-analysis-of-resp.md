@@ -10,7 +10,7 @@ mathjax: true
 slug: simple-analysis-of-resp
 ---
 
-《[仪器响应的物理细节](/physical-details-of-instrumental-response.html)》一文中说过，
+《[仪器响应的物理细节](/physical-details-of-instrumental-response/)》一文中说过，
 理论上仪器响应是由三个阶段构成的。常用的仪器响应格式包括 SEED 的 RESP 文件以及 SAC 的 PZ 文件。
 这里通过阅读一个 RESP 类型的仪器响应文件，来更进一步的理解仪器响应，顺便熟悉一下 SEED 格式。
 
