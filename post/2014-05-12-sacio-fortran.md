@@ -7,7 +7,7 @@ categories:
 tags:
   - Fortran
   - SAC技巧
-slug: read-and-write-sac-in-fortran-program
+slug: sacio-fortran
 ---
 
 SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 Fortran 程序中读写 SAC 文件。

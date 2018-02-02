@@ -50,8 +50,7 @@ Tools，是一个强大的 PDF 处理工具。PDF 合并只是它的一个功能
 
     pdftk input1.pdf input2.pdf input3.pdf cat output output.pdf
 
-pdftk 的选项很多，用法复杂，可以参考 [PDF 合并和分割工具—PDFtk](/introduction-to-pdftk/)
-。
+pdftk 的选项很多，用法复杂，可以参考 [PDF 合并和分割工具—PDFtk](/pdftk/) 。
 
 ## gs
 
