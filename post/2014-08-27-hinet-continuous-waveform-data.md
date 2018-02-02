@@ -9,7 +9,6 @@ tags:
   - Hinet
   - 数据
   - 申请
-  - 下载
 slug: hinet-continuous-waveform-data
 ---
 
