@@ -53,7 +53,7 @@ slug: declarations
 
     可以使用 feedly 或者其他 RSS 阅读器订阅。
 
-2.  微信公众号，在微信中搜索 “SeisMan”，唯一的搜索结果就是本博客的微信公众号，在发布博文后，会第一时间在微信公众号中推送博文的摘要。
+2.  在GitHub上关注[博客源码](https://github.com/seisman/seisman.info.posts)
 
 ## 关于捐赠
 

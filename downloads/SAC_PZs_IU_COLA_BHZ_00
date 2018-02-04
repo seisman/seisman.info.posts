@@ -1,0 +1,35 @@
+* **********************************
+* NETWORK   (KNETWK): IU
+* STATION    (KSTNM): COLA
+* LOCATION   (KHOLE): 00
+* CHANNEL   (KCMPNM): BHZ
+* CREATED           : 2013-06-22T14:12:09
+* START             : 2012-09-14T04:00:00
+* END               : 2599-12-31T23:59:59
+* DESCRIPTION       : College Outpost, Alaska, USA
+* LATITUDE          : 64.873599 
+* LONGITUDE         : -147.861600
+* ELEVATION         : 84.0   
+* DEPTH             : 116.0
+* DIP               : 0.0  
+* AZIMUTH           : 0.0  
+* SAMPLE RATE       : 20.0
+* INPUT UNIT        : M
+* OUTPUT UNIT       : COUNTS
+* INSTTYPE          : Geotech KS-54000 Borehole Seismometer
+* INSTGAIN          : 2.013040e+03 (M/S)
+* COMMENT           : N/A
+* SENSITIVITY       : 3.377320e+09 (M/S)
+* A0                : 8.627050e+04
+* **********************************
+ZEROS	3
+	+0.000000e+00	+0.000000e+00
+	+0.000000e+00	+0.000000e+00
+	+0.000000e+00	+0.000000e+00
+POLES	5
+	-5.943130e+01	+0.000000e+00
+	-2.271210e+01	+2.710650e+01
+	-2.271210e+01	-2.710650e+01
+	-4.800400e-03	+0.000000e+00
+	-7.384400e-02	+0.000000e+00
+CONSTANT	+2.913631e+14

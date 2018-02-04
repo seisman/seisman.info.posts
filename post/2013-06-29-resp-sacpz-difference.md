@@ -1,7 +1,7 @@
 ---
 title: 用 RESP 和 PZ 去除仪器响应的差别
 date: 2013-06-29
-lastmod: 2013-07-06
+lastmod: 2015-11-11
 author: SeisMan
 categories:
   - 地震学基础
@@ -10,17 +10,17 @@ tags:
 slug: resp-sacpz-difference
 ---
 
-前面介绍了 [仪器响应文件 RESP](/simple-analysis-of-resp/) 和
-[仪器响应文件 SAC\_PZ](/simple-analysis-of-sac-pz/)，下面分别用两种
+前面介绍了 [仪器响应文件 RESP](/instrumental-response-resp/) 和
+[仪器响应文件 SAC\_PZ](/instrumental-response-sacpz/)，下面分别用两种
 响应文件进行去仪器响应，比较二者的区别。
 
 <!--more-->
 
 ## 样例下载地址
 
-[SAC 数据](http://seisman.qiniudn.com/downloads/2013.144.05.40.09.0195.IU.COLA.00.BHZ.M.SAC)
-[RESP 文件](http://seisman.qiniudn.com/downloads/RESP.IU.COLA.00.BHZ)
-[PZ 文件](http://seisman.qiniudn.com/downloads/SAC_PZs_IU_COLA_BHZ_00)
+[SAC 数据](/downloads/2013.144.05.40.09.0195.IU.COLA.00.BHZ.M.SAC)
+[RESP 文件](/downloads/RESP.IU.COLA.00.BHZ)
+[PZ 文件](/downloads/SAC_PZs_IU_COLA_BHZ_00)
 
 ## RESP 去除仪器响应
 

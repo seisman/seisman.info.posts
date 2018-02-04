@@ -1,7 +1,7 @@
 ---
 title: Hello World!
 date: 2013-06-21
-lastmod: 2018-01-30
+lastmod: 2018-02-03
 author: SeisMan
 categories:
   - 胡言乱语
@@ -26,7 +26,7 @@ Hello World！欢迎来到 SeisMan 的个人独立博客。
 如果觉得本博客的内容对你有用，可以进入 [捐赠](/donations/) 页面，
 通过多种方式捐赠本博客。
 
-欢迎继续关注和支持 SeisMan 博客。
+欢迎继续关注和支持 SeisMan 博客，也欢迎向本博客投稿。
 
 [Go]: https://golang.org/
 [Hugo]: https://gohugo.io/

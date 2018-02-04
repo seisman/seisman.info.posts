@@ -8,7 +8,7 @@ tags:
   - SAC
   - 格式转换
   - 软件
-slug: install-evt2sac
+slug: evt2sac-install
 ---
 
 `evt2sac` 用于将 NEIC 的 EVT 格式的数据转换为 SAC 格式。

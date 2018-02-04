@@ -22,8 +22,8 @@ ASTER GDEM，即先进星载热发射和反射辐射仪全球数字高程模型�
 
 数据下载地址：
 
-#. [NASA Reverb](http://reverb.echo.nasa.gov/reverb/)
-#. [LP DAAC Global Data Explorer](http://gdem.ersdac.jspacesystems.or.jp)
+- [NASA Reverb](http://reverb.echo.nasa.gov/reverb/)
+- [LP DAAC Global Data Explorer](http://gdem.ersdac.jspacesystems.or.jp)
 
 <!--more-->
 
@@ -52,7 +52,7 @@ ASTER GDEM，即先进星载热发射和反射辐射仪全球数字高程模型�
 
     gdal_translate -of GMT ASTGTM2_N36E111_dem.tif ASTGTM2_N36E111_dem.nc
 
-关于 GDAL，见 [GeoTiff 格式转 GMT netCDF 格式](/convert-geotiff-to-gmt/) 一文。
+关于 GDAL，见 [GDAL/OGR: 地理空间数据格式转换神器](http://gmt-china.org/blog/gdal-ogr/) 一文。
 
 ## 与 SRTM 的区别
 

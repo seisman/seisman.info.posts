@@ -32,7 +32,7 @@ fk3.2 自带的 Makefile 有一堆问题，下面会说明遇到的问题以及�
 
 这里先提供我修改好的 Makefile，读者可以直接下载这个文件，然后重命名为 `Makefile` ，并覆盖 fk 自带的 Makefile 即可。
 
-修改版 Makefile 下载地址： [Makefile.fk.3.2](http://seisman.qiniudn.com/downloads/Makefile.fk.3.2)
+修改版 Makefile 下载地址： [Makefile.fk.3.2](/downloads/Makefile.fk.3.2)
 
 ### 修改 Fortran 编译器选项
 

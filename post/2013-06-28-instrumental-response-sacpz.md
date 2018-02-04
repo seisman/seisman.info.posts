@@ -10,7 +10,7 @@ mathjax: true
 slug: instrumental-response-sacpz
 ---
 
-RESP 文件是 SEED 格式默认的仪器响应文件，在上一篇博文《[仪器响应文件 RESP](/simple-analysis-of-resp/)》
+RESP 文件是 SEED 格式默认的仪器响应文件，在上一篇博文《[仪器响应文件 RESP](/instrumental-response-resp/)》
 中已经分析了一个例子。RESP 响应文件完整地描述了仪器响应的全部信息，与此同时也包含了不少冗余信息。
 
 SAC 对 RESP 文件进行了简化，仅包含了一些必要信息，这个新的文件格式叫做 SAC\_PZ。
@@ -70,6 +70,6 @@ $f'(t)$ 的 Laplace 变换为 $sF(s)$，也就是多了一个零点 `(0.0,0.0)` 
 
 前面已经说过，整个仪器响应可以简化为
 
-$$G(f)=S_{d1} A_0 H_p(s) S_{d2} S_{d3}=S_{d0} A_0 H_p(s)$$
+<div>$$G(f)=S_{d1} A_0 H_p(s) S_{d2} S_{d3}=S_{d0} A_0 H_p(s)$$</div>
 
 所以 PZ 文件中将所有的放大系数以及归一化因子合并成为一个常数，也就是最后的 `CONSTANT` 。

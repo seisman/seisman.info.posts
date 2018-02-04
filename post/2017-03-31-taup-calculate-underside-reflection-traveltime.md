@@ -7,7 +7,7 @@ categories:
 tags:
   - TauP
   - 走时
-slug: calculate-travel-time-of-deep-mantle-underside-reflection
+slug: taup-calculate-underside-reflection-traveltime
 ---
 
 地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 `S410S`、`S660S`。

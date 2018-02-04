@@ -23,10 +23,10 @@ Makefile，顺便学习一下 Sphinx，重新制作一个更精美的 PDF 版本
 - 书的文字部分来自于 [Andriki](http://andriki.com/mediawiki/index.php?title=Linux:跟我一起写Makefile) 提供的 Mediawiki 源码；
 - 使用 [Sphinx](http://sphinx-doc.org/) 制作文档
 - 项目主页：<https://github.com/seisman/how-to-write-makefile>
-- 网页在线版：<http://how-to-write-makefile.readthedocs.io/zh_CN/latest/>
-- 下载： [PDF版](https://media.readthedocs.org/pdf/how-to-write-makefile/latest/how-to-write-makefile.pdf) [EPUB版](https://media.readthedocs.org/epub/how-to-write-makefile/latest/how-to-write-makefile.epub)
+- 网页在线版：<https://seisman.github.io/how-to-write-makefile/>
+- 下载： [PDF版](https://seisman.github.io/how-to-write-makefile/Makefile.pdf)
 
 ## sphinx 中文支持
 
 sphinx 在利用 LaTeX 生成 PDF 时，对中文支持不够，因而需要做特殊配置，详情
-见 [sphinx的中文支持](/chinese-support-for-sphinx/)。
+见 [sphinx的中文支持](/sphinx-chinese-support/)。

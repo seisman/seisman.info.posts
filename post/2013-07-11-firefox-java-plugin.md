@@ -7,7 +7,7 @@ categories:
 tags:
   - Firefox
   - Java
-slug: java-plugin-of-firefox
+slug: firefox-java-plugin
 ---
 
 由于某个变态网站，需要 Java 插件才能使用，所以需要在 Firefox 上安装 Java 插件。在

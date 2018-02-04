@@ -8,7 +8,7 @@ tags:
   - 射线
   - TauP
 mathjax: true
-slug: taup-calculate-travel-time
+slug: taup-calculate-traveltime
 ---
 
 `taup_time` 是 TauP 提供的一个工具，其主要用于计算震相理论走时，除此之外，

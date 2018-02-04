@@ -42,7 +42,7 @@ $$Rad = \mathbf{\gamma} \cdot \mathbf{M} \cdot \mathbf{\gamma}$$
 
 可以得到，此坐标下，离源矢量 $\mathbf{\gamma}$ 的具体形式:
 
-$$\mathbf{\gamma}=(\sin i_{\xi} \cos\phi, \sin i_{\xi} \sin\phi, \cos i_{\xi})$$
+<div> $$\mathbf{\gamma}=(\sin i_{\xi} \cos\phi, \sin i_{\xi} \sin\phi, \cos i_{\xi})$$ </div>
 
 ## 震源机制解
 

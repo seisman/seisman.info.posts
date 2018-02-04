@@ -19,7 +19,7 @@ slug: instrumental-response-removed-or-not
 
 几点说明：
 
-1.  可以使用 [sac2col](https://github.com/seisman/sac_tools)
+1.  可以使用 [sac2col](https://github.com/seisman/SACTools)
     将 SAC 的每个数据点提取出一列 ASCII 数据，这样就可以直观的去判断是否符合上述准则
 2.  这个准则仅对现代的数字地震仪成立
 

@@ -10,11 +10,11 @@ mathjax: true
 slug: instrumental-response-resp
 ---
 
-《[仪器响应的物理细节](/physical-details-of-instrumental-response/)》一文中说过，
+《[仪器响应的物理细节](/instrumental-response-physical-details/)》一文中说过，
 理论上仪器响应是由三个阶段构成的。常用的仪器响应格式包括 SEED 的 RESP 文件以及 SAC 的 PZ 文件。
 这里通过阅读一个 RESP 类型的仪器响应文件，来更进一步的理解仪器响应，顺便熟悉一下 SEED 格式。
 
-由于 RESP 的内容太长，就不在博文中贴出，本文所使用的 RESP 文件可以在 [这里](http://seisman.qiniudn.com/downloads/RESP.IU.COLA.00.BHZ) 下载。
+由于 RESP 的内容太长，就不在博文中贴出，本文所使用的 RESP 文件可以在 [这里](/downloads/RESP.IU.COLA.00.BHZ) 下载。
 
 RESP 文件是从 SEED 文件中解压得到的，因而保留了 SEED 格式的很多传统。响应文件中 Stage sequence number
 表示阶段号，这个例子中从 1 到 3 再到 0；在每个 stage 中，根据 SEED 格式的要求又分为多个 block，

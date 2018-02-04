@@ -22,11 +22,11 @@ slug: global-relief-models
 
 博客中提到的地形数据，按照分辨率从低到高排序如下：
 
--   etopo5：[GMT 网格数据之 etopo5](/global-relief-model-etopo5/)
--   etopo2：[GMT 网格数据之 ETOPO2v2](/global-relief-model-etopo2/)
--   etopo1：[GMT 网格数据之 ETOPO1](/global-relief-model-etopo1/)
--   GEBCO：[GEBCO：全球水深数据](/gebco-global-bathymetry-data/)
--   GTOPO30：[GMT 网格数据之 GTOPO30](/global-digital-elevation-model-gtopo30/)
+-   etopo5：[GMT 网格数据之 etopo5](/etopo5/)
+-   etopo2：[GMT 网格数据之 ETOPO2v2](/etopo2/)
+-   etopo1：[GMT 网格数据之 ETOPO1](/etopo1/)
+-   GEBCO：[GEBCO：全球水深数据](/gebco/)
+-   GTOPO30：[GMT 网格数据之 GTOPO30](/gtopo30/)
 -   SRTM30\_PLUS：[全球地形起伏数据：SRTM30\_PLUS](/srtm30-plus/)
 -   SRTM15\_PLUS：[全球地形起伏数据：SRTM15\_PLUS](/srtm15-plus/)
 -   SRTM3：[高精度地形网格数据 SRTM](/srtm/)

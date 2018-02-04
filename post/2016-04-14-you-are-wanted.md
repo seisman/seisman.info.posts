@@ -14,12 +14,10 @@ slug: you-are-wanted
 下面列出了我发起的几个开源项目。挖了坑但是没有时间去填，所以需要征集志愿者参与维护。志愿者越多越好，项目开源的目的就是让所有人都可以参与到维护中来。
 
 1.  [SAC 参考手册](https://github.com/seisman/SAC_Docs_zh) 日常维护
-2.  [GMT 中文社区主页](https://github.com/gmt-china/gmt-china.github.io) 日常维护，网页设计
+2.  [GMT 中文社区主页](https://github.com/gmt-china/gmt-china.org) 日常维护，网页设计
 3.  [GMT 参考手册](https://github.com/gmt-china/GMT_docs) 日常维护
 4.  [GMT 模块手册](https://github.com/gmt-china/GMT_modules) 日常维护，模块用法整理
-5.  [GMT 示例集](https://github.com/gmt-china/GMT_examples) 日常维护，网页设计，示例投稿
 6.  [GMT 快速安装脚本](https://github.com/gmt-china/gmt-easy-installer) 测试不同的平台
-7.  [pssac for GMT5](https://github.com/seisman/GMT5-pssac) 程序核心已完成，需要修复一些严重 BUG
 
 ## 博文征集
 

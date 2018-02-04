@@ -1,7 +1,7 @@
 ---
 title: 仪器响应实例分析
 date: 2013-06-30
-latsmod: 2014-06-10
+lastmod: 2014-06-10
 author: SeisMan
 categories:
   - 地震学基础

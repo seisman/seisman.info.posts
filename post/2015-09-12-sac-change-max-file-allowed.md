@@ -6,7 +6,7 @@ categories:
   - SAC
 tags:
   - SAC技巧
-slug: change-max-file-allowed-in-sac
+slug: sac-change-max-file-allowed
 ---
 
 SAC 在处理数据时，一次性最多只能读入 1000 个 SAC 文件。当读入过多的 SAC 文件时，会出现如下警告:

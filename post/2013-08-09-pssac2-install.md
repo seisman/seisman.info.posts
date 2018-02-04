@@ -24,7 +24,7 @@ GMT4 版本的 `pssac2` 没有官方下载地址，目前只在 [specfem3d](http
 `pssac2` 的源码。
 
 由于 specfem3d 中的 pssac2 下载起来有些麻烦，这里我整理了一个版本供读者下载：
-[pssac2_GMT4.tar.gz](http://7j1zxm.com1.z0.glb.clouddn.com/downloads/pssac2_GMT4.tar.gz)
+[pssac2_GMT4.tar.gz](/downloads/pssac2_GMT4.tar.gz)
 
 本文提供的版本在 specfem3d 给的源码的基础上做了如下操作与修改：
 
