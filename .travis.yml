@@ -1,7 +1,7 @@
 language: python
 python: 3.6
 env:
-  - HUGO_VERSION=0.35
+  - HUGO_VERSION=0.36
 
 branches:
   only:
