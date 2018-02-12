@@ -158,6 +158,8 @@ ELRepo 包含了一些硬件相关的驱动程序，比如显卡、声卡驱动:
 
 ### 删除多余的 kernel
 
+严格地说，Linux 只是各发行版的核心即 kernel，而不是一个完整的操作系统。
+核心的作用是操作硬件。kernel 本质上其实，就是一个文件: /boot/vmlinuz-xxx (一部机器上可能有数个核心)。
 在前面的 `yum update` 执行之后，可能会将 kernel 也一起更新，则在启动 CentOS 时启动项中会有很多项。
 
 确认当前使用的 kernel 版本号:
@@ -178,10 +180,20 @@ ELRepo 包含了一些硬件相关的驱动程序，比如显卡、声卡驱动:
     kernel-tools-3.10.0-123.9.3.el7.x86_64
     kernel-tools-libs-3.10.0-123.9.3.el7.x86_64
 
-可以看出有三个版本的 kernel，123.8.1、123.9.2 和 123.9.3。除了最新的 kernel 外，建议多保留一个旧 kernel，以免新 kernel 出现问题时可以通过旧 kernel 进入系统。因而此处删除 123.8.1 版本的 kernel:
+除了 kernel 外、kernel-devel、kernel-headers 和 kernel-tools 这些是用于开发或者是一些特别的程序所需要。
+不同的发行版，除了 kernel 外，其他的命名规则各有不同。
+
+上面可以看出有三个版本的 kernel，123.8.1、123.9.2 和 123.9.3。
+kernel 太多并不会影响开机速度。搜索内核只在生成 grub.cfg 时进行，记录在了配置文件 grub-mkconfig 中，所以多余的内核不会影响开机速度。
+另外，务必谨慎使用 autoremove 命令。有时，a 依赖 b。安装了 a，进而 b 因为依赖安装上了，恰好 b 也是其他的东西需要的。
+有一天 a 被删除，b 可能会被错误地删除。所以不要轻易使用 autoremove。
+除了最新的 kernel 外，建议多保留一个旧 kernel，以免新 kernel 出现问题时可以通过旧 kernel 进入系统。
+因而此处删除 123.8.1 版本的 kernel:
 
     sudo yum remove kernel-3.10.0-123.8.1.el7.x86_64
     sudo yum remove kernel-devel-3.10.0-123.8.1.el7.x86_64
+
+王亮已经写好一个 Perl 脚本自动管理 kernel，你可以在这里下载: https://github.com/wangliang1989/scripts/blob/master/manage-kernel/manage-kernel.pl 。
 
 ## 基础开发环境
 
