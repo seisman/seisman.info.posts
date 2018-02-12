@@ -561,9 +561,21 @@ chsh 命令修改的是 login shell，因而需要退出当前用户并重新登
 
 ### 中文输入法
 
+安装 ibus 和插件:
+
+    sudo yum install ibus ibus-libpinyin
+
 由于使用的是全英文安装，所以默认是没有中文输入法的。
 
-在“Application”->“Settings”->“Region & Language” 中将“Chinese（Intelligent Pinyin）”添加到“Input Sources” 中即可使用中文输入法。默认使用“Shift”键切换中文输入法。
+在“Application”->“Settings”->“Language” 中，这样设置：
+
+|项目    |内容               |
+|:-----:|:----------------:|
+|语言    |汉语中国            |
+|格式    |中国汉语            |
+|输入入源 |intelligent Pinyin|
+
+重启后注意选择保留原文件夹。
 
 ### 等宽字体
 
