@@ -596,6 +596,8 @@ chsh 命令修改的是 login shell，因而需要退出当前用户并重新登
 
 VirtuabBox 的安装:
 
+    sudo yum install kernel-devel # 先要安装 Kernel 工具
+
     wget http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo
     sudo mv virtualbox.repo /etc/yum.repos.d/
     sudo yum install VirtualBox-5.0
