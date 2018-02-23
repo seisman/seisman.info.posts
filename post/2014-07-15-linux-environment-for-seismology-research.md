@@ -159,7 +159,7 @@ ELRepo 包含了一些硬件相关的驱动程序，比如显卡、声卡驱动:
 ### 删除多余的 kernel
 
 严格地说，Linux 只是各发行版的核心即 kernel，而不是一个完整的操作系统。
-核心的作用是操作硬件。kernel 本质上其实，就是一个文件: /boot/vmlinuz-xxx (一部机器上可能有数个核心)。
+核心的作用是操作硬件。kernel 其实就是一个文件: /boot/vmlinuz-xxx (一部机器上可能有数个核心)。
 在前面的 `yum update` 执行之后，可能会将 kernel 也一起更新，则在启动 CentOS 时启动项中会有很多项。
 
 确认当前使用的 kernel 版本号:
