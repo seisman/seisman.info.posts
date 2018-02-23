@@ -193,8 +193,6 @@ kernel 太多并不会影响开机速度。搜索内核只在生成 grub.cfg 时
     sudo yum remove kernel-3.10.0-123.8.1.el7.x86_64
     sudo yum remove kernel-devel-3.10.0-123.8.1.el7.x86_64
 
-王亮已经写好一个 Perl 脚本自动管理 kernel，你可以在这里下载: https://github.com/wangliang1989/scripts/blob/master/manage-kernel/manage-kernel.pl 。
-
 ## 基础开发环境
 
 ### GCC 系列
