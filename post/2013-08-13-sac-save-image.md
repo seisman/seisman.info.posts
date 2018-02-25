@@ -35,7 +35,7 @@ File 的简称，这是 SAC 自己设计的图像格式，里面包含了 SAC �
     SAC> bd sgf
     SAC> p
     SAC> q
-    [seisman@info ~]$ sgftops f001.sgf f001.ps 2 si
+    $ sgftops f001.sgf f001.ps 2 si
     First translates (x and y), then rotates, then scales:
     [Default] landscape: 8 0 90 1 to prompts
     Sample portrait: 0.5 0.5 0 0.75
@@ -44,7 +44,7 @@ File 的简称，这是 SAC 自己设计的图像格式，里面包含了 SAC �
     y translation : 0.5
     rotation angle: 0
     scale........ : 0.75
-    [seisman@info ~]$
+    $
 
 ## SAVEIMG 直接保存图形文件
 

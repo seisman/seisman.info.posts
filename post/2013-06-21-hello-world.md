@@ -31,4 +31,4 @@ Hello World！欢迎来到 SeisMan 的个人独立博客。
 [Go]: https://golang.org/
 [Hugo]: https://gohugo.io/
 [Even]: https://github.com/olOwOlo/hugo-theme-even
-[GitHub]: https://github.com/seisman/seisman.info
+[GitHub]: https://github.com/seisman/blog.seisman.info

@@ -49,7 +49,7 @@ slug: declarations
 
 1.  RSS 订阅，可以第一时间收到博文的发布提醒。订阅地址为
 
-        https://seisman.info/atom.xml
+        http://blog.seisman.info/index.xml
 
     可以使用 feedly 或者其他 RSS 阅读器订阅。
 
