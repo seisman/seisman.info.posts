@@ -9,8 +9,8 @@ branches:
 
 before_install:
   - cd ..
-  - git clone --depth=50 --branch=master https://github.com/seisman/seisman.info.git
-  - cd seisman.info
+  - git clone --depth=50 --branch=master https://github.com/seisman/blog.seisman.info.git
+  - cd blog.seisman.info
   - git submodule update --init --recursive --remote
 
 install:
@@ -26,4 +26,4 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: ${GH_TOKEN}
-  local_dir: ../seisman.info/public
+  local_dir: ../blog.seisman.info/public
