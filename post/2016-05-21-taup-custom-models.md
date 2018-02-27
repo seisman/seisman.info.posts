@@ -97,9 +97,11 @@ TauP 模型的格式。TauP 支持两种速度模型格式： `nd` 和 `tvel`。
 有关，与震中距、震源深度等都无关。因而先把这个表计算出来，则可以实现走时计算的加速。
 
 计算表的方式也很简单：
+
 ```bash
 $ taup_create -nd model1.nd
 $ taup_time -mod model1.taup -ph p,P,Pn -h 5 -km 200
 ```
+
 `taup_create` 命令会生成一个后缀为 `.taup` 的二进制文件，这个文件可以直接在命令中使用，如上面
 的第二个命令所示。

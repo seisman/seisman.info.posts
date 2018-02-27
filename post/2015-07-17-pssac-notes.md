@@ -16,8 +16,8 @@ slug: pssac-notes
 
 相关文档见:
 
-- http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html
-- http://modules.gmt-china.org/pssac.html
+- <http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html>
+- <http://modules.gmt-china.org/pssac.html>
 
 `pssac` 可以读取 SAC 波形数据，并利用 GMT 的绘图功能将波形数据绘制在 PS 文件中。
 `pssac` 绘制的波形图，大致可以分为三类：
@@ -403,4 +403,4 @@ pssac 只支持 5 种剖面类型，有时候可能想要绘制其他量的剖�
 -   2013-08-08：初稿；
 -   2015-07-17：将原稿的几篇合并并整理成一篇；
 -   2016-03-16：解释了 `-E` 选项中 n 取其他值的含义；
--   2016-03-16：修复了图片 Y 轴标签的 bug；Thanks to <gwx2013@USTC>；
+-   2016-03-16：修复了图片 Y 轴标签的 bug；Thanks to gwx2013 @ USTC；

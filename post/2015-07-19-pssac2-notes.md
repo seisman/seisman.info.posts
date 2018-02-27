@@ -13,7 +13,7 @@ slug: pssac2-notes
 
 `pssac2` 是 `pssac` 的升级版。相比于 `pssac` 而言增加了更多的功能，选项也更加符合 GMT 的风格。
 
-`pssac2` 与 `pssac` 的选项之间有很多相似之处，所以本文只介绍二者之间的不同之处，读者应首先阅读《pssac 使用教程》。
+`pssac2` 与 `pssac` 的选项之间有很多相似之处，所以本文只介绍二者之间的不同之处，读者应首先阅读《[pssac 使用教程](/post/pssac-notes/)》。
 
 <!--more-->
 
