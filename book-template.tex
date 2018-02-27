@@ -1,0 +1,91 @@
+\documentclass[a4paper, oneside]{ctexbook}
+
+% 页面设置
+\usepackage[top=3cm, bottom=3cm, left=3cm, right=3cm]{geometry}
+
+\usepackage{graphicx}
+\usepackage[dvipsnames,svgnames*,x11names*]{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+    pdftitle={$title$},
+    pdfauthor={$author$},
+    CJKbookmarks=true,
+    colorlinks=true,
+    linkcolor=red,
+    citecolor=Blue,
+    urlcolor=Blue,
+    breaklinks=true
+}
+
+% extra math symbols
+\usepackage{amsmath}
+
+% long tables
+\usepackage{longtable, booktabs}
+
+% make code copyable
+\usepackage{accsupp}
+\newcommand\emptyaccsupp[1]{\BeginAccSupp{ActualText={}}#1\EndAccSupp{}}
+
+% code highlight
+\usepackage{listings}
+% defined by pandoc
+\newcommand{\passthrough}[1]{#1}
+\lstloadlanguages{C, Perl, Python, bash}
+\lstset{
+    basicstyle=\small\ttfamily,
+    columns=flexible,
+    xleftmargin=2em,
+    xrightmargin=2em,
+    breakatwhitespace=false,
+    breaklines=true,
+    commentstyle=\color[rgb]{0,0.6,0},
+    keywordstyle=\color{blue},
+    frame=leftline,
+    numbers=left,
+    numbersep=5pt,
+    numberstyle=\small\color[rgb]{0.5,0.5,0.5}\emptyaccsupp,
+    rulecolor=\color{black},
+    rulesepcolor=\color{blue},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    stepnumber=1,
+    stringstyle=\color[rgb]{0.58,0,0.82},
+    tabsize=4
+}
+
+
+% tightlist defined by pandoc
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+% set maximum width of figure to 0.95*textwidth
+\makeatletter\def\Gin@i{\Gin@ii[width=0.95\textwidth]}\makeatother
+
+$if(title)$
+\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+$endif$
+$if(author)$
+\author{$for(author)$$author$$sep$ \and $endfor$}
+$endif$
+\date{\today}
+
+\begin{document}
+$if(title)$
+\maketitle
+$endif$
+
+% table of contents
+\pdfbookmark[0]{\contentsname}{contents}
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+% body part
+$body$
+\end{document}

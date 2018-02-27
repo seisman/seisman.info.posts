@@ -79,7 +79,7 @@ $$p = \frac{dT}{dX}$$
 
 因而这里的思路仅适用于某些简单的震相，比如 P、PcP、PKiKP 之类。
 
-## tau(p)
+## tau(p)函数
 
 定义 delay-time 函数 $\tau(p)$：
 
