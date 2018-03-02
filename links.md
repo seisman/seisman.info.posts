@@ -49,10 +49,11 @@ weight: 30
 - [Global CMT](http://www.globalcmt.org/)
 - [ISC Focal Mechanism](http://www.isc.ac.uk/iscbulletin/search/fmechanisms/)
 - [UCB Moment Tensor Catalog](http://www.ncedc.org/ncedc/mt.html "University of California Berkeley Moment Tensor Catalog")
-- [NIED CMT solutions](http://www.fnet.bosai.go.jp/event/joho.php?LANG=en)
 - [SCSN Moment Tensor Catalog](http://service.scedc.caltech.edu/eq-catalogs/CMTsearch.php)
+- [NIED CMT solutions](http://www.fnet.bosai.go.jp/event/joho.php?LANG=en)
 - [JMA Focal Mechanism Catalog](http://www.data.jma.go.jp/svd/eqev/data/bulletin/cmt_e.html)
 - [JMA Nodal Plane Solution](http://www.data.jma.go.jp/svd/eqev/data/bulletin/mech_e.html)
+- [Hi-net AUQA Focal Mechanism Catalog](http://www.hinet.bosai.go.jp/AQUA/aqua_catalogue.php?LANG=en)
 - [意大利周边震源机制](http://cnt.rm.ingv.it/en/tdmt)
 - [台湾震源机制解](http://tecws.earth.sinica.edu.tw/BATS/cmtbyform.php)
 
