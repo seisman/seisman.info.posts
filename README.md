@@ -130,6 +130,7 @@ author: '[seisman](http://seisman.info)'
 - [rdseed 的安装](/post/2014-10-07-rdseed-install.md)
 - [rdseed 用法笔记](/post/2015-10-13-rdseed-notes.md)
 - [SOFI2D 笔记](/post/2015-12-08-sofi2d-notes.md)
+- [在Google Earth上绘制震源球](/post/2018-03-03-beachballs-on-google-earth.md)
 
 # 地球物理相关资源
 
