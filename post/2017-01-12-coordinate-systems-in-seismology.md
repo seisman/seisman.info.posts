@@ -44,7 +44,18 @@ RTZ的定义如下：
 
 NEZ坐标系到RTZ坐标系的转换公式为
 
-$\begin{bmatrix}R\\T\end{bmatrix}$ = $\begin{bmatrix}\cos\alpha & \sin\alpha \\-\sin\alpha & \cos\alpha\end{bmatrix}$$\begin{bmatrix}N\\E\end{bmatrix}$
+<div>
+$\begin{bmatrix}
+R \\T
+\end{bmatrix}$ =
+$\begin{bmatrix}
+\cos\alpha & \sin\alpha \\
+-\sin\alpha & \cos\alpha
+\end{bmatrix}$
+$\begin{bmatrix}
+N \\ E
+\end{bmatrix}$
+</div>
 
 其中 $\alpha$ 是 R 方向与 N 方向的夹角，也就是反方位角加180度。
 
@@ -66,19 +77,23 @@ LQT坐标系的定义如下：
 
 地震矩张量是一个3X3的矩阵，通常写为
 
+<div>
 $\begin{bmatrix}
 Mxx & Mxy & Mxz \\
 Myx & Myy & Myz \\
 Mzx & Mzy & Mzz
 \end{bmatrix}$
+</div>
 
 由于具有对称性，因而地震矩张量只有6个独立的量，即
 
+<div>
 $\begin{bmatrix}
 Mxx & Mxy & Mxz \\
 Mxy & Myy & Myz \\
 Mxz & Myz & Mzz
 \end{bmatrix}$
+</div>
 
 有时候会将这6个量写成数组而不是矩阵的形式，通常顺序是这样的：
 
@@ -119,6 +134,7 @@ USE 坐标系还有很多别名，比如：
 
 Aki&Richards (1980) P118 给出了USE/RTP坐标系与NED坐标系之间的转换关系：
 
+<div>
 $\begin{bmatrix}
 Mrr & Mrt & Mrp \\
 Mtr & Mtt & Mtp \\
@@ -128,6 +144,7 @@ Mdd & Mdn & -Mde \\
 Mnd & Mnn & -Mne \\
 -Med & -Men & Mee
 \end{bmatrix}$
+</div>
 
 ## 参考
 
