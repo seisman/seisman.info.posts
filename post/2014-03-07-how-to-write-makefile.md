@@ -25,8 +25,3 @@ Makefile，顺便学习一下 Sphinx，重新制作一个更精美的 PDF 版本
 - 项目主页：<https://github.com/seisman/how-to-write-makefile>
 - 网页在线版：<https://seisman.github.io/how-to-write-makefile/>
 - 下载： [PDF版](https://seisman.github.io/how-to-write-makefile/Makefile.pdf)
-
-## sphinx 中文支持
-
-sphinx 在利用 LaTeX 生成 PDF 时，对中文支持不够，因而需要做特殊配置，详情
-见 [sphinx的中文支持](/sphinx-chinese-support/)。

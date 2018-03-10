@@ -33,10 +33,11 @@ Global CMT 全称 Global Centroid-Moment-Tensor Project，前身是 Harvard CMT�
 
 <http://www.globalcmt.org/CMTfiles.html>
 
-很多时候我们需要根据其他条件对 catalog 进行筛选，得到符合自定义条件的地震事件，所以 ASCII 格式的
-目录文件就很重要了。GCMT 提供了 1976 年到现在的地震目录，其中 1976-2004 年的地震目录为 dek 格式，
-包含在一个文件中。2005 年以后的地震目录为 ndk 格式，每月一个文件。对于 2005 年以后的地震目录可以
-将一年的目录合并到一个文件中，方便管理且不会导致文件过大。
+很多时候我们需要根据其他条件对 catalog 进行筛选，得到符合自定义条件的地震事件，
+所以 ASCII 格式的目录文件就很重要了。GCMT 提供了 1976 年到现在的地震目录，
+其中 1976-2004 年的地震目录为 dek 格式，包含在一个文件中。2005 年以后的地震目录
+为 ndk 格式，每月一个文件。对于 2005 年以后的地震目录可以将一年的目录合并到一个
+文件中，方便管理且不会导致文件过大。
 
 - [1976-2004 目录](http://www.ldeo.columbia.edu/~gcmt/projects/CMT/catalog/jan76_dec04.dek)
 - [2005 以后目录](http://www.ldeo.columbia.edu/~gcmt/projects/CMT/catalog/NEW_MONTHLY/)
@@ -52,5 +53,5 @@ Global CMT 全称 Global Centroid-Moment-Tensor Project，前身是 Harvard CMT�
 ## 备注
 
 -   GCMT 中给出的地震矩单位是 `dyne-cm`，而不是国际单位制的 `N-m`。
--   GCMT 目录的 ASCII 文件中震级采用 mb 和/或 MS，为什么不用矩震级？使用面波和体波震级的最大问题是
-    震级饱和，导致震级基本不会超过 8 级。
+-   GCMT 目录的 ASCII 文件中震级采用 mb 和/或 MS，为什么不用矩震级？使用面波
+    和体波震级的最大问题是震级饱和，导致震级基本不会超过 8 级。

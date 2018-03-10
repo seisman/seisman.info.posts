@@ -123,3 +123,7 @@ weight: 30
 - [全球地质资料数据中心](http://portal.onegeology.org/OnegeologyGlobal/)
 - [Data Center](http://www.fdsn.org/webservices/datacenters/): 支持 FDSN Web Services 的地震数据中心
 - [Channel Naming](http://ds.iris.edu/ds/nodes/dmc/tools/data_channels/): 通道名的含义
+
+## 期刊相关
+
+- [Journal Citation Reports](https://jcr.incites.thomsonreuters.com/)
