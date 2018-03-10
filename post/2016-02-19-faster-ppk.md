@@ -34,7 +34,7 @@ slug: faster-ppk
 2.  修改版源码基于 SAC v101.6a，所以在其他版本上可能无法使用
 3.  下载修改版源码，用其覆盖 SAC v101.6a 源码里的 `src/gam/xppk.c`，然后重新编译 SAC 即可
 
-源码下载： [xppk.c](http://7j1zxm.com1.z0.glb.clouddn.com/downloads/xppk.c)
+源码下载： [xppk.c](/downloads/xppk.c)
 
 修改后的源码新增了如下功能：
 
