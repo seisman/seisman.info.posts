@@ -150,7 +150,6 @@ author: '[seisman](http://seisman.info)'
 - [地震数据申请](/post/2015-10-27-seismic-waveform-data-request.md)
 - [地震波形数据格式](/post/2014-01-10-seismic-data-formats.md)
 - [地震数据的命名规则](/post/2014-03-05-seismic-file-name-convections.md)
-- [查看 IRIS 台站分布](/post/2014-01-28-iris-station-distribution.md)
 - [IRIS 数据申请工具: BREQ_FAST](/post/2013-07-23-breq-fast.md)
 - [用 Wilber 3 申请地震波形数据](/post/2015-09-28-wilber3.md)
 - [SOD 入门教程](/post/2016-12-24-sod-notes.md)
