@@ -20,6 +20,10 @@ def combined_file(index):
                 m = re.match(r"\[(.*)]\((.*)\)", line.lstrip('- '))
                 title = m.group(1)
                 markdown = m.group(2).lstrip('/')
+
+                if not os.path.exists(markdown):
+                    print("{} not exists, skipped.".format(markdown))
+                    continue
                 slug = os.path.splitext(os.path.basename(markdown))[0][11:]
 
                 body += "### {} {{ #{} }}\n".format(title, slug)

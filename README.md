@@ -223,8 +223,6 @@ author: '[seisman](http://seisman.info)'
 
 - [Hello World!](/post/2013-06-21-hello-world.md)
 - [博客托管的一些调整](/post/2014-07-17-blog-hosts.md)
-- [将博文以 PDF 格式导出](/post/2014-09-14-export-posts-as-pdf.md)
-- [博客被 Google 认定为 “对用户非常有用” 啦](/post/2015-07-29-google-sitelinks.md)
 
 ## 杂类
 
@@ -232,7 +230,6 @@ author: '[seisman](http://seisman.info)'
 - [一些产品的推广链接](/post/2015-04-11-my-referral-links.md)
 - [博客开通微信公众号](/post/2015-09-25-wechat-subscription.md)
 - [我所使用的软件/服务列表](/post/2014-08-05-personal-preferences.md)
-- [关于博客无法访问的说明](/post/2016-01-20-gfw.md)
 - [征集令](/post/2016-04-14-you-are-wanted.md)
 - [地球物理相关软件](/post/2014-02-20-geo-software.md)
 - [地球物理学家列表](/post/2015-07-23-geophysicist.md)
