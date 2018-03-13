@@ -1,11 +1,7 @@
 language: python
 python: 3.6
 env:
-  - HUGO_VERSION=0.36
-
-branches:
-  only:
-    - master
+  - HUGO_VERSION=0.37.1
 
 before_install:
   - cd ..
@@ -23,8 +19,6 @@ script:
   - ./hugo
 
 deploy:
-  edge:
-    branch: v1.8.47
   provider: pages
   skip_cleanup: true
   github_token: ${GH_TOKEN}
