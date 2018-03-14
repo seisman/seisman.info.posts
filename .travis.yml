@@ -10,9 +10,7 @@ before_install:
   - git submodule update --init --recursive --remote
 
 install:
-  # install latest hugo
-  - wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
-  - tar -xvf hugo_${HUGO_VERSION}_Linux-64bit.tar.gz hugo
+  - curl -L https://raw.githubusercontent.com/seisman/install/master/install-hugo.sh | bash
   - pip install pygments
 
 script:
