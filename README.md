@@ -80,7 +80,6 @@ author: '[seisman](http://seisman.info)'
 - [在地图上绘制特定的经纬线](/post/2015-12-11-plot-specified-gridline-on-maps.md)
 - [绘制颜色渐变的线条](/post/2016-01-18-plot-lines-with-gradient-colors.md)
 - [在极坐标下绘制深度剖面](/post/2016-03-12-depth-profile-in-polar-coordinates.md)
-- [用 psxy 绘制铁轨线](/post/2016-03-30-plot-rail-tracks.md)
 - [用海岸线裁剪区域](/post/2013-10-30-coastline-clip.md)
 - [计算某点离海岸线的距离](/post/2014-02-21-calculate-distance-to-coast.md)
 - [从 3D 数据中截取剖面](/post/2015-04-08-profile-from-3d-data.md)

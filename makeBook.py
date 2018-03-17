@@ -48,4 +48,4 @@ def markdown_to_pdf(text, pdffile):
 
 if __name__ == "__main__":
     text = combined_file("README.md")
-    markdown_to_pdf(text, "blog.pdf")
+    markdown_to_pdf(text, "seisman-blog.pdf")

@@ -59,7 +59,17 @@ Global CMT 给出了零迹矩张量解和断层参数解。
 
 2.  若使用 GCMT 给出的矩张量解，由于 GCMT 给出的是 (Mrr, Mtt, Mff, Mrt, Mrf, Mtf) 解，即 USE 坐标系下的矩张量，需要转换成 NED 坐标系的矩张量，方可使用。转换公式如下：
 
-    ![](/images/2014050105.jpg)
+    <div>
+    $\begin{bmatrix}
+    M_{rr} & M_{rt} & M_{rp} \\
+    M_{tr} & M_{tt} & M_{tp} \\
+    M_{pr} & M_{pt} & M_{pp}
+    \end{bmatrix}$=$\begin{bmatrix}
+    M_{zz} & M_{zx} & -M_{zy} \\
+    M_{xz} & M_{xx} & -M_{xy} \\
+    -M_{yz} & -M_{yx} & M_{yy}
+    \end{bmatrix}$
+    </div>
 
 不同的文献给出的坐标系可能不同，比如这里提到的 NED 坐标系和 USE 坐标系。即便相同的坐标系所使用的符号也可能不同，比如 GCMT 的 $(r,t,f)$ 坐标系和 Aki&Richards(1980) 中给出的 $(r,\Delta,\phi)$ 坐标系其实都是 USE 坐标系。
 

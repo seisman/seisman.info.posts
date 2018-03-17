@@ -79,9 +79,9 @@ LQT坐标系的定义如下：
 
 <div>
 $\begin{bmatrix}
-Mxx & Mxy & Mxz \\
-Myx & Myy & Myz \\
-Mzx & Mzy & Mzz
+M_{xx} & M_{xy} & M_{xz} \\
+M_{yx} & M_{yy} & M_{yz} \\
+M_{zx} & M_{zy} & M_{zz}
 \end{bmatrix}$
 </div>
 
@@ -89,9 +89,9 @@ Mzx & Mzy & Mzz
 
 <div>
 $\begin{bmatrix}
-Mxx & Mxy & Mxz \\
-Mxy & Myy & Myz \\
-Mxz & Myz & Mzz
+M_{xx} & M_{xy} & M_{xz} \\
+M_{xy} & M_{yy} & M_{yz} \\
+M_{xz} & M_{yz} & M_{zz}
 \end{bmatrix}$
 </div>
 
@@ -136,16 +136,16 @@ Aki&Richards (1980) P118 给出了USE/RTP坐标系与NED坐标系之间的转换
 
 <div>
 $\begin{bmatrix}
-Mrr & Mrt & Mrp \\
-Mtr & Mtt & Mtp \\
-Mpr & Mpt & Mpp
+M_{rr} & M_{rt} & M_{rp} \\
+M_{tr} & M_{tt} & M_{tp} \\
+M_{pr} & M_{pt} & M_{pp}
 \end{bmatrix}$=$\begin{bmatrix}
-Mdd & Mdn & -Mde \\
-Mnd & Mnn & -Mne \\
--Med & -Men & Mee
+M_{dd} & M_{dn} & -M_{de} \\
+M_{nd} & M_{nn} & -M_{ne} \\
+-M_{ed} & -M_{en} & M_{ee}
 \end{bmatrix}$
 </div>
 
 ## 参考
 
-1. http://service.iris.edu/irisws/rotation/docs/1/help/
+1. <http://service.iris.edu/irisws/rotation/docs/1/help/>
