@@ -25,4 +25,4 @@ IRIS 的 Syngine 服务使用 [AxiSEM](http://seis.earth.ox.ac.uk/axisem/) 计�
 2. 网页版下载工具： <https://service.iris.edu/irisws/syngine/1>
 3. 命令行下载工具： [FetchSyn](https://seiscode.iris.washington.edu/projects/ws-fetch-scripts/wiki/FetchSyn_usage)
 4. 用 ObsPy 下载理论地震图： [Using Syngine with ObsPy](http://nbviewer.jupyter.org/gist/krischer/3e655576e4d17e6c95f2)
-5. AxiSEM 计算时所使用的输入模型文件: http://ds.iris.edu/ds/products/emc-syngine/
+5. AxiSEM 计算时所使用的输入模型文件: <http://ds.iris.edu/ds/products/emc-syngine>
