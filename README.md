@@ -227,7 +227,6 @@ author: '[seisman](http://seisman.info)'
 
 - [一些说明](/post/2015-09-27-declarations.md)
 - [一些产品的推广链接](/post/2015-04-11-my-referral-links.md)
-- [博客开通微信公众号](/post/2015-09-25-wechat-subscription.md)
 - [我所使用的软件/服务列表](/post/2014-08-05-personal-preferences.md)
 - [征集令](/post/2016-04-14-you-are-wanted.md)
 - [地球物理相关软件](/post/2014-02-20-geo-software.md)

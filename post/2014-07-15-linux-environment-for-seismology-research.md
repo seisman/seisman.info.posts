@@ -472,7 +472,7 @@ FTP 客户端，还是有界面的 filezilla 比较方便些。
 
 ### Google Earth
 
-到 https://www.google.com/earth/download/ge/agree.html 下载64位rpm包，执行如下命令安装:
+到 <https://www.google.com/earth/download/ge/agree.html> 下载64位rpm包，执行如下命令安装:
 
     sudo yum localinstall google-earth-stable_current_x86_64.rpm
 

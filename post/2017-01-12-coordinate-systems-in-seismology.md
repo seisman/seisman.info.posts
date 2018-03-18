@@ -40,7 +40,7 @@ RTZ的定义如下：
 
 如图所示:
 
-![](http://service.iris.edu/media/webservicedoc/irisws/rotation/1/zrt.png)
+![](/images/2017021201.png)
 
 NEZ坐标系到RTZ坐标系的转换公式为
 
@@ -67,9 +67,9 @@ LQT坐标系的定义如下：
 - Q: SV波偏振方向
 - T: SH波偏振方向，与 RTZ 坐标系中T的定义相同
 
-|             垂直面视角             |            水平面视角             |
-|:----------------------------------:|:-----------------------------:|
-| ![](http://service.iris.edu/media/webservicedoc/irisws/rotation/1/lqt.png) | ![](http://service.iris.edu/media/webservicedoc/irisws/rotation/1/lqt_map.png) |
+|             垂直面视角      |            水平面视角       |
+|:----------------------------:|:--------------------------:|
+| ![](/images/2017011202.png) | ![](/images/2017011203.png) |
 
 可以先将NEZ坐标系转换为RTZ坐标系，再根据P波入射角将RZ两个方向旋转到LQ方向即可。当然也可以直接通过三维旋转将NEZ旋转到LQT坐标系。
 
