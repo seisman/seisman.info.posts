@@ -1,5 +1,5 @@
 ---
-title: 球状模型下的 Tau 积分
+title: 球状模型下的 tau 积分
 date: 2015-05-15
 author: SeisMan
 categories:

@@ -1,5 +1,5 @@
 ---
-title: 利用 TauP 计算射线穿透点
+title: 利用 taup_pierce 计算射线穿透点
 date: 2014-11-08
 author: SeisMan
 categories:

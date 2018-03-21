@@ -1,5 +1,5 @@
 ---
-title: 利用 TauP 为 SAC 文件标记理论到时
+title: 利用 taup_setsac 为 SAC 文件标记理论到时
 date: 2014-11-10
 author: SeisMan
 categories:
