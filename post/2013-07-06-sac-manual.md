@@ -11,20 +11,15 @@ tags:
 slug: sac-manual
 ---
 
-此页面是《SAC 参考手册》的发布页。你可以使用 RSS 阅读器以获取新版本发布的通知。本项目的 RSS 地址为：
+- 网页版： https://seisman.github.io/SAC_Docs_zh/
+- PDF版： https://seisman.github.io/SAC_Docs_zh/SAC_Docs.pdf
 
-    https://github.com/seisman/SAC_Docs_zh/releases.atom
+## 2018-03-21 v3.6
 
-<!--more-->
+下载地址：[SAC 参考手册 v3.6.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v3.6.pdf)
 
-## v3.6 dev 版
-
-此文档使用 Git 进行版本控制，文档会不定期修复 bug 以及添加新内容。读者可以下载已定稿的 3.5 版或正在修订中的 3.6-dev 版。
-
-注意：由于 LaTeX 本身的一些限制，3.6-dev 版在新增内容的情况下，部分含图 / 表的页面在排版的时候可能会
-留出一些空白。我一般只会在某个正式版本发布之前整体检查一下排版情况，所以 dev 版的排版无法保证。
-
-下载地址：[3.6-dev 版](https://github.com/seisman/SAC_Docs_zh/raw/pdf/SAC_Docs.pdf)
+- 新增内容：调用SAC库中的 `rms` 子函数
+- 新增示例： `cut`
 
 ## 2016-01-09 v3.5 版
 
