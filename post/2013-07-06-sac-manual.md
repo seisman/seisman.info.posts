@@ -16,14 +16,14 @@ slug: sac-manual
 
 ## 2018-03-21 v3.6
 
-下载地址：[SAC 参考手册 v3.6.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v3.6.pdf)
+下载地址：[SAC 参考手册 v3.6.pdf](http://seisman.qiniudn.com/SAC/sac-manual-v3.6.pdf)
 
 - 新增内容：调用SAC库中的 `rms` 子函数
 - 新增示例： `cut`
 
 ## 2016-01-09 v3.5 版
 
-下载地址：[SAC 参考手册 v3.5.pdf](http://7j1zxm.com1.z0.glb.clouddn.com/downloads/sac-manual-v3.5.pdf)
+下载地址：[SAC 参考手册 v3.5.pdf](http://seisman.qiniudn.com/SAC/sac-manual-v3.5.pdf)
 
 -   增加示例：绘制滤波器的时间响应和频率响应
 -   增加示例：一次性修改多个波形数据的发震时刻
@@ -40,7 +40,7 @@ slug: sac-manual
 
 ## 2015-09-15 v3.4 版
 
-下载地址：[SAC 参考手册 v3.4.pdf](http://7j1zxm.com1.z0.glb.clouddn.com/downloads/sac-manual-v3.4.pdf)
+下载地址：[SAC 参考手册 v3.4.pdf](http://seisman.qiniudn.com/SAC/sac-manual-v3.4.pdf)
 
 -   调整与修订：
     -   将命令的 “错误消息” 和 “警告消息” 集中整理到附录中
@@ -62,7 +62,7 @@ slug: sac-manual
 
 ## 2015-06-06 v3.3 版
 
-下载地址：[SAC 参考手册 v3.3.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v3.3.pdf)
+下载地址：[SAC 参考手册 v3.3.pdf](http://seisman.qiniudn.com/SAC/sac-manual-v3.3.pdf)
 
 -   修正 bugs 和 typos；
 -   命令整理： `hilbert` 、 `transfer`
@@ -79,7 +79,7 @@ slug: sac-manual
 
 ## 2015-05-02 v3.2 版
 
-下载地址：[SAC 参考手册 v3.2.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v3.2.pdf)
+下载地址：[SAC 参考手册 v3.2.pdf](http://seisman.qiniudn.com/SAC/sac-manual-v3.2.pdf)
 
 -   修复 bugs 和 typos；
 -   整理命令 `systemcommand`、`transfer`
@@ -95,7 +95,7 @@ slug: sac-manual
 
 ## 2014-09-25 v3.1 版
 
-下载地址：[SAC 参考手册 v3.1.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v3.1.pdf)
+下载地址：[SAC 参考手册 v3.1.pdf](http://seisman.qiniudn.com/SAC/sac-manual-v3.1.pdf)
 
 - 重新整理了大部分命令的语法说明；
 - 对 “SAC 图像” 一章进行了修订；
@@ -105,7 +105,7 @@ slug: sac-manual
 
 ## 2014-04-18 v3.0 版
 
-下载地址：[SAC 参考手册 v3.0.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v3.0.pdf)
+下载地址：[SAC 参考手册 v3.0.pdf](http://seisman.qiniudn.com/SAC/sac-manual-v3.0.pdf)
 
 - 重新设计了整个文档的结构
 - 重写了教程部分的大多数内容
@@ -114,7 +114,7 @@ slug: sac-manual
 
 ## 2014-02-22 v2.3 版
 
-下载地址：[SAC 帮助文档中文版 v2.3.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v2.3.pdf)
+下载地址：[SAC 帮助文档中文版 v2.3.pdf](http://seisman.qiniudn.com/SAC/sac-manual-v2.3.pdf)
 
 - 使用 Git 管理源码
 - 整理结构和布局的修改
@@ -123,20 +123,20 @@ slug: sac-manual
 
 ## 2013-04-12 v2.2 版
 
-下载地址：[SAC 帮助文档中文版 v2.2.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v2.2.pdf)
+下载地址：[SAC 帮助文档中文版 v2.2.pdf](http://seisman.qiniudn.com/SAC/sac-manual-v2.2.pdf)
 
 命令已经整理完毕，排版上基本已经没有问题了，重新设计了封面，在接下来很长一段时间应该都不会有大的改动了。
 如果有时间，会加一些 SAC 其他方面的东西。如果有读者反馈，命令方面也可能会有更新。
 
 ## 2013-04-06 v2.1 版
 
-下载地址：[SAC 帮助文档中文版 v2.1.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v2.1.pdf)
+下载地址：[SAC 帮助文档中文版 v2.1.pdf](http://seisman.qiniudn.com/SAC/sac-manual-v2.1.pdf)
 
 重新细致整理了手册的第一章，基本达到了我认为可以打印的地步。命令部分还没有整，200 多个，需要很长一段时间才能出来。
 
 ## 2013-03-29 v2.0 版
 
-下载地址：[SAC 帮助文档中文版 v2.0.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v2.0.pdf)
+下载地址：[SAC 帮助文档中文版 v2.0.pdf](http://seisman.qiniudn.com/SAC/sac-manual-v2.0.pdf)
 
 花了两天的时间重新制作了整个文档，内容及排版部分有很多 bug，草草结束是因为接下来的一段时间要好好干活了，
 先把 v2.0 的细节总结如下：
@@ -151,13 +151,13 @@ slug: sac-manual
 
 ## 2012-09-18 v1.2 版
 
-下载地址：[SAC 帮助文档中文版 v1.2.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v1.2.pdf) [SAC 帮助文档中文版 v1.2.doc](http://seisman.qiniudn.com/downloads/sac_manual_v1.2.doc)
+下载地址：[SAC 帮助文档中文版 v1.2.pdf](http://seisman.qiniudn.com/SAC/sac-manual-v1.2.pdf) [SAC 帮助文档中文版 v1.2.doc](http://seisman.qiniudn.com/SAC/sac-manual-v1.2.doc)
 
 - 增加了封面配图。
 
 ## 2012-09-03 v1.1 版
 
-下载地址：[SAC 帮助文档中文版 v1.1.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v1.1.pdf) [SAC 帮助文档中文版 v1.1.doc](http://seisman.qiniudn.com/downloads/sac_manual_v1.1.doc)
+下载地址：[SAC 帮助文档中文版 v1.1.pdf](http://seisman.qiniudn.com/SAC/sac-manual-v1.1.pdf) [SAC 帮助文档中文版 v1.1.doc](http://seisman.qiniudn.com/SAC/sac-manual-v1.1.doc)
 
 - 重新格式化整个文档，使得其看上去更规范，也易于以后的修改
 - 文档中的所有 C 或 Fortran 代码从 notepad++ 中直接导出，代码支持语法高亮
@@ -168,7 +168,7 @@ slug: sac-manual
 
 ## 2012-01-08 v1.0 版
 
-下载地址：[SAC 帮助文档中文版 v1.0.pdf](http://seisman.qiniudn.com/downloads/sac-manual-v1.0.pdf)  [SAC 帮助文档中文版 v1.0.doc](http://seisman.qiniudn.com/downloads/sac_manual_v1.0.doc)
+下载地址：[SAC 帮助文档中文版 v1.0.pdf](http://seisman.qiniudn.com/SAC/sac-manual-v1.0.pdf)  [SAC 帮助文档中文版 v1.0.doc](http://seisman.qiniudn.com/SAC/sac-manual-v1.0.doc)
 
 - 参考《数字地震波形分析》一书，翻译了大部分的用户指南以及几乎全部的命令
 - 结合了 SAC v101.4 增加、删除和修改了一些命令
