@@ -36,13 +36,13 @@ gCAP 是 Prof. Lupei Zhu 发展的一种反演震源机制解的一种方法。�
     网络上可以下载到 NR 的完整代码，这里仅给出 gCAP 所需的部分（注：此处存在版权问题！）。
     下载该压缩包，解压，并将解压后的源代码放到 gCAP 的目录中。
 
-    gCAP_util 下载：[gcap_utils.tar.gz](http://seisman.qiniudn.com/downloads/gcap_utils.tar.gz)
+    gCAP_util 下载：[gcap_utils.tar.gz][/downloads/gcap_utils.tar.gz]
 
 5.  新的 Makefile
 
     软件包自带的 Makefile 无法使用，因而对其进行了一些修改。修改幅度稍大，几乎算是重写了。
 
-    新 Makefile 下载地址：[Makefile.gCAP](http://seisman.qiniudn.com/downloads/Makefile.gCAP)
+    新 Makefile 下载地址：[Makefile.gCAP](/downloads/Makefile.gCAP)
 
     下载之后，将其重命名为 Makefile，替换原目录中的同名文件，并根据自身情况修改 Makefile 文件中的
     变量 `SACHOME` 、 `FC` 、`CC` 。
@@ -148,7 +148,7 @@ gCAP3D 与 gCAP 的不同。
 gCAP3D 的安装与 gCAP 的步骤几乎完全相同（部分文件名以及行号可能不一致，读者自行判断），区别列出如下：
 
 -   下载地址： <http://www.eas.slu.edu/People/LZhu/downloads/gCAP3D1.0.tar>
--   Makefile 下载地址： <http://seisman.qiniudn.com/downloads/Makefile.gCAP3D>
+-   Makefile 下载地址： [Makefile.gCAP3D][/downloads/Makefile.gCAP3D]
 
 ## 修订历史
 
