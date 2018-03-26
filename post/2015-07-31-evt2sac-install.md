@@ -20,7 +20,7 @@ slug: evt2sac-install
 `evt2sac` 最近一次更新是 1993 年，20 多年前的代码编译起来还是有些困难的，因而
 一点一点介绍如何修改代码就太麻烦了，本文直接给出我修改后可编译的版本。
 
-修改后的代码下载：[evt2sac.tar.bz2](http://7j1zxm.com1.z0.glb.clouddn.com/downloads/evt2sac.tar.bz2)
+修改后的代码下载：[evt2sac.tar.bz2](/downloads/evt2sac.tar.bz2)
 
 对官方代码的修改列举如下：
 

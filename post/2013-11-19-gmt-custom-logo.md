@@ -188,7 +188,7 @@ int PSL_plotcolorimage (struct PSL_CTRL *PSL, double x, double y, double xsize, 
 
 xbm 格式类似于 C 语言的格式，也就是 `GMT_glyph` 数组所需要的。
 
-1.  执行 `raster2xbm`，(代码在这里 [下载](http://seisman.qiniudn.com/downloads/raster2xbm.tar.gz))，将输出保存到 `gmt_plot.c` 中的 char 数组 `GMT_glyph` 中。
+1.  执行 `raster2xbm`，(代码在这里 [下载](/downloads/raster2xbm.tar.gz))，将输出保存到 `gmt_plot.c` 中的 char 数组 `GMT_glyph` 中。
 2.  将 `unsigned char GMT_glyph[2520]` 改成 `unsigned char GMT_glyph[46800]` ，其中 46800=520\*90；
 3.  gmt\_timestamp 中 `double dim[3] = {0.365, 0.15, 0.032};` 改成 `double dim[3] = {0.867, 0.15, 0.032};`
 4.  gmt\_timestamp 中 `PSL_plotcolorimage (PSL, 0.0, 0.0, dim[0], dim[1], PSL_BL, GMT_glyph, 220, 90, 1);`
