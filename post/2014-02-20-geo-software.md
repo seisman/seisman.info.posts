@@ -260,9 +260,14 @@ slug: geo-software
 
 - [EQcorrscan][]: 地震检测与分析
 - [FastMatchedFilter][]: An efficient seismic matched-filter search for both CPU and GPU architectures.
+- [REDPy](https://github.com/ahotovec/REDPy)
 
 [EQcorrscan]: https://github.com/eqcorrscan/EQcorrscan
 [FastMatchedFilter]: https://github.com/beridel/fast_matched_filter
+
+### ZH ratio
+
+- [HtoV-Toolbox](https://github.com/krischer/HtoV-Toolbox)
 
 ## 数学处理类
 
