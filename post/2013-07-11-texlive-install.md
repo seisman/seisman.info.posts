@@ -43,7 +43,7 @@ Linux 下可以用 wget、axel，windows 下可以用迅雷，怎么快怎么来
 
 ``` bash
 $ su
-# mount -o loop texlive2017.iso  /mnt/
+# mount -o loop texlive2017.iso  /mnt
 # cd /mnt
 # ./install-tl
 ```
@@ -66,7 +66,7 @@ export PATH=${PATH}:/usr/local/texlive/2017/bin/x86_64-linux
 
 ``` bash
 $ cd
-$ sudo umount /mnt/
+$ sudo umount /mnt
 ```
 
 ## 更新 TeXLive
