@@ -20,10 +20,10 @@ slug: centos7-setup
 3.  本文所有操作均在 CentOS 7 下完成，其他发行版或多或少与 CentOS 7 不同，因而仅供参考；
 4.  本文所安装的软件纯粹出于个人习惯及喜好，读者应自己判断，按需安装；
 
-[博文目录](/centos7-setup):
+[系列博文目录](/centos7-setup):
 
-- [安装篇](/centos7-setup-1)
-- [开发环境篇](/centos7-setup-2)
-- [脚本语言篇](/centos7-setup-3)
-- [效率软件篇](/centos7-setup-4)
-- [日常软件篇](/centos7-setup-5)
+1. [安装篇](/centos7-setup-1)
+2. [开发环境篇](/centos7-setup-2)
+3. [脚本语言篇](/centos7-setup-3)
+4. [效率软件篇](/centos7-setup-4)
+5. [日常软件篇](/centos7-setup-5)
