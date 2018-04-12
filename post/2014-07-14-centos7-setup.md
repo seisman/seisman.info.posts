@@ -25,5 +25,5 @@ slug: centos7-setup
 1. [安装篇](/centos7-setup-1)
 2. [开发环境篇](/centos7-setup-2)
 3. [脚本语言篇](/centos7-setup-3)
-4. [效率软件篇](/centos7-setup-4)
-5. [日常软件篇](/centos7-setup-5)
+4. [日常软件篇](/centos7-setup-4)
+5. [效率软件篇](/centos7-setup-5)

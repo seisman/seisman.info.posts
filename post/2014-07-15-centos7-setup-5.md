@@ -1,361 +1,122 @@
 ---
-title: CentOS 7 配置指南 — 日常软件篇
+title: CentOS 7 配置指南 — 效率软件篇
 slug: centos7-setup-5
 ---
 
-## 日常软件
+## 编程相关软件
 
-### Office 套件
+### 编辑器
 
-#### LibreOffice
+写代码的时候选一个好用的编辑器很重要，用的比较多的编辑器如下：
 
-大多数 Linux 发行版都自带 LibreOffice:
+1.  vim
+2.  emacs
+3.  atom
+4.  sublime text 3
+5.  Visual Studio Code
 
-    sudo yum install libreoffice
+### IDE
 
-LibreOffice 与 Microsoft Office 的兼容性不太好，操作界面与 MS Office 也有较大差异，让人不太习惯。
+-   Python IDE：[PyCharm Community Edition](https://www.jetbrains.com/pycharm/)
 
-#### WPS Office
+## 效率类软件
 
-若在 Linux 下对于文档处理有更高一些的要求，可以尝试目前还处于测试版的 WPS Office for Linux。
-WPS Office 的兼容性以及界面都比 LibreOffice 要好很多，值得期待，当然还是不能做到完全兼容 MS
-Office。
+这一类工具能够在不同方面提高科研的效率，也提高了使用者的体验。
 
-安装过程参考 [CentOS 下安装 WPS Office](/wps-office-for-centos7.html) 一文。
+### 终端模拟器
 
-### PS/PDF 阅读器
+Gnome 自带的终端模拟器是 gnome-terminal。经常会需要开十几个终端，切换和管理起来比较麻烦。
 
-系统自带的 evince 阅读器，可以打开 PS 和 PDF 文件，基本足够日常的使用了。
+#### terminator
 
-#### zathura
+terminator 有很多功能，我只用到了终端分割的功能。 `Ctrl+Shift+O` 对终端水平分隔，
+`Ctrl+Shift+E` 对终端垂直分隔， `Alt + 上下左右 ` 可以在各子终端中切换:
 
-zathura 可以查看 PS、PDF、djvu 格式的文件，可以作为 evince 的替代品:
+    sudo yum install terminator
 
-    sudo yum install zathura zathura-plugins-all
+#### guake
 
-#### ghostscript
+有些时候需要临时执行一两个命令，但是又不想额外启动一个终端的情况下，guake 是个不错的选择。
 
-    sudo yum install ghostscript
+    sudo yum install guake
 
-#### master-pdf-editor
+安装完成后，在 Application->System Tools 里找到 guake Terminal 即可启动。按下 F12
+即可呼出 guake，再次按下 F12 即可隐藏。也可在终端执行 `guake-prefs` 对 gauke 进行配置。
 
-官方网站: <https://code-industry.net/free-pdf-editor/>
+### zsh 与 oh my zsh
 
-    sudo yum localinstall https://code-industry.net/public/master-pdf-editor-4.3.89_qt5.x86_64.rpm
+Linux 下有很多 shell，比如最常见的 bash，除此之外还有 csh、ksh。zsh 也是一个 shell。
 
-### TeX Live
+zsh 的特点在于：
 
-系统是自带了 TeXLive，版本较老，还是安装最新版比较好。
+-   语法基本完全兼容于 bash，一般用户完全体会不到其区别
+-   zsh 提供命令补全特性，比 bash 的补全要更好用
+-   可配置性强
 
-参考 [Linux 下安装 TeXLive](http://blog.seisman.info/texlive-install/) 一文。
+完全不经配置的 zsh 已经很好用了，一般用户也没必要花时间研究配置。
+[oh my zsh](https://github.com/robbyrussell/oh-my-zsh) 是一群人一起维护的一套 zsh 配置文件。
+直接用这个配置文件，稍稍了解一点会有更好的体验。
 
-### Mendeley
+安装 zsh:
 
-Mendeley 是一个跨平台的文献管理软件，其内部自带了一个可以添加注释的 PDF 阅读器。
+    sudo yum install zsh
 
-下载 Generic Linux (64 bits)：http://www.mendeley.com/download-mendeley-desktop
+安装 oh my zsh:
+
+    curl -L http://install.ohmyz.sh | sh
+
+上面的命令，做了如下几件事情：
+
+-   下载 `oh my zsh` 到 `~/.oh-my-zsh`
+-   备份已有的 zsh 配置文件 `~/.zshrc` ，并复制新的 `.zshrc` 文件
+-   将当前用户的默认 shell 由 bash 改成 zsh
+
+第三步中，会报错如下： `chsh: "/usr/bin/zsh" is not listed in /etc/shells.` ，需要手动修改默认 shell:
+
+    chsh -s /bin/zsh
+
+chsh 命令修改的是 login shell，因而需要退出当前用户并重新登陆，以后用户的默认 shell
+就从 bash 变成了 zsh，所有的配置都不用写到 `.bashrc` 而要写到 `.zshrc` 中。
+
+在 `.zshrc` 中可以选择喜欢的主题，以及适当数量的插件。下面列出我在用的插件:
+
+2.  命令补全插件: pip, pyenv
+3.  sudo：按两下 `ESC` 即可在当前命令前加上 `sudo`
+4.  yum：为常见的 yum 命令提供别名
+
+另外，其中插件 git 为 git 的众多常用命令提供了更简单的别名。其中，插件 `git mergetool --no-prompt` 的别名是 `gmt`，与 GMT 冲突，可以直接注释 `.zshrc` 中的相关内容。
+
+### autojump
+
+[autojump](https://github.com/joelthelion/autojump) 是一个非常智能的目录快速切换的工具。简单演示如下:
+
+    $ pwd
+    /home/seisman
+    $ cd Desktop
+    $ cd /opt
+    $ cd /usr/local
+
+    # 用 j 命令迅速从 / usr/local 跳转到与 des 匹配的目录，这里只有 Desktop 可以匹配
+    $ j des
+    $ pwd
+    /home/seisman/Desktop
+
+用法差不多就这样，具体看项目主页。
 
 安装:
 
-    tar -xvf mendeleydesktop-1.12.3-linux-x86_64.tar.bz2  # 解压
-    sudo mv mendeleydesktop /opt  # 复制到 / opt 下
-    cd /opt/mendeleydesktop/bin   # cd 进去
-    ./install-mendeley-link-handler.sh /opt/mendeleydesktop/bin/mendeleydesktop
-    sudo yum install qtwebkit  # 安装依赖包
+    sudo yum install autojump
+    sudo yum install autojump-zsh
 
-注销重新登陆，在 Application->Education 下即可看到 mendeley 的相关项目。不过是
-没有软件的图标的，强迫症不能忍，用下面的命令解决:
+### 等宽字体
 
-    cp /opt/mendeleydesktop/share/icons/hicolor/128x128/apps/mendeleydesktop.png ~/.local/share/icons/
+编程要用等宽字体，这点是常识了。一款适合编程的等宽字体，至少要满足如下几个要求：
 
-### Google Chrome 浏览器
+1.  易于区分 “1”、“i” 和“l”
+2.  易于区分 “0”、“o” 和“O”
+3.  易于区分中文下的左引号和右引号
+4.  美观
 
-默认的浏览器是 Firefox，还是更喜欢 Chrome 浏览器。
+目前选择 Source Code Pro：
 
-Google 官方源在国内可能无法正常访问，故而添加 Fedora 中文社区提供的镜像源:
-
-    sudo wget http://repo.fdzh.org/chrome/google-chrome-mirrors.repo -P /etc/yum.repos.d/
-
-安装:
-
-    sudo yum install google-chrome-stable
-
-### Opera 浏览器
-
-也可以选择 Opera 浏览器。
-
-下载地址：http://www.opera.com/download/guide/?os=linux
-
-选择 CentOS RPM package 进行下载。下载完成后，执行:
-
-    sudo yum localinstall opera-12.16-1860.x86_64.rpm
-
-想要卸载的话，就执行:
-
-    sudo yum remove opera
-
-### Flash 插件
-
-Flash 插件主要是看在线视频的时候要用。Google 浏览器自带了 Flash 插件，所以这里安装的 flash 插件主要是为了 firefox。
-
-    sudo rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
-    sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
-    sudo yum install flash-plugin
-
-### 解压软件
-
-解压 7z 或 zip 格式需要 p7zip，由 EPEL 提供:
-
-    sudo yum install p7zip
-
-解压 rar 格式可以使用 [unar](https://unarchiver.c3.cx/commandline)，该软件位于 EPEL 源中：
-
-    sudo yum install unar
-
-### FTP 客户端
-
-FTP 客户端，还是有界面的 filezilla 比较方便些。
-
-    sudo yum install filezilla
-
-### Google Earth
-
-到 <https://www.google.com/earth/download/ge/agree.html> 下载64位rpm包，执行如下命令安装:
-
-    sudo yum localinstall google-earth-stable_current_x86_64.rpm
-
-## 日常软件
-
-### Office 套件
-
-#### LibreOffice
-
-大多数 Linux 发行版都自带 LibreOffice:
-
-    sudo yum install libreoffice
-
-LibreOffice 与 Microsoft Office 的兼容性不太好，操作界面与 MS Office 也有较大差异，让人不太习惯。
-
-#### WPS Office
-
-若在 Linux 下对于文档处理有更高一些的要求，可以尝试目前还处于测试版的 WPS Office for Linux。
-WPS Office 的兼容性以及界面都比 LibreOffice 要好很多，值得期待，当然还是不能做到完全兼容 MS
-Office。
-
-安装过程参考 [CentOS 下安装 WPS Office](/wps-office-for-centos7.html) 一文。
-
-### PS/PDF 阅读器
-
-系统自带的 evince 阅读器，可以打开 PS 和 PDF 文件，基本足够日常的使用了。
-
-#### zathura
-
-zathura 可以查看 PS、PDF、djvu 格式的文件，可以作为 evince 的替代品:
-
-    sudo yum install zathura zathura-plugins-all
-
-#### ghostscript
-
-    sudo yum install ghostscript
-
-#### master-pdf-editor
-
-官方网站: <https://code-industry.net/free-pdf-editor/>
-
-    sudo yum localinstall https://code-industry.net/public/master-pdf-editor-4.3.89_qt5.x86_64.rpm
-
-### TeX Live
-
-系统是自带了 TeXLive，版本较老，还是安装最新版比较好。
-
-参考 [Linux 下安装 TeXLive](http://blog.seisman.info/texlive-install/) 一文。
-
-### Mendeley
-
-Mendeley 是一个跨平台的文献管理软件，其内部自带了一个可以添加注释的 PDF 阅读器。
-
-下载 Generic Linux (64 bits)：http://www.mendeley.com/download-mendeley-desktop
-
-安装:
-
-    tar -xvf mendeleydesktop-1.12.3-linux-x86_64.tar.bz2  # 解压
-    sudo mv mendeleydesktop /opt  # 复制到 / opt 下
-    cd /opt/mendeleydesktop/bin   # cd 进去
-    ./install-mendeley-link-handler.sh /opt/mendeleydesktop/bin/mendeleydesktop
-    sudo yum install qtwebkit  # 安装依赖包
-
-注销重新登陆，在 Application->Education 下即可看到 mendeley 的相关项目。不过是
-没有软件的图标的，强迫症不能忍，用下面的命令解决:
-
-    cp /opt/mendeleydesktop/share/icons/hicolor/128x128/apps/mendeleydesktop.png ~/.local/share/icons/
-
-### Google Chrome 浏览器
-
-默认的浏览器是 Firefox，还是更喜欢 Chrome 浏览器。
-
-Google 官方源在国内可能无法正常访问，故而添加 Fedora 中文社区提供的镜像源:
-
-    sudo wget http://repo.fdzh.org/chrome/google-chrome-mirrors.repo -P /etc/yum.repos.d/
-
-安装:
-
-    sudo yum install google-chrome-stable
-
-### Opera 浏览器
-
-也可以选择 Opera 浏览器。
-
-下载地址：http://www.opera.com/download/guide/?os=linux
-
-选择 CentOS RPM package 进行下载。下载完成后，执行:
-
-    sudo yum localinstall opera-12.16-1860.x86_64.rpm
-
-想要卸载的话，就执行:
-
-    sudo yum remove opera
-
-### Flash 插件
-
-Flash 插件主要是看在线视频的时候要用。Google 浏览器自带了 Flash 插件，所以这里安装的 flash 插件主要是为了 firefox。
-
-    sudo rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
-    sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
-    sudo yum install flash-plugin
-
-### 解压软件
-
-解压 7z 或 zip 格式需要 p7zip，由 EPEL 提供:
-
-    sudo yum install p7zip
-
-解压 rar 格式可以使用 [unar](https://unarchiver.c3.cx/commandline)，该软件位于 EPEL 源中：
-
-    sudo yum install unar
-
-### FTP 客户端
-
-FTP 客户端，还是有界面的 filezilla 比较方便些。
-
-    sudo yum install filezilla
-
-### Google Earth
-
-到 <https://www.google.com/earth/download/ge/agree.html> 下载64位rpm包，执行如下命令安装:
-
-    sudo yum localinstall google-earth-stable_current_x86_64.rpm
-
-
-## 虚拟机
-
-有时候可能需要在 Windows 下做一些操作，如果机器性能足够好的话，可以安装虚拟机。
-
-### VirtualBox 虚拟机
-
-VirtuabBox 的安装:
-
-    sudo yum install kernel-devel # 先要安装 Kernel 工具
-
-    wget http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo
-    sudo mv virtualbox.repo /etc/yum.repos.d/
-    sudo yum install VirtualBox-5.0
-
-需要注意两点：
-
--   若机器性能不够，虚拟机的使用体验会非常差，所以不建议在老机器上使用；
--   更新 kernel 之后需要执行 `sudo /sbin/rcvboxdrv setup` ；
--   在 VirtualBox 安装虚拟系统后，记得使用 “设备”->“安装增强功能”，使用效果会更好；
-
-### gnome-boxes
-
-gnome-boxes 是 GNOME3 开发的一个虚拟机工具，使用体验不如 VirtualBox:
-
-    sudo yum install gnome-boxes
-
-### Wine
-
-Wine 是一个可以让 Windows 程序运行在 Linux 下的软件。类似虚拟机，但跟虚拟机又不太一样:
-
-    sudo yum install wine
-
-## 同步网盘
-
-网盘根据功能大概可以分为两类：同步网盘和备份网盘。既然是同步网盘，Linux 下
-的客户端必不可少。就目前已知的情况来看，CentOS7 下能使用的同步网盘只有三个：
-Dropbox、MEGA 和坚果云。
-
-我主要用同步网盘将 Linux 机器上的 PDF 文献同步到 iPad 上。
-
-### Dropbox
-
-又是一个被墙的工具，熟练掌握科学上网技巧的人可以使用，一般人还是不要用了。
-
-    wget https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-1.6.2-1.fedora.x86_64.rpm
-    sudo rpm -i nautilus-dropbox-1.6.2-1.fedora.x86_64.rpm
-
-### MEGA
-
-MEGA： <https://mega.co.nz/>
-
-免费容量 50G，作为同步盘来说基本是够用了。
-
-    # 下载主程序
-    wget https://mega.nz/linux/MEGAsync/CentOS_7/x86_64/megasync-CentOS_7.x86_64.rpm
-    # 下载文件管理器扩展（可选）
-    wget https://mega.nz/linux/MEGAsync/CentOS_7/x86_64/nautilus-megasync-CentOS_7.x86_64.rpm
-    sudo yum localinstall megasync-CentOS_7.x86_64.rpm
-    sudo yum localinstall nautilus-megasync-CentOS_7.x86_64.rpm
-
-### 坚果云
-
-国内的全平台同步网盘，不限空间，但限制每月上传流量 1G，下载流量 3G。
-
-    # 坚果云依赖于 notify-python
-    sudo yum install notify-python
-    # 下载
-    wget https://jianguoyun.com/static/exe/installer/fedora/nautilus_nutstore_amd64.rpm
-    sudo rpm -i nautilus_nutstore_amd64.rpm
-
-## 工具软件
-
-### 视频下载工具
-
-[you-get](https://github.com/soimort/you-get) 和 [youtube-dl](https://github.com/rg3/youtube-dl)
-是两个用于从视频网站上下载视频文件的工具。其中，后者支持的网站更多，但前者对国内的视频网站支持更好。
-
-    pip install you-get
-    pip install youtube-dl
-    # EPEL 中提供了 youtube-dl 包，因而也可以使用 yum 安装。一般来说，pip 安装的版本更新一些
-
-### PDF 处理工具
-
-[cpdf](http://community.coherentpdf.com/) 是一个跨平台的 PDF 处理工具，可以完成常见的 PDF 合并、
-切割、加密解密、书签、水印等功能。
-
-下载已编译好的 [二进制包](https://github.com/coherentgraphics/cpdf-binaries/archive/master.zip)，
-解压，并将与自己的平台对应的二进制文件复制到 `${HOME}/bin` 目录下即可使用。
-
-### BT 软件
-
-transmission 是 Linux 下常用的 Torrent 下载软件:
-
-    sudo yum install transmission
-
-在 “Application”->“Internet”-> 中可以启动 transmission。
-
-### uGet
-
-<http://ugetdm.com/>
-
-uGet 是 Linux 下的一个下载工具，支持 HTTP、HTTPS、FTP、Torrent 等，支持多连接，并可以监视剪贴板:
-
-    sudo yum --enablerepo=epel-testing install uget aria2
-
-
-### 其他工具
-
-    sudo yum install nfs-utils     # 挂载 NFS 文件系统所必须
-    sudo yum install xclip         # 终端的文本复制工具
-    sudo yum install ImageMagick   # 其中的 import 和 convert 命令很有用
-    sudo yum install dos2unix unix2dos  # Windows 和 Linux 换行符互相转换
-    sudo yum install meld          # 图形界面下的文件差异比较工具
+    sudo yum install adobe-source-code-pro-fonts
