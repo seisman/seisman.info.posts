@@ -17,7 +17,7 @@ slug: pssac-notes
 相关文档见:
 
 - <http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html>
-- <http://modules.gmt-china.org/pssac.html>
+- <http://modules.gmt-china.org/pssac>
 
 `pssac` 可以读取 SAC 波形数据，并利用 GMT 的绘图功能将波形数据绘制在 PS 文件中。
 `pssac` 绘制的波形图，大致可以分为三类：
