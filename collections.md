@@ -15,5 +15,5 @@ weight: 35
 4. [全球地形起伏数据总结](/global-relief-models)
 5. [个人偏好列表](/personal-preferences)
 6. [Hi-net系列博文](/hinet)
-7. [用CentOS 7打造合适的科研环境](/linux-environment-for-seismology-research)
+7. [CentOS7 配置指南](/centos7-setup)
 8. [GMT4脚本风格指南](/gmt4-style-guide)

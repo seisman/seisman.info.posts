@@ -23,7 +23,7 @@ ELRepo 源中包含了一系列驱动程序。
 1.  添加 ELRepo 源:
 
         sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
-        sudo rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm
+        sudo rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
 
 2.  安装显卡检查程序:
 

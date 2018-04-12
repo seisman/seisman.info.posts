@@ -167,7 +167,13 @@ author: '[seisman](http://seisman.info)'
 
 ## Linux
 
-- [用 CentOS 7 打造合适的科研环境](/post/2014-07-15-linux-environment-for-seismology-research.md)
+- [CentOS 7 配置指南](/post/2014-07-14-centos7-setup.md)
+- [CentOS 7 配置指南 — 安装篇](/post/2014-07-15-centos7-setup-1.md)
+- [CentOS 7 配置指南 — 开发环境篇](/post/2014-07-15-centos7-setup-2.md)
+- [CentOS 7 配置指南 — 脚本语言篇](/post/2014-07-15-centos7-setup-3.md)
+- [CentOS 7 配置指南 — 效率软件篇](/post/2014-07-15-centos7-setup-4.md)
+- [CentOS 7 配置指南 — 日常软件篇](/post/2014-07-15-centos7-setup-5.md)
+- [制作 Linux USB 安装镜像](/post/2018-04-07-linux-usb-installer.md)
 - [Linux 下安装 NVIDIA 显卡驱动](/post/2014-07-13-install-nvidia-drivers-under-linux.md)
 - [CentOS 7 下的软件安装方法及策略](/post/2014-11-23-how-to-install-softwares-under-centos-7.md)
 - [CentOS 7.0 下安装小小输入法](/post/2014-07-10-install-yong-chinese-input-method-under-centos-7.md)
