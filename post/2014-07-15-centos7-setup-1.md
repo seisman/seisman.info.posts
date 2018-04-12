@@ -63,7 +63,7 @@ CentOS 7 的安装与其他 Linux 发行版的安装差不多，个别地方稍�
 
     选择“汉语” 或者 English(US) 均可，不要选择 English(UK)，然后点击“完成”。
 
-34.  网络与主机名
+3.  网络与主机名
 
     给你的电脑在网络上设置一个喜欢的名字，默认值为 `localhost.localdomain`。
 
