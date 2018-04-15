@@ -148,7 +148,7 @@ gCAP3D 与 gCAP 的不同。
 gCAP3D 的安装与 gCAP 的步骤几乎完全相同（部分文件名以及行号可能不一致，读者自行判断），区别列出如下：
 
 -   下载地址： <http://www.eas.slu.edu/People/LZhu/downloads/gCAP3D1.0.tar>
--   Makefile 下载地址： [Makefile.gCAP3D][/downloads/Makefile.gCAP3D]
+-   Makefile 下载地址： [Makefile.gCAP3D](/downloads/Makefile.gCAP3D)
 
 ## 修订历史
 
