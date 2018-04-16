@@ -2,7 +2,7 @@
 title: CentOS 7 配置指南 — 效率软件篇
 author: SeisMan
 date: 2014-07-15
-lastmod: 2018-04-12
+lastmod: 2018-04-16
 slug: centos7-setup-5
 ---
 
@@ -148,3 +148,24 @@ terminator 是一个功能强大的终端。其众多功能中我只用到了终
 3.  [atom](http://atom.io/)
 4.  [Visual Studio Code](https://code.visualstudio.com/)
 5.  [sublime text 3](https://www.sublimetext.com/)
+
+## zeal
+
+[zeal](https://zealdocs.org/) 是一个模仿 [Dash](https://kapeli.com/dash) 的离线
+文档查看器，一个软件集合了多种编程语言的文档，专为编程人员设计。
+
+可以直接用别人提供的安装源:
+
+    wget https://copr.fedorainfracloud.org/coprs/abn/zeal/repo/epel-7/abn-zeal-epel-7.repo
+    sudo mv abn-zeal-epel-7.repo /etc/yum.repos.d
+    sudo yum install zeal
+
+也可以 [自行编译安装](https://gist.github.com/brendanjcaffrey/b144b51c6954d17596f5533c5000d8ae)。
+
+安装完成后可以在Applications->Programming里找到它。启动之后，点击Tools->Docsets
+添加不同语言的文档即可使用。
+
+## 修订历史
+
+- 2014-07-15: 初稿；
+- 2018-04-16: 增加zeal；
