@@ -16,9 +16,10 @@ slug: my-referral-links
 
 ## 七牛云存储
 
-七牛云存储一般用于托管博客中的静态资源，比如图片、文件等。目前本博客的静态资源都托管在七牛中。
+七牛云存储一般用于托管博客中的静态资源，比如图片、文件等。目前本博客相关的PDF
+托管在七牛中。
 
-推广链接: <https://portal.qiniu.com/signup?code=3ljo5rxaartxu> （0/8）
+推广链接: <https://portal.qiniu.com/signup?code=3ljo5rxaartxu> （3/8）
 
 点击以上推广链接，注册七牛并称为标准用户，则我将获得每月 5GB 的下载流量。
 
@@ -56,9 +57,10 @@ Dropbox 是知名的网盘服务，与百度云之类的网盘不同，其提供
 
 ## OneDrive
 
-微软的云服务，新版的 Word、Excel、PowerPoint 以及 Onenote 等等都可以直接保存到 OneDrive 中。初始免费容量 15G。
+微软的云服务，新版的 Word、Excel、PowerPoint 以及 Onenote 等等都可以直接保存到 
+OneDrive 中。初始免费容量 5G。
 
-邀请链接：<https://onedrive.live.com/?invref=7a70adf12890b43a&invsrc=90> (0/10)
+邀请链接：<https://onedrive.live.com/?invref=7a70adf12890b43a&invsrc=90> (2/10)
 
 若点击此链接注册 OneDrive，则我和你均可获得 500MB 容量。
 
