@@ -32,11 +32,11 @@ Intel 的软件开发工具包括：C/C++ 编译器、Fortran 编译器、MKL �
 
 安装之前需要先安装如下包:
 
-    yum install kernel-devel gcc gcc-c++ gcc-gfortran pangox-compat-devel libunwind-devel
+    sudo yum install kernel-devel gcc gcc-c++ gcc-gfortran pangox-compat-devel libunwind-devel
 
 除此之外，64 位系统还需要安装一些 32 位的库文件:
 
-    yum install glibc.i686 glibc-devel.i686 libgcc.i686 libstdc++.i686 libstdc++-4.8.5-16.el7_4.2.i686
+    sudo yum install glibc.i686 glibc-devel.i686 libgcc.i686 libstdc++.i686
 
 ## 解压
 
