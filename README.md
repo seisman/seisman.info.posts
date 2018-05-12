@@ -236,3 +236,4 @@ author: '[seisman](http://seisman.info)'
 - [地球物理学家列表](/post/2015-07-23-geophysicist.md)
 - [地学学术期刊](/post/2016-07-04-journals.md)
 - [文件管理与备份](/post/2016-08-24-file-organization.md)
+- [参考文献管理最佳实践](/post/2018-05-12-manage-references.md)
