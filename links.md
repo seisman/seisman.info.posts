@@ -105,6 +105,7 @@ weight: 30
 - [Central Asia Fault Database](http://www.geo.uni-tuebingen.de/projekte/openfaults/)
 - [AuSREM](http://rses.anu.edu.au/seismology/AuSREM/index.php): 澳大利亚区域模型
 - [ANCC-CIEI](http://ds.iris.edu/ds/products/ancc-ciei/): 美国西部背景噪声互相关函数库
+- [GADM](https://gadm.org): 全球行政区划数据库
 
 ## 其他
 
