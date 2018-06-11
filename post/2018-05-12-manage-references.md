@@ -60,7 +60,7 @@ slug: manage-references
     例如：
 
     - 无 DOI 信息
-    - DOI 信息中包含了网址 http://dx.doi.org （比如 PEPI 官方网站的文献都有这个问题）
+    - DOI 信息中包含了网址 https://doi.org （比如 PEPI 官方网站的文献都有这个问题）
 
 3.  期刊改名
 
