@@ -21,17 +21,20 @@ TauP 是用 Java 写的一个用来计算震相走时的软件。
     在终端中键入 `java -version`，若显示版本信息，则表示 Java 运行环境已安装:
 
         $ java -version
-        java version "1.7.0_65"
-        OpenJDK Runtime Environment (rhel-2.5.1.2.el7_0-x86_64 u65-b17)
-        OpenJDK 64-Bit Server VM (build 24.65-b04, mixed mode)
+        openjdk version "1.8.0_161"
+        OpenJDK Runtime Environment (build 1.8.0_161-b14)
+        OpenJDK 64-Bit Server VM (build 25.161-b14, mixed mode)
 
     否则则需要先安装 Java 运行环境，在 CentOS 7 下用如下命令:
 
         $ sudo yum install java
 
-    在 Mac 下使用如下命令:
+    在 macOS 下使用如下命令:
 
         $ brew cask install java
+
+    TauP最新版本为2.4.5，该版本要求Java版本大于1.8。若你的机器的Java版本小于1.8，
+    可以考虑下载使用旧版本的TauP。但要注意，旧版本TauP可能存在已知的BUG。
 
 2.  下载 TauP:
 
