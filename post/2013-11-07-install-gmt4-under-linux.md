@@ -1,8 +1,8 @@
 ---
-title: GMT 4.5.17 在 Linux 下的安装
+title: GMT 4.5.18 在 Linux 下的安装
 date: 2013-11-07
 author: SeisMan
-lastmod: 2016-10-07
+lastmod: 2018-07-05
 categories:
   - GMT
 tags:
@@ -13,9 +13,7 @@ slug: install-gmt4-under-linux
 
 ## 说明
 
-本文介绍如何在 Linux 下编译 GMT4 的最新版本：GMT 4.5.17。
-
-很多 Linux 发行版的源中带有 GMT 软件包，但是版本一般较老，因而这里假定想要自己编译 GMT4 的读者，下载和编译的都是 GMT4 的最新版本，因而本文会随着 GMT4 新版本的发行而不断作出修改。
+本文介绍如何在 Linux 下编译 GMT4 的最新版也是最终版本：GMT 4.5.18。
 
 <!--more-->
 
@@ -27,15 +25,15 @@ slug: install-gmt4-under-linux
 
 需要下载的包包括：
 
-- [gmt-4.5.17-src.tar.bz2](http://mirrors.ustc.edu.cn/gmt/gmt-4.5.17-src.tar.bz2)
+- [gmt-4.5.18-src.tar.bz2](http://mirrors.ustc.edu.cn/gmt/gmt-4.5.18-src.tar.bz2)
 - [gshhg-gmt-2.3.7.tar.gz](http://mirrors.ustc.edu.cn/gmt/gshhg-gmt-2.3.7.tar.gz)
 
-注：GMT 中的 `triangulate` 命令有两个不同的源码，其中一个遵循 GPL 协议，另一个不遵循 GPL 协议。GMT 的 src 包中包含了前者。若有特殊需求，需要使用后者源码的功能，可以下载 [gmt-4.5.17-non-gpl-src.tar.bz2](http://mirrors.ustc.edu.cn/gmt/gmt-4.5.17-non-gpl-src.tar.bz2) ，并将解压后的 triangulate 源码覆盖 `gmt-4.5.17-src.tar.bz2` 中的相应源码。
+注：GMT 中的 `triangulate` 命令有两个不同的源码，其中一个遵循 GPL 协议，另一个不遵循 GPL 协议。GMT 的 src 包中包含了前者。若有特殊需求，需要使用后者源码的功能，可以下载 [gmt-4.5.18-non-gpl-src.tar.bz2](http://mirrors.ustc.edu.cn/gmt/gmt-4.5.18-non-gpl-src.tar.bz2) ，并将解压后的 triangulate 源码覆盖 `gmt-4.5.18-src.tar.bz2` 中的相应源码。
 
 下载完成后，可以用 `md5sum` 检查压缩文件的 md5 值，以保证该文件是完整且未被篡改的:
 
     $  md5sum gmt-4.5.17-src.tar.bz2 gshhg-gmt-2.3.7.tar.gz
-    1d6f9d927e5334e30407171e16d8831f  gmt-4.5.17-src.tar.bz2
+    b35cf18fddcf4823dc75b1ea32808d71  gmt-4.5.17-src.tar.bz2
     8ee2653f9daf84d49fefbf990bbfa1e7  gshhg-gmt-2.3.7.tar.gz
 
 ## 依赖关系
@@ -98,9 +96,9 @@ GMT4 中的 `xgridedit` 命令是一个很简易的带 GUI 的网格文件编辑
 ### 编译 GMT 源码
 
 ``` bash
-$ tar -xvf gmt-4.5.17-src.tar.bz2
-$ cd gmt-4.5.17
-$ ./configure --prefix=/opt/GMT-4.5.17
+$ tar -xvf gmt-4.5.18-src.tar.bz2
+$ cd gmt-4.5.18
+$ ./configure --prefix=/opt/GMT-4.5.18
 $ make
 $ sudo make install-all       # 注意：这里是 install-all 不是 install
 ```
@@ -112,7 +110,7 @@ $ sudo make install-all       # 注意：这里是 install-all 不是 install
 ``` bash
 $ cd ../
 $ tar -xvf gshhg-gmt-2.3.7.tar.gz
-$ sudo mv gshhg-gmt-2.3.7 /opt/GMT-4.5.17/share/coast
+$ sudo mv gshhg-gmt-2.3.7 /opt/GMT-4.5.18/share/coast
 ```
 
 ### 修改环境变量
@@ -120,7 +118,7 @@ $ sudo mv gshhg-gmt-2.3.7 /opt/GMT-4.5.17/share/coast
 向 `~/.bashrc` 中加入 GMT4 的环境变量，并使环境变量生效：
 
 ``` bash
-$ echo 'export GMT4HOME=/opt/GMT-4.5.17' >> ~/.bashrc
+$ echo 'export GMT4HOME=/opt/GMT-4.5.18' >> ~/.bashrc
 $ echo 'export PATH=${GMT4HOME}/bin:$PATH'>> ~/.bashrc
 $ echo 'export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${GMT4HOME}/lib64'>> ~/.bashrc
 $ exec $SHELL -l
@@ -138,13 +136,13 @@ $ exec $SHELL -l
 在终端键入 `psxy -` ，若出现如下输出，则安装成功:
 
     $ psxy -
-    psxy 4.5.17 [64-bit] - Plot lines, polygons, and symbols on maps
+    psxy 4.5.18 [64-bit] - Plot lines, polygons, and symbols on maps
 
 ## 个人笔记
 
 1.  查看 GMT 需要哪些动态链接库:
 
-        $ cd /opt/GMT-4.5.17/bin
+        $ cd /opt/GMT-4.5.18/bin
         $ readelf -d * | grep 'Shared library' | sort -u
 
 2.  Ubuntu 下查找哪个软件包提供某个特定库文件： <http://packages.ubuntu.com/>
@@ -167,3 +165,4 @@ $ exec $SHELL -l
 -   2015-11-01：更新至 GMT 4.5.14
 -   2016-10-07：更新至 GMT 4.5.15 和 GSHHG 2.3.6
 -   2018-01-02：更新至 GMT 4.5.17 和 GSHHG 2.3.7
+-   2018-07-05：更新至 GMT 4.5.18
