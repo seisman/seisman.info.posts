@@ -1,6 +1,6 @@
 ---
 title: SeisMan博客
-author: '[seisman](http://seisman.info)'
+author: '[seisman](https://seisman.info)'
 ---
 
 # 地震学基础
