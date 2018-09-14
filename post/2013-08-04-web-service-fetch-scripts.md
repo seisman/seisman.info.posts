@@ -160,3 +160,8 @@ IRIS 网页服务的主页位于： <http://service.iris.edu/> ，有兴趣的�
 ## 其他
 
 整个脚本还有一些其他功能，具体参考项目主页中的 [示例](https://seiscode.iris.washington.edu/projects/ws-fetch-scripts/wiki/Running_the_scripts_and_examples)
+
+另外，如果遇到找不到 XML::SAX 模块的报错，可以通过一次安装这两个模块解决：
+
+    cpanm Fatal
+    cpanm XML::SAX
