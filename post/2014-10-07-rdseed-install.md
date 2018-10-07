@@ -43,7 +43,7 @@ rdseed 提供了源代码，也提供了在不同平台下编译好的二进制�
     <<IRIS SEED Reader, Release 5.3.1>>
     Input  File (/dev/nrst0) or 'Quit' to Exit:
 
-则表示该二进制在当前系统可以直接使用，将其重命名，并放置到 PATH 中即可:
+则表示该二进制文件在当前系统可以直接使用，将其重命名，并放置到 PATH 中即可:
 
     mv rdseed.rh6.linux_64 ~/bin/rdseed
 
