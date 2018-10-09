@@ -42,7 +42,7 @@ slug: taup-calculate-traveltime
 
 以第一个例子的输出为例:
 
-    $ taup  taup_time -mod prem -ph P,S,PcP,ScS,PKiKP -deg 60 -h 100
+    $ taup_time -mod prem -ph P,S,PcP,ScS,PKiKP -deg 60 -h 100
 
     Model: prem
     Distance   Depth   Phase   Travel    Ray Param  Takeoff  Incident  Purist    Purist
@@ -85,7 +85,7 @@ slug: taup-calculate-traveltime
 
 该选项使得输出中只包含走时信息:
 
-    $ taup  taup_time -mod prem -ph P,S,PcP -deg 60 -h 100 --time
+    $ taup_time -mod prem -ph P,S,PcP -deg 60 -h 100 --time
     595.3896 640.09875 1081.2472
 
 需要注意的是，输出中走时不是按照 `-ph` 选项中震相的顺序进行排序的，而是按照走时递增的顺序排序。比如这里，S 震相放在震相列表的第二位，而走时 1081.2472 却放在第三位。
@@ -94,7 +94,7 @@ slug: taup-calculate-traveltime
 
 该选项使得输出中只包含射线参数信息:
 
-    $ taup  taup_time -mod prem -ph P,S,PcP -deg 60 -h 100 --rayp
+    $ taup_time -mod prem -ph P,S,PcP -deg 60 -h 100 --rayp
     6.8185554 3.9990747 12.785722
 
 这里，射线参数的输出是按照震相进行排序的。
