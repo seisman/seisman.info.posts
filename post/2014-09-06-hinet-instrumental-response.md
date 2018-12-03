@@ -1,6 +1,7 @@
 ---
 title: Hi-net 的仪器响应
 date: 2014-09-06
+lastmod: 2018-10-04
 author: SeisMan
 categories:
   - 地震学基础
@@ -49,7 +50,7 @@ slug: hinet-instrumental-response
 
 ### 输入
 
-[9] 给出了输入波场振幅 $A_0$ 的单位，一般来说，其值为 `m/s`，即 Hi-net 是速度地震仪。
+[9] 给出了输入波场振幅的单位，一般来说，其值为 `m/s`，即 Hi-net 是速度地震仪。
 
 ### 输入增强
 
@@ -57,11 +58,11 @@ slug: hinet-instrumental-response
 
 根据维基百科中对 [场量分贝](http://en.wikipedia.org/wiki/Decibel#Field_quantities) 的定义可知：
 
-$$L_{dB} = 20 \log_{10}\left(\frac{A_1}{A_0}\right)$$
+$$L_{dB} = 20 \log_{10}\left(\frac{A_o}{A_i}\right)$$
 
-因而，本步骤的输出波场振幅 $A_1$ 为
+因而，本步骤的输出波场振幅与输入波场振幅的比 $A_o/A_i$ ，即振幅放大系数为
 
-$$A_1 = A_0 10^{\frac{L_{dB}}{20}}$$
+<div> $$10^{\frac{L_{dB}}{20}}$$ </div>
 
 ### Analog Stage
 
@@ -75,9 +76,11 @@ $$G \frac{s^2}{s^2+2 h \omega s + \omega^2}$$
 -   $h$：damping constant， 即 $h$= [11]
 -   $\omega$： natural angular frequency，即 $\omega=\frac{2\pi}{[10]}$
 
-从 channel table 即可计算出这三个量，代入 transfer 函数，根据 [仪器响应实例分析](/deep-analysis-of-response/) 中的类似步骤，即可计算出零点和极点，以及归一化因子 $A_0$。
+从 channel table 即可计算出这三个量，代入 transfer 函数，根据 [仪器响应实例分析](/instrumental-response-details/) 
+中的类似步骤，即可计算出零点和极点，以及归一化因子 $A_0$。
 
-PS：对于速度场而言，可以推导得到 $A_0 = 2*[11]$
+需要注意的是，计算归一化因子 $A_0$ 时，归一化频率应为 20 Hz。原因未知，但Hinet给的
+三个RESP文件均是在20 Hz处做归一化。
 
 ### Analog-Digital Conversion
 

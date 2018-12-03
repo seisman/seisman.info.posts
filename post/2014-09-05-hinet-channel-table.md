@@ -15,9 +15,13 @@ slug: hinet-channel-table
 即 Channel Table 文件。两个文件内容是相同的，区别在于一个是 `euc` 编码，
 一个是 `sjis` 编码。只需要用其中一个即可，这里选择 `euc` 编码的文件。
 
-Channel Table 文件描述了每个 channel 的仪器信息，某种程度上等效于常见的 RESP 或 SAC PZ 仪器响应文件。但是实际上 Channel Table 有一定的局限性，无法理解 Hi-net 为什么会用这种格式来指定仪器响应信息。
+Channel Table 文件描述了每个 channel 的仪器信息，某种程度上等效于常见的 RESP 或 
+SAC PZ 仪器响应文件。但是实际上 Channel Table 有一定的局限性，无法理解 Hi-net 
+为什么会用这种格式来指定仪器响应信息。
 
-由于需要注意的是，对于 Hinet 而言，channel table 可以完整的描述仪器响应，而对于 Fnet 而言，channel table 给出的信息不足。因而关于 channel table 的内容，仅适用于 Hinet，不适用于 Fnet，不确定是否适用于其他台网。
+尤其需要注意的是，对于 Hinet 而言，channel table 可以完整的描述仪器响应，
+而对于 Fnet 而言，channel table 给出的信息不足。因而关于 channel table 的内容，
+仅适用于 Hinet，不适用于 Fnet，不确定是否适用于其他台网。
 
 <!--more-->
 
@@ -34,11 +38,12 @@ Channel Table 文件描述了每个 channel 的仪器信息，某种程度上等
 -   有些台站只有一个或两个分量，而不是三个；
 -   有些台站不包含 N、E 分量，而包含 X、Y 分量；
 
-因而，若按照上面总结出的规律去做文本处理，会出现很多问题。更严谨的处理方式应该是：将所有以 `#` 开头的行当作注释行，其余行平等对待，即最小单位是 channel 或分量，而不是台站。
+因而，若按照上面总结出的规律去做文本处理，会出现很多问题。更严谨的处理方式应该是：
+将所有以 `#` 开头的行当作注释行，其余行平等对待，即最小单位是 channel 或分量，而不是台站。
 
 ## 格式
 
-一个 channel 包含了如下以 ** 空格 ** 分隔的 19 列信息:
+一个 channel 包含了如下以 **空格** 分隔的 19 列信息:
 
     2903 1 0 N.AGWH U 6 27 154.30 m/s 0.96 0.70 0 1.023e-07 43.0842 140.8199 -77 0 0 Akaigawa
 
@@ -83,16 +88,6 @@ Channel Table 中仅给出了分量代码，可以取值为 U、N、E、X、Y �
 Hi-net 使用的是短周期速度地震仪，输入为速度场，单位为 `m/s`，而部分 channel 的输入单位为 `m/s/s` ，即输入为加速度场。
 
 输入单位为 `m/s/s` 的 channel，与输入单位为 `m/s` 的 channel 相比，在后期的数据处理上差别很多，因而不建议提取输入单位为 `m/s/s` 的通道数据。
-
-### Natural period of the seismometer
-
-截至 2014 年 09 月 08 日，对于这一列的含义有两种互相矛盾的说法：
-
--   `readme.txt` 中对该列解释为 **Eigen frequency of the sensor**
--   [Hi-net FAQ 08](http://www.hinet.bosai.go.jp/faq/?LANG=en#Q08) 中该列解释为 **Natural
-    period of the seismometer**
-
-Hi-net 官方回复指出，FAQ08 中的解释是正确的，即第 10 列为 “Natural period of the seismometer”。
 
 ## 总结
 
