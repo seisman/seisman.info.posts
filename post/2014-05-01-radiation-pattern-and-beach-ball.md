@@ -184,24 +184,24 @@ int main (int argc, char *argv[]) {
 #!/bin/bash
 R=0/360/-90/0
 J=S0/-90/15c
-B=a30f10N
+B=a30f10
 name=pattern
-PS=meca.ps
+PS=${name}.ps
 
-gmtset BASEMAP_TYPE=plain
-gmtset PLOT_DEGREE_FORMAT=+
-xyz2grd ${name}.dat -G${name}.nc -I6m/6m -R$R -ZLBxf
-grd2cpt ${name}.nc -Cpolar -E100 > ${name}.cpt
-psxy -R$R -J$J -T -K -P > $PS
-grdimage ${name}.nc -R$R -J$J -C${name}.cpt -B$B -K -O >> $PS
-grdcontour ${name}.nc -R$R -J$J -L-0.001/0.001 -C1 -K -O -W2p >> $PS
-psxy -R$R -J$J -T -O >> $PS
-rm .gmt* ${name}.cpt ${name}.nc
+gmt set MAP_FRAME_TYPE=plain
+gmt set FORMAT_GEO_MAP=+D
+gmt xyz2grd ${name}.dat -G${name}.nc -I6m/6m -R$R -ZLBxf
+gmt grd2cpt ${name}.nc -Cpolar -E100 > ${name}.cpt
+gmt psxy -R$R -J$J -T -K -P > $PS
+gmt grdimage ${name}.nc -R$R -J$J -C${name}.cpt -B$B -BN -K -O >> $PS
+gmt grdcontour ${name}.nc -R$R -J$J -L-0.001/0.001 -C1 -K -O -W2p >> $PS
+gmt psxy -R$R -J$J -T -O >> $PS
+rm gmt.conf gmt.history ${name}.cpt ${name}.nc 
 ```
 
 绘图脚本的一些说明：
 
-1.  设置 `PLOT_DEGREE_FORMAT` 使得方位角范围是 0 到 360，而不是 -180 到 180。其中 0 度指向正北方向。
+1.  设置 `FORMAT_GEO_MAP` 使得方位角范围是 0 到 360，而不是 -180 到 180。其中 0 度指向正北方向。
 2.  这里 R 的横向范围是 0 到 360，实际上 360 度处与 0 度处是同一个经度，所以网格中没有计算 360 度处的振幅。同时在 `-Z` 选项中使用了 x 以表明 X 轴的周期性。
 3.  在振幅为 0 处绘制了等值线。
 
@@ -243,7 +243,7 @@ psmeca 的 `-Sm` 选择可以用于在地图上绘制 GCMT 矩张量形式的震
 
 ``` bash
 #!/bin/bash
-psmeca -R0/250/-90/90 -JQ22c -Sm7c -W1p -B60/30 <<EOF> gmt_meca.ps
+gmt psmeca -R0/250/-90/90 -JQ22c -Sm7c -W1p -Bx60 -By30 <<EOF> gmt_meca.ps
 121.71 -12.01 29 -1.35 5.41 -4.06 -3.21 -3.58 -0.74 24 X Y 201304191751A
 EOF
 ```
@@ -256,7 +256,7 @@ EOF
 
 ``` bash
 #!/bin/bash
-psmeca -R0/250/-90/90 -JQ22c -Sd7c -W1p -B60/30 <<EOF> gmt_meca.ps
+gmt psmeca -R0/250/-90/90 -JQ22c -Sd7c -W1p -Bx60 -By30 <<EOF> gmt_meca.ps
 121.71 -12.01 29 -1.35 5.41 -4.06 -3.21 -3.58 -0.74 24 X Y 201304191751A
 EOF
 ```
@@ -275,9 +275,9 @@ Mopad 是一个可以计算与绘制矩张量的 Python 脚本，其功能强大
 
 ## 图像格式转换
 
-利用 ps2raster 命令可以将 PS 文件转换为其它格式的图像，最好选择透明的 PNG 格式:
+利用 psconvert 命令可以将 PS 文件转换为其它格式的图像，最好选择透明的 PNG 格式:
 
-    ps2raster -A -TG beachball.ps
+    gmt psconvert -A -TG beachball.ps
 
 ## 一些小结
 
@@ -291,3 +291,4 @@ Mopad 是一个可以计算与绘制矩张量的 Python 脚本，其功能强大
 -   2014-04-28：初稿 By cxh757；
 -   2014-05-01：修订与补充 By SeisMan；
 -   2014-05-30：增加了图像格式转换一节；
+-   2018-12-20：语法更新为 GMT5；
