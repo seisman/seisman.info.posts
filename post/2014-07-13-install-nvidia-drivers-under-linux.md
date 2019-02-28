@@ -25,6 +25,10 @@ ELRepo 源中包含了一系列驱动程序。
         sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
         sudo rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
 
+如果安装无报错，但是实际无法使用，可以尝试重新安装:
+
+       sudo yum reinstall https://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
+
 2.  安装显卡检查程序:
 
         sudo yum install nvidia-detect
@@ -39,17 +43,18 @@ ELRepo 源中包含了一系列驱动程序。
     根据 `nvidia-detect` 的输出信息，可以知道显卡的型号，以及要使用的驱动版本 `346.47` 。
 
 4.  安装显卡驱动
-    1.  若驱动版本为 304.xx，则安装 304xx 版本:
+
+    1.  对于大多数比较新的显卡来说，直接安装最新版的驱动即可:
+
+            sudo yum install nvidia-x11-drv nvidia-x11-drv-32bit
+    
+    2.  若驱动版本为 304.xx，则安装 304xx 版本:
 
             sudo yum install nvidia-x11-drv-304xx nvidia-x11-drv-304xx-32bit
 
-    2.  若驱动版本为 340.xx，则安装 340xx 版本:
+    3.  若驱动版本为 340.xx，则安装 340xx 版本:
 
             sudo yum install nvidia-x11-drv-340xx nvidia-x11-drv-340xx-32bit
-
-    3.  对于大多数比较新的显卡来说，直接安装最新版的驱动即可:
-
-            sudo yum install nvidia-x11-drv nvidia-x11-drv-32bit
 
 5.  安装过程中可能会给出软件冲突的警告，需要卸载以下软件包及其依赖:
 
