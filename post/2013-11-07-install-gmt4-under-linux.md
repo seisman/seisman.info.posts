@@ -44,8 +44,9 @@ slug: install-gmt4-under-linux
 
 对于 Ubuntu/Debian:
 
-    sudo apt-get update
-    sudo apt-get install gcc g++ make libc6
+    sudo apt update
+    sudo apt install gcc g++ make libc6
+    sudo apt install gs
 
 对于 CentOS/RHEL/Fedora:
 
@@ -57,8 +58,8 @@ GMT4 主要依赖于 netCDF4，可以直接使用 Linux 发行版官方源中提
 
 对于 Ubuntu/Debian:
 
-    sudo apt-get update
-    sudo apt-get install libnetcdf-dev libgdal-dev python-gdal
+    sudo apt update
+    sudo apt install libnetcdf-dev libgdal-dev python-gdal
 
 备注： `libgdal-dev` 在某些版本的 Ubuntu 下叫 `libgdal1-dev`
 
@@ -80,10 +81,10 @@ GMT4 中的 `xgridedit` 命令是一个很简易的带 GUI 的网格文件编辑
 
 对于 Ubuntu/Debian:
 
-    sudo apt-get update
-    sudo apt-get install libxaw7-dev
-    sudo apt-get install libice-dev libsm-dev libx11-dev
-    sudo apt-get install libxext-dev libxmu-dev libxt-dev
+    sudo apt update
+    sudo apt install libxaw7-dev
+    sudo apt install libice-dev libsm-dev libx11-dev
+    sudo apt install libxext-dev libxmu-dev libxt-dev
 
 对于 CentOS/RHEL/Fedora:
 
