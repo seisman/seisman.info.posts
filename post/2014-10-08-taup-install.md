@@ -29,6 +29,13 @@ TauP 是用 Java 写的一个用来计算震相走时的软件。
 
         $ sudo yum install java
 
+    在 Ubuntu 上:
+
+        $ sudo apt update
+        $ sudo apt install default-jre
+        $ sudo apt install default-jdk
+        $ sudo apt upgrade
+
     在 macOS 下使用如下命令:
 
         $ brew cask install java
