@@ -46,7 +46,7 @@ slug: install-gmt4-under-linux
 
     sudo apt update
     sudo apt install gcc g++ make libc6
-    sudo apt install gs
+    sudo apt install ghostscript
 
 对于 CentOS/RHEL/Fedora:
 
