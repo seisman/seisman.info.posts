@@ -9,7 +9,7 @@ SACLIB=-L$(SACHOME)/lib -lsac -lsacio
 
 SUBS = fft.o Complex.o sacio.o
 FKSUBS = fk.o kernel.o prop.o source.o bessel.o $(SUBS)
-TARGETS = fk syn st_fk trav sachd
+TARGETS = fk syn st_fk trav sachd fk2mt
 
 all: $(TARGETS)
 
@@ -27,6 +27,9 @@ sachd: sachd.o sacio.o
 
 trav: trav.o tau_p.o
 	$(LINK.f) -o $@ trav.o tau_p.o -lm
+
+fk2mt: fk2mt.o radiats.o sacio.o
+	${LINK.c} -o $@ $^
 
 bessel.f: bessel.FF
 	cpp -traditional-cpp $< > $@
