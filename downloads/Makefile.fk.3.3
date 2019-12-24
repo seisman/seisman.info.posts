@@ -5,7 +5,7 @@ CFLAGS=$(optimize)
 #if SAC library has been installed, uncomment the next two lines
 CFLAGS=$(optimize) -DSAC_LIB
 SACLIB=-L$(SACHOME)/lib -lsac -lsacio
-
+#
 
 SUBS = fft.o Complex.o sacio.o
 FKSUBS = fk.o kernel.o prop.o source.o bessel.o $(SUBS)
@@ -29,7 +29,7 @@ trav: trav.o tau_p.o
 	$(LINK.f) -o $@ trav.o tau_p.o -lm
 
 fk2mt: fk2mt.o radiats.o sacio.o
-	${LINK.c} -o $@ $^
+	${LINK.c} -o $@ $^ -lm
 
 bessel.f: bessel.FF
 	cpp -traditional-cpp $< > $@
