@@ -5,6 +5,7 @@ author: SeisMan
 categories:
   - 地震学软件
 tags:
+  - SEED
   - SAC
   - 格式转换
 slug: rdseed-install
