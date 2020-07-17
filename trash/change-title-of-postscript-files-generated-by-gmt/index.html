@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>修改 GMT 生成的 PS 文件的标题 - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="本文整理自： http://gmt.soest.hawaii.edu/boards/1/topics/1820
+需要说明的一点，本文是要修改 PS 文件的标题，而不是 PS 文件的文件名。
+用编辑器打开任意一个 GMT 生成的 PS 文件，查看文件的前几行，其中一行大概如下:
+%%Title: GMT v5.1.1 (r12968) [64-bit] Document from psxy  这就是所谓的 PS 文件的标题。当用 evince 或 gv 打开 PS 文件时，该标题会在软件的某个位置显示。
+" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.61.0 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/trash/change-title-of-postscript-files-generated-by-gmt/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="修改 GMT 生成的 PS 文件的标题" />
+<meta property="og:description" content="本文整理自： http://gmt.soest.hawaii.edu/boards/1/topics/1820
+需要说明的一点，本文是要修改 PS 文件的标题，而不是 PS 文件的文件名。
+用编辑器打开任意一个 GMT 生成的 PS 文件，查看文件的前几行，其中一行大概如下:
+%%Title: GMT v5.1.1 (r12968) [64-bit] Document from psxy
+
+这就是所谓的 PS 文件的标题。当用 evince 或 gv 打开 PS 文件时，该标题会在软件的某个位置显示。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/trash/change-title-of-postscript-files-generated-by-gmt/" />
+<meta property="article:published_time" content="2015-03-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-03-14T00:00:00+00:00" />
+<meta itemprop="name" content="修改 GMT 生成的 PS 文件的标题">
+<meta itemprop="description" content="本文整理自： http://gmt.soest.hawaii.edu/boards/1/topics/1820
+需要说明的一点，本文是要修改 PS 文件的标题，而不是 PS 文件的文件名。
+用编辑器打开任意一个 GMT 生成的 PS 文件，查看文件的前几行，其中一行大概如下:
+%%Title: GMT v5.1.1 (r12968) [64-bit] Document from psxy
+
+这就是所谓的 PS 文件的标题。当用 evince 或 gv 打开 PS 文件时，该标题会在软件的某个位置显示。">
+<meta itemprop="datePublished" content="2015-03-14T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2015-03-14T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="333">
+
+
+
+<meta itemprop="keywords" content="GMT技巧," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="修改 GMT 生成的 PS 文件的标题"/>
+<meta name="twitter:description" content="本文整理自： http://gmt.soest.hawaii.edu/boards/1/topics/1820
+需要说明的一点，本文是要修改 PS 文件的标题，而不是 PS 文件的文件名。
+用编辑器打开任意一个 GMT 生成的 PS 文件，查看文件的前几行，其中一行大概如下:
+%%Title: GMT v5.1.1 (r12968) [64-bit] Document from psxy
+
+这就是所谓的 PS 文件的标题。当用 evince 或 gv 打开 PS 文件时，该标题会在软件的某个位置显示。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <p>本文整理自： <a href="http://gmt.soest.hawaii.edu/boards/1/topics/1820">http://gmt.soest.hawaii.edu/boards/1/topics/1820</a></p>
+<p>需要说明的一点，本文是要修改 PS 文件的标题，而不是 PS 文件的文件名。</p>
+<p>用编辑器打开任意一个 GMT 生成的 PS 文件，查看文件的前几行，其中一行大概如下:</p>
+<pre><code>%%Title: GMT v5.1.1 (r12968) [64-bit] Document from psxy
+</code></pre>
+<p>这就是所谓的 PS 文件的标题。当用 evince 或 gv 打开 PS 文件时，该标题会在软件的某个位置显示。</p>
+<p>从上面的例子中可以看到，GMT 生成的 PS 文件的标题中几乎没有带有任何有意义的信息。而在
+看图的时候可能经常需要从几张相似的图中区分哪张图来自哪个数据，当然可以通过定义很
+复杂的 PS 文件名来区分不同的数据，但那么大的一个标题不用，似乎有些太浪费了。</p>
+<p>GMT 软件自身不能自定义 PS 文件的标题，只能通过外部程序实现:</p>
+<pre><code>sed -i 's/^%%Title:.*/%%Title:'&quot;$NEW_TITLE/&quot; $FILE
+</code></pre>
+<p>其中变量 <code>$FILE</code> 是要修改标题的 PS 文件名， <code>$NEW_TITLE</code> 是要修改的新标题。
+这条命令本质上就是一个简单的字符串替换而已，比如:</p>
+<pre><code>sed -i 's/^%%Title:.*/%%Title:'&quot;This is new title/&quot; test.ps
+</code></pre>
+  </div>
+</article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

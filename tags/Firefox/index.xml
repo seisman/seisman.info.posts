@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Firefox on SeisMan</title>
+    <link>https://blog.seisman.info/tags/Firefox/</link>
+    <description>Recent content in Firefox on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 11 Jul 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/Firefox/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Firefox 安装 Java 插件</title>
+      <link>https://blog.seisman.info/firefox-java-plugin/</link>
+      <pubDate>Thu, 11 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/firefox-java-plugin/</guid>
+      <description>由于某个变态网站，需要 Java 插件才能使用，所以需要在 Firefox 上安装 Java 插件。在 Oracle 的网站上搜到解决办法，原文在 这里， 排版难看的要死，故而重新排版。 我的计算</description>
+    </item>
+    
+  </channel>
+</rss>

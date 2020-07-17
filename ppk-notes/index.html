@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>PPK 标记震相到时的一些注意事项 - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="SAC 中的 ppk 命令用于拾取震相到时。在键入 ppk 命令之后，进入震相拾取模式，此时键入相应的选项即可拾取震相到时。 从 ppk 的命令说明中可以看出，ppk 支持的选项中与到时有关的有：
+ A：定义初至波到时； F：定义事件结束时间； P：定义 P 波到时； S：定义 S 波到时； Tn：用户自定义到时（n=0~9）； " /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.61.0 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/ppk-notes/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="PPK 标记震相到时的一些注意事项" />
+<meta property="og:description" content="SAC 中的 ppk 命令用于拾取震相到时。在键入 ppk 命令之后，进入震相拾取模式，此时键入相应的选项即可拾取震相到时。
+从 ppk 的命令说明中可以看出，ppk 支持的选项中与到时有关的有：
+
+A：定义初至波到时；
+F：定义事件结束时间；
+P：定义 P 波到时；
+S：定义 S 波到时；
+Tn：用户自定义到时（n=0~9）；
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/ppk-notes/" />
+<meta property="article:published_time" content="2013-08-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2016-02-28T00:00:00+00:00" />
+<meta itemprop="name" content="PPK 标记震相到时的一些注意事项">
+<meta itemprop="description" content="SAC 中的 ppk 命令用于拾取震相到时。在键入 ppk 命令之后，进入震相拾取模式，此时键入相应的选项即可拾取震相到时。
+从 ppk 的命令说明中可以看出，ppk 支持的选项中与到时有关的有：
+
+A：定义初至波到时；
+F：定义事件结束时间；
+P：定义 P 波到时；
+S：定义 S 波到时；
+Tn：用户自定义到时（n=0~9）；
+">
+<meta itemprop="datePublished" content="2013-08-20T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2016-02-28T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1067">
+
+
+
+<meta itemprop="keywords" content="走时,震相,SAC技巧," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="PPK 标记震相到时的一些注意事项"/>
+<meta name="twitter:description" content="SAC 中的 ppk 命令用于拾取震相到时。在键入 ppk 命令之后，进入震相拾取模式，此时键入相应的选项即可拾取震相到时。
+从 ppk 的命令说明中可以看出，ppk 支持的选项中与到时有关的有：
+
+A：定义初至波到时；
+F：定义事件结束时间；
+P：定义 P 波到时；
+S：定义 S 波到时；
+Tn：用户自定义到时（n=0~9）；
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">PPK 标记震相到时的一些注意事项</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2013-08-20 </span>
+        <div class="post-category">
+            <a href="/categories/SAC/"> SAC </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">修订历史</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>SAC 中的 <code>ppk</code> 命令用于拾取震相到时。在键入 <code>ppk</code> 命令之后，进入震相拾取模式，此时键入相应的选项即可拾取震相到时。
+从 <code>ppk</code> 的命令说明中可以看出，<code>ppk</code> 支持的选项中与到时有关的有：</p>
+<ul>
+<li><code>A</code>：定义初至波到时；</li>
+<li><code>F</code>：定义事件结束时间；</li>
+<li><code>P</code>：定义 P 波到时；</li>
+<li><code>S</code>：定义 S 波到时；</li>
+<li><code>Tn</code>：用户自定义到时（n=0~9）；</li>
+</ul>
+<p>在《<a href="/sac-times/">SAC 的时间概念</a>》一文中介绍了 SAC 中所有与
+时间有关的头段变量的一些细节。其中与标记到时有关的头段变量有：<code>A</code>、<code>F</code>、<code>Tn</code>。</p>
+<p>将这二者做一比较，很容易猜到：<code>ppk</code> 的 <code>A</code> 选项标记的到时信息保存到头段变量 <code>A</code> 中；<code>F</code> 选项标记的到时保存到头段变量 <code>F</code> 中；
+<code>Tn</code> 选项标记的到时保存到对应的头段变量 <code>Tn</code> 中。</p>
+<p>**疑问：**ppk 的 <code>P</code> 和 <code>S</code> 选项分别标记了 P 波到时和 S 波到时，那么着两个震相的到时保存到哪里了？</p>
+<p>**答：**经过简单的测试可以知道，P 波到时信息保存到了头段变量 <code>A</code> 中；S 波到时保存到头段变量 <code>T0</code> 中。</p>
+<p>需要注意的是，使用 <code>ppk</code> 的 <code>P</code> 选项标定的到时一定保存到头段变量 <code>A</code> 中，不管原来头段变量 <code>A</code> 中有没有记录其他有用信息。
+同理，<code>ppk</code> 的 <code>S</code> 选项标定的到时一定保存到头段变量 <code>T0</code> 中，不会因为头段变量 <code>T0</code> 中已经有值而保存到 <code>T1</code> 中。</p>
+<p>**疑问：**在用 <code>T0</code> 标记某震相（比如 PcP）后，在使用 <code>p</code>、<code>p1</code>、<code>ppk</code> 绘图时，在相应时刻总是显示字符 <code>T0</code>，
+如何显示震相名称 <code>PcP</code>？</p>
+<p>**答：**如果熟知 SAC 的头段变量，这个问题很容易解决。<code>A</code>、<code>F</code>、<code>Tn</code>（n=0~9）每个浮点型头段变量都对应一个
+字符型头段变量，即 <code>KA</code>、<code>KF</code>、<code>KTn</code>，这些字符型头段变量中可以保持震相名。</p>
+<p>如下例所示:</p>
+<pre><code>SAC&gt; r file
+SAC&gt; ppk
+# 用光标标记震相 PcP 的到时为 T0，然后退出 ppk 模式
+SAC&gt; p   # 此时看到的震相到时处显示字符 &quot;T0&quot;
+SAC&gt; ch kt0 PcP
+SAC&gt; p   # 此时看到的震相到时处显示字符 &quot;PcP&quot;
+SAC&gt; wh  # 标记的到时要记得保存；
+SAC&gt; q
+</code></pre>
+<p>**疑问：**<code>ppk</code> 命令中设置震相 onset、震相方向、震相质量的几个命令如何使用？这些标记的信息被保存在哪里？</p>
+<p>**答：**<code>ppk</code> 命令中，设置震相 onset 类型的有 <code>e</code> 和 <code>i</code> ，设置震相方向的有
+<code>d</code> 、 <code>u</code> 、 <code>+</code> 、 <code>-</code>
+和空格，设置震相质量的为 0 到 4。这些命令仅在标记 P 波和 S 波到时时有意义，而这些震相信息则保存在对应时间标记名中。</p>
+<p>首先读入一个 SAC 文件，进入 ppk 模式后，以标记 P 波为例，依次按下 <code>e</code> 、 <code>d</code>
+、 <code>1</code> 、 <code>p</code> 四个按键，此时 P 波到时保存在变量 <code>A</code> 中，而变量 <code>KA</code> 中的值则是
+<code>EPD1</code> 。</p>
+<p>变量 <code>KA</code> 中的四个字符依次表示：震相 onset 类型、P 或 S 震相、震相极性、震相质量。由于这些信息是保存在头段
+变量 <code>KA</code> 中的，因而会写入到文件中，以待进一步使用。</p>
+<h2 id="heading">修订历史</h2>
+<ul>
+<li>2013-08-20：初稿；</li>
+<li>2016-02-28：增加了对震相 onset 类型、震相极性、震相质量相关命令的说明；</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SeisMan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2016-02-28
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E8%B5%B0%E6%97%B6/">走时</a>
+          <a href="/tags/%E9%9C%87%E7%9B%B8/">震相</a>
+          <a href="/tags/SAC%E6%8A%80%E5%B7%A7/">SAC技巧</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/mopad/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">MoPaD:地震矩绘制和分析工具</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/etopo1/">
+            <span class="next-text nav-default">全球地形起伏模型 ETOPO1</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

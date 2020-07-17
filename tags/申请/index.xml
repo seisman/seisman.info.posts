@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>申请 on SeisMan</title>
+    <link>https://blog.seisman.info/tags/%E7%94%B3%E8%AF%B7/</link>
+    <description>Recent content in 申请 on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 30 Aug 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/%E7%94%B3%E8%AF%B7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hinet 连续波形数据申请及下载的脚本实现</title>
+      <link>https://blog.seisman.info/trash/hinet-continuous-waveform-data-request-script/</link>
+      <pubDate>Sat, 30 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/hinet-continuous-waveform-data-request-script/</guid>
+      <description>&lt;p&gt;前文已经说到，Hi-net 连续波形数据申请的本质可以简化为如下几步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;指定参数，构建 query string&lt;/li&gt;
+&lt;li&gt;向 Hi-net 发送数据请求&lt;/li&gt;
+&lt;li&gt;等待数据准备&lt;/li&gt;
+&lt;li&gt;下载数据&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hi-net 连续数据申请的源码分析</title>
+      <link>https://blog.seisman.info/hinet-continuous-waveform-data-source-code/</link>
+      <pubDate>Fri, 29 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/hinet-continuous-waveform-data-source-code/</guid>
+      <description>&lt;p&gt;上一篇博文介绍了 Hi-net 数据申请的流程以及其中的一些限制。从表面上看，数据申请的过程其实就是鼠标点点点。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hi-net 连续波形数据</title>
+      <link>https://blog.seisman.info/hinet-continuous-waveform-data/</link>
+      <pubDate>Wed, 27 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/hinet-continuous-waveform-data/</guid>
+      <description>&lt;p&gt;本文将介绍如何从 Hi-net 申请并下载连续波形数据，并介绍 Hi-net 数据的一些细节。&lt;/p&gt;
+&lt;p&gt;连续波形数据申请地址： &lt;a href=&#34;https://hinetwww11.bosai.go.jp/auth/download/cont/?LANG=en&#34;&gt;https://hinetwww11.bosai.go.jp/auth/download/cont/?LANG=en&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

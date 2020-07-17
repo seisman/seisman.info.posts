@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>识别 TauP 输出中的多个 P 震相 - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="在使用 TauP 计算 浅源近震 的 P 波走时时，输出中经常会出现很多个 P 震相。这个事情让人很困扰， 因为搞不清这些 P 震相到底谁是谁。如果需要的只是 P 波初至，那就无所谓了，直接用最早的到时即可。 有些时候需要计算某个特定 P 震相的走时，这就需要清楚地了解每个 P 震相所代表的真正路径了。
+" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.61.0 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/taup-identify-multiple-P-phases/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="识别 TauP 输出中的多个 P 震相" />
+<meta property="og:description" content="在使用 TauP 计算 浅源近震 的 P 波走时时，输出中经常会出现很多个 P 震相。这个事情让人很困扰，
+因为搞不清这些 P 震相到底谁是谁。如果需要的只是 P 波初至，那就无所谓了，直接用最早的到时即可。
+有些时候需要计算某个特定 P 震相的走时，这就需要清楚地了解每个 P 震相所代表的真正路径了。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/taup-identify-multiple-P-phases/" />
+<meta property="article:published_time" content="2016-05-22T11:46:41+00:00" />
+<meta property="article:modified_time" content="2016-05-22T11:46:41+00:00" />
+<meta itemprop="name" content="识别 TauP 输出中的多个 P 震相">
+<meta itemprop="description" content="在使用 TauP 计算 浅源近震 的 P 波走时时，输出中经常会出现很多个 P 震相。这个事情让人很困扰，
+因为搞不清这些 P 震相到底谁是谁。如果需要的只是 P 波初至，那就无所谓了，直接用最早的到时即可。
+有些时候需要计算某个特定 P 震相的走时，这就需要清楚地了解每个 P 震相所代表的真正路径了。">
+<meta itemprop="datePublished" content="2016-05-22T11:46:41&#43;00:00" />
+<meta itemprop="dateModified" content="2016-05-22T11:46:41&#43;00:00" />
+<meta itemprop="wordCount" content="1498">
+
+
+
+<meta itemprop="keywords" content="TauP,走时,震相," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="识别 TauP 输出中的多个 P 震相"/>
+<meta name="twitter:description" content="在使用 TauP 计算 浅源近震 的 P 波走时时，输出中经常会出现很多个 P 震相。这个事情让人很困扰，
+因为搞不清这些 P 震相到底谁是谁。如果需要的只是 P 波初至，那就无所谓了，直接用最早的到时即可。
+有些时候需要计算某个特定 P 震相的走时，这就需要清楚地了解每个 P 震相所代表的真正路径了。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">识别 TauP 输出中的多个 P 震相</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-05-22 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/"> 地震学软件 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>在使用 TauP 计算 <strong>浅源近震</strong> 的 P 波走时时，输出中经常会出现很多个 P 震相。这个事情让人很困扰，
+因为搞不清这些 P 震相到底谁是谁。如果需要的只是 P 波初至，那就无所谓了，直接用最早的到时即可。
+有些时候需要计算某个特定 P 震相的走时，这就需要清楚地了解每个 P 震相所代表的真正路径了。</p>
+<p>以最简单也最常用的 PREM 模型为例， TauP 中给出了 PREM 模型的前几列如下：</p>
+<pre><code>$ head -10 prem.nd
+    0.00     5.80000   3.20000   2.60000    1456.0     600.0
+   15.00     5.80000   3.20000   2.60000    1456.0     600.0
+   15.00     6.80000   3.90000   2.90000    1350.0     600.0
+   24.40     6.80000   3.90000   2.90000    1350.0     600.0
+mantle
+   24.40     8.11061   4.49094   3.38076    1446.0     600.0
+   40.00     8.10119   4.48486   3.37906    1446.0     600.0
+   60.00     8.08907   4.47715   3.37688    1447.0     600.0
+   80.00     8.07688   4.46953   3.37471     195.0      80.0
+  115.00     8.05540   4.45643   3.37091     195.0      80.0
+</code></pre>
+<p>可以看到，15 km 处是上下地壳的分界面，24.4 km 是 Moho 面。</p>
+<p>那么，对于一个深度为 5 km 的震源来说，在小震中距时可能会有 5 个 P 波震相：</p>
+<ol>
+<li>震相 1： 从源出发向上传播直接到台站</li>
+<li>震相 2：15 km 界面的反射波</li>
+<li>震相 3：15 km 界面处的首波</li>
+<li>震相 4：Moho 面的反射波</li>
+<li>震相 5：Moho 面的首波</li>
+</ol>
+<p>下面的命令计算了震源深度 5 km，震中距 100 km 处的 P 波震相走时。</p>
+<pre><code>$ taup_time -mod prem -h 5 -km 100 -ph p,P
+
+Model: prem
+Distance   Depth   Phase   Travel    Ray Param  Takeoff  Incident  Purist    Purist
+  (deg)     (km)   Name    Time (s)  p (s/deg)   (deg)    (deg)   Distance   Name
+-----------------------------------------------------------------------------------
+    0.90     5.0   P         16.81    13.657     45.47    45.43     0.90   = P
+    0.90     5.0   P         16.93    16.313     58.38    58.31     0.90   = P
+    0.90     5.0   p         17.26    19.135    -87.30    86.48     0.90   = p
+    0.90     5.0   P         17.33    15.646     54.76    54.70     0.90   = P
+    0.90     5.0   P         17.75    18.571     75.80    75.62     0.90   = P
+</code></pre>
+<p>输出的 5 个 P 震相与之前的预期相同，很明显输出的第三行对应震相 1，也就是 p 震相。</p>
+<p>那么如何确定其他震相的身份呢？当然可以通过射线参数、出射角等信息判断，但是如上面的输出所示，其实
+很困难。最好的解决办法是，利用 TauP 强大的震相命名功能来指定计算特定震相的到时。例如， <code>Pn</code> 代表
+Moho 面的首波， <code>Pv15P</code> 代表 15 km 界面的反射波， <code>PvmP</code> 代表 Moho 界面反射波。</p>
+<pre><code>$ taup_time -mod prem -h 5 -km 100 -ph p,P,Pn,Pg,Pv15P,PvmP,Pv24.4P
+
+Model: prem
+Distance   Depth   Phase     Travel    Ray Param  Takeoff  Incident  Purist    Purist
+  (deg)     (km)   Name      Time (s)  p (s/deg)   (deg)    (deg)   Distance   Name
+-------------------------------------------------------------------------------------
+    0.90     5.0   P           16.81    13.657     45.47    45.43     0.90   = P
+    0.90     5.0   Pn          16.81    13.657     45.47    45.43     0.90   = Pn
+    0.90     5.0   P           16.93    16.313     58.38    58.31     0.90   = P
+    0.90     5.0   Pg          16.93    16.313     58.38    58.31     0.90   = Pg
+    0.90     5.0   p           17.26    19.135    -87.30    86.48     0.90   = p
+    0.90     5.0   P           17.33    15.646     54.76    54.70     0.90   = P
+    0.90     5.0   PvmP        17.33    15.646     54.76    54.70     0.90   * Pv24.4P
+    0.90     5.0   Pv24.4P     17.33    15.646     54.76    54.70     0.90   = Pv24.4P
+    0.90     5.0   P           17.75    18.571     75.80    75.62     0.90   = P
+    0.90     5.0   Pg          17.75    18.571     75.80    75.62     0.90   = Pg
+    0.90     5.0   Pv15P       17.75    18.571     75.80    75.62     0.90   = Pv15P
+</code></pre>
+<p>从这个命令的输出中可以提取出很多信息：</p>
+<ol>
+<li>第 1 行和第 2 行是同一个震相，即 Pn，也就是 Moho 界面的首波。同时也说明，震相名 P 包括了反射波、首波等</li>
+<li>第 3 行与第 4 行是同一个震相，即 Pg，也就是地壳内 turning 的波</li>
+<li>第 5 行是上行波 p，这个很明显了</li>
+<li>第 6-8 行是同一个震相，是 Moho 界面的反射波，这个震相可以用 P、PvmP 或 Pv24.4P</li>
+<li>第 9-11 行是同一个震相，是 15 km 界面的反射波</li>
+</ol>
+<p>5 个震相中有四个的路径已经很确定了，唯一不确定的就是第 3-4 行这个震相。其实跟前面的理论与其对比一下
+可以猜出来，这个震相应该是 15 km 界面的首波。那么如何证明呢？方法很简单，把 PREM 模型中 Moho 界面
+的深度改到 15 km，此时计算出的 Pn 就是 15 km 界面的首波了。</p>
+<p>修改后的 <code>prem2.nd</code> 的前几行内容如下（其实只是修改了 <code>mantle</code> 这一行的位置）：</p>
+<pre><code>$ head -10 prem.nd
+    0.00     5.80000   3.20000   2.60000    1456.0     600.0
+   15.00     5.80000   3.20000   2.60000    1456.0     600.0
+mantle
+   15.00     6.80000   3.90000   2.90000    1350.0     600.0
+   24.40     6.80000   3.90000   2.90000    1350.0     600.0
+   24.40     8.11061   4.49094   3.38076    1446.0     600.0
+   40.00     8.10119   4.48486   3.37906    1446.0     600.0
+   60.00     8.08907   4.47715   3.37688    1447.0     600.0
+   80.00     8.07688   4.46953   3.37471     195.0      80.0
+  115.00     8.05540   4.45643   3.37091     195.0      80.0
+</code></pre>
+<p>执行相同的命令，可以看到</p>
+<pre><code>$ taup_time -mod prem2 -h 5 -km 100 -ph p,P,Pn,Pg,Pv15P,PvmP,Pv24.4P
+
+Model: prem2
+Distance   Depth   Phase     Travel    Ray Param  Takeoff  Incident  Purist    Purist
+  (deg)     (km)   Name      Time (s)  p (s/deg)   (deg)    (deg)   Distance   Name
+-------------------------------------------------------------------------------------
+    0.90     5.0   P           16.81    13.657     45.47    45.43     0.90   = P
+    0.90     5.0   P           16.93    16.313     58.38    58.31     0.90   = P
+    0.90     5.0   Pn          16.93    16.314     58.39    58.31     0.90   = Pn
+    0.90     5.0   p           17.26    19.135    -87.30    86.48     0.90   = p
+    0.90     5.0   P           17.33    15.646     54.76    54.70     0.90   = P
+    0.90     5.0   Pv24.4P     17.33    15.646     54.76    54.70     0.90   = Pv24.4P
+    0.90     5.0   P           17.75    18.571     75.80    75.62     0.90   = P
+    0.90     5.0   Pv15P       17.75    18.571     75.80    75.62     0.90   = Pv15P
+    0.90     5.0   PvmP        17.75    18.571     75.80    75.62     0.90   * Pv15P
+</code></pre>
+<p>新模型下 Moho 界面在 15 km 处，所以此时 PvmP 是 15 km 的反射波，而 Pn 则是 15 km 的首波。</p>
+<p>至此，所有的 5 个 P 震相都被正确识别出来啦。对于更复杂的速度模型，判断方法类似。</p>
+<p>结合以上的分析，总结出来震相走时方面的几个需要注意的地方：</p>
+<ol>
+<li>首波在某些震中距会比反射波快（这在地震学基础中已经提到了）</li>
+<li>浅部界面的反射波并不一定比深部界面的反射波更早到（此处 Pv15P 晚于 Pv24.4P）</li>
+<li>除了 Pn 之外最早到的震相不一定就是直达波或反射波，也有可能是其他界面的首波（此处
+15 km 界面的首波是除 Pn 外最早到的）</li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SeisMan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2016-05-22
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/TauP/">TauP</a>
+          <a href="/tags/%E8%B5%B0%E6%97%B6/">走时</a>
+          <a href="/tags/%E9%9C%87%E7%9B%B8/">震相</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/iris-syngine/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">IRIS 的理论地震图生成引擎</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/taup-custom-models/">
+            <span class="next-text nav-default">TauP 自定义模型</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>格式转换 on SeisMan</title>
+    <link>https://blog.seisman.info/tags/%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2/</link>
+    <description>Recent content in 格式转换 on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 31 Jul 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>安装 evt2sac</title>
+      <link>https://blog.seisman.info/evt2sac-install/</link>
+      <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/evt2sac-install/</guid>
+      <description>&lt;p&gt;&lt;code&gt;evt2sac&lt;/code&gt; 用于将 NEIC 的 EVT 格式的数据转换为 SAC 格式。&lt;/p&gt;
+&lt;p&gt;主页： &lt;a href=&#34;https://seiscode.iris.washington.edu/projects/evt2sac&#34;&gt;https://seiscode.iris.washington.edu/projects/evt2sac&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SEED 格式转 SAC 格式</title>
+      <link>https://blog.seisman.info/convert-seed-to-sac/</link>
+      <pubDate>Fri, 19 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/convert-seed-to-sac/</guid>
+      <description>&lt;p&gt;本文会介绍将 SEED、miniSEED 等格式转换为 SAC 格式所使用的工具和用法。需要注意，
+本文并不会详细介绍工具的具体语法，只介绍常用的功能，其他功能及选项，读者应自行阅读相关文档。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>rdseed 的安装</title>
+      <link>https://blog.seisman.info/rdseed-install/</link>
+      <pubDate>Tue, 07 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/rdseed-install/</guid>
+      <description>&lt;p&gt;rdseed 用于将 SEED 格式的数据转换为 SAC 格式。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hi-net win32tools</title>
+      <link>https://blog.seisman.info/hinet-win32tools/</link>
+      <pubDate>Sun, 07 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/hinet-win32tools/</guid>
+      <description>&lt;p&gt;从 Hi-net 获取的波形数据为不常见/用的WIN32 格式，Hi-net 提供了 win32tools 来实现波形数据的基本处理和转换。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>全球数字高程数据：ASTER GDEM</title>
+      <link>https://blog.seisman.info/aster-gdem/</link>
+      <pubDate>Sun, 12 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/aster-gdem/</guid>
+      <description>&lt;h2 id=&#34;heading&#34;&gt;简介&lt;/h2&gt;
+&lt;p&gt;ASTER GDEM，即先进星载热发射和反射辐射仪全球数字高程模型，与 SRTM 一样为数字高程 DEM，
+其全球空间分辨率为 30 米。该数据是根据 NASA 的新一代对地观测卫星 Terra 的详尽观测结果
+制作完成的。其数据覆盖范围为北纬 83° 到南纬 83° 之间的所有陆地区域，达到了地球陆地表面的
+99%。号称是 “迄今最完整的全球地形数据”。&lt;/p&gt;
+&lt;p&gt;数据下载地址：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://reverb.echo.nasa.gov/reverb/&#34;&gt;NASA Reverb&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://gdem.ersdac.jspacesystems.or.jp&#34;&gt;LP DAAC Global Data Explorer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>GeoTiff 格式转 GMT netCDF 格式</title>
+      <link>https://blog.seisman.info/trash/convert-geotiff-to-gmt/</link>
+      <pubDate>Sat, 11 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/convert-geotiff-to-gmt/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.gdal.org/&#34;&gt;GDAL&lt;/a&gt; 提供了不少小工具，其中， &lt;code&gt;gdal_translate&lt;/code&gt; 可用于网格数据的格式转换。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>中国行政区划数据下载</title>
+      <link>https://blog.seisman.info/china-administrative-areas-data/</link>
+      <pubDate>Sat, 23 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/china-administrative-areas-data/</guid>
+      <description>&lt;h2 id=&#34;gadm-&#34;&gt;GADM 数据库&lt;/h2&gt;
+&lt;p&gt;GADM，是一个全球行政区划数据库。包括了几乎全部国家和地区的行政区划界线数据。&lt;/p&gt;
+&lt;p&gt;主页： &lt;a href=&#34;http://www.gadm.org/&#34;&gt;http://www.gadm.org/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在 GMT 中使用 LaTeX</title>
+      <link>https://blog.seisman.info/gmt-latex/</link>
+      <pubDate>Thu, 24 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/gmt-latex/</guid>
+      <description>&lt;p&gt;GMT 的 &lt;code&gt;pstext&lt;/code&gt; 命令支持一些简单的文本特效以及特殊字符，但是如果想在 GMT 中显示一些
+更复杂的公式或者其他，GMT 则无能为力了。&lt;/p&gt;
+&lt;p&gt;这个时候自然而然就会想到功能强大的 LaTeX 了，写公式、画图都算是强项。显然 GMT 自身
+是无法直接支持 LaTeX 的语法的（若要支持 LaTeX 的语法，在绘图时必须调用 LaTeX 引擎，
+这样 GMT 对其他软件的依赖性过大，而且从技术上来说对于 GMT 的开发者来说也有些难度）。&lt;/p&gt;
+&lt;p&gt;虽然说用 GMT 绘图时在图上显示公式算是一个很小众的需求，从折腾的角度来看，还是很值得的。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>高精度地形网格数据 SRTM</title>
+      <link>https://blog.seisman.info/srtm/</link>
+      <pubDate>Sun, 29 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/srtm/</guid>
+      <description>&lt;p&gt;SRTM，全称为 Shuttle Radar Topography Mission，该项目获取了北纬 60 度至南纬 60 度之间的
+雷达影像数据，进一步处理制成了数字地形高程模型（DEM），即现在的 SRTM 地形产品数据。
+该数据产品 2003 年开始公开发布，经过多次修订，目前的数据修订版本为 V4.1 版本。更详细的介绍在
+&lt;a href=&#34;http://www.cgiar-csi.org/data/srtm-90m-digital-elevation-database-v4-1&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>图像格式转换工具 convert</title>
+      <link>https://blog.seisman.info/imagemagick-convert/</link>
+      <pubDate>Fri, 27 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/imagemagick-convert/</guid>
+      <description>&lt;p&gt;GMT 中 &lt;code&gt;psconvert&lt;/code&gt; 可以将 GMT 生成的 PS 文件转换成其他常见的图片格式。一般情况下，如果只用 GMT 做图的话， &lt;code&gt;psconvert&lt;/code&gt; 基本可以满足需求了。&lt;/p&gt;
+&lt;p&gt;遇到几个特殊的情况如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GMT 中设置纸张背景色 &lt;code&gt;PS_PAGE_COLOR&lt;/code&gt;，此时 &lt;code&gt;psconvert&lt;/code&gt; 无法实现切边；&lt;/li&gt;
+&lt;li&gt;用其他软件绘图，比如 LaTeX 的 TikZ/PGF 包，得到 PS 或 PDF 文件，无法使用 &lt;code&gt;psconvert&lt;/code&gt; 实现格式转换；&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这个时候就需要使用 ImageMagick 提供的 &lt;code&gt;convert&lt;/code&gt; 命令。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SAC 不同格式间的转换</title>
+      <link>https://blog.seisman.info/conversion-of-different-sac-formats/</link>
+      <pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/conversion-of-different-sac-formats/</guid>
+      <description>&lt;p&gt;SAC 文件格式包括二进制格式和 ASCII 格式，平常接触的都是二进制格式的，毕竟二进
+制格式相对于 ASCII 格式有很多优点，比如读写速度更快、文件大小更小。下面讨论 SAC
+的两种格式以及另外一种常见的数据格式（自变量 + 因变量两列数据）之间的转换。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

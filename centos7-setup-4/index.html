@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>CentOS 7 配置指南 — 日常软件篇 - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="浏览器 CentOS 默认的浏览器是 Firefox，用户还可自行安装其他浏览器。 Google Chrome 浏览器 Google 官方源在国内可能无法正常访问，故而添加 Fedora 中文社区 提供的镜像源:" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.61.0 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/centos7-setup-4/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="CentOS 7 配置指南 — 日常软件篇" />
+<meta property="og:description" content="浏览器 CentOS 默认的浏览器是 Firefox，用户还可自行安装其他浏览器。 Google Chrome 浏览器 Google 官方源在国内可能无法正常访问，故而添加 Fedora 中文社区 提供的镜像源:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/centos7-setup-4/" />
+<meta property="article:published_time" content="2014-07-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-04-12T00:00:00+00:00" />
+<meta itemprop="name" content="CentOS 7 配置指南 — 日常软件篇">
+<meta itemprop="description" content="浏览器 CentOS 默认的浏览器是 Firefox，用户还可自行安装其他浏览器。 Google Chrome 浏览器 Google 官方源在国内可能无法正常访问，故而添加 Fedora 中文社区 提供的镜像源:">
+<meta itemprop="datePublished" content="2014-07-15T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-04-12T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1922">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CentOS 7 配置指南 — 日常软件篇"/>
+<meta name="twitter:description" content="浏览器 CentOS 默认的浏览器是 Firefox，用户还可自行安装其他浏览器。 Google Chrome 浏览器 Google 官方源在国内可能无法正常访问，故而添加 Fedora 中文社区 提供的镜像源:"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">CentOS 7 配置指南 — 日常软件篇</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2014-07-15 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">浏览器</a>
+      <ul>
+        <li><a href="#google-chrome-">Google Chrome 浏览器</a></li>
+        <li><a href="#opera-">Opera 浏览器</a></li>
+        <li><a href="#flash-">Flash 插件</a></li>
+      </ul>
+    </li>
+    <li><a href="#office-">Office 套件</a>
+      <ul>
+        <li><a href="#libreoffice">LibreOffice</a></li>
+        <li><a href="#wps-office">WPS Office</a></li>
+      </ul>
+    </li>
+    <li><a href="#pspdf-">PS/PDF 阅读器</a>
+      <ul>
+        <li><a href="#evince">evince</a></li>
+        <li><a href="#ghostscript">ghostscript</a></li>
+        <li><a href="#zathura">zathura</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-1">虚拟机</a>
+      <ul>
+        <li><a href="#virtualbox-">VirtualBox 虚拟机</a></li>
+        <li><a href="#gnome-boxes">gnome-boxes</a></li>
+        <li><a href="#wine">Wine</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-2">同步网盘</a>
+      <ul>
+        <li><a href="#heading-3">坚果云</a></li>
+        <li><a href="#dropbox">Dropbox</a></li>
+        <li><a href="#mega">MEGA</a></li>
+      </ul>
+    </li>
+    <li><a href="#texlive">TeXLive</a></li>
+    <li><a href="#heading-4">截图工具</a>
+      <ul>
+        <li><a href="#gnome-screenshot">gnome-screenshot</a></li>
+        <li><a href="#shutter">shutter</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-5">其他软件</a>
+      <ul>
+        <li><a href="#-mendeley">文献管理软件 Mendeley</a></li>
+        <li><a href="#google-earth">Google Earth</a></li>
+        <li><a href="#heading-6">解压软件</a></li>
+        <li><a href="#ftp-">FTP 客户端</a></li>
+        <li><a href="#bt-">BT 软件</a></li>
+        <li><a href="#pdf-">PDF 处理工具</a></li>
+        <li><a href="#heading-7">视频下载工具</a></li>
+        <li><a href="#heading-8">杂项</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="heading">浏览器</h2>
+<p>CentOS 默认的浏览器是 Firefox，用户还可自行安装其他浏览器。</p>
+<h3 id="google-chrome-">Google Chrome 浏览器</h3>
+<p>Google 官方源在国内可能无法正常访问，故而添加
+<a href="https://www.fdzh.org">Fedora 中文社区</a> 提供的镜像源:</p>
+<pre><code>sudo wget http://repo.fdzh.org/chrome/google-chrome-mirrors.repo -P /etc/yum.repos.d/
+</code></pre>
+<p>安装 Google Chrome:</p>
+<pre><code>sudo yum install google-chrome-stable
+</code></pre>
+<h3 id="opera-">Opera 浏览器</h3>
+<p>下载地址： <a href="https://www.opera.com/download/get/?partner=www&amp;opsys=Linux&amp;package=RPM">https://www.opera.com/download/get/?partner=www&amp;opsys=Linux&amp;package=RPM</a></p>
+<p>下载得到 RPM 包后，执行:</p>
+<pre><code>sudo yum localinstall opera-stable_52.0.2871.64_amd64.rpm
+</code></pre>
+<p>想要卸载的话，就执行:</p>
+<pre><code>sudo yum remove opera
+</code></pre>
+<h3 id="flash-">Flash 插件</h3>
+<p>Flash 插件主要是看在线视频的时候要用。Google 浏览器自带了 Flash 插件，所以这里
+安装的 flash 插件主要是为了 firefox。</p>
+<pre><code>sudo rpm -ivh http://linuxdownload.adobe.com/adobe-release/adobe-release-x86_64-1.0-1.noarch.rpm
+sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux
+sudo yum install flash-plugin
+</code></pre>
+<h2 id="office-">Office 套件</h2>
+<h3 id="libreoffice">LibreOffice</h3>
+<p>LibreOffice 可以用于打开 docx 文件，虽然兼容性很糟糕，但是作为临时替代品还可以。</p>
+<p>使用如下命令直接安装:</p>
+<pre><code>sudo yum install libreoffice
+</code></pre>
+<h3 id="wps-office">WPS Office</h3>
+<p>若在 Linux 下对于文档处理有更高一些的要求，可以尝试目前还处于测试版的
+WPS Office for Linux。
+WPS Office 的兼容性以及界面都比 LibreOffice 要好很多，值得期待，当然还是不能
+做到完全兼容 MS Office。</p>
+<p>安装过程参考 <a href="/wps-office-for-centos7/">CentOS 下安装 WPS Office</a> 一文。</p>
+<h2 id="pspdf-">PS/PDF 阅读器</h2>
+<h3 id="evince">evince</h3>
+<p>系统自带 evince 阅读器，可以直接打开 PS 和 PDF 文件。</p>
+<h3 id="ghostscript">ghostscript</h3>
+<p>ghostscript 用于查看 PS 文件。</p>
+<pre><code>sudo yum install ghostscript
+</code></pre>
+<p>用法为：</p>
+<pre><code>gs figure.ps
+</code></pre>
+<h3 id="zathura">zathura</h3>
+<p><a href="https://pwmt.org/projects/zathura/">zathura</a> 可以查看 PS、PDF、djvu 格式的文件，
+可以作为 evince 的替代品:</p>
+<pre><code>sudo yum install zathura zathura-plugins-all
+</code></pre>
+<p>zathura 需要在命令行直接执行，比如：</p>
+<pre><code>zathura figure.pdf
+</code></pre>
+<p>更详细的用法，见官方文档。</p>
+<h2 id="heading-1">虚拟机</h2>
+<p>有时候可能需要在 Windows 下做一些操作，如果机器性能足够好的话，可以安装虚拟机。</p>
+<h3 id="virtualbox-">VirtualBox 虚拟机</h3>
+<p>VirtuabBox 的安装:</p>
+<pre><code>sudo yum install kernel-devel # 先要安装 Kernel 工具
+
+wget http://download.virtualbox.org/virtualbox/rpm/rhel/virtualbox.repo
+sudo mv virtualbox.repo /etc/yum.repos.d/
+sudo yum install VirtualBox-5.1
+</code></pre>
+<p>需要注意几点：</p>
+<ul>
+<li>若机器性能不够，虚拟机的使用体验会非常差，所以不建议在老机器上使用；</li>
+<li>每次更新 kernel 之后都需要执行 <code>sudo /sbin/rcvboxdrv setup</code> 才能使用虚拟机；</li>
+<li>在 VirtualBox 安装虚拟系统后，记得使用 “设备”-&gt;“安装增强功能”，使用效果会更好；</li>
+</ul>
+<h3 id="gnome-boxes">gnome-boxes</h3>
+<p>gnome-boxes 是 GNOME3 开发的一个虚拟机工具，使用体验不如 VirtualBox:</p>
+<pre><code>sudo yum install gnome-boxes
+</code></pre>
+<h3 id="wine">Wine</h3>
+<p>Wine 是一个可以让 Windows 程序运行在 Linux 下的软件。类似虚拟机，但跟虚拟机
+又不太一样:</p>
+<pre><code>sudo yum install wine
+</code></pre>
+<h2 id="heading-2">同步网盘</h2>
+<p>网盘根据功能大概可以分为两类：同步网盘和备份网盘。就目前已知的情况来看，
+CentOS 7 下能使用的同步网盘只有三个：Dropbox、MEGA 和坚果云。</p>
+<h3 id="heading-3">坚果云</h3>
+<p>国内目前最好的全平台同步网盘，不限空间，但限制每月上传流量 1G，下载流量 3G。
+有需要的可以考虑购买高级版。</p>
+<pre><code># 坚果云依赖于 notify-python
+sudo yum install notify-python
+# 下载
+wget https://www.jianguoyun.com/static/exe/installer/fedora/nautilus_nutstore_amd64.rpm
+sudo yum localinstall nautilus_nutstore_amd64.rpm
+</code></pre>
+<h3 id="dropbox">Dropbox</h3>
+<p>国外最好用的全平台同步网盘，但被墙了，熟练掌握科学上网技巧的人可以使用，
+一般人还是不要用了。</p>
+<p>下载地址： <a href="https://www.dropbox.com/install-linux">https://www.dropbox.com/install-linux</a></p>
+<p>下载 Fedora 64-bit 的 RPM 包，执行如下命令安装:</p>
+<pre><code>sudo yum localinstall nautilus-dropbox-xxx.fedora.x86_64.rpm
+</code></pre>
+<h3 id="mega">MEGA</h3>
+<p>MEGA： <a href="https://mega.co.nz/">https://mega.co.nz/</a></p>
+<p>免费容量 50G，作为同步盘来说基本是够用了。</p>
+<pre><code># 下载主程序
+wget https://mega.nz/linux/MEGAsync/CentOS_7/x86_64/megasync-CentOS_7.x86_64.rpm
+sudo yum localinstall megasync-CentOS_7.x86_64.rpm
+
+# 下载文件管理器扩展（可选）
+wget https://mega.nz/linux/MEGAsync/CentOS_7/x86_64/nautilus-megasync-CentOS_7.x86_64.rpm
+sudo yum localinstall nautilus-megasync-CentOS_7.x86_64.rpm
+</code></pre>
+<h2 id="texlive">TeXLive</h2>
+<p>LaTeX 用户需要安装 TeXLive。</p>
+<p>系统自带的 TeXLive 通常版本都很好，因而建议手动安装最新版本的 TeXLive。
+参考 <a href="/texlive-install">Linux 下安装 TeXLive</a> 一文。</p>
+<h2 id="heading-4">截图工具</h2>
+<h3 id="gnome-screenshot">gnome-screenshot</h3>
+<p>GNOME 下自带的截图工具是 gnome-screenshot，其有三种使用方式：</p>
+<ol>
+<li>
+<p>快捷键直接调用</p>
+<ul>
+<li><code>PrtSc</code>: 截取整个屏幕</li>
+<li><code>Alt+PrtSc</code>: 截取当前窗口</li>
+<li><code>Shift+PrtSc</code>: 自定义截图区域</li>
+</ul>
+</li>
+<li>
+<p>命令行调用</p>
+<p>可以在命令行执行 <code>gnome-screenshot</code> 再加上各种选项也可以实现类似的效果</p>
+</li>
+<li>
+<p>“Applications”-&gt;“Utilities”-&gt;“Screenshot”打开截图对话框</p>
+<p>截图对话框里有更多的设置选项。</p>
+</li>
+</ol>
+<p>截图生成的图片保存在 HOME 下。</p>
+<h3 id="shutter">shutter</h3>
+<p><a href="http://shutter-project.org/">shutter</a> 是一个功能更强大的截图工具，支持不同的
+截图方式、图片格式，还支持图片的简单编辑与注释:</p>
+<pre><code>sudo yum install shutter
+</code></pre>
+<p>可以通过 <a href="http://shutter-project.org/faq-help/set-shutter-as-the-default-screenshot-tool/">修改快捷键使 shutter 成为默认的截图工具</a>。</p>
+<h2 id="heading-5">其他软件</h2>
+<h3 id="-mendeley">文献管理软件 Mendeley</h3>
+<p><a href="https://www.mendeley.com/">Mendeley</a> 是一个跨平台的文献管理软件，其内部自带了
+一个可以添加注释的 PDF 阅读器。</p>
+<p>下载 Generic Linux (64 bits)：https://www.mendeley.com/download-desktop/</p>
+<p>安装:</p>
+<pre><code># 解压
+tar -xvf mendeleydesktop-1.17.13-linux-x86_64.tar.bz2
+# 复制到 /opt 目录下
+sudo mv mendeleydesktop-1.17.13-linux-x86_64 /opt/mendeleydesktop
+cd /opt/mendeleydesktop/bin   # cd 进去
+./install-mendeley-link-handler.sh /opt/mendeleydesktop/bin/mendeleydesktop
+sudo yum install qtwebkit  # 安装依赖包
+</code></pre>
+<p>注销重新登陆，在 Application-&gt;Education 下即可看到 mendeley 的相关项目。不过是
+没有软件的图标的，强迫症不能忍，用下面的命令解决:</p>
+<pre><code>cp /opt/mendeleydesktop/share/icons/hicolor/128x128/apps/mendeleydesktop.png ~/.local/share/icons/
+</code></pre>
+<h3 id="google-earth">Google Earth</h3>
+<p>到 <a href="https://www.google.com/earth/download/ge/agree.html">https://www.google.com/earth/download/ge/agree.html</a> 下载64位 RPM 包，
+执行如下命令安装:</p>
+<pre><code>sudo yum localinstall google-earth-stable_current_x86_64.rpm
+</code></pre>
+<p>一般用户也可以直接使用 web 版，地址为 <a href="https://earth.google.com/web">https://earth.google.com/web</a> 。</p>
+<h3 id="heading-6">解压软件</h3>
+<p>安装如下解压软件:</p>
+<pre><code>sudo yum install unzip   # 支持 zip 格式
+sudo yum install p7zip   # 支持 zip|7z|gzip|bzip2|xz|rpm|iso 等格式
+sudo yum install unar    # 支持多种格式，包括 rar
+</code></pre>
+<p>三者的用法分别为：</p>
+<pre><code>unzip xxx.zip
+7za x xxx.7z
+unar xxx.rar
+</code></pre>
+<h3 id="ftp-">FTP 客户端</h3>
+<p>日常需要使用 FTP 的话，可以安装 FileZilla。</p>
+<pre><code>sudo yum install filezilla
+</code></pre>
+<h3 id="bt-">BT 软件</h3>
+<p>transmission 是 Linux 下常用的 Torrent 下载软件:</p>
+<pre><code>sudo yum install transmission
+</code></pre>
+<p>在 “Application”-&gt;“Internet”-&gt; 中可以启动 transmission。</p>
+<h3 id="pdf-">PDF 处理工具</h3>
+<p><a href="http://community.coherentpdf.com/">cpdf</a> 是一个跨平台的 PDF 处理工具，可以完成
+常见的 PDF 合并、切割、加密解密、书签、水印等功能。</p>
+<p>安装及使用说明见 <a href="/cpdf">强大的跨平台 PDF 处理工具：cpdf</a></p>
+<h3 id="heading-7">视频下载工具</h3>
+<p><a href="https://github.com/soimort/you-get">you-get</a> 和
+<a href="https://github.com/rg3/youtube-dl">youtube-dl</a>
+是两个用于从视频网站上下载视频文件的工具。其中，后者支持的网站更多，但前者对
+国内的视频网站支持更好。</p>
+<pre><code>pip install you-get
+pip install youtube-dl
+</code></pre>
+<h3 id="heading-8">杂项</h3>
+<pre><code>sudo yum install nfs-utils     # 挂载 NFS 文件系统所必须
+sudo yum install xclip         # 终端的文本复制工具
+sudo yum install ImageMagick   # 其中的 import 和 convert 命令很有用
+sudo yum install dos2unix unix2dos  # Windows 和 Linux 换行符互相转换
+sudo yum install meld          # 图形界面下的文件差异比较工具
+</code></pre>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SeisMan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-04-12
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/centos7-setup-5/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">CentOS 7 配置指南 — 效率软件篇</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/centos7-setup-3/">
+            <span class="next-text nav-default">CentOS 7 配置指南 — 脚本语言篇</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

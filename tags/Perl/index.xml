@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Perl on SeisMan</title>
+    <link>https://blog.seisman.info/tags/Perl/</link>
+    <description>Recent content in Perl on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 15 Jul 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/Perl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>用 CentOS 7 打造合适的科研环境</title>
+      <link>https://blog.seisman.info/trash/linux-environment-for-seismology-research/</link>
+      <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/linux-environment-for-seismology-research/</guid>
+      <description>&lt;p&gt;这篇博文记录了我用 CentOS 7 搭建 &lt;strong&gt;地震学科研环境&lt;/strong&gt; 的过程，供我个人在未来重装系统时参考。对于其他地震学科研人员，也许有借鉴意义。&lt;/p&gt;
+&lt;p&gt;阅读须知：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;本文适用于个人电脑，不适用于服务器；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不推荐刚接触 Linux 的人使用 CentOS 发行版&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;本文尽量写的浅显易懂，但要求读者掌握 Linux 基础知识；&lt;/li&gt;
+&lt;li&gt;本文所有操作均在 CentOS 7 下完成，其他发行版或多或少与 CentOS 7 不同，因而仅供参考；&lt;/li&gt;
+&lt;li&gt;本文所安装的软件纯粹出于个人习惯及喜好，读者应自己判断，按需安装；&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>IRIS FTP 数据下载脚本</title>
+      <link>https://blog.seisman.info/perl-script-for-downloading-iris-ftp-data/</link>
+      <pubDate>Sat, 25 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/perl-script-for-downloading-iris-ftp-data/</guid>
+      <description>&lt;p&gt;前文说到了 IRIS 官方给出的几种 FTP 数据下载方式，除此之外，还有很多方法。比如直接浏览器右键另存为，比如 Windows 下迅雷的下载链接自动识别，再比如 Firefox 浏览器 + 附加组件 &amp;ldquo;DownThemAll!&amp;quot;。这些工具其实和前文说的下载方法类似，都有各种各样的缺点。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Perl 如何找出两个数组的交集、并集</title>
+      <link>https://blog.seisman.info/find-intersection-and-difference-of-two-arrays/</link>
+      <pubDate>Mon, 18 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/find-intersection-and-difference-of-two-arrays/</guid>
+      <description>本文整理自 perlfaq4： Q：如何计算两个数组的差异、交集以及并集？ A：使用 Hash。 my (@union, @intersection, @difference); my %count = (); foreach my $element (@array1, @array2) { $count{$element}++; } foreach my $element (keys %count) { push @union, $element; push</description>
+    </item>
+    
+    <item>
+      <title>Perl 多版本共存之 plenv</title>
+      <link>https://blog.seisman.info/plenv/</link>
+      <pubDate>Sun, 03 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/plenv/</guid>
+      <description>&lt;p&gt;官方网站：&lt;a href=&#34;https://github.com/tokuhirom/plenv&#34;&gt;https://github.com/tokuhirom/plenv&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Perl 中的时间加法</title>
+      <link>https://blog.seisman.info/perl-timespan/</link>
+      <pubDate>Wed, 16 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/perl-timespan/</guid>
+      <description>&lt;p&gt;数据申请的过程中，经常需要处理的一个问题是：已知某时刻，在该时刻的基础上加上一段时间之后对应的时刻是多少？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Perl 进度条模块</title>
+      <link>https://blog.seisman.info/perl-progressbar/</link>
+      <pubDate>Sun, 13 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/perl-progressbar/</guid>
+      <description>&lt;p&gt;&lt;code&gt;Term::ProgressBar&lt;/code&gt; 模块是一个可以用于生成进度条的 Perl 模块。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>fk3.3 编译</title>
+      <link>https://blog.seisman.info/fk-install/</link>
+      <pubDate>Sun, 01 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/fk-install/</guid>
+      <description>&lt;p&gt;fk 是 &lt;a href=&#34;http://www.eas.slu.edu/People/LZhu/home.html&#34;&gt;Prof. Lupei Zhu&lt;/a&gt; 写的一个计算水平分层介质中理论地震图的小程序。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>利用 Web Service Fetch scripts 申请和下载数据</title>
+      <link>https://blog.seisman.info/web-service-fetch-scripts/</link>
+      <pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/web-service-fetch-scripts/</guid>
+      <description>&lt;h2 id=&#34;iris-web-service&#34;&gt;IRIS Web Service&lt;/h2&gt;
+&lt;p&gt;IRIS DMC 提供了一系列网页服务，用于获取台站数据、仪器响应、走时以及波形数据等。
+简而言之，其原理大概就是根据某种特定的格式要求发送网页请求，然后 IRIS 会返回相应的
+信息供用户解析。&lt;/p&gt;
+&lt;p&gt;IRIS 网页服务的主页位于： &lt;a href=&#34;http://service.iris.edu/&#34;&gt;http://service.iris.edu/&lt;/a&gt; ，有兴趣的可以研究一下。&lt;/p&gt;
+&lt;h2 id=&#34;web-service-fetch-script&#34;&gt;Web Service Fetch Script&lt;/h2&gt;
+&lt;p&gt;主页：&lt;a href=&#34;https://seiscode.iris.washington.edu/projects/ws-fetch-scripts&#34;&gt;https://seiscode.iris.washington.edu/projects/ws-fetch-scripts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这是一个利用 IRIS 提供的网页服务来实现数据下载的工具，其源代码用 perl 写成，
+因而几乎可以在任何平台上直接运行。整个工具包含了三个 perl 脚本：&lt;code&gt;FetchData&lt;/code&gt;、
+&lt;code&gt;FetchEvent&lt;/code&gt; 和 &lt;code&gt;FetchMetadata&lt;/code&gt;。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Perl 的单引号字符直接量</title>
+      <link>https://blog.seisman.info/perl-single-quoted-string-literals/</link>
+      <pubDate>Tue, 30 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/perl-single-quoted-string-literals/</guid>
+      <description>&lt;p&gt;Perl 的字符串直接量分为两种：单引号内的和双引号内的。单引号与双引号最大的区别在于单引号限制了转义字符的功能，但是又存在一些例外。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Perl 发送邮件到 BREQ_FAST</title>
+      <link>https://blog.seisman.info/perl-send-email/</link>
+      <pubDate>Fri, 26 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/perl-send-email/</guid>
+      <description>&lt;p&gt;BREQ_FAST 的优势在于可脚本化生成数据申请文件，要真正申请数据还得将这些文件作为邮件内容发送过去，
+因而想要解放双手，利用脚本自动发送邮件是必须的。&lt;/p&gt;
+&lt;p&gt;本文给出如何用 Perl 发送邮件到 BREQ_FAST，另一篇博文《&lt;a href=&#34;https://blog.seisman.info/python-send-mail/&#34;&gt;Python 发送邮件到 BREQ_FAST&lt;/a&gt;》
+给出了同样功能的 Python 脚本。相比而言，Python 版本更简单、简洁。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

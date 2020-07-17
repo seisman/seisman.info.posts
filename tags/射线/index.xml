@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>射线 on SeisMan</title>
+    <link>https://blog.seisman.info/tags/%E5%B0%84%E7%BA%BF/</link>
+    <description>Recent content in 射线 on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 05 Feb 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/%E5%B0%84%E7%BA%BF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>慢度与射线参数</title>
+      <link>https://blog.seisman.info/slowness-and-ray-parameter/</link>
+      <pubDate>Thu, 05 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/slowness-and-ray-parameter/</guid>
+      <description>&lt;p&gt;本文介绍几个专业名词：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;慢度&lt;/li&gt;
+&lt;li&gt;水平慢度 / 垂直慢度&lt;/li&gt;
+&lt;li&gt;射线参数&lt;/li&gt;
+&lt;li&gt;视速度 / 视慢度&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这些名词其实很简单，但是在大三一直到研一的几年间，这几个名词在我脑中的概念是
+有些混乱的，我把混乱的原因归结于不同课本对同一个专业名词乱用了不同的词汇。
+故而在这里总结一下。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>用 taup_time 计算震相走时及射线信息</title>
+      <link>https://blog.seisman.info/taup-calculate-traveltime/</link>
+      <pubDate>Sat, 24 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-calculate-traveltime/</guid>
+      <description>&lt;p&gt;&lt;code&gt;taup_time&lt;/code&gt; 是 TauP 提供的一个工具，其主要用于计算震相理论走时，除此之外，
+还提供了一些与射线有关的信息。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>利用 taup_pierce 计算射线穿透点</title>
+      <link>https://blog.seisman.info/taup-calculate-pierce-points/</link>
+      <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-calculate-pierce-points/</guid>
+      <description>&lt;p&gt;&lt;code&gt;taup_pierce&lt;/code&gt; 是 TauP 提供的一个命令行工具，用于计算各种震相在不同深度的穿透点信息。
+本文通过几个例子介绍一个 &lt;code&gt;taup_pierce&lt;/code&gt; 的使用方法。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

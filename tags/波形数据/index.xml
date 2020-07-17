@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>波形数据 on SeisMan</title>
+    <link>https://blog.seisman.info/tags/%E6%B3%A2%E5%BD%A2%E6%95%B0%E6%8D%AE/</link>
+    <description>Recent content in 波形数据 on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 24 Dec 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/%E6%B3%A2%E5%BD%A2%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SOD 入门教程</title>
+      <link>https://blog.seisman.info/sod-notes/</link>
+      <pubDate>Sat, 24 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/sod-notes/</guid>
+      <description>&lt;p&gt;SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;官方网站： &lt;a href=&#34;http://www.seis.sc.edu/sod/&#34;&gt;http://www.seis.sc.edu/sod/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;源码： &lt;a href=&#34;https://github.com/crotwell/sod&#34;&gt;https://github.com/crotwell/sod&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;源码语言： Java&lt;/li&gt;
+&lt;li&gt;最新版本： 3.2.8&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用 Web Services 获取地震数据</title>
+      <link>https://blog.seisman.info/web-service-clients/</link>
+      <pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/web-service-clients/</guid>
+      <description>地震数据通常包含三类：地震目录、台站信息、波形数据。当然，还有一些其他的地震数据，比如震源机制等等。 世界上最大的地震数据中心是 IRIS DMC。除了</description>
+    </item>
+    
+  </channel>
+</rss>

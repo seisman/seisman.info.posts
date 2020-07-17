@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>时间 on SeisMan</title>
+    <link>https://blog.seisman.info/tags/%E6%97%B6%E9%97%B4/</link>
+    <description>Recent content in 时间 on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 18 Jan 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/%E6%97%B6%E9%97%B4/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>计算某日是一年中的第几天</title>
+      <link>https://blog.seisman.info/calculate-jday/</link>
+      <pubDate>Sat, 18 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/calculate-jday/</guid>
+      <description>&lt;p&gt;两个子程序， &lt;code&gt;ymd2doy&lt;/code&gt; 用于从年月日计算该日为当年的第几天， &lt;code&gt;doy2ymd&lt;/code&gt; 用于根据年份以及
+该年的第几天来确定月和日。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Perl 中的时间加法</title>
+      <link>https://blog.seisman.info/perl-timespan/</link>
+      <pubDate>Wed, 16 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/perl-timespan/</guid>
+      <description>&lt;p&gt;数据申请的过程中，经常需要处理的一个问题是：已知某时刻，在该时刻的基础上加上一段时间之后对应的时刻是多少？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SAC 的时间概念</title>
+      <link>https://blog.seisman.info/trash/sac-times/</link>
+      <pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/sac-times/</guid>
+      <description>&lt;h2 id=&#34;heading&#34;&gt;时间变量&lt;/h2&gt;
+&lt;p&gt;SAC 用于处理时间序列，其头段变量中与时间有关的也很多，总的来说分为 2 类：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;GMT时间&lt;/strong&gt;：绝对时间，或参考时间，包括 &lt;code&gt;NZYEAR&lt;/code&gt;、&lt;code&gt;NZJDAY&lt;/code&gt;、&lt;code&gt;NZHOUR&lt;/code&gt;、&lt;code&gt;NZMIN&lt;/code&gt;、&lt;code&gt;NZSEC&lt;/code&gt;、&lt;code&gt;NZMSEC&lt;/code&gt;，
+分别代表年、日、时、分、秒、毫秒。注意这里没有月的概念，&lt;code&gt;NZJDAY&lt;/code&gt; 代表该年的第多少天。
+这 6 个变量构成了一个绝对时间，这个绝对时间以更易读的形式保存在变量 &lt;code&gt;KZDATE&lt;/code&gt; 和 &lt;code&gt;KZTIME&lt;/code&gt; 中
+（这两个变量虽然说是头段变量，但是在文件中实际上并不对应这两个变量的存储空间），其是
+整个 SAC 文件中唯一的绝对时间，因而用作为参考时间去定义相对时间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;相对时间&lt;/strong&gt;：包括 &lt;code&gt;B&lt;/code&gt;、&lt;code&gt;E&lt;/code&gt;、&lt;code&gt;O&lt;/code&gt;、&lt;code&gt;A&lt;/code&gt;、&lt;code&gt;F&lt;/code&gt;、&lt;code&gt;Tn&lt;/code&gt; 等等，这些相对时间的值都是相对于绝对时间来定义的。
+&lt;code&gt;O=100&lt;/code&gt; 即意味着发震时刻为参考时间加上 100 秒所对应的 GMT 时间。&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>震相 on SeisMan</title>
+    <link>https://blog.seisman.info/tags/%E9%9C%87%E7%9B%B8/</link>
+    <description>Recent content in 震相 on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 22 May 2016 11:46:41 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/%E9%9C%87%E7%9B%B8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>识别 TauP 输出中的多个 P 震相</title>
+      <link>https://blog.seisman.info/taup-identify-multiple-P-phases/</link>
+      <pubDate>Sun, 22 May 2016 11:46:41 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-identify-multiple-P-phases/</guid>
+      <description>&lt;p&gt;在使用 TauP 计算 &lt;strong&gt;浅源近震&lt;/strong&gt; 的 P 波走时时，输出中经常会出现很多个 P 震相。这个事情让人很困扰，
+因为搞不清这些 P 震相到底谁是谁。如果需要的只是 P 波初至，那就无所谓了，直接用最早的到时即可。
+有些时候需要计算某个特定 P 震相的走时，这就需要清楚地了解每个 P 震相所代表的真正路径了。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>用 SAC 快速拾取震相</title>
+      <link>https://blog.seisman.info/faster-ppk/</link>
+      <pubDate>Fri, 19 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/faster-ppk/</guid>
+      <description>&lt;p&gt;震相拾取，是地震学的一个基本工作。SAC 提供了 &lt;code&gt;plotpk&lt;/code&gt; 命令，可以用于手动拾取
+震相到时，用起来还算是比较简单方便。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PPK 标记震相到时的一些注意事项</title>
+      <link>https://blog.seisman.info/ppk-notes/</link>
+      <pubDate>Tue, 20 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/ppk-notes/</guid>
+      <description>&lt;p&gt;SAC 中的 &lt;code&gt;ppk&lt;/code&gt; 命令用于拾取震相到时。在键入 &lt;code&gt;ppk&lt;/code&gt; 命令之后，进入震相拾取模式，此时键入相应的选项即可拾取震相到时。
+从 &lt;code&gt;ppk&lt;/code&gt; 的命令说明中可以看出，&lt;code&gt;ppk&lt;/code&gt; 支持的选项中与到时有关的有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;A&lt;/code&gt;：定义初至波到时；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;F&lt;/code&gt;：定义事件结束时间；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;P&lt;/code&gt;：定义 P 波到时；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;S&lt;/code&gt;：定义 S 波到时；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Tn&lt;/code&gt;：用户自定义到时（n=0~9）；&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>接收函数 on SeisMan</title>
+    <link>https://blog.seisman.info/tags/%E6%8E%A5%E6%94%B6%E5%87%BD%E6%95%B0/</link>
+    <description>Recent content in 接收函数 on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 01 Jan 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/%E6%8E%A5%E6%94%B6%E5%87%BD%E6%95%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CPS330 : Computer Programs in Seismology</title>
+      <link>https://blog.seisman.info/cps330/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/cps330/</guid>
+      <description>&lt;p&gt;CPS 全称 Computer Programs in Seismology，是圣路易斯大学地震中心开发并维护的
+一款地震学软件包，其主要关注地震波在地壳和上地幔介质中的传播和解释。&lt;/p&gt;
+&lt;p&gt;主页： &lt;a href=&#34;http://www.eas.slu.edu/eqc/eqccps.html&#34;&gt;http://www.eas.slu.edu/eqc/eqccps.html&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CCP1.0 编译</title>
+      <link>https://blog.seisman.info/ccp-install/</link>
+      <pubDate>Fri, 29 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/ccp-install/</guid>
+      <description>&lt;p&gt;Prof. Lupei Zhu 最近又在网上公开了两个程序包，CCP 和 CAP。&lt;/p&gt;
+&lt;p&gt;CCP，即 Common-Conversion-Point，用于共转换点地震数据的叠加，这个程序主要与
+&lt;a href=&#34;https://blog.seisman.info/compilation-of-hk/&#34;&gt;hk1.3&lt;/a&gt; 一起使用，用于接收函数的研究。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>hk1.3 编译</title>
+      <link>https://blog.seisman.info/hk-install/</link>
+      <pubDate>Sun, 08 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/hk-install/</guid>
+      <description>&lt;p&gt;hk 是 Prof. Lupei Zhu 写的一个程序包，利用接收函数方法计算 Moho 厚度以及地壳波速比。整个程序包包含了接收函数所需的关键代码，但是想要高效地用于接收函数研究，还需要自己写一些代码作为补充。而网络上实际上有很多更加成熟和高效的接收函数代码，所以此程序的实际用途不大。但该程序的代码比较简单，可以帮助理解接收函数的原理与实现。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

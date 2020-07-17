@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>全球地形起伏数据：SRTM30_PLUS - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content=" 主页：http://topex.ucsd.edu/WWW_html/srtm30_plus.html 精度：30 弧秒（约 1km） 版本：V11（20141129） " /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.61.0 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/srtm30-plus/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="全球地形起伏数据：SRTM30_PLUS" />
+<meta property="og:description" content="
+主页：http://topex.ucsd.edu/WWW_html/srtm30_plus.html
+精度：30 弧秒（约 1km）
+版本：V11（20141129）
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/srtm30-plus/" />
+<meta property="article:published_time" content="2013-12-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-04-07T00:00:00+00:00" />
+<meta itemprop="name" content="全球地形起伏数据：SRTM30_PLUS">
+<meta itemprop="description" content="
+主页：http://topex.ucsd.edu/WWW_html/srtm30_plus.html
+精度：30 弧秒（约 1km）
+版本：V11（20141129）
+">
+<meta itemprop="datePublished" content="2013-12-31T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2015-04-07T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="669">
+
+
+
+<meta itemprop="keywords" content="地形,网格,高程,GMT," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="全球地形起伏数据：SRTM30_PLUS"/>
+<meta name="twitter:description" content="
+主页：http://topex.ucsd.edu/WWW_html/srtm30_plus.html
+精度：30 弧秒（约 1km）
+版本：V11（20141129）
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">全球地形起伏数据：SRTM30_PLUS</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2013-12-31 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%9C%B0%E7%90%83%E7%89%A9%E7%90%86%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90/"> 地球物理相关资源 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">数据说明</a></li>
+    <li><a href="#heading-1">数据的使用</a>
+      <ul>
+        <li><a href="#xyz-">XYZ 格式</a></li>
+        <li><a href="#topo30-">topo30 格式</a></li>
+        <li><a href="#srtm30-">srtm30 格式</a></li>
+        <li><a href="#topo1--topo2">topo1 和 topo2</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-2">修订历史</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <ul>
+<li>主页：http://topex.ucsd.edu/WWW_html/srtm30_plus.html</li>
+<li>精度：30 弧秒（约 1km）</li>
+<li>版本：V11（20141129）</li>
+</ul>
+<h2 id="heading">数据说明</h2>
+<ul>
+<li>整个数据被分为 33 个文件，与 GTOPO30 相同；</li>
+<li>同时也提供了单个包含全部地形数据的二进制文件；</li>
+<li>提供了 1 分和 2 分精度的 netCDF 格式网格文件；</li>
+<li>大部分陆地区域使用 SRTM30 中的陆地高程数据；</li>
+<li>SRTM 在高纬度陆地区域无数据，则使用 GTOPO30 数据；</li>
+<li>纬度 [-81,81] 范围内的海底地形数据来自于 Smith 和 Sandwell 的全球 1 分数据；</li>
+<li>更高精度的数据来自于 <a href="http://ocean-ridge.ldeo.columbia.edu/general/html/home.html">LDEO Ridge Multibeam Synthesis Project</a>、
+<a href="http://www.jamstec.go.jp/cruisedata/e/">JAMSTEC Data Site for Research Cruises</a> 和
+<a href="http://www.ngdc.noaa.gov/mgg/coastal/coastal.html">NGDC Coastal Relief Model</a>。</li>
+<li>两极地区的数据来自于 <a href="http://www.ngdc.noaa.gov/mgg/bathymetry/arctic/arctic.html">International Bathymetric Chart of the Oceans</a>。</li>
+</ul>
+<p>其他信息：</p>
+<ol>
+<li><a href="ftp://topex.ucsd.edu/pub/srtm30_plus/README.V11.txt">说明文件</a></li>
+<li><a href="ftp://topex.ucsd.edu/pub/srtm30_plus/SRTM30_PLUS.kmz">Google KMZ 文件</a></li>
+<li><a href="ftp://topex.ucsd.edu/pub/srtm30_plus/srtm30/">srtm30 格式</a></li>
+</ol>
+<h2 id="heading-1">数据的使用</h2>
+<h3 id="xyz-">XYZ 格式</h3>
+<p>下载： <a href="http://topex.ucsd.edu/cgi-bin/get_srtm30.cgi">ASCII XYZ 格式</a></p>
+<p>比如下载的经度 [5,7]，纬度[5,7] 范围内的数据，可使用如下 GMT5 命令转换:</p>
+<pre><code>gmt xyz2grd data.xyz -Gdata.nc -R5/7/5/7 -I30s/30s -r -V
+</code></pre>
+<h3 id="topo30-">topo30 格式</h3>
+<p><a href="ftp://topex.ucsd.edu/pub/srtm30_plus/topo30/topo30">二进制格式</a>
+<a href="ftp://topex.ucsd.edu/pub/srtm30_plus/topo30/topo30.grd">netCDF 格式</a></p>
+<p>数据有 1.7GB，直接下载 netCDF 即可使用。</p>
+<p>若是下载了二进制格式的，可以向 <code>grdraser.info</code> 中添加如下语句:</p>
+<pre><code>44 &quot;SRTM30_PLUS&quot;                &quot;m&quot;     -R0/360/-90/90          -I0.5m          PG i 1           0    -9999      srtm30_plus B
+</code></pre>
+<p>未测试，同时不建议这样使用。</p>
+<h3 id="srtm30-">srtm30 格式</h3>
+<p>SRTM30_PLUS 遵循了 <a href="2013-08-11_global-digital-elevation-model-gtopo30.rst">GTOPO30</a> 的数据处理方法，其将全球分为 33 个区块。GTOPO30 仅包含了陆地的地形数据，而 SRTM30_PLUS 则包含了陆地地形和海洋深度数据，因而 SRTM30_PLUS 完全可以替代 GTOPO30 数据。</p>
+<p>SRTM30_PLUS 的二进制格式的使用方法与 GTOPO30 相同，不再多说。</p>
+<p><a href="ftp://topex.ucsd.edu/pub/srtm30_plus/srtm30/data/">二进制格式</a>
+<a href="ftp://topex.ucsd.edu/pub/srtm30_plus/srtm30/grd/">netCDF 格式</a></p>
+<p>SRTM30_PLUS 同时提供了 33 个区块的 netCDF 格式的网格文件，可以直接用于 GMT 绘图。</p>
+<p>从二进制到 netCDF 格式的转换，使用了 <a href="ftp://topex.ucsd.edu/pub/srtm30_plus/srtm30/grd/bin2grd">bin2grd 脚本</a>。</p>
+<h3 id="topo1--topo2">topo1 和 topo2</h3>
+<p>SRTM30_PLUS 同时提供了 1 分和 2 分精度的数据，这个数据应该与 ETOPO1 和 ETOPO2 类似。直接用 ETOPO 就好。</p>
+<p><a href="ftp://topex.ucsd.edu/pub/srtm30_plus/topo1_topo2/topo1.grd">topo1</a>
+<a href="ftp://topex.ucsd.edu/pub/srtm30_plus/topo1_topo2/topo2.grd">topo2</a></p>
+<h2 id="heading-2">修订历史</h2>
+<ul>
+<li>2013-12-31：初稿；</li>
+<li>2015-04-07：更新版本，增加了对不同格式的说明；</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SeisMan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2015-04-07
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E5%9C%B0%E5%BD%A2/">地形</a>
+          <a href="/tags/%E7%BD%91%E6%A0%BC/">网格</a>
+          <a href="/tags/%E9%AB%98%E7%A8%8B/">高程</a>
+          <a href="/tags/GMT/">GMT</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/cps330/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">CPS330 : Computer Programs in Seismology</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/sac-display-copyright/">
+            <span class="next-text nav-default">脚本中调用 SAC 时不显示版本信息</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

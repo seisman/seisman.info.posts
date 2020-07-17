@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on SeisMan</title>
+    <link>https://blog.seisman.info/tags/Python/</link>
+    <description>Recent content in Python on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 03 Mar 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/Python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>在Google Earth上绘制震源球</title>
+      <link>https://blog.seisman.info/beachballs-on-google-earth/</link>
+      <pubDate>Sat, 03 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/beachballs-on-google-earth/</guid>
+      <description>&lt;p&gt;Google Earth可以方便地放大缩小区域范围。将震源球画在Google Earth上可以方便地
+查看不同地区地震的震源机制。本文介绍如何把震源球显示在Google Earth上。&lt;/p&gt;
+&lt;p&gt;原理其实很简单，&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;利用 &lt;a href=&#34;https://docs.obspy.org/packages/obspy.imaging.html#beachballs&#34;&gt;obspy.imaging.beachball&lt;/a&gt;
+绘制震源球并保存为PNG格式的图片&lt;/li&gt;
+&lt;li&gt;利用 &lt;a href=&#34;https://simplekml.readthedocs.io/&#34;&gt;simplekml&lt;/a&gt; 生成KML文件，其中包含
+一堆点，每个点对应一个地震，点的图标设置为地震对应的震源球图片即可&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>HinetPy: Hi-net 数据申请与处理模块</title>
+      <link>https://blog.seisman.info/hinetpy/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/hinetpy/</guid>
+      <description>&lt;p&gt;HinetPy 是一个用于从日本 NIED Hi-net 网站下载地震波形数据并进行数据格式转换的Python模块。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;项目主页： &lt;a href=&#34;https://github.com/seisman/HinetPy&#34;&gt;https://github.com/seisman/HinetPy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;官方文档： &lt;a href=&#34;https://seisman.github.io/HinetPy&#34;&gt;https://seisman.github.io/HinetPy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hinet/Fnet 台站选择工具</title>
+      <link>https://blog.seisman.info/trash/hinet-station-selector/</link>
+      <pubDate>Tue, 08 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/hinet-station-selector/</guid>
+      <description>&lt;p&gt;Hinet 大概有不到 800 个台站，Fnet 大概有 150 个左右的台站。在从 Hinet 网站上下载
+数据时，默认是会下载所有台站的波形数据的。若只需要申请其中部分台站的数据，
+则需要使用 Hinet 网站自带的台站选择工具。&lt;/p&gt;
+&lt;p&gt;Hinet 网站自带的台站工具有如下优缺点：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;图形界面，直观得显示了每个台站的位置&lt;/li&gt;
+&lt;li&gt;无法通过某些条件进行筛选，一次只能选中或删除一个台站&lt;/li&gt;
+&lt;li&gt;似乎需要一个 Java 的浏览器工具才能使用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因此，写了一个可以用于选择台站的 Python 工具，即 &lt;code&gt;StationSelector.py&lt;/code&gt;，其是
+&lt;a href=&#34;https://github.com/seisman/HinetScripts&#34;&gt;HinetScripts&lt;/a&gt; 项目下中的一个脚本。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hinet 配置检查脚本</title>
+      <link>https://blog.seisman.info/trash/hinetdoctor/</link>
+      <pubDate>Mon, 07 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/hinetdoctor/</guid>
+      <description>HinetDoctor.py 是 HinetScripts 项目中的一个 Python 脚本。 该脚本主要有如下功能： 检查 Python 版本是否大于 3.3 检查是否已安装所有依赖 检查配置文件是否可正常读取 检查账号密码是否正确，或</description>
+    </item>
+    
+    <item>
+      <title>Hi-net 生成仪器响应 SAC PZ 文件</title>
+      <link>https://blog.seisman.info/trash/hinet-convert-channel-table-to-sac-pz-file/</link>
+      <pubDate>Sat, 13 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/hinet-convert-channel-table-to-sac-pz-file/</guid>
+      <description>&lt;p&gt;前文 &lt;a href=&#34;https://blog.seisman.info/hinet-instrumental-response/&#34;&gt;Hinet 仪器响应&lt;/a&gt; 中介绍了 Hi-net 的
+仪器响应的详细信息。据此，用 Python 写了一个脚本，将 Hi-net 的 Channel Table
+文件转换为常用的 SAC PZ 文件。&lt;/p&gt;
+&lt;p&gt;脚本位于：&lt;a href=&#34;https://github.com/seisman/HinetScripts/blob/master/ch2pz.py&#34;&gt;ch2pz.py&lt;/a&gt;。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hi-net WIN32 转 SAC 脚本</title>
+      <link>https://blog.seisman.info/trash/hinet-convert-win32-files-to-sac/</link>
+      <pubDate>Fri, 12 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/hinet-convert-win32-files-to-sac/</guid>
+      <description>&lt;p&gt;该脚本用于实现 Hinet WIN32 格式到 SAC 格式的转换，脚本位于 &lt;a href=&#34;https://github.com/seisman/HinetScripts/blob/master/rdhinet.py&#34;&gt;rdhinet.py&lt;/a&gt;。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hi-net 走时和震源机制数据</title>
+      <link>https://blog.seisman.info/trash/hinet-arrival-time-and-focal-mechanism-catalog/</link>
+      <pubDate>Tue, 02 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/hinet-arrival-time-and-focal-mechanism-catalog/</guid>
+      <description>&lt;p&gt;Hi-net 基于 JMA Unified Hypocenter Catalog，提供了到时数据以及震源机制解目录。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://hinetwww11.bosai.go.jp/auth/JMA/?LANG=en&#34;&gt;数据下载地址&lt;/a&gt;
+&lt;a href=&#34;https://hinetwww11.bosai.go.jp/auth/manual/dlDialogue.php?r=jmaformat&amp;amp;LANG=en&#34;&gt;数据格式官方文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;本文不谈数据格式，只讨论数据的下载问题。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Hinet 连续波形数据申请及下载的脚本实现</title>
+      <link>https://blog.seisman.info/trash/hinet-continuous-waveform-data-request-script/</link>
+      <pubDate>Sat, 30 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/hinet-continuous-waveform-data-request-script/</guid>
+      <description>&lt;p&gt;前文已经说到，Hi-net 连续波形数据申请的本质可以简化为如下几步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;指定参数，构建 query string&lt;/li&gt;
+&lt;li&gt;向 Hi-net 发送数据请求&lt;/li&gt;
+&lt;li&gt;等待数据准备&lt;/li&gt;
+&lt;li&gt;下载数据&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python 发送邮件到 BREQ_FAST</title>
+      <link>https://blog.seisman.info/python-send-mail/</link>
+      <pubDate>Sat, 23 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/python-send-mail/</guid>
+      <description>&lt;p&gt;利用 Python 的标准库 &lt;a href=&#34;https://docs.python.org/3/library/smtplib.html&#34;&gt;smtplib&lt;/a&gt;
+实现了通过脚本发送邮件的功能。&lt;/p&gt;
+&lt;p&gt;源码地址：&lt;a href=&#34;https://github.com/seisman/SeisScripts/blob/master/sendmail.py&#34;&gt;sendmail.py&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>用 CentOS 7 打造合适的科研环境</title>
+      <link>https://blog.seisman.info/trash/linux-environment-for-seismology-research/</link>
+      <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/linux-environment-for-seismology-research/</guid>
+      <description>&lt;p&gt;这篇博文记录了我用 CentOS 7 搭建 &lt;strong&gt;地震学科研环境&lt;/strong&gt; 的过程，供我个人在未来重装系统时参考。对于其他地震学科研人员，也许有借鉴意义。&lt;/p&gt;
+&lt;p&gt;阅读须知：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;本文适用于个人电脑，不适用于服务器；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;不推荐刚接触 Linux 的人使用 CentOS 发行版&lt;/strong&gt;；&lt;/li&gt;
+&lt;li&gt;本文尽量写的浅显易懂，但要求读者掌握 Linux 基础知识；&lt;/li&gt;
+&lt;li&gt;本文所有操作均在 CentOS 7 下完成，其他发行版或多或少与 CentOS 7 不同，因而仅供参考；&lt;/li&gt;
+&lt;li&gt;本文所安装的软件纯粹出于个人习惯及喜好，读者应自己判断，按需安装；&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python科学计算发行版 — Anaconda</title>
+      <link>https://blog.seisman.info/anaconda/</link>
+      <pubDate>Wed, 14 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/anaconda/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;推荐所有 Python 用户安装 Anaconda！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Python 是一种强大的编程语言，其提供了很多用于科学计算的模块，常见的包括
+numpy、scipy 和 matplotlib。要利用 Python 进行科学计算，就需要一一安装所需的模块，
+而这些模块可能又依赖于其它的软件包或库，因而安装和使用起来相对麻烦。幸好有人
+专门在做这一类事情，将科学计算所需要的模块都编译好，然后打包以发行版的形式
+供用户使用，Anaconda 就是最常用的科学计算发行版。&lt;/p&gt;
+&lt;p&gt;主页： &lt;a href=&#34;https://www.anaconda.com/&#34;&gt;https://www.anaconda.com/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>sphinx 生成中文 PDF</title>
+      <link>https://blog.seisman.info/trash/sphinx-chinese-support/</link>
+      <pubDate>Sat, 01 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/sphinx-chinese-support/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://sphinx-doc.org/&#34;&gt;sphinx&lt;/a&gt; 是 Python 提供的文档生成工具，其可以将 rST 源文件
+转换成网页、PDF 等多种格式。目前，sphinx 1.3.1 在生成中文 PDF 时有一堆问题，所以
+需要做一些额外的处理才能解决。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://readthedocs.org&#34;&gt;readthedocs&lt;/a&gt; 可以直接用于托管 sphinx 生成的网页文档，
+由于 sphinx 不支持中文 PDF，所以 readthedocs 也不支持。readthedocs 的服务器是 Ubuntu，
+具体版本未知，TeXLive 版本未知，但是肯定早于 TeXLive 2014。所以 readthedocs 上中文
+支持就更是一个问题。因而在 readthedocs 网站上以及在本地，有两套不同的做法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>判断字节序的多种方法</title>
+      <link>https://blog.seisman.info/linux-endian/</link>
+      <pubDate>Wed, 13 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/linux-endian/</guid>
+      <description>&lt;p&gt;本文整理自： &lt;a href=&#34;http://serverfault.com/questions/163487/&#34;&gt;http://serverfault.com/questions/163487/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;直接查看系统文件:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;lscpu | grep -i byte
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>Python 多版本共存之 pyenv</title>
+      <link>https://blog.seisman.info/pyenv/</link>
+      <pubDate>Fri, 04 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/pyenv/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;不再建议使用 pyenv，建议使用 &lt;a href=&#34;https://blog.seisman.info/anaconda/&#34;&gt;Anaconda&lt;/a&gt;&lt;/strong&gt; 。&lt;/p&gt;
+&lt;p&gt;经常遇到这样的情况：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;系统自带的 Python 是 2.6，自己需要 Python 2.7 中的某些特性；&lt;/li&gt;
+&lt;li&gt;系统自带的 Python 是 2.x，自己需要 Python 3.x；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;此时需要在系统中安装多个 Python，但又不能影响系统自带的 Python，即需要实现 Python 的多版本共存。&lt;a href=&#34;https://github.com/pyenv/pyenv&#34;&gt;pyenv&lt;/a&gt; 就是这样一个 Python 版本管理器。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MoPaD:地震矩绘制和分析工具</title>
+      <link>https://blog.seisman.info/mopad/</link>
+      <pubDate>Tue, 27 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/mopad/</guid>
+      <description>&lt;p&gt;MoPaD，全称Moment tensor Plotting and Decomposition，是一个用于分析地震矩的小工具，
+主要功能包括地震矩与断层面参数的转换、地震矩分解以及震源球的绘制。该工具可控参数非常丰富，因而
+具有非常强的灵活性，可以满足大多数需求。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>震中距、方位角和反方位角的计算</title>
+      <link>https://blog.seisman.info/calculate-dist-az-baz/</link>
+      <pubDate>Wed, 03 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/calculate-dist-az-baz/</guid>
+      <description>&lt;p&gt;给定震中经纬度以及球面上任意一点（一般是台站）的经纬度，计算震中距、方位角以及反方位角。
+这是地震学的一个基本问题。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>高精度地形网格数据 SRTM - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="SRTM，全称为 Shuttle Radar Topography Mission，该项目获取了北纬 60 度至南纬 60 度之间的 雷达影像数据，进一步处理制成了数字地形高程模型（DEM），即现在的 SRTM 地形产品数据。 该数据产品 2003 年开始公开发布，经过多次修订，目前的数据修订版本为 V4.1 版本。更详细的介绍在 这里。
+" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.61.0 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/srtm/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="高精度地形网格数据 SRTM" />
+<meta property="og:description" content="SRTM，全称为 Shuttle Radar Topography Mission，该项目获取了北纬 60 度至南纬 60 度之间的
+雷达影像数据，进一步处理制成了数字地形高程模型（DEM），即现在的 SRTM 地形产品数据。
+该数据产品 2003 年开始公开发布，经过多次修订，目前的数据修订版本为 V4.1 版本。更详细的介绍在
+这里。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/srtm/" />
+<meta property="article:published_time" content="2013-09-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2013-09-29T00:00:00+00:00" />
+<meta itemprop="name" content="高精度地形网格数据 SRTM">
+<meta itemprop="description" content="SRTM，全称为 Shuttle Radar Topography Mission，该项目获取了北纬 60 度至南纬 60 度之间的
+雷达影像数据，进一步处理制成了数字地形高程模型（DEM），即现在的 SRTM 地形产品数据。
+该数据产品 2003 年开始公开发布，经过多次修订，目前的数据修订版本为 V4.1 版本。更详细的介绍在
+这里。">
+<meta itemprop="datePublished" content="2013-09-29T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2013-09-29T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2619">
+
+
+
+<meta itemprop="keywords" content="数据,格式转换,网格,地形,高程,GMT," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="高精度地形网格数据 SRTM"/>
+<meta name="twitter:description" content="SRTM，全称为 Shuttle Radar Topography Mission，该项目获取了北纬 60 度至南纬 60 度之间的
+雷达影像数据，进一步处理制成了数字地形高程模型（DEM），即现在的 SRTM 地形产品数据。
+该数据产品 2003 年开始公开发布，经过多次修订，目前的数据修订版本为 V4.1 版本。更详细的介绍在
+这里。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">高精度地形网格数据 SRTM</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2013-09-29 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%9C%B0%E7%90%83%E7%89%A9%E7%90%86%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90/"> 地球物理相关资源 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">相关信息</a>
+      <ul>
+        <li><a href="#heading-1">基本信息</a></li>
+        <li><a href="#-for-1x1">数据信息 For 1x1</a></li>
+        <li><a href="#-for-5x5">数据信息 For 5x5</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-2">数据来源及格式转换（推荐）</a>
+      <ul>
+        <li><a href="#cgiar-csi">CGIAR-CSI</a></li>
+        <li><a href="#heading-3">中国科学院计算机网络信息中心</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-4">其他数据来源及格式转换（不推荐）</a>
+      <ul>
+        <li><a href="#usgs-">USGS 未名网站</a></li>
+        <li><a href="#usgs-earthexplorer">USGS EarthExplorer</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-5">小结</a></li>
+    <li><a href="#heading-6">参考</a></li>
+    <li><a href="#heading-7">修订历史</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>SRTM，全称为 Shuttle Radar Topography Mission，该项目获取了北纬 60 度至南纬 60 度之间的
+雷达影像数据，进一步处理制成了数字地形高程模型（DEM），即现在的 SRTM 地形产品数据。
+该数据产品 2003 年开始公开发布，经过多次修订，目前的数据修订版本为 V4.1 版本。更详细的介绍在
+<a href="http://www.cgiar-csi.org/data/srtm-90m-digital-elevation-database-v4-1">这里</a>。</p>
+<h2 id="heading">相关信息</h2>
+<p>有很多机构或网站提供 SRTM 地形数据的下载；从不同网站下载的数据的文件名、文件格式等不同，
+因而后期的数据处理方式可能不同，但是一些基本的信息应该是相同的。</p>
+<h3 id="heading-1">基本信息</h3>
+<p>SRTM 地形数据主要包含两类数据：SRTM3 和 SRTM1。</p>
+<ul>
+<li>SRTM3 精度为 3 弧秒，即 90m 一个点，包括非洲、北美、南美、欧亚、澳大利亚以及部分岛屿；</li>
+<li>SRTM1 精度为 1 弧秒，即 30m 一个点，仅限美国地区；</li>
+</ul>
+<h3 id="-for-1x1">数据信息 For 1x1</h3>
+<p>北纬 60 度到南纬 60 度的数据被分成了 1 度 *1 度的单元，共计上万个数据文件。</p>
+<ul>
+<li>文件名中包含了该单元左下角位置的信息；比如文件名<strong>类似</strong>N37W105 的数据文件，其单元左下角的坐标为 (37N,105W)；</li>
+<li>每个 SRTM3 数据文件包含了 1201*1201 个采样点；</li>
+<li>高程数据单位为 m，参考水准面为 WGS84 大地水准面模型；</li>
+<li>网格划分采用 gridline
+registration 方式，因而单元的南北边及左右边与相邻单元的边重合。</li>
+</ul>
+<h3 id="-for-5x5">数据信息 For 5x5</h3>
+<p>部分网站将数据分割为 5 度 *5度单元，其相对1度*1 度单元使用起来免去了 cut 和 paste 的麻烦。
+在经度方向上，从 - 180 度到 180 度，划分为 72 个区块；在纬度方向上，从 60 度到 - 60 度，划分为 24 个区块，
+可以参考 <a href="http://srtm.csi.cgiar.org/SELECTION/inputCoord.asp">这里</a> 的图示，
+其文件名格式为 <code>srtm_经度区块数_纬度区块数. zip</code>。</p>
+<p>或者也可以这样计算:</p>
+<pre><code>x = int((lon+180.0)/5.0)+1;
+y = int((60-lat)/5.0)+1;
+</code></pre>
+<p>其中 lon = [-180,180], lat= [-60,60], 文件名为 <code>srtm_x_y.zip</code> 。</p>
+<h2 id="heading-2">数据来源及格式转换（推荐）</h2>
+<p>推荐两个数据源。其中 CGIAR-CSI 为主站，中科院提供数据镜像。</p>
+<h3 id="cgiar-csi">CGIAR-CSI</h3>
+<p><strong>网址：</strong> <a href="http://srtm.csi.cgiar.org/SELECTION/inputCoord.asp">http://srtm.csi.cgiar.org/SELECTION/inputCoord.asp</a></p>
+<p>**版本：**4.1</p>
+<p><strong>格式：</strong> <code>GeoTiff</code> 、 <code>ArcInfo ASCII</code></p>
+<p><strong>备注：</strong></p>
+<ul>
+<li>数据为 5 度 x5 度一个单元；</li>
+<li>数据选择界面友好，简单易用，支持鼠标点选、拖曳或者直接输入经纬度范围；</li>
+<li>鼠标点选的注意事项：鼠标的真实点击位置与地图感知到的点击位置大概相差半个网格间距！点选时需要单击每个单元的下半部分才能选中。不知 Bug 来源，系统问题？浏览器问题？</li>
+<li>下载数据的时候选择 HTTP 下载方式。若使用 FTP 下载方式需要首先申请用户名和密码。</li>
+<li>提供 <code>ArcInfo ASCII</code> 和 <code>GeoTiff</code> 两种数据格式，需要转换方可在 GMT 中使用。</li>
+<li><code>ArcInfo ASCII</code> 格式的数据可以使用 GMT 自带的 <code>xyz2grd</code> 命令转换成 netCDF 格式；</li>
+<li><code>Geotiff</code> 格式的数据需要使用 GDAL 提供的命令 <code>gdal_translate</code> 转换为 netCDF 格式；</li>
+<li>推荐使用 <code>GeoTiff</code> 格式，文件尺寸相对于 <code>ArcInfo ASCII</code> 文件要小很多；</li>
+</ul>
+<p><strong>数据转换：</strong></p>
+<p>ArcInfo ASCII 格式：</p>
+<p>GMT4 提供的 xyz2grd 命令可以直接将 ArcInfo ASCII 格式的数据转换为 GMT 可识别的 netCDF 格式:</p>
+<pre><code>xyz2grd srtm_63_02.asc -Gstrm_63_02.grd -E -V
+</code></pre>
+<p>GMT5 的 xyz2grd 不再支持 ArcInfo ASCII 格式，但可使用 gdal 实现转换。</p>
+<p>GeoTiff 格式转 netCDF 格式（详情参考 <a href="/convert-geotiff-to-gmt/">本文</a>）:</p>
+<pre><code>gdal_translate -of GMT srtm_56_05.tif srtm_56_05.grd
+</code></pre>
+<p><strong>数据合并：</strong></p>
+<p>有时需要将多个数据合并成更大区域的数据。常见的做法是先将每个 GeoTiff 文件转换成 netCDF 格式，
+然后利用 grdcut 和 grdpaste 进行裁剪与合并。实际操作时，合并总会遇到一些问题，
+可能是由于数据的转换过程中存在问题导致的。</p>
+<p>推荐的做法是先将多个 GeoTiff 文件合并起来，然将合并后的 GeoTiff 文件转换成 netCDF 格式。</p>
+<p>合并 GeoTiff 文件可以用 <a href="http://gdal.org/gdal_merge.html">gdal_merge.py</a>，CentOS 下要安装
+<code>gdal-python</code> ；Ubuntu 下要安装 <code>python-gdal</code> 或 <code>python3-gdal</code>。转换命令如下:</p>
+<pre><code>gdal_merge.py -init 255 -o out.tif srtm_56_07.tif srtm_57_07.tif
+</code></pre>
+<p><strong>FTP批量下载：</strong></p>
+<p>CGIAR-CSI 提供了 ftp 地址，可以一次性下载全部数据，数据总大小约 14G。
+有需要的可以 <a href="https://harvestchoice.wufoo.com/forms/download-cgiarcsi-srtm">申请</a>。</p>
+<p>申请之后，网站会提供一个网址，以及用户名和密码，可以使用 “Firefox+DownloadThemAll” 下载，也可以使用如下命令下载:</p>
+<pre><code>wget -c -r -np --user=xxx --password=xxxxx http://data.cgiar-csi.org/srtm/tiles
+</code></pre>
+<p><strong>Box网盘下载</strong></p>
+<p>CGIAR 同时提供了 Box 网盘下载。Box 网盘中包含了重采样之后的数据，数据精度有 250m、500m 和 1km 三种，以满足其他人的需求。</p>
+<p>网盘地址：https://hc.box.com/shared/1yidaheouv</p>
+<p>密码 (注意感叹号)： <code>ThanksCSI!</code></p>
+<h3 id="heading-3">中国科学院计算机网络信息中心</h3>
+<p><strong>国际科学数据服务平台：</strong> <a href="http://datamirror.csdb.cn/dem/search.jsp">http://datamirror.csdb.cn/dem/search.jsp</a></p>
+<p><strong>版本：</strong> V4 和 V4.1</p>
+<p><strong>格式：</strong> Geotiff 和 ArcInfo ASCII</p>
+<p><strong>备注：</strong></p>
+<ul>
+<li>该网站需要注册才可下载数据；</li>
+<li>数据是 5 度 *5度一个单元，而不是标准的1度*1 度；</li>
+<li>在中国区域，还提供一些衍生数据，如坡度、坡向、坡位，数据格式为 img 格式，细节未知；</li>
+</ul>
+<h2 id="heading-4">其他数据来源及格式转换（不推荐）</h2>
+<p>这里列举了其他的一些数据来源，不推荐在这些网站下载数据。这里列出来是基于其他方面的考虑。</p>
+<h3 id="usgs-">USGS 未名网站</h3>
+<p>**网址：**<a href="http://dds.cr.usgs.gov/srtm">http://dds.cr.usgs.gov/srtm</a></p>
+<p>**版本：**1.0 和 2.1 版本</p>
+<p>**格式：**二进制 z 文件</p>
+<ul>
+<li>高程数据文件的扩展名为 hgt；</li>
+<li>二进制文件，以有符号二字节整型格式存储。</li>
+<li>无数据的点其值赋为 - 32768；</li>
+<li>字节序为 big-endian。</li>
+<li>数据存储方式为行优先；</li>
+</ul>
+<p><strong>数据转换：</strong></p>
+<p>这个例子选用的数据是 N52E130.hgt，北纬、东经，-R=130/131/52/53，对于南纬或者西经要注意负号。-Z 后使用 TL 是实践的结果，官方文档中没有给出相关信息。</p>
+<pre><code>xyz2grd N52E130.hgt -GN52E130.grd -I3c/3c -R130/131/52/53 -N-32768 -ZTLhw
+</code></pre>
+<h3 id="usgs-earthexplorer">USGS EarthExplorer</h3>
+<p>**网址：**<a href="http://earthexplorer.usgs.gov">http://earthexplorer.usgs.gov</a></p>
+<p><strong>版本：</strong>?.?</p>
+<p>**格式：**Geotiff、DTED、BIL</p>
+<p><strong>备注：</strong></p>
+<p>Geotiff、DTED 需要专门软件处理；BIL 格式本质上就是一般的二进制文件，因而处理方式与 hgt 文件类似，但是有一些细节上的差异：</p>
+<ol>
+<li>水平方向精度为 6 弧秒，而不是标准的 3 弧秒；</li>
+<li>字节序为 little endian；</li>
+</ol>
+<p><strong>数据转换：</strong></p>
+<p>将 BIL 格式转换为 GMT grid 格式:</p>
+<pre><code>xyz2grd n52_e130_3arc_v1.bil -GN52E130.grd -I6c/3c -R$R -N-32768 -ZTLh
+</code></pre>
+<h2 id="heading-5">小结</h2>
+<ul>
+<li>在 5 度 x5 度尺度下，SRTM3 与 GTOPO30 的效果相当，因而当地图范围大于 5 度 x5 度时，没有必要使用 SRTM3 数据；</li>
+<li>当地图范围小于 3 度 x3 度时，GTOPO30 成图粗糙，需要使用 SRTM3 或者更高精度的数据；</li>
+<li>中国科学院的数据源实际上是 cgiar-csi 数据源的一个镜像，其在国内下载速度相对较快。
+数据源以 5 度 *5 度的形式提供数据，免去了用户自己做网格合并的麻烦，推荐使用。（发文章的时候需要致谢数据来源）</li>
+</ul>
+<h2 id="heading-6">参考</h2>
+<ol>
+<li><a href="http://dds.cr.usgs.gov/srtm/version2_1/Documentation/Quickstart.pdf">http://dds.cr.usgs.gov/srtm/version2_1/Documentation/Quickstart.pdf</a></li>
+<li><a href="http://dds.cr.usgs.gov/srtm/version2_1/Documentation/SRTM_Topo.pdf">http://dds.cr.usgs.gov/srtm/version2_1/Documentation/SRTM_Topo.pdf</a></li>
+<li><a href="http://www.cgiar-csi.org/data/srtm-90m-digital-elevation-database-v4-1">http://www.cgiar-csi.org/data/srtm-90m-digital-elevation-database-v4-1</a></li>
+<li><a href="http://gdal.org/gdal_merge.html">gdal_merge</a></li>
+</ol>
+<h2 id="heading-7">修订历史</h2>
+<ul>
+<li>2013-09-29：初稿；</li>
+<li>2014-01-01：“中国科学院计算机网络信息中心” 一节代码存在问题，因网址无法访问，暂时无法修订；</li>
+<li>2014-01-08：增加了 CGIAR-CSI 数据源；</li>
+<li>2014-01-09：新增了三个下载数据源，重整文章结构，将数据源分为推荐和非推荐两类。</li>
+<li>2014-01-19：将 CGIAR 的 ftp 和 Box 下载移至不推荐来源中。</li>
+<li>2014-01-19：重新编排整个文章的结构，将正确性证明部分去除。当初做正确性证明是因为在将 USGS 未名网站提供的数据转换为网格文件时，官方文档提供的信息不充分，所以需要测试验证。现在 SRTM 存在更好的数据源，不必再考虑这个问题。</li>
+<li>2014-05-22：调整文章结构。由于中科院的数据源一直没有修复，因而仅推荐使用 CGIAR 的数据；</li>
+<li>2015-01-15：新增 <code>gdal_merge.py</code> ，用于合并 GeoTiff 文件；</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SeisMan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2013-09-29
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E6%95%B0%E6%8D%AE/">数据</a>
+          <a href="/tags/%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2/">格式转换</a>
+          <a href="/tags/%E7%BD%91%E6%A0%BC/">网格</a>
+          <a href="/tags/%E5%9C%B0%E5%BD%A2/">地形</a>
+          <a href="/tags/%E9%AB%98%E7%A8%8B/">高程</a>
+          <a href="/tags/GMT/">GMT</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/global-relief-models/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">全球地形起伏数据总结</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/imagemagick-convert/">
+            <span class="next-text nav-default">图像格式转换工具 convert</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

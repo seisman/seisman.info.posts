@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SAC on SeisMan</title>
+    <link>https://blog.seisman.info/tags/SAC/</link>
+    <description>Recent content in SAC on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 13 Oct 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/SAC/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>rdseed 用法笔记</title>
+      <link>https://blog.seisman.info/rdseed-notes/</link>
+      <pubDate>Tue, 13 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/rdseed-notes/</guid>
+      <description>&lt;p&gt;&lt;code&gt;rdseed&lt;/code&gt; 是 IRIS 提供的工具，用于读取 SEED 格式，从中提取出波形信息，并将波形数据保存为
+SAC、AH、CSS、SEGY 或 ASCII 等多种数据格式。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>安装 evt2sac</title>
+      <link>https://blog.seisman.info/evt2sac-install/</link>
+      <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/evt2sac-install/</guid>
+      <description>&lt;p&gt;&lt;code&gt;evt2sac&lt;/code&gt; 用于将 NEIC 的 EVT 格式的数据转换为 SAC 格式。&lt;/p&gt;
+&lt;p&gt;主页： &lt;a href=&#34;https://seiscode.iris.washington.edu/projects/evt2sac&#34;&gt;https://seiscode.iris.washington.edu/projects/evt2sac&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在地图上绘制波形</title>
+      <link>https://blog.seisman.info/plot-traces-on-maps/</link>
+      <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/plot-traces-on-maps/</guid>
+      <description>&lt;p&gt;将 SAC 波形数据绘制在地图上也算是常见的需求之一。最常见的情况是，在地图上有一些台站，需要将波形画在台站的附近。&lt;/p&gt;
+&lt;p&gt;此问题的难点在于，在画地图时，-R 指定的是区域范围，即横轴是经度，纵轴是纬度，而 pssac 在绘制波形时，横轴是时间，纵轴是振幅。因而想要将波形放在特定的位置，不是一件容易的事情。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SEED 格式转 SAC 格式</title>
+      <link>https://blog.seisman.info/convert-seed-to-sac/</link>
+      <pubDate>Fri, 19 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/convert-seed-to-sac/</guid>
+      <description>&lt;p&gt;本文会介绍将 SEED、miniSEED 等格式转换为 SAC 格式所使用的工具和用法。需要注意，
+本文并不会详细介绍工具的具体语法，只介绍常用的功能，其他功能及选项，读者应自行阅读相关文档。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>征集《SAC 参考手册》维护者</title>
+      <link>https://blog.seisman.info/trash/maintainers-for-sac-manual-wanted/</link>
+      <pubDate>Sat, 07 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/maintainers-for-sac-manual-wanted/</guid>
+      <description>&lt;p&gt;如题，希望能够征集到多名志愿者参与《SAC 参考手册》的维护。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>rdseed 的安装</title>
+      <link>https://blog.seisman.info/rdseed-install/</link>
+      <pubDate>Tue, 07 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/rdseed-install/</guid>
+      <description>&lt;p&gt;rdseed 用于将 SEED 格式的数据转换为 SAC 格式。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>地球物理相关软件</title>
+      <link>https://blog.seisman.info/geo-software/</link>
+      <pubDate>Thu, 20 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/geo-software/</guid>
+      <description>本页面已迁移至 https://link.seisman.info/codes/</description>
+    </item>
+    
+  </channel>
+</rss>

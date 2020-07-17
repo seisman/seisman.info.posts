@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>obspy on SeisMan</title>
+    <link>https://blog.seisman.info/tags/obspy/</link>
+    <description>Recent content in obspy on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 03 Mar 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/obspy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>在Google Earth上绘制震源球</title>
+      <link>https://blog.seisman.info/beachballs-on-google-earth/</link>
+      <pubDate>Sat, 03 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/beachballs-on-google-earth/</guid>
+      <description>&lt;p&gt;Google Earth可以方便地放大缩小区域范围。将震源球画在Google Earth上可以方便地
+查看不同地区地震的震源机制。本文介绍如何把震源球显示在Google Earth上。&lt;/p&gt;
+&lt;p&gt;原理其实很简单，&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;利用 &lt;a href=&#34;https://docs.obspy.org/packages/obspy.imaging.html#beachballs&#34;&gt;obspy.imaging.beachball&lt;/a&gt;
+绘制震源球并保存为PNG格式的图片&lt;/li&gt;
+&lt;li&gt;利用 &lt;a href=&#34;https://simplekml.readthedocs.io/&#34;&gt;simplekml&lt;/a&gt; 生成KML文件，其中包含
+一堆点，每个点对应一个地震，点的图标设置为地震对应的震源球图片即可&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

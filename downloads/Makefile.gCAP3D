@@ -1,0 +1,27 @@
+FC = gfortran -ffixed-line-length-none
+FFLAGS = -O
+CC = gcc
+CFLAGS = ${FFLAGS}
+SACHOME = /opt/sac
+
+CAP  = cap3D cap_dir mtdcmp radpttn
+
+SUBS = fft.o Complex.o radiats.o grid3d.o futterman.o sacio.o trap.o \
+	   nrutil.o jacobi.o eigsrt.o
+
+all: $(CAP)
+
+cap3D cap_dir: %:%.o $(SUBS) cap_sub.o
+	$(LINK.f) -o $@ $^ -L$(SACHOME)/lib -lsac -lsacio -lm
+
+cap_dir.o: cap3D.c
+	$(COMPILE.c) -DDIRECTIVITY -o $@ $<
+
+mtdcmp: mtdcmp.o
+	$(LINK.f) -o $@ $@.o
+
+radpttn: radpttn.o radiats.o
+	$(LINK.c) -o $@ $@.o radiats.o -lm
+
+clean:
+	rm -f $(CAP) *.o

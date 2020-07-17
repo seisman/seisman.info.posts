@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on SeisMan</title>
+    <link>https://blog.seisman.info/tags/linux/</link>
+    <description>Recent content in linux on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 07 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>制作 Linux USB 安装镜像</title>
+      <link>https://blog.seisman.info/linux-usb-installer/</link>
+      <pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/linux-usb-installer/</guid>
+      <description>在下载 Linux ISO 镜像文件后，还需要制作 USB 启动盘方能安装。在不同的操作系统，制作所用的工具、过程不同。 macOS 下制作 USB 安装镜像 将安装文件转换成 dmg 格式： $ cd</description>
+    </item>
+    
+  </channel>
+</rss>

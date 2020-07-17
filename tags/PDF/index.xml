@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PDF on SeisMan</title>
+    <link>https://blog.seisman.info/tags/PDF/</link>
+    <description>Recent content in PDF on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 27 Jan 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/PDF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>强大的跨平台 PDF 处理工具：cpdf</title>
+      <link>https://blog.seisman.info/cpdf/</link>
+      <pubDate>Tue, 27 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/cpdf/</guid>
+      <description>&lt;p&gt;日常生活中对 PDF 的最基本的操作大概就是合并和切割了。之前一直在用强大的 PDFtk，但是由于一些底层依赖的问题，PDFtk 在短时间内是不可能出现在 CentOS7 下了，只能寻找新的 PDF 替代工具了。&lt;/p&gt;
+&lt;p&gt;Coherent PDF，简称 cpdf，是个用于处理 PDF 的命令行工具。该软件支持 Windows、Linux 和 Mac，且对于非商业用途是免费的。&lt;/p&gt;
+&lt;p&gt;主页： &lt;a href=&#34;http://community.coherentpdf.com/&#34;&gt;http://community.coherentpdf.com/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux 下合并 PDF</title>
+      <link>https://blog.seisman.info/merge-pdf/</link>
+      <pubDate>Thu, 18 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/merge-pdf/</guid>
+      <description>&lt;p&gt;经常需要将多个 PDF 合并为一个文件，这里收集了网上给出的一些方案，并总结一下。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;推荐使用cpdf&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>将博文以 PDF 格式导出</title>
+      <link>https://blog.seisman.info/trash/export-posts-as-pdf/</link>
+      <pubDate>Sun, 14 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/export-posts-as-pdf/</guid>
+      <description>&lt;p&gt;在每篇博文的标题下方最右侧，有一个 PDF 的图标，点击即可下载当前博文的 PDF 版本。&lt;/p&gt;
+&lt;p&gt;对于每篇博文，利用 &lt;a href=&#34;http://johnmacfarlane.net/pandoc/&#34;&gt;pandoc&lt;/a&gt; 将 markdown 格式的
+源码转换为 PDF 格式，并将其上传到七牛云中，供读者下载。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>sphinx 生成中文 PDF</title>
+      <link>https://blog.seisman.info/trash/sphinx-chinese-support/</link>
+      <pubDate>Sat, 01 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/sphinx-chinese-support/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://sphinx-doc.org/&#34;&gt;sphinx&lt;/a&gt; 是 Python 提供的文档生成工具，其可以将 rST 源文件
+转换成网页、PDF 等多种格式。目前，sphinx 1.3.1 在生成中文 PDF 时有一堆问题，所以
+需要做一些额外的处理才能解决。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://readthedocs.org&#34;&gt;readthedocs&lt;/a&gt; 可以直接用于托管 sphinx 生成的网页文档，
+由于 sphinx 不支持中文 PDF，所以 readthedocs 也不支持。readthedocs 的服务器是 Ubuntu，
+具体版本未知，TeXLive 版本未知，但是肯定早于 TeXLive 2014。所以 readthedocs 上中文
+支持就更是一个问题。因而在 readthedocs 网站上以及在本地，有两套不同的做法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PDF 合并和分割工具--PDFtk</title>
+      <link>https://blog.seisman.info/pdftk/</link>
+      <pubDate>Thu, 31 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/pdftk/</guid>
+      <description>&lt;h2 id=&#34;heading&#34;&gt;简介&lt;/h2&gt;
+&lt;p&gt;PDFtk 是什么？我觉得官网的一句话解释得很好。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If PDF is electronic paper, then PDFtk is an electronic
+staple-remover, hole-punch, binder, secret-decoder-ring, and
+X-Ray-glasses. PDFtk is a simple tool for doing everyday things with
+PDF documents.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其官方网站为： &lt;a href=&#34;http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit&#34;&gt;http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SAC 参考手册中文版</title>
+      <link>https://blog.seisman.info/sac-manual/</link>
+      <pubDate>Sat, 06 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/sac-manual/</guid>
+      <description>网页版： https://seisman.github.io/SAC_Docs_zh/ PDF版： https://seisman.github.io/SAC_Docs_zh/SAC_Docs.pdf 2018-03-21 v3.6 下载地址：SAC 参考手册 v3.6.pdf 新增内容：调用SAC库中的 rms 子函数 新增示例： cut 2016-01-09 v3.5 版 下载地址：SAC 参考手册 v3.5.pdf 增加示例：</description>
+    </item>
+    
+  </channel>
+</rss>

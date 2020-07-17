@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Python科学计算发行版 — Anaconda - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="推荐所有 Python 用户安装 Anaconda！
+Python 是一种强大的编程语言，其提供了很多用于科学计算的模块，常见的包括 numpy、scipy 和 matplotlib。要利用 Python 进行科学计算，就需要一一安装所需的模块， 而这些模块可能又依赖于其它的软件包或库，因而安装和使用起来相对麻烦。幸好有人 专门在做这一类事情，将科学计算所需要的模块都编译好，然后打包以发行版的形式 供用户使用，Anaconda 就是最常用的科学计算发行版。
+主页： https://www.anaconda.com/
+" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.61.0 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/anaconda/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Python科学计算发行版 — Anaconda" />
+<meta property="og:description" content="推荐所有 Python 用户安装 Anaconda！
+Python 是一种强大的编程语言，其提供了很多用于科学计算的模块，常见的包括
+numpy、scipy 和 matplotlib。要利用 Python 进行科学计算，就需要一一安装所需的模块，
+而这些模块可能又依赖于其它的软件包或库，因而安装和使用起来相对麻烦。幸好有人
+专门在做这一类事情，将科学计算所需要的模块都编译好，然后打包以发行版的形式
+供用户使用，Anaconda 就是最常用的科学计算发行版。
+主页： https://www.anaconda.com/" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/anaconda/" />
+<meta property="article:published_time" content="2014-05-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-02-01T00:00:00+00:00" />
+<meta itemprop="name" content="Python科学计算发行版 — Anaconda">
+<meta itemprop="description" content="推荐所有 Python 用户安装 Anaconda！
+Python 是一种强大的编程语言，其提供了很多用于科学计算的模块，常见的包括
+numpy、scipy 和 matplotlib。要利用 Python 进行科学计算，就需要一一安装所需的模块，
+而这些模块可能又依赖于其它的软件包或库，因而安装和使用起来相对麻烦。幸好有人
+专门在做这一类事情，将科学计算所需要的模块都编译好，然后打包以发行版的形式
+供用户使用，Anaconda 就是最常用的科学计算发行版。
+主页： https://www.anaconda.com/">
+<meta itemprop="datePublished" content="2014-05-14T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-02-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="836">
+
+
+
+<meta itemprop="keywords" content="Python,安装," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python科学计算发行版 — Anaconda"/>
+<meta name="twitter:description" content="推荐所有 Python 用户安装 Anaconda！
+Python 是一种强大的编程语言，其提供了很多用于科学计算的模块，常见的包括
+numpy、scipy 和 matplotlib。要利用 Python 进行科学计算，就需要一一安装所需的模块，
+而这些模块可能又依赖于其它的软件包或库，因而安装和使用起来相对麻烦。幸好有人
+专门在做这一类事情，将科学计算所需要的模块都编译好，然后打包以发行版的形式
+供用户使用，Anaconda 就是最常用的科学计算发行版。
+主页： https://www.anaconda.com/"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Python科学计算发行版 — Anaconda</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2014-05-14 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%BC%96%E7%A8%8B/"> 编程 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">安装</a></li>
+    <li><a href="#heading-1">设置国内镜像</a>
+      <ul>
+        <li><a href="#anaconda-">Anaconda 镜像</a></li>
+        <li><a href="#-pip-">添加 pip 镜像</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-2">升级</a></li>
+    <li><a href="#anaconda--python2-">Anaconda 可以方便地提供 python2 的运行环境</a></li>
+    <li><a href="#heading-3">参考</a></li>
+    <li><a href="#heading-4">修订历史</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><strong>推荐所有 Python 用户安装 Anaconda！</strong></p>
+<p>Python 是一种强大的编程语言，其提供了很多用于科学计算的模块，常见的包括
+numpy、scipy 和 matplotlib。要利用 Python 进行科学计算，就需要一一安装所需的模块，
+而这些模块可能又依赖于其它的软件包或库，因而安装和使用起来相对麻烦。幸好有人
+专门在做这一类事情，将科学计算所需要的模块都编译好，然后打包以发行版的形式
+供用户使用，Anaconda 就是最常用的科学计算发行版。</p>
+<p>主页： <a href="https://www.anaconda.com/">https://www.anaconda.com/</a></p>
+<p>Anaconda 的特点：</p>
+<ul>
+<li>包含了众多流行的科学、数学、工程、数据分析的 <a href="https://docs.anaconda.com/anaconda/packages/pkg-docs/">Python 包</a></li>
+<li>完全开源和免费</li>
+<li>全平台支持：Linux、Windows、macOS</li>
+<li>支持 Python 2.x 和 3.x，可自由切换</li>
+</ul>
+<h2 id="heading">安装</h2>
+<ol>
+<li>
+<p>下载 Anaconda</p>
+<p>进入清华 Anaconda 镜像: <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a></p>
+<p>滚屏拉到最后，根据自己的系统从最后6个文件中下载自己需要的安装文件。</p>
+<p>对于Linux 64位用户，即
+<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-5.3.0-Linux-x86_64.sh">Anaconda3-5.3.0-Linux-x86_64.sh</a></p>
+</li>
+<li>
+<p>安装 Anaconda</p>
+<p>终端执行如下命令以安装Anaconda:</p>
+<pre><code>$ bash ./Anaconda3-5.3.0-Linux-x86_64.sh
+</code></pre>
+<p>默认安装路径为 <code>${HOME}/anaconda3</code> ，我个人喜欢安装到 <code>${HOME}/.anaconda</code> 。</p>
+</li>
+<li>
+<p>测试安装</p>
+<p>终端输入 <code>python</code> ， 输出中看到 <code>Anaconda, Inc.</code> 即代表安装完成:</p>
+<pre><code>$ python
+Python 3.6.3 |Anaconda, Inc.| (default, Oct 13 2017, 12:02:49)
+[GCC 7.2.0] on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+</code></pre>
+</li>
+</ol>
+<h2 id="heading-1">设置国内镜像</h2>
+<p>使用 <code>conda</code> 或 <code>pip</code> 安装 Python 模块时默认会从官方镜像下载模块包，相对来说速度
+比较慢，可以设置使用国内镜像以加快下载速度。</p>
+<h3 id="anaconda-">Anaconda 镜像</h3>
+<p>添加清华 Anaconda 镜像以加快 <code>conda</code> 下载模块的速度:</p>
+<pre><code>$ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+$ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+$ conda config --set show_channel_urls yes
+</code></pre>
+<p>添加第三方源 <code>conda-forge</code> 并添加清华镜像:</p>
+<pre><code>$ conda config --add channels conda-forge
+$ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+</code></pre>
+<p>这几个命令会修改文件 <code>~/.condarc</code> 。</p>
+<h3 id="-pip-">添加 pip 镜像</h3>
+<p>添加清华 pip 源以加快 <code>pip</code> 下载模块的速度。</p>
+<p>编辑 <code>~/.pip/pip.conf</code> 文件（如果没有则创建之），将 <code>index-url</code> 开头的一行修改为下面一行：</p>
+<pre><code>[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre>
+<h2 id="heading-2">升级</h2>
+<p>可以使用如下命令升级所有已安装的模块：</p>
+<pre><code>conda update --all
+</code></pre>
+<p>新版本 Anaconda 发布后，可以使用如下命令升级 Anaconda：</p>
+<pre><code>conda update conda
+conda update anaconda
+</code></pre>
+<h2 id="anaconda--python2-">Anaconda 可以方便地提供 python2 的运行环境</h2>
+<pre><code>conda create -n python2 python=2.7 anaconda # 设置一个 Python 2.7 的环境，其名称为 python2
+conda activate python2 # 激活 Python 2.7 的环境
+</code></pre>
+<p>如果遇到一些报错，按报错中的提示修改环境变量即可。</p>
+<h2 id="heading-3">参考</h2>
+<ul>
+<li><a href="https://mirror.tuna.tsinghua.edu.cn/help/anaconda/">https://mirror.tuna.tsinghua.edu.cn/help/anaconda/</a></li>
+<li><a href="https://mirror.tuna.tsinghua.edu.cn/help/pypi/">https://mirror.tuna.tsinghua.edu.cn/help/pypi/</a></li>
+</ul>
+<h2 id="heading-4">修订历史</h2>
+<ul>
+<li>2014-05-14: 初稿</li>
+<li>2018-02-10: 不再使用pyenv；增加国内镜像；</li>
+<li>2018-04-01: anaconda似乎不再提供免费的学术License，删除；</li>
+<li>2018-04-19: 使用更加稳定的清华镜像；</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SeisMan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-02-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Python/">Python</a>
+          <a href="/tags/%E5%AE%89%E8%A3%85/">安装</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/ocean-floor-crustal-age/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">洋壳年龄数据</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/gmt4-style-guide/">
+            <span class="next-text nav-default">GMT4 脚本风格指南</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

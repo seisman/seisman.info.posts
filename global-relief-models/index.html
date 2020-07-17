@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>全球地形起伏数据总结 - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="本文收集了已知的可公开下载使用的全球地形起伏数据。
+" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.61.0 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/global-relief-models/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="全球地形起伏数据总结" />
+<meta property="og:description" content="本文收集了已知的可公开下载使用的全球地形起伏数据。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/global-relief-models/" />
+<meta property="article:published_time" content="2013-09-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2013-09-30T00:00:00+00:00" />
+<meta itemprop="name" content="全球地形起伏数据总结">
+<meta itemprop="description" content="本文收集了已知的可公开下载使用的全球地形起伏数据。">
+<meta itemprop="datePublished" content="2013-09-30T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2013-09-30T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="662">
+
+
+
+<meta itemprop="keywords" content="数据,网格,地形,高程," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="全球地形起伏数据总结"/>
+<meta name="twitter:description" content="本文收集了已知的可公开下载使用的全球地形起伏数据。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">全球地形起伏数据总结</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2013-09-30 </span>
+        <div class="post-category">
+            <a href="/categories/GMT/"> GMT </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">修订历史</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>本文收集了已知的可公开下载使用的全球地形起伏数据。</p>
+<p>这里有个概念是混乱的。有些数据只有陆地部分的地形，有些数据有陆地和海洋的地形，
+或许前者应该称为数字高程数据，后者称为地形起伏数据。做大地测量的应该更清楚这些
+专业名词。这里统称为地形数据。</p>
+<p>博客中提到的地形数据，按照分辨率从低到高排序如下：</p>
+<ul>
+<li>etopo5：<a href="/etopo5/">GMT 网格数据之 etopo5</a></li>
+<li>etopo2：<a href="/etopo2/">GMT 网格数据之 ETOPO2v2</a></li>
+<li>etopo1：<a href="/etopo1/">GMT 网格数据之 ETOPO1</a></li>
+<li>GEBCO：<a href="/gebco/">GEBCO：全球水深数据</a></li>
+<li>GTOPO30：<a href="/gtopo30/">GMT 网格数据之 GTOPO30</a></li>
+<li>SRTM30_PLUS：<a href="/srtm30-plus/">全球地形起伏数据：SRTM30_PLUS</a></li>
+<li>SRTM15_PLUS：<a href="/srtm15-plus/">全球地形起伏数据：SRTM15_PLUS</a></li>
+<li>SRTM3：<a href="/srtm/">高精度地形网格数据 SRTM</a></li>
+<li>ASTER GDEM：<a href="/aster-gdem/">全球数字高程数据：ASTER GDEM</a></li>
+</ul>
+<p>整理如下表：</p>
+<table>
+<thead>
+<tr>
+<th align="left">数据源</th>
+<th align="left">空间分辨率</th>
+<th align="left">覆盖范围</th>
+<th align="left">陆地 / 海洋</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">etopo5</td>
+<td align="left">5 弧分</td>
+<td align="left">全球</td>
+<td align="left">陆地 + 海洋</td>
+</tr>
+<tr>
+<td align="left">etopo2</td>
+<td align="left">2 弧分</td>
+<td align="left">全球</td>
+<td align="left">陆地 + 海洋</td>
+</tr>
+<tr>
+<td align="left">etopo1</td>
+<td align="left">1 弧分</td>
+<td align="left">全球</td>
+<td align="left">陆地 + 海洋</td>
+</tr>
+<tr>
+<td align="left">GEBCO</td>
+<td align="left">1 弧分 / 30 弧秒</td>
+<td align="left">全球</td>
+<td align="left">陆地 + 海洋</td>
+</tr>
+<tr>
+<td align="left">GTOPO30</td>
+<td align="left">30 弧秒</td>
+<td align="left">全球</td>
+<td align="left">陆地</td>
+</tr>
+<tr>
+<td align="left">SRTM30_PLUS</td>
+<td align="left">30 弧秒 (约 1km)</td>
+<td align="left">纬度 [-81,81]</td>
+<td align="left">陆地 + 海洋</td>
+</tr>
+<tr>
+<td align="left">SRTM15_PLUS</td>
+<td align="left">15 弧秒 (约 500m)</td>
+<td align="left">纬度 [-81,81]</td>
+<td align="left">陆地 + 海洋</td>
+</tr>
+<tr>
+<td align="left">SRTM</td>
+<td align="left">3 弧秒 (约 90m)</td>
+<td align="left">纬度 [-60,60]</td>
+<td align="left">陆地</td>
+</tr>
+<tr>
+<td align="left">ASTER GDEM</td>
+<td align="left">1 弧秒 (约 30m)</td>
+<td align="left">纬度 [-83,83]</td>
+<td align="left">陆地</td>
+</tr>
+</tbody>
+</table>
+<p>说明如下：</p>
+<ul>
+<li>GEBCO 是目前空间分辨率最高的全球地形起伏数据；</li>
+<li>ASTER GDEM 是目前空间分辨率最高的数字高程数据；</li>
+<li>对于全球尺度或者大尺度地形图来说，可以使用 etopo1 甚至 etopo5 数据；</li>
+<li>对于 3 度 *3度-10度*10 度的区域，可以使用 SRTM30_PLUS 数据；</li>
+<li>对于 3 度 *3 度以下的区域，可以使用 SRTM 或 ASTER GDEM 数字数据。</li>
+<li>如果有特殊需求的话，可以用 ASTER
+GDEM 绘制陆地地形，用 GEBCO 绘制海底地形；</li>
+</ul>
+<h2 id="heading">修订历史</h2>
+<ul>
+<li>2013-09-30：初稿；</li>
+<li>2015-04-07：增加了 SRTM15_PLUS；</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SeisMan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2013-09-30
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E6%95%B0%E6%8D%AE/">数据</a>
+          <a href="/tags/%E7%BD%91%E6%A0%BC/">网格</a>
+          <a href="/tags/%E5%9C%B0%E5%BD%A2/">地形</a>
+          <a href="/tags/%E9%AB%98%E7%A8%8B/">高程</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/crust1/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">全球地壳模型 crust 1.0</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/srtm/">
+            <span class="next-text nav-default">高精度地形网格数据 SRTM</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>软件 on SeisMan</title>
+    <link>https://blog.seisman.info/categories/%E8%BD%AF%E4%BB%B6/</link>
+    <description>Recent content in 软件 on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 27 Jan 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/categories/%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>强大的跨平台 PDF 处理工具：cpdf</title>
+      <link>https://blog.seisman.info/cpdf/</link>
+      <pubDate>Tue, 27 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/cpdf/</guid>
+      <description>&lt;p&gt;日常生活中对 PDF 的最基本的操作大概就是合并和切割了。之前一直在用强大的 PDFtk，但是由于一些底层依赖的问题，PDFtk 在短时间内是不可能出现在 CentOS7 下了，只能寻找新的 PDF 替代工具了。&lt;/p&gt;
+&lt;p&gt;Coherent PDF，简称 cpdf，是个用于处理 PDF 的命令行工具。该软件支持 Windows、Linux 和 Mac，且对于非商业用途是免费的。&lt;/p&gt;
+&lt;p&gt;主页： &lt;a href=&#34;http://community.coherentpdf.com/&#34;&gt;http://community.coherentpdf.com/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PDF 合并和分割工具--PDFtk</title>
+      <link>https://blog.seisman.info/pdftk/</link>
+      <pubDate>Thu, 31 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/pdftk/</guid>
+      <description>&lt;h2 id=&#34;heading&#34;&gt;简介&lt;/h2&gt;
+&lt;p&gt;PDFtk 是什么？我觉得官网的一句话解释得很好。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If PDF is electronic paper, then PDFtk is an electronic
+staple-remover, hole-punch, binder, secret-decoder-ring, and
+X-Ray-glasses. PDFtk is a simple tool for doing everyday things with
+PDF documents.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其官方网站为： &lt;a href=&#34;http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit&#34;&gt;http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

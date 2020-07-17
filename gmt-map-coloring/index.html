@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>利用 DCW 数据进行区域涂色 - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="关于 DCW 数据，前面两篇博文已经介绍了很多，这个是一个更具体的实例 &amp;mdash;&amp;ndash; 区域涂色。
+问题描述：绘制中国地图，包括国界和省界，并对每个省份填充不同的颜色。
+根据著名的 四色定理：任意一个无飞地的地图都可以用四种颜色染色，使得没有两个相邻国家染的颜色相同。
+如果真的要求最多只用四色填图，这个问题还真麻烦，这里不强求，只要求相邻省份的颜色不同即可。
+" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.61.0 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/gmt-map-coloring/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="利用 DCW 数据进行区域涂色" />
+<meta property="og:description" content="关于 DCW 数据，前面两篇博文已经介绍了很多，这个是一个更具体的实例 &mdash;&ndash; 区域涂色。
+问题描述：绘制中国地图，包括国界和省界，并对每个省份填充不同的颜色。
+根据著名的 四色定理：任意一个无飞地的地图都可以用四种颜色染色，使得没有两个相邻国家染的颜色相同。
+如果真的要求最多只用四色填图，这个问题还真麻烦，这里不强求，只要求相邻省份的颜色不同即可。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/gmt-map-coloring/" />
+<meta property="article:published_time" content="2013-11-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2013-11-22T00:00:00+00:00" />
+<meta itemprop="name" content="利用 DCW 数据进行区域涂色">
+<meta itemprop="description" content="关于 DCW 数据，前面两篇博文已经介绍了很多，这个是一个更具体的实例 &mdash;&ndash; 区域涂色。
+问题描述：绘制中国地图，包括国界和省界，并对每个省份填充不同的颜色。
+根据著名的 四色定理：任意一个无飞地的地图都可以用四种颜色染色，使得没有两个相邻国家染的颜色相同。
+如果真的要求最多只用四色填图，这个问题还真麻烦，这里不强求，只要求相邻省份的颜色不同即可。">
+<meta itemprop="datePublished" content="2013-11-22T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2013-11-22T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="823">
+
+
+
+<meta itemprop="keywords" content="GMT技巧,动画,图像," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="利用 DCW 数据进行区域涂色"/>
+<meta name="twitter:description" content="关于 DCW 数据，前面两篇博文已经介绍了很多，这个是一个更具体的实例 &mdash;&ndash; 区域涂色。
+问题描述：绘制中国地图，包括国界和省界，并对每个省份填充不同的颜色。
+根据著名的 四色定理：任意一个无飞地的地图都可以用四种颜色染色，使得没有两个相邻国家染的颜色相同。
+如果真的要求最多只用四色填图，这个问题还真麻烦，这里不强求，只要求相邻省份的颜色不同即可。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">利用 DCW 数据进行区域涂色</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2013-11-22 </span>
+        <div class="post-category">
+            <a href="/categories/GMT/"> GMT </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>关于 DCW 数据，前面两篇博文已经介绍了很多，这个是一个更具体的实例 &mdash;&ndash; 区域涂色。</p>
+<p>问题描述：绘制中国地图，包括国界和省界，并对每个省份填充不同的颜色。</p>
+<p>根据著名的 <a href="http://zh.wikipedia.org/wiki/%E5%9B%9B%E8%89%B2%E5%AE%9A%E7%90%86">四色定理</a>：任意一个无飞地的地图都可以用四种颜色染色，使得没有两个相邻国家染的颜色相同。</p>
+<p>如果真的要求最多只用四色填图，这个问题还真麻烦，这里不强求，只要求相邻省份的颜色不同即可。</p>
+<p>代码如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>R<span style="color:#f92672">=</span>70/150/10/60
+J<span style="color:#f92672">=</span>M25c
+B<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>
+PS<span style="color:#f92672">=</span>china.ps
+
+<span style="color:#75715e"># 打开 GMT</span>
+gmt psxy -J$J -R$R -T -K &gt; $PS
+
+<span style="color:#75715e"># 对每个省份进行循环</span>
+<span style="color:#66d9ef">for</span> code in <span style="color:#ae81ff">11</span> <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">14</span> <span style="color:#ae81ff">15</span> <span style="color:#ae81ff">21</span> <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">31</span> <span style="color:#ae81ff">32</span> <span style="color:#ae81ff">33</span> <span style="color:#ae81ff">34</span> <span style="color:#ae81ff">35</span> <span style="color:#ae81ff">36</span> <span style="color:#ae81ff">37</span> <span style="color:#ae81ff">41</span> <span style="color:#ae81ff">42</span> <span style="color:#ae81ff">43</span> <span style="color:#ae81ff">44</span> <span style="color:#ae81ff">45</span> <span style="color:#ae81ff">46</span> <span style="color:#ae81ff">50</span> <span style="color:#ae81ff">51</span> <span style="color:#ae81ff">52</span> <span style="color:#ae81ff">53</span> <span style="color:#ae81ff">54</span> <span style="color:#ae81ff">61</span> <span style="color:#ae81ff">62</span> <span style="color:#ae81ff">63</span> <span style="color:#ae81ff">64</span> <span style="color:#ae81ff">65</span> <span style="color:#ae81ff">71</span> <span style="color:#ae81ff">91</span> 92;
+<span style="color:#66d9ef">do</span>
+   <span style="color:#75715e"># 随机生成 RGB 颜色</span>
+   declare -i red<span style="color:#f92672">=</span>$RANDOM*256/32768
+   declare -i green<span style="color:#f92672">=</span>$RANDOM*256/32768
+   declare -i blue<span style="color:#f92672">=</span>$RANDOM*256/32768
+   <span style="color:#75715e"># 绘图并涂色</span>
+   gmt pscoast -R$R -J$J -FCN.$code+p1p+g$red/$green/$blue -K -O &gt;&gt; $PS
+<span style="color:#66d9ef">done</span>
+<span style="color:#75715e"># 关闭 GMT</span>
+gmt psxy -R$R -J$J -T -O &gt;&gt; $PS
+</code></pre></div><p>分析一下代码：</p>
+<p>由于一个 pscoast 命令中最多只能用一次 <code>-F</code> 选项，因而需要对不同省份进行循环，即 11-19 行。
+14-16 行是生成随机 RGB 颜色，<code>$RANDOM</code> 是 Bash 的一个内置变量，每次调用随机生成 0-32767
+之间的任意整数，这里做了简单的映射，使得结果为 0-255。 <code>declare -i</code> 声明变量为整型，使得映射正确。</p>
+<p>由于是随机生成颜色，所以每次运行结果都不一样，这样也不错哈。</p>
+<p>结果如下图（好像有些省份的颜色比较接近）：</p>
+<p><img src="/images/2013112201.jpg" alt=""></p>
+<p>顺便改一下代码，生成一下动画，下面的代码有意思的点有几个：</p>
+<ul>
+<li>采用增量绘图，每次绘制一个省份之后将未关闭的 <code>$PS</code> 复制一份，命名为 <code>$code.ps</code>，然后将 <code>$code.ps</code> 文件正常关闭；即 L15-L16；</li>
+<li>展示了如何利用 <code>convert</code> 命令将多个 jpg 文件转换为一个 gif 文件；这里使用了通配符 <code>*.jpg</code>，所以正确的给动画的每一帧取名很重要，这决定了每一张 jpg 在 gif 中的顺序；<code>delay</code> 设置了每帧之间的时间延迟，<code>loop</code> 设置了 gif 循环播放；</li>
+<li><code>psconvert</code> 在转换时将 DPI 设置为 100，以减少最终生成的 gif 的尺寸，也有人喜欢压缩成 avi 视频格式；</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>R<span style="color:#f92672">=</span>70/150/10/60
+J<span style="color:#f92672">=</span>M25c
+B<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>
+PS<span style="color:#f92672">=</span>china.ps
+
+gmt psxy -J$J -R$R -T -K -Xc -Yc &gt; $PS
+
+<span style="color:#66d9ef">for</span> code in <span style="color:#ae81ff">11</span> <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">14</span> <span style="color:#ae81ff">15</span> <span style="color:#ae81ff">21</span> <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">31</span> <span style="color:#ae81ff">32</span> <span style="color:#ae81ff">33</span> <span style="color:#ae81ff">34</span> <span style="color:#ae81ff">35</span> <span style="color:#ae81ff">36</span> <span style="color:#ae81ff">37</span> <span style="color:#ae81ff">41</span> <span style="color:#ae81ff">42</span> <span style="color:#ae81ff">43</span> <span style="color:#ae81ff">44</span> <span style="color:#ae81ff">45</span> <span style="color:#ae81ff">46</span> <span style="color:#ae81ff">50</span> <span style="color:#ae81ff">51</span> <span style="color:#ae81ff">52</span> <span style="color:#ae81ff">53</span> <span style="color:#ae81ff">54</span> <span style="color:#ae81ff">61</span> <span style="color:#ae81ff">62</span> <span style="color:#ae81ff">63</span> <span style="color:#ae81ff">64</span> <span style="color:#ae81ff">65</span> <span style="color:#ae81ff">71</span> <span style="color:#ae81ff">91</span> 92;
+<span style="color:#66d9ef">do</span>
+   declare -i red<span style="color:#f92672">=</span>$RANDOM*256/32768
+   declare -i green<span style="color:#f92672">=</span>$RANDOM*256/32768
+   declare -i blue<span style="color:#f92672">=</span>$RANDOM*256/32768
+   gmt pscoast -R$R -J$J -FCN.$code+p1p+g$red/$green/$blue -K -O &gt;&gt; $PS
+   cp $PS $code.ps
+   gmt psxy -R$R -J$J -T -O &gt;&gt; $code.ps
+<span style="color:#66d9ef">done</span>
+gmt psxy -R$R -J$J -T -O &gt;&gt; $PS
+
+gmt psconvert -P -E100 *.ps
+convert -delay <span style="color:#ae81ff">30</span> -loop <span style="color:#ae81ff">0</span> *.jpg china.gif
+</code></pre></div><p>由于生成 PDF 时，不支持导入 GIF 文件，故而就不再给出动态效果图了。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SeisMan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2013-11-22
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/GMT%E6%8A%80%E5%B7%A7/">GMT技巧</a>
+          <a href="/tags/%E5%8A%A8%E7%94%BB/">动画</a>
+          <a href="/tags/%E5%9B%BE%E5%83%8F/">图像</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/china-administrative-areas-data/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">中国行政区划数据下载</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/usage-of-dcw-data/">
+            <span class="next-text nav-default">GMT 中 DCW 数据的使用</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

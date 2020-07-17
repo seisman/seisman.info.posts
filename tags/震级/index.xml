@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>震级 on SeisMan</title>
+    <link>https://blog.seisman.info/tags/%E9%9C%87%E7%BA%A7/</link>
+    <description>Recent content in 震级 on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 15 Jan 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/%E9%9C%87%E7%BA%A7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>全球地震目录 PDE</title>
+      <link>https://blog.seisman.info/global-earthquake-catalog-pde/</link>
+      <pubDate>Wed, 15 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/global-earthquake-catalog-pde/</guid>
+      <description>&lt;h2 id=&#34;heading&#34;&gt;简介&lt;/h2&gt;
+&lt;p&gt;PDE，是 USGS 的 NEIC 组织发布的全球地震目录，全称 Preliminary Determination of Epicenters。之所以称为 Preliminary，是因为一般认为 International Seismological Centre 发布的地震目录是终极版。&lt;/p&gt;
+&lt;p&gt;主页： &lt;a href=&#34;http://earthquake.usgs.gov/research/data/pde.php&#34;&gt;http://earthquake.usgs.gov/research/data/pde.php&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>标量矩与矩震级转换关系</title>
+      <link>https://blog.seisman.info/scalar-moment-and-moment-magnitude/</link>
+      <pubDate>Tue, 02 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/scalar-moment-and-moment-magnitude/</guid>
+      <description>公式 地震的标量矩 $M_0$ 与矩震级 $M_W$ 的关系为： $$M_W =\frac{2}{3}(log M_0 -16.1)$$ 其中，$M_0$ 的单位为 dyne-cm。当 $M_0$ 单位不同时，后面的常数 16.1 也要发生变化。 参考文章 Kanamori H.</description>
+    </item>
+    
+    <item>
+      <title>Global CMT 信息整理</title>
+      <link>https://blog.seisman.info/global-cmt/</link>
+      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/global-cmt/</guid>
+      <description>&lt;p&gt;Global CMT 全称 Global Centroid-Moment-Tensor Project，前身是 Harvard CMT，
+是地震学常用的地震目录和震源机制之一。其给出了自 1976 年以来上万个地震的
+地震目录以及震源机制。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

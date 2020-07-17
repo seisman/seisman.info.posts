@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>有限差分 on SeisMan</title>
+    <link>https://blog.seisman.info/tags/%E6%9C%89%E9%99%90%E5%B7%AE%E5%88%86/</link>
+    <description>Recent content in 有限差分 on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 08 Dec 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/%E6%9C%89%E9%99%90%E5%B7%AE%E5%88%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SOFI2D 笔记</title>
+      <link>https://blog.seisman.info/sofi2d-notes/</link>
+      <pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/sofi2d-notes/</guid>
+      <description>&lt;p&gt;SOFI2D 是一个二维 PSV 交错网格有限差分代码。要使用该程序，至少需要阅读如下几篇参考文献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Virieux, J. 1986. P-SV wave propagation in heterogeneous media:
+velocity-stress finite- difference method. Geophysics, 51(4), 889–901.&lt;/li&gt;
+&lt;li&gt;Levander, A.R. 1988. Fourth-order finite-difference P-SV seismograms. Geophysics, 53(11), 1425–1436.&lt;/li&gt;
+&lt;li&gt;SOFI2D User Guide&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;具体的用法及每个参数的意义在官方文档已经介绍的很详细，本文是我使用 SOFI2D 过程中的经验总结。&lt;/p&gt;
+&lt;p&gt;注：本文使用的是 2015 年 10 月 28 日发布的 SOFI2D。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

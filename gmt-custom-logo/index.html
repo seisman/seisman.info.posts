@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>自定义 GMT 的 Logo - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="这篇博文想干什么？ GMT 中使用 -U 选项可以给图加一个时间戳，如下图左图所示。
+这篇博文的目的就是把左边的时间戳变成右边的时间戳。黑底白字的部分，我称之为 Logo。
+当初想要自定义 logo，是因为看到了 Hi-net 首页的地图中有自定义 logo 为 Hi-net NIED 觉得挺有意思，对于某些机构来说，加上一个个性化的 logo 应该也算是一种需求。
+" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.61.0 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/gmt-custom-logo/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="自定义 GMT 的 Logo" />
+<meta property="og:description" content="这篇博文想干什么？
+GMT 中使用 -U 选项可以给图加一个时间戳，如下图左图所示。
+这篇博文的目的就是把左边的时间戳变成右边的时间戳。黑底白字的部分，我称之为 Logo。
+
+当初想要自定义 logo，是因为看到了 Hi-net 首页的地图中有自定义 logo 为 Hi-net NIED 觉得挺有意思，对于某些机构来说，加上一个个性化的 logo 应该也算是一种需求。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/gmt-custom-logo/" />
+<meta property="article:published_time" content="2013-11-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2013-11-19T00:00:00+00:00" />
+<meta itemprop="name" content="自定义 GMT 的 Logo">
+<meta itemprop="description" content="这篇博文想干什么？
+GMT 中使用 -U 选项可以给图加一个时间戳，如下图左图所示。
+这篇博文的目的就是把左边的时间戳变成右边的时间戳。黑底白字的部分，我称之为 Logo。
+
+当初想要自定义 logo，是因为看到了 Hi-net 首页的地图中有自定义 logo 为 Hi-net NIED 觉得挺有意思，对于某些机构来说，加上一个个性化的 logo 应该也算是一种需求。">
+<meta itemprop="datePublished" content="2013-11-19T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2013-11-19T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1915">
+
+
+
+<meta itemprop="keywords" content="GMT技巧,图像," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="自定义 GMT 的 Logo"/>
+<meta name="twitter:description" content="这篇博文想干什么？
+GMT 中使用 -U 选项可以给图加一个时间戳，如下图左图所示。
+这篇博文的目的就是把左边的时间戳变成右边的时间戳。黑底白字的部分，我称之为 Logo。
+
+当初想要自定义 logo，是因为看到了 Hi-net 首页的地图中有自定义 logo 为 Hi-net NIED 觉得挺有意思，对于某些机构来说，加上一个个性化的 logo 应该也算是一种需求。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">自定义 GMT 的 Logo</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2013-11-19 </span>
+        <div class="post-category">
+            <a href="/categories/GMT/"> GMT </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">这篇博文想干什么？</a></li>
+    <li><a href="#heading-1">理解原理</a>
+      <ul>
+        <li><a href="#gmt-timestamp">gmt_timestamp</a></li>
+        <li><a href="#gmt-glyph">GMT_glyph</a></li>
+        <li><a href="#psl-plotcolorimage">PSL_plotcolorimage</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-4">具体步骤</a>
+      <ul>
+        <li><a href="#heading-5">建立位图文件</a></li>
+        <li><a href="#-sun-raster--xbm-">将 Sun Raster 文件转换为 xbm 格式</a></li>
+        <li><a href="#-gmt">重新编译 GMT</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-6">一些说明</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="heading">这篇博文想干什么？</h2>
+<p>GMT 中使用 <code>-U</code> 选项可以给图加一个时间戳，如下图左图所示。</p>
+<p>这篇博文的目的就是把左边的时间戳变成右边的时间戳。黑底白字的部分，我称之为 Logo。</p>
+<p><img src="/images/2013111901.jpg" alt=""></p>
+<p>当初想要自定义 logo，是因为看到了 <a href="http://www.hinet.bosai.go.jp/">Hi-net</a> 首页的地图中有自定义 logo 为 <code>Hi-net NIED</code> 觉得挺有意思，对于某些机构来说，加上一个个性化的 logo 应该也算是一种需求。</p>
+<h2 id="heading-1">理解原理</h2>
+<p>本文的内容基于 GMT5.1.0。写完本文之后，我因为没有自定义 logo 的需求了，所以本文在一段时间内应该不会再更新。不过本文介绍的方法应该可以很容易应用到更新版的 GMT5 以及之前的 GMT4 中。</p>
+<h3 id="gmt-timestamp">gmt_timestamp</h3>
+<h4 id="heading-2">函数定义</h4>
+<p>以下代码来自于 <code>GMT-5.1.0/src/gmt_plot.c</code> ：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">gmt_timestamp</span> (<span style="color:#66d9ef">struct</span> GMT_CTRL <span style="color:#f92672">*</span>GMT, <span style="color:#66d9ef">struct</span> PSL_CTRL <span style="color:#f92672">*</span>PSL, <span style="color:#66d9ef">double</span> x, <span style="color:#66d9ef">double</span> y, <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> justify, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>U_label)
+{
+    <span style="color:#75715e">/* x, y = location of the time stamp box
+</span><span style="color:#75715e">    * justify indicates the corner of the box that (x,y) refers to, see below
+</span><span style="color:#75715e">    * U_label = label to be plotted to the right of the box
+</span><span style="color:#75715e">    *
+</span><span style="color:#75715e">    *   9        10       11
+</span><span style="color:#75715e">    *   |------------------|
+</span><span style="color:#75715e">    *   5         6        7
+</span><span style="color:#75715e">    *   |------------------|
+</span><span style="color:#75715e">    *   1         2        3
+</span><span style="color:#75715e">    */</span>
+
+    time_t right_now;
+    <span style="color:#66d9ef">char</span> label[GMT_LEN256] <span style="color:#f92672">=</span> {<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>}, text[GMT_LEN256] <span style="color:#f92672">=</span> {<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">&#34;</span>};
+    <span style="color:#66d9ef">double</span> dim[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0.365</span>, <span style="color:#ae81ff">0.15</span>, <span style="color:#ae81ff">0.032</span>};   <span style="color:#75715e">/* Predefined dimensions in inches */</span>
+    <span style="color:#66d9ef">double</span> unset_rgb[<span style="color:#ae81ff">4</span>] <span style="color:#f92672">=</span> {<span style="color:#f92672">-</span><span style="color:#ae81ff">1.0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.0</span>};
+
+    <span style="color:#75715e">/* Plot time string in format defined by format_time_stamp */</span>
+
+    right_now <span style="color:#f92672">=</span> time ((time_t <span style="color:#f92672">*</span>)<span style="color:#ae81ff">0</span>);
+    strftime (text, <span style="color:#66d9ef">sizeof</span>(text), GMT<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>current.setting.format_time_stamp, localtime (<span style="color:#f92672">&amp;</span>right_now));
+    sprintf (label,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">  %s  </span><span style="color:#e6db74">&#34;</span>, text);
+
+    PSL_command (PSL,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%% Begin GMT time-stamp</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">V</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    PSL_setorigin (PSL, x, y, <span style="color:#ae81ff">0.0</span>, PSL_FWD);
+    PSL_setlinewidth (PSL, <span style="color:#ae81ff">0.25</span>);
+    PSL_setfont (PSL, GMT<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>current.setting.font_logo.id);
+    PSL_defunits (PSL,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">PSL_g_w</span><span style="color:#e6db74">&#34;</span>, dim[<span style="color:#ae81ff">0</span>]);  <span style="color:#75715e">/* Size of the black [GMT] box */</span>
+    PSL_defunits (PSL,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">PSL_g_h</span><span style="color:#e6db74">&#34;</span>, dim[<span style="color:#ae81ff">1</span>]);
+    PSL_deftextdim (PSL,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">PSL_b</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">8.0</span>, label);  <span style="color:#75715e">/* Size of the white [timestamp] box (use only length) */</span>
+
+    <span style="color:#75715e">/* When justification is not BL (justify == 1), add some PostScript code to move to the
+</span><span style="color:#75715e">    location where the lower left corner of the time stamp box is to be drawn */</span>
+
+    <span style="color:#66d9ef">switch</span> ((justify <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span>) <span style="color:#f92672">%</span> <span style="color:#ae81ff">4</span>) {
+        <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span> <span style="color:#75715e">/* Center */</span>
+            PSL_command (PSL,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">PSL_g_w PSL_b_w add 2 div neg 0 T</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>); <span style="color:#66d9ef">break</span>;
+        <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">:</span> <span style="color:#75715e">/* Right justify */</span>
+            PSL_command (PSL,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">PSL_g_w PSL_b_w add neg 0 T</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>); <span style="color:#66d9ef">break</span>;
+    }
+    <span style="color:#66d9ef">switch</span> (justify <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>) {
+        <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span> <span style="color:#75715e">/* Middle */</span>
+            PSL_command (PSL,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">0 PSL_g_h 2 div neg T</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>); <span style="color:#66d9ef">break</span>;
+        <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">:</span> <span style="color:#75715e">/* Top justify */</span>
+            PSL_command (PSL,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">0 PSL_g_h neg T</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>); <span style="color:#66d9ef">break</span>;
+    }
+
+    <span style="color:#75715e">/* Now draw black box with GMT logo, and white box with time stamp */</span>
+
+    PSL_setfill (PSL, GMT<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>current.setting.map_default_pen.rgb, true);
+    PSL_plotsymbol (PSL, <span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>dim[<span style="color:#ae81ff">0</span>], <span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>dim[<span style="color:#ae81ff">1</span>], dim, PSL_RECT);
+    PSL_plotcolorimage (PSL, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, dim[<span style="color:#ae81ff">0</span>], dim[<span style="color:#ae81ff">1</span>], PSL_BL, GMT_glyph, <span style="color:#ae81ff">220</span>, <span style="color:#ae81ff">90</span>, <span style="color:#ae81ff">1</span>);
+    PSL_setfill (PSL, GMT<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>PSL<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>init.page_rgb, true);
+    PSL_command (PSL,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">PSL_g_h PSL_b_w PSL_g_w 0 Sb</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    PSL_plottext (PSL, dim[<span style="color:#ae81ff">0</span>], dim[<span style="color:#ae81ff">2</span>], <span style="color:#ae81ff">8.0</span>, label, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>);
+
+    <span style="color:#75715e">/* Optionally, add additional label to the right of the box */</span>
+
+    <span style="color:#66d9ef">if</span> (U_label <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> U_label[<span style="color:#ae81ff">0</span>]) {
+        sprintf (label,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">   %s</span><span style="color:#e6db74">&#34;</span>, U_label);
+        PSL_plottext (PSL, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">7.0</span>, label, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>);
+    }
+
+    PSL_command (PSL,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">U</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">%% End GMT time-stamp</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+
+    <span style="color:#75715e">/* Reset fill style to empty and no outline and reset linewidth */</span>
+    PSL_setfill (PSL, unset_rgb, false);
+    PSL<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>current.linewidth <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0</span>;
+}
+</code></pre></div><h4 id="heading-3">源码说明</h4>
+<ul>
+<li>L16：定义数组 dim，其中 <code>dim[0]</code> 代表时间戳黑色部分的宽度， <code>dim[1]</code> 代表黑色部分的高度， <code>dim[2]</code> 没有用；其单位为英寸；</li>
+<li>L25：开始向 PS 文件中写入代码；</li>
+<li>L26-L31：一些设置；</li>
+<li>L51：设置填充色为黑色；</li>
+<li>L52：绘制矩形；</li>
+<li>L53：将 <code>GMT_glyph</code> 写入矩形中；这个是重点！</li>
+<li>L54-L56：写入时间；</li>
+<li>L60-L63：写入 command 或者 label；</li>
+<li>L65：结束；</li>
+</ul>
+<h3 id="gmt-glyph">GMT_glyph</h3>
+<p><code>GMT_glyph</code> 的定义位于 <code>gmt_plot.c</code> 中：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">/* Get bitmapped 600 dpi GMT glyph for timestamp.  The glyph is a 90 x 220 pixel 1-bit image
+</span><span style="color:#75715e">   and it is here represented as ceil (220 / 8) * 90 = 2520 bytes */</span>
+<span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> GMT_glyph[<span style="color:#ae81ff">2520</span>]<span style="color:#f92672">=</span>{
+<span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>,
+<span style="color:#960050;background-color:#1e0010">…</span><span style="color:#960050;background-color:#1e0010">…</span>
+<span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x0f</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>, <span style="color:#ae81ff">0x00</span>,
+};
+</code></pre></div><p>其解释表明，GMT 的 logo 是个 dpi=600 的位图，位图像素为 220×90，即 dim[0]=220/600=0.366=&gt; 0.365 inch，dim[1]=90/600=0.15 inch。</p>
+<p>位图为 1-bit 图，即黑白图，0 表示白色，1 表示黑色。由于 GMT 的一些内部设置，实际上这里 0 表示黑色，1 表示白色。每个 char 型为 8bit，即一个 char 可以用于存储 8 个像素的信息，比如 0x0f 的二进制表示为 00001111，即表示这 8 个点中，前四个为黑色，后四个为白色。</p>
+<p>因而想要修改 GMT 位图的核心是创建一个 <code>GMT_glyph</code> 数组！</p>
+<h3 id="psl-plotcolorimage">PSL_plotcolorimage</h3>
+<p><code>PSL_plotcolorimage</code> 的函数声明如下，取自 <code>GMT5.1.0/src/pslib.c</code> ：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">PSL_plotcolorimage</span> (<span style="color:#66d9ef">struct</span> PSL_CTRL <span style="color:#f92672">*</span>PSL, <span style="color:#66d9ef">double</span> x, <span style="color:#66d9ef">double</span> y, <span style="color:#66d9ef">double</span> xsize, <span style="color:#66d9ef">double</span> ysize, <span style="color:#66d9ef">int</span> justify, <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>buffer, <span style="color:#66d9ef">int</span> nx, <span style="color:#66d9ef">int</span> ny, <span style="color:#66d9ef">int</span> nbits);
+<span style="color:#75715e">/* Plots a 24-bit color image in Grayscale, RGB or CMYK mode.
+</span><span style="color:#75715e"> * When the number of unique colors does not exceed PSL_MAX_COLORS, the routine will index
+</span><span style="color:#75715e"> * 24-bit RGB images and then attempt to reduce the depth of the indexed image to 1, 2 or 4 bits.
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * x, y     : lower left position of image in plot units
+</span><span style="color:#75715e"> * xsize, ysize : image size in units (if 0, adjust to keep the original aspect ratio)
+</span><span style="color:#75715e"> * justify  : indicates what corner x,y refers to (see graphic below)
+</span><span style="color:#75715e"> * buffer   : contains the bytes for the image
+</span><span style="color:#75715e"> * nx, ny   : pixel dimension
+</span><span style="color:#75715e"> * nbits    : number of bits per pixel (1, 2, 4, 8, 24)
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * Special cases:
+</span><span style="color:#75715e"> * nx &lt;0   : 8- or 24-bit image contains a color mask (first 1 or 3 bytes)
+</span><span style="color:#75715e"> * nbits &lt;0    :&#34;Hardware&#34; interpolation requested
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> *   9       10      11
+</span><span style="color:#75715e"> *   |----------------|
+</span><span style="color:#75715e"> *   5    &lt;image&gt;     7
+</span><span style="color:#75715e"> *   |----------------|
+</span><span style="color:#75715e"> *   1       2        3
+</span><span style="color:#75715e"> */</span>
+</code></pre></div><p>从函数参数的解释中可以看出，nbits 代表了一个像素所需要的位数，nbits 可以取 1、2、4、8、24；buffer 即数组 <code>GMT_glyph</code>；</p>
+<h2 id="heading-4">具体步骤</h2>
+<h3 id="heading-5">建立位图文件</h3>
+<p>直接利用 GIMP 创建位图文件。</p>
+<p>打开 GIMP，“文件 -&gt; 新建”，设置宽度 “520”，高度 “90”，分辨率 “600”，色彩空间为灰色，填充前景色。</p>
+<p><img src="/images/2013111902.jpg" alt=""></p>
+<p>输入文件，字体 “STIXGeneral Bold Italic”，大小为 “95”，居中，上下留白 2 像素，左右留白 12 像素；</p>
+<p><img src="/images/2013111903.jpg" alt=""></p>
+<p>保存为 Sun Raster 格式，文件名为 raster.im8，提示需要导出，数据格式选择 ** 标准 **。</p>
+<h3 id="-sun-raster--xbm-">将 Sun Raster 文件转换为 xbm 格式</h3>
+<p>xbm 格式类似于 C 语言的格式，也就是 <code>GMT_glyph</code> 数组所需要的。</p>
+<ol>
+<li>执行 <code>raster2xbm</code>，(代码在这里 <a href="/downloads/raster2xbm.tar.gz">下载</a>)，将输出保存到 <code>gmt_plot.c</code> 中的 char 数组 <code>GMT_glyph</code> 中。</li>
+<li>将 <code>unsigned char GMT_glyph[2520]</code> 改成 <code>unsigned char GMT_glyph[46800]</code> ，其中 46800=520*90；</li>
+<li>gmt_timestamp 中 <code>double dim[3] = {0.365, 0.15, 0.032};</code> 改成 <code>double dim[3] = {0.867, 0.15, 0.032};</code></li>
+<li>gmt_timestamp 中 <code>PSL_plotcolorimage (PSL, 0.0, 0.0, dim[0], dim[1], PSL_BL, GMT_glyph, 220, 90, 1);</code>
+改成 <code>PSL_plotcolorimage (PSL, 0.0, 0.0, dim[0], dim[1], PSL_BL, GMT_glyph, 520, 90, 8);</code></li>
+</ol>
+<h3 id="-gmt">重新编译 GMT</h3>
+<p>修改完代码后，需要重新编译 GMT。理论上，上面所做的改动仅会影响到 - U 选项，而不会影响到其他选项的功能。</p>
+<h2 id="heading-6">一些说明</h2>
+<ul>
+<li>这里改变的 Logo 的宽度而没有改变 Logo 的高度，主要是因为 Logo 与后面的时间戳共用一个高度，修改高度之后可能很多东西都要改，这样比较麻烦；</li>
+<li>GMT 原始的 Logo 为黑白 1-bit 图，精度稍显不够，因而这里使用 8-bit 灰度图；当然也可以使用彩色图；</li>
+<li>GIMP 可以直接保存为 xbm 格式的 1-bit 图，之所以不使用，一方面是因为 1-bit 精度不够，另一方面是 GIMP 保存的 xbm 格式的数据的字节序与本机的字节序不同，导致 Logo 相邻两列或四列的数据相互交换位置。</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SeisMan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2013-11-19
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/GMT%E6%8A%80%E5%B7%A7/">GMT技巧</a>
+          <a href="/tags/%E5%9B%BE%E5%83%8F/">图像</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/introduction-to-dcw-gmt5/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">GMT5 的 DCW 数据简介</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/find-intersection-and-difference-of-two-arrays/">
+            <span class="next-text nav-default">Perl 如何找出两个数组的交集、并集</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on SeisMan</title>
+    <link>https://blog.seisman.info/tags/</link>
+    <description>Recent content in Tags on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 07 Apr 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://blog.seisman.info/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>linux</title>
+      <link>https://blog.seisman.info/tags/linux/</link>
+      <pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macOS</title>
+      <link>https://blog.seisman.info/tags/macOS/</link>
+      <pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/macOS/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GoogleEarth</title>
+      <link>https://blog.seisman.info/tags/GoogleEarth/</link>
+      <pubDate>Sat, 03 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/GoogleEarth/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>obspy</title>
+      <link>https://blog.seisman.info/tags/obspy/</link>
+      <pubDate>Sat, 03 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/obspy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://blog.seisman.info/tags/Python/</link>
+      <pubDate>Sat, 03 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/Python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hinet</title>
+      <link>https://blog.seisman.info/tags/Hinet/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/Hinet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TauP</title>
+      <link>https://blog.seisman.info/tags/TauP/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/TauP/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>走时</title>
+      <link>https://blog.seisman.info/tags/%E8%B5%B0%E6%97%B6/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E8%B5%B0%E6%97%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>坐标系</title>
+      <link>https://blog.seisman.info/tags/%E5%9D%90%E6%A0%87%E7%B3%BB/</link>
+      <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E5%9D%90%E6%A0%87%E7%B3%BB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IRIS</title>
+      <link>https://blog.seisman.info/tags/IRIS/</link>
+      <pubDate>Sat, 24 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/IRIS/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>数据申请</title>
+      <link>https://blog.seisman.info/tags/%E6%95%B0%E6%8D%AE%E7%94%B3%E8%AF%B7/</link>
+      <pubDate>Sat, 24 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E6%95%B0%E6%8D%AE%E7%94%B3%E8%AF%B7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>波形数据</title>
+      <link>https://blog.seisman.info/tags/%E6%B3%A2%E5%BD%A2%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Sat, 24 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E6%B3%A2%E5%BD%A2%E6%95%B0%E6%8D%AE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fortran</title>
+      <link>https://blog.seisman.info/tags/Fortran/</link>
+      <pubDate>Tue, 19 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/Fortran/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SAC技巧</title>
+      <link>https://blog.seisman.info/tags/SAC%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Tue, 19 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/SAC%E6%8A%80%E5%B7%A7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>理论地震图</title>
+      <link>https://blog.seisman.info/tags/%E7%90%86%E8%AE%BA%E5%9C%B0%E9%9C%87%E5%9B%BE/</link>
+      <pubDate>Thu, 26 May 2016 12:41:18 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E7%90%86%E8%AE%BA%E5%9C%B0%E9%9C%87%E5%9B%BE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>震相</title>
+      <link>https://blog.seisman.info/tags/%E9%9C%87%E7%9B%B8/</link>
+      <pubDate>Sun, 22 May 2016 11:46:41 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E9%9C%87%E7%9B%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>模型</title>
+      <link>https://blog.seisman.info/tags/%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Sat, 21 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E6%A8%A1%E5%9E%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>博客</title>
+      <link>https://blog.seisman.info/tags/%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Wed, 13 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E5%8D%9A%E5%AE%A2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GMT技巧</title>
+      <link>https://blog.seisman.info/tags/GMT%E6%8A%80%E5%B7%A7/</link>
+      <pubDate>Wed, 30 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/GMT%E6%8A%80%E5%B7%A7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>仪器响应</title>
+      <link>https://blog.seisman.info/tags/%E4%BB%AA%E5%99%A8%E5%93%8D%E5%BA%94/</link>
+      <pubDate>Sun, 13 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E4%BB%AA%E5%99%A8%E5%93%8D%E5%BA%94/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>有限差分</title>
+      <link>https://blog.seisman.info/tags/%E6%9C%89%E9%99%90%E5%B7%AE%E5%88%86/</link>
+      <pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E6%9C%89%E9%99%90%E5%B7%AE%E5%88%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>笔记</title>
+      <link>https://blog.seisman.info/tags/%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E7%AC%94%E8%AE%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>安装</title>
+      <link>https://blog.seisman.info/tags/%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Fri, 13 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E5%AE%89%E8%A3%85/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SAC</title>
+      <link>https://blog.seisman.info/tags/SAC/</link>
+      <pubDate>Tue, 13 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/SAC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SEED</title>
+      <link>https://blog.seisman.info/tags/SEED/</link>
+      <pubDate>Tue, 13 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/SEED/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>格式转换</title>
+      <link>https://blog.seisman.info/tags/%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2/</link>
+      <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>软件</title>
+      <link>https://blog.seisman.info/tags/%E8%BD%AF%E4%BB%B6/</link>
+      <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E8%BD%AF%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pssac2</title>
+      <link>https://blog.seisman.info/tags/pssac2/</link>
+      <pubDate>Sun, 19 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/pssac2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pssac</title>
+      <link>https://blog.seisman.info/tags/pssac/</link>
+      <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/pssac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GMT</title>
+      <link>https://blog.seisman.info/tags/GMT/</link>
+      <pubDate>Fri, 17 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/GMT/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>教程</title>
+      <link>https://blog.seisman.info/tags/%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Fri, 17 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E6%95%99%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>理论</title>
+      <link>https://blog.seisman.info/tags/%E7%90%86%E8%AE%BA/</link>
+      <pubDate>Fri, 15 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E7%90%86%E8%AE%BA/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C</title>
+      <link>https://blog.seisman.info/tags/C/</link>
+      <pubDate>Wed, 29 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>https://blog.seisman.info/tags/Windows/</link>
+      <pubDate>Sat, 18 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/Windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>地形</title>
+      <link>https://blog.seisman.info/tags/%E5%9C%B0%E5%BD%A2/</link>
+      <pubDate>Tue, 07 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E5%9C%B0%E5%BD%A2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>网格</title>
+      <link>https://blog.seisman.info/tags/%E7%BD%91%E6%A0%BC/</link>
+      <pubDate>Tue, 07 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E7%BD%91%E6%A0%BC/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>高程</title>
+      <link>https://blog.seisman.info/tags/%E9%AB%98%E7%A8%8B/</link>
+      <pubDate>Tue, 07 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E9%AB%98%E7%A8%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>文档</title>
+      <link>https://blog.seisman.info/tags/%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Sat, 07 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E6%96%87%E6%A1%A3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>名词解释</title>
+      <link>https://blog.seisman.info/tags/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/</link>
+      <pubDate>Thu, 05 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>射线</title>
+      <link>https://blog.seisman.info/tags/%E5%B0%84%E7%BA%BF/</link>
+      <pubDate>Thu, 05 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E5%B0%84%E7%BA%BF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PDF</title>
+      <link>https://blog.seisman.info/tags/PDF/</link>
+      <pubDate>Tue, 27 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/PDF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CentOS</title>
+      <link>https://blog.seisman.info/tags/CentOS/</link>
+      <pubDate>Sun, 23 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/CentOS/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://blog.seisman.info/tags/Java/</link>
+      <pubDate>Wed, 08 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/Java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>中文</title>
+      <link>https://blog.seisman.info/tags/%E4%B8%AD%E6%96%87/</link>
+      <pubDate>Sat, 20 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E4%B8%AD%E6%96%87/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link></link>
+      <pubDate>Thu, 18 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pandoc</title>
+      <link>https://blog.seisman.info/tags/Pandoc/</link>
+      <pubDate>Sun, 14 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/Pandoc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>数据</title>
+      <link>https://blog.seisman.info/tags/%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Fri, 12 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E6%95%B0%E6%8D%AE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>格式</title>
+      <link>https://blog.seisman.info/tags/%E6%A0%BC%E5%BC%8F/</link>
+      <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E6%A0%BC%E5%BC%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>地震目录</title>
+      <link>https://blog.seisman.info/tags/%E5%9C%B0%E9%9C%87%E7%9B%AE%E5%BD%95/</link>
+      <pubDate>Tue, 02 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E5%9C%B0%E9%9C%87%E7%9B%AE%E5%BD%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>申请</title>
+      <link>https://blog.seisman.info/tags/%E7%94%B3%E8%AF%B7/</link>
+      <pubDate>Sat, 30 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E7%94%B3%E8%AF%B7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>台网</title>
+      <link>https://blog.seisman.info/tags/%E5%8F%B0%E7%BD%91/</link>
+      <pubDate>Mon, 25 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E5%8F%B0%E7%BD%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>breq_fast</title>
+      <link>https://blog.seisman.info/tags/breq_fast/</link>
+      <pubDate>Sat, 23 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/breq_fast/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>邮件</title>
+      <link>https://blog.seisman.info/tags/%E9%82%AE%E4%BB%B6/</link>
+      <pubDate>Sat, 23 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E9%82%AE%E4%BB%B6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Intel</title>
+      <link>https://blog.seisman.info/tags/Intel/</link>
+      <pubDate>Wed, 16 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/Intel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Perl</title>
+      <link>https://blog.seisman.info/tags/Perl/</link>
+      <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/Perl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>图像</title>
+      <link>https://blog.seisman.info/tags/%E5%9B%BE%E5%83%8F/</link>
+      <pubDate>Sun, 15 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E5%9B%BE%E5%83%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>震源机制解</title>
+      <link>https://blog.seisman.info/tags/%E9%9C%87%E6%BA%90%E6%9C%BA%E5%88%B6%E8%A7%A3/</link>
+      <pubDate>Fri, 13 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E9%9C%87%E6%BA%90%E6%9C%BA%E5%88%B6%E8%A7%A3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>辐射花样</title>
+      <link>https://blog.seisman.info/tags/%E8%BE%90%E5%B0%84%E8%8A%B1%E6%A0%B7/</link>
+      <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E8%BE%90%E5%B0%84%E8%8A%B1%E6%A0%B7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>震源球</title>
+      <link>https://blog.seisman.info/tags/%E9%9C%87%E6%BA%90%E7%90%83/</link>
+      <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E9%9C%87%E6%BA%90%E7%90%83/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>make</title>
+      <link>https://blog.seisman.info/tags/make/</link>
+      <pubDate>Fri, 07 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/make/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LaTeX</title>
+      <link>https://blog.seisman.info/tags/LaTeX/</link>
+      <pubDate>Sat, 01 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/LaTeX/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sphinx</title>
+      <link>https://blog.seisman.info/tags/sphinx/</link>
+      <pubDate>Sat, 01 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/sphinx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>距离</title>
+      <link>https://blog.seisman.info/tags/%E8%B7%9D%E7%A6%BB/</link>
+      <pubDate>Fri, 21 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E8%B7%9D%E7%A6%BB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>台站</title>
+      <link>https://blog.seisman.info/tags/%E5%8F%B0%E7%AB%99/</link>
+      <pubDate>Tue, 28 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E5%8F%B0%E7%AB%99/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>时间</title>
+      <link>https://blog.seisman.info/tags/%E6%97%B6%E9%97%B4/</link>
+      <pubDate>Sat, 18 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E6%97%B6%E9%97%B4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>USGS</title>
+      <link>https://blog.seisman.info/tags/USGS/</link>
+      <pubDate>Wed, 15 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/USGS/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>震级</title>
+      <link>https://blog.seisman.info/tags/%E9%9C%87%E7%BA%A7/</link>
+      <pubDate>Wed, 15 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E9%9C%87%E7%BA%A7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>参考模型</title>
+      <link>https://blog.seisman.info/tags/%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>接收函数</title>
+      <link>https://blog.seisman.info/tags/%E6%8E%A5%E6%94%B6%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E6%8E%A5%E6%94%B6%E5%87%BD%E6%95%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>编译</title>
+      <link>https://blog.seisman.info/tags/%E7%BC%96%E8%AF%91/</link>
+      <pubDate>Fri, 29 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E7%BC%96%E8%AF%91/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>网站</title>
+      <link>https://blog.seisman.info/tags/%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Sat, 23 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E7%BD%91%E7%AB%99/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>动画</title>
+      <link>https://blog.seisman.info/tags/%E5%8A%A8%E7%94%BB/</link>
+      <pubDate>Fri, 22 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E5%8A%A8%E7%94%BB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bash</title>
+      <link>https://blog.seisman.info/tags/Bash/</link>
+      <pubDate>Wed, 13 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/Bash/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>endian</title>
+      <link>https://blog.seisman.info/tags/endian/</link>
+      <pubDate>Wed, 13 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/endian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>用法</title>
+      <link>https://blog.seisman.info/tags/%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Thu, 31 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E7%94%A8%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>模块</title>
+      <link>https://blog.seisman.info/tags/%E6%A8%A1%E5%9D%97/</link>
+      <pubDate>Wed, 16 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E6%A8%A1%E5%9D%97/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Matlab</title>
+      <link>https://blog.seisman.info/tags/Matlab/</link>
+      <pubDate>Mon, 14 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/Matlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>断层</title>
+      <link>https://blog.seisman.info/tags/%E6%96%AD%E5%B1%82/</link>
+      <pubDate>Thu, 26 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E6%96%AD%E5%B1%82/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>震源</title>
+      <link>https://blog.seisman.info/tags/%E9%9C%87%E6%BA%90/</link>
+      <pubDate>Mon, 16 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E9%9C%87%E6%BA%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>震中距</title>
+      <link>https://blog.seisman.info/tags/%E9%9C%87%E4%B8%AD%E8%B7%9D/</link>
+      <pubDate>Sat, 03 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E9%9C%87%E4%B8%AD%E8%B7%9D/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Firefox</title>
+      <link>https://blog.seisman.info/tags/Firefox/</link>
+      <pubDate>Thu, 11 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/Firefox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>书籍</title>
+      <link>https://blog.seisman.info/tags/%E4%B9%A6%E7%B1%8D/</link>
+      <pubDate>Sat, 06 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/tags/%E4%B9%A6%E7%B1%8D/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
