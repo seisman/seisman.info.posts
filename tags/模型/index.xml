@@ -1,36 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>模型 on SeisMan</title>
-    <link>https://blog.seisman.info/tags/%E6%A8%A1%E5%9E%8B/</link>
-    <description>Recent content in 模型 on SeisMan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Sat, 21 May 2016 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.seisman.info/tags/%E6%A8%A1%E5%9E%8B/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>TauP 自定义模型</title>
-      <link>https://blog.seisman.info/taup-custom-models/</link>
-      <pubDate>Sat, 21 May 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/taup-custom-models/</guid>
-      <description>&lt;p&gt;TauP 内置了常见的一维速度模型，比如 PREM、ak135、iasp91 等，这些标准速度模型
-位于 TauP 软件包的 &lt;code&gt;StdModels&lt;/code&gt; 目录下。日常科研中，这些标准速度模型是不能满足
-需求的，因而需要自定义速度模型。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>全球地壳模型 crust 1.0</title>
-      <link>https://blog.seisman.info/crust1/</link>
-      <pubDate>Thu, 03 Oct 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/crust1/</guid>
-      <description>&lt;p&gt;crust 1.0 是一个全球的三维地壳模型，其分辨率是 1 度。更老的版本还有分辨率低一些的 crust 5.1 和 crust 2.0。&lt;/p&gt;
-&lt;p&gt;官方网址：&lt;a href=&#34;http://igppweb.ucsd.edu/~gabi/crust1.html&#34;&gt;http://igppweb.ucsd.edu/~gabi/crust1.html&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>模型 on SeisMan</title><link>https://blog.seisman.info/tags/%E6%A8%A1%E5%9E%8B/</link><description>Recent content in 模型 on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 21 May 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E6%A8%A1%E5%9E%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>TauP 自定义模型</title><link>https://blog.seisman.info/taup-custom-models/</link><pubDate>Sat, 21 May 2016 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/taup-custom-models/</guid><description>&lt;p>TauP 内置了常见的一维速度模型，比如 PREM、ak135、iasp91 等，这些标准速度模型
+位于 TauP 软件包的 &lt;code>StdModels&lt;/code> 目录下。日常科研中，这些标准速度模型是不能满足
+需求的，因而需要自定义速度模型。&lt;/p></description></item><item><title>全球地壳模型 crust 1.0</title><link>https://blog.seisman.info/crust1/</link><pubDate>Thu, 03 Oct 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/crust1/</guid><description>&lt;p>crust 1.0 是一个全球的三维地壳模型，其分辨率是 1 度。更老的版本还有分辨率低一些的 crust 5.1 和 crust 2.0。&lt;/p>
+&lt;p>官方网址：&lt;a href="http://igppweb.ucsd.edu/~gabi/crust1.html">http://igppweb.ucsd.edu/~gabi/crust1.html&lt;/a>&lt;/p></description></item></channel></rss>

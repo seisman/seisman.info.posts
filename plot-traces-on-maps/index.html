@@ -1,282 +1,71 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>在地图上绘制波形 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="将 SAC 波形数据绘制在地图上也算是常见的需求之一。最常见的情况是，在地图上有一些台站，需要将波形画在台站的附近。
-此问题的难点在于，在画地图时，-R 指定的是区域范围，即横轴是经度，纵轴是纬度，而 pssac 在绘制波形时，横轴是时间，纵轴是振幅。因而想要将波形放在特定的位置，不是一件容易的事情。
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.61.0 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/plot-traces-on-maps/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="在地图上绘制波形" />
-<meta property="og:description" content="将 SAC 波形数据绘制在地图上也算是常见的需求之一。最常见的情况是，在地图上有一些台站，需要将波形画在台站的附近。
-此问题的难点在于，在画地图时，-R 指定的是区域范围，即横轴是经度，纵轴是纬度，而 pssac 在绘制波形时，横轴是时间，纵轴是振幅。因而想要将波形放在特定的位置，不是一件容易的事情。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/plot-traces-on-maps/" />
-<meta property="article:published_time" content="2015-07-18T00:00:00+00:00" />
-<meta property="article:modified_time" content="2015-07-18T00:00:00+00:00" />
-<meta itemprop="name" content="在地图上绘制波形">
-<meta itemprop="description" content="将 SAC 波形数据绘制在地图上也算是常见的需求之一。最常见的情况是，在地图上有一些台站，需要将波形画在台站的附近。
-此问题的难点在于，在画地图时，-R 指定的是区域范围，即横轴是经度，纵轴是纬度，而 pssac 在绘制波形时，横轴是时间，纵轴是振幅。因而想要将波形放在特定的位置，不是一件容易的事情。">
-<meta itemprop="datePublished" content="2015-07-18T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2015-07-18T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="3594">
-
-
-
-<meta itemprop="keywords" content="pssac,SAC,GMT技巧," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="在地图上绘制波形"/>
-<meta name="twitter:description" content="将 SAC 波形数据绘制在地图上也算是常见的需求之一。最常见的情况是，在地图上有一些台站，需要将波形画在台站的附近。
-此问题的难点在于，在画地图时，-R 指定的是区域范围，即横轴是经度，纵轴是纬度，而 pssac 在绘制波形时，横轴是时间，纵轴是振幅。因而想要将波形放在特定的位置，不是一件容易的事情。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">在地图上绘制波形</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2015-07-18 </span>
-        
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#heading">生成示例</a></li>
-    <li><a href="#heading-1">先绘制地图</a></li>
-    <li><a href="#heading-2">第一个波形振幅图</a></li>
-    <li><a href="#heading-3">将波形放对位置</a></li>
-    <li><a href="#heading-4">绘制所有波形</a></li>
-    <li><a href="#heading-5">自动化</a></li>
-    <li><a href="#heading-6">只绘制一段波形</a></li>
-    <li><a href="#heading-7">额外的说明</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>将 SAC 波形数据绘制在地图上也算是常见的需求之一。最常见的情况是，在地图上有一些台站，需要将波形画在台站的附近。</p>
-<p>此问题的难点在于，在画地图时，-R 指定的是区域范围，即横轴是经度，纵轴是纬度，而 pssac 在绘制波形时，横轴是时间，纵轴是振幅。因而想要将波形放在特定的位置，不是一件容易的事情。</p>
-<h2 id="heading">生成示例</h2>
-<p>用 SAC 自带的数据，生成几个示例数据，供接下来使用:</p>
-<pre><code>SAC&gt; dg sub tele ntkl.z nykl.z onkl.z sdkl.z
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>在地图上绘制波形 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="将 SAC 波形数据绘制在地图上也算是常见的需求之一。最常见的情况是，在地图上有一些台站，需要将波形画在台站的附近。
+此问题的难点在于，在画地图时，-R 指定的是区域范围，即横轴是经度，纵轴是纬度，而 pssac 在绘制波形时，横轴是时间，纵轴是振幅。因而想要将波形放在特定的位置，不是一件容易的事情。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://blog.seisman.info/plot-traces-on-maps/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="在地图上绘制波形"><meta property="og:description" content="将 SAC 波形数据绘制在地图上也算是常见的需求之一。最常见的情况是，在地图上有一些台站，需要将波形画在台站的附近。
+此问题的难点在于，在画地图时，-R 指定的是区域范围，即横轴是经度，纵轴是纬度，而 pssac 在绘制波形时，横轴是时间，纵轴是振幅。因而想要将波形放在特定的位置，不是一件容易的事情。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/plot-traces-on-maps/"><meta property="article:published_time" content="2015-07-18T00:00:00+00:00"><meta property="article:modified_time" content="2015-07-18T00:00:00+00:00"><meta itemprop=name content="在地图上绘制波形"><meta itemprop=description content="将 SAC 波形数据绘制在地图上也算是常见的需求之一。最常见的情况是，在地图上有一些台站，需要将波形画在台站的附近。
+此问题的难点在于，在画地图时，-R 指定的是区域范围，即横轴是经度，纵轴是纬度，而 pssac 在绘制波形时，横轴是时间，纵轴是振幅。因而想要将波形放在特定的位置，不是一件容易的事情。"><meta itemprop=datePublished content="2015-07-18T00:00:00+00:00"><meta itemprop=dateModified content="2015-07-18T00:00:00+00:00"><meta itemprop=wordCount content="3594"><meta itemprop=keywords content="pssac,SAC,GMT技巧,"><meta name=twitter:card content="summary"><meta name=twitter:title content="在地图上绘制波形"><meta name=twitter:description content="将 SAC 波形数据绘制在地图上也算是常见的需求之一。最常见的情况是，在地图上有一些台站，需要将波形画在台站的附近。
+此问题的难点在于，在画地图时，-R 指定的是区域范围，即横轴是经度，纵轴是纬度，而 pssac 在绘制波形时，横轴是时间，纵轴是振幅。因而想要将波形放在特定的位置，不是一件容易的事情。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>在地图上绘制波形</h1><div class=post-meta><span class=post-time>2015-07-18</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#生成示例>生成示例</a></li><li><a href=#先绘制地图>先绘制地图</a></li><li><a href=#第一个波形振幅图>第一个波形振幅图</a></li><li><a href=#将波形放对位置>将波形放对位置</a></li><li><a href=#绘制所有波形>绘制所有波形</a></li><li><a href=#自动化>自动化</a></li><li><a href=#只绘制一段波形>只绘制一段波形</a></li><li><a href=#额外的说明>额外的说明</a></li></ul></nav></div></div><div class=post-content><p>将 SAC 波形数据绘制在地图上也算是常见的需求之一。最常见的情况是，在地图上有一些台站，需要将波形画在台站的附近。</p><p>此问题的难点在于，在画地图时，-R 指定的是区域范围，即横轴是经度，纵轴是纬度，而 pssac 在绘制波形时，横轴是时间，纵轴是振幅。因而想要将波形放在特定的位置，不是一件容易的事情。</p><h2 id=生成示例>生成示例</h2><p>用 SAC 自带的数据，生成几个示例数据，供接下来使用:</p><pre><code>SAC&gt; dg sub tele ntkl.z nykl.z onkl.z sdkl.z
 SAC&gt; w ntkl.z nykl.z onkl.z sdkl.z
-</code></pre>
-<p>用 <code>saclst</code> 查看一下这几个波形数据的相关信息:</p>
-<pre><code>$ saclst b e stlo stla f *.z
+</code></pre><p>用 <code>saclst</code> 查看一下这几个波形数据的相关信息:</p><pre><code>$ saclst b e stlo stla f *.z
 ntkl.z      199.965     1600.95    -114.592     62.4797
 nykl.z      199.962     1600.97      -74.53     44.5483
 onkl.z      199.618     1600.62    -93.7022     50.8589
 sdkl.z      199.098     1600.11    -104.036     44.1204
-</code></pre>
-<h2 id="heading-1">先绘制地图</h2>
-<p>在考虑如何把波形画在地图上之前，先得有一个地图。用如下代码绘制一个地图：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>J<span style="color:#f92672">=</span>M15c
-R<span style="color:#f92672">=</span>-120/-60/30/65
-PS<span style="color:#f92672">=</span>map.ps
+</code></pre><h2 id=先绘制地图>先绘制地图</h2><p>在考虑如何把波形画在地图上之前，先得有一个地图。用如下代码绘制一个地图：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e>#!/bin/bash
+</span><span style=color:#75715e></span>J<span style=color:#f92672>=</span>M15c
+R<span style=color:#f92672>=</span>-120/-60/30/65
+PS<span style=color:#f92672>=</span>map.ps
 
 psxy -J$J -R$R -T -K &gt; $PS
-<span style="color:#75715e"># 绘制海岸线</span>
+<span style=color:#75715e># 绘制海岸线</span>
 pscoast -J$J -R$R -B10/10 -Ggray -K -O -A1000 &gt;&gt; $PS
-<span style="color:#75715e"># 绘制台站位置</span>
-saclst stlo stla f *.z | awk <span style="color:#e6db74">&#39;{print $2, $3}&#39;</span> | psxy -J$J -R$R -Sa0.5c -Gblack -K -O &gt;&gt; $PS
-<span style="color:#75715e"># 绘制台站名</span>
-saclst stlo stla f *.z | awk <span style="color:#e6db74">&#39;{print $2, $3,&#34;15 0 0 TR&#34;, $1}&#39;</span> | pstext -J$J -R$R -D-0.1c/-0.1c -K -O &gt;&gt; $PS
+<span style=color:#75715e># 绘制台站位置</span>
+saclst stlo stla f *.z | awk <span style=color:#e6db74>&#39;{print $2, $3}&#39;</span> | psxy -J$J -R$R -Sa0.5c -Gblack -K -O &gt;&gt; $PS
+<span style=color:#75715e># 绘制台站名</span>
+saclst stlo stla f *.z | awk <span style=color:#e6db74>&#39;{print $2, $3,&#34;15 0 0 TR&#34;, $1}&#39;</span> | pstext -J$J -R$R -D-0.1c/-0.1c -K -O &gt;&gt; $PS
 psxy -J$J -R$R -T -O &gt;&gt; $PS
 </code></pre></div><p>代码中使用了 <code>saclst</code> 和 <code>awk</code> 提取了每个波形所对应的台站经纬度，并通过管道传递给 <code>psxy</code> 和 <code>pstext</code>
-命令。</p>
-<p>地图效果如下：</p>
-<p><img src="/images/2015071801.png" alt=""></p>
-<h2 id="heading-2">第一个波形振幅图</h2>
-<p>以 <code>ntkl.z</code> 的波形为例，先不去想如何把波形放在台站附近，只考虑如何将波形画在地图上。</p>
-<p>先把代码写出来，如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>J<span style="color:#f92672">=</span>M15c
-R<span style="color:#f92672">=</span>-120/-60/30/65
-PS<span style="color:#f92672">=</span>map.ps
+命令。</p><p>地图效果如下：</p><p><img src=/images/2015071801.png alt></p><h2 id=第一个波形振幅图>第一个波形振幅图</h2><p>以 <code>ntkl.z</code> 的波形为例，先不去想如何把波形放在台站附近，只考虑如何将波形画在地图上。</p><p>先把代码写出来，如下：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e>#!/bin/bash
+</span><span style=color:#75715e></span>J<span style=color:#f92672>=</span>M15c
+R<span style=color:#f92672>=</span>-120/-60/30/65
+PS<span style=color:#f92672>=</span>map.ps
 
 psxy -J$J -R$R -T -K &gt; $PS
 pscoast -J$J -R$R -B10/10 -Ggray -K -O -A1000 &gt;&gt; $PS
-saclst stlo stla f *.z | awk <span style="color:#e6db74">&#39;{print $2, $3}&#39;</span> | psxy -J$J -R$R -Sa0.5c -Gblack -K -O &gt;&gt; $PS
-saclst stlo stla f *.z | awk <span style="color:#e6db74">&#39;{print $2, $3,&#34;15 0 0 TR&#34;, $1}&#39;</span> | pstext -J$J -R$R -D-0.1c/-0.1c -K -O &gt;&gt; $PS
+saclst stlo stla f *.z | awk <span style=color:#e6db74>&#39;{print $2, $3}&#39;</span> | psxy -J$J -R$R -Sa0.5c -Gblack -K -O &gt;&gt; $PS
+saclst stlo stla f *.z | awk <span style=color:#e6db74>&#39;{print $2, $3,&#34;15 0 0 TR&#34;, $1}&#39;</span> | pstext -J$J -R$R -D-0.1c/-0.1c -K -O &gt;&gt; $PS
 
-<span style="color:#75715e"># 绘制波形</span>
+<span style=color:#75715e># 绘制波形</span>
 pssac -JX4c/2.6c -R200/1600/0/2 -B500/1 -M1 -Ent -K -O ntkl.z &gt;&gt; $PS
 
 psxy -J$J -R$R -T -O &gt;&gt; $PS
-</code></pre></div><p>生成的效果如下：</p>
-<p><img src="/images/2015071802.png" alt=""></p>
-<p>解释一些 pssac 中各个选项的含义及作用：</p>
-<ul>
-<li><code>-R</code> 选项中 X 轴的范围 <code>200/1600</code> 是波形的时间跨度，这里要绘制整个波形，所以时间跨度由波形的 B 值和 E 值决定；当然也可以只绘制波形中的一小段，这个放后面再说；</li>
-<li><code>-JX</code> 中的底图长度 <code>4c</code> 用于控制波形在地图上的长度；</li>
-<li><code>-M1</code> 会对波形做振幅归一化，使得波形的最大振幅差在地图上显示的高度为 1** 英寸 **；修改这个值可以控制波形的高度；</li>
-<li><code>-R</code> 选择中 Y 轴的范围设置为 <code>0/2</code> 以及 <code>-Ent</code> 中的 <code>n</code> 是固定的，直接用就好，不需要修改；这样设计的原因会在后面解释；</li>
-<li><code>-JX</code> 中的 Y 轴长度 <code>2.6c</code> 为底图的高度；由于波形的最大振幅差已经设定为 1 英寸，即 2.54 厘米，底图的高度必须大于等于波形的高度，如果底图高度取 <code>2.54c</code>，可能会导致某些波形被截断，所以要底图高度要稍大一些，可以一点一点增加底图高度看具体效果；</li>
-<li>此代码中 <code>-B500/1</code> 为波形加了边框，这样做是为了看起来更直观，稍后会把这个边框去掉；</li>
-</ul>
-<h2 id="heading-3">将波形放对位置</h2>
-<p>前面已经把波形画到了地图上，还需要将波形移动到台站所在的位置。最直观的想法是在用 pssac 绘制波形时，同时使用 <code>-X</code> 和 <code>-Y</code> 选项移动波形的坐标原点。那么 <code>-X</code> 和 <code>-Y</code> 的偏移量分别是多少呢？这需要借助于 GMT 的 <code>mapproject</code> 命令。</p>
-<p><code>ntkl.z</code> 台站的位置是 <code>(-114.592, 62.4797)</code> ， <code>mapproject</code> 命令可以计算出任意一点相对于当前底图左下角坐标原点的偏移量:</p>
-<pre><code>$ echo -114.592 62.4797 | mapproject -JM15c -R-120/-60/30/65
+</code></pre></div><p>生成的效果如下：</p><p><img src=/images/2015071802.png alt></p><p>解释一些 pssac 中各个选项的含义及作用：</p><ul><li><code>-R</code> 选项中 X 轴的范围 <code>200/1600</code> 是波形的时间跨度，这里要绘制整个波形，所以时间跨度由波形的 B 值和 E 值决定；当然也可以只绘制波形中的一小段，这个放后面再说；</li><li><code>-JX</code> 中的底图长度 <code>4c</code> 用于控制波形在地图上的长度；</li><li><code>-M1</code> 会对波形做振幅归一化，使得波形的最大振幅差在地图上显示的高度为 1** 英寸 **；修改这个值可以控制波形的高度；</li><li><code>-R</code> 选择中 Y 轴的范围设置为 <code>0/2</code> 以及 <code>-Ent</code> 中的 <code>n</code> 是固定的，直接用就好，不需要修改；这样设计的原因会在后面解释；</li><li><code>-JX</code> 中的 Y 轴长度 <code>2.6c</code> 为底图的高度；由于波形的最大振幅差已经设定为 1 英寸，即 2.54 厘米，底图的高度必须大于等于波形的高度，如果底图高度取 <code>2.54c</code>，可能会导致某些波形被截断，所以要底图高度要稍大一些，可以一点一点增加底图高度看具体效果；</li><li>此代码中 <code>-B500/1</code> 为波形加了边框，这样做是为了看起来更直观，稍后会把这个边框去掉；</li></ul><h2 id=将波形放对位置>将波形放对位置</h2><p>前面已经把波形画到了地图上，还需要将波形移动到台站所在的位置。最直观的想法是在用 pssac 绘制波形时，同时使用 <code>-X</code> 和 <code>-Y</code> 选项移动波形的坐标原点。那么 <code>-X</code> 和 <code>-Y</code> 的偏移量分别是多少呢？这需要借助于 GMT 的 <code>mapproject</code> 命令。</p><p><code>ntkl.z</code> 台站的位置是 <code>(-114.592, 62.4797)</code> ， <code>mapproject</code> 命令可以计算出任意一点相对于当前底图左下角坐标原点的偏移量:</p><pre><code>$ echo -114.592 62.4797 | mapproject -JM15c -R-120/-60/30/65
 1.352   12.2477921602
-</code></pre>
-<p>这里的输出结果表明， <code>(-114.6, 62.5)</code> 这一坐标相对于底图左下角原点的距离是 <code>(1.35c, 12.25c)</code> 。</p>
-<p>知道偏移距离之后，给代码加上 <code>-Xa1.35c -Ya12.25c</code> 就可以把波形偏移到台站处了。 <code>-X</code> 和 <code>-Y</code> 选项中在偏移量之前加上了 <code>a</code>，使得将波形偏移到台站坐标处的同时不修改原底图的坐标原点，这样不会影响到后面波形的绘制。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>J<span style="color:#f92672">=</span>M15c
-R<span style="color:#f92672">=</span>-120/-60/30/65
-PS<span style="color:#f92672">=</span>map.ps
+</code></pre><p>这里的输出结果表明， <code>(-114.6, 62.5)</code> 这一坐标相对于底图左下角原点的距离是 <code>(1.35c, 12.25c)</code> 。</p><p>知道偏移距离之后，给代码加上 <code>-Xa1.35c -Ya12.25c</code> 就可以把波形偏移到台站处了。 <code>-X</code> 和 <code>-Y</code> 选项中在偏移量之前加上了 <code>a</code>，使得将波形偏移到台站坐标处的同时不修改原底图的坐标原点，这样不会影响到后面波形的绘制。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e>#!/bin/bash
+</span><span style=color:#75715e></span>J<span style=color:#f92672>=</span>M15c
+R<span style=color:#f92672>=</span>-120/-60/30/65
+PS<span style=color:#f92672>=</span>map.ps
 
 psxy -J$J -R$R -T -K &gt; $PS
 pscoast -J$J -R$R -B10/10 -Ggray -K -O -A1000 &gt;&gt; $PS
-saclst stlo stla f *.z | awk <span style="color:#e6db74">&#39;{print $2, $3}&#39;</span> | psxy -J$J -R$R -Sa0.5c -Gblack -K -O &gt;&gt; $PS
-saclst stlo stla f *.z | awk <span style="color:#e6db74">&#39;{print $2, $3,&#34;15 0 0 TR&#34;, $1}&#39;</span> | pstext -J$J -R$R -D-0.1c/-0.1c -K -O &gt;&gt; $PS
+saclst stlo stla f *.z | awk <span style=color:#e6db74>&#39;{print $2, $3}&#39;</span> | psxy -J$J -R$R -Sa0.5c -Gblack -K -O &gt;&gt; $PS
+saclst stlo stla f *.z | awk <span style=color:#e6db74>&#39;{print $2, $3,&#34;15 0 0 TR&#34;, $1}&#39;</span> | pstext -J$J -R$R -D-0.1c/-0.1c -K -O &gt;&gt; $PS
 
 pssac -JX4c/2.6c -R200/1600/0/2 -B500/1 -M1 -Ent -K -O -Xa1.35c -Ya12.25c ntkl.z &gt;&gt; $PS
 
 psxy -J$J -R$R -T -O &gt;&gt; $PS
-</code></pre></div><p>绘图效果如下：</p>
-<p><img src="/images/2015071803.png" alt=""></p>
-<p>上图还是有问题。因为 <code>-X</code> 和 <code>-Y</code> 控制的是 pssac 的底图原点相当于地图底图的原点的偏移量，因而导致波形的底图边框左下角恰好位于台站位置处。</p>
-<p>从美观等角度考虑，可能希望波形起点位于五角星的正右边一点。因而需要将 <code>mapproject</code> 计算出来的 X 偏移量调大一点，Y 偏移量则应减去底图高度的一半。这个例子中，可以将 <code>-Xa1.35c -Ya12.25c</code> 改成 <code>-Xa1.5c -Ya11c</code>。如果希望波形起点位于五角星的正左边一点，也是可以的，自己指定一个额外的偏移量即可。</p>
-<p>绘图效果如下：</p>
-<p><img src="/images/2015071804.png" alt=""></p>
-<h2 id="heading-4">绘制所有波形</h2>
-<p>前面已经把一个台站的波形放对了位置，接下来就需要把所有波形都放对位置。</p>
-<p>可以使用 <code>mapproject</code> 命令获取所有台站位置相对于底图左下角的偏移量，如下所示:</p>
-<pre><code>$ saclst stlo stla f *.z | awk '{print $2, $3, $1}' | mapproject -JM15c -R-120/-60/30/65
+</code></pre></div><p>绘图效果如下：</p><p><img src=/images/2015071803.png alt></p><p>上图还是有问题。因为 <code>-X</code> 和 <code>-Y</code> 控制的是 pssac 的底图原点相当于地图底图的原点的偏移量，因而导致波形的底图边框左下角恰好位于台站位置处。</p><p>从美观等角度考虑，可能希望波形起点位于五角星的正右边一点。因而需要将 <code>mapproject</code> 计算出来的 X 偏移量调大一点，Y 偏移量则应减去底图高度的一半。这个例子中，可以将 <code>-Xa1.35c -Ya12.25c</code> 改成 <code>-Xa1.5c -Ya11c</code>。如果希望波形起点位于五角星的正左边一点，也是可以的，自己指定一个额外的偏移量即可。</p><p>绘图效果如下：</p><p><img src=/images/2015071804.png alt></p><h2 id=绘制所有波形>绘制所有波形</h2><p>前面已经把一个台站的波形放对了位置，接下来就需要把所有波形都放对位置。</p><p>可以使用 <code>mapproject</code> 命令获取所有台站位置相对于底图左下角的偏移量，如下所示:</p><pre><code>$ saclst stlo stla f *.z | awk '{print $2, $3, $1}' | mapproject -JM15c -R-120/-60/30/65
 1.352   12.2477921602   ntkl.z
 11.3675 4.57807021226   nykl.z
 6.57445 6.91932494984   onkl.z
 3.991   4.42902501583   sdkl.z
-</code></pre>
-<p>然后在 <code>mapproject</code> 的输出的基础上加上额外的偏移量，波形就可以放在台站正右方了。</p>
-<p>代码如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>J<span style="color:#f92672">=</span>M15c
-R<span style="color:#f92672">=</span>-120/-60/30/65
-PS<span style="color:#f92672">=</span>map.ps
+</code></pre><p>然后在 <code>mapproject</code> 的输出的基础上加上额外的偏移量，波形就可以放在台站正右方了。</p><p>代码如下：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e>#!/bin/bash
+</span><span style=color:#75715e></span>J<span style=color:#f92672>=</span>M15c
+R<span style=color:#f92672>=</span>-120/-60/30/65
+PS<span style=color:#f92672>=</span>map.ps
 
 psxy -J$J -R$R -T -K &gt; $PS
 pscoast -J$J -R$R -B10/10 -Ggray -K -O -A1000 &gt;&gt; $PS
-saclst stlo stla f *.z | awk <span style="color:#e6db74">&#39;{print $2, $3}&#39;</span> | psxy -J$J -R$R -Sa0.5c -Gblack -K -O &gt;&gt; $PS
-saclst stlo stla f *.z | awk <span style="color:#e6db74">&#39;{print $2, $3,&#34;15 0 0 TR&#34;, $1}&#39;</span> | pstext -J$J -R$R -D-0.1c/-0.1c -K -O &gt;&gt; $PS
+saclst stlo stla f *.z | awk <span style=color:#e6db74>&#39;{print $2, $3}&#39;</span> | psxy -J$J -R$R -Sa0.5c -Gblack -K -O &gt;&gt; $PS
+saclst stlo stla f *.z | awk <span style=color:#e6db74>&#39;{print $2, $3,&#34;15 0 0 TR&#34;, $1}&#39;</span> | pstext -J$J -R$R -D-0.1c/-0.1c -K -O &gt;&gt; $PS
 
 pssac -JX4c/2.6c -R200/1600/0/2 -M1 -Ent -K -O -Xa1.5c -Ya11c ntkl.z &gt;&gt; $PS
 pssac -JX4c/2.6c -R200/1600/0/2 -M1 -Ent -K -O -Xa11.5c -Ya3.25c nykl.z &gt;&gt; $PS
@@ -284,226 +73,80 @@ pssac -JX4c/2.6c -R200/1600/0/2 -M1 -Ent -K -O -Xa6.67c -Ya5.6c onkl.z &gt;&gt; 
 pssac -JX4c/2.6c -R200/1600/0/2 -M1 -Ent -K -O -Xa4.2c -Ya3.1c sdkl.z &gt;&gt; $PS
 
 psxy -J$J -R$R -T -O &gt;&gt; $PS
-</code></pre></div><p>绘图效果如下：</p>
-<p><img src="/images/2015071805.png" alt=""></p>
-<p>上图还是有些问题，比如 <code>nykl.z</code> 台站的波形右边有点过界了， <code>sdkl.z</code>
-似乎被限幅了，可以修改 <code>-JX4c/2.6c</code> 来微调。微调的事情就不再说了。</p>
-<h2 id="heading-5">自动化</h2>
-<p>如果只有几个波形的话，直接为每个波形计算偏移距，然后手写 pssac 语句倒也不麻烦。如果台站很多的话，就需要将整个流程自动化了。一方面是因为要画多个波形的话，手写 pssac 工作量有些大；另一方面，命令中的某些参数存在关联，因而微调某个参数的同时，可能也要同时调整其他参数（比如，上面的代码中，若要微调一下地图的 <code>-J</code> 和 <code>-R</code> ，则所有的偏移量都需要重新计算并修改）。</p>
-<p>下面给出用 Perl 写的自动化脚本。之所以用 Perl 而不是用 Bash，一方面是因为自动化过程中涉及到一些浮点数运算，而 Bash 的浮点运算比较麻烦，另一方面是因为我不会写稍复杂的 Bash 脚本。</p>
-<p>注意：本脚本只能使用 GMT4 的绘图命令，使用 GMT5 的命令会出现问题，请勿使用。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e">#!/usr/bin/env perl</span>
-<span style="color:#66d9ef">use</span> strict;
-<span style="color:#66d9ef">use</span> warnings;
+</code></pre></div><p>绘图效果如下：</p><p><img src=/images/2015071805.png alt></p><p>上图还是有些问题，比如 <code>nykl.z</code> 台站的波形右边有点过界了， <code>sdkl.z</code>
+似乎被限幅了，可以修改 <code>-JX4c/2.6c</code> 来微调。微调的事情就不再说了。</p><h2 id=自动化>自动化</h2><p>如果只有几个波形的话，直接为每个波形计算偏移距，然后手写 pssac 语句倒也不麻烦。如果台站很多的话，就需要将整个流程自动化了。一方面是因为要画多个波形的话，手写 pssac 工作量有些大；另一方面，命令中的某些参数存在关联，因而微调某个参数的同时，可能也要同时调整其他参数（比如，上面的代码中，若要微调一下地图的 <code>-J</code> 和 <code>-R</code> ，则所有的偏移量都需要重新计算并修改）。</p><p>下面给出用 Perl 写的自动化脚本。之所以用 Perl 而不是用 Bash，一方面是因为自动化过程中涉及到一些浮点数运算，而 Bash 的浮点运算比较麻烦，另一方面是因为我不会写稍复杂的 Bash 脚本。</p><p>注意：本脚本只能使用 GMT4 的绘图命令，使用 GMT5 的命令会出现问题，请勿使用。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl><span style=color:#75715e>#!/usr/bin/env perl</span>
+<span style=color:#66d9ef>use</span> strict;
+<span style=color:#66d9ef>use</span> warnings;
 
-<span style="color:#66d9ef">my</span> $J <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;M15c&#34;</span>;
-<span style="color:#66d9ef">my</span> $R <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;-120/-60/30/65&#34;</span>;
-<span style="color:#66d9ef">my</span> $PS <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;map.ps&#34;</span>;
+<span style=color:#66d9ef>my</span> $J <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;M15c&#34;</span>;
+<span style=color:#66d9ef>my</span> $R <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;-120/-60/30/65&#34;</span>;
+<span style=color:#66d9ef>my</span> $PS <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;map.ps&#34;</span>;
 
-system <span style="color:#e6db74">&#34;psxy -J$J -R$R -T -K&gt; $PS&#34;</span>;
+system <span style=color:#e6db74>&#34;psxy -J$J -R$R -T -K&gt; $PS&#34;</span>;
 
-<span style="color:#75715e"># 绘制海岸线</span>
-system <span style="color:#e6db74">&#34;pscoast -J$J -R$R -B10/10 -Ggray -K -O -A1000&gt;&gt; $PS&#34;</span>;
+<span style=color:#75715e># 绘制海岸线</span>
+system <span style=color:#e6db74>&#34;pscoast -J$J -R$R -B10/10 -Ggray -K -O -A1000&gt;&gt; $PS&#34;</span>;
 
-<span style="color:#66d9ef">my</span> @sacfiles <span style="color:#f92672">=</span> glob <span style="color:#e6db74">&#34;*.z&#34;</span>;
-<span style="color:#75715e"># 绘制台站位置</span>
-open(PSXY,<span style="color:#e6db74">&#34;| psxy -J$J -R$R -Sa0.5c -Gblack -K -O&gt;&gt; $PS&#34;</span>);
-<span style="color:#66d9ef">foreach</span> (@sacfiles) {
-    <span style="color:#66d9ef">my</span> ($fname, $stlo, $stla) <span style="color:#f92672">=</span> split <span style="color:#e6db74">&#34; &#34;</span>, <span style="color:#e6db74">`saclst stlo stla f $_`</span>;
-    <span style="color:#66d9ef">print</span> PSXY <span style="color:#e6db74">&#34;$stlo $stla\n&#34;</span>;
+<span style=color:#66d9ef>my</span> @sacfiles <span style=color:#f92672>=</span> glob <span style=color:#e6db74>&#34;*.z&#34;</span>;
+<span style=color:#75715e># 绘制台站位置</span>
+open(PSXY,<span style=color:#e6db74>&#34;| psxy -J$J -R$R -Sa0.5c -Gblack -K -O&gt;&gt; $PS&#34;</span>);
+<span style=color:#66d9ef>foreach</span> (@sacfiles) {
+    <span style=color:#66d9ef>my</span> ($fname, $stlo, $stla) <span style=color:#f92672>=</span> split <span style=color:#e6db74>&#34; &#34;</span>, <span style=color:#e6db74>`saclst stlo stla f $_`</span>;
+    <span style=color:#66d9ef>print</span> PSXY <span style=color:#e6db74>&#34;$stlo $stla\n&#34;</span>;
 }
 close(PSXY);
 
-<span style="color:#75715e"># 绘制台站名</span>
-open(PSTEXT,<span style="color:#e6db74">&#34;| pstext -J$J -R$R -D-0.1c/-0.1c -K -O&gt;&gt; $PS&#34;</span>);
-<span style="color:#66d9ef">foreach</span> (@sacfiles) {
-    <span style="color:#66d9ef">my</span> ($fname, $stlo, $stla) <span style="color:#f92672">=</span> split <span style="color:#e6db74">&#34; &#34;</span>, <span style="color:#e6db74">`saclst stlo stla f $_`</span>;
-    <span style="color:#66d9ef">print</span> PSTEXT <span style="color:#e6db74">&#34;$stlo $stla 15 0 0 TR $fname\n&#34;</span>;
+<span style=color:#75715e># 绘制台站名</span>
+open(PSTEXT,<span style=color:#e6db74>&#34;| pstext -J$J -R$R -D-0.1c/-0.1c -K -O&gt;&gt; $PS&#34;</span>);
+<span style=color:#66d9ef>foreach</span> (@sacfiles) {
+    <span style=color:#66d9ef>my</span> ($fname, $stlo, $stla) <span style=color:#f92672>=</span> split <span style=color:#e6db74>&#34; &#34;</span>, <span style=color:#e6db74>`saclst stlo stla f $_`</span>;
+    <span style=color:#66d9ef>print</span> PSTEXT <span style=color:#e6db74>&#34;$stlo $stla 15 0 0 TR $fname\n&#34;</span>;
 }
 close(PSTEXT);
 
-<span style="color:#75715e"># 波形相关参数</span>
-<span style="color:#66d9ef">my</span> $width <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;      <span style="color:#75715e"># 波形的底图宽度</span>
-<span style="color:#66d9ef">my</span> $height <span style="color:#f92672">=</span> <span style="color:#ae81ff">2.6</span>;   <span style="color:#75715e"># 波形的底图高度</span>
-<span style="color:#66d9ef">my</span> $M <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;-M1&#34;</span>;      <span style="color:#75715e"># 波形在图上的高度为 1 英寸</span>
-<span style="color:#66d9ef">my</span> $E <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;-Ent&#34;</span>;     <span style="color:#75715e"># 波形剖面图类型</span>
-<span style="color:#66d9ef">my</span> $Rsac <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;-R200/1600/0/2&#34;</span>;    <span style="color:#75715e"># 波形的范围</span>
-<span style="color:#66d9ef">my</span> $Jsac <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;-JX${width}c/${height}c&#34;</span>;
-<span style="color:#66d9ef">my</span> $dx <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.15</span>;      <span style="color:#75715e"># 对 X 偏移量的校正</span>
-<span style="color:#66d9ef">my</span> $dy <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>$height<span style="color:#f92672">/</span><span style="color:#ae81ff">2.0</span>;  <span style="color:#75715e"># 对 Y 偏移量的校正</span>
+<span style=color:#75715e># 波形相关参数</span>
+<span style=color:#66d9ef>my</span> $width <span style=color:#f92672>=</span> <span style=color:#ae81ff>4</span>;      <span style=color:#75715e># 波形的底图宽度</span>
+<span style=color:#66d9ef>my</span> $height <span style=color:#f92672>=</span> <span style=color:#ae81ff>2.6</span>;   <span style=color:#75715e># 波形的底图高度</span>
+<span style=color:#66d9ef>my</span> $M <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;-M1&#34;</span>;      <span style=color:#75715e># 波形在图上的高度为 1 英寸</span>
+<span style=color:#66d9ef>my</span> $E <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;-Ent&#34;</span>;     <span style=color:#75715e># 波形剖面图类型</span>
+<span style=color:#66d9ef>my</span> $Rsac <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;-R200/1600/0/2&#34;</span>;    <span style=color:#75715e># 波形的范围</span>
+<span style=color:#66d9ef>my</span> $Jsac <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;-JX${width}c/${height}c&#34;</span>;
+<span style=color:#66d9ef>my</span> $dx <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.15</span>;      <span style=color:#75715e># 对 X 偏移量的校正</span>
+<span style=color:#66d9ef>my</span> $dy <span style=color:#f92672>=</span> <span style=color:#f92672>-</span>$height<span style=color:#f92672>/</span><span style=color:#ae81ff>2.0</span>;  <span style=color:#75715e># 对 Y 偏移量的校正</span>
 
-<span style="color:#66d9ef">foreach</span> (@sacfiles) {
-    <span style="color:#66d9ef">my</span> ($fname, $stlo, $stla) <span style="color:#f92672">=</span> split <span style="color:#e6db74">&#34; &#34;</span>, <span style="color:#e6db74">`saclst stlo stla f $_`</span>;
+<span style=color:#66d9ef>foreach</span> (@sacfiles) {
+    <span style=color:#66d9ef>my</span> ($fname, $stlo, $stla) <span style=color:#f92672>=</span> split <span style=color:#e6db74>&#34; &#34;</span>, <span style=color:#e6db74>`saclst stlo stla f $_`</span>;
 
-    <span style="color:#75715e"># 用 mapproject 计算偏移量</span>
-    <span style="color:#66d9ef">my</span> ($Xshift, $Yshift) <span style="color:#f92672">=</span> split <span style="color:#e6db74">&#34; &#34;</span>, <span style="color:#e6db74">`echo $stlo $stla | mapproject -J$J -R$R`</span>;
+    <span style=color:#75715e># 用 mapproject 计算偏移量</span>
+    <span style=color:#66d9ef>my</span> ($Xshift, $Yshift) <span style=color:#f92672>=</span> split <span style=color:#e6db74>&#34; &#34;</span>, <span style=color:#e6db74>`echo $stlo $stla | mapproject -J$J -R$R`</span>;
 
-    <span style="color:#75715e"># 对计算出的偏移量做微调</span>
-    $Xshift <span style="color:#f92672">+=</span> $dx;
-    $Yshift <span style="color:#f92672">+=</span> $dy;
+    <span style=color:#75715e># 对计算出的偏移量做微调</span>
+    $Xshift <span style=color:#f92672>+=</span> $dx;
+    $Yshift <span style=color:#f92672>+=</span> $dy;
 
-    <span style="color:#75715e"># 绘制波形</span>
-    system <span style="color:#e6db74">&#34;pssac $Jsac $Rsac $M $E -Xa${Xshift}c -Ya${Yshift}c -K -O $fname &gt;&gt; $PS&#34;</span>;
+    <span style=color:#75715e># 绘制波形</span>
+    system <span style=color:#e6db74>&#34;pssac $Jsac $Rsac $M $E -Xa${Xshift}c -Ya${Yshift}c -K -O $fname &gt;&gt; $PS&#34;</span>;
 }
 
-system <span style="color:#e6db74">&#34;psxy -J$J -R$R -T -O&gt;&gt; $PS&#34;</span>;
-</code></pre></div><p>这个 Perl 脚本的自动化程度比较高，对参数的微调基本不会影响到图的整体效果。下面稍微解释一下其中可以微调的变量：</p>
-<ul>
-<li><code>$J</code> ：地图的投影方式；</li>
-<li><code>$R</code> ：地图的区域范围；</li>
-<li><code>$M</code> ：波形在图上的高度（inch）；</li>
-<li><code>$width</code> ：波形底图的宽度（cm），相当于波形在图上的宽度；</li>
-<li><code>$height</code> ：波形底图的高度（cm），要求比 <code>$M</code> 给出的值稍大；</li>
-<li><code>$Rsac</code> ：波形的范围，横轴范围需要自己根据数据调整，纵轴范围固定为 <code>0/2</code> ；</li>
-<li><code>$E</code> ：固定为 <code>-Ent</code>，如果想要只绘制波形的一部分，可以稍做修改，参考后面一节；</li>
-<li><code>$Jsac</code> ：波形的投影方式，不需要修改；</li>
-<li><code>$dx</code> ：对 <code>mapproject</code> 计算出的 X 偏移量的微调；</li>
-<li><code>$dy</code> ：对 <code>mapproject</code> 计算出的 Y 偏移量的微调；</li>
-</ul>
-<p>注：该脚本中所有波形文件共用同一个 <code>$Rsac</code>，这是一个限制。如果波形的 B 和 E 值不同，则需要对每个波形使用不同的 <code>$Rsac</code>，这需要对脚本做一点微调。</p>
-<h2 id="heading-6">只绘制一段波形</h2>
-<p>前面的代码中绘制的是整条波形，有时候会需要只绘制波形中的一段。比如 P 波的震相到时位于 SAC 文件的头段变量 T0 中，想要将数据中 T0 前 30 秒到 T0 后 30 秒的波形画在地图上。</p>
-<p>对前面给出的 Perl 代码稍作修改即可：</p>
-<ul>
-<li>将 <code>$E</code> 的值改成 <code>-Ent0</code> ；</li>
-<li>将 <code>$R</code> 的值改成 <code>-R-30/30/0/2 -C</code> ；</li>
-</ul>
-<p>最终得到的效果图如下（示例数据中本没有标记 T0，这里我随便标记了几个 T0 作为 P 波到时）：</p>
-<p><img src="/images/2015071806.png" alt=""></p>
-<p>几点说明：</p>
-<ul>
-<li><code>-Ent0</code> 中 <code>n</code> 表示绘制 Y 轴为文件序号的剖面图，因为每个 pssac 命令中只绘制一个波形，因而这个波形会被画在 <code>Y=1</code> 处，因而此处 <code>-R</code> 中 Y 轴的范围取的是 0 到 2。实际上只要 Y 轴的范围包含 1 即可，比如 Y 轴范围取 <code>0.5/1.5</code> 、 <code>0/3</code> 均可，可以尝试取不同的值查看其效果；</li>
-<li><code>-Ent0</code> 中 <code>t0</code> 表示以 T0 为参考时间，此时 T0 对应的时刻相当于 0，T0 前后 30 秒就很容易用
-<code>-R-30/30/0/2</code> 来表示了；</li>
-<li><code>-C</code> 选项很重要。若不使用 <code>-C</code> 选项， <code>-M1</code> 会将整个波形的最大振幅差归一化到 1 英寸，进而导致截取的部分波形最大振幅差比较小；若使用了 <code>-C</code> 选项，表示截取 - 30 秒到 30 秒的波形，然后将这段波形的最大振幅差归一化到 1 英寸；</li>
-</ul>
-<h2 id="heading-7">额外的说明</h2>
-<p>前面的所有代码中，都使用了 <code>-Ent</code> 或 <code>-Ent0</code> 选项，即表示 Y 轴为文件序号的剖面图。明明只有一个波形，直接画波形振幅图不就好了吗，为什么一定要弄成剖面图呢？</p>
-<p>的确，在绘制整个波形的时候，完全可以不使用 <code>-Ent</code> 选项的，此时就是最简单的波形振幅图，此时波形位于 <code>Y=0</code> 处，因而 <code>-R</code> 中 Y 的范围改成 <code>-1/1</code> 或者其他包含 0 的范围即可。</p>
-<p>在绘图部分波形的时候，也可以不使用 <code>-Ent0</code> 选项。比如 P 波到时为 600 秒，前后 30 秒也就是 570 到 630 秒，直接把 <code>-R</code> 选项中的 X 范围改成 <code>570/630</code> 即可。但不同的波形 P 波到时不同，所以 X 轴的范围也不同，这种做法每次都要先提取 T0 的值，然后加减 30 秒计算 X 轴范围，相对来说比较麻烦。</p>
-<p>绘制部分波形时，更合理也更直观的做法，肯定是指定 T0 为参考时刻。要指定 T0 为参考时刻，就必须使用 <code>-E</code> 选项，而使用 <code>-E</code> 选项就意味着要绘制剖面图。剖面类型有 5 种，当剖面类型为 <code>n</code> 时，Y 值取 <code>0/2</code> 即可；如果使用其他剖面类型，Y 值则要依赖于波形中的头段。因而限定了剖面类型为 <code>n</code> 。</p>
-<p>在绘制整个波形时，使用 <code>-Ent</code> 且 Y 轴范围为 <code>0/2</code>，使得脚本可以只需要尽可能少的修改即可适用于绘制部分波形。</p>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2015-07-18
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/pssac/">pssac</a>
-          <a href="/tags/SAC/">SAC</a>
-          <a href="/tags/GMT%E6%8A%80%E5%B7%A7/">GMT技巧</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/pssac2-notes/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">pssac2 使用教程</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/pssac-notes/">
-            <span class="next-text nav-default">pssac 使用教程</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+system <span style=color:#e6db74>&#34;psxy -J$J -R$R -T -O&gt;&gt; $PS&#34;</span>;
+</code></pre></div><p>这个 Perl 脚本的自动化程度比较高，对参数的微调基本不会影响到图的整体效果。下面稍微解释一下其中可以微调的变量：</p><ul><li><code>$J</code> ：地图的投影方式；</li><li><code>$R</code> ：地图的区域范围；</li><li><code>$M</code> ：波形在图上的高度（inch）；</li><li><code>$width</code> ：波形底图的宽度（cm），相当于波形在图上的宽度；</li><li><code>$height</code> ：波形底图的高度（cm），要求比 <code>$M</code> 给出的值稍大；</li><li><code>$Rsac</code> ：波形的范围，横轴范围需要自己根据数据调整，纵轴范围固定为 <code>0/2</code> ；</li><li><code>$E</code> ：固定为 <code>-Ent</code>，如果想要只绘制波形的一部分，可以稍做修改，参考后面一节；</li><li><code>$Jsac</code> ：波形的投影方式，不需要修改；</li><li><code>$dx</code> ：对 <code>mapproject</code> 计算出的 X 偏移量的微调；</li><li><code>$dy</code> ：对 <code>mapproject</code> 计算出的 Y 偏移量的微调；</li></ul><p>注：该脚本中所有波形文件共用同一个 <code>$Rsac</code>，这是一个限制。如果波形的 B 和 E 值不同，则需要对每个波形使用不同的 <code>$Rsac</code>，这需要对脚本做一点微调。</p><h2 id=只绘制一段波形>只绘制一段波形</h2><p>前面的代码中绘制的是整条波形，有时候会需要只绘制波形中的一段。比如 P 波的震相到时位于 SAC 文件的头段变量 T0 中，想要将数据中 T0 前 30 秒到 T0 后 30 秒的波形画在地图上。</p><p>对前面给出的 Perl 代码稍作修改即可：</p><ul><li>将 <code>$E</code> 的值改成 <code>-Ent0</code> ；</li><li>将 <code>$R</code> 的值改成 <code>-R-30/30/0/2 -C</code> ；</li></ul><p>最终得到的效果图如下（示例数据中本没有标记 T0，这里我随便标记了几个 T0 作为 P 波到时）：</p><p><img src=/images/2015071806.png alt></p><p>几点说明：</p><ul><li><code>-Ent0</code> 中 <code>n</code> 表示绘制 Y 轴为文件序号的剖面图，因为每个 pssac 命令中只绘制一个波形，因而这个波形会被画在 <code>Y=1</code> 处，因而此处 <code>-R</code> 中 Y 轴的范围取的是 0 到 2。实际上只要 Y 轴的范围包含 1 即可，比如 Y 轴范围取 <code>0.5/1.5</code> 、 <code>0/3</code> 均可，可以尝试取不同的值查看其效果；</li><li><code>-Ent0</code> 中 <code>t0</code> 表示以 T0 为参考时间，此时 T0 对应的时刻相当于 0，T0 前后 30 秒就很容易用
+<code>-R-30/30/0/2</code> 来表示了；</li><li><code>-C</code> 选项很重要。若不使用 <code>-C</code> 选项， <code>-M1</code> 会将整个波形的最大振幅差归一化到 1 英寸，进而导致截取的部分波形最大振幅差比较小；若使用了 <code>-C</code> 选项，表示截取 - 30 秒到 30 秒的波形，然后将这段波形的最大振幅差归一化到 1 英寸；</li></ul><h2 id=额外的说明>额外的说明</h2><p>前面的所有代码中，都使用了 <code>-Ent</code> 或 <code>-Ent0</code> 选项，即表示 Y 轴为文件序号的剖面图。明明只有一个波形，直接画波形振幅图不就好了吗，为什么一定要弄成剖面图呢？</p><p>的确，在绘制整个波形的时候，完全可以不使用 <code>-Ent</code> 选项的，此时就是最简单的波形振幅图，此时波形位于 <code>Y=0</code> 处，因而 <code>-R</code> 中 Y 的范围改成 <code>-1/1</code> 或者其他包含 0 的范围即可。</p><p>在绘图部分波形的时候，也可以不使用 <code>-Ent0</code> 选项。比如 P 波到时为 600 秒，前后 30 秒也就是 570 到 630 秒，直接把 <code>-R</code> 选项中的 X 范围改成 <code>570/630</code> 即可。但不同的波形 P 波到时不同，所以 X 轴的范围也不同，这种做法每次都要先提取 T0 的值，然后加减 30 秒计算 X 轴范围，相对来说比较麻烦。</p><p>绘制部分波形时，更合理也更直观的做法，肯定是指定 T0 为参考时刻。要指定 T0 为参考时刻，就必须使用 <code>-E</code> 选项，而使用 <code>-E</code> 选项就意味着要绘制剖面图。剖面类型有 5 种，当剖面类型为 <code>n</code> 时，Y 值取 <code>0/2</code> 即可；如果使用其他剖面类型，Y 值则要依赖于波形中的头段。因而限定了剖面类型为 <code>n</code> 。</p><p>在绘制整个波形时，使用 <code>-Ent</code> 且 Y 轴范围为 <code>0/2</code>，使得脚本可以只需要尽可能少的修改即可适用于绘制部分波形。</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2015-07-18</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/pssac/>pssac</a>
+<a href=/tags/SAC/>SAC</a>
+<a href=/tags/GMT%E6%8A%80%E5%B7%A7/>GMT技巧</a></div><nav class=post-nav><a class=prev href=/pssac2-notes/><i class="iconfont icon-left"></i><span class="prev-text nav-default">pssac2 使用教程</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/pssac-notes/><span class="next-text nav-default">pssac 使用教程</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

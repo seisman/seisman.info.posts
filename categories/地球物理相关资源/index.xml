@@ -1,196 +1,38 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>地球物理相关资源 on SeisMan</title>
-    <link>https://blog.seisman.info/categories/%E5%9C%B0%E7%90%83%E7%89%A9%E7%90%86%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90/</link>
-    <description>Recent content in 地球物理相关资源 on SeisMan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Thu, 23 Jul 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.seisman.info/categories/%E5%9C%B0%E7%90%83%E7%89%A9%E7%90%86%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>地球物理学家列表</title>
-      <link>https://blog.seisman.info/geophysicist/</link>
-      <pubDate>Thu, 23 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/geophysicist/</guid>
-      <description>本页面已迁移至 请访问: https://link.seisman.info/scientists/</description>
-    </item>
-    
-    <item>
-      <title>全球地形起伏数据：SRTM15_PLUS</title>
-      <link>https://blog.seisman.info/srtm15-plus/</link>
-      <pubDate>Tue, 07 Apr 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/srtm15-plus/</guid>
-      <description>SRTM15_PLUS 是 SRTM30_PLUS 的升级版，其空间分辨率为 15 弧秒， 相当于 0.5km。其包含了陆地高程和海洋深度数据，具体信息参考 SRTM30_PLUS 的介绍。 数据下载： README Google KMZ 14GB netCDF 数据 netCDF 数据</description>
-    </item>
-    
-    <item>
-      <title>板块边界数据集</title>
-      <link>https://blog.seisman.info/plate-boundary-datasets/</link>
-      <pubDate>Sun, 18 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/plate-boundary-datasets/</guid>
-      <description>&lt;h2 id=&#34;nuvel-&#34;&gt;NUVEL 板块边界数据&lt;/h2&gt;
-&lt;p&gt;下载地址： &lt;a href=&#34;http://jules.unavco.org/GMT/&#34;&gt;http://jules.unavco.org/GMT/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;该数据集包含了 15 个主要的板块边界数据。其中：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;nuvel_1_plates.orig&lt;/code&gt; ：最原始的数据，来自于 NUVEL-1A 包；&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;nuvel_1_plates&lt;/code&gt; ：在原始数据的基础上修正了一些小的错误；&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;plate-name&amp;gt;_plate&lt;/code&gt;：给出了板块 plate-name 与其它板块的分界线，即多段数据。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;plate-name&amp;gt;.txt&lt;/code&gt;：给出了板块 plate-name 的轮廓，即相当于将 &lt;code&gt;&amp;lt;plate-name&amp;gt;_plate&lt;/code&gt; 的数据进行整理使其成为一个封闭的曲线。&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>洋壳年龄数据</title>
-      <link>https://blog.seisman.info/ocean-floor-crustal-age/</link>
-      <pubDate>Sat, 17 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/ocean-floor-crustal-age/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;简介&lt;/h2&gt;
-&lt;p&gt;官方网站： &lt;a href=&#34;http://www.earthbyte.org/Resources/agegrid2008.html&#34;&gt;http://www.earthbyte.org/Resources/agegrid2008.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;该数据集包含四类数据：洋壳年龄（age）、年龄不确定度（ageerror）、扩张速度（rate）、扩张非对称性（asym）。数据最高精度为 2 弧分。&lt;/p&gt;
-&lt;p&gt;数据下载地址：&lt;a href=&#34;ftp://ftp.earthbyte.org/earthbyte/agegrid/2008/Grids/&#34;&gt;ftp://ftp.earthbyte.org/earthbyte/agegrid/2008/Grids/&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>地球物理相关软件</title>
-      <link>https://blog.seisman.info/geo-software/</link>
-      <pubDate>Thu, 20 Feb 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/geo-software/</guid>
-      <description>本页面已迁移至 https://link.seisman.info/codes/</description>
-    </item>
-    
-    <item>
-      <title>全球水深数据 GEBCO</title>
-      <link>https://blog.seisman.info/gebco/</link>
-      <pubDate>Wed, 05 Feb 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/gebco/</guid>
-      <description>GEBCO 全称 General Bathymetric Chart of the Oceans，给出了全球海水深度数据。 官方网站： http://www.gebco.net 数据精度：30 弧秒和 1 弧分。 数据格式：netCDF，可直接用于 GMT 绘图。 下载</description>
-    </item>
-    
-    <item>
-      <title>全球数字高程数据：ASTER GDEM</title>
-      <link>https://blog.seisman.info/aster-gdem/</link>
-      <pubDate>Sun, 12 Jan 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/aster-gdem/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;简介&lt;/h2&gt;
-&lt;p&gt;ASTER GDEM，即先进星载热发射和反射辐射仪全球数字高程模型，与 SRTM 一样为数字高程 DEM，
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>地球物理相关资源 on SeisMan</title><link>https://blog.seisman.info/categories/%E5%9C%B0%E7%90%83%E7%89%A9%E7%90%86%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90/</link><description>Recent content in 地球物理相关资源 on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 23 Jul 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/categories/%E5%9C%B0%E7%90%83%E7%89%A9%E7%90%86%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90/index.xml" rel="self" type="application/rss+xml"/><item><title>地球物理学家列表</title><link>https://blog.seisman.info/geophysicist/</link><pubDate>Thu, 23 Jul 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/geophysicist/</guid><description>欢迎补充。 A Charles J. Ammon Don L. Anderson C Andrew Curtis Chris Chapman Robert W. Clayton Vernon F. Cormier D Arwen Deuss G Stephen Shangxing Gao Peter Gerstoft Yu Jeffrey Gu H Donald V. Helmberger Robert van der Hilst Kei Hirose I Miaki Ishii J Chen Ji K Keith D. Koper Dimitri Komatitsch L Gabi Laske Fan-Chi Lin Thorne Lay M Guy Master N Fenglin Niu</description></item><item><title>全球地形起伏数据：SRTM15_PLUS</title><link>https://blog.seisman.info/srtm15-plus/</link><pubDate>Tue, 07 Apr 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/srtm15-plus/</guid><description>SRTM15_PLUS 是 SRTM30_PLUS 的升级版，其空间分辨率为 15 弧秒， 相当于 0.5km。其包含了陆地高程和海洋深度数据，具体信息参考 SRTM30_PLUS 的介绍。 数据下载： README Google KMZ 14GB netCDF 数据 netCDF 数据</description></item><item><title>板块边界数据集</title><link>https://blog.seisman.info/plate-boundary-datasets/</link><pubDate>Sun, 18 May 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/plate-boundary-datasets/</guid><description>&lt;h2 id="nuvel-板块边界数据">NUVEL 板块边界数据&lt;/h2>
+&lt;p>下载地址： &lt;a href="http://jules.unavco.org/GMT/">http://jules.unavco.org/GMT/&lt;/a>&lt;/p>
+&lt;p>该数据集包含了 15 个主要的板块边界数据。其中：&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>nuvel_1_plates.orig&lt;/code> ：最原始的数据，来自于 NUVEL-1A 包；&lt;/li>
+&lt;li>&lt;code>nuvel_1_plates&lt;/code> ：在原始数据的基础上修正了一些小的错误；&lt;/li>
+&lt;li>&lt;code>&amp;lt;plate-name&amp;gt;_plate&lt;/code>：给出了板块 plate-name 与其它板块的分界线，即多段数据。&lt;/li>
+&lt;li>&lt;code>&amp;lt;plate-name&amp;gt;.txt&lt;/code>：给出了板块 plate-name 的轮廓，即相当于将 &lt;code>&amp;lt;plate-name&amp;gt;_plate&lt;/code> 的数据进行整理使其成为一个封闭的曲线。&lt;/li>
+&lt;/ul></description></item><item><title>洋壳年龄数据</title><link>https://blog.seisman.info/ocean-floor-crustal-age/</link><pubDate>Sat, 17 May 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/ocean-floor-crustal-age/</guid><description>&lt;h2 id="简介">简介&lt;/h2>
+&lt;p>官方网站： &lt;a href="http://www.earthbyte.org/Resources/agegrid2008.html">http://www.earthbyte.org/Resources/agegrid2008.html&lt;/a>&lt;/p>
+&lt;p>该数据集包含四类数据：洋壳年龄（age）、年龄不确定度（ageerror）、扩张速度（rate）、扩张非对称性（asym）。数据最高精度为 2 弧分。&lt;/p>
+&lt;p>数据下载地址：&lt;a href="ftp://ftp.earthbyte.org/earthbyte/agegrid/2008/Grids/">ftp://ftp.earthbyte.org/earthbyte/agegrid/2008/Grids/&lt;/a>&lt;/p></description></item><item><title>地球物理相关软件</title><link>https://blog.seisman.info/geo-software/</link><pubDate>Thu, 20 Feb 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/geo-software/</guid><description>通用数据处理 SAC: 地震学数据处理的常用软件 ObsPy: 基于 Python 的地震学数据获取、处理、绘图工具 GISMO: 基于 Matlab 的地震学数据获取、处理、绘图工具 SeisIO.jl: 基于 Julia 的地震学数据获</description></item><item><title>全球水深数据 GEBCO</title><link>https://blog.seisman.info/gebco/</link><pubDate>Wed, 05 Feb 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/gebco/</guid><description>GEBCO 全称 General Bathymetric Chart of the Oceans，给出了全球海水深度数据。 官方网站： http://www.gebco.net 数据精度：30 弧秒和 1 弧分。 数据格式：netCDF，可直接用于 GMT 绘图。 下载</description></item><item><title>全球数字高程数据：ASTER GDEM</title><link>https://blog.seisman.info/aster-gdem/</link><pubDate>Sun, 12 Jan 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/aster-gdem/</guid><description>&lt;h2 id="简介">简介&lt;/h2>
+&lt;p>ASTER GDEM，即先进星载热发射和反射辐射仪全球数字高程模型，与 SRTM 一样为数字高程 DEM，
 其全球空间分辨率为 30 米。该数据是根据 NASA 的新一代对地观测卫星 Terra 的详尽观测结果
 制作完成的。其数据覆盖范围为北纬 83° 到南纬 83° 之间的所有陆地区域，达到了地球陆地表面的
-99%。号称是 “迄今最完整的全球地形数据”。&lt;/p&gt;
-&lt;p&gt;数据下载地址：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://reverb.echo.nasa.gov/reverb/&#34;&gt;NASA Reverb&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://gdem.ersdac.jspacesystems.or.jp&#34;&gt;LP DAAC Global Data Explorer&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>全球地形起伏数据：SRTM30_PLUS</title>
-      <link>https://blog.seisman.info/srtm30-plus/</link>
-      <pubDate>Tue, 31 Dec 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/srtm30-plus/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;主页：http://topex.ucsd.edu/WWW_html/srtm30_plus.html&lt;/li&gt;
-&lt;li&gt;精度：30 弧秒（约 1km）&lt;/li&gt;
-&lt;li&gt;版本：V11（20141129）&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>中国行政区划数据下载</title>
-      <link>https://blog.seisman.info/china-administrative-areas-data/</link>
-      <pubDate>Sat, 23 Nov 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/china-administrative-areas-data/</guid>
-      <description>&lt;h2 id=&#34;gadm-&#34;&gt;GADM 数据库&lt;/h2&gt;
-&lt;p&gt;GADM，是一个全球行政区划数据库。包括了几乎全部国家和地区的行政区划界线数据。&lt;/p&gt;
-&lt;p&gt;主页： &lt;a href=&#34;http://www.gadm.org/&#34;&gt;http://www.gadm.org/&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>全球地壳模型 crust 1.0</title>
-      <link>https://blog.seisman.info/crust1/</link>
-      <pubDate>Thu, 03 Oct 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/crust1/</guid>
-      <description>&lt;p&gt;crust 1.0 是一个全球的三维地壳模型，其分辨率是 1 度。更老的版本还有分辨率低一些的 crust 5.1 和 crust 2.0。&lt;/p&gt;
-&lt;p&gt;官方网址：&lt;a href=&#34;http://igppweb.ucsd.edu/~gabi/crust1.html&#34;&gt;http://igppweb.ucsd.edu/~gabi/crust1.html&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>高精度地形网格数据 SRTM</title>
-      <link>https://blog.seisman.info/srtm/</link>
-      <pubDate>Sun, 29 Sep 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/srtm/</guid>
-      <description>&lt;p&gt;SRTM，全称为 Shuttle Radar Topography Mission，该项目获取了北纬 60 度至南纬 60 度之间的
+99%。号称是 “迄今最完整的全球地形数据”。&lt;/p>
+&lt;p>数据下载地址：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://reverb.echo.nasa.gov/reverb/">NASA Reverb&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://gdem.ersdac.jspacesystems.or.jp">LP DAAC Global Data Explorer&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>全球地形起伏数据：SRTM30_PLUS</title><link>https://blog.seisman.info/srtm30-plus/</link><pubDate>Tue, 31 Dec 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/srtm30-plus/</guid><description>&lt;ul>
+&lt;li>主页：http://topex.ucsd.edu/WWW_html/srtm30_plus.html&lt;/li>
+&lt;li>精度：30 弧秒（约 1km）&lt;/li>
+&lt;li>版本：V11（20141129）&lt;/li>
+&lt;/ul></description></item><item><title>中国行政区划数据下载</title><link>https://blog.seisman.info/china-administrative-areas-data/</link><pubDate>Sat, 23 Nov 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/china-administrative-areas-data/</guid><description>&lt;h2 id="gadm-数据库">GADM 数据库&lt;/h2>
+&lt;p>GADM，是一个全球行政区划数据库。包括了几乎全部国家和地区的行政区划界线数据。&lt;/p>
+&lt;p>主页： &lt;a href="http://www.gadm.org/">http://www.gadm.org/&lt;/a>&lt;/p></description></item><item><title>全球地壳模型 crust 1.0</title><link>https://blog.seisman.info/crust1/</link><pubDate>Thu, 03 Oct 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/crust1/</guid><description>&lt;p>crust 1.0 是一个全球的三维地壳模型，其分辨率是 1 度。更老的版本还有分辨率低一些的 crust 5.1 和 crust 2.0。&lt;/p>
+&lt;p>官方网址：&lt;a href="http://igppweb.ucsd.edu/~gabi/crust1.html">http://igppweb.ucsd.edu/~gabi/crust1.html&lt;/a>&lt;/p></description></item><item><title>高精度地形网格数据 SRTM</title><link>https://blog.seisman.info/srtm/</link><pubDate>Sun, 29 Sep 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/srtm/</guid><description>&lt;p>SRTM，全称为 Shuttle Radar Topography Mission，该项目获取了北纬 60 度至南纬 60 度之间的
 雷达影像数据，进一步处理制成了数字地形高程模型（DEM），即现在的 SRTM 地形产品数据。
 该数据产品 2003 年开始公开发布，经过多次修订，目前的数据修订版本为 V4.1 版本。更详细的介绍在
-&lt;a href=&#34;http://www.cgiar-csi.org/data/srtm-90m-digital-elevation-database-v4-1&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>全球地形起伏模型 ETOPO1</title>
-      <link>https://blog.seisman.info/etopo1/</link>
-      <pubDate>Sun, 11 Aug 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/etopo1/</guid>
-      <description>&lt;p&gt;ETOPO1 是分辨率为 1 弧分的全球地形起伏模型，其包含了陆地地形和海洋水深的数据，是目前已知的分辨率
-最高的地形起伏数据。&lt;/p&gt;
-&lt;p&gt;官方主页位于： &lt;a href=&#34;http://www.ngdc.noaa.gov/mgg/global/&#34;&gt;http://www.ngdc.noaa.gov/mgg/global/&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>全球地形起伏模型 ETOPO2</title>
-      <link>https://blog.seisman.info/etopo2/</link>
-      <pubDate>Sun, 11 Aug 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/etopo2/</guid>
-      <description>&lt;p&gt;ETOPO2 与 ETOPO5 类似，也是陆地高程 + 海底地形数据，其采样间隔为 2 弧分。&lt;/p&gt;
-&lt;p&gt;官方地址： &lt;a href=&#34;http://www.ngdc.noaa.gov/mgg/global/etopo2.html&#34;&gt;http://www.ngdc.noaa.gov/mgg/global/etopo2.html&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>全球数字高程模型 GTOPO30</title>
-      <link>https://blog.seisman.info/gtopo30/</link>
-      <pubDate>Sun, 11 Aug 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/gtopo30/</guid>
-      <description>&lt;p&gt;GTOPO30 是 USGS 公布的全球数字高程模型，其采样间隔为 30 弧秒。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>全球地形起伏模型etopo5</title>
-      <link>https://blog.seisman.info/etopo5/</link>
-      <pubDate>Sat, 10 Aug 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/etopo5/</guid>
-      <description>&lt;p&gt;etopo5是全球高程及水深数据，其空间分辨率是5弧分，目前已被更高精度的etopo2和etopo1所取代。但在绘制
-全球地形时，若觉得用etopo2得到的图形文件过大，也可使用低精度的etopo5，但还是&lt;strong&gt;不建议用etopo5&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;官方页面： &lt;a href=&#34;http://www.ngdc.noaa.gov/mgg/global/etopo5.html&#34;&gt;http://www.ngdc.noaa.gov/mgg/global/etopo5.html&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Global CMT 信息整理</title>
-      <link>https://blog.seisman.info/global-cmt/</link>
-      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/global-cmt/</guid>
-      <description>&lt;p&gt;Global CMT 全称 Global Centroid-Moment-Tensor Project，前身是 Harvard CMT，
+&lt;a href="http://www.cgiar-csi.org/data/srtm-90m-digital-elevation-database-v4-1">这里&lt;/a>。&lt;/p></description></item><item><title>全球地形起伏模型 ETOPO1</title><link>https://blog.seisman.info/etopo1/</link><pubDate>Sun, 11 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/etopo1/</guid><description>&lt;p>ETOPO1 是分辨率为 1 弧分的全球地形起伏模型，其包含了陆地地形和海洋水深的数据，是目前已知的分辨率
+最高的地形起伏数据。&lt;/p>
+&lt;p>官方主页位于： &lt;a href="http://www.ngdc.noaa.gov/mgg/global/">http://www.ngdc.noaa.gov/mgg/global/&lt;/a>&lt;/p></description></item><item><title>全球地形起伏模型 ETOPO2</title><link>https://blog.seisman.info/etopo2/</link><pubDate>Sun, 11 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/etopo2/</guid><description>&lt;p>ETOPO2 与 ETOPO5 类似，也是陆地高程 + 海底地形数据，其采样间隔为 2 弧分。&lt;/p>
+&lt;p>官方地址： &lt;a href="http://www.ngdc.noaa.gov/mgg/global/etopo2.html">http://www.ngdc.noaa.gov/mgg/global/etopo2.html&lt;/a>&lt;/p></description></item><item><title>全球数字高程模型 GTOPO30</title><link>https://blog.seisman.info/gtopo30/</link><pubDate>Sun, 11 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/gtopo30/</guid><description>&lt;p>GTOPO30 是 USGS 公布的全球数字高程模型，其采样间隔为 30 弧秒。&lt;/p></description></item><item><title>全球地形起伏模型etopo5</title><link>https://blog.seisman.info/etopo5/</link><pubDate>Sat, 10 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/etopo5/</guid><description>&lt;p>etopo5是全球高程及水深数据，其空间分辨率是5弧分，目前已被更高精度的etopo2和etopo1所取代。但在绘制
+全球地形时，若觉得用etopo2得到的图形文件过大，也可使用低精度的etopo5，但还是&lt;strong>不建议用etopo5&lt;/strong>。&lt;/p>
+&lt;p>官方页面： &lt;a href="http://www.ngdc.noaa.gov/mgg/global/etopo5.html">http://www.ngdc.noaa.gov/mgg/global/etopo5.html&lt;/a>&lt;/p></description></item><item><title>Global CMT 信息整理</title><link>https://blog.seisman.info/global-cmt/</link><pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/global-cmt/</guid><description>&lt;p>Global CMT 全称 Global Centroid-Moment-Tensor Project，前身是 Harvard CMT，
 是地震学常用的地震目录和震源机制之一。其给出了自 1976 年以来上万个地震的
-地震目录以及震源机制。&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+地震目录以及震源机制。&lt;/p></description></item></channel></rss>

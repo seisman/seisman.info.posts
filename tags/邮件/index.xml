@@ -1,38 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>邮件 on SeisMan</title>
-    <link>https://blog.seisman.info/tags/%E9%82%AE%E4%BB%B6/</link>
-    <description>Recent content in 邮件 on SeisMan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Sat, 23 Aug 2014 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.seisman.info/tags/%E9%82%AE%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Python 发送邮件到 BREQ_FAST</title>
-      <link>https://blog.seisman.info/python-send-mail/</link>
-      <pubDate>Sat, 23 Aug 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/python-send-mail/</guid>
-      <description>&lt;p&gt;利用 Python 的标准库 &lt;a href=&#34;https://docs.python.org/3/library/smtplib.html&#34;&gt;smtplib&lt;/a&gt;
-实现了通过脚本发送邮件的功能。&lt;/p&gt;
-&lt;p&gt;源码地址：&lt;a href=&#34;https://github.com/seisman/SeisScripts/blob/master/sendmail.py&#34;&gt;sendmail.py&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Perl 发送邮件到 BREQ_FAST</title>
-      <link>https://blog.seisman.info/perl-send-email/</link>
-      <pubDate>Fri, 26 Jul 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/perl-send-email/</guid>
-      <description>&lt;p&gt;BREQ_FAST 的优势在于可脚本化生成数据申请文件，要真正申请数据还得将这些文件作为邮件内容发送过去，
-因而想要解放双手，利用脚本自动发送邮件是必须的。&lt;/p&gt;
-&lt;p&gt;本文给出如何用 Perl 发送邮件到 BREQ_FAST，另一篇博文《&lt;a href=&#34;https://blog.seisman.info/python-send-mail/&#34;&gt;Python 发送邮件到 BREQ_FAST&lt;/a&gt;》
-给出了同样功能的 Python 脚本。相比而言，Python 版本更简单、简洁。&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>邮件 on SeisMan</title><link>https://blog.seisman.info/tags/%E9%82%AE%E4%BB%B6/</link><description>Recent content in 邮件 on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 23 Aug 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E9%82%AE%E4%BB%B6/index.xml" rel="self" type="application/rss+xml"/><item><title>Python 发送邮件到 BREQ_FAST</title><link>https://blog.seisman.info/python-send-mail/</link><pubDate>Sat, 23 Aug 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/python-send-mail/</guid><description>&lt;p>利用 Python 的标准库 &lt;a href="https://docs.python.org/3/library/smtplib.html">smtplib&lt;/a>
+实现了通过脚本发送邮件的功能。&lt;/p>
+&lt;p>源码地址：&lt;a href="https://github.com/seisman/SeisScripts/blob/master/sendmail.py">sendmail.py&lt;/a>&lt;/p></description></item><item><title>Perl 发送邮件到 BREQ_FAST</title><link>https://blog.seisman.info/perl-send-email/</link><pubDate>Fri, 26 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/perl-send-email/</guid><description>&lt;p>BREQ_FAST 的优势在于可脚本化生成数据申请文件，要真正申请数据还得将这些文件作为邮件内容发送过去，
+因而想要解放双手，利用脚本自动发送邮件是必须的。&lt;/p>
+&lt;p>本文给出如何用 Perl 发送邮件到 BREQ_FAST，另一篇博文《&lt;a href="https://blog.seisman.info/python-send-mail/">Python 发送邮件到 BREQ_FAST&lt;/a>》
+给出了同样功能的 Python 脚本。相比而言，Python 版本更简单、简洁。&lt;/p></description></item></channel></rss>

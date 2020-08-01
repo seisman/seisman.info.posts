@@ -1,376 +1,52 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>仪器响应文件 RESP - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="《仪器响应的物理细节》一文中说过， 理论上仪器响应是由三个阶段构成的。常用的仪器响应格式包括 SEED 的 RESP 文件以及 SAC 的 PZ 文件。 这里通过阅读一个 RESP 类型的仪器响应文件，来更进一步的理解仪器响应，顺便熟悉一下 SEED 格式。
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>仪器响应文件 RESP - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="《仪器响应的物理细节》一文中说过， 理论上仪器响应是由三个阶段构成的。常用的仪器响应格式包括 SEED 的 RESP 文件以及 SAC 的 PZ 文件。 这里通过阅读一个 RESP 类型的仪器响应文件，来更进一步的理解仪器响应，顺便熟悉一下 SEED 格式。
 由于 RESP 的内容太长，就不在博文中贴出，本文所使用的 RESP 文件可以在 这里 下载。
-RESP 文件是从 SEED 文件中解压得到的，因而保留了 SEED 格式的很多传统。响应文件中 Stage sequence number 表示阶段号，这个例子中从 1 到 3 再到 0；在每个 stage 中，根据 SEED 格式的要求又分为多个 block， 每个 block 分别代表该 stage 的部分信息。
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.61.0 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/instrumental-response-resp/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="仪器响应文件 RESP" />
-<meta property="og:description" content="《仪器响应的物理细节》一文中说过，
+RESP 文件是从 SEED 文件中解压得到的，因而保留了 SEED 格式的很多传统。响应文件中 Stage sequence number 表示阶段号，这个例子中从 1 到 3 再到 0；在每个 stage 中，根据 SEED 格式的要求又分为多个 block， 每个 block 分别代表该 stage 的部分信息。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://blog.seisman.info/instrumental-response-resp/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="仪器响应文件 RESP"><meta property="og:description" content="《仪器响应的物理细节》一文中说过，
 理论上仪器响应是由三个阶段构成的。常用的仪器响应格式包括 SEED 的 RESP 文件以及 SAC 的 PZ 文件。
 这里通过阅读一个 RESP 类型的仪器响应文件，来更进一步的理解仪器响应，顺便熟悉一下 SEED 格式。
 由于 RESP 的内容太长，就不在博文中贴出，本文所使用的 RESP 文件可以在 这里 下载。
 RESP 文件是从 SEED 文件中解压得到的，因而保留了 SEED 格式的很多传统。响应文件中 Stage sequence number
 表示阶段号，这个例子中从 1 到 3 再到 0；在每个 stage 中，根据 SEED 格式的要求又分为多个 block，
-每个 block 分别代表该 stage 的部分信息。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/instrumental-response-resp/" />
-<meta property="article:published_time" content="2013-06-27T00:00:00+00:00" />
-<meta property="article:modified_time" content="2013-06-27T00:00:00+00:00" />
-<meta itemprop="name" content="仪器响应文件 RESP">
-<meta itemprop="description" content="《仪器响应的物理细节》一文中说过，
+每个 block 分别代表该 stage 的部分信息。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/instrumental-response-resp/"><meta property="article:published_time" content="2013-06-27T00:00:00+00:00"><meta property="article:modified_time" content="2013-06-27T00:00:00+00:00"><meta itemprop=name content="仪器响应文件 RESP"><meta itemprop=description content="《仪器响应的物理细节》一文中说过，
 理论上仪器响应是由三个阶段构成的。常用的仪器响应格式包括 SEED 的 RESP 文件以及 SAC 的 PZ 文件。
 这里通过阅读一个 RESP 类型的仪器响应文件，来更进一步的理解仪器响应，顺便熟悉一下 SEED 格式。
 由于 RESP 的内容太长，就不在博文中贴出，本文所使用的 RESP 文件可以在 这里 下载。
 RESP 文件是从 SEED 文件中解压得到的，因而保留了 SEED 格式的很多传统。响应文件中 Stage sequence number
 表示阶段号，这个例子中从 1 到 3 再到 0；在每个 stage 中，根据 SEED 格式的要求又分为多个 block，
-每个 block 分别代表该 stage 的部分信息。">
-<meta itemprop="datePublished" content="2013-06-27T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2013-06-27T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1197">
-
-
-
-<meta itemprop="keywords" content="仪器响应," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="仪器响应文件 RESP"/>
-<meta name="twitter:description" content="《仪器响应的物理细节》一文中说过，
+每个 block 分别代表该 stage 的部分信息。"><meta itemprop=datePublished content="2013-06-27T00:00:00+00:00"><meta itemprop=dateModified content="2013-06-27T00:00:00+00:00"><meta itemprop=wordCount content="1197"><meta itemprop=keywords content="仪器响应,"><meta name=twitter:card content="summary"><meta name=twitter:title content="仪器响应文件 RESP"><meta name=twitter:description content="《仪器响应的物理细节》一文中说过，
 理论上仪器响应是由三个阶段构成的。常用的仪器响应格式包括 SEED 的 RESP 文件以及 SAC 的 PZ 文件。
 这里通过阅读一个 RESP 类型的仪器响应文件，来更进一步的理解仪器响应，顺便熟悉一下 SEED 格式。
 由于 RESP 的内容太长，就不在博文中贴出，本文所使用的 RESP 文件可以在 这里 下载。
 RESP 文件是从 SEED 文件中解压得到的，因而保留了 SEED 格式的很多传统。响应文件中 Stage sequence number
 表示阶段号，这个例子中从 1 到 3 再到 0；在每个 stage 中，根据 SEED 格式的要求又分为多个 block，
-每个 block 分别代表该 stage 的部分信息。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">仪器响应文件 RESP</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2013-06-27 </span>
-        <div class="post-category">
-            <a href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E5%9F%BA%E7%A1%80/"> 地震学基础 </a>
-            </div>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#heading">台站信息</a></li>
-    <li><a href="#stage1">Stage 1</a></li>
-    <li><a href="#stage-2">Stage 2</a></li>
-    <li><a href="#stage3">Stage 3</a></li>
-    <li><a href="#stage0">Stage 0</a></li>
-    <li><a href="#heading-1">仪器响应与各个阶段的振幅响应</a></li>
-    <li><a href="#heading-2">总结</a></li>
-    <li><a href="#heading-3">备注</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>《<a href="/instrumental-response-physical-details/">仪器响应的物理细节</a>》一文中说过，
+每个 block 分别代表该 stage 的部分信息。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>仪器响应文件 RESP</h1><div class=post-meta><span class=post-time>2013-06-27</span><div class=post-category><a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E5%9F%BA%E7%A1%80/>地震学基础</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#台站信息>台站信息</a></li><li><a href=#stage1>Stage 1</a></li><li><a href=#stage-2>Stage 2</a></li><li><a href=#stage3>Stage 3</a></li><li><a href=#stage0>Stage 0</a></li><li><a href=#仪器响应与各个阶段的振幅响应>仪器响应与各个阶段的振幅响应</a></li><li><a href=#总结>总结</a></li><li><a href=#备注>备注</a></li></ul></nav></div></div><div class=post-content><p>《<a href=/instrumental-response-physical-details/>仪器响应的物理细节</a>》一文中说过，
 理论上仪器响应是由三个阶段构成的。常用的仪器响应格式包括 SEED 的 RESP 文件以及 SAC 的 PZ 文件。
-这里通过阅读一个 RESP 类型的仪器响应文件，来更进一步的理解仪器响应，顺便熟悉一下 SEED 格式。</p>
-<p>由于 RESP 的内容太长，就不在博文中贴出，本文所使用的 RESP 文件可以在 <a href="/downloads/RESP.IU.COLA.00.BHZ">这里</a> 下载。</p>
-<p>RESP 文件是从 SEED 文件中解压得到的，因而保留了 SEED 格式的很多传统。响应文件中 Stage sequence number
+这里通过阅读一个 RESP 类型的仪器响应文件，来更进一步的理解仪器响应，顺便熟悉一下 SEED 格式。</p><p>由于 RESP 的内容太长，就不在博文中贴出，本文所使用的 RESP 文件可以在 <a href=/downloads/RESP.IU.COLA.00.BHZ>这里</a> 下载。</p><p>RESP 文件是从 SEED 文件中解压得到的，因而保留了 SEED 格式的很多传统。响应文件中 Stage sequence number
 表示阶段号，这个例子中从 1 到 3 再到 0；在每个 stage 中，根据 SEED 格式的要求又分为多个 block，
-每个 block 分别代表该 stage 的部分信息。</p>
-<h2 id="heading">台站信息</h2>
-<ul>
-<li>1-9 行包含了台站名、台网名、location、channel、开始时间和结束时间等信息。</li>
-</ul>
-<h2 id="stage1">Stage 1</h2>
-<p>10-42 行给出了第一阶段的信息。这个阶段的功能是将运动信号转换为电压信号。</p>
-<ul>
-<li>10-33 行。输入单位为 <code>m/s</code>，输出单位为 V，归一化因子 $A_0=86270.5$，共有 2 个零点和 5 个极点，
-然后列出了零极点的实部、虚部以及误差。</li>
-<li>34-42 行给出了第一阶段的放大系数 $Sd=2.013040\times 10^3$。</li>
-</ul>
-<h2 id="stage-2">Stage 2</h2>
-<p>43-73 行是第二个阶段，其实现模拟信号到数字信号的转换。</p>
-<ul>
-<li>43-53 行指出输入为 V，输出为 <code>counts</code></li>
-<li>54-64 行给出了模电转换过程中可能存在的减采样信息，这里减采样因子为 1，也就是没有减采样。</li>
-<li>65-73 行给出了该阶段的放大系数 $S_d=1.677720 \times 10^6$。</li>
-</ul>
-<h2 id="stage3">Stage 3</h2>
-<p>74-173 行是第三阶段，主要是滤波、减采样等。</p>
-<ul>
-<li>74-153 行指出输入为 <code>counts</code>，输出也为 <code>counts</code>。这个阶段的响应函数不是通过零极点的方式
-给出的，而是通过系数给出的，这里包含了 67 个分子系数和 0 个分母系数。</li>
-<li>154-164 行给出了减采样的信息，并对滤波过程中造成的时间延迟进行估计并做校正。</li>
-<li>165-173 给出这个阶段的增益，一般为 1。</li>
-</ul>
-<h2 id="stage0">Stage 0</h2>
-<p>174-182 行是第 0 阶段，这个阶段给出了 $Sensitivity=3.377320\times 10^9$。其实际上等于
-前面三个阶段的放大系数 $S_d$ 的乘积，这个阶段只是起到了辅助验证的作用。</p>
-<p>有些时候会遇到 Stage 0 给出的增益并不等于前几个阶段的增益的乘积的情况，此时会报如下错误:</p>
-<pre><code>computed and reported sensitivities differ by more than 5 percent
-</code></pre>
-<p>其中 computed sensitivity 指的是各个 stage 的增益的乘积，reported sensitivity 指的是 stage 0
-给出的增益，二者之间相差 5% 以上。</p>
-<p>出现这个错误的可能原因是仪器响应文件有问题。官方的答复见 <a href="http://www.iris.washington.edu/pipermail/sac-help/2014-February/001674.html">这里</a>。</p>
-<h2 id="heading-1">仪器响应与各个阶段的振幅响应</h2>
-<p><img src="/images/2013062701.png" alt="图 1：仪器响应与各阶段振幅响应"></p>
-<p>这里主要关注振幅响应，根据图例可以看出，第一个阶段在 0.01-5Hz 范围内振幅基本相同，在该范围外振幅响应
+每个 block 分别代表该 stage 的部分信息。</p><h2 id=台站信息>台站信息</h2><ul><li>1-9 行包含了台站名、台网名、location、channel、开始时间和结束时间等信息。</li></ul><h2 id=stage1>Stage 1</h2><p>10-42 行给出了第一阶段的信息。这个阶段的功能是将运动信号转换为电压信号。</p><ul><li>10-33 行。输入单位为 <code>m/s</code>，输出单位为 V，归一化因子 $A_0=86270.5$，共有 2 个零点和 5 个极点，
+然后列出了零极点的实部、虚部以及误差。</li><li>34-42 行给出了第一阶段的放大系数 $Sd=2.013040\times 10^3$。</li></ul><h2 id=stage-2>Stage 2</h2><p>43-73 行是第二个阶段，其实现模拟信号到数字信号的转换。</p><ul><li>43-53 行指出输入为 V，输出为 <code>counts</code></li><li>54-64 行给出了模电转换过程中可能存在的减采样信息，这里减采样因子为 1，也就是没有减采样。</li><li>65-73 行给出了该阶段的放大系数 $S_d=1.677720 \times 10^6$。</li></ul><h2 id=stage3>Stage 3</h2><p>74-173 行是第三阶段，主要是滤波、减采样等。</p><ul><li>74-153 行指出输入为 <code>counts</code>，输出也为 <code>counts</code>。这个阶段的响应函数不是通过零极点的方式
+给出的，而是通过系数给出的，这里包含了 67 个分子系数和 0 个分母系数。</li><li>154-164 行给出了减采样的信息，并对滤波过程中造成的时间延迟进行估计并做校正。</li><li>165-173 给出这个阶段的增益，一般为 1。</li></ul><h2 id=stage0>Stage 0</h2><p>174-182 行是第 0 阶段，这个阶段给出了 $Sensitivity=3.377320\times 10^9$。其实际上等于
+前面三个阶段的放大系数 $S_d$ 的乘积，这个阶段只是起到了辅助验证的作用。</p><p>有些时候会遇到 Stage 0 给出的增益并不等于前几个阶段的增益的乘积的情况，此时会报如下错误:</p><pre><code>computed and reported sensitivities differ by more than 5 percent
+</code></pre><p>其中 computed sensitivity 指的是各个 stage 的增益的乘积，reported sensitivity 指的是 stage 0
+给出的增益，二者之间相差 5% 以上。</p><p>出现这个错误的可能原因是仪器响应文件有问题。官方的答复见 <a href=http://www.iris.washington.edu/pipermail/sac-help/2014-February/001674.html>这里</a>。</p><h2 id=仪器响应与各个阶段的振幅响应>仪器响应与各个阶段的振幅响应</h2><p><img src=/images/2013062701.png alt="图 1：仪器响应与各阶段振幅响应"></p><p>这里主要关注振幅响应，根据图例可以看出，第一个阶段在 0.01-5Hz 范围内振幅基本相同，在该范围外振幅响应
 比较小，这是该仪器所关注的部分；第二阶段的响应函数是完美的直线；第三个阶段在一个很长的范围内也是一条
 直线，在大于 7 Hz 的时候振幅响应开始出现剧烈的变化。理论上在去除仪器响应的时候需要考虑第三阶段的响应函数，
-但是实际上在我们所关注的频率范围内（也许是 0.01-5 Hz），因而第三阶段的响应函数也可以不考虑了。</p>
-<h2 id="heading-2">总结</h2>
-<p>与前文总结相同，三个阶段中最重要的是第一个阶段的零极点，还有三个阶段的放大系数。第一个阶段的归一化
-因子也很重要，在这里好像没有体现出来。</p>
-<h2 id="heading-3">备注</h2>
-<ul>
-<li>图 1 由 <a href="http://www.isti2.com/JPlotResp/">JPlotResp</a> 绘制得到。</li>
-<li>使用 JPlotResp 绘制响应函数的时候，将光标放在相应点上，可以看到每个点的横纵轴坐标，在最大振幅以及
-敏感频率方面与想象的有一点偏差。</li>
-</ul>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2013-06-27
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/%E4%BB%AA%E5%99%A8%E5%93%8D%E5%BA%94/">仪器响应</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/instrumental-response-sacpz/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">仪器响应文件 SAC PZ</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/instrumental-response-physical-details/">
-            <span class="next-text nav-default">仪器响应的物理细节</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+但是实际上在我们所关注的频率范围内（也许是 0.01-5 Hz），因而第三阶段的响应函数也可以不考虑了。</p><h2 id=总结>总结</h2><p>与前文总结相同，三个阶段中最重要的是第一个阶段的零极点，还有三个阶段的放大系数。第一个阶段的归一化
+因子也很重要，在这里好像没有体现出来。</p><h2 id=备注>备注</h2><ul><li>图 1 由 <a href=http://www.isti2.com/JPlotResp/>JPlotResp</a> 绘制得到。</li><li>使用 JPlotResp 绘制响应函数的时候，将光标放在相应点上，可以看到每个点的横纵轴坐标，在最大振幅以及
+敏感频率方面与想象的有一点偏差。</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2013-06-27</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/%E4%BB%AA%E5%99%A8%E5%93%8D%E5%BA%94/>仪器响应</a></div><nav class=post-nav><a class=prev href=/instrumental-response-sacpz/><i class="iconfont icon-left"></i><span class="prev-text nav-default">仪器响应文件 SAC PZ</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/instrumental-response-physical-details/><span class="next-text nav-default">仪器响应的物理细节</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script></body></html>

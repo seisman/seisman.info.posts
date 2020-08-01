@@ -1,385 +1,44 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>仪器响应的物理细节 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="地震波的传播会引起地面运动。用来表征地面运动的物理量有很多，常见的有速度和加速度，不太常见的还有位移、 应变、旋转。这些物理量在被地震仪接收到之后，首先要将其转换为电信号，然后对电信号振幅进行放大以及滤波， 再将连续时间序列离散化，最终以我们常见的波形的形式表现出来。
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.61.0 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/instrumental-response-physical-details/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="仪器响应的物理细节" />
-<meta property="og:description" content="地震波的传播会引起地面运动。用来表征地面运动的物理量有很多，常见的有速度和加速度，不太常见的还有位移、
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>仪器响应的物理细节 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="地震波的传播会引起地面运动。用来表征地面运动的物理量有很多，常见的有速度和加速度，不太常见的还有位移、 应变、旋转。这些物理量在被地震仪接收到之后，首先要将其转换为电信号，然后对电信号振幅进行放大以及滤波， 再将连续时间序列离散化，最终以我们常见的波形的形式表现出来。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://blog.seisman.info/instrumental-response-physical-details/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="仪器响应的物理细节"><meta property="og:description" content="地震波的传播会引起地面运动。用来表征地面运动的物理量有很多，常见的有速度和加速度，不太常见的还有位移、
 应变、旋转。这些物理量在被地震仪接收到之后，首先要将其转换为电信号，然后对电信号振幅进行放大以及滤波，
-再将连续时间序列离散化，最终以我们常见的波形的形式表现出来。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/instrumental-response-physical-details/" />
-<meta property="article:published_time" content="2013-06-26T00:00:00+00:00" />
-<meta property="article:modified_time" content="2013-06-26T00:00:00+00:00" />
-<meta itemprop="name" content="仪器响应的物理细节">
-<meta itemprop="description" content="地震波的传播会引起地面运动。用来表征地面运动的物理量有很多，常见的有速度和加速度，不太常见的还有位移、
+再将连续时间序列离散化，最终以我们常见的波形的形式表现出来。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/instrumental-response-physical-details/"><meta property="article:published_time" content="2013-06-26T00:00:00+00:00"><meta property="article:modified_time" content="2013-06-26T00:00:00+00:00"><meta itemprop=name content="仪器响应的物理细节"><meta itemprop=description content="地震波的传播会引起地面运动。用来表征地面运动的物理量有很多，常见的有速度和加速度，不太常见的还有位移、
 应变、旋转。这些物理量在被地震仪接收到之后，首先要将其转换为电信号，然后对电信号振幅进行放大以及滤波，
-再将连续时间序列离散化，最终以我们常见的波形的形式表现出来。">
-<meta itemprop="datePublished" content="2013-06-26T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2013-06-26T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1596">
-
-
-
-<meta itemprop="keywords" content="仪器响应," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="仪器响应的物理细节"/>
-<meta name="twitter:description" content="地震波的传播会引起地面运动。用来表征地面运动的物理量有很多，常见的有速度和加速度，不太常见的还有位移、
+再将连续时间序列离散化，最终以我们常见的波形的形式表现出来。"><meta itemprop=datePublished content="2013-06-26T00:00:00+00:00"><meta itemprop=dateModified content="2013-06-26T00:00:00+00:00"><meta itemprop=wordCount content="1596"><meta itemprop=keywords content="仪器响应,"><meta name=twitter:card content="summary"><meta name=twitter:title content="仪器响应的物理细节"><meta name=twitter:description content="地震波的传播会引起地面运动。用来表征地面运动的物理量有很多，常见的有速度和加速度，不太常见的还有位移、
 应变、旋转。这些物理量在被地震仪接收到之后，首先要将其转换为电信号，然后对电信号振幅进行放大以及滤波，
-再将连续时间序列离散化，最终以我们常见的波形的形式表现出来。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">仪器响应的物理细节</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2013-06-26 </span>
-        <div class="post-category">
-            <a href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E5%9F%BA%E7%A1%80/"> 地震学基础 </a>
-            </div>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#heading">简介</a></li>
-    <li><a href="#heading-1">预备知识</a>
-      <ul>
-        <li><a href="#fir">FIR滤波器</a></li>
-        <li><a href="#heading-2">响应函数</a></li>
-        <li><a href="#heading-3">归一化</a></li>
-      </ul>
-    </li>
-    <li><a href="#analogstages">Analog Stages</a></li>
-    <li><a href="#analog-digitalconverter">Analog-Digital Converter</a></li>
-    <li><a href="#digitalstages">Digital Stages</a></li>
-    <li><a href="#heading-4">小结</a></li>
-    <li><a href="#heading-5">备注</a></li>
-    <li><a href="#heading-6">参考</a></li>
-    <li><a href="#heading-7">修订历史</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>地震波的传播会引起地面运动。用来表征地面运动的物理量有很多，常见的有速度和加速度，不太常见的还有位移、
+再将连续时间序列离散化，最终以我们常见的波形的形式表现出来。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>仪器响应的物理细节</h1><div class=post-meta><span class=post-time>2013-06-26</span><div class=post-category><a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E5%9F%BA%E7%A1%80/>地震学基础</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#简介>简介</a></li><li><a href=#预备知识>预备知识</a><ul><li><a href=#fir滤波器>FIR滤波器</a></li><li><a href=#响应函数>响应函数</a></li><li><a href=#归一化>归一化</a></li></ul></li><li><a href=#analogstages>Analog Stages</a></li><li><a href=#analog-digitalconverter>Analog-Digital Converter</a></li><li><a href=#digitalstages>Digital Stages</a></li><li><a href=#小结>小结</a></li><li><a href=#备注>备注</a></li><li><a href=#参考>参考</a></li><li><a href=#修订历史>修订历史</a></li></ul></nav></div></div><div class=post-content><p>地震波的传播会引起地面运动。用来表征地面运动的物理量有很多，常见的有速度和加速度，不太常见的还有位移、
 应变、旋转。这些物理量在被地震仪接收到之后，首先要将其转换为电信号，然后对电信号振幅进行放大以及滤波，
-再将连续时间序列离散化，最终以我们常见的波形的形式表现出来。</p>
-<h2 id="heading">简介</h2>
-<p>概括地说，这个过程分为三个阶段：</p>
-<ol>
-<li>Analog Stages</li>
-<li>Analog-Digital Converter</li>
-<li>Digital Stages</li>
-</ol>
-<p>地震仪的仪器响应是频率的复数函数，也就是常说的振幅响应和频率响应。上面提到的三个阶段，每个阶段的响
-应函数都是频率的复数函数，表示为 $G_i(f)$，整个仪器的响应函数是各个阶段响应函数的乘积：</p>
-<p>$$G(f)=\prod_i G_i(f)$$</p>
-<h2 id="heading-1">预备知识</h2>
-<h3 id="fir">FIR滤波器</h3>
-<p>信号处理没学好，不敢瞎说，姑且翻译重点部分。简单地说，<a href="https://zh.wikipedia.org/wiki/%E6%9C%89%E9%99%90%E5%86%B2%E6%BF%80%E5%93%8D%E5%BA%94">FIR滤波器</a>
+再将连续时间序列离散化，最终以我们常见的波形的形式表现出来。</p><h2 id=简介>简介</h2><p>概括地说，这个过程分为三个阶段：</p><ol><li>Analog Stages</li><li>Analog-Digital Converter</li><li>Digital Stages</li></ol><p>地震仪的仪器响应是频率的复数函数，也就是常说的振幅响应和频率响应。上面提到的三个阶段，每个阶段的响
+应函数都是频率的复数函数，表示为 $G_i(f)$，整个仪器的响应函数是各个阶段响应函数的乘积：</p><p>$$G(f)=\prod_i G_i(f)$$</p><h2 id=预备知识>预备知识</h2><h3 id=fir滤波器>FIR滤波器</h3><p>信号处理没学好，不敢瞎说，姑且翻译重点部分。简单地说，<a href=https://zh.wikipedia.org/wiki/%E6%9C%89%E9%99%90%E5%86%B2%E6%BF%80%E5%93%8D%E5%BA%94>FIR滤波器</a>
 就是对一些数据采样点做加权平均，设计不同的加权系数就得到不同的FIR滤波器。FIR滤波器一般设计为振幅响应
 为方阶跃函数（boxcar），因而其在通带内有较平的振幅响应，在拐角频率处有很尖锐很陡峭的振幅响应变化
 （一般拐角频率设置为Nyquist频率的70%-90%）。与此同时，滤波器具有线性相位，即具有类似
 $e^{i \omega t}$的形式，这个线性相位在时间域代表信号的时间延迟，一般数据采集系统会对这个时间延迟
-做校正。由此，用户基本不需要考虑FIR滤波器对仪器响应的影响。</p>
-<h3 id="heading-2">响应函数</h3>
-<p>模拟信号的响应函数用Laplace变换表示：</p>
-<p>$$H(s)=\int_0^{\infty}h(t)e^{-st}dt$$</p>
-<p>数字信号的响应函数用Z变换表示：</p>
-<p>$$H(z)=\sum_{-\infty}^{+\infty}h_m z^{-m}$$</p>
-<h3 id="heading-3">归一化</h3>
-<p>频率响应可以表示为</p>
-<p>$$G(f)=S_d R(f)$$</p>
-<p>其中 $R(f)$ 是频率的函数。在某个特定的频率 $f_s$，有 $|R(f_s)|=1.0$ ，即 $R(f)$ 在频率 $f_s$
-处进行归一化。$S_d$ 是放大系数，也称为Sensitivity或者Gain。</p>
-<p>$R(f)$ 可以表示为</p>
-<p>$$R(f)=A_0 H_p(s)$$</p>
-<p>其中 $H_p(s)$ 是用零极点表示的transfer函数，一般来说在频率$f_s$处这个transfer函数的振幅响应
-不为1，所以需要归一化因子 $A_0$。</p>
-<h2 id="analogstages">Analog Stages</h2>
-<p>这个阶段的主要功能是将连续的地面运动物理量（比如速度）转换为电压信号，并进行电压放大。因而这个阶段的
-输入单位是 <code>m/s</code>，输出单位是伏特(V)。这个阶段的响应函数可以表示为</p>
-<p>$$G(f)=S_d A_0 \frac{\prod (s-r_n)}{\prod (s-p_m)}=S_d A_o H_p(s)$$</p>
-<p>如前所说，$S_d$ 是放大系数，$H_p(s)$ 是用零极点表示的transfer函数，这里n和m代表n个零点和m个极点。
-$A_0$ 是归一化因子。</p>
-<h2 id="analog-digitalconverter">Analog-Digital Converter</h2>
-<p>模电转换器，将上个阶段产生的连续的电压信号转换为离散的电压信号。输入的单位是伏特V，输出单位是counts。
+做校正。由此，用户基本不需要考虑FIR滤波器对仪器响应的影响。</p><h3 id=响应函数>响应函数</h3><p>模拟信号的响应函数用Laplace变换表示：</p><p>$$H(s)=\int_0^{\infty}h(t)e^{-st}dt$$</p><p>数字信号的响应函数用Z变换表示：</p><p>$$H(z)=\sum_{-\infty}^{+\infty}h_m z^{-m}$$</p><h3 id=归一化>归一化</h3><p>频率响应可以表示为</p><p>$$G(f)=S_d R(f)$$</p><p>其中 $R(f)$ 是频率的函数。在某个特定的频率 $f_s$，有 $|R(f_s)|=1.0$ ，即 $R(f)$ 在频率 $f_s$
+处进行归一化。$S_d$ 是放大系数，也称为Sensitivity或者Gain。</p><p>$R(f)$ 可以表示为</p><p>$$R(f)=A_0 H_p(s)$$</p><p>其中 $H_p(s)$ 是用零极点表示的transfer函数，一般来说在频率$f_s$处这个transfer函数的振幅响应
+不为1，所以需要归一化因子 $A_0$。</p><h2 id=analogstages>Analog Stages</h2><p>这个阶段的主要功能是将连续的地面运动物理量（比如速度）转换为电压信号，并进行电压放大。因而这个阶段的
+输入单位是 <code>m/s</code>，输出单位是伏特(V)。这个阶段的响应函数可以表示为</p><p>$$G(f)=S_d A_0 \frac{\prod (s-r_n)}{\prod (s-p_m)}=S_d A_o H_p(s)$$</p><p>如前所说，$S_d$ 是放大系数，$H_p(s)$ 是用零极点表示的transfer函数，这里n和m代表n个零点和m个极点。
+$A_0$ 是归一化因子。</p><h2 id=analog-digitalconverter>Analog-Digital Converter</h2><p>模电转换器，将上个阶段产生的连续的电压信号转换为离散的电压信号。输入的单位是伏特V，输出单位是counts。
 （不了解A/D C的细节，大概就是说在离散的时候存在一个非常小的阀值，这个值是离散信号所能识别的最小电压差。）
-这个过程中，其在所有频段内振幅响应相同，也就是只存在一个放大系数，同时可能存在一个时间延迟。</p>
-<h2 id="digitalstages">Digital Stages</h2>
-<p>这个阶段对离散数据进行处理。这个过程包含了三个小部分：离散信号滤波，数据重采样，校正滤波引入的时间延迟。</p>
-<p>离散信号滤波可以采用FIR滤波器，也可以采用IIR滤波器。多数情况下采用FIR滤波器，这意味着这个阶段只需要
+这个过程中，其在所有频段内振幅响应相同，也就是只存在一个放大系数，同时可能存在一个时间延迟。</p><h2 id=digitalstages>Digital Stages</h2><p>这个阶段对离散数据进行处理。这个过程包含了三个小部分：离散信号滤波，数据重采样，校正滤波引入的时间延迟。</p><p>离散信号滤波可以采用FIR滤波器，也可以采用IIR滤波器。多数情况下采用FIR滤波器，这意味着这个阶段只需要
 考虑放大系数 $S_d$，归一化因子 $A_0$ 不需要考虑，或者可以认为其为1.0。同样，对于数据重采样以及时间校正
-也不会引入新的响应函数。</p>
-<p>说明：FIR滤波器的响应函数可以近似认为其振幅恒为1，实际情况下，在Nyquist采样率附近会有5%左右的震荡。
-因而当感兴趣的频率比Nyquist频率小很多时可以不必考虑FIR滤波器的响应函数。</p>
-<h2 id="heading-4">小结</h2>
-<p>综上所述，三个阶段中，第一个阶段最为复杂，需要给出放大系数 $S_{d1}$ 、归一化因子 $A_0$ 以及
+也不会引入新的响应函数。</p><p>说明：FIR滤波器的响应函数可以近似认为其振幅恒为1，实际情况下，在Nyquist采样率附近会有5%左右的震荡。
+因而当感兴趣的频率比Nyquist频率小很多时可以不必考虑FIR滤波器的响应函数。</p><h2 id=小结>小结</h2><p>综上所述，三个阶段中，第一个阶段最为复杂，需要给出放大系数 $S_{d1}$ 、归一化因子 $A_0$ 以及
 多个零极点；第二个阶段以及第三个阶段都只需要给出放大系数 $S_{d2}$ 和 $S_{d3}$。时间校正由数据
-采集系统自动完成（mark一下，这话说得没底气）。</p>
-<p>最终得到仪器的响应函数为</p>
-<!-- raw HTML omitted -->
-<p>即需要仪器在第一个阶段的零极点信息、归一化因子 $A_o$ 以及全部三个阶段的放大系数 $S_{d0}$ 即可以
-完全表示地震仪的仪器响应。</p>
-<h2 id="heading-5">备注</h2>
-<ol>
-<li>这里描述的是一些基本物理细节，应该足够理解仪器响应。想要了解更多的细节，可以看参考中给出的SEED Reference Manual的指定页。</li>
-</ol>
-<h2 id="heading-6">参考</h2>
-<ol>
-<li><a href="http://www.fdsn.org/seed_manual/SEEDManual_V2.4.pdf">SEED Reference Manual</a>, Version 2.4, August 2012, P71-P78, P151-169</li>
-<li><a href="http://www.iris.edu/hq/es_course/content/2009.html">EarthScope 2009 workshop</a> session2</li>
-</ol>
-<h2 id="heading-7">修订历史</h2>
-<ul>
-<li>2013-06-26：初稿。</li>
-</ul>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2013-06-26
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/%E4%BB%AA%E5%99%A8%E5%93%8D%E5%BA%94/">仪器响应</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/instrumental-response-resp/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">仪器响应文件 RESP</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/instrumental-response/">
-            <span class="next-text nav-default">地震学的仪器响应</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+采集系统自动完成（mark一下，这话说得没底气）。</p><p>最终得到仪器的响应函数为</p><p>即需要仪器在第一个阶段的零极点信息、归一化因子 $A_o$ 以及全部三个阶段的放大系数 $S_{d0}$ 即可以
+完全表示地震仪的仪器响应。</p><h2 id=备注>备注</h2><ol><li>这里描述的是一些基本物理细节，应该足够理解仪器响应。想要了解更多的细节，可以看参考中给出的SEED Reference Manual的指定页。</li></ol><h2 id=参考>参考</h2><ol><li><a href=http://www.fdsn.org/seed_manual/SEEDManual_V2.4.pdf>SEED Reference Manual</a>, Version 2.4, August 2012, P71-P78, P151-169</li><li><a href=http://www.iris.edu/hq/es_course/content/2009.html>EarthScope 2009 workshop</a> session2</li></ol><h2 id=修订历史>修订历史</h2><ul><li>2013-06-26：初稿。</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2013-06-26</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/%E4%BB%AA%E5%99%A8%E5%93%8D%E5%BA%94/>仪器响应</a></div><nav class=post-nav><a class=prev href=/instrumental-response-resp/><i class="iconfont icon-left"></i><span class="prev-text nav-default">仪器响应文件 RESP</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/instrumental-response/><span class="next-text nav-default">地震学的仪器响应</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script></body></html>

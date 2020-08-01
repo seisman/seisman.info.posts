@@ -1,431 +1,142 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>IRIS FTP 数据下载脚本 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>IRIS FTP 数据下载脚本 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="前文说到了 IRIS 官方给出的几种 FTP 数据下载方式，除此之外，还有很多方法。比如直接浏览器右键另存为，比如 Windows 下迅雷的下载链接自动识别，再比如 Firefox 浏览器 + 附加组件 &amp;ldquo;DownThemAll!&amp;quot;。这些工具其实和前文说的下载方法类似，都有各种各样的缺点。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://blog.seisman.info/perl-script-for-downloading-iris-ftp-data/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="IRIS FTP 数据下载脚本"><meta property="og:description" content="前文说到了 IRIS 官方给出的几种 FTP 数据下载方式，除此之外，还有很多方法。比如直接浏览器右键另存为，比如 Windows 下迅雷的下载链接自动识别，再比如 Firefox 浏览器 + 附加组件 &ldquo;DownThemAll!&#34;。这些工具其实和前文说的下载方法类似，都有各种各样的缺点。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/perl-script-for-downloading-iris-ftp-data/"><meta property="article:published_time" content="2014-01-25T00:00:00+00:00"><meta property="article:modified_time" content="2014-01-25T00:00:00+00:00"><meta itemprop=name content="IRIS FTP 数据下载脚本"><meta itemprop=description content="前文说到了 IRIS 官方给出的几种 FTP 数据下载方式，除此之外，还有很多方法。比如直接浏览器右键另存为，比如 Windows 下迅雷的下载链接自动识别，再比如 Firefox 浏览器 + 附加组件 &ldquo;DownThemAll!&#34;。这些工具其实和前文说的下载方法类似，都有各种各样的缺点。"><meta itemprop=datePublished content="2014-01-25T00:00:00+00:00"><meta itemprop=dateModified content="2014-01-25T00:00:00+00:00"><meta itemprop=wordCount content="1237"><meta itemprop=keywords content="breq_fast,IRIS,数据,Perl,"><meta name=twitter:card content="summary"><meta name=twitter:title content="IRIS FTP 数据下载脚本"><meta name=twitter:description content="前文说到了 IRIS 官方给出的几种 FTP 数据下载方式，除此之外，还有很多方法。比如直接浏览器右键另存为，比如 Windows 下迅雷的下载链接自动识别，再比如 Firefox 浏览器 + 附加组件 &ldquo;DownThemAll!&#34;。这些工具其实和前文说的下载方法类似，都有各种各样的缺点。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>IRIS FTP 数据下载脚本</h1><div class=post-meta><span class=post-time>2014-01-25</span><div class=post-category><a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/>地震学软件</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents></nav></div></div><div class=post-content><p>前文说到了 IRIS 官方给出的几种 FTP 数据下载方式，除此之外，还有很多方法。比如直接浏览器右键另存为，比如 Windows 下迅雷的下载链接自动识别，再比如 Firefox 浏览器 + 附加组件 &ldquo;DownThemAll!"。这些工具其实和前文说的下载方法类似，都有各种各样的缺点。</p><p>下面的 Perl 脚本实现了 IRIS FTP 数据的下载，其思路如下：</p><ol><li>登录 IRIS 的 ftp，获取 ftp 内的全部文件列表，保存到本地文件 <code>ftp.filelist</code> 中；</li><li>由于 IRIS ftp 里的数据默认会保存 7 天，且用户无删除权限，因而可能有些 ftp 中的数据已经下载了，所以在本地需要有一个已经下载的数据的列表 <code>local.filelist</code> ；</li><li>读取 <code>ftp.filelist</code> 和 <code>local.filelist</code> 的内容，检查 <code>ftp.filelist</code> 中的文件是否在 <code>local.filelist</code> 中，若在则不下载，若不在则下载。</li><li>所有文件下载完成后，则意味着 <code>ftp.filelist</code> 中的全部文件都已在本地，更新 <code>local.filelist</code> 。</li><li>重复步骤 1-3，若 <code>ftp.filelist</code> 与 <code>local.filelist</code> 不同则意味着下载过程中有新数据到达或者某些数据下载失败，继续下载（这一步其实可以手动重复执行该脚本，而不需要在脚本内部进行循环）。</li></ol><p>脚本的一些特性：</p><ul><li>已下载的数据可以移动到其他文件夹，这些数据不会重复下载；（需要重复下载时可手动修改 <code>local.filelist</code> ）</li><li>FTP 中所有不在 <code>local.filelist</code> 中的文件都会被下载；</li><li>若 <code>local.filelist</code> 为空，则 ftp 中所有数据都会被下载；</li><li>若 <code>local.filelist</code> 包含了 7 天以前的数据下载信息，这些数据已经在 FTP 中被删除，这种情况脚本可以处理，不需要删除 <code>local.filelist</code> ；</li><li>检测本地数据的大小与 ftp 中数据的大小是否相等，保证了数据的完整性；若不相等，则不将文件名写入 <code>local.filelist</code> 。</li><li>当脚本或网络由于外部因素出现中断导致数据不完整时，借助于 wget 断点续传功能，可以直接重新运行该脚本，而不做任何特殊处理。</li></ul><p><a href=https://gist.github.com/seisman/2ccefac15c4cd3239382>irisFetch.pl</a></p><p>代码预览：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl><span style=color:#75715e>#!/usr/bin/env perl</span>
+<span style=color:#75715e>#</span>
+<span style=color:#75715e>#  Perl script to fetch seed data form IRIS FTP</span>
+<span style=color:#75715e>#</span>
+<span style=color:#75715e>#  Author:  SeisMan @ seisman.info</span>
+<span style=color:#75715e>#  Date:    05/16/2013</span>
+<span style=color:#75715e>#</span>
+<span style=color:#75715e>#  Modules:</span>
+<span style=color:#75715e>#   1. Net::FTP     #  It is already installed for most Linux OS</span>
+<span style=color:#75715e>#</span>
+<span style=color:#75715e>#  Description:</span>
+<span style=color:#75715e>#   1. $passwd is your email address</span>
+<span style=color:#75715e>#   2. $cmd and $option is tool for downloading</span>
+<span style=color:#75715e>#       $cmd = &#34;wget&#34;;  $option = &#34;-c&#34;;</span>
+<span style=color:#75715e>#   3. ftp.filelist contains all the data in the ftp (less than 7 days).</span>
+<span style=color:#75715e>#   4. local.filelist contains all the file you have already download,</span>
+<span style=color:#75715e>#      file in ftp.filelist but not in local.filelist will be downloaded,</span>
+<span style=color:#75715e>#      so do not delete local.filelist.</span>
+<span style=color:#75715e>#</span>
+<span style=color:#75715e>#  Revision History:</span>
+<span style=color:#75715e>#   05/16/2013  SeisMan    Initial Coding</span>
+<span style=color:#75715e>#   01/16/2014  SeisMan    Modify to a serial script</span>
+<span style=color:#75715e>#</span>
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<span style=color:#66d9ef>use</span> strict;
+<span style=color:#66d9ef>use</span> warnings;
+<span style=color:#66d9ef>use</span> Net::FTP;
 
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<span style=color:#75715e>############# Personal Infomation #############</span>
+<span style=color:#66d9ef>my</span> $user <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;XXXXXXXX&#34;</span>;
+<span style=color:#66d9ef>my</span> $passwd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;xxxx@xxxxxxxxxx&#39;</span>;
 
+<span style=color:#75715e>#############################################################</span>
+<span style=color:#75715e>## DO NOT MODIFY BELOW UNLESS YOU KNOW WHAT YOU ARE DOING! ##</span>
+<span style=color:#75715e>#############################################################</span>
+<span style=color:#66d9ef>my</span> $server <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;ftp.iris.washington.edu&#34;</span>;
+<span style=color:#66d9ef>my</span> $login <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;anonymous&#34;</span>;
+<span style=color:#66d9ef>my</span> $dir <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;pub/userdata&#34;</span>;
 
-<meta name="author" content="SeisMan" /><meta name="description" content="前文说到了 IRIS 官方给出的几种 FTP 数据下载方式，除此之外，还有很多方法。比如直接浏览器右键另存为，比如 Windows 下迅雷的下载链接自动识别，再比如 Firefox 浏览器 &#43; 附加组件 &amp;ldquo;DownThemAll!&amp;quot;。这些工具其实和前文说的下载方法类似，都有各种各样的缺点。
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+<span style=color:#75715e># download tools</span>
+<span style=color:#66d9ef>my</span> $cmd <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;wget&#34;</span>;
+<span style=color:#66d9ef>my</span> $option <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;-c&#34;</span>;
 
+<span style=color:#75715e># get filelist of ftp</span>
+<span style=color:#66d9ef>print</span> STDERR <span style=color:#e6db74>&#34;Fetching filelist from $server...\n&#34;</span>;
+<span style=color:#f92672>&amp;</span>ftp_list($server, $login, $passwd, $dir, $user);
 
+<span style=color:#75715e># lists</span>
+<span style=color:#66d9ef>my</span> @ftp_list    <span style=color:#f92672>=</span> ();   <span style=color:#75715e># all the files in ftp</span>
+<span style=color:#66d9ef>my</span> @local_list  <span style=color:#f92672>=</span> ();   <span style=color:#75715e># files already downloaded</span>
+<span style=color:#66d9ef>my</span> @finish_list <span style=color:#f92672>=</span> ();   <span style=color:#75715e># files already downloaded</span>
+                        <span style=color:#75715e>#  + files downloaded successfully in this run.</span>
 
-
-
-
-<meta name="generator" content="Hugo 0.61.0 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/perl-script-for-downloading-iris-ftp-data/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="IRIS FTP 数据下载脚本" />
-<meta property="og:description" content="前文说到了 IRIS 官方给出的几种 FTP 数据下载方式，除此之外，还有很多方法。比如直接浏览器右键另存为，比如 Windows 下迅雷的下载链接自动识别，再比如 Firefox 浏览器 &#43; 附加组件 &ldquo;DownThemAll!&quot;。这些工具其实和前文说的下载方法类似，都有各种各样的缺点。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/perl-script-for-downloading-iris-ftp-data/" />
-<meta property="article:published_time" content="2014-01-25T00:00:00+00:00" />
-<meta property="article:modified_time" content="2014-01-25T00:00:00+00:00" />
-<meta itemprop="name" content="IRIS FTP 数据下载脚本">
-<meta itemprop="description" content="前文说到了 IRIS 官方给出的几种 FTP 数据下载方式，除此之外，还有很多方法。比如直接浏览器右键另存为，比如 Windows 下迅雷的下载链接自动识别，再比如 Firefox 浏览器 &#43; 附加组件 &ldquo;DownThemAll!&quot;。这些工具其实和前文说的下载方法类似，都有各种各样的缺点。">
-<meta itemprop="datePublished" content="2014-01-25T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2014-01-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1237">
-
-
-
-<meta itemprop="keywords" content="breq_fast,IRIS,数据,Perl," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="IRIS FTP 数据下载脚本"/>
-<meta name="twitter:description" content="前文说到了 IRIS 官方给出的几种 FTP 数据下载方式，除此之外，还有很多方法。比如直接浏览器右键另存为，比如 Windows 下迅雷的下载链接自动识别，再比如 Firefox 浏览器 &#43; 附加组件 &ldquo;DownThemAll!&quot;。这些工具其实和前文说的下载方法类似，都有各种各样的缺点。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">IRIS FTP 数据下载脚本</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2014-01-25 </span>
-        <div class="post-category">
-            <a href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/"> 地震学软件 </a>
-            </div>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents"></nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>前文说到了 IRIS 官方给出的几种 FTP 数据下载方式，除此之外，还有很多方法。比如直接浏览器右键另存为，比如 Windows 下迅雷的下载链接自动识别，再比如 Firefox 浏览器 + 附加组件 &ldquo;DownThemAll!&quot;。这些工具其实和前文说的下载方法类似，都有各种各样的缺点。</p>
-<p>下面的 Perl 脚本实现了 IRIS FTP 数据的下载，其思路如下：</p>
-<ol>
-<li>登录 IRIS 的 ftp，获取 ftp 内的全部文件列表，保存到本地文件 <code>ftp.filelist</code> 中；</li>
-<li>由于 IRIS ftp 里的数据默认会保存 7 天，且用户无删除权限，因而可能有些 ftp 中的数据已经下载了，所以在本地需要有一个已经下载的数据的列表 <code>local.filelist</code> ；</li>
-<li>读取 <code>ftp.filelist</code> 和 <code>local.filelist</code> 的内容，检查 <code>ftp.filelist</code> 中的文件是否在 <code>local.filelist</code> 中，若在则不下载，若不在则下载。</li>
-<li>所有文件下载完成后，则意味着 <code>ftp.filelist</code> 中的全部文件都已在本地，更新 <code>local.filelist</code> 。</li>
-<li>重复步骤 1-3，若 <code>ftp.filelist</code> 与 <code>local.filelist</code> 不同则意味着下载过程中有新数据到达或者某些数据下载失败，继续下载（这一步其实可以手动重复执行该脚本，而不需要在脚本内部进行循环）。</li>
-</ol>
-<p>脚本的一些特性：</p>
-<ul>
-<li>已下载的数据可以移动到其他文件夹，这些数据不会重复下载；（需要重复下载时可手动修改 <code>local.filelist</code> ）</li>
-<li>FTP 中所有不在 <code>local.filelist</code> 中的文件都会被下载；</li>
-<li>若 <code>local.filelist</code> 为空，则 ftp 中所有数据都会被下载；</li>
-<li>若 <code>local.filelist</code> 包含了 7 天以前的数据下载信息，这些数据已经在 FTP 中被删除，这种情况脚本可以处理，不需要删除 <code>local.filelist</code> ；</li>
-<li>检测本地数据的大小与 ftp 中数据的大小是否相等，保证了数据的完整性；若不相等，则不将文件名写入 <code>local.filelist</code> 。</li>
-<li>当脚本或网络由于外部因素出现中断导致数据不完整时，借助于 wget 断点续传功能，可以直接重新运行该脚本，而不做任何特殊处理。</li>
-</ul>
-<p><a href="https://gist.github.com/seisman/2ccefac15c4cd3239382">irisFetch.pl</a></p>
-<p>代码预览：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e">#!/usr/bin/env perl</span>
-<span style="color:#75715e">#</span>
-<span style="color:#75715e">#  Perl script to fetch seed data form IRIS FTP</span>
-<span style="color:#75715e">#</span>
-<span style="color:#75715e">#  Author:  SeisMan @ seisman.info</span>
-<span style="color:#75715e">#  Date:    05/16/2013</span>
-<span style="color:#75715e">#</span>
-<span style="color:#75715e">#  Modules:</span>
-<span style="color:#75715e">#   1. Net::FTP     #  It is already installed for most Linux OS</span>
-<span style="color:#75715e">#</span>
-<span style="color:#75715e">#  Description:</span>
-<span style="color:#75715e">#   1. $passwd is your email address</span>
-<span style="color:#75715e">#   2. $cmd and $option is tool for downloading</span>
-<span style="color:#75715e">#       $cmd = &#34;wget&#34;;  $option = &#34;-c&#34;;</span>
-<span style="color:#75715e">#   3. ftp.filelist contains all the data in the ftp (less than 7 days).</span>
-<span style="color:#75715e">#   4. local.filelist contains all the file you have already download,</span>
-<span style="color:#75715e">#      file in ftp.filelist but not in local.filelist will be downloaded,</span>
-<span style="color:#75715e">#      so do not delete local.filelist.</span>
-<span style="color:#75715e">#</span>
-<span style="color:#75715e">#  Revision History:</span>
-<span style="color:#75715e">#   05/16/2013  SeisMan    Initial Coding</span>
-<span style="color:#75715e">#   01/16/2014  SeisMan    Modify to a serial script</span>
-<span style="color:#75715e">#</span>
-
-<span style="color:#66d9ef">use</span> strict;
-<span style="color:#66d9ef">use</span> warnings;
-<span style="color:#66d9ef">use</span> Net::FTP;
-
-<span style="color:#75715e">############# Personal Infomation #############</span>
-<span style="color:#66d9ef">my</span> $user <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;XXXXXXXX&#34;</span>;
-<span style="color:#66d9ef">my</span> $passwd <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;xxxx@xxxxxxxxxx&#39;</span>;
-
-<span style="color:#75715e">#############################################################</span>
-<span style="color:#75715e">## DO NOT MODIFY BELOW UNLESS YOU KNOW WHAT YOU ARE DOING! ##</span>
-<span style="color:#75715e">#############################################################</span>
-<span style="color:#66d9ef">my</span> $server <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ftp.iris.washington.edu&#34;</span>;
-<span style="color:#66d9ef">my</span> $login <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;anonymous&#34;</span>;
-<span style="color:#66d9ef">my</span> $dir <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;pub/userdata&#34;</span>;
-
-<span style="color:#75715e"># download tools</span>
-<span style="color:#66d9ef">my</span> $cmd <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;wget&#34;</span>;
-<span style="color:#66d9ef">my</span> $option <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;-c&#34;</span>;
-
-<span style="color:#75715e"># get filelist of ftp</span>
-<span style="color:#66d9ef">print</span> STDERR <span style="color:#e6db74">&#34;Fetching filelist from $server...\n&#34;</span>;
-<span style="color:#f92672">&amp;</span>ftp_list($server, $login, $passwd, $dir, $user);
-
-<span style="color:#75715e"># lists</span>
-<span style="color:#66d9ef">my</span> @ftp_list    <span style="color:#f92672">=</span> ();   <span style="color:#75715e"># all the files in ftp</span>
-<span style="color:#66d9ef">my</span> @local_list  <span style="color:#f92672">=</span> ();   <span style="color:#75715e"># files already downloaded</span>
-<span style="color:#66d9ef">my</span> @finish_list <span style="color:#f92672">=</span> ();   <span style="color:#75715e"># files already downloaded</span>
-                        <span style="color:#75715e">#  + files downloaded successfully in this run.</span>
-
-<span style="color:#75715e"># read ftp filelist</span>
-open FTP, <span style="color:#e6db74">&#34;&lt;ftp.filelist&#34;</span> <span style="color:#f92672">or</span> die <span style="color:#e6db74">&#34;Can&#39;t open ftp.filelist! \n&#34;</span>;
-@ftp_list <span style="color:#f92672">=</span> <span style="color:#e6db74">&lt;FTP&gt;</span>;
+<span style=color:#75715e># read ftp filelist</span>
+open FTP, <span style=color:#e6db74>&#34;&lt;ftp.filelist&#34;</span> <span style=color:#f92672>or</span> die <span style=color:#e6db74>&#34;Can&#39;t open ftp.filelist! \n&#34;</span>;
+@ftp_list <span style=color:#f92672>=</span> <span style=color:#e6db74>&lt;FTP&gt;</span>;
 close FTP;
 
-<span style="color:#75715e"># read local filefilst</span>
-<span style="color:#66d9ef">if</span> (<span style="color:#f92672">-</span>e<span style="color:#e6db74">&#34;local.filelist&#34;</span>) {
-    open LOCAL, <span style="color:#e6db74">&#34;&lt;local.filelist&#34;</span> <span style="color:#f92672">or</span> die <span style="color:#e6db74">&#34;Can&#39;t open local.filelist\n&#34;</span>;
-        @local_list <span style="color:#f92672">=</span> <span style="color:#e6db74">&lt;LOCAL&gt;</span>;
+<span style=color:#75715e># read local filefilst</span>
+<span style=color:#66d9ef>if</span> (<span style=color:#f92672>-</span>e<span style=color:#e6db74>&#34;local.filelist&#34;</span>) {
+    open LOCAL, <span style=color:#e6db74>&#34;&lt;local.filelist&#34;</span> <span style=color:#f92672>or</span> die <span style=color:#e6db74>&#34;Can&#39;t open local.filelist\n&#34;</span>;
+        @local_list <span style=color:#f92672>=</span> <span style=color:#e6db74>&lt;LOCAL&gt;</span>;
         chomp @local_list;
     close LOCAL;
 }
 
-<span style="color:#75715e">############################ start downloading ##############################</span>
-<span style="color:#66d9ef">foreach</span> (@ftp_list) {
-    <span style="color:#66d9ef">my</span> ($ftp_file, $ftp_size) <span style="color:#f92672">=</span> split <span style="color:#e6db74">/\s+/</span>, $_;
+<span style=color:#75715e>############################ start downloading ##############################</span>
+<span style=color:#66d9ef>foreach</span> (@ftp_list) {
+    <span style=color:#66d9ef>my</span> ($ftp_file, $ftp_size) <span style=color:#f92672>=</span> split <span style=color:#e6db74>/\s+/</span>, $_;
 
-    <span style="color:#75715e"># determine $ftp_file downloaded or not</span>
-    <span style="color:#66d9ef">my</span> $in <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-    <span style="color:#66d9ef">foreach</span> (@local_list) {
+    <span style=color:#75715e># determine $ftp_file downloaded or not</span>
+    <span style=color:#66d9ef>my</span> $in <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+    <span style=color:#66d9ef>foreach</span> (@local_list) {
         chomp;
-        <span style="color:#66d9ef">if</span> ($_ <span style="color:#f92672">=~</span> $ftp_file) {
-            $in <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-            <span style="color:#66d9ef">last</span>;
+        <span style=color:#66d9ef>if</span> ($_ <span style=color:#f92672>=~</span> $ftp_file) {
+            $in <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+            <span style=color:#66d9ef>last</span>;
         }
     }
 
-    <span style="color:#66d9ef">if</span> ($in<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>) {  <span style="color:#75715e"># already downloaded</span>
+    <span style=color:#66d9ef>if</span> ($in<span style=color:#f92672>==</span><span style=color:#ae81ff>1</span>) {  <span style=color:#75715e># already downloaded</span>
         push @finish_list, $ftp_file;
-    } <span style="color:#66d9ef">else</span> { <span style="color:#75715e"># need to be downloaded</span>
-        <span style="color:#66d9ef">my</span> $err <span style="color:#f92672">=</span> system <span style="color:#e6db74">&#34;$cmd $option $server/$dir/$user/$ftp_file&#34;</span>;
-        <span style="color:#75715e"># err = 0 means succeed in downloading</span>
-        <span style="color:#75715e"># err = 1 means downloading error</span>
-        <span style="color:#75715e"># err = 2 means interrupt by user</span>
-        push @finish_list, $ftp_file <span style="color:#66d9ef">if</span> $err<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">-</span>s $ftp_file <span style="color:#f92672">==</span> $ftp_size;
+    } <span style=color:#66d9ef>else</span> { <span style=color:#75715e># need to be downloaded</span>
+        <span style=color:#66d9ef>my</span> $err <span style=color:#f92672>=</span> system <span style=color:#e6db74>&#34;$cmd $option $server/$dir/$user/$ftp_file&#34;</span>;
+        <span style=color:#75715e># err = 0 means succeed in downloading</span>
+        <span style=color:#75715e># err = 1 means downloading error</span>
+        <span style=color:#75715e># err = 2 means interrupt by user</span>
+        push @finish_list, $ftp_file <span style=color:#66d9ef>if</span> $err<span style=color:#f92672>==</span><span style=color:#ae81ff>0</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>-</span>s $ftp_file <span style=color:#f92672>==</span> $ftp_size;
     }
 }
-<span style="color:#75715e">########################## end downloading ##################################</span>
+<span style=color:#75715e>########################## end downloading ##################################</span>
 
-<span style="color:#75715e"># update local.filelist</span>
-open OUT, <span style="color:#e6db74">&#34;&gt; local.filelist&#34;</span> <span style="color:#f92672">or</span> die <span style="color:#e6db74">&#34;Can&#39;t open local.filelist\n&#34;</span>;
-<span style="color:#66d9ef">foreach</span> (@finish_list) {
-    <span style="color:#66d9ef">print</span> OUT <span style="color:#e6db74">&#34;$_\n&#34;</span> <span style="color:#66d9ef">if</span> <span style="color:#e6db74">/seed/</span>;
+<span style=color:#75715e># update local.filelist</span>
+open OUT, <span style=color:#e6db74>&#34;&gt; local.filelist&#34;</span> <span style=color:#f92672>or</span> die <span style=color:#e6db74>&#34;Can&#39;t open local.filelist\n&#34;</span>;
+<span style=color:#66d9ef>foreach</span> (@finish_list) {
+    <span style=color:#66d9ef>print</span> OUT <span style=color:#e6db74>&#34;$_\n&#34;</span> <span style=color:#66d9ef>if</span> <span style=color:#e6db74>/seed/</span>;
 }
 close OUT;
 
-<span style="color:#66d9ef">sub</span> <span style="color:#a6e22e">ftp_list</span>() {
-    <span style="color:#66d9ef">my</span> ($server, $login, $passwd, $dir, $user) <span style="color:#f92672">=</span> @_;
+<span style=color:#66d9ef>sub</span> <span style=color:#a6e22e>ftp_list</span>() {
+    <span style=color:#66d9ef>my</span> ($server, $login, $passwd, $dir, $user) <span style=color:#f92672>=</span> @_;
 
-    <span style="color:#66d9ef">my</span> $ftp <span style="color:#f92672">=</span> Net::FTP<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span><span style="color:#66d9ef">new</span>(
-        Host    <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span>   $server,
-        Debug   <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span>   <span style="color:#ae81ff">0</span>,
-    ) <span style="color:#f92672">or</span> die <span style="color:#e6db74">&#34;Can&#39;t connect to $server\n&#34;</span>;
+    <span style=color:#66d9ef>my</span> $ftp <span style=color:#f92672>=</span> Net::FTP<span style=color:#f92672>-&gt;</span><span style=color:#66d9ef>new</span>(
+        Host    <span style=color:#f92672>=&gt;</span>   $server,
+        Debug   <span style=color:#f92672>=&gt;</span>   <span style=color:#ae81ff>0</span>,
+    ) <span style=color:#f92672>or</span> die <span style=color:#e6db74>&#34;Can&#39;t connect to $server\n&#34;</span>;
 
-    $ftp<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>login($login,$passwd);
-    $ftp<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>cwd(<span style="color:#e6db74">&#34;$dir/$user&#34;</span>);
-    <span style="color:#66d9ef">my</span> @files <span style="color:#f92672">=</span> $ftp<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>dir();
-    $ftp<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>quit();
+    $ftp<span style=color:#f92672>-&gt;</span>login($login,$passwd);
+    $ftp<span style=color:#f92672>-&gt;</span>cwd(<span style=color:#e6db74>&#34;$dir/$user&#34;</span>);
+    <span style=color:#66d9ef>my</span> @files <span style=color:#f92672>=</span> $ftp<span style=color:#f92672>-&gt;</span>dir();
+    $ftp<span style=color:#f92672>-&gt;</span>quit();
 
-    open OUT, <span style="color:#e6db74">&#34;&gt; ftp.filelist&#34;</span>;
-    <span style="color:#66d9ef">foreach</span> (@files) {
-        <span style="color:#66d9ef">if</span> (<span style="color:#e6db74">/seed$/</span>){
-            <span style="color:#66d9ef">my</span> @line <span style="color:#f92672">=</span> split;
-            <span style="color:#66d9ef">print</span> OUT <span style="color:#e6db74">&#34;$line[8] $line[4]\n&#34;</span>;
+    open OUT, <span style=color:#e6db74>&#34;&gt; ftp.filelist&#34;</span>;
+    <span style=color:#66d9ef>foreach</span> (@files) {
+        <span style=color:#66d9ef>if</span> (<span style=color:#e6db74>/seed$/</span>){
+            <span style=color:#66d9ef>my</span> @line <span style=color:#f92672>=</span> split;
+            <span style=color:#66d9ef>print</span> OUT <span style=color:#e6db74>&#34;$line[8] $line[4]\n&#34;</span>;
         }
     }
     close OUT;
 }
-</code></pre></div><p>一些说明：</p>
-<ul>
-<li>用户只需要修改 <code>$user</code> 和 <code>$passwd</code> 即可使用，其中 <code>$passwd</code> 为邮箱；</li>
-<li>该脚本为串行版本，并行和多线程版本暂不公开；</li>
-<li>该脚本经过测试，但不对其任何特性做任何保证；由于使用该脚本造成的任何损失或损害，由用户自己负责；</li>
-<li>任何疑问、评论、Bug 报告，可以在当前页面留言，或邮件联系 <a href="mailto:seisman.info@gmail.com">seisman.info@gmail.com</a>；</li>
-</ul>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2014-01-25
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/breq_fast/">breq_fast</a>
-          <a href="/tags/IRIS/">IRIS</a>
-          <a href="/tags/%E6%95%B0%E6%8D%AE/">数据</a>
-          <a href="/tags/Perl/">Perl</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/gebco/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">全球水深数据 GEBCO</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/download-data-from-iris-ftp/">
-            <span class="next-text nav-default">IRIS FTP 数据下载的几个方法</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+</code></pre></div><p>一些说明：</p><ul><li>用户只需要修改 <code>$user</code> 和 <code>$passwd</code> 即可使用，其中 <code>$passwd</code> 为邮箱；</li><li>该脚本为串行版本，并行和多线程版本暂不公开；</li><li>该脚本经过测试，但不对其任何特性做任何保证；由于使用该脚本造成的任何损失或损害，由用户自己负责；</li><li>任何疑问、评论、Bug 报告，可以在当前页面留言，或邮件联系 <a href=mailto:seisman.info@gmail.com>seisman.info@gmail.com</a>；</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2014-01-25</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/breq_fast/>breq_fast</a>
+<a href=/tags/IRIS/>IRIS</a>
+<a href=/tags/%E6%95%B0%E6%8D%AE/>数据</a>
+<a href=/tags/Perl/>Perl</a></div><nav class=post-nav><a class=prev href=/gebco/><i class="iconfont icon-left"></i><span class="prev-text nav-default">全球水深数据 GEBCO</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/download-data-from-iris-ftp/><span class="next-text nav-default">IRIS FTP 数据下载的几个方法</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

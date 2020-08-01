@@ -1,285 +1,42 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>使用 EPEL 和 RPMforge 源安装 netcdf 时的冲突 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="新版本的 GMT 的编译与运行要求 netCDF 的版本大于 4，且支持 netCDF4/HDF5。即如果想要手动编译 netCDF4 以上的版本，则同时需要编译 hdf5，而 hdf5 又依赖于 zlib 和 szlib 等等包，所以手动编译 netcdf 相当不合算。
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>使用 EPEL 和 RPMforge 源安装 netcdf 时的冲突 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="新版本的 GMT 的编译与运行要求 netCDF 的版本大于 4，且支持 netCDF4/HDF5。即如果想要手动编译 netCDF4 以上的版本，则同时需要编译 hdf5，而 hdf5 又依赖于 zlib 和 szlib 等等包，所以手动编译 netcdf 相当不合算。
 大多数发行版中应该都有 netcdf4，所以不会出现太多的问题。
-CentOS 官方源中没有 netcdf，因而需要使用第三方源，直接将别人已经编译好的文件拿过来使用。其中最常用的就是 EPEL 和 RPMforge。而恰好二者都包含了 netcdf、netcdf-devel、hdf5、hdf5-devel 包。由此引发了一些冲突。
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.61.0 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/trash/epel-rpmforge-conflict/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="使用 EPEL 和 RPMforge 源安装 netcdf 时的冲突" />
-<meta property="og:description" content="新版本的 GMT 的编译与运行要求 netCDF 的版本大于 4，且支持 netCDF4/HDF5。即如果想要手动编译 netCDF4 以上的版本，则同时需要编译 hdf5，而 hdf5 又依赖于 zlib 和 szlib 等等包，所以手动编译 netcdf 相当不合算。
+CentOS 官方源中没有 netcdf，因而需要使用第三方源，直接将别人已经编译好的文件拿过来使用。其中最常用的就是 EPEL 和 RPMforge。而恰好二者都包含了 netcdf、netcdf-devel、hdf5、hdf5-devel 包。由此引发了一些冲突。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://blog.seisman.info/trash/epel-rpmforge-conflict/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="使用 EPEL 和 RPMforge 源安装 netcdf 时的冲突"><meta property="og:description" content="新版本的 GMT 的编译与运行要求 netCDF 的版本大于 4，且支持 netCDF4/HDF5。即如果想要手动编译 netCDF4 以上的版本，则同时需要编译 hdf5，而 hdf5 又依赖于 zlib 和 szlib 等等包，所以手动编译 netcdf 相当不合算。
 大多数发行版中应该都有 netcdf4，所以不会出现太多的问题。
-CentOS 官方源中没有 netcdf，因而需要使用第三方源，直接将别人已经编译好的文件拿过来使用。其中最常用的就是 EPEL 和 RPMforge。而恰好二者都包含了 netcdf、netcdf-devel、hdf5、hdf5-devel 包。由此引发了一些冲突。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/trash/epel-rpmforge-conflict/" />
-<meta property="article:published_time" content="2014-03-03T00:00:00+00:00" />
-<meta property="article:modified_time" content="2014-03-03T00:00:00+00:00" />
-<meta itemprop="name" content="使用 EPEL 和 RPMforge 源安装 netcdf 时的冲突">
-<meta itemprop="description" content="新版本的 GMT 的编译与运行要求 netCDF 的版本大于 4，且支持 netCDF4/HDF5。即如果想要手动编译 netCDF4 以上的版本，则同时需要编译 hdf5，而 hdf5 又依赖于 zlib 和 szlib 等等包，所以手动编译 netcdf 相当不合算。
+CentOS 官方源中没有 netcdf，因而需要使用第三方源，直接将别人已经编译好的文件拿过来使用。其中最常用的就是 EPEL 和 RPMforge。而恰好二者都包含了 netcdf、netcdf-devel、hdf5、hdf5-devel 包。由此引发了一些冲突。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/trash/epel-rpmforge-conflict/"><meta property="article:published_time" content="2014-03-03T00:00:00+00:00"><meta property="article:modified_time" content="2014-03-03T00:00:00+00:00"><meta itemprop=name content="使用 EPEL 和 RPMforge 源安装 netcdf 时的冲突"><meta itemprop=description content="新版本的 GMT 的编译与运行要求 netCDF 的版本大于 4，且支持 netCDF4/HDF5。即如果想要手动编译 netCDF4 以上的版本，则同时需要编译 hdf5，而 hdf5 又依赖于 zlib 和 szlib 等等包，所以手动编译 netcdf 相当不合算。
 大多数发行版中应该都有 netcdf4，所以不会出现太多的问题。
-CentOS 官方源中没有 netcdf，因而需要使用第三方源，直接将别人已经编译好的文件拿过来使用。其中最常用的就是 EPEL 和 RPMforge。而恰好二者都包含了 netcdf、netcdf-devel、hdf5、hdf5-devel 包。由此引发了一些冲突。">
-<meta itemprop="datePublished" content="2014-03-03T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2014-03-03T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="805">
-
-
-
-<meta itemprop="keywords" content="CentOS,GMT," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="使用 EPEL 和 RPMforge 源安装 netcdf 时的冲突"/>
-<meta name="twitter:description" content="新版本的 GMT 的编译与运行要求 netCDF 的版本大于 4，且支持 netCDF4/HDF5。即如果想要手动编译 netCDF4 以上的版本，则同时需要编译 hdf5，而 hdf5 又依赖于 zlib 和 szlib 等等包，所以手动编译 netcdf 相当不合算。
+CentOS 官方源中没有 netcdf，因而需要使用第三方源，直接将别人已经编译好的文件拿过来使用。其中最常用的就是 EPEL 和 RPMforge。而恰好二者都包含了 netcdf、netcdf-devel、hdf5、hdf5-devel 包。由此引发了一些冲突。"><meta itemprop=datePublished content="2014-03-03T00:00:00+00:00"><meta itemprop=dateModified content="2014-03-03T00:00:00+00:00"><meta itemprop=wordCount content="806"><meta itemprop=keywords content="CentOS,GMT,"><meta name=twitter:card content="summary"><meta name=twitter:title content="使用 EPEL 和 RPMforge 源安装 netcdf 时的冲突"><meta name=twitter:description content="新版本的 GMT 的编译与运行要求 netCDF 的版本大于 4，且支持 netCDF4/HDF5。即如果想要手动编译 netCDF4 以上的版本，则同时需要编译 hdf5，而 hdf5 又依赖于 zlib 和 szlib 等等包，所以手动编译 netcdf 相当不合算。
 大多数发行版中应该都有 netcdf4，所以不会出现太多的问题。
-CentOS 官方源中没有 netcdf，因而需要使用第三方源，直接将别人已经编译好的文件拿过来使用。其中最常用的就是 EPEL 和 RPMforge。而恰好二者都包含了 netcdf、netcdf-devel、hdf5、hdf5-devel 包。由此引发了一些冲突。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-  <div class="post-content">
-    <p>新版本的 GMT 的编译与运行要求 netCDF 的版本大于 4，且支持 netCDF4/HDF5。即如果想要手动编译 netCDF4 以上的版本，则同时需要编译 hdf5，而 hdf5 又依赖于 zlib 和 szlib 等等包，所以手动编译 netcdf 相当不合算。</p>
-<p>大多数发行版中应该都有 netcdf4，所以不会出现太多的问题。</p>
-<p>CentOS 官方源中没有 netcdf，因而需要使用第三方源，直接将别人已经编译好的文件拿过来使用。其中最常用的就是 EPEL 和 RPMforge。而恰好二者都包含了 netcdf、netcdf-devel、hdf5、hdf5-devel 包。由此引发了一些冲突。</p>
-<p>EPEL 中的 netcdf 版本为 4.1.1，其编译过程中依赖于 hdf5，因而当通过</p>
-<pre><code>sudo yum install netcdf netcdf-devel
-</code></pre>
-<p>安装 netcdf 时，hdf5 以及 hdf5-devel 会由于依赖关系而被自动安装。</p>
-<p>而 RPMforge 中 netcdf 的版本为 4.1.2，其编译过程中没有加入 hdf5 依赖，所以当</p>
-<pre><code>sudo yum install netcdf netcdf-devel
-</code></pre>
-<p>时，hdf5 由于没有被依赖，所以不会被安装。</p>
-<p>所以通过 EPEL 安装的 netcdf4 是可以被 GMT 使用的，而通过 RPMforge 安装的 netcdf4 是不能被使用的。而由于 RPMforge 的 netcdf 版本比 EPEL 的版本高，因而两个源共存时，RPMforge 的 netcdf 会被优先安装。（利用优先级插件设置之后好像没有用）</p>
-<p>因而当遇到如下报错时:</p>
-<pre><code>-- Looking for nc_def_var_deflate
+CentOS 官方源中没有 netcdf，因而需要使用第三方源，直接将别人已经编译好的文件拿过来使用。其中最常用的就是 EPEL 和 RPMforge。而恰好二者都包含了 netcdf、netcdf-devel、hdf5、hdf5-devel 包。由此引发了一些冲突。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><div class=post-content><p>新版本的 GMT 的编译与运行要求 netCDF 的版本大于 4，且支持 netCDF4/HDF5。即如果想要手动编译 netCDF4 以上的版本，则同时需要编译 hdf5，而 hdf5 又依赖于 zlib 和 szlib 等等包，所以手动编译 netcdf 相当不合算。</p><p>大多数发行版中应该都有 netcdf4，所以不会出现太多的问题。</p><p>CentOS 官方源中没有 netcdf，因而需要使用第三方源，直接将别人已经编译好的文件拿过来使用。其中最常用的就是 EPEL 和 RPMforge。而恰好二者都包含了 netcdf、netcdf-devel、hdf5、hdf5-devel 包。由此引发了一些冲突。</p><p>EPEL 中的 netcdf 版本为 4.1.1，其编译过程中依赖于 hdf5，因而当通过</p><pre><code>sudo yum install netcdf netcdf-devel
+</code></pre><p>安装 netcdf 时，hdf5 以及 hdf5-devel 会由于依赖关系而被自动安装。</p><p>而 RPMforge 中 netcdf 的版本为 4.1.2，其编译过程中没有加入 hdf5 依赖，所以当</p><pre><code>sudo yum install netcdf netcdf-devel
+</code></pre><p>时，hdf5 由于没有被依赖，所以不会被安装。</p><p>所以通过 EPEL 安装的 netcdf4 是可以被 GMT 使用的，而通过 RPMforge 安装的 netcdf4 是不能被使用的。而由于 RPMforge 的 netcdf 版本比 EPEL 的版本高，因而两个源共存时，RPMforge 的 netcdf 会被优先安装。（利用优先级插件设置之后好像没有用）</p><p>因而当遇到如下报错时:</p><pre><code>-- Looking for nc_def_var_deflate
 -- Looking for nc_def_var_deflate - not found
 CMake Error at cmake/modules/FindNETCDF.cmake:127 (message):
 Library found but netCDF-4/HDF5 format unsupported. Do not configure
 netCDF-4 with --disable-netcdf-4.
 Call Stack (most recent call first):
 src/CMakeLists.txt:39 (find_package)
-</code></pre>
-<p>需要确认 netcdf 究竟来自于 EPEL 还是 RPMforge。</p>
-<p>用来检查的命令如下:</p>
-<ol>
-<li>
-<p>查看当前系统中所使用的源 :</p>
-<pre><code>yum repolist
-</code></pre>
-</li>
-<li>
-<p>查看优先的 netcdf-devel 的版本以及来自哪个源 :</p>
-<pre><code>yum info netcdf-devel
-</code></pre>
-</li>
-<li>
-<p>查看 netcdf-devel 包依赖于哪些其他包 :</p>
-<pre><code>yum deplist netcdf-devel
-</code></pre>
-</li>
-<li>
-<p>查看当前系统中已安装的相关包 :</p>
-<pre><code>rpm -qa | grep netcdf
+</code></pre><p>需要确认 netcdf 究竟来自于 EPEL 还是 RPMforge。</p><p>用来检查的命令如下:</p><ol><li><p>查看当前系统中所使用的源 :</p><pre><code>yum repolist
+</code></pre></li><li><p>查看优先的 netcdf-devel 的版本以及来自哪个源 :</p><pre><code>yum info netcdf-devel
+</code></pre></li><li><p>查看 netcdf-devel 包依赖于哪些其他包 :</p><pre><code>yum deplist netcdf-devel
+</code></pre></li><li><p>查看当前系统中已安装的相关包 :</p><pre><code>rpm -qa | grep netcdf
 rpm -qa | grep hdf5
-</code></pre>
-</li>
-</ol>
-<p>通过以上四个方法确认 netcdf 以及 hdf5 均来自于 EPEL，则没问题。</p>
-<p>如果确认无误，依然出现如上报错，一个可能的原因是自己曾经尝试编译过 netcdf，并禁用了 hdf5 相关功能，而删除 netcdf 时没有删除干净，或者怎样。</p>
-<p>如果真的没招了，可以查看编译 GMT 时的 <code>build/CMakeFiles</code> 目录下的 <code>CMakeError.log</code> 和 <code>CMakeOutput.log</code> 这两个日志文件，寻找与 netcdf 相关的部分。</p>
-<p>其实质是找到 netcdf 的动态链接库，并通过如下 C 代码</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#</span><span style="color:#75715e">include</span> <span style="color:#75715e">&lt;netcdf.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span><span style="color:#f92672">*</span><span style="color:#f92672">*</span> argv)
+</code></pre></li></ol><p>通过以上四个方法确认 netcdf 以及 hdf5 均来自于 EPEL，则没问题。</p><p>如果确认无误，依然出现如上报错，一个可能的原因是自己曾经尝试编译过 netcdf，并禁用了 hdf5 相关功能，而删除 netcdf 时没有删除干净，或者怎样。</p><p>如果真的没招了，可以查看编译 GMT 时的 <code>build/CMakeFiles</code> 目录下的 <code>CMakeError.log</code> 和 <code>CMakeOutput.log</code> 这两个日志文件，寻找与 netcdf 相关的部分。</p><p>其实质是找到 netcdf 的动态链接库，并通过如下 C 代码</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;netcdf.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>char</span><span style=color:#f92672>**</span> argv)
 {
-    (<span style="color:#66d9ef">void</span>)argv;
-    <span style="color:#75715e">#</span><span style="color:#75715e">ifndef nc_def_var_deflate</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> ((<span style="color:#66d9ef">int</span><span style="color:#f92672">*</span>)(<span style="color:#f92672">&amp;</span>nc_def_var_deflate))[argc];
-    <span style="color:#75715e">#</span><span style="color:#75715e">else</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>        (<span style="color:#66d9ef">void</span>)argc;
-        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-    <span style="color:#75715e">#</span><span style="color:#75715e">endif</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>}
-</code></pre></div><p>检测动态链接库中是否定义了函数 <code>nc_def_var_deflate</code> 。</p>
-  </div>
-</article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+    (<span style=color:#66d9ef>void</span>)argv;
+    <span style=color:#75715e>#ifndef nc_def_var_deflate
+</span><span style=color:#75715e></span>        <span style=color:#66d9ef>return</span> ((<span style=color:#66d9ef>int</span><span style=color:#f92672>*</span>)(<span style=color:#f92672>&amp;</span>nc_def_var_deflate))[argc];
+    <span style=color:#75715e>#else
+</span><span style=color:#75715e></span>        (<span style=color:#66d9ef>void</span>)argc;
+        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+    <span style=color:#75715e>#endif
+</span><span style=color:#75715e></span>}
+</code></pre></div><p>检测动态链接库中是否定义了函数 <code>nc_def_var_deflate</code> 。</p></div></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

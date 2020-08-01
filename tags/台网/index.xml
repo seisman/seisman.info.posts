@@ -1,25 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>台网 on SeisMan</title>
-    <link>https://blog.seisman.info/tags/%E5%8F%B0%E7%BD%91/</link>
-    <description>Recent content in 台网 on SeisMan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Mon, 25 Aug 2014 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.seisman.info/tags/%E5%8F%B0%E7%BD%91/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>日本高密度地震台网 Hi-net</title>
-      <link>https://blog.seisman.info/hinet/</link>
-      <pubDate>Mon, 25 Aug 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/hinet/</guid>
-      <description>&lt;p&gt;Hi-net，全称为 High Sensitivity Seismograph Network，是 NIED 下的一个覆盖日本
-全境的高质量、高密度的短周期地震台网。&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>台网 on SeisMan</title><link>https://blog.seisman.info/tags/%E5%8F%B0%E7%BD%91/</link><description>Recent content in 台网 on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 25 Aug 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E5%8F%B0%E7%BD%91/index.xml" rel="self" type="application/rss+xml"/><item><title>日本高密度地震台网 Hi-net</title><link>https://blog.seisman.info/hinet/</link><pubDate>Mon, 25 Aug 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/hinet/</guid><description>&lt;p>Hi-net，全称为 High Sensitivity Seismograph Network，是 NIED 下的一个覆盖日本
+全境的高质量、高密度的短周期地震台网。&lt;/p></description></item></channel></rss>

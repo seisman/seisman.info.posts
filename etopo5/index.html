@@ -1,271 +1,80 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>全球地形起伏模型etopo5 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="etopo5是全球高程及水深数据，其空间分辨率是5弧分，目前已被更高精度的etopo2和etopo1所取代。但在绘制 全球地形时，若觉得用etopo2得到的图形文件过大，也可使用低精度的etopo5，但还是不建议用etopo5。
-官方页面： http://www.ngdc.noaa.gov/mgg/global/etopo5.html
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.61.0 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/etopo5/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="全球地形起伏模型etopo5" />
-<meta property="og:description" content="etopo5是全球高程及水深数据，其空间分辨率是5弧分，目前已被更高精度的etopo2和etopo1所取代。但在绘制
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>全球地形起伏模型etopo5 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="etopo5是全球高程及水深数据，其空间分辨率是5弧分，目前已被更高精度的etopo2和etopo1所取代。但在绘制 全球地形时，若觉得用etopo2得到的图形文件过大，也可使用低精度的etopo5，但还是不建议用etopo5。
+官方页面： http://www.ngdc.noaa.gov/mgg/global/etopo5.html"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://blog.seisman.info/etopo5/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="全球地形起伏模型etopo5"><meta property="og:description" content="etopo5是全球高程及水深数据，其空间分辨率是5弧分，目前已被更高精度的etopo2和etopo1所取代。但在绘制
 全球地形时，若觉得用etopo2得到的图形文件过大，也可使用低精度的etopo5，但还是不建议用etopo5。
-官方页面： http://www.ngdc.noaa.gov/mgg/global/etopo5.html" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/etopo5/" />
-<meta property="article:published_time" content="2013-08-10T00:00:00+00:00" />
-<meta property="article:modified_time" content="2013-08-10T00:00:00+00:00" />
-<meta itemprop="name" content="全球地形起伏模型etopo5">
-<meta itemprop="description" content="etopo5是全球高程及水深数据，其空间分辨率是5弧分，目前已被更高精度的etopo2和etopo1所取代。但在绘制
+官方页面： http://www.ngdc.noaa.gov/mgg/global/etopo5.html"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/etopo5/"><meta property="article:published_time" content="2013-08-10T00:00:00+00:00"><meta property="article:modified_time" content="2013-08-10T00:00:00+00:00"><meta itemprop=name content="全球地形起伏模型etopo5"><meta itemprop=description content="etopo5是全球高程及水深数据，其空间分辨率是5弧分，目前已被更高精度的etopo2和etopo1所取代。但在绘制
 全球地形时，若觉得用etopo2得到的图形文件过大，也可使用低精度的etopo5，但还是不建议用etopo5。
-官方页面： http://www.ngdc.noaa.gov/mgg/global/etopo5.html">
-<meta itemprop="datePublished" content="2013-08-10T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2013-08-10T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="886">
-
-
-
-<meta itemprop="keywords" content="GMT,地形,数据,网格,高程," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="全球地形起伏模型etopo5"/>
-<meta name="twitter:description" content="etopo5是全球高程及水深数据，其空间分辨率是5弧分，目前已被更高精度的etopo2和etopo1所取代。但在绘制
+官方页面： http://www.ngdc.noaa.gov/mgg/global/etopo5.html"><meta itemprop=datePublished content="2013-08-10T00:00:00+00:00"><meta itemprop=dateModified content="2013-08-10T00:00:00+00:00"><meta itemprop=wordCount content="887"><meta itemprop=keywords content="GMT,地形,数据,网格,高程,"><meta name=twitter:card content="summary"><meta name=twitter:title content="全球地形起伏模型etopo5"><meta name=twitter:description content="etopo5是全球高程及水深数据，其空间分辨率是5弧分，目前已被更高精度的etopo2和etopo1所取代。但在绘制
 全球地形时，若觉得用etopo2得到的图形文件过大，也可使用低精度的etopo5，但还是不建议用etopo5。
-官方页面： http://www.ngdc.noaa.gov/mgg/global/etopo5.html"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">全球地形起伏模型etopo5</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2013-08-10 </span>
-        <div class="post-category">
-            <a href="/categories/%E5%9C%B0%E7%90%83%E7%89%A9%E7%90%86%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90/"> 地球物理相关资源 </a>
-            </div>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#heading">下载地址</a></li>
-    <li><a href="#heading-1">网格数据的说明</a></li>
-    <li><a href="#heading-2">数据的小修改</a></li>
-    <li><a href="#heading-3">复制</a></li>
-    <li><a href="#heading-4">画图检查</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>etopo5是全球高程及水深数据，其空间分辨率是5弧分，目前已被更高精度的etopo2和etopo1所取代。但在绘制
-全球地形时，若觉得用etopo2得到的图形文件过大，也可使用低精度的etopo5，但还是<strong>不建议用etopo5</strong>。</p>
-<p>官方页面： <a href="http://www.ngdc.noaa.gov/mgg/global/etopo5.html">http://www.ngdc.noaa.gov/mgg/global/etopo5.html</a></p>
-<h2 id="heading">下载地址</h2>
-<p><a href="http://www.ngdc.noaa.gov/mgg/global/relief/ETOPO5/TOPO/ETOPO5/">ETOPO5下载</a></p>
-<p>其中， <code>ETOPO5.DAT</code> 和 <code>ETOPO5.DOS</code> 包含了相同的高程数据，只是二者的字节序不同。 <code>ETOPO5.DOS</code> 为
-<code>little-endian</code> ， <code>ETOPO5.DAT</code> 为 <code>big-endian</code> 。</p>
-<h2 id="heading-1">网格数据的说明</h2>
-<p><a href="http://www.ngdc.noaa.gov/mgg/global/relief/ETOPO5/TOPO/ETOPO5/ETOPO5.txt">官方说明文档</a></p>
-<p>简单归纳一下：</p>
-<ul>
-<li>数据采样间隔为5弧分</li>
-<li>经度上0度到359度55分共计4320个采样点（注意不是0到360度），维度方向-90度到90度为2161个点</li>
-<li>每个数据用16位整数表示，即占用两字节，共计4320*2161*2=18671040字节</li>
-<li>实际数据中只有18662400字节，这是因为数据中把-90度的南极给丢了，后面会做简单处理，把南极点补回来；</li>
-<li>数据在文件中的排序很简单，从北纬90度，东经0度0分开始，接下来是360度*12采样点/度=4320采样点，
+官方页面： http://www.ngdc.noaa.gov/mgg/global/etopo5.html"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>全球地形起伏模型etopo5</h1><div class=post-meta><span class=post-time>2013-08-10</span><div class=post-category><a href=/categories/%E5%9C%B0%E7%90%83%E7%89%A9%E7%90%86%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90/>地球物理相关资源</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#下载地址>下载地址</a></li><li><a href=#网格数据的说明>网格数据的说明</a></li><li><a href=#数据的小修改>数据的小修改</a></li><li><a href=#复制>复制</a></li><li><a href=#画图检查>画图检查</a></li></ul></nav></div></div><div class=post-content><p>etopo5是全球高程及水深数据，其空间分辨率是5弧分，目前已被更高精度的etopo2和etopo1所取代。但在绘制
+全球地形时，若觉得用etopo2得到的图形文件过大，也可使用低精度的etopo5，但还是<strong>不建议用etopo5</strong>。</p><p>官方页面： <a href=http://www.ngdc.noaa.gov/mgg/global/etopo5.html>http://www.ngdc.noaa.gov/mgg/global/etopo5.html</a></p><h2 id=下载地址>下载地址</h2><p><a href=http://www.ngdc.noaa.gov/mgg/global/relief/ETOPO5/TOPO/ETOPO5/>ETOPO5下载</a></p><p>其中， <code>ETOPO5.DAT</code> 和 <code>ETOPO5.DOS</code> 包含了相同的高程数据，只是二者的字节序不同。 <code>ETOPO5.DOS</code> 为
+<code>little-endian</code> ， <code>ETOPO5.DAT</code> 为 <code>big-endian</code> 。</p><h2 id=网格数据的说明>网格数据的说明</h2><p><a href=http://www.ngdc.noaa.gov/mgg/global/relief/ETOPO5/TOPO/ETOPO5/ETOPO5.txt>官方说明文档</a></p><p>简单归纳一下：</p><ul><li>数据采样间隔为5弧分</li><li>经度上0度到359度55分共计4320个采样点（注意不是0到360度），维度方向-90度到90度为2161个点</li><li>每个数据用16位整数表示，即占用两字节，共计4320*2161*2=18671040字节</li><li>实际数据中只有18662400字节，这是因为数据中把-90度的南极给丢了，后面会做简单处理，把南极点补回来；</li><li>数据在文件中的排序很简单，从北纬90度，东经0度0分开始，接下来是360度*12采样点/度=4320采样点，
 即8640个字节，一直到北纬90度，东经359度55分；第4321个点为北纬89度55分，东经0度0分，按照这样的顺序
-不断排下去。每个纬度带4320个点，共计2160个纬度带。</li>
-<li>北纬90度即北极，4320个点具有相同的值，为-4290m；南纬-90度即南极，没有包含在这个数据中，其海拔为2810
-m。</li>
-</ul>
-<h2 id="heading-2">数据的小修改</h2>
-<p>如前所说，数据中把南极丢了，这是个小问题，当绘制全球数据时会出现类似“南极海拔不一致”的警告，虽说
-不是致命错误，还是改了吧，源代码如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">/*
-</span><span style="color:#75715e"> * A simple C code to add the elevation of south pole to the ETOPO5 data
-</span><span style="color:#75715e"> * Date:   04/30/2013
-</span><span style="color:#75715e"> * Author: SeisMan
-</span><span style="color:#75715e"> *
-</span><span style="color:#75715e"> * Input:  ETOPO5.DOS
-</span><span style="color:#75715e"> * Output: etopo5.i2
-</span><span style="color:#75715e"> * Note: ETOPO5.DOS is little-endian;
-</span><span style="color:#75715e"> *       ETOPO5.DAT is big-endian;
-</span><span style="color:#75715e"> */</span>
+不断排下去。每个纬度带4320个点，共计2160个纬度带。</li><li>北纬90度即北极，4320个点具有相同的值，为-4290m；南纬-90度即南极，没有包含在这个数据中，其海拔为2810
+m。</li></ul><h2 id=数据的小修改>数据的小修改</h2><p>如前所说，数据中把南极丢了，这是个小问题，当绘制全球数据时会出现类似“南极海拔不一致”的警告，虽说
+不是致命错误，还是改了吧，源代码如下：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#75715e>/*
+</span><span style=color:#75715e> * A simple C code to add the elevation of south pole to the ETOPO5 data
+</span><span style=color:#75715e> * Date:   04/30/2013
+</span><span style=color:#75715e> * Author: SeisMan
+</span><span style=color:#75715e> *
+</span><span style=color:#75715e> * Input:  ETOPO5.DOS
+</span><span style=color:#75715e> * Output: etopo5.i2
+</span><span style=color:#75715e> * Note: ETOPO5.DOS is little-endian;
+</span><span style=color:#75715e> *       ETOPO5.DAT is big-endian;
+</span><span style=color:#75715e> */</span>
 
-<span style="color:#75715e">#</span><span style="color:#75715e">include</span><span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">include</span><span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">define NX 4320</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span><span style="color:#75715e">#</span><span style="color:#75715e">define NY 2160</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">short</span> <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span><span style="color:#f92672">*</span><span style="color:#a6e22e">imatrix</span>(<span style="color:#66d9ef">int</span> nrl,<span style="color:#66d9ef">int</span> nrh,<span style="color:#66d9ef">int</span> ncl,<span style="color:#66d9ef">int</span> nch);
+<span style=color:#75715e>#include</span><span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span><span style=color:#75715e>&lt;stdlib.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#define NX 4320
+</span><span style=color:#75715e>#define NY 2160
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>short</span> <span style=color:#66d9ef>int</span> <span style=color:#f92672>**</span><span style=color:#a6e22e>imatrix</span>(<span style=color:#66d9ef>int</span> nrl,<span style=color:#66d9ef>int</span> nrh,<span style=color:#66d9ef>int</span> ncl,<span style=color:#66d9ef>int</span> nch);
 
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(){
-  <span style="color:#66d9ef">short</span> <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span><span style="color:#f92672">*</span>topo;
-  <span style="color:#66d9ef">int</span> ix, iy;
-  FILE <span style="color:#f92672">*</span>fip, <span style="color:#f92672">*</span>fop;
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(){
+  <span style=color:#66d9ef>short</span> <span style=color:#66d9ef>int</span> <span style=color:#f92672>**</span>topo;
+  <span style=color:#66d9ef>int</span> ix, iy;
+  FILE <span style=color:#f92672>*</span>fip, <span style=color:#f92672>*</span>fop;
 
-  topo<span style="color:#f92672">=</span>imatrix(<span style="color:#ae81ff">1</span>,NX,<span style="color:#ae81ff">1</span>,NY<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+  topo<span style=color:#f92672>=</span>imatrix(<span style=color:#ae81ff>1</span>,NX,<span style=color:#ae81ff>1</span>,NY<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>);
 
-  fip<span style="color:#f92672">=</span>fopen(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">ETOPO5.DOS</span><span style="color:#e6db74">&#34;</span>,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">rb</span><span style="color:#e6db74">&#34;</span>);
-  <span style="color:#66d9ef">for</span>(iy<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;iy<span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span>NY;iy<span style="color:#f92672">+</span><span style="color:#f92672">+</span>){
-    <span style="color:#66d9ef">for</span>(ix<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;ix<span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span>NX;ix<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
-      fread(<span style="color:#f92672">&amp;</span>topo[ix][iy],<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">short</span> <span style="color:#66d9ef">int</span>),<span style="color:#ae81ff">1</span>,fip);
+  fip<span style=color:#f92672>=</span>fopen(<span style=color:#e6db74>&#34;ETOPO5.DOS&#34;</span>,<span style=color:#e6db74>&#34;rb&#34;</span>);
+  <span style=color:#66d9ef>for</span>(iy<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;iy<span style=color:#f92672>&lt;=</span>NY;iy<span style=color:#f92672>++</span>){
+    <span style=color:#66d9ef>for</span>(ix<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;ix<span style=color:#f92672>&lt;=</span>NX;ix<span style=color:#f92672>++</span>)
+      fread(<span style=color:#f92672>&amp;</span>topo[ix][iy],<span style=color:#66d9ef>sizeof</span>(<span style=color:#66d9ef>short</span> <span style=color:#66d9ef>int</span>),<span style=color:#ae81ff>1</span>,fip);
   }
 
-  <span style="color:#66d9ef">for</span>(ix<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;ix<span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span>NX;ix<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
-    topo[ix][NY<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">=</span><span style="color:#ae81ff">2810</span>;
+  <span style=color:#66d9ef>for</span>(ix<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;ix<span style=color:#f92672>&lt;=</span>NX;ix<span style=color:#f92672>++</span>)
+    topo[ix][NY<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]<span style=color:#f92672>=</span><span style=color:#ae81ff>2810</span>;
 
-  fop<span style="color:#f92672">=</span>fopen(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">etopo5.i2</span><span style="color:#e6db74">&#34;</span>,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">wb</span><span style="color:#e6db74">&#34;</span>);
-  <span style="color:#66d9ef">for</span>(iy<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;iy<span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span>NY<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>;iy<span style="color:#f92672">+</span><span style="color:#f92672">+</span>)
-    <span style="color:#66d9ef">for</span>(ix<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;ix<span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span>NX;ix<span style="color:#f92672">+</span><span style="color:#f92672">+</span>){
-      fwrite(<span style="color:#f92672">&amp;</span>topo[ix][iy],<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">short</span> <span style="color:#66d9ef">int</span>),<span style="color:#ae81ff">1</span>,fop);
-<span style="color:#75715e">//      printf(&#34;%d %d %d\n&#34;,ix,iy,topo[ix][iy]);
-</span><span style="color:#75715e"></span>    }
+  fop<span style=color:#f92672>=</span>fopen(<span style=color:#e6db74>&#34;etopo5.i2&#34;</span>,<span style=color:#e6db74>&#34;wb&#34;</span>);
+  <span style=color:#66d9ef>for</span>(iy<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;iy<span style=color:#f92672>&lt;=</span>NY<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>;iy<span style=color:#f92672>++</span>)
+    <span style=color:#66d9ef>for</span>(ix<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>;ix<span style=color:#f92672>&lt;=</span>NX;ix<span style=color:#f92672>++</span>){
+      fwrite(<span style=color:#f92672>&amp;</span>topo[ix][iy],<span style=color:#66d9ef>sizeof</span>(<span style=color:#66d9ef>short</span> <span style=color:#66d9ef>int</span>),<span style=color:#ae81ff>1</span>,fop);
+<span style=color:#75715e>//      printf(&#34;%d %d %d\n&#34;,ix,iy,topo[ix][iy]);
+</span><span style=color:#75715e></span>    }
 
   close(fip);
   close(fop);
 }
 
-<span style="color:#66d9ef">short</span> <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span><span style="color:#f92672">*</span><span style="color:#a6e22e">imatrix</span>(<span style="color:#66d9ef">int</span> nrl,<span style="color:#66d9ef">int</span> nrh,<span style="color:#66d9ef">int</span> ncl,<span style="color:#66d9ef">int</span> nch){
-  <span style="color:#66d9ef">int</span> i;
-  <span style="color:#66d9ef">short</span> <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span><span style="color:#f92672">*</span>m;
+<span style=color:#66d9ef>short</span> <span style=color:#66d9ef>int</span> <span style=color:#f92672>**</span><span style=color:#a6e22e>imatrix</span>(<span style=color:#66d9ef>int</span> nrl,<span style=color:#66d9ef>int</span> nrh,<span style=color:#66d9ef>int</span> ncl,<span style=color:#66d9ef>int</span> nch){
+  <span style=color:#66d9ef>int</span> i;
+  <span style=color:#66d9ef>short</span> <span style=color:#66d9ef>int</span> <span style=color:#f92672>**</span>m;
 
-  m<span style="color:#f92672">=</span>(<span style="color:#66d9ef">short</span> <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span><span style="color:#f92672">*</span>)malloc((<span style="color:#66d9ef">unsigned</span>) (nrh<span style="color:#f92672">-</span>nrl<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">*</span><span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">short</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">*</span>));
-  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>m) fprintf(stderr,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">allocation failure 1 in imatrix()</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-  m <span style="color:#f92672">-</span><span style="color:#f92672">=</span> nrl;
+  m<span style=color:#f92672>=</span>(<span style=color:#66d9ef>short</span> <span style=color:#66d9ef>int</span> <span style=color:#f92672>**</span>)malloc((<span style=color:#66d9ef>unsigned</span>) (nrh<span style=color:#f92672>-</span>nrl<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>*</span><span style=color:#66d9ef>sizeof</span>(<span style=color:#66d9ef>short</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>*</span>));
+  <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span>m) fprintf(stderr,<span style=color:#e6db74>&#34;allocation failure 1 in imatrix()</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+  m <span style=color:#f92672>-=</span> nrl;
 
-  <span style="color:#66d9ef">for</span>(i<span style="color:#f92672">=</span>nrl;i<span style="color:#f92672">&lt;</span><span style="color:#f92672">=</span>nrh;i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>) {
-    m[i]<span style="color:#f92672">=</span>(<span style="color:#66d9ef">short</span> <span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>)malloc((<span style="color:#66d9ef">unsigned</span>) (nch<span style="color:#f92672">-</span>ncl<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)<span style="color:#f92672">*</span><span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">short</span> <span style="color:#66d9ef">int</span>));
-    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>m[i]) fprintf(stderr,<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">allocation failure 2 in imatrix()</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-      m[i] <span style="color:#f92672">-</span><span style="color:#f92672">=</span> ncl;
+  <span style=color:#66d9ef>for</span>(i<span style=color:#f92672>=</span>nrl;i<span style=color:#f92672>&lt;=</span>nrh;i<span style=color:#f92672>++</span>) {
+    m[i]<span style=color:#f92672>=</span>(<span style=color:#66d9ef>short</span> <span style=color:#66d9ef>int</span> <span style=color:#f92672>*</span>)malloc((<span style=color:#66d9ef>unsigned</span>) (nch<span style=color:#f92672>-</span>ncl<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>)<span style=color:#f92672>*</span><span style=color:#66d9ef>sizeof</span>(<span style=color:#66d9ef>short</span> <span style=color:#66d9ef>int</span>));
+    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span>m[i]) fprintf(stderr,<span style=color:#e6db74>&#34;allocation failure 2 in imatrix()</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+      m[i] <span style=color:#f92672>-=</span> ncl;
   }
-  <span style="color:#66d9ef">return</span> m;
+  <span style=color:#66d9ef>return</span> m;
 }
-</code></pre></div><p>编译并运行:</p>
-<pre><code>$ gcc etopo5_mod.c -o etopo5_mod
+</code></pre></div><p>编译并运行:</p><pre><code>$ gcc etopo5_mod.c -o etopo5_mod
 $ ./etopo5_mod
-</code></pre>
-<h2 id="heading-3">复制</h2>
-<p>将修改后的 <code>etopo5.i2</code> 拷贝至 <code>${GMTHOME}/share/dbase</code> 下，并在 <code>grdraster.info</code> 中加入如下语句:</p>
-<pre><code>1 &quot;ETOPO5 global topography&quot; &quot;m&quot; -R0/359:55/-90/90 -I5m GG i 1 0 none etopo5.i2
-</code></pre>
-<p>这其实也就是默认的 <code>grdraster.info</code> 中的内容，只是GMT没有自带etopo5的数据。</p>
-<h2 id="heading-4">画图检查</h2>
-<pre><code>#!/bin/bash
+</code></pre><h2 id=复制>复制</h2><p>将修改后的 <code>etopo5.i2</code> 拷贝至 <code>${GMTHOME}/share/dbase</code> 下，并在 <code>grdraster.info</code> 中加入如下语句:</p><pre><code>1 &quot;ETOPO5 global topography&quot; &quot;m&quot; -R0/359:55/-90/90 -I5m GG i 1 0 none etopo5.i2
+</code></pre><p>这其实也就是默认的 <code>grdraster.info</code> 中的内容，只是GMT没有自带etopo5的数据。</p><h2 id=画图检查>画图检查</h2><pre><code>#!/bin/bash
 
 gmt grdraster 1 -Rg -I5m -Getopo5_global.grd
 gmt makecpt -Cglobe -T-10500/8000/1000 -Z &gt; colors.cpt
@@ -273,130 +82,25 @@ gmt grdimage etopo5_global.grd -Ba60g30 -Rg -JN0/25c -Ccolors.cpt -K -Yc &gt; et
 gmt psscale -Ba2500f500+l&quot;m&quot; -Ccolors.cpt -Dx12.5c/-1.5c/15c/.35ch -O &gt;&gt; etopo5.ps
 
 rm etopo5_global.grd colors.cpt gmt.*
-</code></pre><p><img src="/images/2013081001.jpg" alt=""></p>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2013-08-10
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/GMT/">GMT</a>
-          <a href="/tags/%E5%9C%B0%E5%BD%A2/">地形</a>
-          <a href="/tags/%E6%95%B0%E6%8D%AE/">数据</a>
-          <a href="/tags/%E7%BD%91%E6%A0%BC/">网格</a>
-          <a href="/tags/%E9%AB%98%E7%A8%8B/">高程</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/gtopo30/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">全球数字高程模型 GTOPO30</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/pssac2-install/">
-            <span class="next-text nav-default">pssac2 的安装</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+</code></pre><p><img src=/images/2013081001.jpg alt></p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2013-08-10</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/GMT/>GMT</a>
+<a href=/tags/%E5%9C%B0%E5%BD%A2/>地形</a>
+<a href=/tags/%E6%95%B0%E6%8D%AE/>数据</a>
+<a href=/tags/%E7%BD%91%E6%A0%BC/>网格</a>
+<a href=/tags/%E9%AB%98%E7%A8%8B/>高程</a></div><nav class=post-nav><a class=prev href=/gtopo30/><i class="iconfont icon-left"></i><span class="prev-text nav-default">全球数字高程模型 GTOPO30</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/pssac2-install/><span class="next-text nav-default">pssac2 的安装</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

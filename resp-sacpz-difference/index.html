@@ -1,185 +1,14 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>用 RESP 和 PZ 去除仪器响应的差别 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="前面介绍了 仪器响应文件 RESP 和 仪器响应文件 SAC_PZ，下面分别用两种 响应文件进行去仪器响应，比较二者的区别。
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.61.0 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/resp-sacpz-difference/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="用 RESP 和 PZ 去除仪器响应的差别" />
-<meta property="og:description" content="前面介绍了 仪器响应文件 RESP 和
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>用 RESP 和 PZ 去除仪器响应的差别 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="前面介绍了 仪器响应文件 RESP 和 仪器响应文件 SAC_PZ，下面分别用两种 响应文件进行去仪器响应，比较二者的区别。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://blog.seisman.info/resp-sacpz-difference/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="用 RESP 和 PZ 去除仪器响应的差别"><meta property="og:description" content="前面介绍了 仪器响应文件 RESP 和
 仪器响应文件 SAC_PZ，下面分别用两种
-响应文件进行去仪器响应，比较二者的区别。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/resp-sacpz-difference/" />
-<meta property="article:published_time" content="2013-06-29T00:00:00+00:00" />
-<meta property="article:modified_time" content="2015-11-11T00:00:00+00:00" />
-<meta itemprop="name" content="用 RESP 和 PZ 去除仪器响应的差别">
-<meta itemprop="description" content="前面介绍了 仪器响应文件 RESP 和
+响应文件进行去仪器响应，比较二者的区别。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/resp-sacpz-difference/"><meta property="article:published_time" content="2013-06-29T00:00:00+00:00"><meta property="article:modified_time" content="2015-11-11T00:00:00+00:00"><meta itemprop=name content="用 RESP 和 PZ 去除仪器响应的差别"><meta itemprop=description content="前面介绍了 仪器响应文件 RESP 和
 仪器响应文件 SAC_PZ，下面分别用两种
-响应文件进行去仪器响应，比较二者的区别。">
-<meta itemprop="datePublished" content="2013-06-29T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2015-11-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="828">
-
-
-
-<meta itemprop="keywords" content="仪器响应," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="用 RESP 和 PZ 去除仪器响应的差别"/>
-<meta name="twitter:description" content="前面介绍了 仪器响应文件 RESP 和
+响应文件进行去仪器响应，比较二者的区别。"><meta itemprop=datePublished content="2013-06-29T00:00:00+00:00"><meta itemprop=dateModified content="2015-11-11T00:00:00+00:00"><meta itemprop=wordCount content="828"><meta itemprop=keywords content="仪器响应,"><meta name=twitter:card content="summary"><meta name=twitter:title content="用 RESP 和 PZ 去除仪器响应的差别"><meta name=twitter:description content="前面介绍了 仪器响应文件 RESP 和
 仪器响应文件 SAC_PZ，下面分别用两种
-响应文件进行去仪器响应，比较二者的区别。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">用 RESP 和 PZ 去除仪器响应的差别</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2013-06-29 </span>
-        <div class="post-category">
-            <a href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E5%9F%BA%E7%A1%80/"> 地震学基础 </a>
-            </div>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#heading">样例下载地址</a></li>
-    <li><a href="#resp-">RESP 去除仪器响应</a></li>
-    <li><a href="#pz-">PZ 去除仪器响应</a></li>
-    <li><a href="#heading-1">结果对比</a></li>
-    <li><a href="#heading-2">参考</a></li>
-    <li><a href="#heading-3">修订历史</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>前面介绍了 <a href="/instrumental-response-resp/">仪器响应文件 RESP</a> 和
-<a href="/instrumental-response-sacpz/">仪器响应文件 SAC_PZ</a>，下面分别用两种
-响应文件进行去仪器响应，比较二者的区别。</p>
-<h2 id="heading">样例下载地址</h2>
-<p><a href="/downloads/2013.144.05.40.09.0195.IU.COLA.00.BHZ.M.SAC">SAC 数据</a>
-<a href="/downloads/RESP.IU.COLA.00.BHZ">RESP 文件</a>
-<a href="/downloads/SAC_PZs_IU_COLA_BHZ_00">PZ 文件</a></p>
-<h2 id="resp-">RESP 去除仪器响应</h2>
-<pre><code>$ sac
+响应文件进行去仪器响应，比较二者的区别。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>用 RESP 和 PZ 去除仪器响应的差别</h1><div class=post-meta><span class=post-time>2013-06-29</span><div class=post-category><a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E5%9F%BA%E7%A1%80/>地震学基础</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#样例下载地址>样例下载地址</a></li><li><a href=#resp-去除仪器响应>RESP 去除仪器响应</a></li><li><a href=#pz-去除仪器响应>PZ 去除仪器响应</a></li><li><a href=#结果对比>结果对比</a></li><li><a href=#参考>参考</a></li><li><a href=#修订历史>修订历史</a></li></ul></nav></div></div><div class=post-content><p>前面介绍了 <a href=/instrumental-response-resp/>仪器响应文件 RESP</a> 和
+<a href=/instrumental-response-sacpz/>仪器响应文件 SAC_PZ</a>，下面分别用两种
+响应文件进行去仪器响应，比较二者的区别。</p><h2 id=样例下载地址>样例下载地址</h2><p><a href=/downloads/2013.144.05.40.09.0195.IU.COLA.00.BHZ.M.SAC>SAC 数据</a>
+<a href=/downloads/RESP.IU.COLA.00.BHZ>RESP 文件</a>
+<a href=/downloads/SAC_PZs_IU_COLA_BHZ_00>PZ 文件</a></p><h2 id=resp-去除仪器响应>RESP 去除仪器响应</h2><pre><code>$ sac
 SEISMIC ANALYSIS CODE [02/01/2012 (Version 101.5c)]
 Copyright 1995 Regents of the University of California
 
@@ -191,9 +20,7 @@ Extracting evresp response for COLA, BHZ...
 Station (COLA), Channel (BHZ)
 SAC&gt; w RESP.SAC
 SAC&gt; q
-</code></pre>
-<h2 id="pz-">PZ 去除仪器响应</h2>
-<pre><code>$ sac
+</code></pre><h2 id=pz-去除仪器响应>PZ 去除仪器响应</h2><pre><code>$ sac
 SEISMIC ANALYSIS CODE [02/01/2012 (Version 101.5c)]
 Copyright 1995 Regents of the University of California
 
@@ -204,153 +31,31 @@ Using polezero response for COLA, BHZ, IU, 00...
 Station (COLA), Channel (BHZ)
 SAC&gt; w PZ.SAC
 SAC&gt; q
-</code></pre>
-<h2 id="heading-1">结果对比</h2>
-<ul>
-<li>对比生成的两个 SAC 文件，波形很类似。 <code>RESP.SAC</code> 的最值在 10 的 6 次方量级， <code>PZ.SAC</code> 的最值在
+</code></pre><h2 id=结果对比>结果对比</h2><ul><li>对比生成的两个 SAC 文件，波形很类似。 <code>RESP.SAC</code> 的最值在 10 的 6 次方量级， <code>PZ.SAC</code> 的最值在
 10 的 -3 次方量级，这是 <strong>单位</strong> 的问题。首先 SAC 的默认的位移单位为 <code>nm</code>。RESP 文件中有指定仪器的
 输入单位为 <code>m/s</code>，这行虽然以 <code>#</code> 开头，其在去仪器响应的时候是可以被 SAC 读取的，因而利用 RESP 去仪
 器响应时 SAC 知道输入的单位是什么，SAC 自然也会进行单位的转换。而 PZ 文件中虽然给出了输入单位为 <code>m</code>，
 但 PZ 文件中以 <code>*</code> 开头的行是被忽略的，所以 SAC 其实并不知道仪器的输入单位是什么，直接去仪器响应，
 得到的波形单位为 m，而 SAC 在不知道单位的情况下 “自作聪明” 直接将其单位改写成了 <code>nm</code>，这就导致了波形
-振幅量级上的错误。因而 <strong>SAC 在利用 PZ 文件去仪器响应的时候要乘以 10 的 9 次方进行单位转换</strong>。</li>
-<li>对单位进行校正后，对二者做互相关，发现互相关的结果峰值位于 0 处，这意味着二者不存在时间延迟的问题。
+振幅量级上的错误。因而 <strong>SAC 在利用 PZ 文件去仪器响应的时候要乘以 10 的 9 次方进行单位转换</strong>。</li><li>对单位进行校正后，对二者做互相关，发现互相关的结果峰值位于 0 处，这意味着二者不存在时间延迟的问题。
 PZ 文件中没有任何时间延迟的概念，而 RESP 中在滤波过程中存在时间延迟，并给出了延迟估计和延迟校正。
-互相关峰值在 0 处意味着在用 RESP 做反卷积的时候对数字滤波器做了反卷积，并且对时间问题做了校正。</li>
-<li>对两个相似的波形做差，其差值在 10 的 2 次方量级，大概占信号的千分之一，这个误差也许是因为 PZ 文件
-没有将全部阶段考虑进去导致的，不过这个影响很小。</li>
-<li>PZ 文件中没有考虑 FIR 滤波器的响应函数，因而在 Nyquist 频率附近会出现失真。</li>
-</ul>
-<h2 id="heading-2">参考</h2>
-<ol>
-<li><a href="http://www.iris.edu/hq/es_course/content/2009.html">EarthScope 2009 workshop</a>
-Session 2</li>
-</ol>
-<h2 id="heading-3">修订历史</h2>
-<ul>
-<li>2013-06-29：初稿；</li>
-<li>2013-07-06：修改了 “结果对比” 中第一点的说明；</li>
-<li>2015-11-11：PZ 文件中有无注释行对运行效率基本没有影响</li>
-</ul>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2015-11-11
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/%E4%BB%AA%E5%99%A8%E5%93%8D%E5%BA%94/">仪器响应</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/instrumental-response-details/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">仪器响应实例分析</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/instrumental-response-sacpz/">
-            <span class="next-text nav-default">仪器响应文件 SAC PZ</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+互相关峰值在 0 处意味着在用 RESP 做反卷积的时候对数字滤波器做了反卷积，并且对时间问题做了校正。</li><li>对两个相似的波形做差，其差值在 10 的 2 次方量级，大概占信号的千分之一，这个误差也许是因为 PZ 文件
+没有将全部阶段考虑进去导致的，不过这个影响很小。</li><li>PZ 文件中没有考虑 FIR 滤波器的响应函数，因而在 Nyquist 频率附近会出现失真。</li></ul><h2 id=参考>参考</h2><ol><li><a href=http://www.iris.edu/hq/es_course/content/2009.html>EarthScope 2009 workshop</a>
+Session 2</li></ol><h2 id=修订历史>修订历史</h2><ul><li>2013-06-29：初稿；</li><li>2013-07-06：修改了 “结果对比” 中第一点的说明；</li><li>2015-11-11：PZ 文件中有无注释行对运行效率基本没有影响</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2015-11-11</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/%E4%BB%AA%E5%99%A8%E5%93%8D%E5%BA%94/>仪器响应</a></div><nav class=post-nav><a class=prev href=/instrumental-response-details/><i class="iconfont icon-left"></i><span class="prev-text nav-default">仪器响应实例分析</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/instrumental-response-sacpz/><span class="next-text nav-default">仪器响应文件 SAC PZ</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

@@ -1,380 +1,49 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>CentOS 7 配置指南 — 安装篇 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="本文介绍如何安装 CentOS 7 的最新版本 CentOS-7-1708，也就是 CentOS 7.4。 CentOS 7 的安装与其他 Linux 发行版的安装差不多，个别地方稍有不同。 准备工作 下" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.61.0 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/centos7-setup-1/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="CentOS 7 配置指南 — 安装篇" />
-<meta property="og:description" content="本文介绍如何安装 CentOS 7 的最新版本 CentOS-7-1708，也就是 CentOS 7.4。 CentOS 7 的安装与其他 Linux 发行版的安装差不多，个别地方稍有不同。 准备工作 下" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/centos7-setup-1/" />
-<meta property="article:published_time" content="2014-07-15T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-04-11T00:00:00+00:00" />
-<meta itemprop="name" content="CentOS 7 配置指南 — 安装篇">
-<meta itemprop="description" content="本文介绍如何安装 CentOS 7 的最新版本 CentOS-7-1708，也就是 CentOS 7.4。 CentOS 7 的安装与其他 Linux 发行版的安装差不多，个别地方稍有不同。 准备工作 下">
-<meta itemprop="datePublished" content="2014-07-15T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-04-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="3373">
-
-
-
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="CentOS 7 配置指南 — 安装篇"/>
-<meta name="twitter:description" content="本文介绍如何安装 CentOS 7 的最新版本 CentOS-7-1708，也就是 CentOS 7.4。 CentOS 7 的安装与其他 Linux 发行版的安装差不多，个别地方稍有不同。 准备工作 下"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">CentOS 7 配置指南 — 安装篇</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2014-07-15 </span>
-        
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#heading">准备工作</a></li>
-    <li><a href="#heading-1">安装系统</a>
-      <ul>
-        <li><a href="#heading-2">安装过程中使用的语言</a></li>
-        <li><a href="#heading-3">安装信息摘要</a></li>
-        <li><a href="#heading-4">手动分区</a></li>
-        <li><a href="#heading-5">用户配置</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-6">基本配置</a>
-      <ul>
-        <li><a href="#heading-7">语言和输入法设置</a></li>
-        <li><a href="#heading-8">中文输入法</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-9">添加第三方源</a>
-      <ul>
-        <li><a href="#epel">EPEL</a></li>
-        <li><a href="#elrepo">ELRepo</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-10">更新系统</a>
-      <ul>
-        <li><a href="#-yum-axelget">安装 yum-axelget</a></li>
-        <li><a href="#heading-11">第一次全面更新</a></li>
-        <li><a href="#heading-12">重启</a></li>
-        <li><a href="#-kernel">删除多余的 kernel</a></li>
-      </ul>
-    </li>
-    <li><a href="#heading-13">驱动程序</a>
-      <ul>
-        <li><a href="#heading-14">显卡驱动</a></li>
-        <li><a href="#ntfs-">NTFS 驱动</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>本文介绍如何安装 CentOS 7 的最新版本 CentOS-7-1708，也就是 CentOS 7.4。</p>
-<p>CentOS 7 的安装与其他 Linux 发行版的安装差不多，个别地方稍有不同。</p>
-<!-- raw HTML omitted -->
-<h2 id="heading">准备工作</h2>
-<ol>
-<li>
-<p>下载 ISO 安装镜像文件</p>
-<p>从<a href="https://mirrors.tuna.tsinghua.edu.cn/">清华大学开源软件镜像站</a>下载
-最新版的 CentOS 安装镜像文件。</p>
-<p>镜像文件有多种，推荐下载 LiveGNOME 版本，即
-<a href="https://mirrors.tuna.tsinghua.edu.cn/centos/7.4.1708/isos/x86_64/CentOS-7-x86_64-LiveGNOME-1708.iso">CentOS-7-x86_64-LiveGNOME-1708.iso</a>。</p>
-</li>
-<li>
-<p>制作 USB 安装镜像</p>
-<p>参考 <a href="/linux-usb-installer/">制作 Linux USB 安装镜像</a> 一文。</p>
-</li>
-<li>
-<p>从 U 盘启动盘进入 Live 系统</p>
-<p>将制作好的 U 盘启动盘插入要安装 Linux 的计算机上，开机启动，进入 BIOS 设置
-使计算机从U 盘启动。具体如何进入 BIOS 不同电脑不同，请自行查询。</p>
-<p>若计算机无法从 USB 启动，则可能是由于计算机的“安全启动”设置导致的，可以尝试：</p>
-<ol>
-<li>进入 BIOS 设置</li>
-<li>在 BIOS 设置内关闭安全启动</li>
-</ol>
-<p>如果尝试多次都无法正确从 USB 启动，则可能是 USB 启动盘制作失败，请尝试
-重新制作启动盘。</p>
-</li>
-</ol>
-<h2 id="heading-1">安装系统</h2>
-<p>假设你已经成功引导系统了，进入了 Live 界面，即进入了 USB 启动盘内的系统界面。
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>CentOS 7 配置指南 — 安装篇 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="本文介绍如何安装 CentOS 7 的最新版本 CentOS-7-1708，也就是 CentOS 7.4。 CentOS 7 的安装与其他 Linux 发行版的安装差不多，个别地方稍有不同。 准备工作 下"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://blog.seisman.info/centos7-setup-1/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="CentOS 7 配置指南 — 安装篇"><meta property="og:description" content="本文介绍如何安装 CentOS 7 的最新版本 CentOS-7-1708，也就是 CentOS 7.4。 CentOS 7 的安装与其他 Linux 发行版的安装差不多，个别地方稍有不同。 准备工作 下"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/centos7-setup-1/"><meta property="article:published_time" content="2014-07-15T00:00:00+00:00"><meta property="article:modified_time" content="2018-04-11T00:00:00+00:00"><meta itemprop=name content="CentOS 7 配置指南 — 安装篇"><meta itemprop=description content="本文介绍如何安装 CentOS 7 的最新版本 CentOS-7-1708，也就是 CentOS 7.4。 CentOS 7 的安装与其他 Linux 发行版的安装差不多，个别地方稍有不同。 准备工作 下"><meta itemprop=datePublished content="2014-07-15T00:00:00+00:00"><meta itemprop=dateModified content="2018-04-11T00:00:00+00:00"><meta itemprop=wordCount content="3373"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="CentOS 7 配置指南 — 安装篇"><meta name=twitter:description content="本文介绍如何安装 CentOS 7 的最新版本 CentOS-7-1708，也就是 CentOS 7.4。 CentOS 7 的安装与其他 Linux 发行版的安装差不多，个别地方稍有不同。 准备工作 下"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>CentOS 7 配置指南 — 安装篇</h1><div class=post-meta><span class=post-time>2014-07-15</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#准备工作>准备工作</a></li><li><a href=#安装系统>安装系统</a><ul><li><a href=#安装过程中使用的语言>安装过程中使用的语言</a></li><li><a href=#安装信息摘要>安装信息摘要</a></li><li><a href=#手动分区>手动分区</a></li><li><a href=#用户配置>用户配置</a></li></ul></li><li><a href=#基本配置>基本配置</a><ul><li><a href=#语言和输入法设置>语言和输入法设置</a></li><li><a href=#中文输入法>中文输入法</a></li></ul></li><li><a href=#添加第三方源>添加第三方源</a><ul><li><a href=#epel>EPEL</a></li><li><a href=#elrepo>ELRepo</a></li></ul></li><li><a href=#更新系统>更新系统</a><ul><li><a href=#安装-yum-axelget>安装 yum-axelget</a></li><li><a href=#第一次全面更新>第一次全面更新</a></li><li><a href=#重启>重启</a></li><li><a href=#删除多余的-kernel>删除多余的 kernel</a></li></ul></li><li><a href=#驱动程序>驱动程序</a><ul><li><a href=#显卡驱动>显卡驱动</a></li><li><a href=#ntfs-驱动>NTFS 驱动</a></li></ul></li></ul></nav></div></div><div class=post-content><p>本文介绍如何安装 CentOS 7 的最新版本 CentOS-7-1708，也就是 CentOS 7.4。</p><p>CentOS 7 的安装与其他 Linux 发行版的安装差不多，个别地方稍有不同。</p><h2 id=准备工作>准备工作</h2><ol><li><p>下载 ISO 安装镜像文件</p><p>从<a href=https://mirrors.tuna.tsinghua.edu.cn/>清华大学开源软件镜像站</a>下载
+最新版的 CentOS 安装镜像文件。</p><p>镜像文件有多种，推荐下载 LiveGNOME 版本，即
+<a href=https://mirrors.tuna.tsinghua.edu.cn/centos/7.4.1708/isos/x86_64/CentOS-7-x86_64-LiveGNOME-1708.iso>CentOS-7-x86_64-LiveGNOME-1708.iso</a>。</p></li><li><p>制作 USB 安装镜像</p><p>参考 <a href=/linux-usb-installer/>制作 Linux USB 安装镜像</a> 一文。</p></li><li><p>从 U 盘启动盘进入 Live 系统</p><p>将制作好的 U 盘启动盘插入要安装 Linux 的计算机上，开机启动，进入 BIOS 设置
+使计算机从U 盘启动。具体如何进入 BIOS 不同电脑不同，请自行查询。</p><p>若计算机无法从 USB 启动，则可能是由于计算机的“安全启动”设置导致的，可以尝试：</p><ol><li>进入 BIOS 设置</li><li>在 BIOS 设置内关闭安全启动</li></ol><p>如果尝试多次都无法正确从 USB 启动，则可能是 USB 启动盘制作失败，请尝试
+重新制作启动盘。</p></li></ol><h2 id=安装系统>安装系统</h2><p>假设你已经成功引导系统了，进入了 Live 界面，即进入了 USB 启动盘内的系统界面。
 此时会出现“Welcome”窗口，不管它，
-直接在桌面上找到“Install to Hard Drive”，双击进入了 CentOS 安装程序。</p>
-<h3 id="heading-2">安装过程中使用的语言</h3>
-<p>安装程序会首先要你选择安装过程中的语言，可以选择“中文”-&gt;“简体中文（中国）”，
-然后点击下方的“继续”按钮。当然你也可以选择“English”-&gt;“English (Unite States)”。</p>
-<h3 id="heading-3">安装信息摘要</h3>
-<p>进入“安装信息摘要”阶段，需要设置“日期和时间”、“键盘”、“安装配置”和“网络及主机名”。</p>
-<ol>
-<li>
-<p>日期和时间</p>
-<p>选择你所在的地区和时区，选择离你最近的就好。
-中国大陆用户请选择“亚洲-上海”，然后点击左上角的“完成”。</p>
-</li>
-<li>
-<p>键盘</p>
-<p>选择“汉语” 或者 English(US) 均可，不要选择 English(UK)，然后点击“完成”。</p>
-</li>
-<li>
-<p>网络与主机名</p>
-<p>给你的电脑在网络上设置一个喜欢的名字，默认值为 <code>localhost.localdomain</code>。</p>
-</li>
-<li>
-<p>安装位置</p>
-<p>这一步是要选择要把系统安装到哪一块硬盘以及如何分区。</p>
-<p>在“设备选择”中，选择自己要使用哪些硬盘安装系统。如果计算机有多个磁盘，可以
+直接在桌面上找到“Install to Hard Drive”，双击进入了 CentOS 安装程序。</p><h3 id=安装过程中使用的语言>安装过程中使用的语言</h3><p>安装程序会首先要你选择安装过程中的语言，可以选择“中文”->“简体中文（中国）”，
+然后点击下方的“继续”按钮。当然你也可以选择“English”->“English (Unite States)”。</p><h3 id=安装信息摘要>安装信息摘要</h3><p>进入“安装信息摘要”阶段，需要设置“日期和时间”、“键盘”、“安装配置”和“网络及主机名”。</p><ol><li><p>日期和时间</p><p>选择你所在的地区和时区，选择离你最近的就好。
+中国大陆用户请选择“亚洲-上海”，然后点击左上角的“完成”。</p></li><li><p>键盘</p><p>选择“汉语” 或者 English(US) 均可，不要选择 English(UK)，然后点击“完成”。</p></li><li><p>网络与主机名</p><p>给你的电脑在网络上设置一个喜欢的名字，默认值为 <code>localhost.localdomain</code>。</p></li><li><p>安装位置</p><p>这一步是要选择要把系统安装到哪一块硬盘以及如何分区。</p><p>在“设备选择”中，选择自己要使用哪些硬盘安装系统。如果计算机有多个磁盘，可以
 将多个磁盘都选中，被选中的磁盘会有一个“对号”符号。需要注意，不要选中 USB
-安装盘。</p>
-<p>对硬盘进行分区建议选择“我要配置分区”，并继续阅读下一节内容。</p>
-<p>如果不熟悉分区操作的，也可以选择“自动配置分区”（不推荐）。
+安装盘。</p><p>对硬盘进行分区建议选择“我要配置分区”，并继续阅读下一节内容。</p><p>如果不熟悉分区操作的，也可以选择“自动配置分区”（不推荐）。
 此时，如果你选中的盘已经有其他分区或数据，安装程序在你点击“完成”时弹出警告
 对话框要求你给予空间。这时，点击“回收空间”，然后点击“删除全部”并点击
-“回收空间”即可删除之前已存在的全部分区和数据。</p>
-</li>
-</ol>
-<p>点击“开始安装”即进入正式安装过程。</p>
-<h3 id="heading-4">手动分区</h3>
-<p>通常建议对硬盘进行手动分区，以更好地满足需求。</p>
-<p>CentOS 7 的分区似乎比较特别，自认为经验很丰富的我在第一次安装 CentOS 7 时还是
-在分区上耽误了很多时间。后来找到比较合适的分区方法，如下：</p>
-<ol>
-<li>
-<p>点击 “点这里自动创建它们” 让安装程序帮忙分区</p>
-<p>安装程序在自动分区时默认的分区方案是“LVM”，其好处在于“当机器有多块硬盘时，
-在使用的时候看上去只有一块”；默认的文件系统为 XFS 而不是以前常用的 EXT4。</p>
-<p>自动分区通常会分为 <code>boot</code>、<code>/</code> 、<code>swap</code> 和 <code>/home</code> 四个分区。</p>
-</li>
-<li>
-<p>自动分区分区完成后，可以根据自己的需求手动修改分区细节</p>
-<ul>
-<li><code>/boot</code> 由安装程序自动分配，一定不要乱动；</li>
-<li><code>/</code>  最少15G，如果未来装的软件比较多（比如一个matlab就用了10G多），
-建议留100 G左右</li>
-<li><code>swap</code> 通常与物理内存大小相同</li>
-<li><code>/home</code> 余下的全部空间</li>
-</ul>
-<p>若想要修改分区容量，需要先将 <code>/home</code> 分区的容量减小，使得可用容量增加才能
-修改增加其他分区的容量。</p>
-</li>
-<li>
-<p>点击“完成”，“接受修改”，然后“开始安装”</p>
-</li>
-</ol>
-<h3 id="heading-5">用户配置</h3>
-<p>系统安装过程中，需要配置用户信息：</p>
-<ol>
-<li>设置 root 用户密码。</li>
-<li>创建一般用户的帐号及密码。记得选中“将此用户作为管理员”。</li>
-</ol>
-<p>等待安装完成，点击“完成配置”，完毕后再点击“退出”，并重启计算机。
+“回收空间”即可删除之前已存在的全部分区和数据。</p></li></ol><p>点击“开始安装”即进入正式安装过程。</p><h3 id=手动分区>手动分区</h3><p>通常建议对硬盘进行手动分区，以更好地满足需求。</p><p>CentOS 7 的分区似乎比较特别，自认为经验很丰富的我在第一次安装 CentOS 7 时还是
+在分区上耽误了很多时间。后来找到比较合适的分区方法，如下：</p><ol><li><p>点击 “点这里自动创建它们” 让安装程序帮忙分区</p><p>安装程序在自动分区时默认的分区方案是“LVM”，其好处在于“当机器有多块硬盘时，
+在使用的时候看上去只有一块”；默认的文件系统为 XFS 而不是以前常用的 EXT4。</p><p>自动分区通常会分为 <code>boot</code>、<code>/</code> 、<code>swap</code> 和 <code>/home</code> 四个分区。</p></li><li><p>自动分区分区完成后，可以根据自己的需求手动修改分区细节</p><ul><li><code>/boot</code> 由安装程序自动分配，一定不要乱动；</li><li><code>/</code> 最少15G，如果未来装的软件比较多（比如一个matlab就用了10G多），
+建议留100 G左右</li><li><code>swap</code> 通常与物理内存大小相同</li><li><code>/home</code> 余下的全部空间</li></ul><p>若想要修改分区容量，需要先将 <code>/home</code> 分区的容量减小，使得可用容量增加才能
+修改增加其他分区的容量。</p></li><li><p>点击“完成”，“接受修改”，然后“开始安装”</p></li></ol><h3 id=用户配置>用户配置</h3><p>系统安装过程中，需要配置用户信息：</p><ol><li>设置 root 用户密码。</li><li>创建一般用户的帐号及密码。记得选中“将此用户作为管理员”。</li></ol><p>等待安装完成，点击“完成配置”，完毕后再点击“退出”，并重启计算机。
 重启计算机时，记得拔出 U 盘启动盘，以免再次进入 USB 安装镜像。
 重启后，接受“许可协议”并点击“完成配置”后，计算机将再次重启。
-到这里，系统本身的安装就结束了。</p>
-<h2 id="heading-6">基本配置</h2>
-<h3 id="heading-7">语言和输入法设置</h3>
-<p>首次进入系统后，会弹出“欢迎”界面，并需要做一些基础设置。</p>
-<ul>
-<li>
-<p>语言：务必选择“English(United States)”， <strong>不要选择“汉语（中国）”</strong></p>
-<p>若此处设置语言为中文，则系统界面会以中文呈现，此时系统会出现两个比较麻烦的问题：</p>
-<ol>
-<li>家目录下的系统文件夹如 Downloads、Desktop 等会以中文表示，这使得在命令行
-<code>cd</code> 变得很麻烦；</li>
-<li>终端、浏览器等的中文字体发虚，且某些字符用英文字体，某些字符用中文字体，
-效果非常差。需要用户一一配置字体方可</li>
-</ol>
-<p>故而不要选择“汉语（中文）”。</p>
-</li>
-<li>
-<p>输入法：输入法直接选择“English (US)”</p>
-</li>
-</ul>
-<p>此时，请 <strong>注销用户</strong> 或 <strong>重启</strong>。再次进入系统时，会弹出对话框问是否
+到这里，系统本身的安装就结束了。</p><h2 id=基本配置>基本配置</h2><h3 id=语言和输入法设置>语言和输入法设置</h3><p>首次进入系统后，会弹出“欢迎”界面，并需要做一些基础设置。</p><ul><li><p>语言：务必选择“English(United States)”， <strong>不要选择“汉语（中国）”</strong></p><p>若此处设置语言为中文，则系统界面会以中文呈现，此时系统会出现两个比较麻烦的问题：</p><ol><li>家目录下的系统文件夹如 Downloads、Desktop 等会以中文表示，这使得在命令行
+<code>cd</code> 变得很麻烦；</li><li>终端、浏览器等的中文字体发虚，且某些字符用英文字体，某些字符用中文字体，
+效果非常差。需要用户一一配置字体方可</li></ol><p>故而不要选择“汉语（中文）”。</p></li><li><p>输入法：输入法直接选择“English (US)”</p></li></ul><p>此时，请 <strong>注销用户</strong> 或 <strong>重启</strong>。再次进入系统时，会弹出对话框问是否
 “Update Standard Folders to Current Language?”，注意选择“Update”，将“文档”、
 “下载”等目录名修改为英文的“Documents”、“Downloads”，以方便在命令行中进行目录
-切换等操作。</p>
-<h3 id="heading-8">中文输入法</h3>
-<p>要添加中文输入法，需要先确认 ibus 以及中文拼音插件已经被正确安装。</p>
-<p>如果安装过程中使用的是中文界面安装，则相关包已经安装。
+切换等操作。</p><h3 id=中文输入法>中文输入法</h3><p>要添加中文输入法，需要先确认 ibus 以及中文拼音插件已经被正确安装。</p><p>如果安装过程中使用的是中文界面安装，则相关包已经安装。
 如果安装过程中使用的是英文界面安装，则默认没有安装中文输入法相关包。
-这种情况下，可以执行如下命令安装中文输入法相关包:</p>
-<pre><code>sudo yum install ibus ibus-libpinyin
-</code></pre>
-<p>然后在 “Applications”的“System Tools”里找到“Settings”，进入“Region &amp; Language”。
-在“Input Source”处点“加号”并添加“Chinese(Intelligent Pinyin)”即可。</p>
-<p>“Region &amp; Language”的最终效果应该是：</p>
-<ul>
-<li>Language： English(United States)</li>
-<li>Formats：Unites Stetes(English)</li>
-<li>Input Source：English(US) 和 Chinese(Intelligent Pinyin)</li>
-</ul>
-<h2 id="heading-9">添加第三方源</h2>
-<p>CentOS 由于很追求稳定性，所以官方源中自带的软件不多，因而需要一些第三方源。
-为了尽可能保证系统的稳定性，此处只添加最为可靠的 EPEL 源和 ELRepo 源。</p>
-<h3 id="epel">EPEL</h3>
-<p><a href="https://fedoraproject.org/wiki/EPEL">EPEL</a> 即 Extra Packages for Enterprise Linux，
+这种情况下，可以执行如下命令安装中文输入法相关包:</p><pre><code>sudo yum install ibus ibus-libpinyin
+</code></pre><p>然后在 “Applications”的“System Tools”里找到“Settings”，进入“Region & Language”。
+在“Input Source”处点“加号”并添加“Chinese(Intelligent Pinyin)”即可。</p><p>“Region & Language”的最终效果应该是：</p><ul><li>Language： English(United States)</li><li>Formats：Unites Stetes(English)</li><li>Input Source：English(US) 和 Chinese(Intelligent Pinyin)</li></ul><h2 id=添加第三方源>添加第三方源</h2><p>CentOS 由于很追求稳定性，所以官方源中自带的软件不多，因而需要一些第三方源。
+为了尽可能保证系统的稳定性，此处只添加最为可靠的 EPEL 源和 ELRepo 源。</p><h3 id=epel>EPEL</h3><p><a href=https://fedoraproject.org/wiki/EPEL>EPEL</a> 即 Extra Packages for Enterprise Linux，
 为 CentOS 提供了额外的 10000 多个软件包，而且在不替换系统组件方面下了很多功夫，
-因而可以放心使用。EPEL 在国内已经有多个镜像站，会自动搜索最快的。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo yum install epel-release
-</code></pre></div><p>执行完该命令后，在 <code>/etc/yum.repos.d</code> 目录下会多一个 <code>epel.repo</code> 文件。</p>
-<h3 id="elrepo">ELRepo</h3>
-<p><a href="http://elrepo.org/">ELRepo</a> 包含了一些硬件相关的驱动程序，比如显卡、声卡驱动:</p>
-<pre><code>sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+因而可以放心使用。EPEL 在国内已经有多个镜像站，会自动搜索最快的。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo yum install epel-release
+</code></pre></div><p>执行完该命令后，在 <code>/etc/yum.repos.d</code> 目录下会多一个 <code>epel.repo</code> 文件。</p><h3 id=elrepo>ELRepo</h3><p><a href=http://elrepo.org/>ELRepo</a> 包含了一些硬件相关的驱动程序，比如显卡、声卡驱动:</p><pre><code>sudo rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
 sudo rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
-</code></pre>
-<p>完成该命令后，在 <code>/etc/yum.repos.d</code> 目录下会多一个 <code>elrepo.repo</code> 文件。</p>
-<h2 id="heading-10">更新系统</h2>
-<p>通常的建议是，要么经常更新系统（比如每周一次），要么一直不更新系统。长时间不更新
-系统突然一次做大量更新很有可能会挂掉。</p>
-<h3 id="-yum-axelget">安装 yum-axelget</h3>
-<p>yum-axelget 是 EPEL 提供的一个 yum 插件。使用该插件后用 yum 安装软件时可以并行
-下载，大大提高了软件的下载速度，减少了下载的等待时间:</p>
-<pre><code>sudo yum install yum-axelget
-</code></pre>
-<p>安装该插件的同时会安装另一个软件 axel。axel 是一个并行下载工具，在下载 http、ftp
-等简单协议的文件时非常好用。</p>
-<h3 id="heading-11">第一次全面更新</h3>
-<p>使用如下命令以更新系统中所有已安装的软件:</p>
-<pre><code>sudo yum update
-</code></pre>
-<p>要更新的软件包有些多，可能需要一段时间。不过有了 yum-axelget 插件，速度已经快了很多啦。</p>
-<h3 id="heading-12">重启</h3>
-<p>第一次全面更新完之后建议重启。</p>
-<h3 id="-kernel">删除多余的 kernel</h3>
-<p>严格地说，Linux 只是各发行版的核心即 kernel，而不是一个完整的操作系统。
+</code></pre><p>完成该命令后，在 <code>/etc/yum.repos.d</code> 目录下会多一个 <code>elrepo.repo</code> 文件。</p><h2 id=更新系统>更新系统</h2><p>通常的建议是，要么经常更新系统（比如每周一次），要么一直不更新系统。长时间不更新
+系统突然一次做大量更新很有可能会挂掉。</p><h3 id=安装-yum-axelget>安装 yum-axelget</h3><p>yum-axelget 是 EPEL 提供的一个 yum 插件。使用该插件后用 yum 安装软件时可以并行
+下载，大大提高了软件的下载速度，减少了下载的等待时间:</p><pre><code>sudo yum install yum-axelget
+</code></pre><p>安装该插件的同时会安装另一个软件 axel。axel 是一个并行下载工具，在下载 http、ftp
+等简单协议的文件时非常好用。</p><h3 id=第一次全面更新>第一次全面更新</h3><p>使用如下命令以更新系统中所有已安装的软件:</p><pre><code>sudo yum update
+</code></pre><p>要更新的软件包有些多，可能需要一段时间。不过有了 yum-axelget 插件，速度已经快了很多啦。</p><h3 id=重启>重启</h3><p>第一次全面更新完之后建议重启。</p><h3 id=删除多余的-kernel>删除多余的 kernel</h3><p>严格地说，Linux 只是各发行版的核心即 kernel，而不是一个完整的操作系统。
 核心的作用是操作硬件。kernel 其实就是一个文件: <code>/boot/vmlinuz-xxx</code> （一部机器
 上可能有数个核心)。在前面的 <code>yum update</code> 执行之后，可能会将 kernel 也一起更新，
-则在启动 CentOS 时启动项中会有很多项，多余的启动项可以留着，也可以删除。</p>
-<p>确认当前使用的 kernel 版本号:</p>
-<pre><code>$ uname -r
+则在启动 CentOS 时启动项中会有很多项，多余的启动项可以留着，也可以删除。</p><p>确认当前使用的 kernel 版本号:</p><pre><code>$ uname -r
 3.10.0-123.9.3.el7.x86_64
-</code></pre>
-<p>查找当前系统安装的所有 kernel:</p>
-<pre><code>$ rpm -qa | grep kernel | sort
+</code></pre><p>查找当前系统安装的所有 kernel:</p><pre><code>$ rpm -qa | grep kernel | sort
 kernel-3.10.0-123.8.1.el7.x86_64
 kernel-3.10.0-123.9.2.el7.x86_64
 kernel-3.10.0-123.9.3.el7.x86_64
@@ -384,145 +53,31 @@ kernel-devel-3.10.0-123.9.3.el7.x86_64
 kernel-headers-3.10.0-123.9.3.el7.x86_64
 kernel-tools-3.10.0-123.9.3.el7.x86_64
 kernel-tools-libs-3.10.0-123.9.3.el7.x86_64
-</code></pre>
-<p>除了 kernel 外、kernel-devel、kernel-headers 和 kernel-tools 这些是用于开发
-或者是一些特别的程序所需要。不同的发行版，除了 kernel 外，其他的命名规则各有不同。</p>
-<p>上面可以看出有三个版本的 kernel，123.8.1、123.9.2 和 123.9.3。
+</code></pre><p>除了 kernel 外、kernel-devel、kernel-headers 和 kernel-tools 这些是用于开发
+或者是一些特别的程序所需要。不同的发行版，除了 kernel 外，其他的命名规则各有不同。</p><p>上面可以看出有三个版本的 kernel，123.8.1、123.9.2 和 123.9.3。
 kernel 太多并不会影响开机速度。搜索内核只在生成 grub.cfg 时进行，记录在了配置
 文件 grub-mkconfig 中，所以多余的内核不会影响开机速度。
 除了最新的 kernel 外，建议多保留一个旧 kernel，以免新 kernel 出现问题时可以
-通过旧 kernel 进入系统。因而此处删除 123.8.1 版本的 kernel:</p>
-<pre><code>sudo yum remove kernel-3.10.0-123.8.1.el7.x86_64
+通过旧 kernel 进入系统。因而此处删除 123.8.1 版本的 kernel:</p><pre><code>sudo yum remove kernel-3.10.0-123.8.1.el7.x86_64
 sudo yum remove kernel-devel-3.10.0-123.8.1.el7.x86_64
-</code></pre>
-<h2 id="heading-13">驱动程序</h2>
-<h3 id="heading-14">显卡驱动</h3>
-<p>Linux 默认只使用开源的显卡驱动，就目前的情况来看，开源驱动的效果还是不错的，
-但跟官方的闭源驱动相比还是有一定差距。</p>
-<p>关于显卡驱动的安装，请参考 <a href="/install-nvidia-drivers-under-linux/">Linux 下安装 nvidia 显卡驱动</a>
-一文中的 “从 ELRepo 源中安装驱动” 部分。</p>
-<h3 id="ntfs-">NTFS 驱动</h3>
-<p>CentOS 下默认无法挂载 NTFS 格式的硬盘。需安装 nfts-3g 即可实现即插即用:</p>
-<pre><code>sudo yum install ntfs-3g
-</code></pre>
-
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2018-04-11
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      
-      <nav class="post-nav">
-        <a class="prev" href="/centos7-setup/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">CentOS 7 配置指南</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/centos7-setup-2/">
-            <span class="next-text nav-default">CentOS 7 配置指南 — 开发环境篇</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+</code></pre><h2 id=驱动程序>驱动程序</h2><h3 id=显卡驱动>显卡驱动</h3><p>Linux 默认只使用开源的显卡驱动，就目前的情况来看，开源驱动的效果还是不错的，
+但跟官方的闭源驱动相比还是有一定差距。</p><p>关于显卡驱动的安装，请参考 <a href=/install-nvidia-drivers-under-linux/>Linux 下安装 nvidia 显卡驱动</a>
+一文中的 “从 ELRepo 源中安装驱动” 部分。</p><h3 id=ntfs-驱动>NTFS 驱动</h3><p>CentOS 下默认无法挂载 NTFS 格式的硬盘。需安装 nfts-3g 即可实现即插即用:</p><pre><code>sudo yum install ntfs-3g
+</code></pre></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2018-04-11</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><nav class=post-nav><a class=prev href=/centos7-setup/><i class="iconfont icon-left"></i><span class="prev-text nav-default">CentOS 7 配置指南</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/centos7-setup-2/><span class="next-text nav-default">CentOS 7 配置指南 — 开发环境篇</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

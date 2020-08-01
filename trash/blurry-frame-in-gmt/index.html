@@ -1,182 +1,36 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>GMT 边框发虚的原因及解决办法 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="GMT 绘制的 PS 格式的图片一向以高精度著称。在画图的时候偶尔会遇到，PS 图片中其他地方精度都很高，唯独边框看上去有些发虚，精度比较低。
-上次遇到这个问题的时候，因为着急画图，所以也没细想，直接把边框发虚的图用上了。今天再次遇到这个问题，认真的想了想，找到了原因所在，也找到了解决办法。
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.61.0 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/trash/blurry-frame-in-gmt/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="GMT 边框发虚的原因及解决办法" />
-<meta property="og:description" content="GMT 绘制的 PS 格式的图片一向以高精度著称。在画图的时候偶尔会遇到，PS 图片中其他地方精度都很高，唯独边框看上去有些发虚，精度比较低。
-上次遇到这个问题的时候，因为着急画图，所以也没细想，直接把边框发虚的图用上了。今天再次遇到这个问题，认真的想了想，找到了原因所在，也找到了解决办法。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/trash/blurry-frame-in-gmt/" />
-<meta property="article:published_time" content="2014-12-09T00:00:00+00:00" />
-<meta property="article:modified_time" content="2014-12-09T00:00:00+00:00" />
-<meta itemprop="name" content="GMT 边框发虚的原因及解决办法">
-<meta itemprop="description" content="GMT 绘制的 PS 格式的图片一向以高精度著称。在画图的时候偶尔会遇到，PS 图片中其他地方精度都很高，唯独边框看上去有些发虚，精度比较低。
-上次遇到这个问题的时候，因为着急画图，所以也没细想，直接把边框发虚的图用上了。今天再次遇到这个问题，认真的想了想，找到了原因所在，也找到了解决办法。">
-<meta itemprop="datePublished" content="2014-12-09T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2014-12-09T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="645">
-
-
-
-<meta itemprop="keywords" content="GMT技巧," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="GMT 边框发虚的原因及解决办法"/>
-<meta name="twitter:description" content="GMT 绘制的 PS 格式的图片一向以高精度著称。在画图的时候偶尔会遇到，PS 图片中其他地方精度都很高，唯独边框看上去有些发虚，精度比较低。
-上次遇到这个问题的时候，因为着急画图，所以也没细想，直接把边框发虚的图用上了。今天再次遇到这个问题，认真的想了想，找到了原因所在，也找到了解决办法。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-  <div class="post-content">
-    <p>GMT 绘制的 PS 格式的图片一向以高精度著称。在画图的时候偶尔会遇到，PS 图片中其他地方精度都很高，唯独边框看上去有些发虚，精度比较低。</p>
-<p>上次遇到这个问题的时候，因为着急画图，所以也没细想，直接把边框发虚的图用上了。今天再次遇到这个问题，认真的想了想，找到了原因所在，也找到了解决办法。</p>
-<p>下面的脚本生成的 PS 文件，边框会存在发虚的现象：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">PS<span style="color:#f92672">=</span>test.ps
-J<span style="color:#f92672">=</span>X14c
-R<span style="color:#f92672">=</span>0/6/0/6
-B<span style="color:#f92672">=</span>0.5/0.5
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>GMT 边框发虚的原因及解决办法 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="GMT 绘制的 PS 格式的图片一向以高精度著称。在画图的时候偶尔会遇到，PS 图片中其他地方精度都很高，唯独边框看上去有些发虚，精度比较低。
+上次遇到这个问题的时候，因为着急画图，所以也没细想，直接把边框发虚的图用上了。今天再次遇到这个问题，认真的想了想，找到了原因所在，也找到了解决办法。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://blog.seisman.info/trash/blurry-frame-in-gmt/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="GMT 边框发虚的原因及解决办法"><meta property="og:description" content="GMT 绘制的 PS 格式的图片一向以高精度著称。在画图的时候偶尔会遇到，PS 图片中其他地方精度都很高，唯独边框看上去有些发虚，精度比较低。
+上次遇到这个问题的时候，因为着急画图，所以也没细想，直接把边框发虚的图用上了。今天再次遇到这个问题，认真的想了想，找到了原因所在，也找到了解决办法。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/trash/blurry-frame-in-gmt/"><meta property="article:published_time" content="2014-12-09T00:00:00+00:00"><meta property="article:modified_time" content="2014-12-09T00:00:00+00:00"><meta itemprop=name content="GMT 边框发虚的原因及解决办法"><meta itemprop=description content="GMT 绘制的 PS 格式的图片一向以高精度著称。在画图的时候偶尔会遇到，PS 图片中其他地方精度都很高，唯独边框看上去有些发虚，精度比较低。
+上次遇到这个问题的时候，因为着急画图，所以也没细想，直接把边框发虚的图用上了。今天再次遇到这个问题，认真的想了想，找到了原因所在，也找到了解决办法。"><meta itemprop=datePublished content="2014-12-09T00:00:00+00:00"><meta itemprop=dateModified content="2014-12-09T00:00:00+00:00"><meta itemprop=wordCount content="645"><meta itemprop=keywords content="GMT技巧,"><meta name=twitter:card content="summary"><meta name=twitter:title content="GMT 边框发虚的原因及解决办法"><meta name=twitter:description content="GMT 绘制的 PS 格式的图片一向以高精度著称。在画图的时候偶尔会遇到，PS 图片中其他地方精度都很高，唯独边框看上去有些发虚，精度比较低。
+上次遇到这个问题的时候，因为着急画图，所以也没细想，直接把边框发虚的图用上了。今天再次遇到这个问题，认真的想了想，找到了原因所在，也找到了解决办法。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><div class=post-content><p>GMT 绘制的 PS 格式的图片一向以高精度著称。在画图的时候偶尔会遇到，PS 图片中其他地方精度都很高，唯独边框看上去有些发虚，精度比较低。</p><p>上次遇到这个问题的时候，因为着急画图，所以也没细想，直接把边框发虚的图用上了。今天再次遇到这个问题，认真的想了想，找到了原因所在，也找到了解决办法。</p><p>下面的脚本生成的 PS 文件，边框会存在发虚的现象：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>PS<span style=color:#f92672>=</span>test.ps
+J<span style=color:#f92672>=</span>X14c
+R<span style=color:#f92672>=</span>0/6/0/6
+B<span style=color:#f92672>=</span>0.5/0.5
 
 gmt psxy -R$R -J$J -T -K &gt; $PS
-gmt psxy -R$R -J$J -B$B -Sa1c -K -O &gt;&gt; $PS <span style="color:#e6db74">&lt;&lt; EOF
-</span><span style="color:#e6db74">1 1
-</span><span style="color:#e6db74">EOF</span>
-gmt psxy -R$R -J$J -B$B -Sb1c -K -O &gt;&gt; $PS <span style="color:#e6db74">&lt;&lt; EOF
-</span><span style="color:#e6db74">2 2
-</span><span style="color:#e6db74">EOF</span>
-gmt psxy -R$R -J$J -B$B -Sc1c -K -O &gt;&gt; $PS <span style="color:#e6db74">&lt;&lt; EOF
-</span><span style="color:#e6db74">3 3
-</span><span style="color:#e6db74">EOF</span>
-gmt psxy -R$R -J$J -B$B -Sd1c -K -O &gt;&gt; $PS <span style="color:#e6db74">&lt;&lt; EOF
-</span><span style="color:#e6db74">4 4
-</span><span style="color:#e6db74">EOF</span>
-gmt psxy -R$R -J$J -B$B -Ss1c -K -O &gt;&gt; $PS <span style="color:#e6db74">&lt;&lt; EOF
-</span><span style="color:#e6db74">5 5
-</span><span style="color:#e6db74">EOF</span>
-gmt psxy -R$R -J$J -B$B -Sh1c -K -O &gt;&gt; $PS <span style="color:#e6db74">&lt;&lt; EOF
-</span><span style="color:#e6db74">2 3
-</span><span style="color:#e6db74">EOF</span>
+gmt psxy -R$R -J$J -B$B -Sa1c -K -O &gt;&gt; $PS <span style=color:#e6db74>&lt;&lt; EOF
+</span><span style=color:#e6db74>1 1
+</span><span style=color:#e6db74>EOF</span>
+gmt psxy -R$R -J$J -B$B -Sb1c -K -O &gt;&gt; $PS <span style=color:#e6db74>&lt;&lt; EOF
+</span><span style=color:#e6db74>2 2
+</span><span style=color:#e6db74>EOF</span>
+gmt psxy -R$R -J$J -B$B -Sc1c -K -O &gt;&gt; $PS <span style=color:#e6db74>&lt;&lt; EOF
+</span><span style=color:#e6db74>3 3
+</span><span style=color:#e6db74>EOF</span>
+gmt psxy -R$R -J$J -B$B -Sd1c -K -O &gt;&gt; $PS <span style=color:#e6db74>&lt;&lt; EOF
+</span><span style=color:#e6db74>4 4
+</span><span style=color:#e6db74>EOF</span>
+gmt psxy -R$R -J$J -B$B -Ss1c -K -O &gt;&gt; $PS <span style=color:#e6db74>&lt;&lt; EOF
+</span><span style=color:#e6db74>5 5
+</span><span style=color:#e6db74>EOF</span>
+gmt psxy -R$R -J$J -B$B -Sh1c -K -O &gt;&gt; $PS <span style=color:#e6db74>&lt;&lt; EOF
+</span><span style=color:#e6db74>2 3
+</span><span style=color:#e6db74>EOF</span>
 gmt psxy -R$R -J$J -T -O &gt;&gt; $PS
-</code></pre></div><p>代码很简单，无非就是多次调用 psxy 在不同的位置绘制不同的符号。</p>
-<p>由于多次调用了 <code>psxy</code>，且每次都使用 <code>-B</code> 选项，所以在 PS 代码中实际上会多次重复绘制边框。
+</code></pre></div><p>代码很简单，无非就是多次调用 psxy 在不同的位置绘制不同的符号。</p><p>由于多次调用了 <code>psxy</code>，且每次都使用 <code>-B</code> 选项，所以在 PS 代码中实际上会多次重复绘制边框。
 理论上这些边框以及刻度应该是完全重合的，但实际上却存在或多或少的偏差，进而导致最终画出的图
-出现边框发虚的现象。</p>
-<p>解决办法也很简单，保留第一个绘图命令中的 <code>-B</code> 选项，并删除其余命令中的 <code>-B</code> 选项。
-这样画出来的图，文件大小要小一些，也不会再出现边框发虚的现象。</p>
-<p>但，有时候会需要在 for 循环中重复调用类似的绘图命令，例如:</p>
-<pre><code>gmt psxy -R$R -J$J -T -K &gt; $PS
+出现边框发虚的现象。</p><p>解决办法也很简单，保留第一个绘图命令中的 <code>-B</code> 选项，并删除其余命令中的 <code>-B</code> 选项。
+这样画出来的图，文件大小要小一些，也不会再出现边框发虚的现象。</p><p>但，有时候会需要在 for 循环中重复调用类似的绘图命令，例如:</p><pre><code>gmt psxy -R$R -J$J -T -K &gt; $PS
 
 for xxx
 do
@@ -184,83 +38,14 @@ do
 done
 
 gmt psxy -R$R -J$J -T -O &gt;&gt; $PS
-</code></pre>
-<p>此时循环中的 <code>psxy</code> 命令，每次执行时都有 <code>-B</code> 选项，这也是最容易导致边框发虚的情况。如果
+</code></pre><p>此时循环中的 <code>psxy</code> 命令，每次执行时都有 <code>-B</code> 选项，这也是最容易导致边框发虚的情况。如果
 把循环里的 <code>-B</code> 选项去掉，又会导致没有边框。唯一的办法是把循环中的 <code>-B</code> 去掉，然后在循环
 之前或之后的某个命令中加上 <code>-B</code> 选项绘制边框，实在没有绘图命令的话就使用 <code>psbasemap</code>
-专门绘制边框。</p>
-  </div>
-</article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+专门绘制边框。</p></div></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

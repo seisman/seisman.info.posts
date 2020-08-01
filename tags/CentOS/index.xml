@@ -1,126 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>CentOS on SeisMan</title>
-    <link>https://blog.seisman.info/tags/CentOS/</link>
-    <description>Recent content in CentOS on SeisMan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Sun, 23 Nov 2014 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.seisman.info/tags/CentOS/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>CentOS 7 下的软件安装方法及策略</title>
-      <link>https://blog.seisman.info/how-to-install-softwares-under-centos-7/</link>
-      <pubDate>Sun, 23 Nov 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/how-to-install-softwares-under-centos-7/</guid>
-      <description>&lt;p&gt;2010 年开始正式接触 Linux，入门发行版是 Ubuntu 10.10，后来过渡到 Ubunu 11.04，
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CentOS on SeisMan</title><link>https://blog.seisman.info/tags/CentOS/</link><description>Recent content in CentOS on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 23 Nov 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/CentOS/index.xml" rel="self" type="application/rss+xml"/><item><title>CentOS 7 下的软件安装方法及策略</title><link>https://blog.seisman.info/how-to-install-softwares-under-centos-7/</link><pubDate>Sun, 23 Nov 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/how-to-install-softwares-under-centos-7/</guid><description>&lt;p>2010 年开始正式接触 Linux，入门发行版是 Ubuntu 10.10，后来过渡到 Ubunu 11.04，
 这其中也尝试了很多其他主流的发行版。进入实验室之后，开始用 CentOS 5，然后是
-CentOS 6，现在进化到 CentOS 7。&lt;/p&gt;
-&lt;p&gt;使用了四年的 Linux，前三年都是在瞎折腾，浪费了不少时间，也得到了不少经验与教训。
-现在可能是真的老了，已经不愿意折腾了，只希望配置好一个系统之后，就一直使用下去。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>CentOS 7 下安装 WPS Office</title>
-      <link>https://blog.seisman.info/wps-office-for-centos7/</link>
-      <pubDate>Wed, 01 Oct 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/wps-office-for-centos7/</guid>
-      <description>&lt;p&gt;在 Microsoft Office 盛行的今日，Linux 下一直没有一个能与之完美兼容的 Office 套件。
+CentOS 6，现在进化到 CentOS 7。&lt;/p>
+&lt;p>使用了四年的 Linux，前三年都是在瞎折腾，浪费了不少时间，也得到了不少经验与教训。
+现在可能是真的老了，已经不愿意折腾了，只希望配置好一个系统之后，就一直使用下去。&lt;/p></description></item><item><title>CentOS 7 下安装 WPS Office</title><link>https://blog.seisman.info/wps-office-for-centos7/</link><pubDate>Wed, 01 Oct 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/wps-office-for-centos7/</guid><description>&lt;p>在 Microsoft Office 盛行的今日，Linux 下一直没有一个能与之完美兼容的 Office 套件。
 大多数发行版默认安装的 OpenOffice 或 LibreOffice，也只是刚刚达到能用的地步，
-界面以及功能的差异还是很明显的。&lt;/p&gt;
-&lt;p&gt;或许 WPS Office for Linux 是个不错的选择。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;中文官网： &lt;a href=&#34;http://linux.wps.cn/&#34;&gt;http://linux.wps.cn/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;英文官网： &lt;a href=&#34;http://www.wps.com/linux/&#34;&gt;http://www.wps.com/linux/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>CentOS 7 安装 fcitx 中文输入法</title>
-      <link>https://blog.seisman.info/fcitx-for-centos7/</link>
-      <pubDate>Sat, 20 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/fcitx-for-centos7/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;本文不再更新&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;目前不确定是否可行，具体参考： &lt;a href=&#34;https://github.com/1dot75cm/myrepo&#34;&gt;https://github.com/1dot75cm/myrepo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;前面 &lt;a href=&#34;https://blog.seisman.info/install-yong-chinese-input-method-under-centos-7/&#34;&gt;CentOS7.0 下安装小小输入法&lt;/a&gt; 一文中已经介绍了如何在 CentOS7 下安装小小输入法来输入中文，实际用起来还是有不少不如意的地方。&lt;/p&gt;
-&lt;p&gt;今天恰好发现了 CentOS 7 下安装 fcitx 输入法的简单方法，如下。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>彻底卸载 Intel Parallel Studio</title>
-      <link>https://blog.seisman.info/uninstall-intel-parallel-studio-completely/</link>
-      <pubDate>Wed, 16 Jul 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/uninstall-intel-parallel-studio-completely/</guid>
-      <description>Intel 的开发工具默认安装在 /opt/intel 目录下，由于一时手贱，用 sudo rm -rf /opt/intel 把整个 intel 文件夹给删除了。 在重新安装 Intel Parallel Studio 的时候一直提示 “已安装该产品”，进而导致无法</description>
-    </item>
-    
-    <item>
-      <title>CentOS 7 配置指南</title>
-      <link>https://blog.seisman.info/centos7-setup/</link>
-      <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/centos7-setup/</guid>
-      <description>这一系列博文记录了我用 CentOS 7 搭建科研环境的过程，供我个人在未来重装 系统时参考。对于其他科研人员或 Linux 用户，也许有借鉴意义。 阅读须知： 本文仅适用于</description>
-    </item>
-    
-    <item>
-      <title>用 CentOS 7 打造合适的科研环境</title>
-      <link>https://blog.seisman.info/trash/linux-environment-for-seismology-research/</link>
-      <pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/trash/linux-environment-for-seismology-research/</guid>
-      <description>&lt;p&gt;这篇博文记录了我用 CentOS 7 搭建 &lt;strong&gt;地震学科研环境&lt;/strong&gt; 的过程，供我个人在未来重装系统时参考。对于其他地震学科研人员，也许有借鉴意义。&lt;/p&gt;
-&lt;p&gt;阅读须知：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;本文适用于个人电脑，不适用于服务器；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;不推荐刚接触 Linux 的人使用 CentOS 发行版&lt;/strong&gt;；&lt;/li&gt;
-&lt;li&gt;本文尽量写的浅显易懂，但要求读者掌握 Linux 基础知识；&lt;/li&gt;
-&lt;li&gt;本文所有操作均在 CentOS 7 下完成，其他发行版或多或少与 CentOS 7 不同，因而仅供参考；&lt;/li&gt;
-&lt;li&gt;本文所安装的软件纯粹出于个人习惯及喜好，读者应自己判断，按需安装；&lt;/li&gt;
-&lt;/ol&gt;</description>
-    </item>
-    
-    <item>
-      <title>Linux 下安装 NVIDIA 显卡驱动</title>
-      <link>https://blog.seisman.info/install-nvidia-drivers-under-linux/</link>
-      <pubDate>Sun, 13 Jul 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/install-nvidia-drivers-under-linux/</guid>
-      <description>&lt;p&gt;大部分 Linux 发行版都使用开源的显卡驱动 nouveau，对于 nvidia 显卡来说，还是闭源的官方驱动的效果更好。最明显的一点是，在使用 SAC 拾取震相的时候，使用官方显卡驱动在刷新界面的时候要快很多。&lt;/p&gt;
-&lt;p&gt;对于 CentOS 用户而言，有两种安装 NVIDIA 显卡驱动的方法，从 ELRepo 源中安装或从源码编译驱动。对于一般的 CentOS 用户，建议使用第一种方法。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>CentOS 7.0 下安装小小输入法</title>
-      <link>https://blog.seisman.info/install-yong-chinese-input-method-under-centos-7/</link>
-      <pubDate>Sat, 12 Jul 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/install-yong-chinese-input-method-under-centos-7/</guid>
-      <description>&lt;p&gt;另一篇博文： &lt;a href=&#34;https://blog.seisman.info/fcitx-for-centos-7/&#34;&gt;CentOS7.0 下安装搜狗输入法&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;小小输入法也叫 yong 输入法，是一个免费但不开源的中文输入法，其作者为 dgod，2008 年发布第一个版本，至今六年时间依然在不断的更新。以一人之力默默维护一个项目 6 年时间，不得不让人佩服。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;官方网址： &lt;a href=&#34;http://yong.dgod.net/&#34;&gt;http://yong.dgod.net/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;下载地址： &lt;a href=&#34;http://yongim.ys168.com/&#34;&gt;http://yongim.ys168.com/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>使用 EPEL 和 RPMforge 源安装 netcdf 时的冲突</title>
-      <link>https://blog.seisman.info/trash/epel-rpmforge-conflict/</link>
-      <pubDate>Mon, 03 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/trash/epel-rpmforge-conflict/</guid>
-      <description>&lt;p&gt;新版本的 GMT 的编译与运行要求 netCDF 的版本大于 4，且支持 netCDF4/HDF5。即如果想要手动编译 netCDF4 以上的版本，则同时需要编译 hdf5，而 hdf5 又依赖于 zlib 和 szlib 等等包，所以手动编译 netcdf 相当不合算。&lt;/p&gt;
-&lt;p&gt;大多数发行版中应该都有 netcdf4，所以不会出现太多的问题。&lt;/p&gt;
-&lt;p&gt;CentOS 官方源中没有 netcdf，因而需要使用第三方源，直接将别人已经编译好的文件拿过来使用。其中最常用的就是 EPEL 和 RPMforge。而恰好二者都包含了 netcdf、netcdf-devel、hdf5、hdf5-devel 包。由此引发了一些冲突。&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+界面以及功能的差异还是很明显的。&lt;/p>
+&lt;p>或许 WPS Office for Linux 是个不错的选择。&lt;/p>
+&lt;ul>
+&lt;li>中文官网： &lt;a href="http://linux.wps.cn/">http://linux.wps.cn/&lt;/a>&lt;/li>
+&lt;li>英文官网： &lt;a href="http://www.wps.com/linux/">http://www.wps.com/linux/&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>CentOS 7 安装 fcitx 中文输入法</title><link>https://blog.seisman.info/fcitx-for-centos7/</link><pubDate>Sat, 20 Sep 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/fcitx-for-centos7/</guid><description>&lt;p>&lt;strong>本文不再更新&lt;/strong>&lt;/p>
+&lt;p>目前不确定是否可行，具体参考： &lt;a href="https://github.com/1dot75cm/myrepo">https://github.com/1dot75cm/myrepo&lt;/a>&lt;/p>
+&lt;p>前面 &lt;a href="https://blog.seisman.info/install-yong-chinese-input-method-under-centos-7/">CentOS7.0 下安装小小输入法&lt;/a> 一文中已经介绍了如何在 CentOS7 下安装小小输入法来输入中文，实际用起来还是有不少不如意的地方。&lt;/p>
+&lt;p>今天恰好发现了 CentOS 7 下安装 fcitx 输入法的简单方法，如下。&lt;/p></description></item><item><title>彻底卸载 Intel Parallel Studio</title><link>https://blog.seisman.info/uninstall-intel-parallel-studio-completely/</link><pubDate>Wed, 16 Jul 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/uninstall-intel-parallel-studio-completely/</guid><description>Intel 的开发工具默认安装在 /opt/intel 目录下，由于一时手贱，用 sudo rm -rf /opt/intel 把整个 intel 文件夹给删除了。 在重新安装 Intel Parallel Studio 的时候一直提示 “已安装该产品”，进而导致无法</description></item><item><title>CentOS 7 配置指南</title><link>https://blog.seisman.info/centos7-setup/</link><pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/centos7-setup/</guid><description>这一系列博文记录了我用 CentOS 7 搭建科研环境的过程，供我个人在未来重装 系统时参考。对于其他科研人员或 Linux 用户，也许有借鉴意义。 阅读须知： 本文仅适用于</description></item><item><title>用 CentOS 7 打造合适的科研环境</title><link>https://blog.seisman.info/trash/linux-environment-for-seismology-research/</link><pubDate>Tue, 15 Jul 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/linux-environment-for-seismology-research/</guid><description>&lt;p>这篇博文记录了我用 CentOS 7 搭建 &lt;strong>地震学科研环境&lt;/strong> 的过程，供我个人在未来重装系统时参考。对于其他地震学科研人员，也许有借鉴意义。&lt;/p>
+&lt;p>阅读须知：&lt;/p>
+&lt;ol>
+&lt;li>本文适用于个人电脑，不适用于服务器；&lt;/li>
+&lt;li>&lt;strong>不推荐刚接触 Linux 的人使用 CentOS 发行版&lt;/strong>；&lt;/li>
+&lt;li>本文尽量写的浅显易懂，但要求读者掌握 Linux 基础知识；&lt;/li>
+&lt;li>本文所有操作均在 CentOS 7 下完成，其他发行版或多或少与 CentOS 7 不同，因而仅供参考；&lt;/li>
+&lt;li>本文所安装的软件纯粹出于个人习惯及喜好，读者应自己判断，按需安装；&lt;/li>
+&lt;/ol></description></item><item><title>Linux 下安装 NVIDIA 显卡驱动</title><link>https://blog.seisman.info/install-nvidia-drivers-under-linux/</link><pubDate>Sun, 13 Jul 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/install-nvidia-drivers-under-linux/</guid><description>&lt;p>大部分 Linux 发行版都使用开源的显卡驱动 nouveau，对于 nvidia 显卡来说，还是闭源的官方驱动的效果更好。最明显的一点是，在使用 SAC 拾取震相的时候，使用官方显卡驱动在刷新界面的时候要快很多。&lt;/p>
+&lt;p>对于 CentOS 用户而言，有两种安装 NVIDIA 显卡驱动的方法，从 ELRepo 源中安装或从源码编译驱动。对于一般的 CentOS 用户，建议使用第一种方法。&lt;/p></description></item><item><title>CentOS 7.0 下安装小小输入法</title><link>https://blog.seisman.info/install-yong-chinese-input-method-under-centos-7/</link><pubDate>Sat, 12 Jul 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/install-yong-chinese-input-method-under-centos-7/</guid><description>&lt;p>另一篇博文： &lt;a href="https://blog.seisman.info/fcitx-for-centos-7/">CentOS7.0 下安装搜狗输入法&lt;/a>&lt;/p>
+&lt;p>小小输入法也叫 yong 输入法，是一个免费但不开源的中文输入法，其作者为 dgod，2008 年发布第一个版本，至今六年时间依然在不断的更新。以一人之力默默维护一个项目 6 年时间，不得不让人佩服。&lt;/p>
+&lt;ul>
+&lt;li>官方网址： &lt;a href="http://yong.dgod.net/">http://yong.dgod.net/&lt;/a>&lt;/li>
+&lt;li>下载地址： &lt;a href="http://yongim.ys168.com/">http://yongim.ys168.com/&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>使用 EPEL 和 RPMforge 源安装 netcdf 时的冲突</title><link>https://blog.seisman.info/trash/epel-rpmforge-conflict/</link><pubDate>Mon, 03 Mar 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/epel-rpmforge-conflict/</guid><description>&lt;p>新版本的 GMT 的编译与运行要求 netCDF 的版本大于 4，且支持 netCDF4/HDF5。即如果想要手动编译 netCDF4 以上的版本，则同时需要编译 hdf5，而 hdf5 又依赖于 zlib 和 szlib 等等包，所以手动编译 netcdf 相当不合算。&lt;/p>
+&lt;p>大多数发行版中应该都有 netcdf4，所以不会出现太多的问题。&lt;/p>
+&lt;p>CentOS 官方源中没有 netcdf，因而需要使用第三方源，直接将别人已经编译好的文件拿过来使用。其中最常用的就是 EPEL 和 RPMforge。而恰好二者都包含了 netcdf、netcdf-devel、hdf5、hdf5-devel 包。由此引发了一些冲突。&lt;/p></description></item></channel></rss>

@@ -1,137 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>IRIS on SeisMan</title>
-    <link>https://blog.seisman.info/tags/IRIS/</link>
-    <description>Recent content in IRIS on SeisMan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Sat, 24 Dec 2016 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.seisman.info/tags/IRIS/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>SOD 入门教程</title>
-      <link>https://blog.seisman.info/sod-notes/</link>
-      <pubDate>Sat, 24 Dec 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/sod-notes/</guid>
-      <description>&lt;p&gt;SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;官方网站： &lt;a href=&#34;http://www.seis.sc.edu/sod/&#34;&gt;http://www.seis.sc.edu/sod/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;源码： &lt;a href=&#34;https://github.com/crotwell/sod&#34;&gt;https://github.com/crotwell/sod&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;源码语言： Java&lt;/li&gt;
-&lt;li&gt;最新版本： 3.2.8&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>使用 Web Services 获取地震数据</title>
-      <link>https://blog.seisman.info/web-service-clients/</link>
-      <pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/web-service-clients/</guid>
-      <description>地震数据通常包含三类：地震目录、台站信息、波形数据。当然，还有一些其他的地震数据，比如震源机制等等。 世界上最大的地震数据中心是 IRIS DMC。除了</description>
-    </item>
-    
-    <item>
-      <title>IRIS 的理论地震图生成引擎</title>
-      <link>https://blog.seisman.info/iris-syngine/</link>
-      <pubDate>Thu, 26 May 2016 12:41:18 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/iris-syngine/</guid>
-      <description>通过看理论地震图有助于我们理解实际数据中的很多现象，但自己算理论地震图却不是 一个简单的事情，既需要有相关代码还需要理解理论地震图计算的原理，</description>
-    </item>
-    
-    <item>
-      <title>rdseed 用法笔记</title>
-      <link>https://blog.seisman.info/rdseed-notes/</link>
-      <pubDate>Tue, 13 Oct 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/rdseed-notes/</guid>
-      <description>&lt;p&gt;&lt;code&gt;rdseed&lt;/code&gt; 是 IRIS 提供的工具，用于读取 SEED 格式，从中提取出波形信息，并将波形数据保存为
-SAC、AH、CSS、SEGY 或 ASCII 等多种数据格式。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>用 Wilber 3 申请地震波形数据</title>
-      <link>https://blog.seisman.info/wilber3/</link>
-      <pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/wilber3/</guid>
-      <description>&lt;p&gt;Wilber3 是 IRIS 提供的一个用于从 IRIS 申请地震事件波形数据的网页工具。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;官方页面： &lt;a href=&#34;http://ds.iris.edu/wilber3/find_event&#34;&gt;http://ds.iris.edu/wilber3/find_event&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;优点： 网页界面，简单直观&lt;/li&gt;
-&lt;li&gt;适用范围： 仅适用于申请单个或少量地震事件的波形数据&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;本文将以 2015 年 5 月 12 日的尼泊尔 7.3 级地震为例，展示如何利用 Wilber3 申请该事件的波形数据。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>查看 IRIS 台站分布</title>
-      <link>https://blog.seisman.info/trash/iris-station-distribution/</link>
-      <pubDate>Tue, 28 Jan 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/trash/iris-station-distribution/</guid>
-      <description>&lt;p&gt;IRIS 利用 Google Map 服务，提供了直观查看台站分布的方法。&lt;/p&gt;
-&lt;p&gt;主页： &lt;a href=&#34;http://www.iris.edu/gmap/&#34;&gt;http://www.iris.edu/gmap/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;这个服务比较特别，不包含常见的按钮或选项。用户需要根据网站介绍的格式，创建自己需要的 URL，直接输入到浏览器中即可查看相关台站分布，并可以查看每个台站的具体信息。&lt;/p&gt;
-&lt;p&gt;基本格式为:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;http://www.iris.edu/gmap/[network]/[station]?key1=value1&amp;amp;key2=value2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;其中中括号包围的项为可选项，问号后接 (key,value) 对。具体参见原网站。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>IRIS FTP 数据下载脚本</title>
-      <link>https://blog.seisman.info/perl-script-for-downloading-iris-ftp-data/</link>
-      <pubDate>Sat, 25 Jan 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/perl-script-for-downloading-iris-ftp-data/</guid>
-      <description>&lt;p&gt;前文说到了 IRIS 官方给出的几种 FTP 数据下载方式，除此之外，还有很多方法。比如直接浏览器右键另存为，比如 Windows 下迅雷的下载链接自动识别，再比如 Firefox 浏览器 + 附加组件 &amp;ldquo;DownThemAll!&amp;quot;。这些工具其实和前文说的下载方法类似，都有各种各样的缺点。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>IRIS FTP 数据下载的几个方法</title>
-      <link>https://blog.seisman.info/download-data-from-iris-ftp/</link>
-      <pubDate>Fri, 24 Jan 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/download-data-from-iris-ftp/</guid>
-      <description>&lt;p&gt;从 IRIS 申请地震数据，有些工具会将准备好的数据放在 ftp 中，供用户下载。&lt;/p&gt;
-&lt;p&gt;FTP 地址格式如下： &lt;code&gt;ftp://ftp.iris.washington.edu/pub/userdata/USERNAME&lt;/code&gt;，其中 &lt;code&gt;USERNAME&lt;/code&gt; 因人而异。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>利用 Web Service Fetch scripts 申请和下载数据</title>
-      <link>https://blog.seisman.info/web-service-fetch-scripts/</link>
-      <pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/web-service-fetch-scripts/</guid>
-      <description>&lt;h2 id=&#34;iris-web-service&#34;&gt;IRIS Web Service&lt;/h2&gt;
-&lt;p&gt;IRIS DMC 提供了一系列网页服务，用于获取台站数据、仪器响应、走时以及波形数据等。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IRIS on SeisMan</title><link>https://blog.seisman.info/tags/IRIS/</link><description>Recent content in IRIS on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 24 Dec 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/IRIS/index.xml" rel="self" type="application/rss+xml"/><item><title>SOD 入门教程</title><link>https://blog.seisman.info/sod-notes/</link><pubDate>Sat, 24 Dec 2016 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/sod-notes/</guid><description>&lt;p>SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。&lt;/p>
+&lt;ul>
+&lt;li>官方网站： &lt;a href="http://www.seis.sc.edu/sod/">http://www.seis.sc.edu/sod/&lt;/a>&lt;/li>
+&lt;li>源码： &lt;a href="https://github.com/crotwell/sod">https://github.com/crotwell/sod&lt;/a>&lt;/li>
+&lt;li>源码语言： Java&lt;/li>
+&lt;li>最新版本： 3.2.8&lt;/li>
+&lt;/ul>
+&lt;p>本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。&lt;/p></description></item><item><title>使用 Web Services 获取地震数据</title><link>https://blog.seisman.info/web-service-clients/</link><pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/web-service-clients/</guid><description>地震数据通常包含三类：地震目录、台站信息、波形数据。当然，还有一些其他的地震数据，比如震源机制等等。 世界上最大的地震数据中心是 IRIS DMC。除了</description></item><item><title>IRIS 的理论地震图生成引擎</title><link>https://blog.seisman.info/iris-syngine/</link><pubDate>Thu, 26 May 2016 12:41:18 +0000</pubDate><guid>https://blog.seisman.info/iris-syngine/</guid><description>通过看理论地震图有助于我们理解实际数据中的很多现象，但自己算理论地震图却不是 一个简单的事情，既需要有相关代码还需要理解理论地震图计算的原理，</description></item><item><title>rdseed 用法笔记</title><link>https://blog.seisman.info/rdseed-notes/</link><pubDate>Tue, 13 Oct 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/rdseed-notes/</guid><description>&lt;p>&lt;code>rdseed&lt;/code> 是 IRIS 提供的工具，用于读取 SEED 格式，从中提取出波形信息，并将波形数据保存为
+SAC、AH、CSS、SEGY 或 ASCII 等多种数据格式。&lt;/p></description></item><item><title>用 Wilber 3 申请地震波形数据</title><link>https://blog.seisman.info/wilber3/</link><pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/wilber3/</guid><description>&lt;p>Wilber3 是 IRIS 提供的一个用于从 IRIS 申请地震事件波形数据的网页工具。&lt;/p>
+&lt;ul>
+&lt;li>官方页面： &lt;a href="http://ds.iris.edu/wilber3/find_event">http://ds.iris.edu/wilber3/find_event&lt;/a>&lt;/li>
+&lt;li>优点： 网页界面，简单直观&lt;/li>
+&lt;li>适用范围： 仅适用于申请单个或少量地震事件的波形数据&lt;/li>
+&lt;/ul>
+&lt;p>本文将以 2015 年 5 月 12 日的尼泊尔 7.3 级地震为例，展示如何利用 Wilber3 申请该事件的波形数据。&lt;/p></description></item><item><title>查看 IRIS 台站分布</title><link>https://blog.seisman.info/trash/iris-station-distribution/</link><pubDate>Tue, 28 Jan 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/iris-station-distribution/</guid><description>&lt;p>IRIS 利用 Google Map 服务，提供了直观查看台站分布的方法。&lt;/p>
+&lt;p>主页： &lt;a href="http://www.iris.edu/gmap/">http://www.iris.edu/gmap/&lt;/a>&lt;/p>
+&lt;p>这个服务比较特别，不包含常见的按钮或选项。用户需要根据网站介绍的格式，创建自己需要的 URL，直接输入到浏览器中即可查看相关台站分布，并可以查看每个台站的具体信息。&lt;/p>
+&lt;p>基本格式为:&lt;/p>
+&lt;pre>&lt;code>http://www.iris.edu/gmap/[network]/[station]?key1=value1&amp;amp;key2=value2
+&lt;/code>&lt;/pre>
+&lt;p>其中中括号包围的项为可选项，问号后接 (key,value) 对。具体参见原网站。&lt;/p></description></item><item><title>IRIS FTP 数据下载脚本</title><link>https://blog.seisman.info/perl-script-for-downloading-iris-ftp-data/</link><pubDate>Sat, 25 Jan 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/perl-script-for-downloading-iris-ftp-data/</guid><description>&lt;p>前文说到了 IRIS 官方给出的几种 FTP 数据下载方式，除此之外，还有很多方法。比如直接浏览器右键另存为，比如 Windows 下迅雷的下载链接自动识别，再比如 Firefox 浏览器 + 附加组件 &amp;ldquo;DownThemAll!&amp;quot;。这些工具其实和前文说的下载方法类似，都有各种各样的缺点。&lt;/p></description></item><item><title>IRIS FTP 数据下载的几个方法</title><link>https://blog.seisman.info/download-data-from-iris-ftp/</link><pubDate>Fri, 24 Jan 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/download-data-from-iris-ftp/</guid><description>&lt;p>从 IRIS 申请地震数据，有些工具会将准备好的数据放在 ftp 中，供用户下载。&lt;/p>
+&lt;p>FTP 地址格式如下： &lt;code>ftp://ftp.iris.washington.edu/pub/userdata/USERNAME&lt;/code>，其中 &lt;code>USERNAME&lt;/code> 因人而异。&lt;/p></description></item><item><title>利用 Web Service Fetch scripts 申请和下载数据</title><link>https://blog.seisman.info/web-service-fetch-scripts/</link><pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/web-service-fetch-scripts/</guid><description>&lt;h2 id="iris-web-service">IRIS Web Service&lt;/h2>
+&lt;p>IRIS DMC 提供了一系列网页服务，用于获取台站数据、仪器响应、走时以及波形数据等。
 简而言之，其原理大概就是根据某种特定的格式要求发送网页请求，然后 IRIS 会返回相应的
-信息供用户解析。&lt;/p&gt;
-&lt;p&gt;IRIS 网页服务的主页位于： &lt;a href=&#34;http://service.iris.edu/&#34;&gt;http://service.iris.edu/&lt;/a&gt; ，有兴趣的可以研究一下。&lt;/p&gt;
-&lt;h2 id=&#34;web-service-fetch-script&#34;&gt;Web Service Fetch Script&lt;/h2&gt;
-&lt;p&gt;主页：&lt;a href=&#34;https://seiscode.iris.washington.edu/projects/ws-fetch-scripts&#34;&gt;https://seiscode.iris.washington.edu/projects/ws-fetch-scripts&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;这是一个利用 IRIS 提供的网页服务来实现数据下载的工具，其源代码用 perl 写成，
-因而几乎可以在任何平台上直接运行。整个工具包含了三个 perl 脚本：&lt;code&gt;FetchData&lt;/code&gt;、
-&lt;code&gt;FetchEvent&lt;/code&gt; 和 &lt;code&gt;FetchMetadata&lt;/code&gt;。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>IRIS 数据申请工具: BREQ_FAST</title>
-      <link>https://blog.seisman.info/breq-fast/</link>
-      <pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/breq-fast/</guid>
-      <description>&lt;p&gt;BREQ_FAST 是 Batch REQuests FAST 的简称。简单来说，就是通过发送特定格式的邮件到指定的
+信息供用户解析。&lt;/p>
+&lt;p>IRIS 网页服务的主页位于： &lt;a href="http://service.iris.edu/">http://service.iris.edu/&lt;/a> ，有兴趣的可以研究一下。&lt;/p>
+&lt;h2 id="web-service-fetch-script">Web Service Fetch Script&lt;/h2>
+&lt;p>主页：&lt;a href="https://seiscode.iris.washington.edu/projects/ws-fetch-scripts">https://seiscode.iris.washington.edu/projects/ws-fetch-scripts&lt;/a>&lt;/p>
+&lt;p>这是一个利用 IRIS 提供的网页服务来实现数据下载的工具，其源代码用 perl 写成，
+因而几乎可以在任何平台上直接运行。整个工具包含了三个 perl 脚本：&lt;code>FetchData&lt;/code>、
+&lt;code>FetchEvent&lt;/code> 和 &lt;code>FetchMetadata&lt;/code>。&lt;/p></description></item><item><title>IRIS 数据申请工具: BREQ_FAST</title><link>https://blog.seisman.info/breq-fast/</link><pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/breq-fast/</guid><description>&lt;p>BREQ_FAST 是 Batch REQuests FAST 的简称。简单来说，就是通过发送特定格式的邮件到指定的
 邮箱来申请数据。这种数据申请的方法不同于常见的交互式方法，因而特别适合写脚本自动生成
-邮件内容、自动发送邮件、自动下载数据。&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+邮件内容、自动发送邮件、自动下载数据。&lt;/p></description></item></channel></rss>

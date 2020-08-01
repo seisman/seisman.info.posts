@@ -1,6 +1,6 @@
-FC=gfortran
+FC=gfortran -ffixed-line-length-none
 optimize=-O
-FFLAGS=$(optimize) -ffpe-trap=overflow,invalid,denormal -ffixed-line-length-none
+FFLAGS=$(optimize)
 CFLAGS=$(optimize)
 #if SAC library has been installed, uncomment the next two lines
 CFLAGS=$(optimize) -DSAC_LIB
@@ -9,33 +9,26 @@ SACLIB=-L$(SACHOME)/lib -lsac -lsacio
 
 SUBS = fft.o Complex.o sacio.o
 FKSUBS = fk.o kernel.o prop.o source.o bessel.o $(SUBS)
-TARGETS = fk syn st_fk trav sachd fk2mt
 
-all: $(TARGETS)
+all: fk syn st_fk trav sachd
 
 syn: syn.o ${SUBS} radiats.o futterman.o
 	${LINK.f} -o $@ $^ ${SACLIB} -lm
 
 fk: ${FKSUBS} haskell.o
-	${LINK.f} -o $@ $^ -lm
+	${LINK.f} -o $@ $^
 
 st_fk: ${FKSUBS} st_haskell.o
-	${LINK.f} -o $@ $^ -lm
+	${LINK.f} -o $@ $^
 
 sachd: sachd.o sacio.o
 	${LINK.c} -o $@ $^ -lm
 
 trav: trav.o tau_p.o
-	$(LINK.f) -o $@ trav.o tau_p.o -lm
-
-fk2mt: fk2mt.o radiats.o sacio.o
-	${LINK.c} -o $@ $^ -lm
+	$(LINK.f) -o $@ trav.o tau_p.o
 
 bessel.f: bessel.FF
 	cpp -traditional-cpp $< > $@
 
 clean:
 	rm -f *.o bessel.f
-
-distclean:
-	rm -f $(TARGETS)

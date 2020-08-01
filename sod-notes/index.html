@@ -1,325 +1,31 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>SOD 入门教程 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。
- 官方网站： http://www.seis.sc.edu/sod/ 源码： https://github.com/crotwell/sod 源码语言： Java 最新版本： 3.2.8  本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.61.0 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/sod-notes/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="SOD 入门教程" />
-<meta property="og:description" content="SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>SOD 入门教程 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。
+ 官方网站： http://www.seis.sc.edu/sod/ 源码： https://github.com/crotwell/sod 源码语言： Java 最新版本： 3.2.8  本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://blog.seisman.info/sod-notes/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="SOD 入门教程"><meta property="og:description" content="SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。
 
 官方网站： http://www.seis.sc.edu/sod/
 源码： https://github.com/crotwell/sod
 源码语言： Java
 最新版本： 3.2.8
 
-本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/sod-notes/" />
-<meta property="article:published_time" content="2016-12-24T00:00:00+00:00" />
-<meta property="article:modified_time" content="2016-12-24T00:00:00+00:00" />
-<meta itemprop="name" content="SOD 入门教程">
-<meta itemprop="description" content="SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。
+本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/sod-notes/"><meta property="article:published_time" content="2016-12-24T00:00:00+00:00"><meta property="article:modified_time" content="2016-12-24T00:00:00+00:00"><meta itemprop=name content="SOD 入门教程"><meta itemprop=description content="SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。
 
 官方网站： http://www.seis.sc.edu/sod/
 源码： https://github.com/crotwell/sod
 源码语言： Java
 最新版本： 3.2.8
 
-本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。">
-<meta itemprop="datePublished" content="2016-12-24T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2016-12-24T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="4731">
-
-
-
-<meta itemprop="keywords" content="波形数据,IRIS,数据申请," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="SOD 入门教程"/>
-<meta name="twitter:description" content="SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。
+本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。"><meta itemprop=datePublished content="2016-12-24T00:00:00+00:00"><meta itemprop=dateModified content="2016-12-24T00:00:00+00:00"><meta itemprop=wordCount content="4740"><meta itemprop=keywords content="波形数据,IRIS,数据申请,"><meta name=twitter:card content="summary"><meta name=twitter:title content="SOD 入门教程"><meta name=twitter:description content="SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。
 
 官方网站： http://www.seis.sc.edu/sod/
 源码： https://github.com/crotwell/sod
 源码语言： Java
 最新版本： 3.2.8
 
-本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">SOD 入门教程</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2016-12-24 </span>
-        <div class="post-category">
-            <a href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/"> 地震学软件 </a>
-            </div>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#why-sod">Why SOD?</a></li>
-    <li><a href="#-sod">安装 SOD</a></li>
-    <li><a href="#sod-">SOD 的使用</a>
-      <ul>
-        <li><a href="#heading">命令行语法</a></li>
-        <li><a href="#heading-1">运行示例</a></li>
-        <li><a href="#sod--1">SOD 数据库文件</a></li>
-      </ul>
-    </li>
-    <li><a href="#recipe">recipe</a>
-      <ul>
-        <li><a href="#xml-">xml 格式简介</a></li>
-        <li><a href="#sod-recipe-">sod recipe 结构</a></li>
-        <li><a href="#eventarm">eventArm</a></li>
-        <li><a href="#networkarm">networkArm</a></li>
-        <li><a href="#waveformarm">waveformArm</a></li>
-        <li><a href="#heading-2">高级用法、技巧与陷阱</a></li>
-      </ul>
-    </li>
-    <li><a href="#-recipe">从头开始写 recipe</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。</p>
-<ul>
-<li>官方网站： <a href="http://www.seis.sc.edu/sod/">http://www.seis.sc.edu/sod/</a></li>
-<li>源码： <a href="https://github.com/crotwell/sod">https://github.com/crotwell/sod</a></li>
-<li>源码语言： Java</li>
-<li>最新版本： 3.2.8</li>
-</ul>
-<p>本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。</p>
-<h2 id="why-sod">Why SOD?</h2>
-<p>从 IRIS 上申请数据的工具有很多，比如 Wilber、BREQ_FAST，为什么要用 SOD 呢? SOD 有哪些优势呢？</p>
-<p>先回顾一下申请地震波形数据的一般流程：</p>
-<ol>
-<li>获取完整的地震目录，并根据实际需求筛选出自己需要的地震目录</li>
-<li>获取台站列表，根据需求对震中距、方位角等进行筛选</li>
-<li>根据发震时刻、震中距、震相走时等信息确定要申请的波形数据的起始、结束时间</li>
-<li>申请数据</li>
-<li>下载数据</li>
-<li>数据解压以及预处理</li>
-</ol>
-<p>以上提到的每个步骤都需要用户写一个以上的脚本来实现，如果需求改变，则可能需要修改多个脚本，总的来说是件很麻烦的事情。</p>
-<p>SOD 的优势如下：</p>
-<ol>
-<li>
-<p>只需要一个配置文件（SOD中称为recipe）即可完成上面提到的全部步骤</p>
-</li>
-<li>
-<p>灵活的地震筛选规则：</p>
-<ul>
-<li>可以在 IRIS/USGS 提供的地震目录的基础上根据发震时刻、深度、震级、震源所在区域等条件进行筛选</li>
-<li>可以由用户自行提供地震目录（需要满足 SOD 对地震目录的格式要求）</li>
-<li>可以构建虚拟地震以申请连续波形数据</li>
-<li>&hellip;</li>
-</ul>
-</li>
-<li>
-<p>灵活的台站筛选规则：</p>
-<ul>
-<li>可以选择一个或多个指定的台网、台站或通道</li>
-<li>可以筛选在某个特定点的特定距离、方位角、反方位角内的台站</li>
-<li>可以筛选某个区域内的台站</li>
-<li>可以下载指定通道的仪器响应文件（SAC PZ 和 RESP）</li>
-<li>&hellip;</li>
-</ul>
-</li>
-<li>
-<p>灵活的波形筛选规则：</p>
-<ul>
-<li>仅下载震中距、方位角、反方位角满足条件的数据</li>
-<li>仅当某个震相存在时才下载该台站的数据（比如仅当震中距大于115时才有PKIKP震相）</li>
-<li>仅当地震与台站的连线中点位于某个区域是才下载数据（比如想要用PcP研究某个特定区域的核幔边界结构）</li>
-<li>仅当指定震相的前后多少秒内没有其他震相干扰时才下载数据</li>
-<li>灵活的时窗截取规则，可自动计算理论到时以设置数据窗</li>
-<li>可直接生成 BREQ_FAST 文件以通过邮件方式申请数据</li>
-<li>以 miniSEED、SAC、ASCII、wav 格式将数据保存到磁盘中</li>
-<li>&hellip;</li>
-</ul>
-</li>
-<li>
-<p>数据并行下载，速度快无延迟</p>
-</li>
-<li>
-<p>将数据写入磁盘前/后，可对数据进行常见的数据预处理：</p>
-<ul>
-<li>rmean, rtrend, taper, merge</li>
-<li>decimate</li>
-<li>differentiate, integrate</li>
-<li>filter, transfer</li>
-<li>phaseCut</li>
-<li>&hellip;</li>
-</ul>
-</li>
-</ol>
-<p>SOD 除了上面提到的功能/优点外，还有一个优点：入门很容易，别人写的 recipe 一看就懂，改起来也简单，但一个很明显的缺点是：自己从头写一个 recipe 很困难，因为 SOD 其实是个很复杂的东西。</p>
-<p>为了尽可能解决这个问题，我创建了 <a href="https://github.com/seisman/SODrecipes">SODrecipes</a> 项目，其中收集整理了 SOD 的常见用法，用户可以通过阅读、修改和使用这些 recipe 片段来理解 SOD 的用法。也欢迎更多用户贡献自己的recipe。</p>
-<h2 id="-sod">安装 SOD</h2>
-<p>由于 SOD 是 Java 写的，因而可以跨平台直接使用。</p>
-<ol>
-<li>
-<p>下载:</p>
-<pre><code> $ wget http://www.seis.sc.edu/downloads/sod/3.2.8/sod-3.2.8.tgz
-</code></pre>
-</li>
-<li>
-<p>解压并安装</p>
-<pre><code> $ tar -xvf sod-3.2.8.tgz
+本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>SOD 入门教程</h1><div class=post-meta><span class=post-time>2016-12-24</span><div class=post-category><a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/>地震学软件</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#why-sod>Why SOD?</a></li><li><a href=#安装-sod>安装 SOD</a></li><li><a href=#sod-的使用>SOD 的使用</a><ul><li><a href=#命令行语法>命令行语法</a></li><li><a href=#运行示例>运行示例</a></li><li><a href=#sod-数据库文件>SOD 数据库文件</a></li></ul></li><li><a href=#recipe>recipe</a><ul><li><a href=#xml-格式简介>xml 格式简介</a></li><li><a href=#sod-recipe-结构>sod recipe 结构</a></li><li><a href=#eventarm>eventArm</a></li><li><a href=#networkarm>networkArm</a></li><li><a href=#waveformarm>waveformArm</a></li><li><a href=#高级用法技巧与陷阱>高级用法、技巧与陷阱</a></li></ul></li><li><a href=#从头开始写-recipe>从头开始写 recipe</a></li></ul></nav></div></div><div class=post-content><p>SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。</p><ul><li>官方网站： <a href=http://www.seis.sc.edu/sod/>http://www.seis.sc.edu/sod/</a></li><li>源码： <a href=https://github.com/crotwell/sod>https://github.com/crotwell/sod</a></li><li>源码语言： Java</li><li>最新版本： 3.2.8</li></ul><p>本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。</p><h2 id=why-sod>Why SOD?</h2><p>从 IRIS 上申请数据的工具有很多，比如 Wilber、BREQ_FAST，为什么要用 SOD 呢? SOD 有哪些优势呢？</p><p>先回顾一下申请地震波形数据的一般流程：</p><ol><li>获取完整的地震目录，并根据实际需求筛选出自己需要的地震目录</li><li>获取台站列表，根据需求对震中距、方位角等进行筛选</li><li>根据发震时刻、震中距、震相走时等信息确定要申请的波形数据的起始、结束时间</li><li>申请数据</li><li>下载数据</li><li>数据解压以及预处理</li></ol><p>以上提到的每个步骤都需要用户写一个以上的脚本来实现，如果需求改变，则可能需要修改多个脚本，总的来说是件很麻烦的事情。</p><p>SOD 的优势如下：</p><ol><li><p>只需要一个配置文件（SOD中称为recipe）即可完成上面提到的全部步骤</p></li><li><p>灵活的地震筛选规则：</p><ul><li>可以在 IRIS/USGS 提供的地震目录的基础上根据发震时刻、深度、震级、震源所在区域等条件进行筛选</li><li>可以由用户自行提供地震目录（需要满足 SOD 对地震目录的格式要求）</li><li>可以构建虚拟地震以申请连续波形数据</li><li>&mldr;</li></ul></li><li><p>灵活的台站筛选规则：</p><ul><li>可以选择一个或多个指定的台网、台站或通道</li><li>可以筛选在某个特定点的特定距离、方位角、反方位角内的台站</li><li>可以筛选某个区域内的台站</li><li>可以下载指定通道的仪器响应文件（SAC PZ 和 RESP）</li><li>&mldr;</li></ul></li><li><p>灵活的波形筛选规则：</p><ul><li>仅下载震中距、方位角、反方位角满足条件的数据</li><li>仅当某个震相存在时才下载该台站的数据（比如仅当震中距大于115时才有PKIKP震相）</li><li>仅当地震与台站的连线中点位于某个区域是才下载数据（比如想要用PcP研究某个特定区域的核幔边界结构）</li><li>仅当指定震相的前后多少秒内没有其他震相干扰时才下载数据</li><li>灵活的时窗截取规则，可自动计算理论到时以设置数据窗</li><li>可直接生成 BREQ_FAST 文件以通过邮件方式申请数据</li><li>以 miniSEED、SAC、ASCII、wav 格式将数据保存到磁盘中</li><li>&mldr;</li></ul></li><li><p>数据并行下载，速度快无延迟</p></li><li><p>将数据写入磁盘前/后，可对数据进行常见的数据预处理：</p><ul><li>rmean, rtrend, taper, merge</li><li>decimate</li><li>differentiate, integrate</li><li>filter, transfer</li><li>phaseCut</li><li>&mldr;</li></ul></li></ol><p>SOD 除了上面提到的功能/优点外，还有一个优点：入门很容易，别人写的 recipe 一看就懂，改起来也简单，但一个很明显的缺点是：自己从头写一个 recipe 很困难，因为 SOD 其实是个很复杂的东西。</p><p>为了尽可能解决这个问题，我创建了 <a href=https://github.com/seisman/SODrecipes>SODrecipes</a> 项目，其中收集整理了 SOD 的常见用法，用户可以通过阅读、修改和使用这些 recipe 片段来理解 SOD 的用法。也欢迎更多用户贡献自己的recipe。</p><h2 id=安装-sod>安装 SOD</h2><p>由于 SOD 是 Java 写的，因而可以跨平台直接使用。</p><ol><li><p>下载:</p><pre><code> $ wget http://www.seis.sc.edu/downloads/sod/3.2.8/sod-3.2.8.tgz
+</code></pre></li><li><p>解压并安装</p><pre><code> $ tar -xvf sod-3.2.8.tgz
  $ sudo mv sod-3.2.8 /usr/local
-</code></pre>
-</li>
-<li>
-<p>修改环境变量 PATH</p>
-<pre><code> $ echo 'export PATH=${PATH}:/usr/local/sod-3.2.8/bin'&gt;&gt; ~/.bashrc
-</code></pre>
-</li>
-<li>
-<p>重启终端，并执行 <code>sod -h</code> 以确认 SOD 是否正常安装</p>
-</li>
-</ol>
-<h2 id="sod-">SOD 的使用</h2>
-<p>SOD 的 bin 目录下提供了8个命令：</p>
-<ul>
-<li>sod</li>
-<li>psod</li>
-<li>bgsod</li>
-<li>find_events</li>
-<li>find_stations</li>
-<li>find_channels</li>
-<li>find_responses</li>
-<li>find_seismograms</li>
-</ul>
-<p>本文只介绍命令 <code>sod</code> 的用法。</p>
-<h3 id="heading">命令行语法</h3>
-<p>sod 的命令行语法很简单，直接</p>
-<pre><code>sod -f recipe.xml
-</code></pre>
-<p>其中 <code>recipe.xml</code> 是 sod 的配置文件。sod 的配置文件称为 recipe，是一个 xml 格式的纯文本文件，其中定义了地震数据筛选的一系列规则。</p>
-<h3 id="heading-1">运行示例</h3>
-<p>执行 <code>sod --demo -r &gt; demo.xml</code> 会生成一个名为 <code>demo.xml</code> 的 recipe 示例，用编辑器查看其内容以对 recipe 的结构和格式有个初步印象。</p>
-<p>执行以下命令则会运行该示例:</p>
-<pre><code>$ sod -f demo.xml
+</code></pre></li><li><p>修改环境变量 PATH</p><pre><code> $ echo 'export PATH=${PATH}:/usr/local/sod-3.2.8/bin'&gt;&gt; ~/.bashrc
+</code></pre></li><li><p>重启终端，并执行 <code>sod -h</code> 以确认 SOD 是否正常安装</p></li></ol><h2 id=sod-的使用>SOD 的使用</h2><p>SOD 的 bin 目录下提供了8个命令：</p><ul><li>sod</li><li>psod</li><li>bgsod</li><li>find_events</li><li>find_stations</li><li>find_channels</li><li>find_responses</li><li>find_seismograms</li></ul><p>本文只介绍命令 <code>sod</code> 的用法。</p><h3 id=命令行语法>命令行语法</h3><p>sod 的命令行语法很简单，直接</p><pre><code>sod -f recipe.xml
+</code></pre><p>其中 <code>recipe.xml</code> 是 sod 的配置文件。sod 的配置文件称为 recipe，是一个 xml 格式的纯文本文件，其中定义了地震数据筛选的一系列规则。</p><h3 id=运行示例>运行示例</h3><p>执行 <code>sod --demo -r > demo.xml</code> 会生成一个名为 <code>demo.xml</code> 的 recipe 示例，用编辑器查看其内容以对 recipe 的结构和格式有个初步印象。</p><p>执行以下命令则会运行该示例:</p><pre><code>$ sod -f demo.xml
 Congratulations, valid recipe.
 Fiji region (-20.6, -177.7) 378 km 2003/01/04 05:15:03 UTC 6.5 mwc
 ...
@@ -327,463 +33,232 @@ Channel: II.AAK.00.BHE
 ...
 Got 1 seismograms for II.RPN.00.BHN for eq on 2003/01/09 02:50:45 UTC
 ...
-</code></pre>
-<p>输出中的 <code>Congratulations, valid recipe.</code> 表明当前 recipe 可以使用，紧接着会输出事件信息、通道信息以及获取地震波形的信息。下载的地震波形数据保存在 <code>seismograms</code> 目录下。</p>
-<h3 id="sod--1">SOD 数据库文件</h3>
-<p>每次执行 sod 时，sod 都会在当前目录下生成一个数据库文件夹 <code>SodDb</code> 以及一些 log 文件。数据库文件夹 <code>SodDb</code> 的数据库文件中包含了单次 sod 运行时的全部信息，比如选中了哪些事件、哪些台站以及事件台站对所对应的波形，也包含了哪些数据已经下载哪些数据尚未下载的信息。</p>
-<p>SOD 数据库的主要作用是：若 sod 在下载数据过程中意外退出，可以重新执行 sod 命令，由于 sod 数据库中记录了哪些数据已经被下载，因而 sod 可以继续下载那些尚未被下载的数据，即实现断点续传的功能（注：实测中发现的确可以断点续传，但似乎在所有数据下载完成后程序无法正常退出）。</p>
-<h2 id="recipe">recipe</h2>
-<p>一个 SOD recipe 中包含了一系列规则以限定要申请的数据的范围。</p>
-<h3 id="xml-">xml 格式简介</h3>
-<p>SOD recipe 本质上是一个 xml 格式的文本文件。</p>
-<p>XML 文档形成了一种“树”结构，它从“根部”开始，不断扩展到“枝叶”。一个简单的 XML 文件如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
-<span style="color:#f92672">&lt;root</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> this is a comment </span><span style="color:#75715e">--&gt;</span>
-    <span style="color:#f92672">&lt;child</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;name</span><span style="color:#f92672">&gt;</span>Child One<span style="color:#f92672">&lt;/name&gt;</span>
-        <span style="color:#f92672">&lt;age</span><span style="color:#f92672">&gt;</span>10<span style="color:#f92672">&lt;/age&gt;</span>
-    <span style="color:#f92672">&lt;/child&gt;</span>
-    <span style="color:#f92672">&lt;child</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;name</span><span style="color:#f92672">&gt;</span>Child Two<span style="color:#f92672">&lt;/name&gt;</span>
-        <span style="color:#f92672">&lt;age</span><span style="color:#f92672">&gt;</span>8<span style="color:#f92672">&lt;/age&gt;</span>
-    <span style="color:#f92672">&lt;/child&gt;</span>
-    <span style="color:#f92672">&lt;printline</span> <span style="color:#f92672">/&gt;</span>
-<span style="color:#f92672">&lt;/root&gt;</span>
-</code></pre></div><p>其中：</p>
-<ul>
-<li><code>&lt;?xml version=&quot;1.0&quot;?&gt;</code> 是 XML 声明，其指定了 XML 的版本信息</li>
-<li><code>&lt;root&gt;</code> 和 <code>&lt;/root&gt;</code> 是一对标签的开始标签和关闭标签，从开始标签到结束标签中的内容称之为元素</li>
-<li>所有 XML 元素都必须有关闭标签</li>
-<li>标签可以嵌套多层，但必须正确地嵌套</li>
-<li>若某个标签中没有嵌套其他标签，则一对标签可以简写为 <code>&lt;tagName/&gt;</code> 的形式，例如 <code>&lt;printline/&gt;</code></li>
-<li><code>&lt;!-- --&gt;</code> 用于注释</li>
-<li>XML 标签是区分大小写的</li>
-</ul>
-<h3 id="sod-recipe-">sod recipe 结构</h3>
-<p>SOD recipe 是 XML 格式的文件，其根标签为 <code>&lt;sod&gt;</code>，根标签下有五个直系子标签，分别是：</p>
-<ul>
-<li><code>properties</code>: SOD程序相关的属性配置（一般不用）</li>
-<li><code>eventArm</code>: 事件筛选的规则</li>
-<li><code>networkArm</code>: 台站/通道筛选的规则</li>
-<li><code>waveformArm</code>: 确定波形的时间段，筛选、下载并处理波形数据</li>
-<li><code>waveformVectorArm</code>: 处理三分量波形数据（不常用）</li>
-</ul>
-<p>通常只需要用到 <code>eventArm</code>、<code>networkArm</code> 和 <code>waveformArm</code>。显然， <code>eventArm</code> 和 <code>networkArm</code> 是互相独立的，而 <code>waveformArm</code> 则依赖于 <code>eventArm</code> 和 <code>networkArm</code>。</p>
-<p><img src="http://www.seis.sc.edu/sod/images/documentation/tutorials/arm_overview.png" alt="recipe结构"></p>
-<p>因而，所有的 recipe 都符合如下基本结构：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
-<span style="color:#f92672">&lt;sod</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;properties</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> sod 属性，很少使用 </span><span style="color:#75715e">--&gt;</span>
-    <span style="color:#f92672">&lt;/properties&gt;</span>
+</code></pre><p>输出中的 <code>Congratulations, valid recipe.</code> 表明当前 recipe 可以使用，紧接着会输出事件信息、通道信息以及获取地震波形的信息。下载的地震波形数据保存在 <code>seismograms</code> 目录下。</p><h3 id=sod-数据库文件>SOD 数据库文件</h3><p>每次执行 sod 时，sod 都会在当前目录下生成一个数据库文件夹 <code>SodDb</code> 以及一些 log 文件。数据库文件夹 <code>SodDb</code> 的数据库文件中包含了单次 sod 运行时的全部信息，比如选中了哪些事件、哪些台站以及事件台站对所对应的波形，也包含了哪些数据已经下载哪些数据尚未下载的信息。</p><p>SOD 数据库的主要作用是：若 sod 在下载数据过程中意外退出，可以重新执行 sod 命令，由于 sod 数据库中记录了哪些数据已经被下载，因而 sod 可以继续下载那些尚未被下载的数据，即实现断点续传的功能（注：实测中发现的确可以断点续传，但似乎在所有数据下载完成后程序无法正常退出）。</p><h2 id=recipe>recipe</h2><p>一个 SOD recipe 中包含了一系列规则以限定要申请的数据的范围。</p><h3 id=xml-格式简介>xml 格式简介</h3><p>SOD recipe 本质上是一个 xml 格式的文本文件。</p><p>XML 文档形成了一种“树”结构，它从“根部”开始，不断扩展到“枝叶”。一个简单的 XML 文件如下：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+<span style=color:#f92672>&lt;root&gt;</span>
+    <span style=color:#75715e>&lt;!-- this is a comment --&gt;</span>
+    <span style=color:#f92672>&lt;child&gt;</span>
+        <span style=color:#f92672>&lt;name&gt;</span>Child One<span style=color:#f92672>&lt;/name&gt;</span>
+        <span style=color:#f92672>&lt;age&gt;</span>10<span style=color:#f92672>&lt;/age&gt;</span>
+    <span style=color:#f92672>&lt;/child&gt;</span>
+    <span style=color:#f92672>&lt;child&gt;</span>
+        <span style=color:#f92672>&lt;name&gt;</span>Child Two<span style=color:#f92672>&lt;/name&gt;</span>
+        <span style=color:#f92672>&lt;age&gt;</span>8<span style=color:#f92672>&lt;/age&gt;</span>
+    <span style=color:#f92672>&lt;/child&gt;</span>
+    <span style=color:#f92672>&lt;printline</span> <span style=color:#f92672>/&gt;</span>
+<span style=color:#f92672>&lt;/root&gt;</span>
+</code></pre></div><p>其中：</p><ul><li><code>&lt;?xml version="1.0"?></code> 是 XML 声明，其指定了 XML 的版本信息</li><li><code>&lt;root></code> 和 <code>&lt;/root></code> 是一对标签的开始标签和关闭标签，从开始标签到结束标签中的内容称之为元素</li><li>所有 XML 元素都必须有关闭标签</li><li>标签可以嵌套多层，但必须正确地嵌套</li><li>若某个标签中没有嵌套其他标签，则一对标签可以简写为 <code>&lt;tagName/></code> 的形式，例如 <code>&lt;printline/></code></li><li><code>&lt;!-- --></code> 用于注释</li><li>XML 标签是区分大小写的</li></ul><h3 id=sod-recipe-结构>sod recipe 结构</h3><p>SOD recipe 是 XML 格式的文件，其根标签为 <code>&lt;sod></code>，根标签下有五个直系子标签，分别是：</p><ul><li><code>properties</code>: SOD程序相关的属性配置（一般不用）</li><li><code>eventArm</code>: 事件筛选的规则</li><li><code>networkArm</code>: 台站/通道筛选的规则</li><li><code>waveformArm</code>: 确定波形的时间段，筛选、下载并处理波形数据</li><li><code>waveformVectorArm</code>: 处理三分量波形数据（不常用）</li></ul><p>通常只需要用到 <code>eventArm</code>、<code>networkArm</code> 和 <code>waveformArm</code>。显然， <code>eventArm</code> 和 <code>networkArm</code> 是互相独立的，而 <code>waveformArm</code> 则依赖于 <code>eventArm</code> 和 <code>networkArm</code>。</p><p><img src=http://www.seis.sc.edu/sod/images/documentation/tutorials/arm_overview.png alt=recipe结构></p><p>因而，所有的 recipe 都符合如下基本结构：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+<span style=color:#f92672>&lt;sod&gt;</span>
+    <span style=color:#f92672>&lt;properties&gt;</span>
+    <span style=color:#75715e>&lt;!-- sod 属性，很少使用 --&gt;</span>
+    <span style=color:#f92672>&lt;/properties&gt;</span>
 
-    <span style="color:#f92672">&lt;eventArm</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> eventArm 全部内容 </span><span style="color:#75715e">--&gt;</span>
-    <span style="color:#f92672">&lt;/eventArm&gt;</span>
+    <span style=color:#f92672>&lt;eventArm&gt;</span>
+    <span style=color:#75715e>&lt;!-- eventArm 全部内容 --&gt;</span>
+    <span style=color:#f92672>&lt;/eventArm&gt;</span>
 
-    <span style="color:#f92672">&lt;networkArm</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> networkArm 全部内容 </span><span style="color:#75715e">--&gt;</span>
-    <span style="color:#f92672">&lt;/networkArm&gt;</span>
+    <span style=color:#f92672>&lt;networkArm&gt;</span>
+    <span style=color:#75715e>&lt;!-- networkArm 全部内容 --&gt;</span>
+    <span style=color:#f92672>&lt;/networkArm&gt;</span>
 
-    <span style="color:#f92672">&lt;waveformArm</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> waveformArm 全部内容 </span><span style="color:#75715e">--&gt;</span>
-    <span style="color:#f92672">&lt;/waveformArm&gt;</span>
+    <span style=color:#f92672>&lt;waveformArm&gt;</span>
+    <span style=color:#75715e>&lt;!-- waveformArm 全部内容 --&gt;</span>
+    <span style=color:#f92672>&lt;/waveformArm&gt;</span>
 
-    <span style="color:#f92672">&lt;waveformVectorArm</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> waveformVectorArm 全部内容 </span><span style="color:#75715e">--&gt;</span>
-    <span style="color:#f92672">&lt;/waveformVectorArm&gt;</span>
-<span style="color:#f92672">&lt;/sod&gt;</span>
-</code></pre></div><p>下面会介绍 eventArm、networkArm 和 waveformArm 的写法和功能。</p>
-<h3 id="eventarm">eventArm</h3>
-<p>eventArm 的作用是定义一定的规则以筛选所需要的地震事件。</p>
-<p>下面看一个 eventArm 的简单示例：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
-<span style="color:#f92672">&lt;sod</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;eventArm</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;fdsnEvent</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#f92672">&lt;originTimeRange</span><span style="color:#f92672">&gt;</span>
-                <span style="color:#f92672">&lt;startTime</span><span style="color:#f92672">&gt;</span>2010-01-01T00:00:00.000Z<span style="color:#f92672">&lt;/startTime&gt;</span>
-                <span style="color:#f92672">&lt;endTime</span><span style="color:#f92672">&gt;</span>2011-01-01T00:00:00.000Z<span style="color:#f92672">&lt;/endTime&gt;</span>
-            <span style="color:#f92672">&lt;/originTimeRange&gt;</span>
-            <span style="color:#f92672">&lt;magnitudeRange</span><span style="color:#f92672">&gt;</span>
-                <span style="color:#f92672">&lt;min</span><span style="color:#f92672">&gt;</span>5.0<span style="color:#f92672">&lt;/min&gt;</span>
-                <span style="color:#f92672">&lt;max</span><span style="color:#f92672">&gt;</span>8.5<span style="color:#f92672">&lt;/max&gt;</span>
-            <span style="color:#f92672">&lt;/magnitudeRange&gt;</span>
-            <span style="color:#f92672">&lt;originDepthRange</span><span style="color:#f92672">&gt;</span>
-                <span style="color:#f92672">&lt;unit</span><span style="color:#f92672">&gt;</span>KILOMETER<span style="color:#f92672">&lt;/unit&gt;</span>
-                <span style="color:#f92672">&lt;min</span><span style="color:#f92672">&gt;</span>30<span style="color:#f92672">&lt;/min&gt;</span>
-            <span style="color:#f92672">&lt;/originDepthRange&gt;</span>
-        <span style="color:#f92672">&lt;/fdsnEvent&gt;</span>
-        <span style="color:#f92672">&lt;printlineEventProcess</span><span style="color:#f92672">/&gt;</span>
-        <span style="color:#f92672">&lt;CSVEventPrinter</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#f92672">&lt;filename</span><span style="color:#f92672">&gt;</span>events.csv<span style="color:#f92672">&lt;/filename&gt;</span>
-        <span style="color:#f92672">&lt;/CSVEventPrinter&gt;</span>
-    <span style="color:#f92672">&lt;/eventArm&gt;</span>
-<span style="color:#f92672">&lt;/sod&gt;</span>
-</code></pre></div><p>在每个 Arm 内，SOD 会按照各个标签出现的先后顺序去执行相关操作。那么，如何去读一个recipe呢？其实很简单，由于整个XML文档是一个“树”结构，因而只要 <strong>一级一级读</strong> 即可。</p>
-<p>以上面的例子为例， eventArm 的下一级标签有三个，SOD 会按照三个标签出现的顺序依次执行。三个标签是：</p>
-<ul>
-<li><code>fdsnEvent</code> 的作用是从 USGS 的 FDSN web service 中获取全部地震目录</li>
-<li><code>printlineEventProcess</code> 输出地震目录中每个事件的信息</li>
-<li><code>CSVEventPrinter</code> 将事件信息保存到CSV文件中</li>
-</ul>
-<p>读完了这一级标签后，再读下一级标签：</p>
-<ul>
-<li><code>fdsnEvent</code> 的下一级标签有： <code>originTimeRange</code>、<code>magnitudeRange</code>、<code>originDepthRange</code>， 分别用于限制地震的发震事件、震级和发震时刻。</li>
-<li><code>CSVEventPrinter</code> 下一级标签 <code>filename</code> 则表明要将事件信息写到 <code>filename</code> 所指定的 CSV 文件中。</li>
-</ul>
-<p>eventArm 里可以放哪些标签？ <code>fdsnEvent</code> 标签里又可以嵌套哪些标签？这就是自己写 recipe 的难点，因为 SOD 的标签实在太多了。完整的标签列表在 <a href="http://www.seis.sc.edu/sod/ingredients/index.html">Ingredient Listing</a> 中。</p>
-<h3 id="networkarm">networkArm</h3>
-<p>networkArm 用于筛选出需要的台站。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
-<span style="color:#f92672">&lt;sod</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;networkArm</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;fdsnStation</span><span style="color:#f92672">/&gt;</span>
-        <span style="color:#f92672">&lt;networkCode</span><span style="color:#f92672">&gt;</span>II<span style="color:#f92672">&lt;/networkCode&gt;</span>
-        <span style="color:#f92672">&lt;channelCode</span><span style="color:#f92672">&gt;</span>BH*<span style="color:#f92672">&lt;/channelCode&gt;</span>
-        <span style="color:#f92672">&lt;printlineChannelProcess</span><span style="color:#f92672">/&gt;</span>
-    <span style="color:#f92672">&lt;/networkArm&gt;</span>
-<span style="color:#f92672">&lt;/sod&gt;</span>
-</code></pre></div><p>解释一下：</p>
-<ul>
-<li><code>fdsnStation</code> 是从 IRIS 上获取了全部的台站信息</li>
-<li><code>networkCode</code> 从中筛选除了 II 台网</li>
-<li><code>channelCode</code> 从中进一步筛选除了 BH* 通道</li>
-</ul>
-<p>最终筛选出了 II 台网所有 BH* 通道。</p>
-<p>SOD中的Arm就像一个流水线，Arm中的每个标签就像一个质检员。首先获取所有的原材料，若材料满足标签所指定的条件，则进入流水线的下一步，否则会直接被丢弃。最终留下来的材料则是满足所有条件的材料。</p>
-<h3 id="waveformarm">waveformArm</h3>
-<p>在确定了地震事件和台站之后，就可以对二者进行组合，并进一步筛选所需要的波形数据。</p>
-<p><img src="http://www.seis.sc.edu/sod/images/documentation/tutorials/waveform_arm.png" alt="waveformArm流程"></p>
-<p>waveformArm 相对比较复杂，其包含了如下几个步骤（对应上图中的1-6）：</p>
-<ol>
-<li>根据事件台站信息对震中距、方位角进行筛选</li>
-<li>根据地震发震时刻或者震相走时确定要申请的数据时间范围</li>
-<li>向数据服务器发送请求，检查对应时间段内是否有数据</li>
-<li>检查服务器的返回，确认是否存在数据</li>
-<li>从服务器中获取数据</li>
-<li>对数据进行预处理</li>
-</ol>
-<p>下面的示例展示了一个简单的 waveformArm:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
-<span style="color:#f92672">&lt;sod</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;eventArm</span><span style="color:#f92672">&gt;</span>eventArm同之前的示例，出于篇幅考虑，此处省略<span style="color:#f92672">&lt;/eventArm&gt;</span>
-    <span style="color:#f92672">&lt;networkArm</span><span style="color:#f92672">&gt;</span>networkArm同之前的示例，出于篇幅考虑，此处省略<span style="color:#f92672">&lt;/networkArm&gt;</span>
-    <span style="color:#f92672">&lt;waveformArm</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;distanceRange</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#f92672">&lt;unit</span><span style="color:#f92672">&gt;</span>DEGREE<span style="color:#f92672">&lt;/unit&gt;</span>
-            <span style="color:#f92672">&lt;min</span><span style="color:#f92672">&gt;</span>30<span style="color:#f92672">&lt;/min&gt;</span>
-            <span style="color:#f92672">&lt;max</span><span style="color:#f92672">&gt;</span>90<span style="color:#f92672">&lt;/max&gt;</span>
-        <span style="color:#f92672">&lt;/distanceRange&gt;</span>
-        <span style="color:#f92672">&lt;phaseRequest</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#f92672">&lt;model</span><span style="color:#f92672">&gt;</span>prem<span style="color:#f92672">&lt;/model&gt;</span>
-            <span style="color:#f92672">&lt;beginPhase</span><span style="color:#f92672">&gt;</span>ttp<span style="color:#f92672">&lt;/beginPhase&gt;</span>
-            <span style="color:#f92672">&lt;beginOffset</span><span style="color:#f92672">&gt;</span>
-                <span style="color:#f92672">&lt;unit</span><span style="color:#f92672">&gt;</span>SECOND<span style="color:#f92672">&lt;/unit&gt;</span>
-                <span style="color:#f92672">&lt;value</span><span style="color:#f92672">&gt;</span>-120<span style="color:#f92672">&lt;/value&gt;</span>
-            <span style="color:#f92672">&lt;/beginOffset&gt;</span>
-            <span style="color:#f92672">&lt;endPhase</span><span style="color:#f92672">&gt;</span>tts<span style="color:#f92672">&lt;/endPhase&gt;</span>
-            <span style="color:#f92672">&lt;endOffset</span><span style="color:#f92672">&gt;</span>
-                <span style="color:#f92672">&lt;unit</span><span style="color:#f92672">&gt;</span>SECOND<span style="color:#f92672">&lt;/unit&gt;</span>
-                <span style="color:#f92672">&lt;value</span><span style="color:#f92672">&gt;</span>360<span style="color:#f92672">&lt;/value&gt;</span>
-            <span style="color:#f92672">&lt;/endOffset&gt;</span>
-        <span style="color:#f92672">&lt;/phaseRequest&gt;</span>
-        <span style="color:#f92672">&lt;fdsnDataSelect</span><span style="color:#f92672">/&gt;</span>
+    <span style=color:#f92672>&lt;waveformVectorArm&gt;</span>
+    <span style=color:#75715e>&lt;!-- waveformVectorArm 全部内容 --&gt;</span>
+    <span style=color:#f92672>&lt;/waveformVectorArm&gt;</span>
+<span style=color:#f92672>&lt;/sod&gt;</span>
+</code></pre></div><p>下面会介绍 eventArm、networkArm 和 waveformArm 的写法和功能。</p><h3 id=eventarm>eventArm</h3><p>eventArm 的作用是定义一定的规则以筛选所需要的地震事件。</p><p>下面看一个 eventArm 的简单示例：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+<span style=color:#f92672>&lt;sod&gt;</span>
+    <span style=color:#f92672>&lt;eventArm&gt;</span>
+        <span style=color:#f92672>&lt;fdsnEvent&gt;</span>
+            <span style=color:#f92672>&lt;originTimeRange&gt;</span>
+                <span style=color:#f92672>&lt;startTime&gt;</span>2010-01-01T00:00:00.000Z<span style=color:#f92672>&lt;/startTime&gt;</span>
+                <span style=color:#f92672>&lt;endTime&gt;</span>2011-01-01T00:00:00.000Z<span style=color:#f92672>&lt;/endTime&gt;</span>
+            <span style=color:#f92672>&lt;/originTimeRange&gt;</span>
+            <span style=color:#f92672>&lt;magnitudeRange&gt;</span>
+                <span style=color:#f92672>&lt;min&gt;</span>5.0<span style=color:#f92672>&lt;/min&gt;</span>
+                <span style=color:#f92672>&lt;max&gt;</span>8.5<span style=color:#f92672>&lt;/max&gt;</span>
+            <span style=color:#f92672>&lt;/magnitudeRange&gt;</span>
+            <span style=color:#f92672>&lt;originDepthRange&gt;</span>
+                <span style=color:#f92672>&lt;unit&gt;</span>KILOMETER<span style=color:#f92672>&lt;/unit&gt;</span>
+                <span style=color:#f92672>&lt;min&gt;</span>30<span style=color:#f92672>&lt;/min&gt;</span>
+            <span style=color:#f92672>&lt;/originDepthRange&gt;</span>
+        <span style=color:#f92672>&lt;/fdsnEvent&gt;</span>
+        <span style=color:#f92672>&lt;printlineEventProcess/&gt;</span>
+        <span style=color:#f92672>&lt;CSVEventPrinter&gt;</span>
+            <span style=color:#f92672>&lt;filename&gt;</span>events.csv<span style=color:#f92672>&lt;/filename&gt;</span>
+        <span style=color:#f92672>&lt;/CSVEventPrinter&gt;</span>
+    <span style=color:#f92672>&lt;/eventArm&gt;</span>
+<span style=color:#f92672>&lt;/sod&gt;</span>
+</code></pre></div><p>在每个 Arm 内，SOD 会按照各个标签出现的先后顺序去执行相关操作。那么，如何去读一个recipe呢？其实很简单，由于整个XML文档是一个“树”结构，因而只要 <strong>一级一级读</strong> 即可。</p><p>以上面的例子为例， eventArm 的下一级标签有三个，SOD 会按照三个标签出现的顺序依次执行。三个标签是：</p><ul><li><code>fdsnEvent</code> 的作用是从 USGS 的 FDSN web service 中获取全部地震目录</li><li><code>printlineEventProcess</code> 输出地震目录中每个事件的信息</li><li><code>CSVEventPrinter</code> 将事件信息保存到CSV文件中</li></ul><p>读完了这一级标签后，再读下一级标签：</p><ul><li><code>fdsnEvent</code> 的下一级标签有： <code>originTimeRange</code>、<code>magnitudeRange</code>、<code>originDepthRange</code>， 分别用于限制地震的发震事件、震级和发震时刻。</li><li><code>CSVEventPrinter</code> 下一级标签 <code>filename</code> 则表明要将事件信息写到 <code>filename</code> 所指定的 CSV 文件中。</li></ul><p>eventArm 里可以放哪些标签？ <code>fdsnEvent</code> 标签里又可以嵌套哪些标签？这就是自己写 recipe 的难点，因为 SOD 的标签实在太多了。完整的标签列表在 <a href=http://www.seis.sc.edu/sod/ingredients/index.html>Ingredient Listing</a> 中。</p><h3 id=networkarm>networkArm</h3><p>networkArm 用于筛选出需要的台站。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+<span style=color:#f92672>&lt;sod&gt;</span>
+    <span style=color:#f92672>&lt;networkArm&gt;</span>
+        <span style=color:#f92672>&lt;fdsnStation/&gt;</span>
+        <span style=color:#f92672>&lt;networkCode&gt;</span>II<span style=color:#f92672>&lt;/networkCode&gt;</span>
+        <span style=color:#f92672>&lt;channelCode&gt;</span>BH*<span style=color:#f92672>&lt;/channelCode&gt;</span>
+        <span style=color:#f92672>&lt;printlineChannelProcess/&gt;</span>
+    <span style=color:#f92672>&lt;/networkArm&gt;</span>
+<span style=color:#f92672>&lt;/sod&gt;</span>
+</code></pre></div><p>解释一下：</p><ul><li><code>fdsnStation</code> 是从 IRIS 上获取了全部的台站信息</li><li><code>networkCode</code> 从中筛选除了 II 台网</li><li><code>channelCode</code> 从中进一步筛选除了 BH* 通道</li></ul><p>最终筛选出了 II 台网所有 BH* 通道。</p><p>SOD中的Arm就像一个流水线，Arm中的每个标签就像一个质检员。首先获取所有的原材料，若材料满足标签所指定的条件，则进入流水线的下一步，否则会直接被丢弃。最终留下来的材料则是满足所有条件的材料。</p><h3 id=waveformarm>waveformArm</h3><p>在确定了地震事件和台站之后，就可以对二者进行组合，并进一步筛选所需要的波形数据。</p><p><img src=http://www.seis.sc.edu/sod/images/documentation/tutorials/waveform_arm.png alt=waveformArm流程></p><p>waveformArm 相对比较复杂，其包含了如下几个步骤（对应上图中的1-6）：</p><ol><li>根据事件台站信息对震中距、方位角进行筛选</li><li>根据地震发震时刻或者震相走时确定要申请的数据时间范围</li><li>向数据服务器发送请求，检查对应时间段内是否有数据</li><li>检查服务器的返回，确认是否存在数据</li><li>从服务器中获取数据</li><li>对数据进行预处理</li></ol><p>下面的示例展示了一个简单的 waveformArm:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+<span style=color:#f92672>&lt;sod&gt;</span>
+    <span style=color:#f92672>&lt;eventArm&gt;</span>eventArm同之前的示例，出于篇幅考虑，此处省略<span style=color:#f92672>&lt;/eventArm&gt;</span>
+    <span style=color:#f92672>&lt;networkArm&gt;</span>networkArm同之前的示例，出于篇幅考虑，此处省略<span style=color:#f92672>&lt;/networkArm&gt;</span>
+    <span style=color:#f92672>&lt;waveformArm&gt;</span>
+        <span style=color:#f92672>&lt;distanceRange&gt;</span>
+            <span style=color:#f92672>&lt;unit&gt;</span>DEGREE<span style=color:#f92672>&lt;/unit&gt;</span>
+            <span style=color:#f92672>&lt;min&gt;</span>30<span style=color:#f92672>&lt;/min&gt;</span>
+            <span style=color:#f92672>&lt;max&gt;</span>90<span style=color:#f92672>&lt;/max&gt;</span>
+        <span style=color:#f92672>&lt;/distanceRange&gt;</span>
+        <span style=color:#f92672>&lt;phaseRequest&gt;</span>
+            <span style=color:#f92672>&lt;model&gt;</span>prem<span style=color:#f92672>&lt;/model&gt;</span>
+            <span style=color:#f92672>&lt;beginPhase&gt;</span>ttp<span style=color:#f92672>&lt;/beginPhase&gt;</span>
+            <span style=color:#f92672>&lt;beginOffset&gt;</span>
+                <span style=color:#f92672>&lt;unit&gt;</span>SECOND<span style=color:#f92672>&lt;/unit&gt;</span>
+                <span style=color:#f92672>&lt;value&gt;</span>-120<span style=color:#f92672>&lt;/value&gt;</span>
+            <span style=color:#f92672>&lt;/beginOffset&gt;</span>
+            <span style=color:#f92672>&lt;endPhase&gt;</span>tts<span style=color:#f92672>&lt;/endPhase&gt;</span>
+            <span style=color:#f92672>&lt;endOffset&gt;</span>
+                <span style=color:#f92672>&lt;unit&gt;</span>SECOND<span style=color:#f92672>&lt;/unit&gt;</span>
+                <span style=color:#f92672>&lt;value&gt;</span>360<span style=color:#f92672>&lt;/value&gt;</span>
+            <span style=color:#f92672>&lt;/endOffset&gt;</span>
+        <span style=color:#f92672>&lt;/phaseRequest&gt;</span>
+        <span style=color:#f92672>&lt;fdsnDataSelect/&gt;</span>
 
-        <span style="color:#f92672">&lt;printlineSeismogramProcess</span><span style="color:#f92672">/&gt;</span>
-        <span style="color:#f92672">&lt;rMean</span><span style="color:#f92672">/&gt;</span>
-        <span style="color:#f92672">&lt;rTrend</span><span style="color:#f92672">/&gt;</span>
-        <span style="color:#f92672">&lt;taper</span><span style="color:#f92672">/&gt;</span>
-        <span style="color:#f92672">&lt;sacWriter</span><span style="color:#f92672">/&gt;</span>
-    <span style="color:#f92672">&lt;/waveformArm&gt;</span>
-<span style="color:#f92672">&lt;/sod&gt;</span>
-</code></pre></div><ul>
-<li><code>distanceRange</code> 筛选出满足一定震中距的数据</li>
-<li><code>phaseRequest</code> 定义了数据时间窗，具体时间范围是P波到时前120秒，S波到时后360秒</li>
-<li><code>fdsnDataSelect</code> 表示从IRIS获取数据</li>
-<li><code>printlineSeismogramProcess</code> 打印获取的地震波形的信息</li>
-<li><code>rMean</code>、<code>rTrend</code> 、<code>taper</code> 数据预处理</li>
-<li><code>sacWriter</code> 以 SAC 格式将数据写入磁盘</li>
-</ul>
-<h3 id="heading-2">高级用法、技巧与陷阱</h3>
-<h4 id="eventarm-">eventArm 错误示例</h4>
-<p>上面的 eventArm 示例还有另一种等效的写法：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
-<span style="color:#f92672">&lt;sod</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;eventArm</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;fdsnEvent</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#f92672">&lt;originTimeRange</span><span style="color:#f92672">&gt;</span>
-                <span style="color:#f92672">&lt;startTime</span><span style="color:#f92672">&gt;</span>2010-05-19T00:00:00.000Z<span style="color:#f92672">&lt;/startTime&gt;</span>
-                <span style="color:#f92672">&lt;endTime</span><span style="color:#f92672">&gt;</span>2010-10-20T00:00:00.000Z<span style="color:#f92672">&lt;/endTime&gt;</span>
-            <span style="color:#f92672">&lt;/originTimeRange&gt;</span>
-        <span style="color:#f92672">&lt;/fdsnEvent&gt;</span>
-        <span style="color:#f92672">&lt;magnitudeRange</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#f92672">&lt;min</span><span style="color:#f92672">&gt;</span>5.0<span style="color:#f92672">&lt;/min&gt;</span>
-            <span style="color:#f92672">&lt;max</span><span style="color:#f92672">&gt;</span>8.5<span style="color:#f92672">&lt;/max&gt;</span>
-        <span style="color:#f92672">&lt;/magnitudeRange&gt;</span>
-        <span style="color:#f92672">&lt;originDepthRange</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#f92672">&lt;unit</span><span style="color:#f92672">&gt;</span>KILOMETER<span style="color:#f92672">&lt;/unit&gt;</span>
-            <span style="color:#f92672">&lt;min</span><span style="color:#f92672">&gt;</span>30<span style="color:#f92672">&lt;/min&gt;</span>
-        <span style="color:#f92672">&lt;/originDepthRange&gt;</span>
-        <span style="color:#f92672">&lt;printlineEventProcess</span><span style="color:#f92672">/&gt;</span>
-        <span style="color:#f92672">&lt;CSVEventPrinter</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#f92672">&lt;filename</span><span style="color:#f92672">&gt;</span>events.csv<span style="color:#f92672">&lt;/filename&gt;</span>
-        <span style="color:#f92672">&lt;/CSVEventPrinter&gt;</span>
-    <span style="color:#f92672">&lt;/eventArm&gt;</span>
-<span style="color:#f92672">&lt;/sod&gt;</span>
-</code></pre></div><p>这种写法也是正确的，但是这种写法的速度却比前一种写法慢很多。其原因在于，SOD 在执行 <code>fdsnEvent</code> 时，前一种写法是获取了2010年、震级在5.0到8.5、深度大于30千米的地震，而后一种写法是先获取了2010年一整年的地震目录，然后筛选出其中震级在5.0到8.5范围内的地震，再筛选出深度大于30km的地震，虽然最终效果是一样的，但是后一种写法中 <code>fdsnEvent</code> 请求了更多的数据，因而速度更慢。</p>
-<h4 id="heading-3">逻辑运算</h4>
-<p>前面 eventArm 的示例已经在 <code>fdsnEvent</code> 中获取了2010年整年的震级在5.0到8.5、深度大于30km的地震。如果想要更复杂的筛选逻辑， <code>fdsnEvent</code> 就无法实现了，此时就需要用到 SOD 提供的逻辑运算功能。（ <code>fdsnEvent</code> 本质上是调用了 IRIS 或 USGS 提供的 web service 接口，因而其功能由 web service 所限制，而无法实现复杂的筛选逻辑，所以需要在执行 <code>fdsnEvent</code> 之后再由 SOD 对地震目录作进一步筛选）。</p>
-<p>比如在已有地震的基础上想要筛选出满足如下条件的地震事件：震级大于6级或者震级大于5级且深度在100到200千米之间。这一筛选条件写成一般的伪代码大概是这样：</p>
-<pre><code>if ((mag&gt;5 and 100&lt;depth&lt;200) or mag&gt;6.0):
+        <span style=color:#f92672>&lt;printlineSeismogramProcess/&gt;</span>
+        <span style=color:#f92672>&lt;rMean/&gt;</span>
+        <span style=color:#f92672>&lt;rTrend/&gt;</span>
+        <span style=color:#f92672>&lt;taper/&gt;</span>
+        <span style=color:#f92672>&lt;sacWriter/&gt;</span>
+    <span style=color:#f92672>&lt;/waveformArm&gt;</span>
+<span style=color:#f92672>&lt;/sod&gt;</span>
+</code></pre></div><ul><li><code>distanceRange</code> 筛选出满足一定震中距的数据</li><li><code>phaseRequest</code> 定义了数据时间窗，具体时间范围是P波到时前120秒，S波到时后360秒</li><li><code>fdsnDataSelect</code> 表示从IRIS获取数据</li><li><code>printlineSeismogramProcess</code> 打印获取的地震波形的信息</li><li><code>rMean</code>、<code>rTrend</code> 、<code>taper</code> 数据预处理</li><li><code>sacWriter</code> 以 SAC 格式将数据写入磁盘</li></ul><h3 id=高级用法技巧与陷阱>高级用法、技巧与陷阱</h3><h4 id=eventarm-错误示例>eventArm 错误示例</h4><p>上面的 eventArm 示例还有另一种等效的写法：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+<span style=color:#f92672>&lt;sod&gt;</span>
+    <span style=color:#f92672>&lt;eventArm&gt;</span>
+        <span style=color:#f92672>&lt;fdsnEvent&gt;</span>
+            <span style=color:#f92672>&lt;originTimeRange&gt;</span>
+                <span style=color:#f92672>&lt;startTime&gt;</span>2010-05-19T00:00:00.000Z<span style=color:#f92672>&lt;/startTime&gt;</span>
+                <span style=color:#f92672>&lt;endTime&gt;</span>2010-10-20T00:00:00.000Z<span style=color:#f92672>&lt;/endTime&gt;</span>
+            <span style=color:#f92672>&lt;/originTimeRange&gt;</span>
+        <span style=color:#f92672>&lt;/fdsnEvent&gt;</span>
+        <span style=color:#f92672>&lt;magnitudeRange&gt;</span>
+            <span style=color:#f92672>&lt;min&gt;</span>5.0<span style=color:#f92672>&lt;/min&gt;</span>
+            <span style=color:#f92672>&lt;max&gt;</span>8.5<span style=color:#f92672>&lt;/max&gt;</span>
+        <span style=color:#f92672>&lt;/magnitudeRange&gt;</span>
+        <span style=color:#f92672>&lt;originDepthRange&gt;</span>
+            <span style=color:#f92672>&lt;unit&gt;</span>KILOMETER<span style=color:#f92672>&lt;/unit&gt;</span>
+            <span style=color:#f92672>&lt;min&gt;</span>30<span style=color:#f92672>&lt;/min&gt;</span>
+        <span style=color:#f92672>&lt;/originDepthRange&gt;</span>
+        <span style=color:#f92672>&lt;printlineEventProcess/&gt;</span>
+        <span style=color:#f92672>&lt;CSVEventPrinter&gt;</span>
+            <span style=color:#f92672>&lt;filename&gt;</span>events.csv<span style=color:#f92672>&lt;/filename&gt;</span>
+        <span style=color:#f92672>&lt;/CSVEventPrinter&gt;</span>
+    <span style=color:#f92672>&lt;/eventArm&gt;</span>
+<span style=color:#f92672>&lt;/sod&gt;</span>
+</code></pre></div><p>这种写法也是正确的，但是这种写法的速度却比前一种写法慢很多。其原因在于，SOD 在执行 <code>fdsnEvent</code> 时，前一种写法是获取了2010年、震级在5.0到8.5、深度大于30千米的地震，而后一种写法是先获取了2010年一整年的地震目录，然后筛选出其中震级在5.0到8.5范围内的地震，再筛选出深度大于30km的地震，虽然最终效果是一样的，但是后一种写法中 <code>fdsnEvent</code> 请求了更多的数据，因而速度更慢。</p><h4 id=逻辑运算>逻辑运算</h4><p>前面 eventArm 的示例已经在 <code>fdsnEvent</code> 中获取了2010年整年的震级在5.0到8.5、深度大于30km的地震。如果想要更复杂的筛选逻辑， <code>fdsnEvent</code> 就无法实现了，此时就需要用到 SOD 提供的逻辑运算功能。（ <code>fdsnEvent</code> 本质上是调用了 IRIS 或 USGS 提供的 web service 接口，因而其功能由 web service 所限制，而无法实现复杂的筛选逻辑，所以需要在执行 <code>fdsnEvent</code> 之后再由 SOD 对地震目录作进一步筛选）。</p><p>比如在已有地震的基础上想要筛选出满足如下条件的地震事件：震级大于6级或者震级大于5级且深度在100到200千米之间。这一筛选条件写成一般的伪代码大概是这样：</p><pre><code>if ((mag&gt;5 and 100&lt;depth&lt;200) or mag&gt;6.0):
     pass
 else
     fail
-</code></pre>
-<p>这一筛选条件可以写成以下recipe 片段并放在 <code>printlineEventProcess</code> 之前即可:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;originOR</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;originAND</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;magnitudeRange</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#f92672">&lt;min</span><span style="color:#f92672">&gt;</span>5<span style="color:#f92672">&lt;/min&gt;</span>
-        <span style="color:#f92672">&lt;/magnitudeRange&gt;</span>
-        <span style="color:#f92672">&lt;originDepthRange</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#f92672">&lt;unit</span><span style="color:#f92672">&gt;</span>KILOMETER<span style="color:#f92672">&lt;/unit&gt;</span>
-            <span style="color:#f92672">&lt;min</span><span style="color:#f92672">&gt;</span>100<span style="color:#f92672">&lt;/min&gt;</span>
-            <span style="color:#f92672">&lt;max</span><span style="color:#f92672">&gt;</span>200<span style="color:#f92672">&lt;/max&gt;</span>
-        <span style="color:#f92672">&lt;/originDepthRange&gt;</span>
-    <span style="color:#f92672">&lt;/originAND&gt;</span>
-    <span style="color:#f92672">&lt;magnitudeRange</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;min</span><span style="color:#f92672">&gt;</span>6<span style="color:#f92672">&lt;/min&gt;</span>
-    <span style="color:#f92672">&lt;/magnitudeRange&gt;</span>
-<span style="color:#f92672">&lt;/originOR&gt;</span>
-</code></pre></div><p>不单单是 eventArm 中可以使用OR、AND、NOT逻辑运算，networkArm 中也有很多标签可以使用这些逻辑运算以实现灵活筛选的目的，比如想要获取两个台网的数据，其伪代码是：</p>
-<pre><code>if (network == IU or network == II)
+</code></pre><p>这一筛选条件可以写成以下recipe 片段并放在 <code>printlineEventProcess</code> 之前即可:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;originOR&gt;</span>
+    <span style=color:#f92672>&lt;originAND&gt;</span>
+        <span style=color:#f92672>&lt;magnitudeRange&gt;</span>
+            <span style=color:#f92672>&lt;min&gt;</span>5<span style=color:#f92672>&lt;/min&gt;</span>
+        <span style=color:#f92672>&lt;/magnitudeRange&gt;</span>
+        <span style=color:#f92672>&lt;originDepthRange&gt;</span>
+            <span style=color:#f92672>&lt;unit&gt;</span>KILOMETER<span style=color:#f92672>&lt;/unit&gt;</span>
+            <span style=color:#f92672>&lt;min&gt;</span>100<span style=color:#f92672>&lt;/min&gt;</span>
+            <span style=color:#f92672>&lt;max&gt;</span>200<span style=color:#f92672>&lt;/max&gt;</span>
+        <span style=color:#f92672>&lt;/originDepthRange&gt;</span>
+    <span style=color:#f92672>&lt;/originAND&gt;</span>
+    <span style=color:#f92672>&lt;magnitudeRange&gt;</span>
+        <span style=color:#f92672>&lt;min&gt;</span>6<span style=color:#f92672>&lt;/min&gt;</span>
+    <span style=color:#f92672>&lt;/magnitudeRange&gt;</span>
+<span style=color:#f92672>&lt;/originOR&gt;</span>
+</code></pre></div><p>不单单是 eventArm 中可以使用OR、AND、NOT逻辑运算，networkArm 中也有很多标签可以使用这些逻辑运算以实现灵活筛选的目的，比如想要获取两个台网的数据，其伪代码是：</p><pre><code>if (network == IU or network == II)
     pass
 else
     fail
-</code></pre>
-<p>所以 recipe 片段可以写成：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;networkOR</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;networkCode</span><span style="color:#f92672">&gt;</span>II<span style="color:#f92672">&lt;/networkCode&gt;</span>
-    <span style="color:#f92672">&lt;networkCode</span><span style="color:#f92672">&gt;</span>IU<span style="color:#f92672">&lt;/networkCode&gt;</span>
-<span style="color:#f92672">&lt;/networkOR&gt;</span>
-</code></pre></div><p>而不能写成：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;networkAND</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;networkCode</span><span style="color:#f92672">&gt;</span>II<span style="color:#f92672">&lt;/networkCode&gt;</span>
-    <span style="color:#f92672">&lt;networkCode</span><span style="color:#f92672">&gt;</span>IU<span style="color:#f92672">&lt;/networkCode&gt;</span>
-<span style="color:#f92672">&lt;/networkAND&gt;</span>
-</code></pre></div><h2 id="-recipe">从头开始写 recipe</h2>
-<p>SOD 具有高度可订制性的优点，同时也导致写 recipe 变得很困难，这一节说一说如何去读 SOD 官方文档。</p>
-<p>如之前所说，一个 SOD recipe 包含了 eventArm、networkArm 和 waveformArm，文件结构如下所示:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
-<span style="color:#f92672">&lt;sod</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;eventArm</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> eventArm 全部内容 </span><span style="color:#75715e">--&gt;</span>
-    <span style="color:#f92672">&lt;/eventArm&gt;</span>
+</code></pre><p>所以 recipe 片段可以写成：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;networkOR&gt;</span>
+    <span style=color:#f92672>&lt;networkCode&gt;</span>II<span style=color:#f92672>&lt;/networkCode&gt;</span>
+    <span style=color:#f92672>&lt;networkCode&gt;</span>IU<span style=color:#f92672>&lt;/networkCode&gt;</span>
+<span style=color:#f92672>&lt;/networkOR&gt;</span>
+</code></pre></div><p>而不能写成：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;networkAND&gt;</span>
+    <span style=color:#f92672>&lt;networkCode&gt;</span>II<span style=color:#f92672>&lt;/networkCode&gt;</span>
+    <span style=color:#f92672>&lt;networkCode&gt;</span>IU<span style=color:#f92672>&lt;/networkCode&gt;</span>
+<span style=color:#f92672>&lt;/networkAND&gt;</span>
+</code></pre></div><h2 id=从头开始写-recipe>从头开始写 recipe</h2><p>SOD 具有高度可订制性的优点，同时也导致写 recipe 变得很困难，这一节说一说如何去读 SOD 官方文档。</p><p>如之前所说，一个 SOD recipe 包含了 eventArm、networkArm 和 waveformArm，文件结构如下所示:</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+<span style=color:#f92672>&lt;sod&gt;</span>
+    <span style=color:#f92672>&lt;eventArm&gt;</span>
+    <span style=color:#75715e>&lt;!-- eventArm 全部内容 --&gt;</span>
+    <span style=color:#f92672>&lt;/eventArm&gt;</span>
 
-    <span style="color:#f92672">&lt;networkArm</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> networkArm 全部内容 </span><span style="color:#75715e">--&gt;</span>
-    <span style="color:#f92672">&lt;/networkArm&gt;</span>
+    <span style=color:#f92672>&lt;networkArm&gt;</span>
+    <span style=color:#75715e>&lt;!-- networkArm 全部内容 --&gt;</span>
+    <span style=color:#f92672>&lt;/networkArm&gt;</span>
 
-    <span style="color:#f92672">&lt;waveformArm</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> waveformArm 全部内容 </span><span style="color:#75715e">--&gt;</span>
-    <span style="color:#f92672">&lt;/waveformArm&gt;</span>
-<span style="color:#f92672">&lt;/sod&gt;</span>
-</code></pre></div><p>写 recipe 的关键在于搞清楚每个 Arm 中可以放哪些标签，各个标签的先后顺序又怎样？这就需要查询 SOD 的 <a href="http://www.seis.sc.edu/sod/ingredients/index.html">Ingredient Listing</a>。</p>
-<p>以 eventArm 为例，解释一下如何读 SOD 的文档。</p>
-<p>首先，进入 <a href="http://www.seis.sc.edu/sod/ingredients/eventArm.html">eventArm</a> 文档页面，可以看到：</p>
-<ul>
-<li>eventArm 的功能说明</li>
-<li>Example 中给出了 eventArm 的简单示例</li>
-<li>This consists of 表明 eventArm 中可以包含两部分内容，分别是是 eventSource 和 origin，其中前者必须至少出现一次（At least once），后者可以出现任意多次（Any number of times）</li>
-<li>Places this can be found 表明 eventArm 只能直接出现在 sod 标签下</li>
-</ul>
-<p>需要注意的是， <code>eventSource</code> 和 <code>origin</code> 两边没有尖括号 <code>&lt; &gt;</code>，所以这两个 <strong>都不是标签</strong> ，可以将这两个理解为 <strong>标签集</strong> 。</p>
-<p>进入 <a href="http://www.seis.sc.edu/sod/ingredients/eventSource.html">eventSource</a> 文档页面，可知 eventSource 中是用来获取地震事件的标签集，其包含了如下几个标签：</p>
-<ul>
-<li><code>backwardsEventFinder</code></li>
-<li><code>CSVEventSource</code></li>
-<li><code>delayedEventSource</code></li>
-<li><code>eventFinder</code></li>
-<li><code>fdsnEvent</code></li>
-<li><code>nowFakeEventSource</code></li>
-<li><code>periodicFakeEventSource</code></li>
-</ul>
-<p>这里我们看到了前面示例用到的 <code>fdsnEvent</code> 。再进入 <a href="http://www.seis.sc.edu/sod/ingredients/fdsnEvent.html">fdsnEvent</a> 文档页面，可知 <code>fdsnEvent</code> 会从USGS网站中获取地震目录。 <code>fdsnEvent</code> 中包含了很多标签以对事件进行筛选，比如示例中用到的 <code>originTimeRange</code> 、<code>magnitudeRange</code> 、<code>originDepthRange</code> ，以及示例中不曾用到的 <code>boxArea</code> 、 <code>pointDistance</code> 等标签。</p>
-<p>再到标签 <code>originTimeRange</code> 、<code>magnitudeRange</code> 、<code>originDepthRange</code> 的文档页面看一看，就很容易把 eventArm 的 eventSource 部分 recipe 片段写出来了，如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
-<span style="color:#f92672">&lt;sod</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;eventArm</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;fdsnEvent</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#f92672">&lt;originTimeRange</span><span style="color:#f92672">&gt;</span>
-                <span style="color:#f92672">&lt;startTime</span><span style="color:#f92672">&gt;</span>2010-01-01T00:00:00.000Z<span style="color:#f92672">&lt;/startTime&gt;</span>
-                <span style="color:#f92672">&lt;endTime</span><span style="color:#f92672">&gt;</span>2011-01-01T00:00:00.000Z<span style="color:#f92672">&lt;/endTime&gt;</span>
-            <span style="color:#f92672">&lt;/originTimeRange&gt;</span>
-            <span style="color:#f92672">&lt;magnitudeRange</span><span style="color:#f92672">&gt;</span>
-                <span style="color:#f92672">&lt;min</span><span style="color:#f92672">&gt;</span>5.0<span style="color:#f92672">&lt;/min&gt;</span>
-                <span style="color:#f92672">&lt;max</span><span style="color:#f92672">&gt;</span>8.5<span style="color:#f92672">&lt;/max&gt;</span>
-            <span style="color:#f92672">&lt;/magnitudeRange&gt;</span>
-            <span style="color:#f92672">&lt;originDepthRange</span><span style="color:#f92672">&gt;</span>
-                <span style="color:#f92672">&lt;unit</span><span style="color:#f92672">&gt;</span>KILOMETER<span style="color:#f92672">&lt;/unit&gt;</span>
-                <span style="color:#f92672">&lt;min</span><span style="color:#f92672">&gt;</span>30<span style="color:#f92672">&lt;/min&gt;</span>
-            <span style="color:#f92672">&lt;/originDepthRange&gt;</span>
-        <span style="color:#f92672">&lt;/fdsnEvent&gt;</span>
-    <span style="color:#f92672">&lt;/eventArm&gt;</span>
-<span style="color:#f92672">&lt;/sod&gt;</span>
-</code></pre></div><p>写完了 eventSource 部分，再看看 origin 部分。进入 <a href="http://www.seis.sc.edu/sod/ingredients/origin.html">origin</a> 的文档页面，可以看到其包含的一堆标签，比如：</p>
-<ul>
-<li><code>CSVEventPrinter</code> 把事件以CSV格式保存到磁盘中</li>
-<li><code>eventArea</code> 筛选出某个规则区域的事件</li>
-<li><code>eventPolygonFile</code> 筛选出某个多边形内的事件</li>
-<li><code>printlineEventProcess</code> 终端打印出筛选出来的事件信息</li>
-</ul>
-<p>再把文档一级一级看下去，即可写出本文最开始所展示的示例片段，如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34;?&gt;</span>
-<span style="color:#f92672">&lt;sod</span><span style="color:#f92672">&gt;</span>
-    <span style="color:#f92672">&lt;eventArm</span><span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;fdsnEvent</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#f92672">&lt;originTimeRange</span><span style="color:#f92672">&gt;</span>
-                <span style="color:#f92672">&lt;startTime</span><span style="color:#f92672">&gt;</span>2010-01-01T00:00:00.000Z<span style="color:#f92672">&lt;/startTime&gt;</span>
-                <span style="color:#f92672">&lt;endTime</span><span style="color:#f92672">&gt;</span>2011-01-01T00:00:00.000Z<span style="color:#f92672">&lt;/endTime&gt;</span>
-            <span style="color:#f92672">&lt;/originTimeRange&gt;</span>
-            <span style="color:#f92672">&lt;magnitudeRange</span><span style="color:#f92672">&gt;</span>
-                <span style="color:#f92672">&lt;min</span><span style="color:#f92672">&gt;</span>5.0<span style="color:#f92672">&lt;/min&gt;</span>
-                <span style="color:#f92672">&lt;max</span><span style="color:#f92672">&gt;</span>8.5<span style="color:#f92672">&lt;/max&gt;</span>
-            <span style="color:#f92672">&lt;/magnitudeRange&gt;</span>
-            <span style="color:#f92672">&lt;originDepthRange</span><span style="color:#f92672">&gt;</span>
-                <span style="color:#f92672">&lt;unit</span><span style="color:#f92672">&gt;</span>KILOMETER<span style="color:#f92672">&lt;/unit&gt;</span>
-                <span style="color:#f92672">&lt;min</span><span style="color:#f92672">&gt;</span>30<span style="color:#f92672">&lt;/min&gt;</span>
-            <span style="color:#f92672">&lt;/originDepthRange&gt;</span>
-        <span style="color:#f92672">&lt;/fdsnEvent&gt;</span>
-        <span style="color:#f92672">&lt;printlineEventProcess</span><span style="color:#f92672">/&gt;</span>
-        <span style="color:#f92672">&lt;CSVEventPrinter</span><span style="color:#f92672">&gt;</span>
-            <span style="color:#f92672">&lt;filename</span><span style="color:#f92672">&gt;</span>events.csv<span style="color:#f92672">&lt;/filename&gt;</span>
-        <span style="color:#f92672">&lt;/CSVEventPrinter&gt;</span>
-    <span style="color:#f92672">&lt;/eventArm&gt;</span>
-<span style="color:#f92672">&lt;/sod&gt;</span>
-</code></pre></div><p>总结一下，SOD中标签很多，但由于整个 recipe 是树形结构，所以只要一级一级不断看文档，就可以定制出自己所需的任意功能的 recipe 了。</p>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2016-12-24
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/%E6%B3%A2%E5%BD%A2%E6%95%B0%E6%8D%AE/">波形数据</a>
-          <a href="/tags/IRIS/">IRIS</a>
-          <a href="/tags/%E6%95%B0%E6%8D%AE%E7%94%B3%E8%AF%B7/">数据申请</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/coordinate-systems-in-seismology/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">地震学中的坐标系</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/file-organization/">
-            <span class="next-text nav-default">文件管理与备份</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+    <span style=color:#f92672>&lt;waveformArm&gt;</span>
+    <span style=color:#75715e>&lt;!-- waveformArm 全部内容 --&gt;</span>
+    <span style=color:#f92672>&lt;/waveformArm&gt;</span>
+<span style=color:#f92672>&lt;/sod&gt;</span>
+</code></pre></div><p>写 recipe 的关键在于搞清楚每个 Arm 中可以放哪些标签，各个标签的先后顺序又怎样？这就需要查询 SOD 的 <a href=http://www.seis.sc.edu/sod/ingredients/index.html>Ingredient Listing</a>。</p><p>以 eventArm 为例，解释一下如何读 SOD 的文档。</p><p>首先，进入 <a href=http://www.seis.sc.edu/sod/ingredients/eventArm.html>eventArm</a> 文档页面，可以看到：</p><ul><li>eventArm 的功能说明</li><li>Example 中给出了 eventArm 的简单示例</li><li>This consists of 表明 eventArm 中可以包含两部分内容，分别是是 eventSource 和 origin，其中前者必须至少出现一次（At least once），后者可以出现任意多次（Any number of times）</li><li>Places this can be found 表明 eventArm 只能直接出现在 sod 标签下</li></ul><p>需要注意的是， <code>eventSource</code> 和 <code>origin</code> 两边没有尖括号 <code>&lt; ></code>，所以这两个 <strong>都不是标签</strong> ，可以将这两个理解为 <strong>标签集</strong> 。</p><p>进入 <a href=http://www.seis.sc.edu/sod/ingredients/eventSource.html>eventSource</a> 文档页面，可知 eventSource 中是用来获取地震事件的标签集，其包含了如下几个标签：</p><ul><li><code>backwardsEventFinder</code></li><li><code>CSVEventSource</code></li><li><code>delayedEventSource</code></li><li><code>eventFinder</code></li><li><code>fdsnEvent</code></li><li><code>nowFakeEventSource</code></li><li><code>periodicFakeEventSource</code></li></ul><p>这里我们看到了前面示例用到的 <code>fdsnEvent</code> 。再进入 <a href=http://www.seis.sc.edu/sod/ingredients/fdsnEvent.html>fdsnEvent</a> 文档页面，可知 <code>fdsnEvent</code> 会从USGS网站中获取地震目录。 <code>fdsnEvent</code> 中包含了很多标签以对事件进行筛选，比如示例中用到的 <code>originTimeRange</code> 、<code>magnitudeRange</code> 、<code>originDepthRange</code> ，以及示例中不曾用到的 <code>boxArea</code> 、 <code>pointDistance</code> 等标签。</p><p>再到标签 <code>originTimeRange</code> 、<code>magnitudeRange</code> 、<code>originDepthRange</code> 的文档页面看一看，就很容易把 eventArm 的 eventSource 部分 recipe 片段写出来了，如下：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+<span style=color:#f92672>&lt;sod&gt;</span>
+    <span style=color:#f92672>&lt;eventArm&gt;</span>
+        <span style=color:#f92672>&lt;fdsnEvent&gt;</span>
+            <span style=color:#f92672>&lt;originTimeRange&gt;</span>
+                <span style=color:#f92672>&lt;startTime&gt;</span>2010-01-01T00:00:00.000Z<span style=color:#f92672>&lt;/startTime&gt;</span>
+                <span style=color:#f92672>&lt;endTime&gt;</span>2011-01-01T00:00:00.000Z<span style=color:#f92672>&lt;/endTime&gt;</span>
+            <span style=color:#f92672>&lt;/originTimeRange&gt;</span>
+            <span style=color:#f92672>&lt;magnitudeRange&gt;</span>
+                <span style=color:#f92672>&lt;min&gt;</span>5.0<span style=color:#f92672>&lt;/min&gt;</span>
+                <span style=color:#f92672>&lt;max&gt;</span>8.5<span style=color:#f92672>&lt;/max&gt;</span>
+            <span style=color:#f92672>&lt;/magnitudeRange&gt;</span>
+            <span style=color:#f92672>&lt;originDepthRange&gt;</span>
+                <span style=color:#f92672>&lt;unit&gt;</span>KILOMETER<span style=color:#f92672>&lt;/unit&gt;</span>
+                <span style=color:#f92672>&lt;min&gt;</span>30<span style=color:#f92672>&lt;/min&gt;</span>
+            <span style=color:#f92672>&lt;/originDepthRange&gt;</span>
+        <span style=color:#f92672>&lt;/fdsnEvent&gt;</span>
+    <span style=color:#f92672>&lt;/eventArm&gt;</span>
+<span style=color:#f92672>&lt;/sod&gt;</span>
+</code></pre></div><p>写完了 eventSource 部分，再看看 origin 部分。进入 <a href=http://www.seis.sc.edu/sod/ingredients/origin.html>origin</a> 的文档页面，可以看到其包含的一堆标签，比如：</p><ul><li><code>CSVEventPrinter</code> 把事件以CSV格式保存到磁盘中</li><li><code>eventArea</code> 筛选出某个规则区域的事件</li><li><code>eventPolygonFile</code> 筛选出某个多边形内的事件</li><li><code>printlineEventProcess</code> 终端打印出筛选出来的事件信息</li></ul><p>再把文档一级一级看下去，即可写出本文最开始所展示的示例片段，如下：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#75715e>&lt;?xml version=&#34;1.0&#34;?&gt;</span>
+<span style=color:#f92672>&lt;sod&gt;</span>
+    <span style=color:#f92672>&lt;eventArm&gt;</span>
+        <span style=color:#f92672>&lt;fdsnEvent&gt;</span>
+            <span style=color:#f92672>&lt;originTimeRange&gt;</span>
+                <span style=color:#f92672>&lt;startTime&gt;</span>2010-01-01T00:00:00.000Z<span style=color:#f92672>&lt;/startTime&gt;</span>
+                <span style=color:#f92672>&lt;endTime&gt;</span>2011-01-01T00:00:00.000Z<span style=color:#f92672>&lt;/endTime&gt;</span>
+            <span style=color:#f92672>&lt;/originTimeRange&gt;</span>
+            <span style=color:#f92672>&lt;magnitudeRange&gt;</span>
+                <span style=color:#f92672>&lt;min&gt;</span>5.0<span style=color:#f92672>&lt;/min&gt;</span>
+                <span style=color:#f92672>&lt;max&gt;</span>8.5<span style=color:#f92672>&lt;/max&gt;</span>
+            <span style=color:#f92672>&lt;/magnitudeRange&gt;</span>
+            <span style=color:#f92672>&lt;originDepthRange&gt;</span>
+                <span style=color:#f92672>&lt;unit&gt;</span>KILOMETER<span style=color:#f92672>&lt;/unit&gt;</span>
+                <span style=color:#f92672>&lt;min&gt;</span>30<span style=color:#f92672>&lt;/min&gt;</span>
+            <span style=color:#f92672>&lt;/originDepthRange&gt;</span>
+        <span style=color:#f92672>&lt;/fdsnEvent&gt;</span>
+        <span style=color:#f92672>&lt;printlineEventProcess/&gt;</span>
+        <span style=color:#f92672>&lt;CSVEventPrinter&gt;</span>
+            <span style=color:#f92672>&lt;filename&gt;</span>events.csv<span style=color:#f92672>&lt;/filename&gt;</span>
+        <span style=color:#f92672>&lt;/CSVEventPrinter&gt;</span>
+    <span style=color:#f92672>&lt;/eventArm&gt;</span>
+<span style=color:#f92672>&lt;/sod&gt;</span>
+</code></pre></div><p>总结一下，SOD中标签很多，但由于整个 recipe 是树形结构，所以只要一级一级不断看文档，就可以定制出自己所需的任意功能的 recipe 了。</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2016-12-24</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/%E6%B3%A2%E5%BD%A2%E6%95%B0%E6%8D%AE/>波形数据</a>
+<a href=/tags/IRIS/>IRIS</a>
+<a href=/tags/%E6%95%B0%E6%8D%AE%E7%94%B3%E8%AF%B7/>数据申请</a></div><nav class=post-nav><a class=prev href=/coordinate-systems-in-seismology/><i class="iconfont icon-left"></i><span class="prev-text nav-default">地震学中的坐标系</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/file-organization/><span class="next-text nav-default">文件管理与备份</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

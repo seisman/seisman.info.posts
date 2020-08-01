@@ -1,288 +1,58 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>GMT on SeisMan</title>
-    <link>https://blog.seisman.info/tags/GMT/</link>
-    <description>Recent content in GMT on SeisMan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Fri, 17 Jul 2015 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://blog.seisman.info/tags/GMT/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>pssac 使用教程</title>
-      <link>https://blog.seisman.info/pssac-notes/</link>
-      <pubDate>Fri, 17 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/pssac-notes/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;注意：本文仅针对 Prof. Lupei Zhu 的 pssac 程序，其仅可在 GMT 4下使用。
-对于GMT5用户，GMT 在 5.3.1 之后自带了 pssac，可以使用 &lt;code&gt;gmt pssac&lt;/code&gt; 直接调用。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;相关文档见:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html&#34;&gt;http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://modules.gmt-china.org/pssac&#34;&gt;http://modules.gmt-china.org/pssac&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;pssac&lt;/code&gt; 可以读取 SAC 波形数据，并利用 GMT 的绘图功能将波形数据绘制在 PS 文件中。
-&lt;code&gt;pssac&lt;/code&gt; 绘制的波形图，大致可以分为三类：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;波形振幅图：横轴是时间，纵轴是振幅；&lt;/li&gt;
-&lt;li&gt;剖面图：横轴是时间，纵轴是其他物理量（比如震中距、方位角、反方位角以及文件号）；&lt;/li&gt;
-&lt;li&gt;任意位置图：将波形文件绘制在图上的任意位置；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;本文首先简单介绍 &lt;code&gt;pssac&lt;/code&gt; 的各个选项，然后依次介绍如何绘制波形振幅图、剖面图以及任意位置图，在这个过程中会详细介绍较复杂的选项。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>GMT 5.1.2 在 Windows 下的安装</title>
-      <link>https://blog.seisman.info/trash/install-gmt5-under-windows/</link>
-      <pubDate>Sat, 18 Apr 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/trash/install-gmt5-under-windows/</guid>
-      <description>&lt;p&gt;本文介绍如何在 Windows 7 下安装 GMT5.1.2。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>全球地形起伏数据：SRTM15_PLUS</title>
-      <link>https://blog.seisman.info/srtm15-plus/</link>
-      <pubDate>Tue, 07 Apr 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/srtm15-plus/</guid>
-      <description>SRTM15_PLUS 是 SRTM30_PLUS 的升级版，其空间分辨率为 15 弧秒， 相当于 0.5km。其包含了陆地高程和海洋深度数据，具体信息参考 SRTM30_PLUS 的介绍。 数据下载： README Google KMZ 14GB netCDF 数据 netCDF 数据</description>
-    </item>
-    
-    <item>
-      <title>GMT 绘制双 Y 轴</title>
-      <link>https://blog.seisman.info/double-y-axis-plot/</link>
-      <pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/double-y-axis-plot/</guid>
-      <description>&lt;p&gt;所谓双 Y 轴，指的是在一张图中同时使用两个完全不同的 Y 轴。这种类型的图在某些情况下会用到。&lt;/p&gt;
-&lt;p&gt;这样一张图的绘制其实很简单，只需要绘制两个 basemap 即可。第一个 basemap 只绘制 X 轴和左 Y 轴；第二个只绘制右 Y 轴。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>等震中距线的绘制</title>
-      <link>https://blog.seisman.info/plot-equal-distance-lines/</link>
-      <pubDate>Wed, 21 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/plot-equal-distance-lines/</guid>
-      <description>&lt;p&gt;这里给出两个绘制等震中距线的方法，两种方法各有利弊，按需选取。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>洋壳年龄数据</title>
-      <link>https://blog.seisman.info/ocean-floor-crustal-age/</link>
-      <pubDate>Sat, 17 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/ocean-floor-crustal-age/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;简介&lt;/h2&gt;
-&lt;p&gt;官方网站： &lt;a href=&#34;http://www.earthbyte.org/Resources/agegrid2008.html&#34;&gt;http://www.earthbyte.org/Resources/agegrid2008.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;该数据集包含四类数据：洋壳年龄（age）、年龄不确定度（ageerror）、扩张速度（rate）、扩张非对称性（asym）。数据最高精度为 2 弧分。&lt;/p&gt;
-&lt;p&gt;数据下载地址：&lt;a href=&#34;ftp://ftp.earthbyte.org/earthbyte/agegrid/2008/Grids/&#34;&gt;ftp://ftp.earthbyte.org/earthbyte/agegrid/2008/Grids/&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>辐射花样的计算与震源球的绘制</title>
-      <link>https://blog.seisman.info/radiation-pattern-and-beach-ball/</link>
-      <pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/radiation-pattern-and-beach-ball/</guid>
-      <description>&lt;h2 id=&#34;p-&#34;&gt;P 波辐射花样计算公式&lt;/h2&gt;
-&lt;p&gt;Quantitative Seismology (Aki and Richards,1980) 中式（4.29）给出了零迹地震矩 M 所产生的 n 分量位移公式：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.seisman.info/images/2014050101.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;其中等式右边共计 5 项，第一项为近场项，第二、三项分别是 P、S 波的中间场项，第四、五项分别为 P、S 波的远场项。一般研究辐射花样大多关注于 P 波远场辐射花样，即第四项。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>使用 EPEL 和 RPMforge 源安装 netcdf 时的冲突</title>
-      <link>https://blog.seisman.info/trash/epel-rpmforge-conflict/</link>
-      <pubDate>Mon, 03 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/trash/epel-rpmforge-conflict/</guid>
-      <description>&lt;p&gt;新版本的 GMT 的编译与运行要求 netCDF 的版本大于 4，且支持 netCDF4/HDF5。即如果想要手动编译 netCDF4 以上的版本，则同时需要编译 hdf5，而 hdf5 又依赖于 zlib 和 szlib 等等包，所以手动编译 netcdf 相当不合算。&lt;/p&gt;
-&lt;p&gt;大多数发行版中应该都有 netcdf4，所以不会出现太多的问题。&lt;/p&gt;
-&lt;p&gt;CentOS 官方源中没有 netcdf，因而需要使用第三方源，直接将别人已经编译好的文件拿过来使用。其中最常用的就是 EPEL 和 RPMforge。而恰好二者都包含了 netcdf、netcdf-devel、hdf5、hdf5-devel 包。由此引发了一些冲突。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>地球物理相关软件</title>
-      <link>https://blog.seisman.info/geo-software/</link>
-      <pubDate>Thu, 20 Feb 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/geo-software/</guid>
-      <description>本页面已迁移至 https://link.seisman.info/codes/</description>
-    </item>
-    
-    <item>
-      <title>全球水深数据 GEBCO</title>
-      <link>https://blog.seisman.info/gebco/</link>
-      <pubDate>Wed, 05 Feb 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/gebco/</guid>
-      <description>GEBCO 全称 General Bathymetric Chart of the Oceans，给出了全球海水深度数据。 官方网站： http://www.gebco.net 数据精度：30 弧秒和 1 弧分。 数据格式：netCDF，可直接用于 GMT 绘图。 下载</description>
-    </item>
-    
-    <item>
-      <title>全球数字高程数据：ASTER GDEM</title>
-      <link>https://blog.seisman.info/aster-gdem/</link>
-      <pubDate>Sun, 12 Jan 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/aster-gdem/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;简介&lt;/h2&gt;
-&lt;p&gt;ASTER GDEM，即先进星载热发射和反射辐射仪全球数字高程模型，与 SRTM 一样为数字高程 DEM，
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GMT on SeisMan</title><link>https://blog.seisman.info/tags/GMT/</link><description>Recent content in GMT on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 17 Jul 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/GMT/index.xml" rel="self" type="application/rss+xml"/><item><title>pssac 使用教程</title><link>https://blog.seisman.info/pssac-notes/</link><pubDate>Fri, 17 Jul 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/pssac-notes/</guid><description>&lt;p>&lt;strong>注意：本文仅针对 Prof. Lupei Zhu 的 pssac 程序，其仅可在 GMT 4下使用。
+对于GMT5用户，GMT 在 5.3.1 之后自带了 pssac，可以使用 &lt;code>gmt pssac&lt;/code> 直接调用。&lt;/strong>&lt;/p>
+&lt;p>相关文档见:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html">http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://modules.gmt-china.org/pssac">http://modules.gmt-china.org/pssac&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>pssac&lt;/code> 可以读取 SAC 波形数据，并利用 GMT 的绘图功能将波形数据绘制在 PS 文件中。
+&lt;code>pssac&lt;/code> 绘制的波形图，大致可以分为三类：&lt;/p>
+&lt;ol>
+&lt;li>波形振幅图：横轴是时间，纵轴是振幅；&lt;/li>
+&lt;li>剖面图：横轴是时间，纵轴是其他物理量（比如震中距、方位角、反方位角以及文件号）；&lt;/li>
+&lt;li>任意位置图：将波形文件绘制在图上的任意位置；&lt;/li>
+&lt;/ol>
+&lt;p>本文首先简单介绍 &lt;code>pssac&lt;/code> 的各个选项，然后依次介绍如何绘制波形振幅图、剖面图以及任意位置图，在这个过程中会详细介绍较复杂的选项。&lt;/p></description></item><item><title>GMT 5.1.2 在 Windows 下的安装</title><link>https://blog.seisman.info/trash/install-gmt5-under-windows/</link><pubDate>Sat, 18 Apr 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/install-gmt5-under-windows/</guid><description>&lt;p>本文介绍如何在 Windows 7 下安装 GMT5.1.2。&lt;/p></description></item><item><title>全球地形起伏数据：SRTM15_PLUS</title><link>https://blog.seisman.info/srtm15-plus/</link><pubDate>Tue, 07 Apr 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/srtm15-plus/</guid><description>SRTM15_PLUS 是 SRTM30_PLUS 的升级版，其空间分辨率为 15 弧秒， 相当于 0.5km。其包含了陆地高程和海洋深度数据，具体信息参考 SRTM30_PLUS 的介绍。 数据下载： README Google KMZ 14GB netCDF 数据 netCDF 数据</description></item><item><title>GMT 绘制双 Y 轴</title><link>https://blog.seisman.info/double-y-axis-plot/</link><pubDate>Thu, 12 Jun 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/double-y-axis-plot/</guid><description>&lt;p>所谓双 Y 轴，指的是在一张图中同时使用两个完全不同的 Y 轴。这种类型的图在某些情况下会用到。&lt;/p>
+&lt;p>这样一张图的绘制其实很简单，只需要绘制两个 basemap 即可。第一个 basemap 只绘制 X 轴和左 Y 轴；第二个只绘制右 Y 轴。&lt;/p></description></item><item><title>等震中距线的绘制</title><link>https://blog.seisman.info/plot-equal-distance-lines/</link><pubDate>Wed, 21 May 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/plot-equal-distance-lines/</guid><description>&lt;p>这里给出两个绘制等震中距线的方法，两种方法各有利弊，按需选取。&lt;/p></description></item><item><title>洋壳年龄数据</title><link>https://blog.seisman.info/ocean-floor-crustal-age/</link><pubDate>Sat, 17 May 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/ocean-floor-crustal-age/</guid><description>&lt;h2 id="简介">简介&lt;/h2>
+&lt;p>官方网站： &lt;a href="http://www.earthbyte.org/Resources/agegrid2008.html">http://www.earthbyte.org/Resources/agegrid2008.html&lt;/a>&lt;/p>
+&lt;p>该数据集包含四类数据：洋壳年龄（age）、年龄不确定度（ageerror）、扩张速度（rate）、扩张非对称性（asym）。数据最高精度为 2 弧分。&lt;/p>
+&lt;p>数据下载地址：&lt;a href="ftp://ftp.earthbyte.org/earthbyte/agegrid/2008/Grids/">ftp://ftp.earthbyte.org/earthbyte/agegrid/2008/Grids/&lt;/a>&lt;/p></description></item><item><title>辐射花样的计算与震源球的绘制</title><link>https://blog.seisman.info/radiation-pattern-and-beach-ball/</link><pubDate>Thu, 01 May 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/radiation-pattern-and-beach-ball/</guid><description>&lt;h2 id="p-波辐射花样计算公式">P 波辐射花样计算公式&lt;/h2>
+&lt;p>Quantitative Seismology (Aki and Richards,1980) 中式（4.29）给出了零迹地震矩 M 所产生的 n 分量位移公式：&lt;/p>
+&lt;p>&lt;img src="https://blog.seisman.info/images/2014050101.png" alt="">&lt;/p>
+&lt;p>其中等式右边共计 5 项，第一项为近场项，第二、三项分别是 P、S 波的中间场项，第四、五项分别为 P、S 波的远场项。一般研究辐射花样大多关注于 P 波远场辐射花样，即第四项。&lt;/p></description></item><item><title>使用 EPEL 和 RPMforge 源安装 netcdf 时的冲突</title><link>https://blog.seisman.info/trash/epel-rpmforge-conflict/</link><pubDate>Mon, 03 Mar 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/epel-rpmforge-conflict/</guid><description>&lt;p>新版本的 GMT 的编译与运行要求 netCDF 的版本大于 4，且支持 netCDF4/HDF5。即如果想要手动编译 netCDF4 以上的版本，则同时需要编译 hdf5，而 hdf5 又依赖于 zlib 和 szlib 等等包，所以手动编译 netcdf 相当不合算。&lt;/p>
+&lt;p>大多数发行版中应该都有 netcdf4，所以不会出现太多的问题。&lt;/p>
+&lt;p>CentOS 官方源中没有 netcdf，因而需要使用第三方源，直接将别人已经编译好的文件拿过来使用。其中最常用的就是 EPEL 和 RPMforge。而恰好二者都包含了 netcdf、netcdf-devel、hdf5、hdf5-devel 包。由此引发了一些冲突。&lt;/p></description></item><item><title>地球物理相关软件</title><link>https://blog.seisman.info/geo-software/</link><pubDate>Thu, 20 Feb 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/geo-software/</guid><description>通用数据处理 SAC: 地震学数据处理的常用软件 ObsPy: 基于 Python 的地震学数据获取、处理、绘图工具 GISMO: 基于 Matlab 的地震学数据获取、处理、绘图工具 SeisIO.jl: 基于 Julia 的地震学数据获</description></item><item><title>全球水深数据 GEBCO</title><link>https://blog.seisman.info/gebco/</link><pubDate>Wed, 05 Feb 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/gebco/</guid><description>GEBCO 全称 General Bathymetric Chart of the Oceans，给出了全球海水深度数据。 官方网站： http://www.gebco.net 数据精度：30 弧秒和 1 弧分。 数据格式：netCDF，可直接用于 GMT 绘图。 下载</description></item><item><title>全球数字高程数据：ASTER GDEM</title><link>https://blog.seisman.info/aster-gdem/</link><pubDate>Sun, 12 Jan 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/aster-gdem/</guid><description>&lt;h2 id="简介">简介&lt;/h2>
+&lt;p>ASTER GDEM，即先进星载热发射和反射辐射仪全球数字高程模型，与 SRTM 一样为数字高程 DEM，
 其全球空间分辨率为 30 米。该数据是根据 NASA 的新一代对地观测卫星 Terra 的详尽观测结果
 制作完成的。其数据覆盖范围为北纬 83° 到南纬 83° 之间的所有陆地区域，达到了地球陆地表面的
-99%。号称是 “迄今最完整的全球地形数据”。&lt;/p&gt;
-&lt;p&gt;数据下载地址：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://reverb.echo.nasa.gov/reverb/&#34;&gt;NASA Reverb&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://gdem.ersdac.jspacesystems.or.jp&#34;&gt;LP DAAC Global Data Explorer&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>GeoTiff 格式转 GMT netCDF 格式</title>
-      <link>https://blog.seisman.info/trash/convert-geotiff-to-gmt/</link>
-      <pubDate>Sat, 11 Jan 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/trash/convert-geotiff-to-gmt/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;http://www.gdal.org/&#34;&gt;GDAL&lt;/a&gt; 提供了不少小工具，其中， &lt;code&gt;gdal_translate&lt;/code&gt; 可用于网格数据的格式转换。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>全球地形起伏数据：SRTM30_PLUS</title>
-      <link>https://blog.seisman.info/srtm30-plus/</link>
-      <pubDate>Tue, 31 Dec 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/srtm30-plus/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;主页：http://topex.ucsd.edu/WWW_html/srtm30_plus.html&lt;/li&gt;
-&lt;li&gt;精度：30 弧秒（约 1km）&lt;/li&gt;
-&lt;li&gt;版本：V11（20141129）&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>中国行政区划数据下载</title>
-      <link>https://blog.seisman.info/china-administrative-areas-data/</link>
-      <pubDate>Sat, 23 Nov 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/china-administrative-areas-data/</guid>
-      <description>&lt;h2 id=&#34;gadm-&#34;&gt;GADM 数据库&lt;/h2&gt;
-&lt;p&gt;GADM，是一个全球行政区划数据库。包括了几乎全部国家和地区的行政区划界线数据。&lt;/p&gt;
-&lt;p&gt;主页： &lt;a href=&#34;http://www.gadm.org/&#34;&gt;http://www.gadm.org/&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>GMT 中 DCW 数据的使用</title>
-      <link>https://blog.seisman.info/usage-of-dcw-data/</link>
-      <pubDate>Thu, 21 Nov 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/usage-of-dcw-data/</guid>
-      <description>&lt;p&gt;问题描述：想要绘制一个中国地图，区域范围为 &lt;code&gt;-R70/140/15/55&lt;/code&gt; 。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>GMT 4.5.18 在 Linux 下的安装</title>
-      <link>https://blog.seisman.info/install-gmt4-under-linux/</link>
-      <pubDate>Thu, 07 Nov 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/install-gmt4-under-linux/</guid>
-      <description>&lt;h2 id=&#34;heading&#34;&gt;说明&lt;/h2&gt;
-&lt;p&gt;本文介绍如何在 Linux 下编译 GMT4 的最新版也是最终版本：GMT 4.5.18。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>GMT 5.1.2 在 Linux 下的安装</title>
-      <link>https://blog.seisman.info/trash/install-gmt5-under-linux/</link>
-      <pubDate>Wed, 06 Nov 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/trash/install-gmt5-under-linux/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;本文不再维护更新！&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;本文介绍如何在 Linux 下安装 GMT 5.1.x。GMT 5.2.x 在 Linux 下的安装见 &lt;a href=&#34;https://blog.seisman.info/install-gmt5.2.x-under-linux/&#34;&gt;GMT 5.2.x 在 Linux 下的安装&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;说明：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;仅适用于 5.1.0、5.1.1 和 5.1.2&lt;/li&gt;
-&lt;li&gt;所有命令均在一般用户下完成，需要 root 权限的命令都用 &lt;code&gt;sudo&lt;/code&gt; 执行&lt;/li&gt;
-&lt;/ol&gt;</description>
-    </item>
-    
-    <item>
-      <title>全球地壳模型 crust 1.0</title>
-      <link>https://blog.seisman.info/crust1/</link>
-      <pubDate>Thu, 03 Oct 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/crust1/</guid>
-      <description>&lt;p&gt;crust 1.0 是一个全球的三维地壳模型，其分辨率是 1 度。更老的版本还有分辨率低一些的 crust 5.1 和 crust 2.0。&lt;/p&gt;
-&lt;p&gt;官方网址：&lt;a href=&#34;http://igppweb.ucsd.edu/~gabi/crust1.html&#34;&gt;http://igppweb.ucsd.edu/~gabi/crust1.html&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>高精度地形网格数据 SRTM</title>
-      <link>https://blog.seisman.info/srtm/</link>
-      <pubDate>Sun, 29 Sep 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/srtm/</guid>
-      <description>&lt;p&gt;SRTM，全称为 Shuttle Radar Topography Mission，该项目获取了北纬 60 度至南纬 60 度之间的
+99%。号称是 “迄今最完整的全球地形数据”。&lt;/p>
+&lt;p>数据下载地址：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://reverb.echo.nasa.gov/reverb/">NASA Reverb&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://gdem.ersdac.jspacesystems.or.jp">LP DAAC Global Data Explorer&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>GeoTiff 格式转 GMT netCDF 格式</title><link>https://blog.seisman.info/trash/convert-geotiff-to-gmt/</link><pubDate>Sat, 11 Jan 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/convert-geotiff-to-gmt/</guid><description>&lt;p>&lt;a href="http://www.gdal.org/">GDAL&lt;/a> 提供了不少小工具，其中， &lt;code>gdal_translate&lt;/code> 可用于网格数据的格式转换。&lt;/p></description></item><item><title>全球地形起伏数据：SRTM30_PLUS</title><link>https://blog.seisman.info/srtm30-plus/</link><pubDate>Tue, 31 Dec 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/srtm30-plus/</guid><description>&lt;ul>
+&lt;li>主页：http://topex.ucsd.edu/WWW_html/srtm30_plus.html&lt;/li>
+&lt;li>精度：30 弧秒（约 1km）&lt;/li>
+&lt;li>版本：V11（20141129）&lt;/li>
+&lt;/ul></description></item><item><title>中国行政区划数据下载</title><link>https://blog.seisman.info/china-administrative-areas-data/</link><pubDate>Sat, 23 Nov 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/china-administrative-areas-data/</guid><description>&lt;h2 id="gadm-数据库">GADM 数据库&lt;/h2>
+&lt;p>GADM，是一个全球行政区划数据库。包括了几乎全部国家和地区的行政区划界线数据。&lt;/p>
+&lt;p>主页： &lt;a href="http://www.gadm.org/">http://www.gadm.org/&lt;/a>&lt;/p></description></item><item><title>GMT 中 DCW 数据的使用</title><link>https://blog.seisman.info/usage-of-dcw-data/</link><pubDate>Thu, 21 Nov 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/usage-of-dcw-data/</guid><description>&lt;p>问题描述：想要绘制一个中国地图，区域范围为 &lt;code>-R70/140/15/55&lt;/code> 。&lt;/p></description></item><item><title>GMT 4.5.18 在 Linux 下的安装</title><link>https://blog.seisman.info/install-gmt4-under-linux/</link><pubDate>Thu, 07 Nov 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/install-gmt4-under-linux/</guid><description>&lt;h2 id="说明">说明&lt;/h2>
+&lt;p>本文介绍如何在 Linux 下编译 GMT4 的最新版也是最终版本：GMT 4.5.18。&lt;/p></description></item><item><title>GMT 5.1.2 在 Linux 下的安装</title><link>https://blog.seisman.info/trash/install-gmt5-under-linux/</link><pubDate>Wed, 06 Nov 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/install-gmt5-under-linux/</guid><description>&lt;p>&lt;strong>本文不再维护更新！&lt;/strong>&lt;/p>
+&lt;p>本文介绍如何在 Linux 下安装 GMT 5.1.x。GMT 5.2.x 在 Linux 下的安装见 &lt;a href="https://blog.seisman.info/install-gmt5.2.x-under-linux/">GMT 5.2.x 在 Linux 下的安装&lt;/a>&lt;/p>
+&lt;p>说明：&lt;/p>
+&lt;ol>
+&lt;li>仅适用于 5.1.0、5.1.1 和 5.1.2&lt;/li>
+&lt;li>所有命令均在一般用户下完成，需要 root 权限的命令都用 &lt;code>sudo&lt;/code> 执行&lt;/li>
+&lt;/ol></description></item><item><title>全球地壳模型 crust 1.0</title><link>https://blog.seisman.info/crust1/</link><pubDate>Thu, 03 Oct 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/crust1/</guid><description>&lt;p>crust 1.0 是一个全球的三维地壳模型，其分辨率是 1 度。更老的版本还有分辨率低一些的 crust 5.1 和 crust 2.0。&lt;/p>
+&lt;p>官方网址：&lt;a href="http://igppweb.ucsd.edu/~gabi/crust1.html">http://igppweb.ucsd.edu/~gabi/crust1.html&lt;/a>&lt;/p></description></item><item><title>高精度地形网格数据 SRTM</title><link>https://blog.seisman.info/srtm/</link><pubDate>Sun, 29 Sep 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/srtm/</guid><description>&lt;p>SRTM，全称为 Shuttle Radar Topography Mission，该项目获取了北纬 60 度至南纬 60 度之间的
 雷达影像数据，进一步处理制成了数字地形高程模型（DEM），即现在的 SRTM 地形产品数据。
 该数据产品 2003 年开始公开发布，经过多次修订，目前的数据修订版本为 V4.1 版本。更详细的介绍在
-&lt;a href=&#34;http://www.cgiar-csi.org/data/srtm-90m-digital-elevation-database-v4-1&#34;&gt;这里&lt;/a&gt;。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>全球地形起伏模型 ETOPO1</title>
-      <link>https://blog.seisman.info/etopo1/</link>
-      <pubDate>Sun, 11 Aug 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/etopo1/</guid>
-      <description>&lt;p&gt;ETOPO1 是分辨率为 1 弧分的全球地形起伏模型，其包含了陆地地形和海洋水深的数据，是目前已知的分辨率
-最高的地形起伏数据。&lt;/p&gt;
-&lt;p&gt;官方主页位于： &lt;a href=&#34;http://www.ngdc.noaa.gov/mgg/global/&#34;&gt;http://www.ngdc.noaa.gov/mgg/global/&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>全球地形起伏模型 ETOPO2</title>
-      <link>https://blog.seisman.info/etopo2/</link>
-      <pubDate>Sun, 11 Aug 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/etopo2/</guid>
-      <description>&lt;p&gt;ETOPO2 与 ETOPO5 类似，也是陆地高程 + 海底地形数据，其采样间隔为 2 弧分。&lt;/p&gt;
-&lt;p&gt;官方地址： &lt;a href=&#34;http://www.ngdc.noaa.gov/mgg/global/etopo2.html&#34;&gt;http://www.ngdc.noaa.gov/mgg/global/etopo2.html&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>全球数字高程模型 GTOPO30</title>
-      <link>https://blog.seisman.info/gtopo30/</link>
-      <pubDate>Sun, 11 Aug 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/gtopo30/</guid>
-      <description>&lt;p&gt;GTOPO30 是 USGS 公布的全球数字高程模型，其采样间隔为 30 弧秒。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>全球地形起伏模型etopo5</title>
-      <link>https://blog.seisman.info/etopo5/</link>
-      <pubDate>Sat, 10 Aug 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/etopo5/</guid>
-      <description>&lt;p&gt;etopo5是全球高程及水深数据，其空间分辨率是5弧分，目前已被更高精度的etopo2和etopo1所取代。但在绘制
-全球地形时，若觉得用etopo2得到的图形文件过大，也可使用低精度的etopo5，但还是&lt;strong&gt;不建议用etopo5&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;官方页面： &lt;a href=&#34;http://www.ngdc.noaa.gov/mgg/global/etopo5.html&#34;&gt;http://www.ngdc.noaa.gov/mgg/global/etopo5.html&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>安装 pssac</title>
-      <link>https://blog.seisman.info/pssac-install/</link>
-      <pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/pssac-install/</guid>
-      <description>&lt;p&gt;&lt;code&gt;pssac&lt;/code&gt; 是 Prof. Lupei Zhu 根据 GMT 的 &lt;code&gt;psxy&lt;/code&gt; 命令修改得到，用于绘制 SAC 格式的波形数据的
-一个小程序。&lt;/p&gt;
-&lt;p&gt;该程序调用了 GMT 的绘图库，因而安装该程序之前需要首先安装 GMT4。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;GMT5用户请注意，GMT 从 5.3.1 起自带了 pssac 模块，可以直接使用 &lt;code&gt;gmt pssac&lt;/code&gt; 来调用。&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;a href="http://www.cgiar-csi.org/data/srtm-90m-digital-elevation-database-v4-1">这里&lt;/a>。&lt;/p></description></item><item><title>全球地形起伏模型 ETOPO1</title><link>https://blog.seisman.info/etopo1/</link><pubDate>Sun, 11 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/etopo1/</guid><description>&lt;p>ETOPO1 是分辨率为 1 弧分的全球地形起伏模型，其包含了陆地地形和海洋水深的数据，是目前已知的分辨率
+最高的地形起伏数据。&lt;/p>
+&lt;p>官方主页位于： &lt;a href="http://www.ngdc.noaa.gov/mgg/global/">http://www.ngdc.noaa.gov/mgg/global/&lt;/a>&lt;/p></description></item><item><title>全球地形起伏模型 ETOPO2</title><link>https://blog.seisman.info/etopo2/</link><pubDate>Sun, 11 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/etopo2/</guid><description>&lt;p>ETOPO2 与 ETOPO5 类似，也是陆地高程 + 海底地形数据，其采样间隔为 2 弧分。&lt;/p>
+&lt;p>官方地址： &lt;a href="http://www.ngdc.noaa.gov/mgg/global/etopo2.html">http://www.ngdc.noaa.gov/mgg/global/etopo2.html&lt;/a>&lt;/p></description></item><item><title>全球数字高程模型 GTOPO30</title><link>https://blog.seisman.info/gtopo30/</link><pubDate>Sun, 11 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/gtopo30/</guid><description>&lt;p>GTOPO30 是 USGS 公布的全球数字高程模型，其采样间隔为 30 弧秒。&lt;/p></description></item><item><title>全球地形起伏模型etopo5</title><link>https://blog.seisman.info/etopo5/</link><pubDate>Sat, 10 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/etopo5/</guid><description>&lt;p>etopo5是全球高程及水深数据，其空间分辨率是5弧分，目前已被更高精度的etopo2和etopo1所取代。但在绘制
+全球地形时，若觉得用etopo2得到的图形文件过大，也可使用低精度的etopo5，但还是&lt;strong>不建议用etopo5&lt;/strong>。&lt;/p>
+&lt;p>官方页面： &lt;a href="http://www.ngdc.noaa.gov/mgg/global/etopo5.html">http://www.ngdc.noaa.gov/mgg/global/etopo5.html&lt;/a>&lt;/p></description></item><item><title>安装 pssac</title><link>https://blog.seisman.info/pssac-install/</link><pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/pssac-install/</guid><description>&lt;p>&lt;code>pssac&lt;/code> 是 Prof. Lupei Zhu 根据 GMT 的 &lt;code>psxy&lt;/code> 命令修改得到，用于绘制 SAC 格式的波形数据的
+一个小程序。&lt;/p>
+&lt;p>该程序调用了 GMT 的绘图库，因而安装该程序之前需要首先安装 GMT4。&lt;/p>
+&lt;p>&lt;strong>GMT5用户请注意，GMT 从 5.3.1 起自带了 pssac 模块，可以直接使用 &lt;code>gmt pssac&lt;/code> 来调用。&lt;/strong>&lt;/p></description></item></channel></rss>

@@ -1,298 +1,78 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>sphinx 生成中文 PDF - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="sphinx 是 Python 提供的文档生成工具，其可以将 rST 源文件 转换成网页、PDF 等多种格式。目前，sphinx 1.3.1 在生成中文 PDF 时有一堆问题，所以 需要做一些额外的处理才能解决。
-readthedocs 可以直接用于托管 sphinx 生成的网页文档， 由于 sphinx 不支持中文 PDF，所以 readthedocs 也不支持。readthedocs 的服务器是 Ubuntu， 具体版本未知，TeXLive 版本未知，但是肯定早于 TeXLive 2014。所以 readthedocs 上中文 支持就更是一个问题。因而在 readthedocs 网站上以及在本地，有两套不同的做法。
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.61.0 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/trash/sphinx-chinese-support/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="sphinx 生成中文 PDF" />
-<meta property="og:description" content="sphinx 是 Python 提供的文档生成工具，其可以将 rST 源文件
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>sphinx 生成中文 PDF - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="sphinx 是 Python 提供的文档生成工具，其可以将 rST 源文件 转换成网页、PDF 等多种格式。目前，sphinx 1.3.1 在生成中文 PDF 时有一堆问题，所以 需要做一些额外的处理才能解决。
+readthedocs 可以直接用于托管 sphinx 生成的网页文档， 由于 sphinx 不支持中文 PDF，所以 readthedocs 也不支持。readthedocs 的服务器是 Ubuntu， 具体版本未知，TeXLive 版本未知，但是肯定早于 TeXLive 2014。所以 readthedocs 上中文 支持就更是一个问题。因而在 readthedocs 网站上以及在本地，有两套不同的做法。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.74.3 with theme even"><link rel=canonical href=https://blog.seisman.info/trash/sphinx-chinese-support/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="sphinx 生成中文 PDF"><meta property="og:description" content="sphinx 是 Python 提供的文档生成工具，其可以将 rST 源文件
 转换成网页、PDF 等多种格式。目前，sphinx 1.3.1 在生成中文 PDF 时有一堆问题，所以
 需要做一些额外的处理才能解决。
 readthedocs 可以直接用于托管 sphinx 生成的网页文档，
 由于 sphinx 不支持中文 PDF，所以 readthedocs 也不支持。readthedocs 的服务器是 Ubuntu，
 具体版本未知，TeXLive 版本未知，但是肯定早于 TeXLive 2014。所以 readthedocs 上中文
-支持就更是一个问题。因而在 readthedocs 网站上以及在本地，有两套不同的做法。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/trash/sphinx-chinese-support/" />
-<meta property="article:published_time" content="2014-03-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2015-11-07T00:00:00+00:00" />
-<meta itemprop="name" content="sphinx 生成中文 PDF">
-<meta itemprop="description" content="sphinx 是 Python 提供的文档生成工具，其可以将 rST 源文件
+支持就更是一个问题。因而在 readthedocs 网站上以及在本地，有两套不同的做法。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/trash/sphinx-chinese-support/"><meta property="article:published_time" content="2014-03-01T00:00:00+00:00"><meta property="article:modified_time" content="2015-11-07T00:00:00+00:00"><meta itemprop=name content="sphinx 生成中文 PDF"><meta itemprop=description content="sphinx 是 Python 提供的文档生成工具，其可以将 rST 源文件
 转换成网页、PDF 等多种格式。目前，sphinx 1.3.1 在生成中文 PDF 时有一堆问题，所以
 需要做一些额外的处理才能解决。
 readthedocs 可以直接用于托管 sphinx 生成的网页文档，
 由于 sphinx 不支持中文 PDF，所以 readthedocs 也不支持。readthedocs 的服务器是 Ubuntu，
 具体版本未知，TeXLive 版本未知，但是肯定早于 TeXLive 2014。所以 readthedocs 上中文
-支持就更是一个问题。因而在 readthedocs 网站上以及在本地，有两套不同的做法。">
-<meta itemprop="datePublished" content="2014-03-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2015-11-07T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="438">
-
-
-
-<meta itemprop="keywords" content="sphinx,中文,Python,PDF,LaTeX," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="sphinx 生成中文 PDF"/>
-<meta name="twitter:description" content="sphinx 是 Python 提供的文档生成工具，其可以将 rST 源文件
+支持就更是一个问题。因而在 readthedocs 网站上以及在本地，有两套不同的做法。"><meta itemprop=datePublished content="2014-03-01T00:00:00+00:00"><meta itemprop=dateModified content="2015-11-07T00:00:00+00:00"><meta itemprop=wordCount content="455"><meta itemprop=keywords content="sphinx,中文,Python,PDF,LaTeX,"><meta name=twitter:card content="summary"><meta name=twitter:title content="sphinx 生成中文 PDF"><meta name=twitter:description content="sphinx 是 Python 提供的文档生成工具，其可以将 rST 源文件
 转换成网页、PDF 等多种格式。目前，sphinx 1.3.1 在生成中文 PDF 时有一堆问题，所以
 需要做一些额外的处理才能解决。
 readthedocs 可以直接用于托管 sphinx 生成的网页文档，
 由于 sphinx 不支持中文 PDF，所以 readthedocs 也不支持。readthedocs 的服务器是 Ubuntu，
 具体版本未知，TeXLive 版本未知，但是肯定早于 TeXLive 2014。所以 readthedocs 上中文
-支持就更是一个问题。因而在 readthedocs 网站上以及在本地，有两套不同的做法。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-  <div class="post-content">
-    <p><a href="http://sphinx-doc.org/">sphinx</a> 是 Python 提供的文档生成工具，其可以将 rST 源文件
+支持就更是一个问题。因而在 readthedocs 网站上以及在本地，有两套不同的做法。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/links/><li class=mobile-menu-item>链接</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/links/>链接</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><div class=post-content><p><a href=http://sphinx-doc.org/>sphinx</a> 是 Python 提供的文档生成工具，其可以将 rST 源文件
 转换成网页、PDF 等多种格式。目前，sphinx 1.3.1 在生成中文 PDF 时有一堆问题，所以
-需要做一些额外的处理才能解决。</p>
-<p><a href="https://readthedocs.org">readthedocs</a> 可以直接用于托管 sphinx 生成的网页文档，
+需要做一些额外的处理才能解决。</p><p><a href=https://readthedocs.org>readthedocs</a> 可以直接用于托管 sphinx 生成的网页文档，
 由于 sphinx 不支持中文 PDF，所以 readthedocs 也不支持。readthedocs 的服务器是 Ubuntu，
 具体版本未知，TeXLive 版本未知，但是肯定早于 TeXLive 2014。所以 readthedocs 上中文
-支持就更是一个问题。因而在 readthedocs 网站上以及在本地，有两套不同的做法。</p>
-<h2 id="-confpy">修改 conf.py</h2>
-<p>对 <code>conf.py</code> 修改如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">on_rtd <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>environ<span style="color:#f92672">.</span>get(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">READTHEDOCS</span><span style="color:#e6db74">&#39;</span>, None) <span style="color:#f92672">==</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">True</span><span style="color:#e6db74">&#39;</span>
+支持就更是一个问题。因而在 readthedocs 网站上以及在本地，有两套不同的做法。</p><h2 id=修改-confpy>修改 conf.py</h2><p>对 <code>conf.py</code> 修改如下：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>on_rtd <span style=color:#f92672>=</span> os<span style=color:#f92672>.</span>environ<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;READTHEDOCS&#39;</span>, None) <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;True&#39;</span>
 
-<span style="color:#66d9ef">if</span> on_rtd:
-    latex_elements <span style="color:#f92672">=</span> {
-    <span style="color:#75715e"># The paper size (&#39;letterpaper&#39; or &#39;a4paper&#39;).</span>
-    <span style="color:#75715e">#&#39;papersize&#39;: &#39;letterpaper&#39;,</span>
+<span style=color:#66d9ef>if</span> on_rtd:
+    latex_elements <span style=color:#f92672>=</span> {
+    <span style=color:#75715e># The paper size (&#39;letterpaper&#39; or &#39;a4paper&#39;).</span>
+    <span style=color:#75715e>#&#39;papersize&#39;: &#39;letterpaper&#39;,</span>
 
-    <span style="color:#75715e"># The font size (&#39;10pt&#39;, &#39;11pt&#39; or &#39;12pt&#39;).</span>
-    <span style="color:#75715e">#&#39;pointsize&#39;: &#39;10pt&#39;,</span>
+    <span style=color:#75715e># The font size (&#39;10pt&#39;, &#39;11pt&#39; or &#39;12pt&#39;).</span>
+    <span style=color:#75715e>#&#39;pointsize&#39;: &#39;10pt&#39;,</span>
 
-    <span style="color:#75715e"># Additional stuff for the LaTeX preamble.</span>
-    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">preamble</span><span style="color:#e6db74">&#39;</span>: <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;&#39;&#39;</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    </span><span style="color:#e6db74">\</span><span style="color:#e6db74">hypersetup{unicode=true}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    </span><span style="color:#e6db74">\</span><span style="color:#e6db74">usepackage{CJKutf8}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    </span><span style="color:#e6db74">\</span><span style="color:#e6db74">DeclareUnicodeCharacter{00A0}{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">nobreakspace}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    </span><span style="color:#e6db74">\</span><span style="color:#e6db74">DeclareUnicodeCharacter{2203}{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">ensuremath{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">exists}}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    </span><span style="color:#e6db74">\</span><span style="color:#e6db74">DeclareUnicodeCharacter{2200}{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">ensuremath{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">forall}}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    </span><span style="color:#e6db74">\</span><span style="color:#e6db74">DeclareUnicodeCharacter{2286}{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">ensuremath{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">subseteq}}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    </span><span style="color:#e6db74">\</span><span style="color:#e6db74">DeclareUnicodeCharacter{2713}{x}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    </span><span style="color:#e6db74">\</span><span style="color:#e6db74">DeclareUnicodeCharacter{27FA}{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">ensuremath{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">Longleftrightarrow}}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    </span><span style="color:#e6db74">\</span><span style="color:#e6db74">DeclareUnicodeCharacter{221A}{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">ensuremath{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">sqrt{}}}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    </span><span style="color:#e6db74">\</span><span style="color:#e6db74">DeclareUnicodeCharacter{221B}{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">ensuremath{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">sqrt[3]{}}}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    </span><span style="color:#e6db74">\</span><span style="color:#e6db74">DeclareUnicodeCharacter{2295}{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">ensuremath{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">oplus}}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    </span><span style="color:#e6db74">\</span><span style="color:#e6db74">DeclareUnicodeCharacter{2297}{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">ensuremath{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">otimes}}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    </span><span style="color:#e6db74">\</span><span style="color:#e6db74">begin{CJK}{UTF8}{gbsn}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    </span><span style="color:#e6db74">\</span><span style="color:#e6db74">AtEndDocument{</span><span style="color:#e6db74">\</span><span style="color:#e6db74">end{CJK}}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">    </span><span style="color:#e6db74">&#39;&#39;&#39;</span>,
+    <span style=color:#75715e># Additional stuff for the LaTeX preamble.</span>
+    <span style=color:#e6db74>&#39;preamble&#39;</span>: <span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;&#39;&#39;
+</span><span style=color:#e6db74>    \hypersetup{unicode=true}
+</span><span style=color:#e6db74>    \usepackage{CJKutf8}
+</span><span style=color:#e6db74>    \DeclareUnicodeCharacter{00A0}{\nobreakspace}
+</span><span style=color:#e6db74>    \DeclareUnicodeCharacter{2203}{\ensuremath{\exists}}
+</span><span style=color:#e6db74>    \DeclareUnicodeCharacter{2200}{\ensuremath{\forall}}
+</span><span style=color:#e6db74>    \DeclareUnicodeCharacter{2286}{\ensuremath{\subseteq}}
+</span><span style=color:#e6db74>    \DeclareUnicodeCharacter{2713}{x}
+</span><span style=color:#e6db74>    \DeclareUnicodeCharacter{27FA}{\ensuremath{\Longleftrightarrow}}
+</span><span style=color:#e6db74>    \DeclareUnicodeCharacter{221A}{\ensuremath{\sqrt{}}}
+</span><span style=color:#e6db74>    \DeclareUnicodeCharacter{221B}{\ensuremath{\sqrt[3]{}}}
+</span><span style=color:#e6db74>    \DeclareUnicodeCharacter{2295}{\ensuremath{\oplus}}
+</span><span style=color:#e6db74>    \DeclareUnicodeCharacter{2297}{\ensuremath{\otimes}}
+</span><span style=color:#e6db74>    \begin{CJK}{UTF8}{gbsn}
+</span><span style=color:#e6db74>    \AtEndDocument{\end{CJK}}
+</span><span style=color:#e6db74>    &#39;&#39;&#39;</span>,
     }
-<span style="color:#66d9ef">else</span>:
-    latex_elements <span style="color:#f92672">=</span> {
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">papersize</span><span style="color:#e6db74">&#39;</span> : <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">a4paper</span><span style="color:#e6db74">&#39;</span>,
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">utf8extra</span><span style="color:#e6db74">&#39;</span> : <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span>,
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">inputenc</span><span style="color:#e6db74">&#39;</span>  : <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span>,
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">babel</span><span style="color:#e6db74">&#39;</span>     : <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;&#39;&#39;</span><span style="color:#e6db74">\</span><span style="color:#e6db74">usepackage[english]{babel}</span><span style="color:#e6db74">&#39;&#39;&#39;</span>,
-        <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">preamble</span><span style="color:#e6db74">&#39;</span> : <span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;&#39;&#39;</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        </span><span style="color:#e6db74">\</span><span style="color:#e6db74">usepackage{ctex}</span><span style="color:#e6db74">
-</span><span style="color:#e6db74"></span><span style="color:#e6db74">        </span><span style="color:#e6db74">&#39;&#39;&#39;</span>,
+<span style=color:#66d9ef>else</span>:
+    latex_elements <span style=color:#f92672>=</span> {
+        <span style=color:#e6db74>&#39;papersize&#39;</span> : <span style=color:#e6db74>&#39;a4paper&#39;</span>,
+        <span style=color:#e6db74>&#39;utf8extra&#39;</span> : <span style=color:#e6db74>&#39;&#39;</span>,
+        <span style=color:#e6db74>&#39;inputenc&#39;</span>  : <span style=color:#e6db74>&#39;&#39;</span>,
+        <span style=color:#e6db74>&#39;babel&#39;</span>     : <span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;&#39;&#39;\usepackage[english]{babel}&#39;&#39;&#39;</span>,
+        <span style=color:#e6db74>&#39;preamble&#39;</span> : <span style=color:#e6db74>r</span><span style=color:#e6db74>&#39;&#39;&#39;
+</span><span style=color:#e6db74>        \usepackage{ctex}
+</span><span style=color:#e6db74>        &#39;&#39;&#39;</span>,
     }
 </code></pre></div><p>其中， <code>READTHEDOCS</code> 是 readthedocs 定义的环境变量，通过检测该环境变量来
-判断是在 readthedocs 服务器上还是在本地。</p>
-<p>在 readthedocs 服务器上，只能使用 <code>latexpdf</code> 编译，且只能使用其自带的中文字体。
-在本地，如果安装了 TeXLive 2015，则可以使用 ctex 宏包，并用 <code>xelatex</code> 编译。</p>
-<h2 id="-makefile">修改 Makefile</h2>
-<p>对 Makefile 修改如下，这一修改仅对本地生效，不影响 readthedocs 上的使用：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#a6e22e">xelatexpdf</span><span style="color:#f92672">:</span>
-    <span style="color:#66d9ef">$(</span>SPHINXBUILD<span style="color:#66d9ef">)</span> -b latex <span style="color:#66d9ef">$(</span>ALLSPHINXOPTS<span style="color:#66d9ef">)</span> <span style="color:#66d9ef">$(</span>BUILDDIR<span style="color:#66d9ef">)</span>/latex
-    @echo <span style="color:#e6db74">&#34;Running LaTeX files through xelatex...&#34;</span>
-    sed -i s/pdflatex/xelatex/ <span style="color:#66d9ef">$(</span>BUILDDIR<span style="color:#66d9ef">)</span>/latex/Makefile
-    <span style="color:#66d9ef">$(</span>MAKE<span style="color:#66d9ef">)</span> -C <span style="color:#66d9ef">$(</span>BUILDDIR<span style="color:#66d9ef">)</span>/latex all-pdf
-    @echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">xelatex finished; the PDF files are in </span><span style="color:#66d9ef">$(</span>BUILDDIR<span style="color:#66d9ef">)</span><span style="color:#e6db74">/latex.</span><span style="color:#e6db74">&#34;</span>
-</code></pre></div><h2 id="heading">参考</h2>
-<ol>
-<li><a href="https://github.com/rtfd/readthedocs.org/issues/621">https://github.com/rtfd/readthedocs.org/issues/621</a></li>
-<li><a href="https://github.com/JuliaCN/julia_zh_cn/blob/master/conf.py">https://github.com/JuliaCN/julia_zh_cn/blob/master/conf.py</a></li>
-<li><a href="https://github.com/sphinx-doc/sphinx/issues/894">https://github.com/sphinx-doc/sphinx/issues/894</a></li>
-</ol>
-  </div>
-</article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+判断是在 readthedocs 服务器上还是在本地。</p><p>在 readthedocs 服务器上，只能使用 <code>latexpdf</code> 编译，且只能使用其自带的中文字体。
+在本地，如果安装了 TeXLive 2015，则可以使用 ctex 宏包，并用 <code>xelatex</code> 编译。</p><h2 id=修改-makefile>修改 Makefile</h2><p>对 Makefile 修改如下，这一修改仅对本地生效，不影响 readthedocs 上的使用：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-makefile data-lang=makefile><span style=color:#a6e22e>xelatexpdf</span><span style=color:#f92672>:</span>
+    <span style=color:#66d9ef>$(</span>SPHINXBUILD<span style=color:#66d9ef>)</span> -b latex <span style=color:#66d9ef>$(</span>ALLSPHINXOPTS<span style=color:#66d9ef>)</span> <span style=color:#66d9ef>$(</span>BUILDDIR<span style=color:#66d9ef>)</span>/latex
+    @echo <span style=color:#e6db74>&#34;Running LaTeX files through xelatex...&#34;</span>
+    sed -i s/pdflatex/xelatex/ <span style=color:#66d9ef>$(</span>BUILDDIR<span style=color:#66d9ef>)</span>/latex/Makefile
+    <span style=color:#66d9ef>$(</span>MAKE<span style=color:#66d9ef>)</span> -C <span style=color:#66d9ef>$(</span>BUILDDIR<span style=color:#66d9ef>)</span>/latex all-pdf
+    @echo <span style=color:#e6db74>&#34;xelatex finished; the PDF files are in </span><span style=color:#66d9ef>$(</span>BUILDDIR<span style=color:#66d9ef>)</span><span style=color:#e6db74>/latex.&#34;</span>
+</code></pre></div><h2 id=参考>参考</h2><ol><li><a href=https://github.com/rtfd/readthedocs.org/issues/621>https://github.com/rtfd/readthedocs.org/issues/621</a></li><li><a href=https://github.com/JuliaCN/julia_zh_cn/blob/master/conf.py>https://github.com/JuliaCN/julia_zh_cn/blob/master/conf.py</a></li><li><a href=https://github.com/sphinx-doc/sphinx/issues/894>https://github.com/sphinx-doc/sphinx/issues/894</a></li></ol></div></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>
