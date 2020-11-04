@@ -32,8 +32,8 @@ slug: install-gmt4-under-linux
 
 下载完成后，可以用 `md5sum` 检查压缩文件的 md5 值，以保证该文件是完整且未被篡改的:
 
-    $  md5sum gmt-4.5.17-src.tar.bz2 gshhg-gmt-2.3.7.tar.gz
-    b35cf18fddcf4823dc75b1ea32808d71  gmt-4.5.17-src.tar.bz2
+    $  md5sum gmt-4.5.18-src.tar.bz2 gshhg-gmt-2.3.7.tar.gz
+    b35cf18fddcf4823dc75b1ea32808d71  gmt-4.5.18-src.tar.bz2
     8ee2653f9daf84d49fefbf990bbfa1e7  gshhg-gmt-2.3.7.tar.gz
 
 ## 依赖关系
