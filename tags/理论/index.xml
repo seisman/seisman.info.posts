@@ -1,35 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>理论 on SeisMan</title>
-    <link>https://blog.seisman.info/tags/%E7%90%86%E8%AE%BA/</link>
-    <description>Recent content in 理论 on SeisMan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Fri, 15 May 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E7%90%86%E8%AE%BA/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>球状模型下的 tau 积分</title>
-      <link>https://blog.seisman.info/tau-integral-in-spherical-earth/</link>
-      <pubDate>Fri, 15 May 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/tau-integral-in-spherical-earth/</guid>
-      <description>&lt;p&gt;在计算震相走时的过程中，对 $\tau(p)$ 函数的积分是其中比较重要的一步，
-具体 $\tau(p)$ 函数如何使用，在地震学教材里都有介绍。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>震相走时的计算</title>
-      <link>https://blog.seisman.info/traveltime-calculation/</link>
-      <pubDate>Sat, 02 May 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/traveltime-calculation/</guid>
-      <description>&lt;p&gt;震相走时的计算是地震学的基本问题之一。&lt;/p&gt;
-&lt;p&gt;目前，计算一维分层模型下的震相走时，主要使用两个程序包：ttimes 和 TauP。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>理论 on SeisMan</title><link>https://blog.seisman.info/tags/%E7%90%86%E8%AE%BA/</link><description>Recent content in 理论 on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 15 May 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E7%90%86%E8%AE%BA/index.xml" rel="self" type="application/rss+xml"/><item><title>球状模型下的 tau 积分</title><link>https://blog.seisman.info/tau-integral-in-spherical-earth/</link><pubDate>Fri, 15 May 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/tau-integral-in-spherical-earth/</guid><description>&lt;p>在计算震相走时的过程中，对 $\tau(p)$ 函数的积分是其中比较重要的一步，
+具体 $\tau(p)$ 函数如何使用，在地震学教材里都有介绍。&lt;/p></description></item><item><title>震相走时的计算</title><link>https://blog.seisman.info/traveltime-calculation/</link><pubDate>Sat, 02 May 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/traveltime-calculation/</guid><description>&lt;p>震相走时的计算是地震学的基本问题之一。&lt;/p>
+&lt;p>目前，计算一维分层模型下的震相走时，主要使用两个程序包：ttimes 和 TauP。
 ttimes 相对来说有些古老，所以多数情况下更推荐使用 TauP。但 TauP 不支持 PKPab、
-PKPbc 这种震相名，所以偶尔可能还是需要使用 ttimes。&lt;/p&gt;
-&lt;p&gt;ttimes 和 TauP 都是根据 Buland and Chapman（BSSA,1983）提出的理论框架来实现的，
-本文是对这篇文章的核心内容的简单总结。&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+PKPbc 这种震相名，所以偶尔可能还是需要使用 ttimes。&lt;/p>
+&lt;p>ttimes 和 TauP 都是根据 Buland and Chapman（BSSA,1983）提出的理论框架来实现的，
+本文是对这篇文章的核心内容的简单总结。&lt;/p></description></item></channel></rss>

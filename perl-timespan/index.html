@@ -1,408 +1,75 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Perl 中的时间加法 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="数据申请的过程中，经常需要处理的一个问题是：已知某时刻，在该时刻的基础上加上一段时间之后对应的时刻是多少？"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.1 with theme even"><link rel=canonical href=https://blog.seisman.info/perl-timespan/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="Perl 中的时间加法"><meta property="og:description" content="数据申请的过程中，经常需要处理的一个问题是：已知某时刻，在该时刻的基础上加上一段时间之后对应的时刻是多少？"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/perl-timespan/"><meta property="article:published_time" content="2013-10-16T00:00:00+00:00"><meta property="article:modified_time" content="2013-10-16T00:00:00+00:00"><meta itemprop=name content="Perl 中的时间加法"><meta itemprop=description content="数据申请的过程中，经常需要处理的一个问题是：已知某时刻，在该时刻的基础上加上一段时间之后对应的时刻是多少？"><meta itemprop=datePublished content="2013-10-16T00:00:00+00:00"><meta itemprop=dateModified content="2013-10-16T00:00:00+00:00"><meta itemprop=wordCount content="1215"><meta itemprop=keywords content="Perl,时间,模块,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Perl 中的时间加法"><meta name=twitter:description content="数据申请的过程中，经常需要处理的一个问题是：已知某时刻，在该时刻的基础上加上一段时间之后对应的时刻是多少？"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Perl 中的时间加法</h1><div class=post-meta><span class=post-time>2013-10-16</span><div class=post-category><a href=/categories/%E7%BC%96%E7%A8%8B/>编程</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#基本解法>基本解法</a></li><li><a href=#高级解法>高级解法</a></li><li><a href=#timegm>timegm</a></li><li><a href=#gmtime>gmtime</a></li><li><a href=#脚本实现>脚本实现</a></li><li><a href=#参考来源>参考来源</a></li></ul></nav></div></div><div class=post-content><p>数据申请的过程中，经常需要处理的一个问题是：已知某时刻，在该时刻的基础上加上一段时间之后对应的时刻是多少？</p><h2 id=基本解法>基本解法</h2><p>最朴素的思想是自己写一个程序：</p><ul><li>把该时刻的年月日时分秒分别加上一个时间间隔；</li><li>检查秒数，若秒数大于 60，则秒数减 60 同时分钟数加 1；</li><li>检查分钟，若分钟数大于 60，则分钟数减 60 同时小时数加 1；</li><li>检查小时，若小时大于 24，则小时数减 24 同时天数加 1；</li><li>根据当前月份确定当前月有多少天，如果超过该天数，则减去天数值，月份进 1；这里大概要做 12 次判断，同时还要考虑闰年的问题；</li><li>然后就发现这样的办法太麻烦了。。</li></ul><h2 id=高级解法>高级解法</h2><p>更高端一些的解法是，计算当前时刻与某个特定时刻的秒数差，然后再加上时间间隔，再将新的秒数差转换为时刻。</p><p>其实程序写起来依然很麻烦。在 Perl 中，已经有相当多的模块可以用于解决这个问题，直接调用即可。Perl 模块的强大之处即在此，这也是我不再使用 Bash 的一个原因。</p><h2 id=timegm>timegm</h2><p>Perl 的模块 Time::Local 下有个函数，叫做 timegm。其用法如下：</p><pre><code>$time = timegm($sec, $min, $hour, $mday, $mon, $year);
+</code></pre><p>输入参数有 6 个（默认情况下，该函数会进行输入检查，以确保这六个元素给定的时间的存在性。）</p><ul><li><code>$sec</code>：秒（0-59）；</li><li><code>$min</code>：分（0-59）；</li><li><code>$hour</code>：时（0-23）</li><li><code>$mday</code>：每月的第几天（1-31）；</li><li><code>$mon</code>：月份**（0-11）**；</li><li><code>$year</code>：年份；</li></ul><p>关于年份，其范围要复杂一些：</p><ul><li>如果 <code>$year>999</code>，则将其解释为真实的年份；</li><li>如果 <code>$year</code> 在 100 到 999 之间，则将其解释为与 1900 年的年份差；</li><li>如果 <code>$year</code> 在 0 到 99 之间，规则已经复杂的没有必要了。。。</li></ul><p>对于实际应用来说，前两条规则就够用了。</p><p>该函数的输出是当前时刻<strong>相对于1970年1月1日午夜的秒数</strong>。</p><h2 id=gmtime>gmtime</h2><p>Perl 内置一个函数 <code>gmtime</code>，<code>Time::Local</code> 模块里的 <code>timegm</code> 实际上是该函数的逆函数。</p><p>其用法如下:</p><pre><code>($sec ,$min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = gmtime($time);
+</code></pre><p>其输入是相对于 1970 年 1 月 1 日午夜的秒数。</p><p>其输出有 9 个元素：</p><ul><li><code>$sec</code>：秒（0-59）；</li><li><code>$min</code>：分（0-59）；</li><li><code>$hour</code>：时（0-23）</li><li><code>$mday</code>：每月的第几天（1-31）；</li><li><code>$mon</code>：月份**（0-11）**；</li><li><code>$year</code>：年份 - 1900；</li><li><code>$wday</code>：周的第几天（0-6）；0 代表周日，1 代表周一；</li><li><code>$yday</code>：一年的第几天（0-364 或者 0-365）；</li><li><code>$isdst</code>：是否是夏令时（0-1）</li></ul><h2 id=脚本实现>脚本实现</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl><span style=color:#75715e>#!/usr/bin/env perl</span>
+<span style=color:#75715e># Example to show the use of time_add</span>
 
-  
+<span style=color:#66d9ef>use</span> strict;
+<span style=color:#66d9ef>use</span> warnings;
+<span style=color:#66d9ef>use</span> Time::Local;
 
-  <title>Perl 中的时间加法 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<span style=color:#75715e># 当前时刻为 2013 年 10 月 12 日 04 时 5 分 0 秒</span>
+<span style=color:#75715e>#   - 04 时或者 4 时都可以</span>
+<span style=color:#75715e>#   - 10 月是真正的 10 月</span>
+<span style=color:#75715e>#   - 子函数中的变量与主函数中变量相互独立</span>
+<span style=color:#66d9ef>my</span> $year <span style=color:#f92672>=</span> <span style=color:#ae81ff>2013</span>;
+<span style=color:#66d9ef>my</span> $mon <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span>;
+<span style=color:#66d9ef>my</span> $day <span style=color:#f92672>=</span> <span style=color:#ae81ff>12</span>;
+<span style=color:#66d9ef>my</span> $hour <span style=color:#f92672>=</span> <span style=color:#ae81ff>04</span>;
+<span style=color:#66d9ef>my</span> $min <span style=color:#f92672>=</span> <span style=color:#ae81ff>5</span>;
+<span style=color:#66d9ef>my</span> $sec <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<span style=color:#75715e># 时间差，5 分 15 秒</span>
+<span style=color:#66d9ef>my</span> $span <span style=color:#f92672>=</span> <span style=color:#ae81ff>5</span><span style=color:#f92672>*</span><span style=color:#ae81ff>60</span><span style=color:#f92672>+</span><span style=color:#ae81ff>15</span>;
 
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+<span style=color:#66d9ef>print</span> <span style=color:#e6db74>&#34;BEFORE $year/$mon/$day $hour:$min:$sec\n&#34;</span>;
 
+($year, $mon, $day, $hour, $min, $sec) <span style=color:#f92672>=</span>
+    <span style=color:#f92672>&amp;</span>time_add($year, $mon, $day, $hour, $min, $sec, $span);
 
-<meta name="author" content="SeisMan" /><meta name="description" content="数据申请的过程中，经常需要处理的一个问题是：已知某时刻，在该时刻的基础上加上一段时间之后对应的时刻是多少？
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.79.1 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/perl-timespan/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<span style=color:#66d9ef>print</span> <span style=color:#e6db74>&#34;AFTER  $year/$mon/$day $hour:$min:$sec\n&#34;</span>;
 
 
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+<span style=color:#75715e># 子程序</span>
+<span style=color:#66d9ef>sub</span> <span style=color:#a6e22e>time_add</span>(){
+    <span style=color:#66d9ef>my</span> ($year, $mon, $day, $hour, $min, $sec, $timespan) <span style=color:#f92672>=</span> @_;
+    <span style=color:#66d9ef>my</span> ($wday, $yday, $isdast);
 
+    <span style=color:#75715e># 函数的月份范围为 0-11</span>
+    $mon <span style=color:#f92672>-=</span> <span style=color:#ae81ff>1</span>;
 
-<meta property="og:title" content="Perl 中的时间加法" />
-<meta property="og:description" content="数据申请的过程中，经常需要处理的一个问题是：已知某时刻，在该时刻的基础上加上一段时间之后对应的时刻是多少？" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/perl-timespan/" />
-<meta property="article:published_time" content="2013-10-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2013-10-16T00:00:00+00:00" />
-<meta itemprop="name" content="Perl 中的时间加法">
-<meta itemprop="description" content="数据申请的过程中，经常需要处理的一个问题是：已知某时刻，在该时刻的基础上加上一段时间之后对应的时刻是多少？">
-<meta itemprop="datePublished" content="2013-10-16T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2013-10-16T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1215">
+    <span style=color:#75715e># 计算该时刻与 1970 年 1 月 1 日午夜的秒数差</span>
+    <span style=color:#66d9ef>my</span> $time <span style=color:#f92672>=</span> timegm($sec, $min, $hour, $day, $mon, $year);
 
+    <span style=color:#75715e># 将该秒数加上一个时间差</span>
+    $time <span style=color:#f92672>+=</span> $timespan;
 
+    <span style=color:#75715e># 将时间差转换为具体的时刻</span>
+    ($sec, $min, $hour, $day, $mon, $year, $wday, $yday, $isdast) <span style=color:#f92672>=</span> gmtime($time);
 
-<meta itemprop="keywords" content="Perl,时间,模块," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Perl 中的时间加法"/>
-<meta name="twitter:description" content="数据申请的过程中，经常需要处理的一个问题是：已知某时刻，在该时刻的基础上加上一段时间之后对应的时刻是多少？"/>
+    <span style=color:#75715e># 对年份和月份特殊处理</span>
+    $year <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1900</span>;
+    $mon <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
 
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">Perl 中的时间加法</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2013-10-16 </span>
-        <div class="post-category">
-            <a href="/categories/%E7%BC%96%E7%A8%8B/"> 编程 </a>
-            </div>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#基本解法">基本解法</a></li>
-    <li><a href="#高级解法">高级解法</a></li>
-    <li><a href="#timegm">timegm</a></li>
-    <li><a href="#gmtime">gmtime</a></li>
-    <li><a href="#脚本实现">脚本实现</a></li>
-    <li><a href="#参考来源">参考来源</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>数据申请的过程中，经常需要处理的一个问题是：已知某时刻，在该时刻的基础上加上一段时间之后对应的时刻是多少？</p>
-<h2 id="基本解法">基本解法</h2>
-<p>最朴素的思想是自己写一个程序：</p>
-<ul>
-<li>把该时刻的年月日时分秒分别加上一个时间间隔；</li>
-<li>检查秒数，若秒数大于 60，则秒数减 60 同时分钟数加 1；</li>
-<li>检查分钟，若分钟数大于 60，则分钟数减 60 同时小时数加 1；</li>
-<li>检查小时，若小时大于 24，则小时数减 24 同时天数加 1；</li>
-<li>根据当前月份确定当前月有多少天，如果超过该天数，则减去天数值，月份进 1；这里大概要做 12 次判断，同时还要考虑闰年的问题；</li>
-<li>然后就发现这样的办法太麻烦了。。</li>
-</ul>
-<h2 id="高级解法">高级解法</h2>
-<p>更高端一些的解法是，计算当前时刻与某个特定时刻的秒数差，然后再加上时间间隔，再将新的秒数差转换为时刻。</p>
-<p>其实程序写起来依然很麻烦。在 Perl 中，已经有相当多的模块可以用于解决这个问题，直接调用即可。Perl 模块的强大之处即在此，这也是我不再使用 Bash 的一个原因。</p>
-<h2 id="timegm">timegm</h2>
-<p>Perl 的模块 Time::Local 下有个函数，叫做 timegm。其用法如下：</p>
-<pre><code>$time = timegm($sec, $min, $hour, $mday, $mon, $year);
-</code></pre>
-<p>输入参数有 6 个（默认情况下，该函数会进行输入检查，以确保这六个元素给定的时间的存在性。）</p>
-<ul>
-<li><code>$sec</code>：秒（0-59）；</li>
-<li><code>$min</code>：分（0-59）；</li>
-<li><code>$hour</code>：时（0-23）</li>
-<li><code>$mday</code>：每月的第几天（1-31）；</li>
-<li><code>$mon</code>：月份**（0-11）**；</li>
-<li><code>$year</code>：年份；</li>
-</ul>
-<p>关于年份，其范围要复杂一些：</p>
-<ul>
-<li>如果 <code>$year&gt;999</code>，则将其解释为真实的年份；</li>
-<li>如果 <code>$year</code> 在 100 到 999 之间，则将其解释为与 1900 年的年份差；</li>
-<li>如果 <code>$year</code> 在 0 到 99 之间，规则已经复杂的没有必要了。。。</li>
-</ul>
-<p>对于实际应用来说，前两条规则就够用了。</p>
-<p>该函数的输出是当前时刻<strong>相对于1970年1月1日午夜的秒数</strong>。</p>
-<h2 id="gmtime">gmtime</h2>
-<p>Perl 内置一个函数 <code>gmtime</code>，<code>Time::Local</code> 模块里的 <code>timegm</code> 实际上是该函数的逆函数。</p>
-<p>其用法如下:</p>
-<pre><code>($sec ,$min, $hour, $mday, $mon, $year, $wday, $yday, $isdst) = gmtime($time);
-</code></pre>
-<p>其输入是相对于 1970 年 1 月 1 日午夜的秒数。</p>
-<p>其输出有 9 个元素：</p>
-<ul>
-<li><code>$sec</code>：秒（0-59）；</li>
-<li><code>$min</code>：分（0-59）；</li>
-<li><code>$hour</code>：时（0-23）</li>
-<li><code>$mday</code>：每月的第几天（1-31）；</li>
-<li><code>$mon</code>：月份**（0-11）**；</li>
-<li><code>$year</code>：年份 - 1900；</li>
-<li><code>$wday</code>：周的第几天（0-6）；0 代表周日，1 代表周一；</li>
-<li><code>$yday</code>：一年的第几天（0-364 或者 0-365）；</li>
-<li><code>$isdst</code>：是否是夏令时（0-1）</li>
-</ul>
-<h2 id="脚本实现">脚本实现</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e">#!/usr/bin/env perl</span>
-<span style="color:#75715e"># Example to show the use of time_add</span>
-
-<span style="color:#66d9ef">use</span> strict;
-<span style="color:#66d9ef">use</span> warnings;
-<span style="color:#66d9ef">use</span> Time::Local;
-
-<span style="color:#75715e"># 当前时刻为 2013 年 10 月 12 日 04 时 5 分 0 秒</span>
-<span style="color:#75715e">#   - 04 时或者 4 时都可以</span>
-<span style="color:#75715e">#   - 10 月是真正的 10 月</span>
-<span style="color:#75715e">#   - 子函数中的变量与主函数中变量相互独立</span>
-<span style="color:#66d9ef">my</span> $year <span style="color:#f92672">=</span> <span style="color:#ae81ff">2013</span>;
-<span style="color:#66d9ef">my</span> $mon <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
-<span style="color:#66d9ef">my</span> $day <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>;
-<span style="color:#66d9ef">my</span> $hour <span style="color:#f92672">=</span> <span style="color:#ae81ff">04</span>;
-<span style="color:#66d9ef">my</span> $min <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
-<span style="color:#66d9ef">my</span> $sec <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
-
-<span style="color:#75715e"># 时间差，5 分 15 秒</span>
-<span style="color:#66d9ef">my</span> $span <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">*</span><span style="color:#ae81ff">60</span><span style="color:#f92672">+</span><span style="color:#ae81ff">15</span>;
-
-<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;BEFORE $year/$mon/$day $hour:$min:$sec\n&#34;</span>;
-
-($year, $mon, $day, $hour, $min, $sec) <span style="color:#f92672">=</span>
-    <span style="color:#f92672">&amp;</span>time_add($year, $mon, $day, $hour, $min, $sec, $span);
-
-<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;AFTER  $year/$mon/$day $hour:$min:$sec\n&#34;</span>;
-
-
-<span style="color:#75715e"># 子程序</span>
-<span style="color:#66d9ef">sub</span> <span style="color:#a6e22e">time_add</span>(){
-    <span style="color:#66d9ef">my</span> ($year, $mon, $day, $hour, $min, $sec, $timespan) <span style="color:#f92672">=</span> @_;
-    <span style="color:#66d9ef">my</span> ($wday, $yday, $isdast);
-
-    <span style="color:#75715e"># 函数的月份范围为 0-11</span>
-    $mon <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>;
-
-    <span style="color:#75715e"># 计算该时刻与 1970 年 1 月 1 日午夜的秒数差</span>
-    <span style="color:#66d9ef">my</span> $time <span style="color:#f92672">=</span> timegm($sec, $min, $hour, $day, $mon, $year);
-
-    <span style="color:#75715e"># 将该秒数加上一个时间差</span>
-    $time <span style="color:#f92672">+=</span> $timespan;
-
-    <span style="color:#75715e"># 将时间差转换为具体的时刻</span>
-    ($sec, $min, $hour, $day, $mon, $year, $wday, $yday, $isdast) <span style="color:#f92672">=</span> gmtime($time);
-
-    <span style="color:#75715e"># 对年份和月份特殊处理</span>
-    $year <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1900</span>;
-    $mon <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
-
-    <span style="color:#75715e"># 返回</span>
-    <span style="color:#66d9ef">return</span> ($year, $mon, $day, $hour, $min, $sec);
+    <span style=color:#75715e># 返回</span>
+    <span style=color:#66d9ef>return</span> ($year, $mon, $day, $hour, $min, $sec);
 }
-</code></pre></div><h2 id="参考来源">参考来源</h2>
-<ol>
-<li><a href="http://cn.perlmaven.com/the-year-19100">Perl 中的时间</a></li>
-<li><a href="http://perldoc.perl.org/functions/localtime.html">Perl 内置文档</a></li>
-<li><a href="http://perldoc.perl.org/Time/Local.html">Time::Local 模块</a></li>
-</ol>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2013-10-16
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/Perl/">Perl</a>
-          <a href="/tags/%E6%97%B6%E9%97%B4/">时间</a>
-          <a href="/tags/%E6%A8%A1%E5%9D%97/">模块</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/gmt-latex/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">在 GMT 中使用 LaTeX</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/perl-progressbar/">
-            <span class="next-text nav-default">Perl 进度条模块</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+</code></pre></div><h2 id=参考来源>参考来源</h2><ol><li><a href=http://cn.perlmaven.com/the-year-19100>Perl 中的时间</a></li><li><a href=http://perldoc.perl.org/functions/localtime.html>Perl 内置文档</a></li><li><a href=http://perldoc.perl.org/Time/Local.html>Time::Local 模块</a></li></ol></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2013-10-16</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Perl/>Perl</a>
+<a href=/tags/%E6%97%B6%E9%97%B4/>时间</a>
+<a href=/tags/%E6%A8%A1%E5%9D%97/>模块</a></div><nav class=post-nav><a class=prev href=/gmt-latex/><i class="iconfont icon-left"></i><span class="prev-text nav-default">在 GMT 中使用 LaTeX</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/perl-progressbar/><span class="next-text nav-default">Perl 进度条模块</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

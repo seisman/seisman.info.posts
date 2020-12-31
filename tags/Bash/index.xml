@@ -1,23 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Bash on SeisMan</title>
-    <link>https://blog.seisman.info/tags/Bash/</link>
-    <description>Recent content in Bash on SeisMan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Wed, 13 Nov 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/Bash/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>判断字节序的多种方法</title>
-      <link>https://blog.seisman.info/linux-endian/</link>
-      <pubDate>Wed, 13 Nov 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/linux-endian/</guid>
-      <description>&lt;p&gt;本文整理自： &lt;a href=&#34;http://serverfault.com/questions/163487/&#34;&gt;http://serverfault.com/questions/163487/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;直接查看系统文件:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;lscpu | grep -i byte
-&lt;/code&gt;&lt;/pre&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bash on SeisMan</title><link>https://blog.seisman.info/tags/Bash/</link><description>Recent content in Bash on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 13 Nov 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/Bash/index.xml" rel="self" type="application/rss+xml"/><item><title>判断字节序的多种方法</title><link>https://blog.seisman.info/linux-endian/</link><pubDate>Wed, 13 Nov 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/linux-endian/</guid><description>&lt;p>本文整理自： &lt;a href="http://serverfault.com/questions/163487/">http://serverfault.com/questions/163487/&lt;/a>&lt;/p>
+&lt;p>直接查看系统文件:&lt;/p>
+&lt;pre>&lt;code>lscpu | grep -i byte
+&lt;/code>&lt;/pre></description></item></channel></rss>

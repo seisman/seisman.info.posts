@@ -1,260 +1,20 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  
-
-  <title>gCAP 的安装 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="gCAP 是 Prof. Lupei Zhu 发展的一种反演震源机制解的一种方法。目前该代码已经开源。
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.79.1 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/gcap-install/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="gCAP 的安装" />
-<meta property="og:description" content="gCAP 是 Prof. Lupei Zhu 发展的一种反演震源机制解的一种方法。目前该代码已经开源。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/gcap-install/" />
-<meta property="article:published_time" content="2014-06-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2016-04-07T00:00:00+00:00" />
-<meta itemprop="name" content="gCAP 的安装">
-<meta itemprop="description" content="gCAP 是 Prof. Lupei Zhu 发展的一种反演震源机制解的一种方法。目前该代码已经开源。">
-<meta itemprop="datePublished" content="2014-06-13T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2016-04-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1746">
-
-
-
-<meta itemprop="keywords" content="震源机制解," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="gCAP 的安装"/>
-<meta name="twitter:description" content="gCAP 是 Prof. Lupei Zhu 发展的一种反演震源机制解的一种方法。目前该代码已经开源。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">gCAP 的安装</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2014-06-13 </span>
-        <div class="post-category">
-            <a href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/"> 地震学软件 </a>
-            </div>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#gcap-安装步骤">gCAP 安装步骤</a></li>
-    <li><a href="#运行-gcap">运行 gcap</a>
-      <ul>
-        <li><a href="#用-fk-构建格林函数库">用 fk 构建格林函数库</a></li>
-        <li><a href="#运行-gcap-示例">运行 gcap 示例</a></li>
-      </ul>
-    </li>
-    <li><a href="#关于段错误的说明">关于段错误的说明</a></li>
-    <li><a href="#关于-gcap3d-的说明">关于 gCAP3D 的说明</a></li>
-    <li><a href="#修订历史">修订历史</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>gCAP 是 Prof. Lupei Zhu 发展的一种反演震源机制解的一种方法。目前该代码已经开源。</p>
-<h2 id="gcap-安装步骤">gCAP 安装步骤</h2>
-<ol>
-<li>
-<p>下载 gCAP 源码： <a href="http://www.eas.slu.edu/People/LZhu/downloads/gcap1.0.tar">http://www.eas.slu.edu/People/LZhu/downloads/gcap1.0.tar</a></p>
-</li>
-<li>
-<p>解压:</p>
-<pre><code>tar -xvf gcap1.0.tar
-</code></pre>
-</li>
-<li>
-<p>清理垃圾文件</p>
-<p>软件包在发布的时候，没有做一些清理，遗留了一些没有用的临时文件，看起来很碍眼:</p>
-<pre><code>rm junk.ps junk.out .gmtcommands
-</code></pre>
-</li>
-<li>
-<p>下载辅助代码</p>
-<p>gCAP 使用了 Numerical Recipes（简称 NR）中的一些函数，包括 <code>matrix</code> 、
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>gCAP 的安装 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="gCAP 是 Prof. Lupei Zhu 发展的一种反演震源机制解的一种方法。目前该代码已经开源。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.1 with theme even"><link rel=canonical href=https://blog.seisman.info/gcap-install/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="gCAP 的安装"><meta property="og:description" content="gCAP 是 Prof. Lupei Zhu 发展的一种反演震源机制解的一种方法。目前该代码已经开源。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/gcap-install/"><meta property="article:published_time" content="2014-06-13T00:00:00+00:00"><meta property="article:modified_time" content="2016-04-07T00:00:00+00:00"><meta itemprop=name content="gCAP 的安装"><meta itemprop=description content="gCAP 是 Prof. Lupei Zhu 发展的一种反演震源机制解的一种方法。目前该代码已经开源。"><meta itemprop=datePublished content="2014-06-13T00:00:00+00:00"><meta itemprop=dateModified content="2016-04-07T00:00:00+00:00"><meta itemprop=wordCount content="1746"><meta itemprop=keywords content="震源机制解,"><meta name=twitter:card content="summary"><meta name=twitter:title content="gCAP 的安装"><meta name=twitter:description content="gCAP 是 Prof. Lupei Zhu 发展的一种反演震源机制解的一种方法。目前该代码已经开源。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>gCAP 的安装</h1><div class=post-meta><span class=post-time>2014-06-13</span><div class=post-category><a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/>地震学软件</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#gcap-安装步骤>gCAP 安装步骤</a></li><li><a href=#运行-gcap>运行 gcap</a><ul><li><a href=#用-fk-构建格林函数库>用 fk 构建格林函数库</a></li><li><a href=#运行-gcap-示例>运行 gcap 示例</a></li></ul></li><li><a href=#关于段错误的说明>关于段错误的说明</a></li><li><a href=#关于-gcap3d-的说明>关于 gCAP3D 的说明</a></li><li><a href=#修订历史>修订历史</a></li></ul></nav></div></div><div class=post-content><p>gCAP 是 Prof. Lupei Zhu 发展的一种反演震源机制解的一种方法。目前该代码已经开源。</p><h2 id=gcap-安装步骤>gCAP 安装步骤</h2><ol><li><p>下载 gCAP 源码： <a href=http://www.eas.slu.edu/People/LZhu/downloads/gcap1.0.tar>http://www.eas.slu.edu/People/LZhu/downloads/gcap1.0.tar</a></p></li><li><p>解压:</p><pre><code>tar -xvf gcap1.0.tar
+</code></pre></li><li><p>清理垃圾文件</p><p>软件包在发布的时候，没有做一些清理，遗留了一些没有用的临时文件，看起来很碍眼:</p><pre><code>rm junk.ps junk.out .gmtcommands
+</code></pre></li><li><p>下载辅助代码</p><p>gCAP 使用了 Numerical Recipes（简称 NR）中的一些函数，包括 <code>matrix</code> 、
 <code>free_matrix</code> 、 <code>free_convert_matrix</code> 、 <code>jacobi</code> 、 <code>eigsrt</code> 。
-由于 NR 是非开源非免费的软件，所以 gCAP 并没有将 NR 相关的代码放在包里。</p>
-<p>网络上可以下载到 NR 的完整代码，这里仅给出 gCAP 所需的部分（注：此处存在版权问题！）。
-下载该压缩包，解压，并将解压后的源代码放到 gCAP 的目录中。</p>
-<p>gCAP_util 下载：<a href="/downloads/gcap_utils.tar.gz">gcap_utils.tar.gz</a></p>
-</li>
-<li>
-<p>新的 Makefile</p>
-<p>软件包自带的 Makefile 无法使用，因而对其进行了一些修改。修改幅度稍大，几乎算是重写了。</p>
-<p>新 Makefile 下载地址：<a href="/downloads/Makefile.gCAP">Makefile.gCAP</a></p>
-<p>下载之后，将其重命名为 Makefile，替换原目录中的同名文件，并根据自身情况修改 Makefile 文件中的
-变量 <code>SACHOME</code> 、 <code>FC</code> 、<code>CC</code> 。</p>
-</li>
-<li>
-<p>编译:</p>
-<pre><code>make
-</code></pre>
-</li>
-<li>
-<p>修改环境变量</p>
-<p>要想在终端运行 gcap，需要系统能够正确找到二进制文件 <code>cap</code> 、<code>cap_dir</code> 、
-<code>mtdcmp</code> 、 <code>radpttn</code> 以及脚本文件 <code>cap.pl</code> 和 <code>depth.pl</code>。</p>
-<p>直接将 gcap 的源码路径加入到 PATH 环境变量中，即在 <code>~/.bashrc</code> 中加入类似如下语句:</p>
-<pre><code>export PATH=/path/to/gcap:${PATH}
-</code></pre>
-</li>
-<li>
-<p>修改脚本 <code>cap.pl</code></p>
-<p><code>cap.pl</code> 中第 15 行与第 19 行包含了两个绝对路径，需要根据自身情况进行修改。</p>
-<ul>
-<li>第15行： <code>require &quot;$home/Src/cap/cap_plt.pl&quot;;</code> 中的路径改成 <code>cap_plt.pl</code> 的绝对路径，类似于 <code>require &quot;/path/to/gcap/cap_plt.pl&quot;</code></li>
-<li>第19行： <code>$green</code> 是自己计算的格林函数库的位置。如果你不知道如何修改的话，就直接用默认值，并使用命令 <code>mkdir ~/data/models/Glib</code> 新建这个目录。</li>
-</ul>
-</li>
-<li>
-<p>修改绘图脚本 <code>cap_plt.pl</code></p>
-<p>使用默认的脚本运行并绘图后，可能会发现整个图片都缩在图片的左下角的一个小区域
+由于 NR 是非开源非免费的软件，所以 gCAP 并没有将 NR 相关的代码放在包里。</p><p>网络上可以下载到 NR 的完整代码，这里仅给出 gCAP 所需的部分（注：此处存在版权问题！）。
+下载该压缩包，解压，并将解压后的源代码放到 gCAP 的目录中。</p><p>gCAP_util 下载：<a href=/downloads/gcap_utils.tar.gz>gcap_utils.tar.gz</a></p></li><li><p>新的 Makefile</p><p>软件包自带的 Makefile 无法使用，因而对其进行了一些修改。修改幅度稍大，几乎算是重写了。</p><p>新 Makefile 下载地址：<a href=/downloads/Makefile.gCAP>Makefile.gCAP</a></p><p>下载之后，将其重命名为 Makefile，替换原目录中的同名文件，并根据自身情况修改 Makefile 文件中的
+变量 <code>SACHOME</code> 、 <code>FC</code> 、<code>CC</code> 。</p></li><li><p>编译:</p><pre><code>make
+</code></pre></li><li><p>修改环境变量</p><p>要想在终端运行 gcap，需要系统能够正确找到二进制文件 <code>cap</code> 、<code>cap_dir</code> 、
+<code>mtdcmp</code> 、 <code>radpttn</code> 以及脚本文件 <code>cap.pl</code> 和 <code>depth.pl</code>。</p><p>直接将 gcap 的源码路径加入到 PATH 环境变量中，即在 <code>~/.bashrc</code> 中加入类似如下语句:</p><pre><code>export PATH=/path/to/gcap:${PATH}
+</code></pre></li><li><p>修改脚本 <code>cap.pl</code></p><p><code>cap.pl</code> 中第 15 行与第 19 行包含了两个绝对路径，需要根据自身情况进行修改。</p><ul><li>第15行： <code>require "$home/Src/cap/cap_plt.pl";</code> 中的路径改成 <code>cap_plt.pl</code> 的绝对路径，类似于 <code>require "/path/to/gcap/cap_plt.pl"</code></li><li>第19行： <code>$green</code> 是自己计算的格林函数库的位置。如果你不知道如何修改的话，就直接用默认值，并使用命令 <code>mkdir ~/data/models/Glib</code> 新建这个目录。</li></ul></li><li><p>修改绘图脚本 <code>cap_plt.pl</code></p><p>使用默认的脚本运行并绘图后，可能会发现整个图片都缩在图片的左下角的一个小区域
 内，与示例中的图片相比有较大差别。出现这个错误的主要原因是，Prof. Zhu 的 GMT 默认
 使用了 US 单位制，脚本中所有未显式指定单位的值使用的都是 inch，而其他人通常使用的都
-是 SI 单位制，会将这些未显式指定单位的值使用默认单位 cm。</p>
-<p>解决办法是，在 <code>cap_plt.pl</code> 的第 6 行之后加上如下语句:</p>
-<pre><code>system &quot;gmtset MEASURE_UNIT inch&quot;;
+是 SI 单位制，会将这些未显式指定单位的值使用默认单位 cm。</p><p>解决办法是，在 <code>cap_plt.pl</code> 的第 6 行之后加上如下语句:</p><pre><code>system &quot;gmtset MEASURE_UNIT inch&quot;;
 system &quot;gmtset PAGE_ORIENTATION portrait&quot;;
-</code></pre>
-<p>这两句的作用是设置默认单位为英寸，并设置纸张方向为 portrait 模式。</p>
-</li>
-</ol>
-<h2 id="运行-gcap">运行 gcap</h2>
-<p>在终端直接执行:</p>
-<pre><code>$ cap.pl
-</code></pre>
-<p>就会出现软件的用法说明。</p>
-<p>软件包中自带了一个示例数据，下面来复现一下这个示例。</p>
-<h3 id="用-fk-构建格林函数库">用 fk 构建格林函数库</h3>
-<p>要运行 gcap，使用要使用 fk 建立格林函数库。如果你不知道 fk 是什么，请参考：</p>
-<ol>
-<li><a href="/fk-install/">安装fk</a></li>
-<li><a href="/fk-notes/">fk 用法笔记</a></li>
-</ol>
-<p>要建立格林函数库，首先需要一个模型文件。gcap 的示例使用的是一个名为 cus 的模型，由于 gcap
-没有使用 cus 这个模型文件，所以这里使用的是 fk 自带的 hk 模型。</p>
-<pre><code># 切换到格林函数库所在目录
+</code></pre><p>这两句的作用是设置默认单位为英寸，并设置纸张方向为 portrait 模式。</p></li></ol><h2 id=运行-gcap>运行 gcap</h2><p>在终端直接执行:</p><pre><code>$ cap.pl
+</code></pre><p>就会出现软件的用法说明。</p><p>软件包中自带了一个示例数据，下面来复现一下这个示例。</p><h3 id=用-fk-构建格林函数库>用 fk 构建格林函数库</h3><p>要运行 gcap，使用要使用 fk 建立格林函数库。如果你不知道 fk 是什么，请参考：</p><ol><li><a href=/fk-install/>安装fk</a></li><li><a href=/fk-notes/>fk 用法笔记</a></li></ol><p>要建立格林函数库，首先需要一个模型文件。gcap 的示例使用的是一个名为 cus 的模型，由于 gcap
+没有使用 cus 这个模型文件，所以这里使用的是 fk 自带的 hk 模型。</p><pre><code># 切换到格林函数库所在目录
 $ cd ~/data/models/Glib
 # 为 hk 模型新建目录
 $ mkdir hk
@@ -264,161 +24,32 @@ $ cp /path/to/fk/hk .
 # 用 fk 计算格林函数库
 $ fk.pl -Mhk/15/k -N512/0.2 -S2 05 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100 105 110 115 120 125 130 135 140 145 150 155 160 165 170 175 180 185 190 195 200 205 210 215 220 225 230 235 240 245 250 255 260 265 270 275 280 285 290 295 300 305 310 315 320 325 330 335 340 345 350 355 360 365 370 375 380 385 390 395 400 405 410 415
 $ fk.pl -Mhk/15/k -N512/0.2 -S0 05 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100 105 110 115 120 125 130 135 140 145 150 155 160 165 170 175 180 185 190 195 200 205 210 215 220 225 230 235 240 245 250 255 260 265 270 275 280 285 290 295 300 305 310 315 320 325 330 335 340 345 350 355 360 365 370 375 380 385 390 395 400 405 410 415
-</code></pre>
-<p><code>-M</code> 选项中 15 代表震源深度是 15 km，你可以从 1 km 一直算到 40 km 甚至更深，此处只算了 15 km 以供示例使用。</p>
-<h3 id="运行-gcap-示例">运行 gcap 示例</h3>
-<pre><code># 切换回 gcap 目录
+</code></pre><p><code>-M</code> 选项中 15 代表震源深度是 15 km，你可以从 1 km 一直算到 40 km 甚至更深，此处只算了 15 km 以供示例使用。</p><h3 id=运行-gcap-示例>运行 gcap 示例</h3><pre><code># 切换回 gcap 目录
 $ cd /path/to/gcap
 # 为了防止误操作，先将自带的示例备份一下
 $ cp -r 20080418093700 20080418093700.bak
 # 运行 gcap 示例
 $ cap.pl -H0.2 -P0.3 -S2/5/0 -T35/70 -F -D2/1/0.5 -C0.05/0.3/0.02/0.1 -W1 -X10 -Mhk_15/5.0 20080418093700
-</code></pre>
-<p>运行该示例所使用的参数来自于 <code>cap.pl</code> 命令的说明文档，请自行查阅以了解每个参数的含义。 <code>-Mhk_15/5.0</code> 选项表示使用 hk 模型、震源深度为 15 km处的格林函数。</p>
-<p>执行完毕后，会生成 <code>hk_15.ps</code> 和 <code>hk_15.out</code>，将其与示例自带的 <code>cus_15.ps</code> 和 <code>cus_15.out</code>
-对比可发现，二者基本完全一致。</p>
-<h2 id="关于段错误的说明">关于段错误的说明</h2>
-<p>若直接运行二进制文件 <code>cap</code> 会出现段错误:</p>
-<pre><code>$ cap
+</code></pre><p>运行该示例所使用的参数来自于 <code>cap.pl</code> 命令的说明文档，请自行查阅以了解每个参数的含义。 <code>-Mhk_15/5.0</code> 选项表示使用 hk 模型、震源深度为 15 km处的格林函数。</p><p>执行完毕后，会生成 <code>hk_15.ps</code> 和 <code>hk_15.out</code>，将其与示例自带的 <code>cus_15.ps</code> 和 <code>cus_15.out</code>
+对比可发现，二者基本完全一致。</p><h2 id=关于段错误的说明>关于段错误的说明</h2><p>若直接运行二进制文件 <code>cap</code> 会出现段错误:</p><pre><code>$ cap
 [1]    12763 segmentation fault  cap
-</code></pre>
-<p>这是因为 <code>cap</code> 命令行中需要一个参数。记住，直接使用 <code>cap.pl</code> ，不要直接使用 <code>cap</code>。</p>
-<h2 id="关于-gcap3d-的说明">关于 gCAP3D 的说明</h2>
-<p>gCAP3D 是在 gCAP 的基础上修改得到的，与 gCAP 的区别在于其可以使用三维格林函数。
-该代码也已经开源。</p>
-<p>gCAP 和 gCAP3D 之间没有本质区别，本文的介绍以 gCAP 为准，在最后会介绍安装方法上
-gCAP3D 与 gCAP 的不同。</p>
-<p>gCAP3D 的安装与 gCAP 的步骤几乎完全相同（部分文件名以及行号可能不一致，读者自行判断），区别列出如下：</p>
-<ul>
-<li>下载地址： <a href="http://www.eas.slu.edu/People/LZhu/downloads/gCAP3D1.0.tar">http://www.eas.slu.edu/People/LZhu/downloads/gCAP3D1.0.tar</a></li>
-<li>Makefile 下载地址： <a href="/downloads/Makefile.gCAP3D">Makefile.gCAP3D</a></li>
-</ul>
-<h2 id="修订历史">修订历史</h2>
-<ul>
-<li>2014-06-13：初稿；</li>
-<li>2016-03-12：加入了对 gCAP3D 的说明；</li>
-<li>2016-04-07：微调文章结构，加入了对段错误的说明；</li>
-<li>2016-07-31：完善了示例；</li>
-</ul>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2016-04-07
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/%E9%9C%87%E6%BA%90%E6%9C%BA%E5%88%B6%E8%A7%A3/">震源机制解</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/python-ustc-wlt-login/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">USTC 网络通登录脚本 Python 版</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/double-y-axis-plot/">
-            <span class="next-text nav-default">GMT 绘制双 Y 轴</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+</code></pre><p>这是因为 <code>cap</code> 命令行中需要一个参数。记住，直接使用 <code>cap.pl</code> ，不要直接使用 <code>cap</code>。</p><h2 id=关于-gcap3d-的说明>关于 gCAP3D 的说明</h2><p>gCAP3D 是在 gCAP 的基础上修改得到的，与 gCAP 的区别在于其可以使用三维格林函数。
+该代码也已经开源。</p><p>gCAP 和 gCAP3D 之间没有本质区别，本文的介绍以 gCAP 为准，在最后会介绍安装方法上
+gCAP3D 与 gCAP 的不同。</p><p>gCAP3D 的安装与 gCAP 的步骤几乎完全相同（部分文件名以及行号可能不一致，读者自行判断），区别列出如下：</p><ul><li>下载地址： <a href=http://www.eas.slu.edu/People/LZhu/downloads/gCAP3D1.0.tar>http://www.eas.slu.edu/People/LZhu/downloads/gCAP3D1.0.tar</a></li><li>Makefile 下载地址： <a href=/downloads/Makefile.gCAP3D>Makefile.gCAP3D</a></li></ul><h2 id=修订历史>修订历史</h2><ul><li>2014-06-13：初稿；</li><li>2016-03-12：加入了对 gCAP3D 的说明；</li><li>2016-04-07：微调文章结构，加入了对段错误的说明；</li><li>2016-07-31：完善了示例；</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2016-04-07</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/%E9%9C%87%E6%BA%90%E6%9C%BA%E5%88%B6%E8%A7%A3/>震源机制解</a></div><nav class=post-nav><a class=prev href=/python-ustc-wlt-login/><i class="iconfont icon-left"></i><span class="prev-text nav-default">USTC 网络通登录脚本 Python 版</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/double-y-axis-plot/><span class="next-text nav-default">GMT 绘制双 Y 轴</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

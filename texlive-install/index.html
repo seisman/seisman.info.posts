@@ -1,373 +1,46 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  
-
-  <title>Linux 下安装 TeXLive 2018 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="本文将介绍如何在 Linux 下安装 TeXLive 2018。
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.79.1 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/texlive-install/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="Linux 下安装 TeXLive 2018" />
-<meta property="og:description" content="本文将介绍如何在 Linux 下安装 TeXLive 2018。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/texlive-install/" />
-<meta property="article:published_time" content="2013-07-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-05-08T00:00:00+00:00" />
-<meta itemprop="name" content="Linux 下安装 TeXLive 2018">
-<meta itemprop="description" content="本文将介绍如何在 Linux 下安装 TeXLive 2018。">
-<meta itemprop="datePublished" content="2013-07-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2018-05-08T00:00:00+00:00" />
-<meta itemprop="wordCount" content="683">
-
-
-
-<meta itemprop="keywords" content="安装,LaTeX," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Linux 下安装 TeXLive 2018"/>
-<meta name="twitter:description" content="本文将介绍如何在 Linux 下安装 TeXLive 2018。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">Linux 下安装 TeXLive 2018</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2013-07-11 </span>
-        <div class="post-category">
-            <a href="/categories/%E7%BC%96%E7%A8%8B/"> 编程 </a>
-            </div>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#依赖包">依赖包</a></li>
-    <li><a href="#安装">安装</a>
-      <ul>
-        <li><a href="#下载">下载</a></li>
-        <li><a href="#挂载-iso-镜像">挂载 ISO 镜像</a></li>
-        <li><a href="#环境变量">环境变量</a></li>
-        <li><a href="#卸载-iso-镜像">卸载 ISO 镜像</a></li>
-      </ul>
-    </li>
-    <li><a href="#更新-texlive">更新 TeXLive</a></li>
-    <li><a href="#安装额外的字体">安装额外的字体</a></li>
-    <li><a href="#修订历史">修订历史</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>本文将介绍如何在 Linux 下安装 TeXLive 2018。</p>
-<h2 id="依赖包">依赖包</h2>
-<ul>
-<li>安装过程中需要调用 Perl 的模块 <code>Digest::MD5</code> 来检测 ISO 文件的完整性；</li>
-<li>升级过程中界面需要调用 Perl 的模块 <code>Tk</code> ；</li>
-</ul>
-<p>CentOS:</p>
-<pre><code>$ sudo yum install perl-Digest-MD5 perl-Tk
-</code></pre>
-<p>Ubuntu:</p>
-<pre><code>$ sudo apt-get install libdigest-perl-md5-perl perl-tk
-</code></pre>
-<h2 id="安装">安装</h2>
-<h3 id="下载">下载</h3>
-<p>下载地址：</p>
-<ul>
-<li>官方镜像: <a href="http://mirrors.ctan.org/systems/texlive/Images/texlive2018.iso">texlive2018.iso</a></li>
-<li>USTC 镜像: <a href="http://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/texlive2018.iso">texlive2018.iso</a></li>
-</ul>
-<p>Linux 下可以用 wget、axel，windows 下可以用迅雷，怎么快怎么来。</p>
-<h3 id="挂载-iso-镜像">挂载 ISO 镜像</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ su
-<span style="color:#75715e"># mount -o loop texlive2018.iso /mnt</span>
-<span style="color:#75715e"># cd /mnt</span>
-<span style="color:#75715e"># ./install-tl</span>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Linux 下安装 TeXLive 2018 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="本文将介绍如何在 Linux 下安装 TeXLive 2018。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.1 with theme even"><link rel=canonical href=https://blog.seisman.info/texlive-install/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="Linux 下安装 TeXLive 2018"><meta property="og:description" content="本文将介绍如何在 Linux 下安装 TeXLive 2018。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/texlive-install/"><meta property="article:published_time" content="2013-07-11T00:00:00+00:00"><meta property="article:modified_time" content="2018-05-08T00:00:00+00:00"><meta itemprop=name content="Linux 下安装 TeXLive 2018"><meta itemprop=description content="本文将介绍如何在 Linux 下安装 TeXLive 2018。"><meta itemprop=datePublished content="2013-07-11T00:00:00+00:00"><meta itemprop=dateModified content="2018-05-08T00:00:00+00:00"><meta itemprop=wordCount content="683"><meta itemprop=keywords content="安装,LaTeX,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Linux 下安装 TeXLive 2018"><meta name=twitter:description content="本文将介绍如何在 Linux 下安装 TeXLive 2018。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Linux 下安装 TeXLive 2018</h1><div class=post-meta><span class=post-time>2013-07-11</span><div class=post-category><a href=/categories/%E7%BC%96%E7%A8%8B/>编程</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#依赖包>依赖包</a></li><li><a href=#安装>安装</a><ul><li><a href=#下载>下载</a></li><li><a href=#挂载-iso-镜像>挂载 ISO 镜像</a></li><li><a href=#环境变量>环境变量</a></li><li><a href=#卸载-iso-镜像>卸载 ISO 镜像</a></li></ul></li><li><a href=#更新-texlive>更新 TeXLive</a></li><li><a href=#安装额外的字体>安装额外的字体</a></li><li><a href=#修订历史>修订历史</a></li></ul></nav></div></div><div class=post-content><p>本文将介绍如何在 Linux 下安装 TeXLive 2018。</p><h2 id=依赖包>依赖包</h2><ul><li>安装过程中需要调用 Perl 的模块 <code>Digest::MD5</code> 来检测 ISO 文件的完整性；</li><li>升级过程中界面需要调用 Perl 的模块 <code>Tk</code> ；</li></ul><p>CentOS:</p><pre><code>$ sudo yum install perl-Digest-MD5 perl-Tk
+</code></pre><p>Ubuntu:</p><pre><code>$ sudo apt-get install libdigest-perl-md5-perl perl-tk
+</code></pre><h2 id=安装>安装</h2><h3 id=下载>下载</h3><p>下载地址：</p><ul><li>官方镜像: <a href=http://mirrors.ctan.org/systems/texlive/Images/texlive2018.iso>texlive2018.iso</a></li><li>USTC 镜像: <a href=http://mirrors.ustc.edu.cn/CTAN/systems/texlive/Images/texlive2018.iso>texlive2018.iso</a></li></ul><p>Linux 下可以用 wget、axel，windows 下可以用迅雷，怎么快怎么来。</p><h3 id=挂载-iso-镜像>挂载 ISO 镜像</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ su
+<span style=color:#75715e># mount -o loop texlive2018.iso /mnt</span>
+<span style=color:#75715e># cd /mnt</span>
+<span style=color:#75715e># ./install-tl</span>
 </code></pre></div><p>出现选项后，输入 <code>I</code> 直接安装（也可以更改选项）。不出意外的话，5 分钟应该就 OK 了，
-然后退出 root 用户。</p>
-<h3 id="环境变量">环境变量</h3>
-<p>在当前用户的 <code>~/.bashrc</code> 中加入如下语句：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># TeX Live 2018</span>
-export MANPATH<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>MANPATH<span style="color:#e6db74">}</span>:/usr/local/texlive/2018/texmf-dist/doc/man
-export INFOPATH<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>INFOPATH<span style="color:#e6db74">}</span>:/usr/local/texlive/2018/texmf-dist/doc/info
-export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>PATH<span style="color:#e6db74">}</span>:/usr/local/texlive/2018/bin/x86_64-linux
-</code></pre></div><h3 id="卸载-iso-镜像">卸载 ISO 镜像</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd
+然后退出 root 用户。</p><h3 id=环境变量>环境变量</h3><p>在当前用户的 <code>~/.bashrc</code> 中加入如下语句：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># TeX Live 2018</span>
+export MANPATH<span style=color:#f92672>=</span><span style=color:#e6db74>${</span>MANPATH<span style=color:#e6db74>}</span>:/usr/local/texlive/2018/texmf-dist/doc/man
+export INFOPATH<span style=color:#f92672>=</span><span style=color:#e6db74>${</span>INFOPATH<span style=color:#e6db74>}</span>:/usr/local/texlive/2018/texmf-dist/doc/info
+export PATH<span style=color:#f92672>=</span><span style=color:#e6db74>${</span>PATH<span style=color:#e6db74>}</span>:/usr/local/texlive/2018/bin/x86_64-linux
+</code></pre></div><h3 id=卸载-iso-镜像>卸载 ISO 镜像</h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cd
 $ sudo umount /mnt
-</code></pre></div><h2 id="更新-texlive">更新 TeXLive</h2>
-<p>可以使用如下命令更新 TeXLive 宏包：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ su
-<span style="color:#75715e"># 更新 TeXLive 包管理器 tlmgr</span>
-<span style="color:#75715e"># tlmgr update --self</span>
-<span style="color:#75715e"># 更新 TeXLive 的全部包</span>
-<span style="color:#75715e"># tlmgr update --all</span>
+</code></pre></div><h2 id=更新-texlive>更新 TeXLive</h2><p>可以使用如下命令更新 TeXLive 宏包：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ su
+<span style=color:#75715e># 更新 TeXLive 包管理器 tlmgr</span>
+<span style=color:#75715e># tlmgr update --self</span>
+<span style=color:#75715e># 更新 TeXLive 的全部包</span>
+<span style=color:#75715e># tlmgr update --all</span>
 </code></pre></div><p>默认情况下，会自动搜索合适的镜像来更新，也可以使用 <code>--repository</code> 选项指定了要使用
-哪一个 CTAN 镜像。</p>
-<p>比如 USTC 镜像:</p>
-<pre><code># tlmgr update --self --repository http://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/
+哪一个 CTAN 镜像。</p><p>比如 USTC 镜像:</p><pre><code># tlmgr update --self --repository http://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/
 # tlmgr update --all --repository http://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet/
-</code></pre>
-<p>比如阿里云镜像:</p>
-<pre><code># tlmgr update --self --repository http://mirrors.aliyun.com/CTAN/systems/texlive/tlnet/
+</code></pre><p>比如阿里云镜像:</p><pre><code># tlmgr update --self --repository http://mirrors.aliyun.com/CTAN/systems/texlive/tlnet/
 # tlmgr update --all --repository http://mirrors.aliyun.com/CTAN/systems/texlive/tlnet/
-</code></pre>
-<p>如果希望在图形界面下升级，可以使用如下命令调出 tlmgr 的中文图形界面：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ su
-<span style="color:#75715e"># tlmgr --gui --gui-lang zh_CN</span>
-</code></pre></div><h2 id="安装额外的字体">安装额外的字体</h2>
-<p>TeXLive 2018 在使用 xeLaTeX 处理中文时，有自己的默认字体。大多数 Linux 发行版下，
-都使用自带的 Fandol 字体。</p>
-<p>如果想要使用 Windows 字体，可以将字体文件复制到 <code>~/.fonts</code> 目录下，并在 tex 源码中
-指定字体选项即可。</p>
-<h2 id="修订历史">修订历史</h2>
-<ul>
-<li>2013-07-11：初稿；</li>
-<li>2014-07-06：修改为 TeXLive2014，并删除中文字体部分；</li>
-<li>2015-03-08：新增 “安装依赖”；</li>
-<li>2015-03-15：使用命令行更新包；</li>
-<li>2015-03-20：指定更新源以及 GUI 更新；</li>
-<li>2015-06-13：更新至 TeXLive 2015；</li>
-<li>2016-06-07：更新至 TeXLive 2016；</li>
-<li>2017-06-14：更新至 TeXLive 2017；</li>
-<li>2018-05-08：更新至 TeXLive 2018；</li>
-</ul>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2018-05-08
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/%E5%AE%89%E8%A3%85/">安装</a>
-          <a href="/tags/LaTeX/">LaTeX</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/firefox-java-plugin/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Firefox 安装 Java 插件</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/taup/">
-            <span class="next-text nav-default">走时计算软件TauP</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+</code></pre><p>如果希望在图形界面下升级，可以使用如下命令调出 tlmgr 的中文图形界面：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ su
+<span style=color:#75715e># tlmgr --gui --gui-lang zh_CN</span>
+</code></pre></div><h2 id=安装额外的字体>安装额外的字体</h2><p>TeXLive 2018 在使用 xeLaTeX 处理中文时，有自己的默认字体。大多数 Linux 发行版下，
+都使用自带的 Fandol 字体。</p><p>如果想要使用 Windows 字体，可以将字体文件复制到 <code>~/.fonts</code> 目录下，并在 tex 源码中
+指定字体选项即可。</p><h2 id=修订历史>修订历史</h2><ul><li>2013-07-11：初稿；</li><li>2014-07-06：修改为 TeXLive2014，并删除中文字体部分；</li><li>2015-03-08：新增 “安装依赖”；</li><li>2015-03-15：使用命令行更新包；</li><li>2015-03-20：指定更新源以及 GUI 更新；</li><li>2015-06-13：更新至 TeXLive 2015；</li><li>2016-06-07：更新至 TeXLive 2016；</li><li>2017-06-14：更新至 TeXLive 2017；</li><li>2018-05-08：更新至 TeXLive 2018；</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2018-05-08</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/%E5%AE%89%E8%A3%85/>安装</a>
+<a href=/tags/LaTeX/>LaTeX</a></div><nav class=post-nav><a class=prev href=/firefox-java-plugin/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Firefox 安装 Java 插件</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/taup/><span class="next-text nav-default">走时计算软件TauP</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

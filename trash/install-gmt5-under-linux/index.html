@@ -1,218 +1,30 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  
-
-  <title>GMT 5.1.2 在 Linux 下的安装 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="本文不再维护更新！
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>GMT 5.1.2 在 Linux 下的安装 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="本文不再维护更新！
 本文介绍如何在 Linux 下安装 GMT 5.1.x。GMT 5.2.x 在 Linux 下的安装见 GMT 5.2.x 在 Linux 下的安装
 说明：
- 仅适用于 5.1.0、5.1.1 和 5.1.2 所有命令均在一般用户下完成，需要 root 权限的命令都用 sudo 执行 " /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.79.1 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/trash/install-gmt5-under-linux/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="GMT 5.1.2 在 Linux 下的安装" />
-<meta property="og:description" content="本文不再维护更新！
+ 仅适用于 5.1.0、5.1.1 和 5.1.2 所有命令均在一般用户下完成，需要 root 权限的命令都用 sudo 执行"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.1 with theme even"><link rel=canonical href=https://blog.seisman.info/trash/install-gmt5-under-linux/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="GMT 5.1.2 在 Linux 下的安装"><meta property="og:description" content="本文不再维护更新！
 本文介绍如何在 Linux 下安装 GMT 5.1.x。GMT 5.2.x 在 Linux 下的安装见 GMT 5.2.x 在 Linux 下的安装
 说明：
 
 仅适用于 5.1.0、5.1.1 和 5.1.2
-所有命令均在一般用户下完成，需要 root 权限的命令都用 sudo 执行
-" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/trash/install-gmt5-under-linux/" />
-<meta property="article:published_time" content="2013-11-06T00:00:00+00:00" />
-<meta property="article:modified_time" content="2015-11-07T00:00:00+00:00" />
-<meta itemprop="name" content="GMT 5.1.2 在 Linux 下的安装">
-<meta itemprop="description" content="本文不再维护更新！
+所有命令均在一般用户下完成，需要 root 权限的命令都用 sudo 执行"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/trash/install-gmt5-under-linux/"><meta property="article:published_time" content="2013-11-06T00:00:00+00:00"><meta property="article:modified_time" content="2015-11-07T00:00:00+00:00"><meta itemprop=name content="GMT 5.1.2 在 Linux 下的安装"><meta itemprop=description content="本文不再维护更新！
 本文介绍如何在 Linux 下安装 GMT 5.1.x。GMT 5.2.x 在 Linux 下的安装见 GMT 5.2.x 在 Linux 下的安装
 说明：
 
 仅适用于 5.1.0、5.1.1 和 5.1.2
-所有命令均在一般用户下完成，需要 root 权限的命令都用 sudo 执行
-">
-<meta itemprop="datePublished" content="2013-11-06T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2015-11-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2705">
-
-
-
-<meta itemprop="keywords" content="GMT,安装,Linux," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="GMT 5.1.2 在 Linux 下的安装"/>
-<meta name="twitter:description" content="本文不再维护更新！
+所有命令均在一般用户下完成，需要 root 权限的命令都用 sudo 执行"><meta itemprop=datePublished content="2013-11-06T00:00:00+00:00"><meta itemprop=dateModified content="2015-11-07T00:00:00+00:00"><meta itemprop=wordCount content="2705"><meta itemprop=keywords content="GMT,安装,Linux,"><meta name=twitter:card content="summary"><meta name=twitter:title content="GMT 5.1.2 在 Linux 下的安装"><meta name=twitter:description content="本文不再维护更新！
 本文介绍如何在 Linux 下安装 GMT 5.1.x。GMT 5.2.x 在 Linux 下的安装见 GMT 5.2.x 在 Linux 下的安装
 说明：
 
 仅适用于 5.1.0、5.1.1 和 5.1.2
-所有命令均在一般用户下完成，需要 root 权限的命令都用 sudo 执行
-"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-  <div class="post-content">
-    <p><strong>本文不再维护更新！</strong></p>
-<p>本文介绍如何在 Linux 下安装 GMT 5.1.x。GMT 5.2.x 在 Linux 下的安装见 <a href="/install-gmt5.2.x-under-linux/">GMT 5.2.x 在 Linux 下的安装</a></p>
-<p>说明：</p>
-<ol>
-<li>仅适用于 5.1.0、5.1.1 和 5.1.2</li>
-<li>所有命令均在一般用户下完成，需要 root 权限的命令都用 <code>sudo</code> 执行</li>
-</ol>
-<h2 id="下载">下载</h2>
-<p>GMT 5.1.2 需要下载三个文件：</p>
-<ol>
-<li>GMT 源码： <a href="ftp://ftp.soest.hawaii.edu/gmt/gmt-5.1.2-src.tar.gz">gmt-5.1.2-src.tar.gz</a></li>
-<li>全球海岸线数据 GSHHG：<a href="ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.4.tar.gz">gshhg-gmt-2.3.4.tar.gz</a></li>
-<li>全球数字图表 DCW：<a href="ftp://ftp.soest.hawaii.edu/gmt/dcw-gmt-1.1.2.tar.gz">dcw-gmt-1.1.2.tar.gz</a></li>
-</ol>
-<p>下载完成后，可以用 <code>md5sum</code> 检查压缩文件的 md5 值，以保证该文件是完整且未被篡改的:</p>
-<pre><code>$ md5sum gmt-5.1.2-src.tar.gz gshhg-gmt-2.3.4.tar.gz dcw-gmt-1.1.2.tar.gz
+所有命令均在一般用户下完成，需要 root 权限的命令都用 sudo 执行"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><div class=post-content><p><strong>本文不再维护更新！</strong></p><p>本文介绍如何在 Linux 下安装 GMT 5.1.x。GMT 5.2.x 在 Linux 下的安装见 <a href=/install-gmt5.2.x-under-linux/>GMT 5.2.x 在 Linux 下的安装</a></p><p>说明：</p><ol><li>仅适用于 5.1.0、5.1.1 和 5.1.2</li><li>所有命令均在一般用户下完成，需要 root 权限的命令都用 <code>sudo</code> 执行</li></ol><h2 id=下载>下载</h2><p>GMT 5.1.2 需要下载三个文件：</p><ol><li>GMT 源码： <a href=ftp://ftp.soest.hawaii.edu/gmt/gmt-5.1.2-src.tar.gz>gmt-5.1.2-src.tar.gz</a></li><li>全球海岸线数据 GSHHG：<a href=ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.4.tar.gz>gshhg-gmt-2.3.4.tar.gz</a></li><li>全球数字图表 DCW：<a href=ftp://ftp.soest.hawaii.edu/gmt/dcw-gmt-1.1.2.tar.gz>dcw-gmt-1.1.2.tar.gz</a></li></ol><p>下载完成后，可以用 <code>md5sum</code> 检查压缩文件的 md5 值，以保证该文件是完整且未被篡改的:</p><pre><code>$ md5sum gmt-5.1.2-src.tar.gz gshhg-gmt-2.3.4.tar.gz dcw-gmt-1.1.2.tar.gz
 dacaa6863fa6a0059d53b49216912007  gmt-5.1.2-src.tar.gz
 80947a92cc88927aff070556ca5ab133  gshhg-gmt-2.3.4.tar.gz
 45c99d30026742dbc0b1644ea64f496d  dcw-gmt-1.1.2.tar.gz
-</code></pre>
-<h2 id="解决依赖关系">解决依赖关系</h2>
-<h3 id="基础依赖包">基础依赖包</h3>
-<p>GMT 的编译需要 C 和 C++ 编译器、cmake 等开发工具。</p>
-<p>对于 Ubuntu/Debian:</p>
-<pre><code>sudo apt-get update
+</code></pre><h2 id=解决依赖关系>解决依赖关系</h2><h3 id=基础依赖包>基础依赖包</h3><p>GMT 的编译需要 C 和 C++ 编译器、cmake 等开发工具。</p><p>对于 Ubuntu/Debian:</p><pre><code>sudo apt-get update
 sudo apt-get install gcc g++ cmake make
-</code></pre>
-<p>对于 CentOS/RHEL/Fedora:</p>
-<pre><code>sudo yum install gcc gcc-c++ cmake make
-</code></pre>
-<p>GMT 的编译过程要求 cmake 的版本 <code>&gt;=2.8.5</code> ，需要注意：</p>
-<ol>
-<li>安装 cmake 之后，可以通过 <code>cmake --version</code> 检查 cmake 版本；</li>
-<li>CentOS <strong>6.5</strong> 的官方源中 cmake 的版本为 2.6.4，版本过低，无法满足要求；</li>
-<li>CentOS <strong>6.6</strong> 的官方源中 cmake 的版本为 2.8.12，可以满足要求；</li>
-<li>使用 CentOS 6.5 的用户可以 <code>yum update</code> 将系统升级到 6.6，即可使用较高版本的 cmake；</li>
-<li>CentOS6.5 用户若不愿意升级整个系统，则需要先安装 EPEL 源，再安装 EPEL 源中的 <code>cmake28</code>，
-并且在接下来的编译过程中要将 <code>cmake</code> 命令改成 <code>cmake28</code>；</li>
-<li>CentOS 7 官方源中 cmake 版本为 2.8.11，可以直接安装使用；</li>
-</ol>
-<h3 id="软件依赖包">软件依赖包</h3>
-<p>GMT5 的依赖包，相对来说要复杂很多：</p>
-<ul>
-<li>看 PS 文件以及将 PS 转换成其他格式需要 <code>ghostscript</code></li>
-<li>网格文件需要 <code>netCDF</code> （&gt;=4.0，且需要支持 netCDF-4/HDF5）</li>
-<li>Perl 兼容正则表达式库 <a href="http://www.pcre.org/">PCRE</a></li>
-<li>地理空间数据抽象库 <a href="http://www.gdal.org/">GDAL</a></li>
-<li>Fourier 变换库 <a href="http://www.fftw.org/">FFTW</a></li>
-<li>如果想要自行编译文档的话还需要 <a href="http://sphinx-doc.org/">Sphinx</a> 以及 TeXLive</li>
-</ul>
-<p>对于 Ubuntu/Debian:</p>
-<pre><code>sudo apt-get update
+</code></pre><p>对于 CentOS/RHEL/Fedora:</p><pre><code>sudo yum install gcc gcc-c++ cmake make
+</code></pre><p>GMT 的编译过程要求 cmake 的版本 <code>>=2.8.5</code> ，需要注意：</p><ol><li>安装 cmake 之后，可以通过 <code>cmake --version</code> 检查 cmake 版本；</li><li>CentOS <strong>6.5</strong> 的官方源中 cmake 的版本为 2.6.4，版本过低，无法满足要求；</li><li>CentOS <strong>6.6</strong> 的官方源中 cmake 的版本为 2.8.12，可以满足要求；</li><li>使用 CentOS 6.5 的用户可以 <code>yum update</code> 将系统升级到 6.6，即可使用较高版本的 cmake；</li><li>CentOS6.5 用户若不愿意升级整个系统，则需要先安装 EPEL 源，再安装 EPEL 源中的 <code>cmake28</code>，
+并且在接下来的编译过程中要将 <code>cmake</code> 命令改成 <code>cmake28</code>；</li><li>CentOS 7 官方源中 cmake 版本为 2.8.11，可以直接安装使用；</li></ol><h3 id=软件依赖包>软件依赖包</h3><p>GMT5 的依赖包，相对来说要复杂很多：</p><ul><li>看 PS 文件以及将 PS 转换成其他格式需要 <code>ghostscript</code></li><li>网格文件需要 <code>netCDF</code> （>=4.0，且需要支持 netCDF-4/HDF5）</li><li>Perl 兼容正则表达式库 <a href=http://www.pcre.org/>PCRE</a></li><li>地理空间数据抽象库 <a href=http://www.gdal.org/>GDAL</a></li><li>Fourier 变换库 <a href=http://www.fftw.org/>FFTW</a></li><li>如果想要自行编译文档的话还需要 <a href=http://sphinx-doc.org/>Sphinx</a> 以及 TeXLive</li></ul><p>对于 Ubuntu/Debian:</p><pre><code>sudo apt-get update
 # 必须安装的包
 sudo apt-get install ghostscript libnetcdf-dev
 # 推荐安装的包
@@ -221,9 +33,7 @@ sudo apt-get install libgdal-dev python-gdal
 sudo apt-get install libpcre3-dev libfftw3-dev
 # 不推荐安装的包
 sudo apt-get install python-sphinx
-</code></pre>
-<p>对于 RHEL/CentOS/Fedora:</p>
-<pre><code># 安装必须的包
+</code></pre><p>对于 RHEL/CentOS/Fedora:</p><pre><code># 安装必须的包
 sudo yum install ghostscript netcdf-devel
 # 推荐安装的包
 sudo yum install gdal-devel gdal-python
@@ -231,86 +41,47 @@ sudo yum install gdal-devel gdal-python
 sudo yum install pcre-devel fftw-devel
 # 不推荐安装的包
 sudo yum install python-sphinx
-</code></pre>
-<p>一些需要注意的地方:</p>
-<ol>
-<li>一定不要试图自己手动编译 netCDF，因为手动编译很难解决依赖问题，网上的大多数手动编译 netCDF 的教程中都关闭了 netCDF 对 HDF5 的支持，因而导致 GMT5 无法使用。如果在阅读本文之前曾经手动编译过，一定要将原来手动编译生成的文件删除干净。通常可以使用 <code>locate netcdf</code> 找到 <code>/usr/local</code> 目录下的与 netCDF 相关的文件，直接删除即可。</li>
-<li>CentOS 官方源中不带有 netCDF，需要先安装 EPEL 源</li>
-<li>pcre、fftw 和 gdal 不是必须要安装的，但是推荐安装。其中 gdal 在做数据格式转换时非常有用；</li>
-<li>其他发行版很久不用了，不清楚细节，读者可以在使用过程中补充。</li>
-</ol>
-<h2 id="安装-gmt">安装 GMT</h2>
-<p>将刚才下载的三个压缩文件都放在同一个目录里，以下假定目录名为 <code>/home/seisman/Desktop/GMT</code>：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 当前目录名为 /home/seisman/Desktop/GMT</span>
+</code></pre><p>一些需要注意的地方:</p><ol><li>一定不要试图自己手动编译 netCDF，因为手动编译很难解决依赖问题，网上的大多数手动编译 netCDF 的教程中都关闭了 netCDF 对 HDF5 的支持，因而导致 GMT5 无法使用。如果在阅读本文之前曾经手动编译过，一定要将原来手动编译生成的文件删除干净。通常可以使用 <code>locate netcdf</code> 找到 <code>/usr/local</code> 目录下的与 netCDF 相关的文件，直接删除即可。</li><li>CentOS 官方源中不带有 netCDF，需要先安装 EPEL 源</li><li>pcre、fftw 和 gdal 不是必须要安装的，但是推荐安装。其中 gdal 在做数据格式转换时非常有用；</li><li>其他发行版很久不用了，不清楚细节，读者可以在使用过程中补充。</li></ol><h2 id=安装-gmt>安装 GMT</h2><p>将刚才下载的三个压缩文件都放在同一个目录里，以下假定目录名为 <code>/home/seisman/Desktop/GMT</code>：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 当前目录名为 /home/seisman/Desktop/GMT</span>
 $ pwd
 /home/seisman/Desktop/GMT
 
-<span style="color:#75715e"># 当前目录下包含了三个压缩文件</span>
+<span style=color:#75715e># 当前目录下包含了三个压缩文件</span>
 $ ls
 dcw-gmt-1.1.2.tar.gz  gmt-5.1.2-src.tar.gz  gshhg-gmt-2.3.4.tar.gz
 
-<span style="color:#75715e"># 解压三个压缩文件</span>
+<span style=color:#75715e># 解压三个压缩文件</span>
 $ tar -xvf gmt-5.1.2-src.tar.gz
 $ tar -xvf gshhg-gmt-2.3.4.tar.gz
 $ tar -xvf dcw-gmt-1.1.2.tar.gz
 
-<span style="color:#75715e"># 将 gshhg 和 dcw 数据复制到 gmt 的 share 目录下</span>
+<span style=color:#75715e># 将 gshhg 和 dcw 数据复制到 gmt 的 share 目录下</span>
 $ mv gshhg-gmt-2.3.4 gmt-5.1.2/share/gshhg
 $ mv dcw-gmt-1.1.2 gmt-5.1.2/share/dcw-gmt
 
-<span style="color:#75715e"># 切换到 gmt 源码目录下</span>
+<span style=color:#75715e># 切换到 gmt 源码目录下</span>
 $ cd gmt-5.1.2
 
-<span style="color:#75715e"># 新建用户配置文件</span>
+<span style=color:#75715e># 新建用户配置文件</span>
 $ gedit cmake/ConfigUser.cmake
-</code></pre></div><p>向 <code>cmake/ConfigUser.cmake</code> 文件中加入如下语句:</p>
-<pre><code>set (CMAKE_INSTALL_PREFIX&quot;/opt/GMT-5.1.2&quot;)
+</code></pre></div><p>向 <code>cmake/ConfigUser.cmake</code> 文件中加入如下语句:</p><pre><code>set (CMAKE_INSTALL_PREFIX&quot;/opt/GMT-5.1.2&quot;)
 set (GMT_INSTALL_MODULE_LINKS FALSE)
 set (COPY_GSHHG TRUE)
 set (COPY_DCW TRUE)
-</code></pre>
-<ul>
-<li><code>CMAKE_INSTALL_PREFIX</code> 设置 GMT 的安装路径，可以修改为其他路径</li>
-<li><code>GMT_INSTALL_MODULE_LINKS</code> 为 FALSE，表明不在 GMT 的 bin 目录下建立命令的软链接，也可设置为 TRUE</li>
-<li><code>COPY_GSHHG</code> 为 TRUE 会将 GSHHG 数据复制到 <code>GMT/share/coast</code> 下</li>
-<li><code>COPY_DCW</code> 为 TRUE 会将 DCW 数据复制到 <code>GMT/share/dcw</code> 下</li>
-</ul>
-<p>以下几点说明，仅供高阶用户阅读：</p>
-<ol>
-<li>GMT 提供了用户配置的模板文件 <code>cmake/ConfigUserTemplate.cmake</code>，其中包含了众多可配置的变量以及大量的注释说明。可以直接将该文件名复制为 <code>cmake/ConfigUser.cmake</code>，然后在模板基础上做修改，以自定义 GMT 的安装。仅供高阶用户使用</li>
-<li><code>CMAKE_INSTALL_MODULE_LINKS</code> 的作用是在 GMT 的 bin 目录下建立命令的软链接，以兼容 GMT4 语法，建议设置为 FALSE</li>
-<li>配置文件中 <code>GSHHG_ROOT</code> 和 <code>DCW_ROOT</code> 可以用于指定数据所在路径。此处已将数据放在 GMT 的 share 目录下，使得在配置过程中 GMT 可以自动找到，因而不需要设置这两个变量</li>
-<li>若系统中存在多个 GMT 的版本，按照上面的做法会存在多个 GSHHG 和 DCW 数据的副本，造成数据冗余。此时，可以将 gshhg 和 dcw 数据放在专门的目录中，比如 <code>/home/seisman/Datas/</code> 目录下。然后有两种解决办法：
-<ol>
-<li>
-<p>完全按照上面的做法，在安装完成后，删除 <code>/opt/GMT-5.1.2/share</code> 目录下的 <code>coast</code> 和 <code>dcw</code> 两个目录，并建立两个指向数据的真实数据的软链接:</p>
-<pre><code>$ cd /opt/GMT-5.1.2/share
+</code></pre><ul><li><code>CMAKE_INSTALL_PREFIX</code> 设置 GMT 的安装路径，可以修改为其他路径</li><li><code>GMT_INSTALL_MODULE_LINKS</code> 为 FALSE，表明不在 GMT 的 bin 目录下建立命令的软链接，也可设置为 TRUE</li><li><code>COPY_GSHHG</code> 为 TRUE 会将 GSHHG 数据复制到 <code>GMT/share/coast</code> 下</li><li><code>COPY_DCW</code> 为 TRUE 会将 DCW 数据复制到 <code>GMT/share/dcw</code> 下</li></ul><p>以下几点说明，仅供高阶用户阅读：</p><ol><li>GMT 提供了用户配置的模板文件 <code>cmake/ConfigUserTemplate.cmake</code>，其中包含了众多可配置的变量以及大量的注释说明。可以直接将该文件名复制为 <code>cmake/ConfigUser.cmake</code>，然后在模板基础上做修改，以自定义 GMT 的安装。仅供高阶用户使用</li><li><code>CMAKE_INSTALL_MODULE_LINKS</code> 的作用是在 GMT 的 bin 目录下建立命令的软链接，以兼容 GMT4 语法，建议设置为 FALSE</li><li>配置文件中 <code>GSHHG_ROOT</code> 和 <code>DCW_ROOT</code> 可以用于指定数据所在路径。此处已将数据放在 GMT 的 share 目录下，使得在配置过程中 GMT 可以自动找到，因而不需要设置这两个变量</li><li>若系统中存在多个 GMT 的版本，按照上面的做法会存在多个 GSHHG 和 DCW 数据的副本，造成数据冗余。此时，可以将 gshhg 和 dcw 数据放在专门的目录中，比如 <code>/home/seisman/Datas/</code> 目录下。然后有两种解决办法：<ol><li><p>完全按照上面的做法，在安装完成后，删除 <code>/opt/GMT-5.1.2/share</code> 目录下的 <code>coast</code> 和 <code>dcw</code> 两个目录，并建立两个指向数据的真实数据的软链接:</p><pre><code>$ cd /opt/GMT-5.1.2/share
 $ sudo rm -r coast/
 $ sudo rm -r dcw/
 $ sudo ln -s /home/seisman/Datas/gshhg-gmt-2.3.4 gshhg
 $ sudo ln -s /home/seisman/Datas/dcw-gmt-1.1.2 dcw
-</code></pre>
-</li>
-<li>
-<p>设置配置文件如下:</p>
-<pre><code>set (CMAKE_INSTALL_PREFIX&quot;/opt/GMT-5.1.2&quot;)
+</code></pre></li><li><p>设置配置文件如下:</p><pre><code>set (CMAKE_INSTALL_PREFIX&quot;/opt/GMT-5.1.2&quot;)
 set (GMT_INSTALL_MODULE_LINKS FALSE)
 set (GSHHG_ROOT&quot;/home/seisman/Datas/gshhg-gmt-2.3.4&quot;)
 set (COPY_GSHHG FALSE)
 set (DCW_ROOT&quot;/home/seisman/Datas/dcw-gmt-1.1.1&quot;)
 set (COPY_DCW FALSE)
-</code></pre>
-</li>
-</ol>
-</li>
-</ol>
-<p>继续执行如下命令以检查 GMT 的依赖关系:</p>
-<pre><code>$ mkdir build
+</code></pre></li></ol></li></ol><p>继续执行如下命令以检查 GMT 的依赖关系:</p><pre><code>$ mkdir build
 $ cd build/
 $ cmake ..
-</code></pre>
-<p><code>cmake ..</code> 会检查 GMT 对软件的依赖关系，我的检查结果如下:</p>
-<pre><code>*  Options:
+</code></pre><p><code>cmake ..</code> 会检查 GMT 对软件的依赖关系，我的检查结果如下:</p><pre><code>*  Options:
 *  Found GSHHG database       : /home/seisman/Desktop/GMT/gmt-5.1.2/share/gshhg (2.3.4)
 *  Found DCW-GMT database     : /home/seisman/Desktop/GMT/gmt-5.1.2/share/dcw-gmt
 *  NetCDF library             : /usr/lib64/libnetcdf.so
@@ -338,142 +109,29 @@ $ cmake ..
 *  GMT_MANDIR                 : /opt/GMT-5.1.2/share/man
 -- Configuring done
 -- Generating done
-</code></pre>
-<p>正常情况下的检查结果应该与上面给出的类似。若出现问题，则需要检查之前的步骤是否有误，检查完毕后重新执行 <code>cmake ..</code> ，直到出现类似的检查结果。检查完毕后，开始编译和安装:</p>
-<pre><code>$ make -j
+</code></pre><p>正常情况下的检查结果应该与上面给出的类似。若出现问题，则需要检查之前的步骤是否有误，检查完毕后重新执行 <code>cmake ..</code> ，直到出现类似的检查结果。检查完毕后，开始编译和安装:</p><pre><code>$ make -j
 $ sudo make -j install
-</code></pre>
-<h2 id="自行编译文档">自行编译文档</h2>
-<p>如果系统中安装了 sphinx 和 LaTeX，则可以自行编译文档。一般情况下，不建议自行编译文档，官方提供的文档已经足够:</p>
-<pre><code>$ make -j docs_man          # 生成 man 文档
+</code></pre><h2 id=自行编译文档>自行编译文档</h2><p>如果系统中安装了 sphinx 和 LaTeX，则可以自行编译文档。一般情况下，不建议自行编译文档，官方提供的文档已经足够:</p><pre><code>$ make -j docs_man          # 生成 man 文档
 $ make -j docs_html         # 生成 HTML 文档
 $ make -j docs_pdf          # 生成 PDF 文档
 $ make -j docs_pdf_shrink   # 生成更小的 PDF 文档
 $ sudo -j make install
-</code></pre>
-<h2 id="修改环境变量">修改环境变量</h2>
-<p>修改环境变量并使其生效：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ echo <span style="color:#e6db74">&#39;export GMT5HOME=/opt/GMT-5.1.2&#39;</span> &gt;&gt; ~/.bashrc
-$ echo <span style="color:#e6db74">&#39;export PATH=${GMT5HOME}/bin:$PATH&#39;</span>&gt;&gt; ~/.bashrc
-$ echo <span style="color:#e6db74">&#39;export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${GMT5HOME}/lib64&#39;</span>&gt;&gt; ~/.bashrc
+</code></pre><h2 id=修改环境变量>修改环境变量</h2><p>修改环境变量并使其生效：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ echo <span style=color:#e6db74>&#39;export GMT5HOME=/opt/GMT-5.1.2&#39;</span> &gt;&gt; ~/.bashrc
+$ echo <span style=color:#e6db74>&#39;export PATH=${GMT5HOME}/bin:$PATH&#39;</span>&gt;&gt; ~/.bashrc
+$ echo <span style=color:#e6db74>&#39;export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${GMT5HOME}/lib64&#39;</span>&gt;&gt; ~/.bashrc
 $ exec $SHELL -l
-</code></pre></div><p>说明</p>
-<ul>
-<li>第一个命令向 <code>~/.bashrc</code> 中添加环境变量 <code>GMT5HOME</code></li>
-<li>第二个命令修改 <code>~/.bashrc</code> ，将 GMT5 的 bin 目录加入到 <code>PATH</code> 中</li>
-<li>第三个命令将 GMT5 的 lib 目录加入到动态链接库路径中，若为 32 位系统，则为 <code>lib</code> ；64 位系统则为 <code>lib64</code> ；</li>
-<li>第四个命令是重新载入 bash，相当于 <code>source ~/.bashrc</code></li>
-<li>某些发行版下可能需要写入到 <code>~/.bash_profile</code> 而不是 <code>~/.bashrc</code></li>
-<li>某些发行版下可能需要退出再重新登陆，或关机重启</li>
-</ul>
-<h2 id="测试是否安装成功">测试是否安装成功</h2>
-<p>在终端键入 <code>gmt</code> ，若出现如下输出，则安装成功:</p>
-<pre><code>$ gmt
+</code></pre></div><p>说明</p><ul><li>第一个命令向 <code>~/.bashrc</code> 中添加环境变量 <code>GMT5HOME</code></li><li>第二个命令修改 <code>~/.bashrc</code> ，将 GMT5 的 bin 目录加入到 <code>PATH</code> 中</li><li>第三个命令将 GMT5 的 lib 目录加入到动态链接库路径中，若为 32 位系统，则为 <code>lib</code> ；64 位系统则为 <code>lib64</code> ；</li><li>第四个命令是重新载入 bash，相当于 <code>source ~/.bashrc</code></li><li>某些发行版下可能需要写入到 <code>~/.bash_profile</code> 而不是 <code>~/.bashrc</code></li><li>某些发行版下可能需要退出再重新登陆，或关机重启</li></ul><h2 id=测试是否安装成功>测试是否安装成功</h2><p>在终端键入 <code>gmt</code> ，若出现如下输出，则安装成功:</p><pre><code>$ gmt
 
 GMT - The Generic Mapping Tools, Version 5.1.2 (r14256) [64-bit]
-</code></pre>
-<p>Ubuntu 14.04/15.04 以及部分 Debian 用户，可能会出现如下信息:</p>
-<pre><code>$ gmt
+</code></pre><p>Ubuntu 14.04/15.04 以及部分 Debian 用户，可能会出现如下信息:</p><pre><code>$ gmt
 Sub-commands for gmt:
 install    install more modules
 ERROR: Please specify valid params for 'gmt'.
-</code></pre>
-<p>出现该错误的原因是这几个发行版中的 <code>libgenome-perl</code> 包中提供了同名的命令 <code>/usr/bin/gmt</code> ，把该软件包卸载即可。</p>
-<h2 id="参考来源">参考来源</h2>
-<ol>
-<li><a href="http://gmtrac.soest.hawaii.edu/projects/gmt/wiki/BuildingGMT">http://gmtrac.soest.hawaii.edu/projects/gmt/wiki/BuildingGMT</a></li>
-<li><a href="/install-gmt4-under-linux.html">GMT4.5.14 在 Linux 下的安装</a></li>
-</ol>
-<h2 id="修订历史">修订历史</h2>
-<ul>
-<li>2013-11-06：初稿；</li>
-<li>2014-02-22：cmake 版本需要 2.8 以上；</li>
-<li>2014-03-02：更新至 GMT 5.1.1；</li>
-<li>2014-09-14：更新 GSHHG 至 2.3.2；</li>
-<li>2014-09-26：Ubuntu 下 <code>libxaw-dev</code> 应为 <code>libxaw7-dev</code> ；</li>
-<li>2014-11-04：修改环境变量 <code>LD_LIBRARY_PATH</code> ；</li>
-<li>2014-11-29：CentOS 6.6 中的 cmake 版本为 2.8.12；</li>
-<li>2015-02-01：更新 GSHHG 至 2.3.4；</li>
-<li>2015-03-14：路径中不能用波浪号代替家目录；</li>
-<li>2015-05-05：更新至 GMT 5.1.2；</li>
-<li>2015-08-29：Ubuntu 和 Debian 中存在与 gmt 冲突的包；</li>
-<li>2015-09-06：推荐安装 gdal 的 Python 绑定；</li>
-<li>2015-09-18：下载完成后检测压缩文件的 md5 值；</li>
-<li>2015-10-11：GMT5 不依赖于 Xt 等库文件；</li>
-<li>2015-11-07：简化安装细节，本文仅修改 BUG，不再更新内容；</li>
-</ul>
-  </div>
-</article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+</code></pre><p>出现该错误的原因是这几个发行版中的 <code>libgenome-perl</code> 包中提供了同名的命令 <code>/usr/bin/gmt</code> ，把该软件包卸载即可。</p><h2 id=参考来源>参考来源</h2><ol><li><a href=http://gmtrac.soest.hawaii.edu/projects/gmt/wiki/BuildingGMT>http://gmtrac.soest.hawaii.edu/projects/gmt/wiki/BuildingGMT</a></li><li><a href=/install-gmt4-under-linux.html>GMT4.5.14 在 Linux 下的安装</a></li></ol><h2 id=修订历史>修订历史</h2><ul><li>2013-11-06：初稿；</li><li>2014-02-22：cmake 版本需要 2.8 以上；</li><li>2014-03-02：更新至 GMT 5.1.1；</li><li>2014-09-14：更新 GSHHG 至 2.3.2；</li><li>2014-09-26：Ubuntu 下 <code>libxaw-dev</code> 应为 <code>libxaw7-dev</code> ；</li><li>2014-11-04：修改环境变量 <code>LD_LIBRARY_PATH</code> ；</li><li>2014-11-29：CentOS 6.6 中的 cmake 版本为 2.8.12；</li><li>2015-02-01：更新 GSHHG 至 2.3.4；</li><li>2015-03-14：路径中不能用波浪号代替家目录；</li><li>2015-05-05：更新至 GMT 5.1.2；</li><li>2015-08-29：Ubuntu 和 Debian 中存在与 gmt 冲突的包；</li><li>2015-09-06：推荐安装 gdal 的 Python 绑定；</li><li>2015-09-18：下载完成后检测压缩文件的 md5 值；</li><li>2015-10-11：GMT5 不依赖于 Xt 等库文件；</li><li>2015-11-07：简化安装细节，本文仅修改 BUG，不再更新内容；</li></ul></div></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

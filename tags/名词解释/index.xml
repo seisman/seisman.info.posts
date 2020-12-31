@@ -1,50 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>名词解释 on SeisMan</title>
-    <link>https://blog.seisman.info/tags/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/</link>
-    <description>Recent content in 名词解释 on SeisMan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Thu, 05 Feb 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>慢度与射线参数</title>
-      <link>https://blog.seisman.info/slowness-and-ray-parameter/</link>
-      <pubDate>Thu, 05 Feb 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/slowness-and-ray-parameter/</guid>
-      <description>&lt;p&gt;本文介绍几个专业名词：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;慢度&lt;/li&gt;
-&lt;li&gt;水平慢度 / 垂直慢度&lt;/li&gt;
-&lt;li&gt;射线参数&lt;/li&gt;
-&lt;li&gt;视速度 / 视慢度&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;这些名词其实很简单，但是在大三一直到研一的几年间，这几个名词在我脑中的概念是
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>名词解释 on SeisMan</title><link>https://blog.seisman.info/tags/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/</link><description>Recent content in 名词解释 on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 05 Feb 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/index.xml" rel="self" type="application/rss+xml"/><item><title>慢度与射线参数</title><link>https://blog.seisman.info/slowness-and-ray-parameter/</link><pubDate>Thu, 05 Feb 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/slowness-and-ray-parameter/</guid><description>&lt;p>本文介绍几个专业名词：&lt;/p>
+&lt;ul>
+&lt;li>慢度&lt;/li>
+&lt;li>水平慢度 / 垂直慢度&lt;/li>
+&lt;li>射线参数&lt;/li>
+&lt;li>视速度 / 视慢度&lt;/li>
+&lt;/ul>
+&lt;p>这些名词其实很简单，但是在大三一直到研一的几年间，这几个名词在我脑中的概念是
 有些混乱的，我把混乱的原因归结于不同课本对同一个专业名词乱用了不同的词汇。
-故而在这里总结一下。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>地震学断层的定义</title>
-      <link>https://blog.seisman.info/faults-in-seismology/</link>
-      <pubDate>Thu, 26 Sep 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/faults-in-seismology/</guid>
-      <description>&lt;p&gt;地震学中最重要的源是 double couple 源，也就是常说的位错源，位错源的产生实质就是断层的滑动。&lt;/p&gt;
-&lt;p&gt;断层及断层的滑动有几个基本参数：走向、倾角、滑移角以及滑移量。很多参数，地震学和地质学中的定义不同，
-即便是地震学里也有不同的定义。Aki and Richards (1980) 的定义应该是用得最多的定义。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>震中距、方位角和反方位角的计算</title>
-      <link>https://blog.seisman.info/calculate-dist-az-baz/</link>
-      <pubDate>Wed, 03 Jul 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/calculate-dist-az-baz/</guid>
-      <description>&lt;p&gt;给定震中经纬度以及球面上任意一点（一般是台站）的经纬度，计算震中距、方位角以及反方位角。
-这是地震学的一个基本问题。&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+故而在这里总结一下。&lt;/p></description></item><item><title>地震学断层的定义</title><link>https://blog.seisman.info/faults-in-seismology/</link><pubDate>Thu, 26 Sep 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/faults-in-seismology/</guid><description>&lt;p>地震学中最重要的源是 double couple 源，也就是常说的位错源，位错源的产生实质就是断层的滑动。&lt;/p>
+&lt;p>断层及断层的滑动有几个基本参数：走向、倾角、滑移角以及滑移量。很多参数，地震学和地质学中的定义不同，
+即便是地震学里也有不同的定义。Aki and Richards (1980) 的定义应该是用得最多的定义。&lt;/p></description></item><item><title>震中距、方位角和反方位角的计算</title><link>https://blog.seisman.info/calculate-dist-az-baz/</link><pubDate>Wed, 03 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/calculate-dist-az-baz/</guid><description>&lt;p>给定震中经纬度以及球面上任意一点（一般是台站）的经纬度，计算震中距、方位角以及反方位角。
+这是地震学的一个基本问题。&lt;/p></description></item></channel></rss>

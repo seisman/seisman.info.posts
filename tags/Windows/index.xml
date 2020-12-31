@@ -1,56 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Windows on SeisMan</title>
-    <link>https://blog.seisman.info/tags/Windows/</link>
-    <description>Recent content in Windows on SeisMan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Sat, 18 Apr 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/Windows/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>GMT 5.1.2 在 Windows 下的安装</title>
-      <link>https://blog.seisman.info/trash/install-gmt5-under-windows/</link>
-      <pubDate>Sat, 18 Apr 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/trash/install-gmt5-under-windows/</guid>
-      <description>&lt;p&gt;本文介绍如何在 Windows 7 下安装 GMT5.1.2。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Windows 下使用 GMT 的正确姿势</title>
-      <link>https://blog.seisman.info/how-to-use-gmt-under-windows/</link>
-      <pubDate>Wed, 10 Dec 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/how-to-use-gmt-under-windows/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;警告：由于某些未知的更新，本文所推荐的notepad++终端插件无法在终端中显示GMT输出的各种信息，因而请勿完全按照本文所说的进行操作！！！&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;我几乎是完全在 Linux 下工作的。有过几次在 Windows 下使用 GMT 的经历，个人觉得用户体验是非常糟糕的，Windows 自带的工具太简陋，用来画 GMT 图太繁琐，浪费好多时间。虽然未来我也几乎不会在 Windows 下写 bat 脚本，但还是想将自己的一些经验写下来，希望能够提高 Windows 下 GMT 的用户体验。&lt;/p&gt;
-&lt;p&gt;在正式开始本文之前，首先要认清几个基本的事实。如果你无法认同这几个事实，那么就没有再读下去的必要了：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;GMT 最初是在 Linux 下开发的 ** 纯命令行 ** 工具。在 Linux 下使用 GMT 要比在 Windows 下方便很多。所以，如果能在 Linux 下使用，就不要在 Windows 下使用；&lt;/li&gt;
-&lt;li&gt;大多数图都不可能用一个 GMT 命令就完成，因而需要将一系列 GMT 命令写到 bat 脚本中；&lt;/li&gt;
-&lt;li&gt;将 GMT 命令写入 bat 脚本的目的有两个：首先是记录 GMT 绘图的过程，其次才是批量绘图；&lt;/li&gt;
-&lt;li&gt;写 bat 脚本的过程，大部分时间和精力都是花在命令的调试和图形的微调上；&lt;/li&gt;
-&lt;li&gt;花半个小时时间折腾一下工具，就可以换取更好的用户体验以及更高的调试效率，这是一笔很划算的交易；&lt;/li&gt;
-&lt;/ol&gt;</description>
-    </item>
-    
-    <item>
-      <title>我所使用的软件/服务列表</title>
-      <link>https://blog.seisman.info/personal-preferences/</link>
-      <pubDate>Tue, 05 Aug 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/personal-preferences/</guid>
-      <description>&lt;p&gt;本文罗列我个人正在使用或曾经使用过的一些软件或服务。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>GMT 在 Windows 下的中文支持</title>
-      <link>https://blog.seisman.info/trash/gmt-chinese-support-under-windows/</link>
-      <pubDate>Thu, 27 Mar 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/trash/gmt-chinese-support-under-windows/</guid>
-      <description>&lt;p&gt;GMT 在 Windows 下如何支持中文的问题在这篇 &lt;a href=&#34;http://xxqhome.blog.163.com/blog/static/1967330202011112810120598/&#34;&gt;博文&lt;/a&gt; 里已经说的差不多了。本文会在该博文的基础上做进一步地整理、归纳和补充。&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Windows on SeisMan</title><link>https://blog.seisman.info/tags/Windows/</link><description>Recent content in Windows on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 18 Apr 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/Windows/index.xml" rel="self" type="application/rss+xml"/><item><title>GMT 5.1.2 在 Windows 下的安装</title><link>https://blog.seisman.info/trash/install-gmt5-under-windows/</link><pubDate>Sat, 18 Apr 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/install-gmt5-under-windows/</guid><description>&lt;p>本文介绍如何在 Windows 7 下安装 GMT5.1.2。&lt;/p></description></item><item><title>Windows 下使用 GMT 的正确姿势</title><link>https://blog.seisman.info/how-to-use-gmt-under-windows/</link><pubDate>Wed, 10 Dec 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/how-to-use-gmt-under-windows/</guid><description>&lt;p>&lt;strong>警告：由于某些未知的更新，本文所推荐的notepad++终端插件无法在终端中显示GMT输出的各种信息，因而请勿完全按照本文所说的进行操作！！！&lt;/strong>&lt;/p>
+&lt;p>我几乎是完全在 Linux 下工作的。有过几次在 Windows 下使用 GMT 的经历，个人觉得用户体验是非常糟糕的，Windows 自带的工具太简陋，用来画 GMT 图太繁琐，浪费好多时间。虽然未来我也几乎不会在 Windows 下写 bat 脚本，但还是想将自己的一些经验写下来，希望能够提高 Windows 下 GMT 的用户体验。&lt;/p>
+&lt;p>在正式开始本文之前，首先要认清几个基本的事实。如果你无法认同这几个事实，那么就没有再读下去的必要了：&lt;/p>
+&lt;ol>
+&lt;li>GMT 最初是在 Linux 下开发的 ** 纯命令行 ** 工具。在 Linux 下使用 GMT 要比在 Windows 下方便很多。所以，如果能在 Linux 下使用，就不要在 Windows 下使用；&lt;/li>
+&lt;li>大多数图都不可能用一个 GMT 命令就完成，因而需要将一系列 GMT 命令写到 bat 脚本中；&lt;/li>
+&lt;li>将 GMT 命令写入 bat 脚本的目的有两个：首先是记录 GMT 绘图的过程，其次才是批量绘图；&lt;/li>
+&lt;li>写 bat 脚本的过程，大部分时间和精力都是花在命令的调试和图形的微调上；&lt;/li>
+&lt;li>花半个小时时间折腾一下工具，就可以换取更好的用户体验以及更高的调试效率，这是一笔很划算的交易；&lt;/li>
+&lt;/ol></description></item><item><title>我所使用的软件/服务列表</title><link>https://blog.seisman.info/personal-preferences/</link><pubDate>Tue, 05 Aug 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/personal-preferences/</guid><description>&lt;p>本文罗列我个人正在使用或曾经使用过的一些软件或服务。&lt;/p></description></item><item><title>GMT 在 Windows 下的中文支持</title><link>https://blog.seisman.info/trash/gmt-chinese-support-under-windows/</link><pubDate>Thu, 27 Mar 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/gmt-chinese-support-under-windows/</guid><description>&lt;p>GMT 在 Windows 下如何支持中文的问题在这篇 &lt;a href="http://xxqhome.blog.163.com/blog/static/1967330202011112810120598/">博文&lt;/a> 里已经说的差不多了。本文会在该博文的基础上做进一步地整理、归纳和补充。&lt;/p></description></item></channel></rss>

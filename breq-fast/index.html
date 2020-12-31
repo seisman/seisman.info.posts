@@ -1,202 +1,12 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  
-
-  <title>IRIS 数据申请工具: BREQ_FAST - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="BREQ_FAST 是 Batch REQuests FAST 的简称。简单来说，就是通过发送特定格式的邮件到指定的 邮箱来申请数据。这种数据申请的方法不同于常见的交互式方法，因而特别适合写脚本自动生成 邮件内容、自动发送邮件、自动下载数据。
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.79.1 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/breq-fast/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="IRIS 数据申请工具: BREQ_FAST" />
-<meta property="og:description" content="BREQ_FAST 是 Batch REQuests FAST 的简称。简单来说，就是通过发送特定格式的邮件到指定的
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>IRIS 数据申请工具: BREQ_FAST - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="BREQ_FAST 是 Batch REQuests FAST 的简称。简单来说，就是通过发送特定格式的邮件到指定的 邮箱来申请数据。这种数据申请的方法不同于常见的交互式方法，因而特别适合写脚本自动生成 邮件内容、自动发送邮件、自动下载数据。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.1 with theme even"><link rel=canonical href=https://blog.seisman.info/breq-fast/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="IRIS 数据申请工具: BREQ_FAST"><meta property="og:description" content="BREQ_FAST 是 Batch REQuests FAST 的简称。简单来说，就是通过发送特定格式的邮件到指定的
 邮箱来申请数据。这种数据申请的方法不同于常见的交互式方法，因而特别适合写脚本自动生成
-邮件内容、自动发送邮件、自动下载数据。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/breq-fast/" />
-<meta property="article:published_time" content="2013-07-23T00:00:00+00:00" />
-<meta property="article:modified_time" content="2013-07-23T00:00:00+00:00" />
-<meta itemprop="name" content="IRIS 数据申请工具: BREQ_FAST">
-<meta itemprop="description" content="BREQ_FAST 是 Batch REQuests FAST 的简称。简单来说，就是通过发送特定格式的邮件到指定的
+邮件内容、自动发送邮件、自动下载数据。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/breq-fast/"><meta property="article:published_time" content="2013-07-23T00:00:00+00:00"><meta property="article:modified_time" content="2013-07-23T00:00:00+00:00"><meta itemprop=name content="IRIS 数据申请工具: BREQ_FAST"><meta itemprop=description content="BREQ_FAST 是 Batch REQuests FAST 的简称。简单来说，就是通过发送特定格式的邮件到指定的
 邮箱来申请数据。这种数据申请的方法不同于常见的交互式方法，因而特别适合写脚本自动生成
-邮件内容、自动发送邮件、自动下载数据。">
-<meta itemprop="datePublished" content="2013-07-23T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2013-07-23T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2049">
-
-
-
-<meta itemprop="keywords" content="breq_fast,IRIS,数据申请," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="IRIS 数据申请工具: BREQ_FAST"/>
-<meta name="twitter:description" content="BREQ_FAST 是 Batch REQuests FAST 的简称。简单来说，就是通过发送特定格式的邮件到指定的
+邮件内容、自动发送邮件、自动下载数据。"><meta itemprop=datePublished content="2013-07-23T00:00:00+00:00"><meta itemprop=dateModified content="2013-07-23T00:00:00+00:00"><meta itemprop=wordCount content="2049"><meta itemprop=keywords content="breq_fast,IRIS,数据申请,"><meta name=twitter:card content="summary"><meta name=twitter:title content="IRIS 数据申请工具: BREQ_FAST"><meta name=twitter:description content="BREQ_FAST 是 Batch REQuests FAST 的简称。简单来说，就是通过发送特定格式的邮件到指定的
 邮箱来申请数据。这种数据申请的方法不同于常见的交互式方法，因而特别适合写脚本自动生成
-邮件内容、自动发送邮件、自动下载数据。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">IRIS 数据申请工具: BREQ_FAST</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2013-07-23 </span>
-        <div class="post-category">
-            <a href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/"> 地震学软件 </a>
-            </div>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#优点">优点</a></li>
-    <li><a href="#缺点">缺点</a></li>
-    <li><a href="#邮件内容格式">邮件内容格式</a></li>
-    <li><a href="#request-line-格式">Request Line 格式</a></li>
-    <li><a href="#通配符">通配符</a></li>
-    <li><a href="#例子">例子</a></li>
-    <li><a href="#发送邮件到这里">发送邮件到这里</a></li>
-    <li><a href="#申请回应">申请回应</a></li>
-    <li><a href="#bug-和限制">Bug 和限制</a></li>
-    <li><a href="#参考">参考</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>BREQ_FAST 是 Batch REQuests FAST 的简称。简单来说，就是通过发送特定格式的邮件到指定的
+邮件内容、自动发送邮件、自动下载数据。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>IRIS 数据申请工具: BREQ_FAST</h1><div class=post-meta><span class=post-time>2013-07-23</span><div class=post-category><a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/>地震学软件</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#优点>优点</a></li><li><a href=#缺点>缺点</a></li><li><a href=#邮件内容格式>邮件内容格式</a></li><li><a href=#request-line-格式>Request Line 格式</a></li><li><a href=#通配符>通配符</a></li><li><a href=#例子>例子</a></li><li><a href=#发送邮件到这里>发送邮件到这里</a></li><li><a href=#申请回应>申请回应</a></li><li><a href=#bug-和限制>Bug 和限制</a></li><li><a href=#参考>参考</a></li></ul></nav></div></div><div class=post-content><p>BREQ_FAST 是 Batch REQuests FAST 的简称。简单来说，就是通过发送特定格式的邮件到指定的
 邮箱来申请数据。这种数据申请的方法不同于常见的交互式方法，因而特别适合写脚本自动生成
-邮件内容、自动发送邮件、自动下载数据。</p>
-<h2 id="优点">优点</h2>
-<ul>
-<li>简单易用，易于自动化</li>
-<li>速度快，不受网速限制</li>
-<li>从申请到下载可以完全脚本化，适合数据批量申请</li>
-</ul>
-<h2 id="缺点">缺点</h2>
-<ul>
-<li>需要自己准备地震目录及台站列表</li>
-<li>需要自己计算震相走时以确定要申请的数据时间窗</li>
-<li>非交互式，不像其他方法那样可以在线获得事件信息，根据事件选择符合一定条件的台站</li>
-</ul>
-<h2 id="邮件内容格式">邮件内容格式</h2>
-<p>BREQ_FAST 对邮件内容的格式有严格的要求，但对邮件主题无要求。具体格式要求如下:</p>
-<pre><code>.NAME
+邮件内容、自动发送邮件、自动下载数据。</p><h2 id=优点>优点</h2><ul><li>简单易用，易于自动化</li><li>速度快，不受网速限制</li><li>从申请到下载可以完全脚本化，适合数据批量申请</li></ul><h2 id=缺点>缺点</h2><ul><li>需要自己准备地震目录及台站列表</li><li>需要自己计算震相走时以确定要申请的数据时间窗</li><li>非交互式，不像其他方法那样可以在线获得事件信息，根据事件选择符合一定条件的台站</li></ul><h2 id=邮件内容格式>邮件内容格式</h2><p>BREQ_FAST 对邮件内容的格式有严格的要求，但对邮件主题无要求。具体格式要求如下:</p><pre><code>.NAME
 .INST
 .MAIL
 .EMAIL
@@ -217,67 +27,15 @@
  ...
  ...
  request line-n
-</code></pre>
-<p>要保证所有以 “<code>.</code>” 开头的标记行左对齐！！！</p>
-<ul>
-<li><code>.NAME</code> ：用户姓名，IRIS 会根据此标记在 ftp 上建立相关文件夹；</li>
-<li><code>.INST</code> ：单位或者机构信息（应该没啥用）；</li>
-<li><code>.MAIL</code> ：邮寄地址；（不会寄东西的）</li>
-<li><code>.EMAIL</code> ：邮箱。IRIS 会向这个邮箱发送有关数据状态的邮件，可以与发送该邮件的邮箱地址不同；</li>
-<li><code>.PHONE</code> ：电话；（没用）</li>
-<li><code>.FAX</code> ：传真；（没用）</li>
-<li><code>.MEDIA</code> ：数据获取介质。有如下几种方式可以选择（按照倾向性排序），现在常用的方式是 FTP，
-要求指定第一、第二、第三介质；
-<ul>
-<li>Electronic (FTP)</li>
-<li>EXABYTE – 2 gigabyte</li>
-<li>EXABYTE – 5 gigabyte</li>
-<li>DAT (digital audio tape)</li>
-<li>DLT</li>
-<li>DVD-R</li>
-</ul>
-</li>
-<li><code>.LABEL</code> ：申请的 SEED 数据将会以该 LABEL 命名，SEED 文件内部也会包含这个 LABEL 的信息，应该
-选择合适的 LABEL 以保证文件名的唯一性和可区分性；（以发震时刻命名是个不错的选择）</li>
-<li><code>.SOURCE</code> 、 <code>.HYPO</code> 和 <code>.MAGNITUDE</code>  是可选的，其指定了震源的一些信息，这些信息最终
+</code></pre><p>要保证所有以 “<code>.</code>” 开头的标记行左对齐！！！</p><ul><li><code>.NAME</code> ：用户姓名，IRIS 会根据此标记在 ftp 上建立相关文件夹；</li><li><code>.INST</code> ：单位或者机构信息（应该没啥用）；</li><li><code>.MAIL</code> ：邮寄地址；（不会寄东西的）</li><li><code>.EMAIL</code> ：邮箱。IRIS 会向这个邮箱发送有关数据状态的邮件，可以与发送该邮件的邮箱地址不同；</li><li><code>.PHONE</code> ：电话；（没用）</li><li><code>.FAX</code> ：传真；（没用）</li><li><code>.MEDIA</code> ：数据获取介质。有如下几种方式可以选择（按照倾向性排序），现在常用的方式是 FTP，
+要求指定第一、第二、第三介质；<ul><li>Electronic (FTP)</li><li>EXABYTE – 2 gigabyte</li><li>EXABYTE – 5 gigabyte</li><li>DAT (digital audio tape)</li><li>DLT</li><li>DVD-R</li></ul></li><li><code>.LABEL</code> ：申请的 SEED 数据将会以该 LABEL 命名，SEED 文件内部也会包含这个 LABEL 的信息，应该
+选择合适的 LABEL 以保证文件名的唯一性和可区分性；（以发震时刻命名是个不错的选择）</li><li><code>.SOURCE</code> 、 <code>.HYPO</code> 和 <code>.MAGNITUDE</code> 是可选的，其指定了震源的一些信息，这些信息最终
 会被写入 SEED 文件中；若未指定这三个标记，SEED 解压出的 SAC 文件时没有震源信息的；若指定了这三个
 标记，解压出来的 SAC 文件时有震源信息的（有发震的经纬度、深度和震级，头段变量 o 的意义也是发震时刻相对于参考时刻的时间，然而 o 没有被修改为 0）。
-震源信息也可以后期再写入。这三个标记的详细信息可以参考最后给出的链接。</li>
-<li><code>.QUALITY</code> ：数据质量；一般默认 B；
-<ul>
-<li><code>B</code> ：最好的数据（首选 Q，没有 Q 则选择 D，没有 D 则选择 R）</li>
-<li><code>E</code> ：所有数据（Q+D+R）</li>
-<li><code>Q</code> ：经过质量控制的数据</li>
-<li><code>D</code> ：中等质量数据；</li>
-<li><code>R</code> ：最原始数据；</li>
-</ul>
-</li>
-<li><code>request line</code> 是真正的数据申请信息，前面的那些都只是辅助信息；</li>
-</ul>
-<h2 id="request-line-格式">Request Line 格式</h2>
-<pre><code>STA NN YYYY MM DD HH MM SS.TTTT YYYY MM DD HH MM SS.TTTT #_CH CH1 CH2 CHn LI
-</code></pre>
-<ul>
-<li><code>STA</code> ：台站名</li>
-<li><code>NN</code> ：台网或虚拟台网名</li>
-<li><code>YYYY</code>、<code>MM</code>、<code>DD</code>、<code>HH</code>、<code>MM</code>：年份（四位）、月、日、时、分</li>
-<li><code>SS.TTTT</code> ：秒；小数点后为毫秒，可以省略；</li>
-<li>日期和时间出现了两次，分别代表要申请的数据的开始时间和结束时间；</li>
-<li><code>#_CH</code> ：接下来通道名的列数；</li>
-<li><code>CHn</code> ：通道名可以包含通配符；</li>
-<li><code>LI</code> ：LOCATION ID，可选</li>
-</ul>
-<p>每行最多包含 100 个字符。</p>
-<h2 id="通配符">通配符</h2>
-<p>通道标识符支持通配符，目前仅支持通配符 <code>?</code>，代表任意单个字符，比如 <code>BH?</code> 代表所有宽频带
+震源信息也可以后期再写入。这三个标记的详细信息可以参考最后给出的链接。</li><li><code>.QUALITY</code> ：数据质量；一般默认 B；<ul><li><code>B</code> ：最好的数据（首选 Q，没有 Q 则选择 D，没有 D 则选择 R）</li><li><code>E</code> ：所有数据（Q+D+R）</li><li><code>Q</code> ：经过质量控制的数据</li><li><code>D</code> ：中等质量数据；</li><li><code>R</code> ：最原始数据；</li></ul></li><li><code>request line</code> 是真正的数据申请信息，前面的那些都只是辅助信息；</li></ul><h2 id=request-line-格式>Request Line 格式</h2><pre><code>STA NN YYYY MM DD HH MM SS.TTTT YYYY MM DD HH MM SS.TTTT #_CH CH1 CH2 CHn LI
+</code></pre><ul><li><code>STA</code> ：台站名</li><li><code>NN</code> ：台网或虚拟台网名</li><li><code>YYYY</code>、<code>MM</code>、<code>DD</code>、<code>HH</code>、<code>MM</code>：年份（四位）、月、日、时、分</li><li><code>SS.TTTT</code> ：秒；小数点后为毫秒，可以省略；</li><li>日期和时间出现了两次，分别代表要申请的数据的开始时间和结束时间；</li><li><code>#_CH</code> ：接下来通道名的列数；</li><li><code>CHn</code> ：通道名可以包含通配符；</li><li><code>LI</code> ：LOCATION ID，可选</li></ul><p>每行最多包含 100 个字符。</p><h2 id=通配符>通配符</h2><p>通道标识符支持通配符，目前仅支持通配符 <code>?</code>，代表任意单个字符，比如 <code>BH?</code> 代表所有宽频带
 （Broadband）高增益（High gain）的通道，可能包含 <code>BHE</code>、<code>BHN</code>、<code>BHZ</code>、<code>BH1</code>、<code>BH2</code> 等等；通道列表
-可以包含多个字段，比如 <code>3 LHZ BH? S??</code>。</p>
-<p>台网和台站也可使用通配符，但是不建议台网和台站同时使用通配符；单个 <code>?</code> 可以匹配该台网的所有台站。</p>
-<p>如果不指定位置号，则获取该台站的全部 location 的数据。</p>
-<p>对于每个台站可以分别指定数据窗范围，因而可以根据到时信息确定需要的数据窗，最大程度减少数据量。不过长一点也无所谓。</p>
-<h2 id="例子">例子</h2>
-<p>给出了 <code>SOURCE</code>、<code>HYPO</code>、<code>MAGNITUDE</code> 的例子，<code>request line</code> 给出了尽可能多的写法：</p>
-<pre><code>.NAME Joe Seismologist
+可以包含多个字段，比如 <code>3 LHZ BH? S??</code>。</p><p>台网和台站也可使用通配符，但是不建议台网和台站同时使用通配符；单个 <code>?</code> 可以匹配该台网的所有台站。</p><p>如果不指定位置号，则获取该台站的全部 location 的数据。</p><p>对于每个台站可以分别指定数据窗范围，因而可以根据到时信息确定需要的数据窗，最大程度减少数据量。不过长一点也无所谓。</p><h2 id=例子>例子</h2><p>给出了 <code>SOURCE</code>、<code>HYPO</code>、<code>MAGNITUDE</code> 的例子，<code>request line</code> 给出了尽可能多的写法：</p><pre><code>.NAME Joe Seismologist
 .INST Podunk University
 .MAIL 101 Fast Lane, Middletown, KS  89432
 .EMAIL joe@podunk.edu
@@ -303,160 +61,26 @@ PFO  II 1999 01 04 02 41 57.5 1999 01 04 02 43 57.5  1 BHZ
 KMI  CD 1999 01 04 02 41 57.5 1999 01 04 02 43 57.5  1 BHZ
 SSE  CD 1999 01 04 02 18 25.4 1999 01 04 02 20 25.4  2 B?? SHZ
 PAS  TS 1999  1  4  2 10 49   1999  1  4  2 12 49    3 BH? SHZ L??
-</code></pre>
-<h2 id="发送邮件到这里">发送邮件到这里</h2>
-<p>根据上面的规则生成了邮件内容，直接将内容作为邮件正文（不是附件）以纯文本格式发送到指定邮箱，不同的邮箱功能不同；</p>
-<ul>
-<li><code>breq_fast@iris.washington.edu</code> ：申请完整的 SEED 文件，最常用的方式；</li>
-<li><code>DATALESS@iris.washington.edu</code>  ：无数据的 SEED 文件，包含仪器响应、仪器坐标等台站信息，一般与 miniSEED 数据联合使用；</li>
-<li><code>miniseed@iris.washington.edu</code>  ：miniSEED 数据，只有数据没有台站信息；</li>
-<li><code>sync@iris.washington.edu</code> ：合成数据</li>
-</ul>
-<h2 id="申请回应">申请回应</h2>
-<p>发送数据请求之后，通常在很短的时间内，就会收到第一封邮件，通知你 IRIS 已经收到该邮件。一段较长的时间后，
+</code></pre><h2 id=发送邮件到这里>发送邮件到这里</h2><p>根据上面的规则生成了邮件内容，直接将内容作为邮件正文（不是附件）以纯文本格式发送到指定邮箱，不同的邮箱功能不同；</p><ul><li><code>breq_fast@iris.washington.edu</code> ：申请完整的 SEED 文件，最常用的方式；</li><li><code>DATALESS@iris.washington.edu</code> ：无数据的 SEED 文件，包含仪器响应、仪器坐标等台站信息，一般与 miniSEED 数据联合使用；</li><li><code>miniseed@iris.washington.edu</code> ：miniSEED 数据，只有数据没有台站信息；</li><li><code>sync@iris.washington.edu</code> ：合成数据</li></ul><h2 id=申请回应>申请回应</h2><p>发送数据请求之后，通常在很短的时间内，就会收到第一封邮件，通知你 IRIS 已经收到该邮件。一段较长的时间后，
 将收到第二封邮件。如果一切顺利，则第二封邮件将告诉你数据已经准备完毕，并给出下载链接。否则则告诉你无法
-完成你的请求。通常有如下几种出错的原因：</p>
-<ol>
-<li>邮件内容的格式错误</li>
-<li>IRIS DMC 中没有你要申请的数据</li>
-<li>要申请的数据不完全公开</li>
-</ol>
-<p>如果发送数据请求后，很长时间都没有收到第一封邮件，一个可能的情况是在发送邮件时使用了富文本，这种情况
-通常是由于使用网页版的邮箱发送导致的。</p>
-<p>为了避免富文本导致的问题，建议用 Perl 或 Python 脚本发送邮件。</p>
-<h2 id="bug-和限制">Bug 和限制</h2>
-<ul>
-<li>无法识别超过正常范围的时间，比如分钟数大于 59，这要求用户自己认真处理时间问题；</li>
-<li>每行必须左对齐；</li>
-<li>通配符只支持 “<code>?</code>”</li>
-</ul>
-<h2 id="参考">参考</h2>
-<ul>
-<li><a href="http://www.iris.edu/dms/nodes/dmc/manuals/breq_fast/">BREQ_FAST Manaul</a></li>
-<li><a href="http://www.iris.edu/manuals/SEED_appA.htm">SEED 通道命名规则</a></li>
-<li><a href="http://www.iris.edu/dms/newsletter/vol1/no1/specification-of-seismograms-the-location-identifier/">Location ID 命名规则</a></li>
-</ul>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2013-07-23
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/breq_fast/">breq_fast</a>
-          <a href="/tags/IRIS/">IRIS</a>
-          <a href="/tags/%E6%95%B0%E6%8D%AE%E7%94%B3%E8%AF%B7/">数据申请</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/perl-send-email/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Perl 发送邮件到 BREQ_FAST</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/jplotresp/">
-            <span class="next-text nav-default">JPlotResp：绘制地震仪器响应</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+完成你的请求。通常有如下几种出错的原因：</p><ol><li>邮件内容的格式错误</li><li>IRIS DMC 中没有你要申请的数据</li><li>要申请的数据不完全公开</li></ol><p>如果发送数据请求后，很长时间都没有收到第一封邮件，一个可能的情况是在发送邮件时使用了富文本，这种情况
+通常是由于使用网页版的邮箱发送导致的。</p><p>为了避免富文本导致的问题，建议用 Perl 或 Python 脚本发送邮件。</p><h2 id=bug-和限制>Bug 和限制</h2><ul><li>无法识别超过正常范围的时间，比如分钟数大于 59，这要求用户自己认真处理时间问题；</li><li>每行必须左对齐；</li><li>通配符只支持 “<code>?</code>”</li></ul><h2 id=参考>参考</h2><ul><li><a href=http://www.iris.edu/dms/nodes/dmc/manuals/breq_fast/>BREQ_FAST Manaul</a></li><li><a href=http://www.iris.edu/manuals/SEED_appA.htm>SEED 通道命名规则</a></li><li><a href=http://www.iris.edu/dms/newsletter/vol1/no1/specification-of-seismograms-the-location-identifier/>Location ID 命名规则</a></li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2013-07-23</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/breq_fast/>breq_fast</a>
+<a href=/tags/IRIS/>IRIS</a>
+<a href=/tags/%E6%95%B0%E6%8D%AE%E7%94%B3%E8%AF%B7/>数据申请</a></div><nav class=post-nav><a class=prev href=/perl-send-email/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Perl 发送邮件到 BREQ_FAST</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/jplotresp/><span class="next-text nav-default">JPlotResp：绘制地震仪器响应</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

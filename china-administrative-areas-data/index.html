@@ -1,233 +1,29 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  
-
-  <title>中国行政区划数据下载 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="GADM 数据库 GADM，是一个全球行政区划数据库。包括了几乎全部国家和地区的行政区划界线数据。
-主页： http://www.gadm.org/
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.79.1 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/china-administrative-areas-data/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="中国行政区划数据下载" />
-<meta property="og:description" content="GADM 数据库
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>中国行政区划数据下载 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="GADM 数据库 GADM，是一个全球行政区划数据库。包括了几乎全部国家和地区的行政区划界线数据。
+主页： http://www.gadm.org/"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.1 with theme even"><link rel=canonical href=https://blog.seisman.info/china-administrative-areas-data/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="中国行政区划数据下载"><meta property="og:description" content="GADM 数据库
 GADM，是一个全球行政区划数据库。包括了几乎全部国家和地区的行政区划界线数据。
-主页： http://www.gadm.org/" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/china-administrative-areas-data/" />
-<meta property="article:published_time" content="2013-11-23T00:00:00+00:00" />
-<meta property="article:modified_time" content="2013-11-23T00:00:00+00:00" />
-<meta itemprop="name" content="中国行政区划数据下载">
-<meta itemprop="description" content="GADM 数据库
+主页： http://www.gadm.org/"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/china-administrative-areas-data/"><meta property="article:published_time" content="2013-11-23T00:00:00+00:00"><meta property="article:modified_time" content="2013-11-23T00:00:00+00:00"><meta itemprop=name content="中国行政区划数据下载"><meta itemprop=description content="GADM 数据库
 GADM，是一个全球行政区划数据库。包括了几乎全部国家和地区的行政区划界线数据。
-主页： http://www.gadm.org/">
-<meta itemprop="datePublished" content="2013-11-23T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2013-11-23T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2649">
-
-
-
-<meta itemprop="keywords" content="数据,格式转换,网站,GMT," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="中国行政区划数据下载"/>
-<meta name="twitter:description" content="GADM 数据库
+主页： http://www.gadm.org/"><meta itemprop=datePublished content="2013-11-23T00:00:00+00:00"><meta itemprop=dateModified content="2013-11-23T00:00:00+00:00"><meta itemprop=wordCount content="2649"><meta itemprop=keywords content="数据,格式转换,网站,GMT,"><meta name=twitter:card content="summary"><meta name=twitter:title content="中国行政区划数据下载"><meta name=twitter:description content="GADM 数据库
 GADM，是一个全球行政区划数据库。包括了几乎全部国家和地区的行政区划界线数据。
-主页： http://www.gadm.org/"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">中国行政区划数据下载</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2013-11-23 </span>
-        <div class="post-category">
-            <a href="/categories/%E5%9C%B0%E7%90%83%E7%89%A9%E7%90%86%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90/"> 地球物理相关资源 </a>
-            </div>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#gadm-数据库">GADM 数据库</a>
-      <ul>
-        <li><a href="#下载数据">下载数据</a></li>
-        <li><a href="#解压数据">解压数据</a></li>
-        <li><a href="#格式转换">格式转换</a></li>
-      </ul>
-    </li>
-    <li><a href="#绘图测试">绘图测试</a>
-      <ul>
-        <li><a href="#中国全图">中国全图</a></li>
-        <li><a href="#1-级行政区划">1 级行政区划</a></li>
-        <li><a href="#2-级行政区划">2 级行政区划</a></li>
-        <li><a href="#3-级行政区划">3 级行政区划</a></li>
-      </ul>
-    </li>
-    <li><a href="#修订历史">修订历史</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <h2 id="gadm-数据库">GADM 数据库</h2>
-<p>GADM，是一个全球行政区划数据库。包括了几乎全部国家和地区的行政区划界线数据。</p>
-<p>主页： <a href="http://www.gadm.org/">http://www.gadm.org/</a></p>
-<h3 id="下载数据">下载数据</h3>
-<p>下载地址： <a href="http://www.gadm.org/country">http://www.gadm.org/country</a></p>
-<p>GADM 提供的数据格式有 6 种：ESRI file
+主页： http://www.gadm.org/"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>中国行政区划数据下载</h1><div class=post-meta><span class=post-time>2013-11-23</span><div class=post-category><a href=/categories/%E5%9C%B0%E7%90%83%E7%89%A9%E7%90%86%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90/>地球物理相关资源</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#gadm-数据库>GADM 数据库</a><ul><li><a href=#下载数据>下载数据</a></li><li><a href=#解压数据>解压数据</a></li><li><a href=#格式转换>格式转换</a></li></ul></li><li><a href=#绘图测试>绘图测试</a><ul><li><a href=#中国全图>中国全图</a></li><li><a href=#1-级行政区划>1 级行政区划</a></li><li><a href=#2-级行政区划>2 级行政区划</a></li><li><a href=#3-级行政区划>3 级行政区划</a></li></ul></li><li><a href=#修订历史>修订历史</a></li></ul></nav></div></div><div class=post-content><h2 id=gadm-数据库>GADM 数据库</h2><p>GADM，是一个全球行政区划数据库。包括了几乎全部国家和地区的行政区划界线数据。</p><p>主页： <a href=http://www.gadm.org/>http://www.gadm.org/</a></p><h3 id=下载数据>下载数据</h3><p>下载地址： <a href=http://www.gadm.org/country>http://www.gadm.org/country</a></p><p>GADM 提供的数据格式有 6 种：ESRI file
 geodatabase、Shapefile、Geopackage(SpatiaLite)、R(SpatialPolygonsDataFrame)、Google
-Earth .kmz 和 ESRI personal geodatabase。这里，数据格式应选择 shapefile。</p>
-<p>在 GADM 中，country 的定义为 “any entity with an ISO country code”。关于 ISO country code，可以参考 <a href="http://zh.wikipedia.org/wiki/ISO_3166-1">维基百科</a>。因而
-想要下载完整的中国数据，实际上需要四个文件：China、Hong Kong、Macao、Taiwan。</p>
-<p>也可以在 <a href="http://www.gadm.org/version2">http://www.gadm.org/version2</a> 下载全球的行政区划数据，但非常不推荐。一方面是数据量偏大，另一方面是全球区划数据保存到一个文件中，难以整理。不如麻烦一点，需要哪个国家下哪个
-国家。</p>
-<h3 id="解压数据">解压数据</h3>
-<p>以 china 数据为例</p>
-<pre><code>unzip CHN_adm_shp.zip -d CHN_adm
-</code></pre>
-<p>解压后得到一堆文件，其中 <code>CHN_adm0.shp</code>、<code>CHN_adm1.shp</code>、<code>CHN_adm2.shp</code>、
+Earth .kmz 和 ESRI personal geodatabase。这里，数据格式应选择 shapefile。</p><p>在 GADM 中，country 的定义为 “any entity with an ISO country code”。关于 ISO country code，可以参考 <a href=http://zh.wikipedia.org/wiki/ISO_3166-1>维基百科</a>。因而
+想要下载完整的中国数据，实际上需要四个文件：China、Hong Kong、Macao、Taiwan。</p><p>也可以在 <a href=http://www.gadm.org/version2>http://www.gadm.org/version2</a> 下载全球的行政区划数据，但非常不推荐。一方面是数据量偏大，另一方面是全球区划数据保存到一个文件中，难以整理。不如麻烦一点，需要哪个国家下哪个
+国家。</p><h3 id=解压数据>解压数据</h3><p>以 china 数据为例</p><pre><code>unzip CHN_adm_shp.zip -d CHN_adm
+</code></pre><p>解压后得到一堆文件，其中 <code>CHN_adm0.shp</code>、<code>CHN_adm1.shp</code>、<code>CHN_adm2.shp</code>、
 <code>CHN_adm3.shp</code> 为实际需要的 shapefile 数据。0、1、2、3 为第零、一、二、三级行政区划界线。对于 china 数据，基本相当于中国大陆地区的边界、省界、市界和区县界。如果是 Hong
-Kong 的数据，0 依然是边界，但是 1 理解为省界显然不合适，总之就是更低一级的行政区划界线。</p>
-<h3 id="格式转换">格式转换</h3>
-<p>GMT 不能识别 shapefile 格式。需要使用 gdal 的 <code>ogr2ogr</code> 命令将 shapefile 格式转换为 GMT 可识别的格式。如果系统里找不到 <code>ogr2ogr</code> 命令，则说明 gdal 没有安装。Ubuntu 下的包
+Kong 的数据，0 依然是边界，但是 1 理解为省界显然不合适，总之就是更低一级的行政区划界线。</p><h3 id=格式转换>格式转换</h3><p>GMT 不能识别 shapefile 格式。需要使用 gdal 的 <code>ogr2ogr</code> 命令将 shapefile 格式转换为 GMT 可识别的格式。如果系统里找不到 <code>ogr2ogr</code> 命令，则说明 gdal 没有安装。Ubuntu 下的包
 名是 <code>gdal-bin</code> ，CentOS 下的是 <code>gdal</code>。Windows 用户则需要到 gdal 官网下载安装。
-另外，Windows 用户也可以用 ArcGIS 等软件实现格式的转换。</p>
-<p>具体的转换命令是从网上找到的，<code>CHN_adm0</code> 为要生成的数据的文件名前缀，但是为什么要出现两次，表示很不解。</p>
-<pre><code>ogr2ogr -f GMT -nln CHN_adm0 CHN_adm0 CHN_adm0.shp
+另外，Windows 用户也可以用 ArcGIS 等软件实现格式的转换。</p><p>具体的转换命令是从网上找到的，<code>CHN_adm0</code> 为要生成的数据的文件名前缀，但是为什么要出现两次，表示很不解。</p><pre><code>ogr2ogr -f GMT -nln CHN_adm0 CHN_adm0 CHN_adm0.shp
 ogr2ogr -f GMT -nln CHN_adm1 CHN_adm1 CHN_adm1.shp
 ogr2ogr -f GMT -nln CHN_adm2 CHN_adm2 CHN_adm2.shp
 ogr2ogr -f GMT -nln CHN_adm3 CHN_adm3 CHN_adm3.shp
-</code></pre>
-<p>对于 Hong Kong、Macao、Taiwan 的数据做类似操作，最终生成了一堆以 gmt 结尾的文件。共计 12 个，如下：</p>
-<pre><code>CHN_adm0.gmt  CHN_adm2.gmt  HKG_adm0.gmt  MAC_adm0.gmt  MAC_adm2.gmt  TWN_adm1.gmt
+</code></pre><p>对于 Hong Kong、Macao、Taiwan 的数据做类似操作，最终生成了一堆以 gmt 结尾的文件。共计 12 个，如下：</p><pre><code>CHN_adm0.gmt  CHN_adm2.gmt  HKG_adm0.gmt  MAC_adm0.gmt  MAC_adm2.gmt  TWN_adm1.gmt
 CHN_adm1.gmt  CHN_adm3.gmt  HKG_adm1.gmt  MAC_adm1.gmt  TWN_adm0.gmt  TWN_adm2.gmt
-</code></pre>
-<h2 id="绘图测试">绘图测试</h2>
-<p>PS1：数据为多段数据，在 GMT4 中需要使用 <code>-m</code> 选项，而 GMT5 已经可以自动处理多段数据，所以不需要使用 <code>-m</code> 选项。</p>
-<p>PS2：数据中有领土纠纷的部分不符合中国政府的立场，笔者也不赞同。虽然有问题的部分不能在正规期刊上发表，但是没有问题的部分还是可以使用的。欢迎读者告诉我符合中国政府政策的数据。</p>
-<h3 id="中国全图">中国全图</h3>
-<p>绘制中国全图需要全部的 0 级数据。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>R<span style="color:#f92672">=</span>72/136/15/54
-J<span style="color:#f92672">=</span>M15c
-PS<span style="color:#f92672">=</span>china.ps
+</code></pre><h2 id=绘图测试>绘图测试</h2><p>PS1：数据为多段数据，在 GMT4 中需要使用 <code>-m</code> 选项，而 GMT5 已经可以自动处理多段数据，所以不需要使用 <code>-m</code> 选项。</p><p>PS2：数据中有领土纠纷的部分不符合中国政府的立场，笔者也不赞同。虽然有问题的部分不能在正规期刊上发表，但是没有问题的部分还是可以使用的。欢迎读者告诉我符合中国政府政策的数据。</p><h3 id=中国全图>中国全图</h3><p>绘制中国全图需要全部的 0 级数据。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e>#!/bin/bash
+</span><span style=color:#75715e></span>R<span style=color:#f92672>=</span>72/136/15/54
+J<span style=color:#f92672>=</span>M15c
+PS<span style=color:#f92672>=</span>china.ps
 
 gmt psxy -J$J -R$R -T -K -U &gt; $PS
 gmt psxy -R$R -J$J CHN_adm0.gmt -K -O &gt;&gt; $PS
@@ -235,17 +31,10 @@ gmt psxy -R$R -J$J HKG_adm0.gmt -K -O &gt;&gt; $PS
 gmt psxy -R$R -J$J MAC_adm0.gmt -K -O &gt;&gt; $PS
 gmt psxy -R$R -J$J TWN_adm0.gmt -K -O &gt;&gt; $PS
 gmt psxy -R$R -J$J -T -O &gt;&gt; $PS
-</code></pre></div><p>代码运行过程中 GMT 会出现如下的警告 (或错误？)</p>
-<pre><code>psxy: Bad OGR/GMT: @D record has more items than declared by @N
-</code></pre>
-<p>猜测是 <code>ogr2ogr</code> 转换的问题。在我的系统环境该警告不影响绘图效果，但评论中 @vv 指出在他的系统环境下会导致图形无法绘制。</p>
-<p>效果图（缺了南海的九段线数据）：</p>
-<p><img src="/images/2013112301.jpg" alt=""></p>
-<h3 id="1-级行政区划">1 级行政区划</h3>
-<p>与上面的代码几乎一样，1 级数据中包含了 0 级数据，所以直接绘制 1 级数据即可。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">R<span style="color:#f92672">=</span>72/136/15/54
-J<span style="color:#f92672">=</span>M15c
-PS<span style="color:#f92672">=</span>china.ps
+</code></pre></div><p>代码运行过程中 GMT 会出现如下的警告 (或错误？)</p><pre><code>psxy: Bad OGR/GMT: @D record has more items than declared by @N
+</code></pre><p>猜测是 <code>ogr2ogr</code> 转换的问题。在我的系统环境该警告不影响绘图效果，但评论中 @vv 指出在他的系统环境下会导致图形无法绘制。</p><p>效果图（缺了南海的九段线数据）：</p><p><img src=/images/2013112301.jpg alt></p><h3 id=1-级行政区划>1 级行政区划</h3><p>与上面的代码几乎一样，1 级数据中包含了 0 级数据，所以直接绘制 1 级数据即可。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>R<span style=color:#f92672>=</span>72/136/15/54
+J<span style=color:#f92672>=</span>M15c
+PS<span style=color:#f92672>=</span>china.ps
 
 gmt psxy -J$J -R$R -T -K -U &gt; $PS
 gmt psxy -R$R -J$J CHN_adm1.gmt -K -O &gt;&gt; $PS
@@ -253,28 +42,21 @@ gmt psxy -R$R -J$J HKG_adm1.gmt -K -O &gt;&gt; $PS
 gmt psxy -R$R -J$J MAC_adm1.gmt -K -O &gt;&gt; $PS
 gmt psxy -R$R -J$J TWN_adm1.gmt -K -O &gt;&gt; $PS
 gmt psxy -R$R -J$J -T -O &gt;&gt; $PS
-</code></pre></div><p>效果图：</p>
-<p><img src="/images/2013112302.jpg" alt=""></p>
-<p>在上一篇博文《<a href="/usage-of-dcw-data/">GMT 中 DCW 数据的使用</a>》中利用 GMT 自带的
+</code></pre></div><p>效果图：</p><p><img src=/images/2013112302.jpg alt></p><p>在上一篇博文《<a href=/usage-of-dcw-data/>GMT 中 DCW 数据的使用</a>》中利用 GMT 自带的
 DCW 数据也生成了类似的图，如下图。查看全图，对比一下会发现，两张图的细节方面还是有些区别的，
 本文的数据绘制的似乎包含了更多的细节（主要是小的岛屿）。这个就得根据需求去选择了，当然也有
-可能两个都是有问题的。</p>
-<p><img src="/images/2013112303.jpg" alt=""></p>
-<h3 id="2-级行政区划">2 级行政区划</h3>
-<p>转换出来的 2 级数据中包含了全国所有的市级边界，用编辑器打开查看内容就会发现，每条线段都有
+可能两个都是有问题的。</p><p><img src=/images/2013112303.jpg alt></p><h3 id=2-级行政区划>2 级行政区划</h3><p>转换出来的 2 级数据中包含了全国所有的市级边界，用编辑器打开查看内容就会发现，每条线段都有
 完整的注释，很容易从众多线段中提取出自己想要的部分。以安徽省为例，将与安徽有关的线段数据保存
-到文件 <code>Anhui_adm2.gmt</code> 中：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">R<span style="color:#f92672">=</span>114/120/29/35
-J<span style="color:#f92672">=</span>M10c
-PS<span style="color:#f92672">=</span>anhui.ps
+到文件 <code>Anhui_adm2.gmt</code> 中：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>R<span style=color:#f92672>=</span>114/120/29/35
+J<span style=color:#f92672>=</span>M10c
+PS<span style=color:#f92672>=</span>anhui.ps
 
 gmt psxy -J$J -R$R -T -K -U &gt; $PS
 gmt psxy -R$R -J$J Anhui_adm2.gmt -K -O &gt;&gt; $PS
 gmt psxy -R$R -J$J -T -O &gt;&gt; $PS
-</code></pre></div><p>上面的脚本有一个很不方便的地方：想要画一个省的 2 级数据，每次都要从 CHN_adm2.gmt 中手动提取该省的数据信息。下面的例子可以避免这种手动提取的过程，主要通过 DCW 数据和 psclip 命令，使用全国 2 级数据（CHN_adm2.gmt），但是只绘制安徽省的 2 级数据。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">R<span style="color:#f92672">=</span>114/120/29/35
-J<span style="color:#f92672">=</span>M10c
-PS<span style="color:#f92672">=</span>anhui.ps
+</code></pre></div><p>上面的脚本有一个很不方便的地方：想要画一个省的 2 级数据，每次都要从 CHN_adm2.gmt 中手动提取该省的数据信息。下面的例子可以避免这种手动提取的过程，主要通过 DCW 数据和 psclip 命令，使用全国 2 级数据（CHN_adm2.gmt），但是只绘制安徽省的 2 级数据。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>R<span style=color:#f92672>=</span>114/120/29/35
+J<span style=color:#f92672>=</span>M10c
+PS<span style=color:#f92672>=</span>anhui.ps
 
 gmt psxy -J$J -R$R -T -K -U &gt; $PS
 gmt pscoast -FCN.34 -M &gt; Anhui_bnd.gmt
@@ -282,36 +64,26 @@ gmt psclip -J$J -R$R Anhui_bnd.gmt -K -O &gt;&gt; $PS
 gmt psxy -R$R -J$J CHN_adm2.gmt -K -O &gt;&gt; $PS
 gmt psclip -C -K -O &gt;&gt; $PS
 gmt psxy -R$R -J$J -T -O &gt;&gt; $PS
-</code></pre></div><p>脚本利用 pscoast 命令，将安徽省（代码为 34）的省界数据导出到文件 Anhui_bnd.gmt 中，然后利用该文件进行 clip，psxy 绘图时虽然使用的是全国的 2 级数据 CHN_adm2.gmt，但是只有安徽省内的部分会被绘制出来，最后还需要再次调用 psclip 以结束 clip。</p>
-<p>上面的这个脚本生成了一个中间文件 Anhui_bnd.gmt，有强迫症的人是无法忍受这个的，因而上面的代码利用管道可以进一步简化为：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">R<span style="color:#f92672">=</span>114/120/29/35
-J<span style="color:#f92672">=</span>M10c
-PS<span style="color:#f92672">=</span>anhui.ps
+</code></pre></div><p>脚本利用 pscoast 命令，将安徽省（代码为 34）的省界数据导出到文件 Anhui_bnd.gmt 中，然后利用该文件进行 clip，psxy 绘图时虽然使用的是全国的 2 级数据 CHN_adm2.gmt，但是只有安徽省内的部分会被绘制出来，最后还需要再次调用 psclip 以结束 clip。</p><p>上面的这个脚本生成了一个中间文件 Anhui_bnd.gmt，有强迫症的人是无法忍受这个的，因而上面的代码利用管道可以进一步简化为：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>R<span style=color:#f92672>=</span>114/120/29/35
+J<span style=color:#f92672>=</span>M10c
+PS<span style=color:#f92672>=</span>anhui.ps
 
 gmt psxy -J$J -R$R -T -K -U &gt; $PS
 gmt pscoast -FCN.34 -M | gmt psclip -J$J -R$R -K -O &gt;&gt; $PS
 gmt psxy -R$R -J$J CHN_adm2.gmt -K -O &gt;&gt; $PS
 gmt psclip -C -K -O &gt;&gt; $PS
 gmt psxy -R$R -J$J -T -O &gt;&gt; $PS
-</code></pre></div><p>上面三个脚本的最终结果基本是一致的，效果图如下：</p>
-<p>注：三个脚本的成图效果是有差的，但是目前没有体现出来，在下一段 “3 级行政区划” 中，可以更明显地看出区别。</p>
-<p><img src="/images/2013112304.jpg" alt=""></p>
-<h3 id="3-级行政区划">3 级行政区划</h3>
-<p>这里还是以安徽省为例，实际上只用 3 级数据即可，这里同时用了 2 级数据和 3 级数据，并且用不同的粗细和颜色来区分。需要注意，由于 3 级数据中包含了 2 级数据，所以下面的例子先画了 3 级数据，再用 2 级数据覆盖。如果画的顺序反了，效果就会差很多。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">R<span style="color:#f92672">=</span>114.8/120/29.3/36
-J<span style="color:#f92672">=</span>M14c
-PS<span style="color:#f92672">=</span>anhui.ps
+</code></pre></div><p>上面三个脚本的最终结果基本是一致的，效果图如下：</p><p>注：三个脚本的成图效果是有差的，但是目前没有体现出来，在下一段 “3 级行政区划” 中，可以更明显地看出区别。</p><p><img src=/images/2013112304.jpg alt></p><h3 id=3-级行政区划>3 级行政区划</h3><p>这里还是以安徽省为例，实际上只用 3 级数据即可，这里同时用了 2 级数据和 3 级数据，并且用不同的粗细和颜色来区分。需要注意，由于 3 级数据中包含了 2 级数据，所以下面的例子先画了 3 级数据，再用 2 级数据覆盖。如果画的顺序反了，效果就会差很多。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>R<span style=color:#f92672>=</span>114.8/120/29.3/36
+J<span style=color:#f92672>=</span>M14c
+PS<span style=color:#f92672>=</span>anhui.ps
 
 gmt psxy -J$J -R$R -T -K -U &gt; $PS
 gmt psxy -R$R -J$J CHN_adm3.gmt -W0.5p,gray -K -O &gt;&gt; $PS
 gmt psxy -R$R -J$J CHN_adm2.gmt -W1p -K -O &gt;&gt; $PS
 gmt psxy -R$R -J$J -T -O &gt;&gt; $PS
-</code></pre></div><p>效果图如下：</p>
-<p><img src="/images/2013112305.jpg" alt=""></p>
-<p>下面的脚本利用了前面提到的 psclip 的方法：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">R<span style="color:#f92672">=</span>114.8/120/29.3/36
-J<span style="color:#f92672">=</span>M14c
-PS<span style="color:#f92672">=</span>anhui.ps
+</code></pre></div><p>效果图如下：</p><p><img src=/images/2013112305.jpg alt></p><p>下面的脚本利用了前面提到的 psclip 的方法：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>R<span style=color:#f92672>=</span>114.8/120/29.3/36
+J<span style=color:#f92672>=</span>M14c
+PS<span style=color:#f92672>=</span>anhui.ps
 
 gmt psxy -J$J -R$R -T -K -U &gt; $PS
 gmt pscoast -FCN.34 -M | gmt psclip -J$J -R$R -K -O &gt;&gt; $PS
@@ -319,141 +91,24 @@ gmt psxy -R$R -J$J CHN_adm3.gmt -W0.5p,gray -K -O &gt;&gt; $PS
 gmt psxy -R$R -J$J CHN_adm2.gmt -W1p -K -O &gt;&gt; $PS
 gmt psclip -C -K -O &gt;&gt; $PS
 gmt psxy -R$R -J$J -T -O &gt;&gt; $PS
-</code></pre></div><p>效果图如下：</p>
-<p><img src="/images/2013112306.jpg" alt=""></p>
-<p>将这两张图对比一下，容易发现，省界的部分线段明显变细了，这算是 clip 的一个缺点，使用省界数据进行 clip，同时又要绘制省界数据，如何判断省界数据点是否在 clip 区域内部是个问题。</p>
-<h2 id="修订历史">修订历史</h2>
-<ul>
-<li>2013-11-23：初稿；</li>
-<li>2013-11-28：绘制 2 级和 3 级边界时，利用 clip 的方法以减少人工操作。Thanks to @yangtze。</li>
-<li>2013-12-05：删除了数据包中的冗余隐藏文件，重新打包，提供多种格式下载。</li>
-<li>2014-01-19：不推荐下载全球行政区划数据；</li>
-<li>2015-04-11：存在个别 IP 恶意下载数据，导致我流量异常高，因而删除其他格式的数据压缩包，仅留下 7z 格式的，若仍出现流量异常，则删除该数据；</li>
-<li>2015-05-01：流量依然异常，猜测是搜索引擎会对齐定时抓取导致的；虽然已经在七牛限制了文件的非本站访问，但似乎对压缩文件无效。故删除该数据，有需要的可以自己去转换格式；</li>
-<li>2016-04-13：王亮添加了 GADM 数据库新增的 Macou 1、2 级数据，并修正了部分理解和表述；</li>
-</ul>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2013-11-23
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/%E6%95%B0%E6%8D%AE/">数据</a>
-          <a href="/tags/%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2/">格式转换</a>
-          <a href="/tags/%E7%BD%91%E7%AB%99/">网站</a>
-          <a href="/tags/GMT/">GMT</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/ccp-install/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">CCP1.0 编译</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/gmt-map-coloring/">
-            <span class="next-text nav-default">利用 DCW 数据进行区域涂色</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+</code></pre></div><p>效果图如下：</p><p><img src=/images/2013112306.jpg alt></p><p>将这两张图对比一下，容易发现，省界的部分线段明显变细了，这算是 clip 的一个缺点，使用省界数据进行 clip，同时又要绘制省界数据，如何判断省界数据点是否在 clip 区域内部是个问题。</p><h2 id=修订历史>修订历史</h2><ul><li>2013-11-23：初稿；</li><li>2013-11-28：绘制 2 级和 3 级边界时，利用 clip 的方法以减少人工操作。Thanks to @yangtze。</li><li>2013-12-05：删除了数据包中的冗余隐藏文件，重新打包，提供多种格式下载。</li><li>2014-01-19：不推荐下载全球行政区划数据；</li><li>2015-04-11：存在个别 IP 恶意下载数据，导致我流量异常高，因而删除其他格式的数据压缩包，仅留下 7z 格式的，若仍出现流量异常，则删除该数据；</li><li>2015-05-01：流量依然异常，猜测是搜索引擎会对齐定时抓取导致的；虽然已经在七牛限制了文件的非本站访问，但似乎对压缩文件无效。故删除该数据，有需要的可以自己去转换格式；</li><li>2016-04-13：王亮添加了 GADM 数据库新增的 Macou 1、2 级数据，并修正了部分理解和表述；</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2013-11-23</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/%E6%95%B0%E6%8D%AE/>数据</a>
+<a href=/tags/%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2/>格式转换</a>
+<a href=/tags/%E7%BD%91%E7%AB%99/>网站</a>
+<a href=/tags/GMT/>GMT</a></div><nav class=post-nav><a class=prev href=/ccp-install/><i class="iconfont icon-left"></i><span class="prev-text nav-default">CCP1.0 编译</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/gmt-map-coloring/><span class="next-text nav-default">利用 DCW 数据进行区域涂色</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

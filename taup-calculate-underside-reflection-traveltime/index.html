@@ -1,181 +1,8 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  
-
-  <title>计算任意深度处下表面反射波走时 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 S410S、S660S。 进一步推广到任意深度的下表面反射震相，比如 S1000S 代表在1000 km深度处的界面的下表面反射的S波，比如 P1200P 代表在1200 km深度处的界面的下表面反射的P波。
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.79.1 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/taup-calculate-underside-reflection-traveltime/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="计算任意深度处下表面反射波走时" />
-<meta property="og:description" content="地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 S410S、S660S。
-进一步推广到任意深度的下表面反射震相，比如 S1000S 代表在1000 km深度处的界面的下表面反射的S波，比如 P1200P 代表在1200 km深度处的界面的下表面反射的P波。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/taup-calculate-underside-reflection-traveltime/" />
-<meta property="article:published_time" content="2017-03-31T00:00:00+00:00" />
-<meta property="article:modified_time" content="2017-03-31T00:00:00+00:00" />
-<meta itemprop="name" content="计算任意深度处下表面反射波走时">
-<meta itemprop="description" content="地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 S410S、S660S。
-进一步推广到任意深度的下表面反射震相，比如 S1000S 代表在1000 km深度处的界面的下表面反射的S波，比如 P1200P 代表在1200 km深度处的界面的下表面反射的P波。">
-<meta itemprop="datePublished" content="2017-03-31T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2017-03-31T00:00:00+00:00" />
-<meta itemprop="wordCount" content="785">
-
-
-
-<meta itemprop="keywords" content="TauP,走时," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="计算任意深度处下表面反射波走时"/>
-<meta name="twitter:description" content="地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 S410S、S660S。
-进一步推广到任意深度的下表面反射震相，比如 S1000S 代表在1000 km深度处的界面的下表面反射的S波，比如 P1200P 代表在1200 km深度处的界面的下表面反射的P波。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">计算任意深度处下表面反射波走时</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2017-03-31 </span>
-        <div class="post-category">
-            <a href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/"> 地震学软件 </a>
-            </div>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents"></nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 <code>S410S</code>、<code>S660S</code>。
-进一步推广到任意深度的下表面反射震相，比如 <code>S1000S</code> 代表在1000 km深度处的界面的下表面反射的S波，比如 <code>P1200P</code> 代表在1200 km深度处的界面的下表面反射的P波。</p>
-<p>下图给出了 <code>S660S</code> 也就是 <code>S^660S</code> 的射线路径，以便于非相关方向读者的理解。</p>
-<p><img src="/images/2017033101.png" alt=""></p>
-<p>本文介绍用 TauP 计算地幔下表面反射震相的走时。</p>
-<p>使用 TauP 计算这类震相的走时时，有两点注意事项：</p>
-<ol>
-<li>TauP 为了避免震相名的多义性，有自己的一套定义规则。比如地震学中所说的 <code>S410S</code>，在 TauP 中被称作 <code>S^410S</code>， 这里的 <code>^</code> 很形象地表示S波在410km间断面的下表面反射。详情见TauP官方文档。</li>
-<li>以 <code>S^410S</code> 为例，若速度模型的410界面的实际深度在408km，则TauP返回的实际上是 <code>S^408S</code> 的走时。这样的设计有好有坏，自行体会。</li>
-</ol>
-<p>下面以 PREM 模型下的 <code>S^1000S</code> 震相为例。</p>
-<p>直观的想法是:</p>
-<pre><code>$ taup_time -mod prem -h 400 -deg 150 -ph S^410S,S^600S,S^1000S
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>计算任意深度处下表面反射波走时 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 S410S、S660S。 进一步推广到任意深度的下表面反射震相，比如 S1000S 代表在1000 km深度处的界面的下表面反射的S波，比如 P1200P 代表在1200 km深度处的界面的下表面反射的P波。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.1 with theme even"><link rel=canonical href=https://blog.seisman.info/taup-calculate-underside-reflection-traveltime/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="计算任意深度处下表面反射波走时"><meta property="og:description" content="地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 S410S、S660S。
+进一步推广到任意深度的下表面反射震相，比如 S1000S 代表在1000 km深度处的界面的下表面反射的S波，比如 P1200P 代表在1200 km深度处的界面的下表面反射的P波。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/taup-calculate-underside-reflection-traveltime/"><meta property="article:published_time" content="2017-03-31T00:00:00+00:00"><meta property="article:modified_time" content="2017-03-31T00:00:00+00:00"><meta itemprop=name content="计算任意深度处下表面反射波走时"><meta itemprop=description content="地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 S410S、S660S。
+进一步推广到任意深度的下表面反射震相，比如 S1000S 代表在1000 km深度处的界面的下表面反射的S波，比如 P1200P 代表在1200 km深度处的界面的下表面反射的P波。"><meta itemprop=datePublished content="2017-03-31T00:00:00+00:00"><meta itemprop=dateModified content="2017-03-31T00:00:00+00:00"><meta itemprop=wordCount content="785"><meta itemprop=keywords content="TauP,走时,"><meta name=twitter:card content="summary"><meta name=twitter:title content="计算任意深度处下表面反射波走时"><meta name=twitter:description content="地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 S410S、S660S。
+进一步推广到任意深度的下表面反射震相，比如 S1000S 代表在1000 km深度处的界面的下表面反射的S波，比如 P1200P 代表在1200 km深度处的界面的下表面反射的P波。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>计算任意深度处下表面反射波走时</h1><div class=post-meta><span class=post-time>2017-03-31</span><div class=post-category><a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/>地震学软件</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents></nav></div></div><div class=post-content><p>地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 <code>S410S</code>、<code>S660S</code>。
+进一步推广到任意深度的下表面反射震相，比如 <code>S1000S</code> 代表在1000 km深度处的界面的下表面反射的S波，比如 <code>P1200P</code> 代表在1200 km深度处的界面的下表面反射的P波。</p><p>下图给出了 <code>S660S</code> 也就是 <code>S^660S</code> 的射线路径，以便于非相关方向读者的理解。</p><p><img src=/images/2017033101.png alt></p><p>本文介绍用 TauP 计算地幔下表面反射震相的走时。</p><p>使用 TauP 计算这类震相的走时时，有两点注意事项：</p><ol><li>TauP 为了避免震相名的多义性，有自己的一套定义规则。比如地震学中所说的 <code>S410S</code>，在 TauP 中被称作 <code>S^410S</code>， 这里的 <code>^</code> 很形象地表示S波在410km间断面的下表面反射。详情见TauP官方文档。</li><li>以 <code>S^410S</code> 为例，若速度模型的410界面的实际深度在408km，则TauP返回的实际上是 <code>S^408S</code> 的走时。这样的设计有好有坏，自行体会。</li></ol><p>下面以 PREM 模型下的 <code>S^1000S</code> 震相为例。</p><p>直观的想法是:</p><pre><code>$ taup_time -mod prem -h 400 -deg 150 -ph S^410S,S^600S,S^1000S
 
 Model: prem
 Distance   Depth   Phase     Travel    Ray Param  Takeoff  Incident  Purist    Purist
@@ -184,25 +11,14 @@ Distance   Depth   Phase     Travel    Ray Param  Takeoff  Incident  Purist    P
   150.00   400.0   S^600S    2240.91    10.552     29.96    17.68   150.00   * S^670S
   150.00   400.0   S^1000S   2240.91    10.552     29.96    17.68   150.00   * S^670S
   150.00   400.0   S^410S    2325.64    10.758     30.61    18.03   150.00   * S^400S
-</code></pre>
-<p>算出来却发现 <code>S^1000S</code> 的走时与 <code>S^660S</code> 的走时完全相同，这显然是不对的。错误的原因在上面的注意事项2中已经解释了。</p>
-<p>错误的根本原因是因为PREM模型的1000 km处并没有速度间断面。解决办法很简单，在PREM模型的1000km处加一个速度间断面即可。</p>
-<p>第一步，复制标准速度模型:</p>
-<pre><code>cp /opt/TauP-2.4.2/StdModels/prem.nd prem1000.nd
-</code></pre>
-<p>第二步，在 prem1000.nd 模型的 1000 km 处加一个速度间断面。原速度模型的1000 km附近速度为:</p>
-<pre><code> 971.00    11.41560   6.37813   4.56307     743.0     312.0
+</code></pre><p>算出来却发现 <code>S^1000S</code> 的走时与 <code>S^660S</code> 的走时完全相同，这显然是不对的。错误的原因在上面的注意事项2中已经解释了。</p><p>错误的根本原因是因为PREM模型的1000 km处并没有速度间断面。解决办法很简单，在PREM模型的1000km处加一个速度间断面即可。</p><p>第一步，复制标准速度模型:</p><pre><code>cp /opt/TauP-2.4.2/StdModels/prem.nd prem1000.nd
+</code></pre><p>第二步，在 prem1000.nd 模型的 1000 km 处加一个速度间断面。原速度模型的1000 km附近速度为:</p><pre><code> 971.00    11.41560   6.37813   4.56307     743.0     312.0
 1071.00    11.57828   6.44232   4.62129     750.0     312.0
-</code></pre>
-<p>修改为:</p>
-<pre><code> 971.00    11.41560   6.37813   4.56307     743.0     312.0
+</code></pre><p>修改为:</p><pre><code> 971.00    11.41560   6.37813   4.56307     743.0     312.0
 1000.00    11.46278   6.39674   4.57995     746.0     312.0
 1000.00    11.46279   6.39675   4.57996     746.0     312.0
 1071.00    11.57828   6.44232   4.62129     750.0     312.0
-</code></pre>
-<p>注意，这里在1000 km处加了两行，且两行的参数值有微小的区别。</p>
-<p>使用新模型计算的结果:</p>
-<pre><code>$ taup_time -mod prem1000 -h 400 -deg 150 -ph S^410S,S^600S,S^1000S
+</code></pre><p>注意，这里在1000 km处加了两行，且两行的参数值有微小的区别。</p><p>使用新模型计算的结果:</p><pre><code>$ taup_time -mod prem1000 -h 400 -deg 150 -ph S^410S,S^600S,S^1000S
 
 Model: prem1000
 Distance   Depth   Phase     Travel    Ray Param  Takeoff  Incident  Purist    Purist
@@ -211,128 +27,22 @@ Distance   Depth   Phase     Travel    Ray Param  Takeoff  Incident  Purist    P
   150.00   400.0   S^1000S   2162.67    10.203     28.88    17.08   150.00   = S^1000S
   150.00   400.0   S^600S    2240.91    10.552     29.96    17.68   150.00   * S^670S
   150.00   400.0   S^410S    2325.64    10.758     30.61    18.03   150.00   * S^400S
-</code></pre>
-<p>整个过程也很容易写脚本实现，这样就可以动态地实现计算任意深度处下表面反射震相的走时了。</p>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2017-03-31
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/TauP/">TauP</a>
-          <a href="/tags/%E8%B5%B0%E6%97%B6/">走时</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/hinetpy/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">HinetPy: Hi-net 数据申请与处理模块</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/coordinate-systems-in-seismology/">
-            <span class="next-text nav-default">地震学中的坐标系</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+</code></pre><p>整个过程也很容易写脚本实现，这样就可以动态地实现计算任意深度处下表面反射震相的走时了。</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2017-03-31</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/TauP/>TauP</a>
+<a href=/tags/%E8%B5%B0%E6%97%B6/>走时</a></div><nav class=post-nav><a class=prev href=/hinetpy/><i class="iconfont icon-left"></i><span class="prev-text nav-default">HinetPy: Hi-net 数据申请与处理模块</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/coordinate-systems-in-seismology/><span class="next-text nav-default">地震学中的坐标系</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

@@ -1,343 +1,142 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  
-
-  <title>在 C 程序中读写 SAC 文件 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="序言 SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 C 程序中读写 SAC 文件。
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.79.1 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/trash/sacio-c/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="在 C 程序中读写 SAC 文件" />
-<meta property="og:description" content="序言
-SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 C 程序中读写 SAC 文件。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/trash/sacio-c/" />
-<meta property="article:published_time" content="2014-05-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2014-05-11T00:00:00+00:00" />
-<meta itemprop="name" content="在 C 程序中读写 SAC 文件">
-<meta itemprop="description" content="序言
-SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 C 程序中读写 SAC 文件。">
-<meta itemprop="datePublished" content="2014-05-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2014-05-11T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1803">
-
-
-
-<meta itemprop="keywords" content="C,SAC技巧," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="在 C 程序中读写 SAC 文件"/>
-<meta name="twitter:description" content="序言
-SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 C 程序中读写 SAC 文件。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-  <div class="post-content">
-    <h2 id="序言">序言</h2>
-<p>SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 C 程序中读写 SAC 文件。</p>
-<h2 id="子函数库">子函数库</h2>
-<p>SAC 自带了读写函数库，并且提供了相关的示例程序，这些可以在 <a href="/sac-manual/">《SAC 参考手册》</a> 中的相关章节中找到。</p>
-<p>SAC 自带的读写子函数实际上并不好用，因而就有很多人自己重新实现了 SAC 读写函数库，其中之一就是 Prof. Lupei Zhu 所写的 <code>sacio.c</code> 。</p>
-<p><a href="http://www.eas.slu.edu/People/LZhu/home.html">Prof. Lupei Zhu</a> 的 <code>fk</code> 或者 <code>gCAP</code> 中都包含了 SAC 读写函数库， <code>sacio.c</code> 和 <code>sac.h</code> 。</p>
-<h2 id="子函数">子函数</h2>
-<p><code>sac.h</code> 中定义了名为 <code>SACHEAD</code> 的结构体，其包含了 SAC 格式的所有头段变量。</p>
-<p><code>sacio.c</code> 中定义了如下子函数：</p>
-<ul>
-<li><code>read_sac</code>：读取 SAC 二进制数据</li>
-<li><code>read_sac2</code>：读取含 cut 选项的二进制数据</li>
-<li><code>read_sachead</code>：仅读取 SAC 文件中的头段部分</li>
-<li><code>write_sac</code>：写 SAC 二进制数据</li>
-<li><code>wrtsac2</code>：将两个 1 维数组写成 XY 形式的 SAC 数据</li>
-<li><code>sachdr</code>：创建一个全新的 SAC 头段</li>
-</ul>
-<h2 id="示例">示例</h2>
-<h3 id="读和写一个-sac-文件">读和写一个 SAC 文件</h3>
-<p>最常见的需求是读取一个 SAC 二进制文件，对数据进行处理，并将处理后的数据写回到原文件中。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;sac.h&#34;        // 包含头文件 sac.h</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> (<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]) {
-    <span style="color:#66d9ef">char</span>    file[<span style="color:#ae81ff">80</span>];
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>在 C 程序中读写 SAC 文件 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="序言 SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 C 程序中读写 SAC 文件。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.1 with theme even"><link rel=canonical href=https://blog.seisman.info/trash/sacio-c/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="在 C 程序中读写 SAC 文件"><meta property="og:description" content="序言
+SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 C 程序中读写 SAC 文件。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/trash/sacio-c/"><meta property="article:published_time" content="2014-05-11T00:00:00+00:00"><meta property="article:modified_time" content="2014-05-11T00:00:00+00:00"><meta itemprop=name content="在 C 程序中读写 SAC 文件"><meta itemprop=description content="序言
+SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 C 程序中读写 SAC 文件。"><meta itemprop=datePublished content="2014-05-11T00:00:00+00:00"><meta itemprop=dateModified content="2014-05-11T00:00:00+00:00"><meta itemprop=wordCount content="1803"><meta itemprop=keywords content="C,SAC技巧,"><meta name=twitter:card content="summary"><meta name=twitter:title content="在 C 程序中读写 SAC 文件"><meta name=twitter:description content="序言
+SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 C 程序中读写 SAC 文件。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><div class=post-content><h2 id=序言>序言</h2><p>SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 C 程序中读写 SAC 文件。</p><h2 id=子函数库>子函数库</h2><p>SAC 自带了读写函数库，并且提供了相关的示例程序，这些可以在 <a href=/sac-manual/>《SAC 参考手册》</a> 中的相关章节中找到。</p><p>SAC 自带的读写子函数实际上并不好用，因而就有很多人自己重新实现了 SAC 读写函数库，其中之一就是 Prof. Lupei Zhu 所写的 <code>sacio.c</code> 。</p><p><a href=http://www.eas.slu.edu/People/LZhu/home.html>Prof. Lupei Zhu</a> 的 <code>fk</code> 或者 <code>gCAP</code> 中都包含了 SAC 读写函数库， <code>sacio.c</code> 和 <code>sac.h</code> 。</p><h2 id=子函数>子函数</h2><p><code>sac.h</code> 中定义了名为 <code>SACHEAD</code> 的结构体，其包含了 SAC 格式的所有头段变量。</p><p><code>sacio.c</code> 中定义了如下子函数：</p><ul><li><code>read_sac</code>：读取 SAC 二进制数据</li><li><code>read_sac2</code>：读取含 cut 选项的二进制数据</li><li><code>read_sachead</code>：仅读取 SAC 文件中的头段部分</li><li><code>write_sac</code>：写 SAC 二进制数据</li><li><code>wrtsac2</code>：将两个 1 维数组写成 XY 形式的 SAC 数据</li><li><code>sachdr</code>：创建一个全新的 SAC 头段</li></ul><h2 id=示例>示例</h2><h3 id=读和写一个-sac-文件>读和写一个 SAC 文件</h3><p>最常见的需求是读取一个 SAC 二进制文件，对数据进行处理，并将处理后的数据写回到原文件中。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdlib.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;string.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&#34;sac.h&#34;        // 包含头文件 sac.h</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span> (<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>argv[]) {
+    <span style=color:#66d9ef>char</span>    file[<span style=color:#ae81ff>80</span>];
     SACHEAD hd;
-    <span style="color:#66d9ef">float</span>   <span style="color:#f92672">*</span>data;
-    <span style="color:#66d9ef">int</span>     i;
+    <span style=color:#66d9ef>float</span>   <span style=color:#f92672>*</span>data;
+    <span style=color:#66d9ef>int</span>     i;
 
-    strcpy(file,<span style="color:#e6db74">&#34;seis.SAC&#34;</span>);
+    strcpy(file,<span style=color:#e6db74>&#34;seis.SAC&#34;</span>);
 
-    <span style="color:#75715e">// 读入数据
-</span><span style="color:#75715e"></span>    data <span style="color:#f92672">=</span> read_sac(file, <span style="color:#f92672">&amp;</span>hd);
-    printf(<span style="color:#e6db74">&#34;npts=%d delta=%f </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, hd.npts, hd.delta);
+    <span style=color:#75715e>// 读入数据
+</span><span style=color:#75715e></span>    data <span style=color:#f92672>=</span> read_sac(file, <span style=color:#f92672>&amp;</span>hd);
+    printf(<span style=color:#e6db74>&#34;npts=%d delta=%f </span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, hd.npts, hd.delta);
 
-    <span style="color:#75715e">// 其它数据处理
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> (i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>hd.npts; i<span style="color:#f92672">++</span>) {
-        data[i] <span style="color:#f92672">*=</span> <span style="color:#ae81ff">0.1</span>;
+    <span style=color:#75715e>// 其它数据处理
+</span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> (i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>; i<span style=color:#f92672>&lt;</span>hd.npts; i<span style=color:#f92672>++</span>) {
+        data[i] <span style=color:#f92672>*=</span> <span style=color:#ae81ff>0.1</span>;
     }
 
-    <span style="color:#75715e">// 将结果写回到原文件中
-</span><span style="color:#75715e"></span>    write_sac(file, hd, data);
+    <span style=color:#75715e>// 将结果写回到原文件中
+</span><span style=color:#75715e></span>    write_sac(file, hd, data);
 
     free(data);
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 }
-</code></pre></div><p>需要注意的几个事项包括：</p>
-<ul>
-<li>SAC 文件的头段区保存到结构体 <code>SACHEAD hd</code> 中。此处必须定义成结构体变量 <code>SACHEAD hd</code> ，若定义成结构体指针 <code>SACHEAD *hd</code> ，必须通过 <code>malloc</code> 为头段区分配空间。</li>
-<li>SAC 文件的数据保存到指针 <code>float *data</code> 中，此处不需要对指针分配空间，<code>read_sac</code> 子函数会首先读取 SAC 文件的头段区，然后根据头段变量 <code>npts</code> 的值分配合适的内存空间。</li>
-<li>对数据进行处理后，可以直接写回到原文件中，或写入到新文件中。</li>
-<li>指针 <code>data</code> 在该程序中定义，并在子程序 <code>read_sac</code> 中分配内存，最终需要在该程序中 <code>free(data)</code> 将已分配的内存空间释放。在本例中内存是否释放并无太大影响，在有些情况下会出现 “内存溢出” 的问题。</li>
-<li>本示例中，为了保持代码的简洁性，没有对子函数的返回值进行判断。</li>
-</ul>
-<h3 id="读取一个-sac-文件的头段区">读取一个 SAC 文件的头段区</h3>
-<p>有些时候只需要 SAC 文件的头段区的一些信息，此时若读取整个文件就有些浪费了。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;sac.h&#34;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> (<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]) {
-    <span style="color:#66d9ef">char</span>    file[<span style="color:#ae81ff">80</span>];
+</code></pre></div><p>需要注意的几个事项包括：</p><ul><li>SAC 文件的头段区保存到结构体 <code>SACHEAD hd</code> 中。此处必须定义成结构体变量 <code>SACHEAD hd</code> ，若定义成结构体指针 <code>SACHEAD *hd</code> ，必须通过 <code>malloc</code> 为头段区分配空间。</li><li>SAC 文件的数据保存到指针 <code>float *data</code> 中，此处不需要对指针分配空间，<code>read_sac</code> 子函数会首先读取 SAC 文件的头段区，然后根据头段变量 <code>npts</code> 的值分配合适的内存空间。</li><li>对数据进行处理后，可以直接写回到原文件中，或写入到新文件中。</li><li>指针 <code>data</code> 在该程序中定义，并在子程序 <code>read_sac</code> 中分配内存，最终需要在该程序中 <code>free(data)</code> 将已分配的内存空间释放。在本例中内存是否释放并无太大影响，在有些情况下会出现 “内存溢出” 的问题。</li><li>本示例中，为了保持代码的简洁性，没有对子函数的返回值进行判断。</li></ul><h3 id=读取一个-sac-文件的头段区>读取一个 SAC 文件的头段区</h3><p>有些时候只需要 SAC 文件的头段区的一些信息，此时若读取整个文件就有些浪费了。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;string.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&#34;sac.h&#34;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span> (<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>argv[]) {
+    <span style=color:#66d9ef>char</span>    file[<span style=color:#ae81ff>80</span>];
     SACHEAD hd;
 
-    strcpy(file,<span style="color:#e6db74">&#34;seis.SAC&#34;</span>);
+    strcpy(file,<span style=color:#e6db74>&#34;seis.SAC&#34;</span>);
 
-    read_sachead(file, <span style="color:#f92672">&amp;</span>hd);
-    <span style="color:#66d9ef">if</span> (hd.npts<span style="color:#f92672">&gt;=</span><span style="color:#ae81ff">500</span>) {
-        printf(<span style="color:#e6db74">&#34;Too much data points!</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+    read_sachead(file, <span style=color:#f92672>&amp;</span>hd);
+    <span style=color:#66d9ef>if</span> (hd.npts<span style=color:#f92672>&gt;=</span><span style=color:#ae81ff>500</span>) {
+        printf(<span style=color:#e6db74>&#34;Too much data points!</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
     }
 
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 }
-</code></pre></div><h3 id="读取-sac-文件中的一段数据">读取 SAC 文件中的一段数据</h3>
-<p>有些时候，数据可能有 10000s，而我们只需要其中 50s 的数据。为了获得 50s 的数据而读取 10000s 的数据，实在太浪费。因而需要一个有效的手段对数据进行截取，即相当于 SAC 中的 cut 命令。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;sac.h&#34;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> (<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]) {
-    <span style="color:#66d9ef">char</span>    fin[<span style="color:#ae81ff">80</span>];
-    <span style="color:#66d9ef">char</span>    fout[<span style="color:#ae81ff">80</span>];
+</code></pre></div><h3 id=读取-sac-文件中的一段数据>读取 SAC 文件中的一段数据</h3><p>有些时候，数据可能有 10000s，而我们只需要其中 50s 的数据。为了获得 50s 的数据而读取 10000s 的数据，实在太浪费。因而需要一个有效的手段对数据进行截取，即相当于 SAC 中的 cut 命令。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdlib.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;string.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&#34;sac.h&#34;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span> (<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>argv[]) {
+    <span style=color:#66d9ef>char</span>    fin[<span style=color:#ae81ff>80</span>];
+    <span style=color:#66d9ef>char</span>    fout[<span style=color:#ae81ff>80</span>];
     SACHEAD hd;
-    <span style="color:#66d9ef">float</span>   <span style="color:#f92672">*</span>data;
-    <span style="color:#66d9ef">int</span>     tmark;
-    <span style="color:#66d9ef">float</span>   t1, t2;
-    <span style="color:#66d9ef">int</span>     i;
+    <span style=color:#66d9ef>float</span>   <span style=color:#f92672>*</span>data;
+    <span style=color:#66d9ef>int</span>     tmark;
+    <span style=color:#66d9ef>float</span>   t1, t2;
+    <span style=color:#66d9ef>int</span>     i;
 
-    strcpy(fin,<span style="color:#e6db74">&#34;seis.SAC&#34;</span>);
+    strcpy(fin,<span style=color:#e6db74>&#34;seis.SAC&#34;</span>);
 
-    tmark   <span style="color:#f92672">=</span>   <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>;
-    t1      <span style="color:#f92672">=</span>   <span style="color:#f92672">-</span><span style="color:#ae81ff">0.5</span>;
-    t2      <span style="color:#f92672">=</span>   <span style="color:#ae81ff">2.5</span>;
+    tmark   <span style=color:#f92672>=</span>   <span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>;
+    t1      <span style=color:#f92672>=</span>   <span style=color:#f92672>-</span><span style=color:#ae81ff>0.5</span>;
+    t2      <span style=color:#f92672>=</span>   <span style=color:#ae81ff>2.5</span>;
 
-    data <span style="color:#f92672">=</span> read_sac2(fin, <span style="color:#f92672">&amp;</span>hd, tmark, t1, t2);
-    printf(<span style="color:#e6db74">&#34;npts=%d delta=%f</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, hd.npts, hd.delta);
+    data <span style=color:#f92672>=</span> read_sac2(fin, <span style=color:#f92672>&amp;</span>hd, tmark, t1, t2);
+    printf(<span style=color:#e6db74>&#34;npts=%d delta=%f</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, hd.npts, hd.delta);
 
-    <span style="color:#66d9ef">for</span> (i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>hd.npts; i<span style="color:#f92672">++</span>) {
-        data[i] <span style="color:#f92672">+=</span> <span style="color:#ae81ff">0.1</span>;
+    <span style=color:#66d9ef>for</span> (i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>; i<span style=color:#f92672>&lt;</span>hd.npts; i<span style=color:#f92672>++</span>) {
+        data[i] <span style=color:#f92672>+=</span> <span style=color:#ae81ff>0.1</span>;
     }
 
-    strcpy(fout,<span style="color:#e6db74">&#34;seis.SAC.cut&#34;</span>);
+    strcpy(fout,<span style=color:#e6db74>&#34;seis.SAC.cut&#34;</span>);
     write_sac(fout, hd, data);
 
     free(data);
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 }
-</code></pre></div><p>说明：</p>
-<ul>
-<li>
-<p><code>tmark</code>、<code>t1</code> 和 <code>t2</code> 确定了要读取的数据的时间窗。其中 <code>tmark</code> 可以取如下值</p>
-<ul>
-<li><code>tmark=-5</code>：以 b 为时间标记</li>
-<li><code>tmark=-3</code>：以 o 为时间标记</li>
-<li><code>tmark=-2</code>：以 a 为时间标记</li>
-<li><code>tmark=0~9</code>：以 t0~t9 中的某个为时间标记</li>
-</ul>
-<p>此例中，表示仅读取头段变量 a 前 0.5 秒到后 2.5 秒的数据。</p>
-</li>
-<li>
-<p>在 <code>sacio.c</code> 的源代码中，理解 <code>tref = *((float *) hd + 10 + tmark);</code> 这一句很重要，在自己的程序中也会经常需要类似的代码。</p>
-</li>
-<li>
-<p>虽然只读取了文件中的部分数据，该子程序对于头段区的 b、e、npts 等做了相应修改，因而最终的头段区是完全正确的。</p>
-</li>
-<li>
-<p>因为只读取了文件中的部分数据，若将处理之后的数据写入原文件中，会导致原数据丢失，因而一般保持到新的文件中。</p>
-</li>
-</ul>
-<h3 id="从零开始写一个-sac-文件">从零开始写一个 SAC 文件</h3>
-<p>在做合成数据时，经常需要从无到有完全创建一个 SAC 文件。这相对于一般的 “读 -&gt; 处理 -&gt;写”而言要更复杂一些，因为必须首先构建一个基本的头段区。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;sac.h&#34;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> (<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]) {
-    <span style="color:#66d9ef">char</span>    fout[<span style="color:#ae81ff">80</span>];
+</code></pre></div><p>说明：</p><ul><li><p><code>tmark</code>、<code>t1</code> 和 <code>t2</code> 确定了要读取的数据的时间窗。其中 <code>tmark</code> 可以取如下值</p><ul><li><code>tmark=-5</code>：以 b 为时间标记</li><li><code>tmark=-3</code>：以 o 为时间标记</li><li><code>tmark=-2</code>：以 a 为时间标记</li><li><code>tmark=0~9</code>：以 t0~t9 中的某个为时间标记</li></ul><p>此例中，表示仅读取头段变量 a 前 0.5 秒到后 2.5 秒的数据。</p></li><li><p>在 <code>sacio.c</code> 的源代码中，理解 <code>tref = *((float *) hd + 10 + tmark);</code> 这一句很重要，在自己的程序中也会经常需要类似的代码。</p></li><li><p>虽然只读取了文件中的部分数据，该子程序对于头段区的 b、e、npts 等做了相应修改，因而最终的头段区是完全正确的。</p></li><li><p>因为只读取了文件中的部分数据，若将处理之后的数据写入原文件中，会导致原数据丢失，因而一般保持到新的文件中。</p></li></ul><h3 id=从零开始写一个-sac-文件>从零开始写一个 SAC 文件</h3><p>在做合成数据时，经常需要从无到有完全创建一个 SAC 文件。这相对于一般的 “读 -> 处理 ->写”而言要更复杂一些，因为必须首先构建一个基本的头段区。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdlib.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;string.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&#34;sac.h&#34;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span> (<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>argv[]) {
+    <span style=color:#66d9ef>char</span>    fout[<span style=color:#ae81ff>80</span>];
     SACHEAD hd;
-    <span style="color:#66d9ef">float</span>   <span style="color:#f92672">*</span>data;
+    <span style=color:#66d9ef>float</span>   <span style=color:#f92672>*</span>data;
 
-    <span style="color:#66d9ef">float</span>   delta;
-    <span style="color:#66d9ef">int</span>     npts;
-    <span style="color:#66d9ef">float</span>   b;
+    <span style=color:#66d9ef>float</span>   delta;
+    <span style=color:#66d9ef>int</span>     npts;
+    <span style=color:#66d9ef>float</span>   b;
 
-    <span style="color:#66d9ef">int</span>     i;
+    <span style=color:#66d9ef>int</span>     i;
 
-    delta <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.01</span>;       <span style="color:#75715e">// 采样周期
-</span><span style="color:#75715e"></span>    npts  <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>;       <span style="color:#75715e">// 数据点数
-</span><span style="color:#75715e"></span>    b     <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;         <span style="color:#75715e">// 文件开始时间
-</span><span style="color:#75715e"></span>    hd <span style="color:#f92672">=</span> sachdr(delta, npts, b);    <span style="color:#75715e">// 构建基本头段
-</span><span style="color:#75715e"></span>    hd.dist     <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;   <span style="color:#75715e">// 给其它头段变量赋值
-</span><span style="color:#75715e"></span>    hd.cmpaz    <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
-    hd.cmpinc   <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+    delta <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.01</span>;       <span style=color:#75715e>// 采样周期
+</span><span style=color:#75715e></span>    npts  <span style=color:#f92672>=</span> <span style=color:#ae81ff>1000</span>;       <span style=color:#75715e>// 数据点数
+</span><span style=color:#75715e></span>    b     <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span>;         <span style=color:#75715e>// 文件开始时间
+</span><span style=color:#75715e></span>    hd <span style=color:#f92672>=</span> sachdr(delta, npts, b);    <span style=color:#75715e>// 构建基本头段
+</span><span style=color:#75715e></span>    hd.dist     <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span>;   <span style=color:#75715e>// 给其它头段变量赋值
+</span><span style=color:#75715e></span>    hd.cmpaz    <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.0</span>;
+    hd.cmpinc   <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.0</span>;
 
-    strcpy(fout,<span style="color:#e6db74">&#34;seis.syn&#34;</span>);
-    <span style="color:#75715e">// 生成合成数据
-</span><span style="color:#75715e"></span>    data <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float</span> <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">float</span>)<span style="color:#f92672">*</span>npts);
-    <span style="color:#66d9ef">for</span> (i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>npts; i<span style="color:#f92672">++</span>) {
-        data[i] <span style="color:#f92672">=</span> i;
+    strcpy(fout,<span style=color:#e6db74>&#34;seis.syn&#34;</span>);
+    <span style=color:#75715e>// 生成合成数据
+</span><span style=color:#75715e></span>    data <span style=color:#f92672>=</span> (<span style=color:#66d9ef>float</span> <span style=color:#f92672>*</span>)malloc(<span style=color:#66d9ef>sizeof</span>(<span style=color:#66d9ef>float</span>)<span style=color:#f92672>*</span>npts);
+    <span style=color:#66d9ef>for</span> (i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>; i<span style=color:#f92672>&lt;</span>npts; i<span style=color:#f92672>++</span>) {
+        data[i] <span style=color:#f92672>=</span> i;
     }
 
-    <span style="color:#75715e">// 写入到文件中
-</span><span style="color:#75715e"></span>    write_sac(fout, hd, data);
+    <span style=color:#75715e>// 写入到文件中
+</span><span style=color:#75715e></span>    write_sac(fout, hd, data);
     free(data);
 
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 }
-</code></pre></div><h3 id="创建一个-xy-型-sac-文件">创建一个 XY 型 SAC 文件</h3>
-<p>XY 型数据中包含了两个数据区，分别是自变量和因变量。这种类型的文件其实很少用到。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;sac.h&#34;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span> (<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]) {
-    <span style="color:#66d9ef">char</span>    fout[<span style="color:#ae81ff">80</span>];
-    <span style="color:#66d9ef">float</span>   <span style="color:#f92672">*</span>xarray;
-    <span style="color:#66d9ef">float</span>   <span style="color:#f92672">*</span>yarray;
+</code></pre></div><h3 id=创建一个-xy-型-sac-文件>创建一个 XY 型 SAC 文件</h3><p>XY 型数据中包含了两个数据区，分别是自变量和因变量。这种类型的文件其实很少用到。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdlib.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;string.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e>#include</span> <span style=color:#75715e>&#34;sac.h&#34;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span> (<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>argv[]) {
+    <span style=color:#66d9ef>char</span>    fout[<span style=color:#ae81ff>80</span>];
+    <span style=color:#66d9ef>float</span>   <span style=color:#f92672>*</span>xarray;
+    <span style=color:#66d9ef>float</span>   <span style=color:#f92672>*</span>yarray;
 
-    <span style="color:#66d9ef">int</span>     npts;
-    <span style="color:#66d9ef">int</span>     i;
+    <span style=color:#66d9ef>int</span>     npts;
+    <span style=color:#66d9ef>int</span>     i;
 
-    npts <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>;
-    strcpy(fout,<span style="color:#e6db74">&#34;seis.syn&#34;</span>);
-    <span style="color:#75715e">// 构建数据
-</span><span style="color:#75715e"></span>    xarray <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float</span> <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">float</span>)<span style="color:#f92672">*</span>npts);
-    yarray <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float</span> <span style="color:#f92672">*</span>)malloc(<span style="color:#66d9ef">sizeof</span>(<span style="color:#66d9ef">float</span>)<span style="color:#f92672">*</span>npts);
-    <span style="color:#66d9ef">for</span> (i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span>npts; i<span style="color:#f92672">++</span>) {
-        xarray[i] <span style="color:#f92672">=</span> i<span style="color:#f92672">*</span><span style="color:#ae81ff">0.1</span>;
-        yarray[i] <span style="color:#f92672">=</span> i<span style="color:#f92672">*</span>i;
+    npts <span style=color:#f92672>=</span> <span style=color:#ae81ff>1000</span>;
+    strcpy(fout,<span style=color:#e6db74>&#34;seis.syn&#34;</span>);
+    <span style=color:#75715e>// 构建数据
+</span><span style=color:#75715e></span>    xarray <span style=color:#f92672>=</span> (<span style=color:#66d9ef>float</span> <span style=color:#f92672>*</span>)malloc(<span style=color:#66d9ef>sizeof</span>(<span style=color:#66d9ef>float</span>)<span style=color:#f92672>*</span>npts);
+    yarray <span style=color:#f92672>=</span> (<span style=color:#66d9ef>float</span> <span style=color:#f92672>*</span>)malloc(<span style=color:#66d9ef>sizeof</span>(<span style=color:#66d9ef>float</span>)<span style=color:#f92672>*</span>npts);
+    <span style=color:#66d9ef>for</span> (i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>; i<span style=color:#f92672>&lt;</span>npts; i<span style=color:#f92672>++</span>) {
+        xarray[i] <span style=color:#f92672>=</span> i<span style=color:#f92672>*</span><span style=color:#ae81ff>0.1</span>;
+        yarray[i] <span style=color:#f92672>=</span> i<span style=color:#f92672>*</span>i;
     }
 
     wrtsac2(fout, npts, xarray, yarray);
@@ -345,89 +144,14 @@ SAC 是进行地震数据预处理的好工具，但是无法实现所有的数�
     free(xarray);
     free(yarray);
 
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 }
-</code></pre></div><h2 id="编译方法">编译方法</h2>
-<pre><code>$ gcc prog.c  sacio.c -lm
-</code></pre>
-<h2 id="一些问题">一些问题</h2>
-<p>下面列举中 <code>sacio.c</code> 的一些问题：</p>
-<ol>
-<li>无法正确处理字符型的头段变量。由于 C 语言中字符串是以 <code>\0</code> 为结束符的，所以长度为 8 的字符型头段变量实际上需要额外的一个字节保存 <code>\0</code>，未考虑此问题会导致无法正确使用和修改字符型头段变量，且可能导致字符型头段变量中的信息丢失。</li>
-<li>写文件时未处理中断信号。在写文件的过程中，若出现中断信号，会导致文件损坏，若在写文件过程中遇到中断信号，应保证继续执行写操作或许会更好。</li>
-</ol>
-  </div>
-</article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+</code></pre></div><h2 id=编译方法>编译方法</h2><pre><code>$ gcc prog.c  sacio.c -lm
+</code></pre><h2 id=一些问题>一些问题</h2><p>下面列举中 <code>sacio.c</code> 的一些问题：</p><ol><li>无法正确处理字符型的头段变量。由于 C 语言中字符串是以 <code>\0</code> 为结束符的，所以长度为 8 的字符型头段变量实际上需要额外的一个字节保存 <code>\0</code>，未考虑此问题会导致无法正确使用和修改字符型头段变量，且可能导致字符型头段变量中的信息丢失。</li><li>写文件时未处理中断信号。在写文件的过程中，若出现中断信号，会导致文件损坏，若在写文件过程中遇到中断信号，应保证继续执行写操作或许会更好。</li></ol></div></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

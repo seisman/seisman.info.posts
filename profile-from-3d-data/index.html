@@ -1,378 +1,69 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  
-
-  <title>从 3D 数据中截取剖面 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="本文所说的 3D 数据是指 XYZD 数据。常见的情况是数据中包含四列：经度、纬度、深度、值。
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>从 3D 数据中截取剖面 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="本文所说的 3D 数据是指 XYZD 数据。常见的情况是数据中包含四列：经度、纬度、深度、值。
 GMT 几乎是不可以处理 3D 数据的，比如与网格相关的命令只支持 2D netCDF 文件。另外，GMT 绘制 3D 图的效果也很一般，因而通常情况下都需要从 3D 数据中截取剖面，绘制剖面图。
-本文试着介绍如何从 3D 数据中截取自己想要的剖面。
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.79.1 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/profile-from-3d-data/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="从 3D 数据中截取剖面" />
-<meta property="og:description" content="本文所说的 3D 数据是指 XYZD 数据。常见的情况是数据中包含四列：经度、纬度、深度、值。
+本文试着介绍如何从 3D 数据中截取自己想要的剖面。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.1 with theme even"><link rel=canonical href=https://blog.seisman.info/profile-from-3d-data/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="从 3D 数据中截取剖面"><meta property="og:description" content="本文所说的 3D 数据是指 XYZD 数据。常见的情况是数据中包含四列：经度、纬度、深度、值。
 GMT 几乎是不可以处理 3D 数据的，比如与网格相关的命令只支持 2D
 netCDF 文件。另外，GMT 绘制 3D 图的效果也很一般，因而通常情况下都需要从 3D 数据中截取剖面，绘制剖面图。
-本文试着介绍如何从 3D 数据中截取自己想要的剖面。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/profile-from-3d-data/" />
-<meta property="article:published_time" content="2015-04-08T00:00:00+00:00" />
-<meta property="article:modified_time" content="2015-04-08T00:00:00+00:00" />
-<meta itemprop="name" content="从 3D 数据中截取剖面">
-<meta itemprop="description" content="本文所说的 3D 数据是指 XYZD 数据。常见的情况是数据中包含四列：经度、纬度、深度、值。
+本文试着介绍如何从 3D 数据中截取自己想要的剖面。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/profile-from-3d-data/"><meta property="article:published_time" content="2015-04-08T00:00:00+00:00"><meta property="article:modified_time" content="2015-04-08T00:00:00+00:00"><meta itemprop=name content="从 3D 数据中截取剖面"><meta itemprop=description content="本文所说的 3D 数据是指 XYZD 数据。常见的情况是数据中包含四列：经度、纬度、深度、值。
 GMT 几乎是不可以处理 3D 数据的，比如与网格相关的命令只支持 2D
 netCDF 文件。另外，GMT 绘制 3D 图的效果也很一般，因而通常情况下都需要从 3D 数据中截取剖面，绘制剖面图。
-本文试着介绍如何从 3D 数据中截取自己想要的剖面。">
-<meta itemprop="datePublished" content="2015-04-08T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2015-04-08T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1155">
-
-
-
-<meta itemprop="keywords" content="GMT技巧," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="从 3D 数据中截取剖面"/>
-<meta name="twitter:description" content="本文所说的 3D 数据是指 XYZD 数据。常见的情况是数据中包含四列：经度、纬度、深度、值。
+本文试着介绍如何从 3D 数据中截取自己想要的剖面。"><meta itemprop=datePublished content="2015-04-08T00:00:00+00:00"><meta itemprop=dateModified content="2015-04-08T00:00:00+00:00"><meta itemprop=wordCount content="1155"><meta itemprop=keywords content="GMT技巧,"><meta name=twitter:card content="summary"><meta name=twitter:title content="从 3D 数据中截取剖面"><meta name=twitter:description content="本文所说的 3D 数据是指 XYZD 数据。常见的情况是数据中包含四列：经度、纬度、深度、值。
 GMT 几乎是不可以处理 3D 数据的，比如与网格相关的命令只支持 2D
 netCDF 文件。另外，GMT 绘制 3D 图的效果也很一般，因而通常情况下都需要从 3D 数据中截取剖面，绘制剖面图。
-本文试着介绍如何从 3D 数据中截取自己想要的剖面。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">从 3D 数据中截取剖面</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2015-04-08 </span>
-        
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#数据准备">数据准备</a></li>
-    <li><a href="#截取垂直于坐标轴的剖面">截取垂直于坐标轴的剖面</a></li>
-    <li><a href="#截取垂直于坐标平面的平面">截取垂直于坐标平面的平面</a></li>
-    <li><a href="#任意一个倾斜剖面">任意一个倾斜剖面</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>本文所说的 3D 数据是指 XYZD 数据。常见的情况是数据中包含四列：经度、纬度、深度、值。</p>
-<p>GMT 几乎是不可以处理 3D 数据的，比如与网格相关的命令只支持 2D
-netCDF 文件。另外，GMT 绘制 3D 图的效果也很一般，因而通常情况下都需要从 3D 数据中截取剖面，绘制剖面图。</p>
-<p>本文试着介绍如何从 3D 数据中截取自己想要的剖面。</p>
-<h2 id="数据准备">数据准备</h2>
-<p>因为我手头没有真实的数据，所以这里虚构一个 3D 数据。就示例而言，虚构的数据也许比真实的数据的演示效果更好。</p>
-<p>虚构数据如下：</p>
-<ul>
-<li>X 的范围为 0 到 9，间隔为 1；</li>
-<li>Y 的范围为 10 到 19，间隔为 1；</li>
-<li>Z 的范围为 20 到 29，间隔为 1；</li>
-<li>D 的值由 X、Y、Z 的值唯一决定；</li>
-</ul>
-<p>生成虚构数据的 C 代码如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+本文试着介绍如何从 3D 数据中截取自己想要的剖面。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>从 3D 数据中截取剖面</h1><div class=post-meta><span class=post-time>2015-04-08</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#数据准备>数据准备</a></li><li><a href=#截取垂直于坐标轴的剖面>截取垂直于坐标轴的剖面</a></li><li><a href=#截取垂直于坐标平面的平面>截取垂直于坐标平面的平面</a></li><li><a href=#任意一个倾斜剖面>任意一个倾斜剖面</a></li></ul></nav></div></div><div class=post-content><p>本文所说的 3D 数据是指 XYZD 数据。常见的情况是数据中包含四列：经度、纬度、深度、值。</p><p>GMT 几乎是不可以处理 3D 数据的，比如与网格相关的命令只支持 2D
+netCDF 文件。另外，GMT 绘制 3D 图的效果也很一般，因而通常情况下都需要从 3D 数据中截取剖面，绘制剖面图。</p><p>本文试着介绍如何从 3D 数据中截取自己想要的剖面。</p><h2 id=数据准备>数据准备</h2><p>因为我手头没有真实的数据，所以这里虚构一个 3D 数据。就示例而言，虚构的数据也许比真实的数据的演示效果更好。</p><p>虚构数据如下：</p><ul><li>X 的范围为 0 到 9，间隔为 1；</li><li>Y 的范围为 10 到 19，间隔为 1；</li><li>Z 的范围为 20 到 29，间隔为 1；</li><li>D 的值由 X、Y、Z 的值唯一决定；</li></ul><p>生成虚构数据的 C 代码如下：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span><span style=color:#75715e></span>
+<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
 {
-    <span style="color:#66d9ef">int</span> i, j, k;
-    <span style="color:#66d9ef">for</span> (i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>; i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">10</span>; i<span style="color:#f92672">++</span>)
-        <span style="color:#66d9ef">for</span> (j <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>; j <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">20</span>; <span style="color:#f92672">++</span>j)
-            <span style="color:#66d9ef">for</span> (k <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>; k <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">30</span>; <span style="color:#f92672">++</span>k)
-                printf(<span style="color:#e6db74">&#34;%d %d %d %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, i, j, k, i<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">+</span>(j<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>)<span style="color:#f92672">*</span><span style="color:#ae81ff">10</span><span style="color:#f92672">+</span>(k<span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>) );
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+    <span style=color:#66d9ef>int</span> i, j, k;
+    <span style=color:#66d9ef>for</span> (i<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>; i<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>10</span>; i<span style=color:#f92672>++</span>)
+        <span style=color:#66d9ef>for</span> (j <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span>; j <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>20</span>; <span style=color:#f92672>++</span>j)
+            <span style=color:#66d9ef>for</span> (k <span style=color:#f92672>=</span> <span style=color:#ae81ff>20</span>; k <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>30</span>; <span style=color:#f92672>++</span>k)
+                printf(<span style=color:#e6db74>&#34;%d %d %d %d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, i, j, k, i<span style=color:#f92672>*</span><span style=color:#ae81ff>100</span><span style=color:#f92672>+</span>(j<span style=color:#f92672>-</span><span style=color:#ae81ff>10</span>)<span style=color:#f92672>*</span><span style=color:#ae81ff>10</span><span style=color:#f92672>+</span>(k<span style=color:#f92672>-</span><span style=color:#ae81ff>20</span>) );
+    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
 }
-</code></pre></div><h2 id="截取垂直于坐标轴的剖面">截取垂直于坐标轴的剖面</h2>
-<p>最简单的情况是从 3D 速度结构中截取某个深度的速度结构，比如 Z=24 这个垂直于 Z 轴的平面。此时直接用
-<code>gawk</code> 将 3D 数据中 Z=24 的点提取出来:</p>
-<pre><code>gawk '$3==24 {print $1,$2,$4}' data.xyzd &gt; Z24.xyd
-</code></pre>
-<p>如果数据的间隔比较小，用 <code>$3==4</code> 去判断可能有些危险，更安全点的方法是:</p>
-<pre><code>gawk '$3&gt;23.999 &amp;&amp; $3&lt;24.001 {print $1,$2,$4}' data.xyzd &gt; Z24.xyd
-</code></pre>
-<p>截取了这个剖面之后，下面就是 <code>xyz2grd</code> 和 <code>grdimage</code> 了，不多说。</p>
-<h2 id="截取垂直于坐标平面的平面">截取垂直于坐标平面的平面</h2>
-<p>最常见的情况是，地表有一个测线，需要做一个沿着这个测线的垂直于地表的剖面。</p>
-<p>这里用 project 命令虚构起点在 (2,12)，终点为 (5,16)，间距为 1 的剖面:</p>
-<pre><code>project -C2/12 -E5/16 -G1 &gt; track.data
-</code></pre>
-<p>track.data 内容如下，三列数据分别为经度、纬度以及离起点的距离（大圆距离）:</p>
-<pre><code>2   12  0
+</code></pre></div><h2 id=截取垂直于坐标轴的剖面>截取垂直于坐标轴的剖面</h2><p>最简单的情况是从 3D 速度结构中截取某个深度的速度结构，比如 Z=24 这个垂直于 Z 轴的平面。此时直接用
+<code>gawk</code> 将 3D 数据中 Z=24 的点提取出来:</p><pre><code>gawk '$3==24 {print $1,$2,$4}' data.xyzd &gt; Z24.xyd
+</code></pre><p>如果数据的间隔比较小，用 <code>$3==4</code> 去判断可能有些危险，更安全点的方法是:</p><pre><code>gawk '$3&gt;23.999 &amp;&amp; $3&lt;24.001 {print $1,$2,$4}' data.xyzd &gt; Z24.xyd
+</code></pre><p>截取了这个剖面之后，下面就是 <code>xyz2grd</code> 和 <code>grdimage</code> 了，不多说。</p><h2 id=截取垂直于坐标平面的平面>截取垂直于坐标平面的平面</h2><p>最常见的情况是，地表有一个测线，需要做一个沿着这个测线的垂直于地表的剖面。</p><p>这里用 project 命令虚构起点在 (2,12)，终点为 (5,16)，间距为 1 的剖面:</p><pre><code>project -C2/12 -E5/16 -G1 &gt; track.data
+</code></pre><p>track.data 内容如下，三列数据分别为经度、纬度以及离起点的距离（大圆距离）:</p><pre><code>2   12  0
 2.59831503664   12.8115096006   1
 3.20049364771   13.6216595304   2
 3.80680955458   14.4303509263   3
 4.41754162203   15.2374825707   4
 5   16  4.94662175502
-</code></pre>
-<p>思路其实很简单，如上面那个例子，先用 <code>gawk</code> 取深度 Z=20 处的平面，然后将其转换为网格文件，并用 <code>grdtrack</code> 取该深度在测线上的值；然后取下一个深度，依次处理下去。</p>
-<p>下面给出了一个示例脚本，该脚本可以解决本文的问题，但灵活性不够，所以使用者需要根据自己的情况改写或重写，理解原理最重要。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e"># 用于清除上一次执行该脚本时生成的文件</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span>-e track.profile<span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</code></pre><p>思路其实很简单，如上面那个例子，先用 <code>gawk</code> 取深度 Z=20 处的平面，然后将其转换为网格文件，并用 <code>grdtrack</code> 取该深度在测线上的值；然后取下一个深度，依次处理下去。</p><p>下面给出了一个示例脚本，该脚本可以解决本文的问题，但灵活性不够，所以使用者需要根据自己的情况改写或重写，理解原理最重要。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e>#!/bin/bash
+</span><span style=color:#75715e></span>
+<span style=color:#75715e># 用于清除上一次执行该脚本时生成的文件</span>
+<span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span>-e track.profile<span style=color:#f92672>]</span>; <span style=color:#66d9ef>then</span>
     rm track.profile
-<span style="color:#66d9ef">fi</span>
+<span style=color:#66d9ef>fi</span>
 
-<span style="color:#75715e"># 对深度进行循环</span>
-<span style="color:#66d9ef">for</span> <span style="color:#f92672">((</span>i <span style="color:#f92672">=</span> 20; i &lt; 30; i++<span style="color:#f92672">))</span>; <span style="color:#66d9ef">do</span>
-    <span style="color:#75715e"># 取某个深度的剖面</span>
-    gawk -v dep<span style="color:#f92672">=</span>$i <span style="color:#e6db74">&#39;$3==dep {print $1,$2,$4}&#39;</span> data.xyzd &gt; $i.xyd
-    <span style="color:#75715e"># 将数据转换为 netCDF 格式</span>
+<span style=color:#75715e># 对深度进行循环</span>
+<span style=color:#66d9ef>for</span> <span style=color:#f92672>((</span>i <span style=color:#f92672>=</span> 20; i &lt; 30; i++<span style=color:#f92672>))</span>; <span style=color:#66d9ef>do</span>
+    <span style=color:#75715e># 取某个深度的剖面</span>
+    gawk -v dep<span style=color:#f92672>=</span>$i <span style=color:#e6db74>&#39;$3==dep {print $1,$2,$4}&#39;</span> data.xyzd &gt; $i.xyd
+    <span style=color:#75715e># 将数据转换为 netCDF 格式</span>
     xyz2grd $i.xyd -R0/9/10/19 -I1/1 -G$i.nc -V
-    <span style="color:#75715e"># 在该深度处做 grdtrack，最终结果重定向到 track.profile 中</span>
-    grdtrack track.data -G$i.nc | gawk -v dep<span style="color:#f92672">=</span>$i <span style="color:#e6db74">&#39;{print $3, dep, $4}&#39;</span> &gt;&gt; track.profile
+    <span style=color:#75715e># 在该深度处做 grdtrack，最终结果重定向到 track.profile 中</span>
+    grdtrack track.data -G$i.nc | gawk -v dep<span style=color:#f92672>=</span>$i <span style=color:#e6db74>&#39;{print $3, dep, $4}&#39;</span> &gt;&gt; track.profile
 
     rm $i.xyd $i.nc
-<span style="color:#66d9ef">done</span>;
-</code></pre></div><p>几点说明:</p>
-<ol>
-<li>使用 <code>gawk</code> 时，涉及到要向 <code>gawk</code> 传递一个 bash 中的变量，需要使用 <code>-v</code> 选项；</li>
-<li><code>grdtrack</code> 命令的输出有四列，分别是经度、纬度、离起点的距离以及 Z；</li>
-<li>绘制剖面时，一般需要离起点的距离，以及深度这两个信息，所以用 <code>gawk</code> 处理了一下；</li>
-<li>所有的循环的输出都重定向到文件 <code>track.profile</code>，最终该文件中有三列，离起点的距离、深度以及值；</li>
-</ol>
-<h2 id="任意一个倾斜剖面">任意一个倾斜剖面</h2>
-<p>这个说难不难，说简单也不简单。首先，如何用一些参数去定义这个剖面就是个问题。假设定义好了，就可以通过某些计算，得到这个剖面与地表的交线以及剖面与各个深度水平面的交线。</p>
-<p>有了这些交线，就可以用与上面的例子类似的方法对每个深度处做 <code>grdtrack</code>，然后把结果收集起来即可。</p>
-<p>思路有了，具体的就不写啦。</p>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2015-04-08
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/GMT%E6%8A%80%E5%B7%A7/">GMT技巧</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/my-referral-links/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">一些产品的推广链接</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/srtm15-plus/">
-            <span class="next-text nav-default">全球地形起伏数据：SRTM15_PLUS</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+<span style=color:#66d9ef>done</span>;
+</code></pre></div><p>几点说明:</p><ol><li>使用 <code>gawk</code> 时，涉及到要向 <code>gawk</code> 传递一个 bash 中的变量，需要使用 <code>-v</code> 选项；</li><li><code>grdtrack</code> 命令的输出有四列，分别是经度、纬度、离起点的距离以及 Z；</li><li>绘制剖面时，一般需要离起点的距离，以及深度这两个信息，所以用 <code>gawk</code> 处理了一下；</li><li>所有的循环的输出都重定向到文件 <code>track.profile</code>，最终该文件中有三列，离起点的距离、深度以及值；</li></ol><h2 id=任意一个倾斜剖面>任意一个倾斜剖面</h2><p>这个说难不难，说简单也不简单。首先，如何用一些参数去定义这个剖面就是个问题。假设定义好了，就可以通过某些计算，得到这个剖面与地表的交线以及剖面与各个深度水平面的交线。</p><p>有了这些交线，就可以用与上面的例子类似的方法对每个深度处做 <code>grdtrack</code>，然后把结果收集起来即可。</p><p>思路有了，具体的就不写啦。</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2015-04-08</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/GMT%E6%8A%80%E5%B7%A7/>GMT技巧</a></div><nav class=post-nav><a class=prev href=/my-referral-links/><i class="iconfont icon-left"></i><span class="prev-text nav-default">一些产品的推广链接</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/srtm15-plus/><span class="next-text nav-default">全球地形起伏数据：SRTM15_PLUS</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

@@ -1,76 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>理论地震图 on SeisMan</title>
-    <link>https://blog.seisman.info/tags/%E7%90%86%E8%AE%BA%E5%9C%B0%E9%9C%87%E5%9B%BE/</link>
-    <description>Recent content in 理论地震图 on SeisMan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Thu, 26 May 2016 12:41:18 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E7%90%86%E8%AE%BA%E5%9C%B0%E9%9C%87%E5%9B%BE/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>IRIS 的理论地震图生成引擎</title>
-      <link>https://blog.seisman.info/iris-syngine/</link>
-      <pubDate>Thu, 26 May 2016 12:41:18 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/iris-syngine/</guid>
-      <description>通过看理论地震图有助于我们理解实际数据中的很多现象，但自己算理论地震图却不是 一个简单的事情，既需要有相关代码还需要理解理论地震图计算的原理，</description>
-    </item>
-    
-    <item>
-      <title>SOFI2D 笔记</title>
-      <link>https://blog.seisman.info/sofi2d-notes/</link>
-      <pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/sofi2d-notes/</guid>
-      <description>&lt;p&gt;SOFI2D 是一个二维 PSV 交错网格有限差分代码。要使用该程序，至少需要阅读如下几篇参考文献：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Virieux, J. 1986. P-SV wave propagation in heterogeneous media:
-velocity-stress finite- difference method. Geophysics, 51(4), 889–901.&lt;/li&gt;
-&lt;li&gt;Levander, A.R. 1988. Fourth-order finite-difference P-SV seismograms. Geophysics, 53(11), 1425–1436.&lt;/li&gt;
-&lt;li&gt;SOFI2D User Guide&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;具体的用法及每个参数的意义在官方文档已经介绍的很详细，本文是我使用 SOFI2D 过程中的经验总结。&lt;/p&gt;
-&lt;p&gt;注：本文使用的是 2015 年 10 月 28 日发布的 SOFI2D。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>fk 用法笔记</title>
-      <link>https://blog.seisman.info/fk-notes/</link>
-      <pubDate>Sat, 28 Feb 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/fk-notes/</guid>
-      <description>&lt;p&gt;fk 是 Prof. Lupei Zhu 写的一个用于计算 &lt;strong&gt;水平分层模型&lt;/strong&gt; 下的理论格林函数并合成
-理论地震图的代码包。代码是开源的，可以直接编译使用。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>地球物理相关软件</title>
-      <link>https://blog.seisman.info/geo-software/</link>
-      <pubDate>Thu, 20 Feb 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/geo-software/</guid>
-      <description>本页面已迁移至 https://link.seisman.info/codes/</description>
-    </item>
-    
-    <item>
-      <title>CPS330 : Computer Programs in Seismology</title>
-      <link>https://blog.seisman.info/cps330/</link>
-      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/cps330/</guid>
-      <description>&lt;p&gt;CPS 全称 Computer Programs in Seismology，是圣路易斯大学地震中心开发并维护的
-一款地震学软件包，其主要关注地震波在地壳和上地幔介质中的传播和解释。&lt;/p&gt;
-&lt;p&gt;主页： &lt;a href=&#34;http://www.eas.slu.edu/eqc/eqccps.html&#34;&gt;http://www.eas.slu.edu/eqc/eqccps.html&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>fk3.3 编译</title>
-      <link>https://blog.seisman.info/fk-install/</link>
-      <pubDate>Sun, 01 Sep 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/fk-install/</guid>
-      <description>&lt;p&gt;fk 是 &lt;a href=&#34;http://www.eas.slu.edu/People/LZhu/home.html&#34;&gt;Prof. Lupei Zhu&lt;/a&gt; 写的一个计算水平分层介质中理论地震图的小程序。&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>理论地震图 on SeisMan</title><link>https://blog.seisman.info/tags/%E7%90%86%E8%AE%BA%E5%9C%B0%E9%9C%87%E5%9B%BE/</link><description>Recent content in 理论地震图 on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 26 May 2016 12:41:18 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E7%90%86%E8%AE%BA%E5%9C%B0%E9%9C%87%E5%9B%BE/index.xml" rel="self" type="application/rss+xml"/><item><title>IRIS 的理论地震图生成引擎</title><link>https://blog.seisman.info/iris-syngine/</link><pubDate>Thu, 26 May 2016 12:41:18 +0000</pubDate><guid>https://blog.seisman.info/iris-syngine/</guid><description>通过看理论地震图有助于我们理解实际数据中的很多现象，但自己算理论地震图却不是 一个简单的事情，既需要有相关代码还需要理解理论地震图计算的原理，</description></item><item><title>SOFI2D 笔记</title><link>https://blog.seisman.info/sofi2d-notes/</link><pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/sofi2d-notes/</guid><description>&lt;p>SOFI2D 是一个二维 PSV 交错网格有限差分代码。要使用该程序，至少需要阅读如下几篇参考文献：&lt;/p>
+&lt;ul>
+&lt;li>Virieux, J. 1986. P-SV wave propagation in heterogeneous media:
+velocity-stress finite- difference method. Geophysics, 51(4), 889–901.&lt;/li>
+&lt;li>Levander, A.R. 1988. Fourth-order finite-difference P-SV seismograms. Geophysics, 53(11), 1425–1436.&lt;/li>
+&lt;li>SOFI2D User Guide&lt;/li>
+&lt;/ul>
+&lt;p>具体的用法及每个参数的意义在官方文档已经介绍的很详细，本文是我使用 SOFI2D 过程中的经验总结。&lt;/p>
+&lt;p>注：本文使用的是 2015 年 10 月 28 日发布的 SOFI2D。&lt;/p></description></item><item><title>fk 用法笔记</title><link>https://blog.seisman.info/fk-notes/</link><pubDate>Sat, 28 Feb 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/fk-notes/</guid><description>&lt;p>fk 是 Prof. Lupei Zhu 写的一个用于计算 &lt;strong>水平分层模型&lt;/strong> 下的理论格林函数并合成
+理论地震图的代码包。代码是开源的，可以直接编译使用。&lt;/p></description></item><item><title>地球物理相关软件</title><link>https://blog.seisman.info/geo-software/</link><pubDate>Thu, 20 Feb 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/geo-software/</guid><description>本页面已迁移至 https://link.seisman.info/codes/</description></item><item><title>CPS330 : Computer Programs in Seismology</title><link>https://blog.seisman.info/cps330/</link><pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/cps330/</guid><description>&lt;p>CPS 全称 Computer Programs in Seismology，是圣路易斯大学地震中心开发并维护的
+一款地震学软件包，其主要关注地震波在地壳和上地幔介质中的传播和解释。&lt;/p>
+&lt;p>主页： &lt;a href="http://www.eas.slu.edu/eqc/eqccps.html">http://www.eas.slu.edu/eqc/eqccps.html&lt;/a>&lt;/p></description></item><item><title>fk3.3 编译</title><link>https://blog.seisman.info/fk-install/</link><pubDate>Sun, 01 Sep 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/fk-install/</guid><description>&lt;p>fk 是 &lt;a href="http://www.eas.slu.edu/People/LZhu/home.html">Prof. Lupei Zhu&lt;/a> 写的一个计算水平分层介质中理论地震图的小程序。&lt;/p></description></item></channel></rss>

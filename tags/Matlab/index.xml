@@ -1,31 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Matlab on SeisMan</title>
-    <link>https://blog.seisman.info/tags/Matlab/</link>
-    <description>Recent content in Matlab on SeisMan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Mon, 14 Oct 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/Matlab/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>用 Matlab 处理 SAC 数据的一些脚本</title>
-      <link>https://blog.seisman.info/trash/sac-matlab-scripts/</link>
-      <pubDate>Mon, 14 Oct 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/trash/sac-matlab-scripts/</guid>
-      <description>&lt;p&gt;我是那种乖乖用 SAC 处理 sac 数据的人。身边有些老师及其学生比较喜欢用 matlab 处理 sac 数据，
-故而这里还是收集一下相关脚本，以造福部分人。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>震中距、方位角和反方位角的计算</title>
-      <link>https://blog.seisman.info/calculate-dist-az-baz/</link>
-      <pubDate>Wed, 03 Jul 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/calculate-dist-az-baz/</guid>
-      <description>&lt;p&gt;给定震中经纬度以及球面上任意一点（一般是台站）的经纬度，计算震中距、方位角以及反方位角。
-这是地震学的一个基本问题。&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Matlab on SeisMan</title><link>https://blog.seisman.info/tags/Matlab/</link><description>Recent content in Matlab on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 14 Oct 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/Matlab/index.xml" rel="self" type="application/rss+xml"/><item><title>用 Matlab 处理 SAC 数据的一些脚本</title><link>https://blog.seisman.info/trash/sac-matlab-scripts/</link><pubDate>Mon, 14 Oct 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/sac-matlab-scripts/</guid><description>&lt;p>我是那种乖乖用 SAC 处理 sac 数据的人。身边有些老师及其学生比较喜欢用 matlab 处理 sac 数据，
+故而这里还是收集一下相关脚本，以造福部分人。&lt;/p></description></item><item><title>震中距、方位角和反方位角的计算</title><link>https://blog.seisman.info/calculate-dist-az-baz/</link><pubDate>Wed, 03 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/calculate-dist-az-baz/</guid><description>&lt;p>给定震中经纬度以及球面上任意一点（一般是台站）的经纬度，计算震中距、方位角以及反方位角。
+这是地震学的一个基本问题。&lt;/p></description></item></channel></rss>

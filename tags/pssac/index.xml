@@ -1,72 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>pssac on SeisMan</title>
-    <link>https://blog.seisman.info/tags/pssac/</link>
-    <description>Recent content in pssac on SeisMan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-CN</language>
-    <lastBuildDate>Sat, 18 Jul 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/pssac/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>在地图上绘制波形</title>
-      <link>https://blog.seisman.info/plot-traces-on-maps/</link>
-      <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/plot-traces-on-maps/</guid>
-      <description>&lt;p&gt;将 SAC 波形数据绘制在地图上也算是常见的需求之一。最常见的情况是，在地图上有一些台站，需要将波形画在台站的附近。&lt;/p&gt;
-&lt;p&gt;此问题的难点在于，在画地图时，-R 指定的是区域范围，即横轴是经度，纵轴是纬度，而 pssac 在绘制波形时，横轴是时间，纵轴是振幅。因而想要将波形放在特定的位置，不是一件容易的事情。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>pssac 使用教程</title>
-      <link>https://blog.seisman.info/pssac-notes/</link>
-      <pubDate>Fri, 17 Jul 2015 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/pssac-notes/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;注意：本文仅针对 Prof. Lupei Zhu 的 pssac 程序，其仅可在 GMT 4下使用。
-对于GMT5用户，GMT 在 5.3.1 之后自带了 pssac，可以使用 &lt;code&gt;gmt pssac&lt;/code&gt; 直接调用。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;相关文档见:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html&#34;&gt;http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://modules.gmt-china.org/pssac&#34;&gt;http://modules.gmt-china.org/pssac&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;pssac&lt;/code&gt; 可以读取 SAC 波形数据，并利用 GMT 的绘图功能将波形数据绘制在 PS 文件中。
-&lt;code&gt;pssac&lt;/code&gt; 绘制的波形图，大致可以分为三类：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;波形振幅图：横轴是时间，纵轴是振幅；&lt;/li&gt;
-&lt;li&gt;剖面图：横轴是时间，纵轴是其他物理量（比如震中距、方位角、反方位角以及文件号）；&lt;/li&gt;
-&lt;li&gt;任意位置图：将波形文件绘制在图上的任意位置；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;本文首先简单介绍 &lt;code&gt;pssac&lt;/code&gt; 的各个选项，然后依次介绍如何绘制波形振幅图、剖面图以及任意位置图，在这个过程中会详细介绍较复杂的选项。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>绘制波形对比图</title>
-      <link>https://blog.seisman.info/waveform-comparison-plot/</link>
-      <pubDate>Sun, 15 Sep 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/waveform-comparison-plot/</guid>
-      <description>&lt;p&gt;波形对比图，经常出现在如下场合：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;发展新的计算理论地震图的方法，与前人的结果做 Benchmark；&lt;/li&gt;
-&lt;li&gt;理论地震图与实际数据做对比，比如反演；&lt;/li&gt;
-&lt;li&gt;展示多个波形的相关性；如 doublet；&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;如下图所示，红色的三个 trace 是某差分程序计算出的地震图，黑色的三个 trace 是 fk 计算出的地震图，也就是上面的第一种情况：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://blog.seisman.info/images/2013091501.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>安装 pssac</title>
-      <link>https://blog.seisman.info/pssac-install/</link>
-      <pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://blog.seisman.info/pssac-install/</guid>
-      <description>&lt;p&gt;&lt;code&gt;pssac&lt;/code&gt; 是 Prof. Lupei Zhu 根据 GMT 的 &lt;code&gt;psxy&lt;/code&gt; 命令修改得到，用于绘制 SAC 格式的波形数据的
-一个小程序。&lt;/p&gt;
-&lt;p&gt;该程序调用了 GMT 的绘图库，因而安装该程序之前需要首先安装 GMT4。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;GMT5用户请注意，GMT 从 5.3.1 起自带了 pssac 模块，可以直接使用 &lt;code&gt;gmt pssac&lt;/code&gt; 来调用。&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pssac on SeisMan</title><link>https://blog.seisman.info/tags/pssac/</link><description>Recent content in pssac on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 18 Jul 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/pssac/index.xml" rel="self" type="application/rss+xml"/><item><title>在地图上绘制波形</title><link>https://blog.seisman.info/plot-traces-on-maps/</link><pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/plot-traces-on-maps/</guid><description>&lt;p>将 SAC 波形数据绘制在地图上也算是常见的需求之一。最常见的情况是，在地图上有一些台站，需要将波形画在台站的附近。&lt;/p>
+&lt;p>此问题的难点在于，在画地图时，-R 指定的是区域范围，即横轴是经度，纵轴是纬度，而 pssac 在绘制波形时，横轴是时间，纵轴是振幅。因而想要将波形放在特定的位置，不是一件容易的事情。&lt;/p></description></item><item><title>pssac 使用教程</title><link>https://blog.seisman.info/pssac-notes/</link><pubDate>Fri, 17 Jul 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/pssac-notes/</guid><description>&lt;p>&lt;strong>注意：本文仅针对 Prof. Lupei Zhu 的 pssac 程序，其仅可在 GMT 4下使用。
+对于GMT5用户，GMT 在 5.3.1 之后自带了 pssac，可以使用 &lt;code>gmt pssac&lt;/code> 直接调用。&lt;/strong>&lt;/p>
+&lt;p>相关文档见:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html">http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://modules.gmt-china.org/pssac">http://modules.gmt-china.org/pssac&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>pssac&lt;/code> 可以读取 SAC 波形数据，并利用 GMT 的绘图功能将波形数据绘制在 PS 文件中。
+&lt;code>pssac&lt;/code> 绘制的波形图，大致可以分为三类：&lt;/p>
+&lt;ol>
+&lt;li>波形振幅图：横轴是时间，纵轴是振幅；&lt;/li>
+&lt;li>剖面图：横轴是时间，纵轴是其他物理量（比如震中距、方位角、反方位角以及文件号）；&lt;/li>
+&lt;li>任意位置图：将波形文件绘制在图上的任意位置；&lt;/li>
+&lt;/ol>
+&lt;p>本文首先简单介绍 &lt;code>pssac&lt;/code> 的各个选项，然后依次介绍如何绘制波形振幅图、剖面图以及任意位置图，在这个过程中会详细介绍较复杂的选项。&lt;/p></description></item><item><title>绘制波形对比图</title><link>https://blog.seisman.info/waveform-comparison-plot/</link><pubDate>Sun, 15 Sep 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/waveform-comparison-plot/</guid><description>&lt;p>波形对比图，经常出现在如下场合：&lt;/p>
+&lt;ol>
+&lt;li>发展新的计算理论地震图的方法，与前人的结果做 Benchmark；&lt;/li>
+&lt;li>理论地震图与实际数据做对比，比如反演；&lt;/li>
+&lt;li>展示多个波形的相关性；如 doublet；&lt;/li>
+&lt;/ol>
+&lt;p>如下图所示，红色的三个 trace 是某差分程序计算出的地震图，黑色的三个 trace 是 fk 计算出的地震图，也就是上面的第一种情况：&lt;/p>
+&lt;p>&lt;img src="https://blog.seisman.info/images/2013091501.jpg" alt="">&lt;/p></description></item><item><title>安装 pssac</title><link>https://blog.seisman.info/pssac-install/</link><pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/pssac-install/</guid><description>&lt;p>&lt;code>pssac&lt;/code> 是 Prof. Lupei Zhu 根据 GMT 的 &lt;code>psxy&lt;/code> 命令修改得到，用于绘制 SAC 格式的波形数据的
+一个小程序。&lt;/p>
+&lt;p>该程序调用了 GMT 的绘图库，因而安装该程序之前需要首先安装 GMT4。&lt;/p>
+&lt;p>&lt;strong>GMT5用户请注意，GMT 从 5.3.1 起自带了 pssac 模块，可以直接使用 &lt;code>gmt pssac&lt;/code> 来调用。&lt;/strong>&lt;/p></description></item></channel></rss>

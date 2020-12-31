@@ -1,185 +1,34 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>SAC 容易忽略的一个陷阱 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="事情大概是这样的：当前文件夹下有很多个 SAC 文件（约 700 个，没有超过 SAC 一次只能处理 1000 个数据的限制），需要对 SAC 文件进行简单的滤波处理，然后保存。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.1 with theme even"><link rel=canonical href=https://blog.seisman.info/trash/sac-traps/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="SAC 容易忽略的一个陷阱"><meta property="og:description" content="事情大概是这样的：当前文件夹下有很多个 SAC 文件（约 700 个，没有超过 SAC 一次只能处理 1000 个数据的限制），需要对 SAC 文件进行简单的滤波处理，然后保存。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/trash/sac-traps/"><meta property="article:published_time" content="2013-11-17T00:00:00+00:00"><meta property="article:modified_time" content="2014-04-18T00:00:00+00:00"><meta itemprop=name content="SAC 容易忽略的一个陷阱"><meta itemprop=description content="事情大概是这样的：当前文件夹下有很多个 SAC 文件（约 700 个，没有超过 SAC 一次只能处理 1000 个数据的限制），需要对 SAC 文件进行简单的滤波处理，然后保存。"><meta itemprop=datePublished content="2013-11-17T00:00:00+00:00"><meta itemprop=dateModified content="2014-04-18T00:00:00+00:00"><meta itemprop=wordCount content="2068"><meta itemprop=keywords content="SAC技巧,"><meta name=twitter:card content="summary"><meta name=twitter:title content="SAC 容易忽略的一个陷阱"><meta name=twitter:description content="事情大概是这样的：当前文件夹下有很多个 SAC 文件（约 700 个，没有超过 SAC 一次只能处理 1000 个数据的限制），需要对 SAC 文件进行简单的滤波处理，然后保存。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><div class=post-content><p>事情大概是这样的：当前文件夹下有很多个 SAC 文件（约 700 个，没有超过 SAC 一次只能处理 1000 个数据的限制），需要对 SAC 文件进行简单的滤波处理，然后保存。</p><p>PS：SAC 版本为 101.5c。</p><p>在 Perl 脚本中调用 SAC，一开始是这样写的：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl><span style=color:#75715e>#!/usr/bin/env perl</span>
+<span style=color:#66d9ef>use</span> warnings;
+<span style=color:#66d9ef>use</span> strict;
 
-  
+<span style=color:#66d9ef>my</span> @sacfiles <span style=color:#f92672>=</span> glob <span style=color:#e6db74>&#34;N.*.U&#34;</span>;
 
-  <title>SAC 容易忽略的一个陷阱 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="事情大概是这样的：当前文件夹下有很多个 SAC 文件（约 700 个，没有超过 SAC 一次只能处理 1000 个数据的限制），需要对 SAC 文件进行简单的滤波处理，然后保存。
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.79.1 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/trash/sac-traps/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="SAC 容易忽略的一个陷阱" />
-<meta property="og:description" content="事情大概是这样的：当前文件夹下有很多个 SAC 文件（约 700 个，没有超过 SAC 一次只能处理 1000 个数据的限制），需要对 SAC 文件进行简单的滤波处理，然后保存。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/trash/sac-traps/" />
-<meta property="article:published_time" content="2013-11-17T00:00:00+00:00" />
-<meta property="article:modified_time" content="2014-04-18T00:00:00+00:00" />
-<meta itemprop="name" content="SAC 容易忽略的一个陷阱">
-<meta itemprop="description" content="事情大概是这样的：当前文件夹下有很多个 SAC 文件（约 700 个，没有超过 SAC 一次只能处理 1000 个数据的限制），需要对 SAC 文件进行简单的滤波处理，然后保存。">
-<meta itemprop="datePublished" content="2013-11-17T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2014-04-18T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2068">
-
-
-
-<meta itemprop="keywords" content="SAC技巧," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="SAC 容易忽略的一个陷阱"/>
-<meta name="twitter:description" content="事情大概是这样的：当前文件夹下有很多个 SAC 文件（约 700 个，没有超过 SAC 一次只能处理 1000 个数据的限制），需要对 SAC 文件进行简单的滤波处理，然后保存。"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-  <div class="post-content">
-    <p>事情大概是这样的：当前文件夹下有很多个 SAC 文件（约 700 个，没有超过 SAC 一次只能处理 1000 个数据的限制），需要对 SAC 文件进行简单的滤波处理，然后保存。</p>
-<p>PS：SAC 版本为 101.5c。</p>
-<p>在 Perl 脚本中调用 SAC，一开始是这样写的：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e">#!/usr/bin/env perl</span>
-<span style="color:#66d9ef">use</span> warnings;
-<span style="color:#66d9ef">use</span> strict;
-
-<span style="color:#66d9ef">my</span> @sacfiles <span style="color:#f92672">=</span> glob <span style="color:#e6db74">&#34;N.*.U&#34;</span>;
-
-open(SAC,<span style="color:#e6db74">&#34;| sac&#34;</span>);
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;r @sacfiles \n&#34;</span>;
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;rmean; rtr; taper \n&#34;</span>;
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;bp c 1 3 n 2 p 1 \n&#34;</span>;
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;w over \n&#34;</span>;
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;quit \n&#34;</span>;
+open(SAC,<span style=color:#e6db74>&#34;| sac&#34;</span>);
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;r @sacfiles \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;rmean; rtr; taper \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;bp c 1 3 n 2 p 1 \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;w over \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;quit \n&#34;</span>;
 close(SAC);
-</code></pre></div><p>第 5 行通过 <code>glob</code> 通配当前目录下的所有文件名符合 <code>N.*.U</code> 的文件。第 7-13 行，打开 SAC 进行数据处理，然后关闭 SAC。</p>
-<p>这个脚本看似没有问题，但是经过比对就会发现，只有部分数据被正确地滤波了，所以 <strong>这个脚本是错误的！</strong></p>
-<p>为了验证究竟是哪里的问题，将上面的脚本修改一下，如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e">#!/usr/bin/env perl</span>
-<span style="color:#66d9ef">use</span> warnings;
-<span style="color:#66d9ef">use</span> strict;
+</code></pre></div><p>第 5 行通过 <code>glob</code> 通配当前目录下的所有文件名符合 <code>N.*.U</code> 的文件。第 7-13 行，打开 SAC 进行数据处理，然后关闭 SAC。</p><p>这个脚本看似没有问题，但是经过比对就会发现，只有部分数据被正确地滤波了，所以 <strong>这个脚本是错误的！</strong></p><p>为了验证究竟是哪里的问题，将上面的脚本修改一下，如下：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl><span style=color:#75715e>#!/usr/bin/env perl</span>
+<span style=color:#66d9ef>use</span> warnings;
+<span style=color:#66d9ef>use</span> strict;
 
-<span style="color:#66d9ef">my</span> @sacfiles <span style="color:#f92672">=</span> glob <span style="color:#e6db74">&#34;N.*.U&#34;</span>;
+<span style=color:#66d9ef>my</span> @sacfiles <span style=color:#f92672>=</span> glob <span style=color:#e6db74>&#34;N.*.U&#34;</span>;
 
-open(SAC,<span style="color:#e6db74">&#34;| sac&#34;</span>);
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;echo on errors warnings output commands macros processed \n&#34;</span>;
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;r @sacfiles \n&#34;</span>;
-<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;read @sacfiles \n&#34;</span>;
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;rmean; rtr; taper \n&#34;</span>;
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;bp c 1 3 n 2 p 1 \n&#34;</span>;
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;w over \n&#34;</span>;
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;quit \n&#34;</span>;
+open(SAC,<span style=color:#e6db74>&#34;| sac&#34;</span>);
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;echo on errors warnings output commands macros processed \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;r @sacfiles \n&#34;</span>;
+<span style=color:#66d9ef>print</span> <span style=color:#e6db74>&#34;read @sacfiles \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;rmean; rtr; taper \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;bp c 1 3 n 2 p 1 \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;w over \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;quit \n&#34;</span>;
 close(SAC);
 </code></pre></div><p>脚本的第 8 行 <code>echo</code> 是 SAC 的一个命令，这个命令将显示全部 “错误、警告、输出、命令、宏、
-处理后的命令”，因而可以用来监视 SAC 究竟做了什么。第 10 行 <code>print &quot;read @sacfiles \n&quot;;</code> 用于验证 Perl 传递给 SAC 的究竟是什么，
-这里使用 <code>read</code> 而不是 <code>r</code> 是为了区分 Perl 的输出和 SAC 的输出。</p>
-<p>终端显示结果如下:</p>
-<pre><code>read N.AGMH.U N.AGWH.U N.AHIH.U N.AIOH.U N.AIRH.U N.AJSH.U N.AKIH.U
+处理后的命令”，因而可以用来监视 SAC 究竟做了什么。第 10 行 <code>print "read @sacfiles \n";</code> 用于验证 Perl 传递给 SAC 的究竟是什么，
+这里使用 <code>read</code> 而不是 <code>r</code> 是为了区分 Perl 的输出和 SAC 的输出。</p><p>终端显示结果如下:</p><pre><code>read N.AGMH.U N.AGWH.U N.AHIH.U N.AIOH.U N.AIRH.U N.AJSH.U N.AKIH.U
 N.AKNH.U N.AKSH.U N.AMAH.U N.AMNH.U N.AMZH.U N.ANIH.U N.ANJH.U N.ANNH.U
 N.ANSH.U N.AOMH.U N.ARIH.U N.ARKH.U N.ASAH.U N.ASBH.U N.ASHH.U N.ASKH.U
 N.ASNH.U N.ASRH.U N.ASSH.U N.ASUH.U N.ASVH.U N.ATDH.U N.ATGH.U N.ATKH.U
@@ -286,140 +135,58 @@ rmean; rtr; taper
 bp c 1 3 n 2 p 1
 w over
 quit
-</code></pre>
-<p>可以看到：第 1 行是 Perl 的输出，也就是 Perl 的 print 语句传递给 SAC 句柄的内容，其
+</code></pre><p>可以看到：第 1 行是 Perl 的输出，也就是 Perl 的 print 语句传递给 SAC 句柄的内容，其
 正确的传递了 700 多个文件的文件名。第 3 行之后为 SAC 的输出，可以看到第 3 行的内容与
-第 1 行内容类似，但是明显短了非常多。这意味着 <strong>部分内容在由 Perl 传递给 SAC 之后丢失了</strong>。</p>
-<p>可以比较容易地发现，SAC 显示的 <code>read</code> 语句长度为 1002 字符，大概就是 1000 字符，所以猜测是
+第 1 行内容类似，但是明显短了非常多。这意味着 <strong>部分内容在由 Perl 传递给 SAC 之后丢失了</strong>。</p><p>可以比较容易地发现，SAC 显示的 <code>read</code> 语句长度为 1002 字符，大概就是 1000 字符，所以猜测是
 SAC 在读取命令行的内容时，其字符串数组的长度限制在 1000 字符，进而导致 Perl 传递进来
-700 多个文件名，实际上 SAC 只处理了 120 个（120 个文件名基本是 1000 字符）。</p>
-<p>查看 SAC 源码可以发现，SAC 中用字符数组 <code>kline[MCMSG+1]</code> 来处理命令行输入，其中 <code>MCMSG</code>
-的值为 1001，即 <code>kline</code> 的有效长度仅仅是 1001，加上的 1 是为了处理 C 语言的 <code>'\0'</code> 。</p>
-<p>由于 SAC 的确处理了前 1000 个字符，即前 120 个文件，所以整个过程都不会报错！所以这个 Bug 很难察觉！</p>
-<p>几个可以避免该问题的 Perl 脚本：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e">#!/usr/bin/env perl</span>
-<span style="color:#66d9ef">use</span> warnings;
-<span style="color:#66d9ef">use</span> strict;
+700 多个文件名，实际上 SAC 只处理了 120 个（120 个文件名基本是 1000 字符）。</p><p>查看 SAC 源码可以发现，SAC 中用字符数组 <code>kline[MCMSG+1]</code> 来处理命令行输入，其中 <code>MCMSG</code>
+的值为 1001，即 <code>kline</code> 的有效长度仅仅是 1001，加上的 1 是为了处理 C 语言的 <code>'\0'</code> 。</p><p>由于 SAC 的确处理了前 1000 个字符，即前 120 个文件，所以整个过程都不会报错！所以这个 Bug 很难察觉！</p><p>几个可以避免该问题的 Perl 脚本：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl><span style=color:#75715e>#!/usr/bin/env perl</span>
+<span style=color:#66d9ef>use</span> warnings;
+<span style=color:#66d9ef>use</span> strict;
 
-open(SAC,<span style="color:#e6db74">&#34;| sac&#34;</span>);
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;r N.*.U \n&#34;</span>;
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;rmean; rtr; taper \n&#34;</span>;
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;bp c 1 3 n 2 p 1 \n&#34;</span>;
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;w over \n&#34;</span>;
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;quit \n&#34;</span>;
+open(SAC,<span style=color:#e6db74>&#34;| sac&#34;</span>);
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;r N.*.U \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;rmean; rtr; taper \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;bp c 1 3 n 2 p 1 \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;w over \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;quit \n&#34;</span>;
 close(SAC);
-</code></pre></div><p>这个脚本没有问题，因为这里的通配符 <code>N.*.U</code> 是由 SAC 去解释而不是由 Bash 去解释，所以 SAC 接收到的命令行长度只有不到 10 个字符。但是这个脚本不够通用，因为有些时候需要处理的文件无法用通配符表示，比如要处理所有震中距在 10 到 30 度以内的文件。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e">#!/usr/bin/env perl</span>
-<span style="color:#66d9ef">use</span> warnings;
-<span style="color:#66d9ef">use</span> strict;
+</code></pre></div><p>这个脚本没有问题，因为这里的通配符 <code>N.*.U</code> 是由 SAC 去解释而不是由 Bash 去解释，所以 SAC 接收到的命令行长度只有不到 10 个字符。但是这个脚本不够通用，因为有些时候需要处理的文件无法用通配符表示，比如要处理所有震中距在 10 到 30 度以内的文件。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl><span style=color:#75715e>#!/usr/bin/env perl</span>
+<span style=color:#66d9ef>use</span> warnings;
+<span style=color:#66d9ef>use</span> strict;
 
-<span style="color:#66d9ef">my</span> @sacfiles <span style="color:#f92672">=</span> glob <span style="color:#e6db74">&#34;N.*.U&#34;</span>;
+<span style=color:#66d9ef>my</span> @sacfiles <span style=color:#f92672>=</span> glob <span style=color:#e6db74>&#34;N.*.U&#34;</span>;
 
-open(SAC,<span style="color:#e6db74">&#34;| sac&#34;</span>);
-<span style="color:#66d9ef">foreach</span> (@sacfiles){
-   <span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;r $_ \n&#34;</span>;
-   <span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;rmean; rtr; taper \n&#34;</span>;
-   <span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;bp c 1 3 n 2 p 1 \n&#34;</span>;
-   <span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;w over \n&#34;</span>;
+open(SAC,<span style=color:#e6db74>&#34;| sac&#34;</span>);
+<span style=color:#66d9ef>foreach</span> (@sacfiles){
+   <span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;r $_ \n&#34;</span>;
+   <span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;rmean; rtr; taper \n&#34;</span>;
+   <span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;bp c 1 3 n 2 p 1 \n&#34;</span>;
+   <span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;w over \n&#34;</span>;
 }
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;quit \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;quit \n&#34;</span>;
 close(SAC);
 </code></pre></div><p>这个脚本还是继续使用 Perl 的 <code>glob</code>，然后使用 <code>foreach</code> 循环，每次只处理一个文件，
-也不会出现问题，速度相对上一个版本可能会慢一些，不过有时候可能就需要这样做。</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e">#!/usr/bin/env perl</span>
-<span style="color:#66d9ef">use</span> warnings;
-<span style="color:#66d9ef">use</span> strict;
+也不会出现问题，速度相对上一个版本可能会慢一些，不过有时候可能就需要这样做。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-perl data-lang=perl><span style=color:#75715e>#!/usr/bin/env perl</span>
+<span style=color:#66d9ef>use</span> warnings;
+<span style=color:#66d9ef>use</span> strict;
 
-<span style="color:#66d9ef">my</span> @sacfiles <span style="color:#f92672">=</span> glob <span style="color:#e6db74">&#34;N.*.U&#34;</span>;
+<span style=color:#66d9ef>my</span> @sacfiles <span style=color:#f92672>=</span> glob <span style=color:#e6db74>&#34;N.*.U&#34;</span>;
 
-open(SAC,<span style="color:#e6db74">&#34;| sac&#34;</span>);
-<span style="color:#66d9ef">foreach</span> (@sacfiles){
-   <span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;r more $_ \n&#34;</span>;
+open(SAC,<span style=color:#e6db74>&#34;| sac&#34;</span>);
+<span style=color:#66d9ef>foreach</span> (@sacfiles){
+   <span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;r more $_ \n&#34;</span>;
 }
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;rmean; rtr; taper \n&#34;</span>;
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;bp c 1 3 n 2 p 1 \n&#34;</span>;
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;w over \n&#34;</span>;
-<span style="color:#66d9ef">print</span> SAC <span style="color:#e6db74">&#34;quit \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;rmean; rtr; taper \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;bp c 1 3 n 2 p 1 \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;w over \n&#34;</span>;
+<span style=color:#66d9ef>print</span> SAC <span style=color:#e6db74>&#34;quit \n&#34;</span>;
 close(SAC);
-</code></pre></div><p>该脚本使用 <code>foreach</code> 循环，不断读入更多的文件，然后一次性进行数据处理，相对于上一个脚本而言，速度要快很多。</p>
-<h2 id="修订历史">修订历史</h2>
-<ul>
-<li>2013-11-17：初稿；</li>
-<li>2014-04-18：根据 SAC 源码确认了 SAC 能处理的命令行长度为 1000 字符；</li>
-<li>2014-05-19：增加了第三个可以避免该问题的脚本；</li>
-</ul>
-  </div>
-</article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+</code></pre></div><p>该脚本使用 <code>foreach</code> 循环，不断读入更多的文件，然后一次性进行数据处理，相对于上一个脚本而言，速度要快很多。</p><h2 id=修订历史>修订历史</h2><ul><li>2013-11-17：初稿；</li><li>2014-04-18：根据 SAC 源码确认了 SAC 能处理的命令行长度为 1000 字符；</li><li>2014-05-19：增加了第三个可以避免该问题的脚本；</li></ul></div></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

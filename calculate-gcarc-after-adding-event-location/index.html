@@ -1,209 +1,41 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  
-
-  <title>SAC 文件修改事件经纬度后震中距的自动计算 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="地震目录中包含震中的经度、纬度、深度等信息，有些时候下载的数据中没有这些事件信息， 就需要自己手动添加进去。
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>SAC 文件修改事件经纬度后震中距的自动计算 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="地震目录中包含震中的经度、纬度、深度等信息，有些时候下载的数据中没有这些事件信息， 就需要自己手动添加进去。
 很基础的操作:
-SAC &amp;gt; r *.BH* SAC &amp;gt; ch evla 30.5 evlo 120.5 evdp 5.0 SAC &amp;gt; wh SAC &amp;gt; q  修改了地震经纬度及深度信息之后，一般来说，震中距 dist、gcarc 以及方位角 az、baz 也会 随着一起改变。但是，有些时候这些量却没有随着事件位置的变化而变化，这是为什么呢？
-" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.79.1 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/calculate-gcarc-after-adding-event-location/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="SAC 文件修改事件经纬度后震中距的自动计算" />
-<meta property="og:description" content="地震目录中包含震中的经度、纬度、深度等信息，有些时候下载的数据中没有这些事件信息，
+SAC &amp;gt; r *.BH* SAC &amp;gt; ch evla 30.5 evlo 120.5 evdp 5.0 SAC &amp;gt; wh SAC &amp;gt; q  修改了地震经纬度及深度信息之后，一般来说，震中距 dist、gcarc 以及方位角 az、baz 也会 随着一起改变。但是，有些时候这些量却没有随着事件位置的变化而变化，这是为什么呢？"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.1 with theme even"><link rel=canonical href=https://blog.seisman.info/calculate-gcarc-after-adding-event-location/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="SAC 文件修改事件经纬度后震中距的自动计算"><meta property="og:description" content="地震目录中包含震中的经度、纬度、深度等信息，有些时候下载的数据中没有这些事件信息，
 就需要自己手动添加进去。
 很基础的操作:
-SAC &gt; r *.BH*
-SAC &gt; ch evla 30.5 evlo 120.5 evdp 5.0
-SAC &gt; wh
-SAC &gt; q
+SAC > r *.BH*
+SAC > ch evla 30.5 evlo 120.5 evdp 5.0
+SAC > wh
+SAC > q
 
 修改了地震经纬度及深度信息之后，一般来说，震中距 dist、gcarc 以及方位角 az、baz 也会
-随着一起改变。但是，有些时候这些量却没有随着事件位置的变化而变化，这是为什么呢？" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/calculate-gcarc-after-adding-event-location/" />
-<meta property="article:published_time" content="2013-08-03T00:00:00+00:00" />
-<meta property="article:modified_time" content="2013-08-03T00:00:00+00:00" />
-<meta itemprop="name" content="SAC 文件修改事件经纬度后震中距的自动计算">
-<meta itemprop="description" content="地震目录中包含震中的经度、纬度、深度等信息，有些时候下载的数据中没有这些事件信息，
+随着一起改变。但是，有些时候这些量却没有随着事件位置的变化而变化，这是为什么呢？"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/calculate-gcarc-after-adding-event-location/"><meta property="article:published_time" content="2013-08-03T00:00:00+00:00"><meta property="article:modified_time" content="2013-08-03T00:00:00+00:00"><meta itemprop=name content="SAC 文件修改事件经纬度后震中距的自动计算"><meta itemprop=description content="地震目录中包含震中的经度、纬度、深度等信息，有些时候下载的数据中没有这些事件信息，
 就需要自己手动添加进去。
 很基础的操作:
-SAC &gt; r *.BH*
-SAC &gt; ch evla 30.5 evlo 120.5 evdp 5.0
-SAC &gt; wh
-SAC &gt; q
+SAC > r *.BH*
+SAC > ch evla 30.5 evlo 120.5 evdp 5.0
+SAC > wh
+SAC > q
 
 修改了地震经纬度及深度信息之后，一般来说，震中距 dist、gcarc 以及方位角 az、baz 也会
-随着一起改变。但是，有些时候这些量却没有随着事件位置的变化而变化，这是为什么呢？">
-<meta itemprop="datePublished" content="2013-08-03T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2013-08-03T00:00:00+00:00" />
-<meta itemprop="wordCount" content="548">
-
-
-
-<meta itemprop="keywords" content="SAC技巧,震中距," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="SAC 文件修改事件经纬度后震中距的自动计算"/>
-<meta name="twitter:description" content="地震目录中包含震中的经度、纬度、深度等信息，有些时候下载的数据中没有这些事件信息，
+随着一起改变。但是，有些时候这些量却没有随着事件位置的变化而变化，这是为什么呢？"><meta itemprop=datePublished content="2013-08-03T00:00:00+00:00"><meta itemprop=dateModified content="2013-08-03T00:00:00+00:00"><meta itemprop=wordCount content="548"><meta itemprop=keywords content="SAC技巧,震中距,"><meta name=twitter:card content="summary"><meta name=twitter:title content="SAC 文件修改事件经纬度后震中距的自动计算"><meta name=twitter:description content="地震目录中包含震中的经度、纬度、深度等信息，有些时候下载的数据中没有这些事件信息，
 就需要自己手动添加进去。
 很基础的操作:
-SAC &gt; r *.BH*
-SAC &gt; ch evla 30.5 evlo 120.5 evdp 5.0
-SAC &gt; wh
-SAC &gt; q
+SAC > r *.BH*
+SAC > ch evla 30.5 evlo 120.5 evdp 5.0
+SAC > wh
+SAC > q
 
 修改了地震经纬度及深度信息之后，一般来说，震中距 dist、gcarc 以及方位角 az、baz 也会
-随着一起改变。但是，有些时候这些量却没有随着事件位置的变化而变化，这是为什么呢？"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">SAC 文件修改事件经纬度后震中距的自动计算</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2013-08-03 </span>
-        <div class="post-category">
-            <a href="/categories/SAC/"> SAC </a>
-            </div>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents"></nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>地震目录中包含震中的经度、纬度、深度等信息，有些时候下载的数据中没有这些事件信息，
-就需要自己手动添加进去。</p>
-<p>很基础的操作:</p>
-<pre><code>SAC &gt; r *.BH*
+随着一起改变。但是，有些时候这些量却没有随着事件位置的变化而变化，这是为什么呢？"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>SAC 文件修改事件经纬度后震中距的自动计算</h1><div class=post-meta><span class=post-time>2013-08-03</span><div class=post-category><a href=/categories/SAC/>SAC</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents></nav></div></div><div class=post-content><p>地震目录中包含震中的经度、纬度、深度等信息，有些时候下载的数据中没有这些事件信息，
+就需要自己手动添加进去。</p><p>很基础的操作:</p><pre><code>SAC &gt; r *.BH*
 SAC &gt; ch evla 30.5 evlo 120.5 evdp 5.0
 SAC &gt; wh
 SAC &gt; q
-</code></pre>
-<p>修改了地震经纬度及深度信息之后，一般来说，震中距 dist、gcarc 以及方位角 az、baz 也会
-随着一起改变。但是，有些时候这些量却没有随着事件位置的变化而变化，这是为什么呢？</p>
-<p>在 SAC 的头段中有一个逻辑型变量 <code>LCALDA</code>（L 代表 logical 型变量，CAL 代表 calculate，
+</code></pre><p>修改了地震经纬度及深度信息之后，一般来说，震中距 dist、gcarc 以及方位角 az、baz 也会
+随着一起改变。但是，有些时候这些量却没有随着事件位置的变化而变化，这是为什么呢？</p><p>在 SAC 的头段中有一个逻辑型变量 <code>LCALDA</code>（L 代表 logical 型变量，CAL 代表 calculate，
 D 代表 dist 以及 gcarc，a 代表 az 以及 gaz）。这个逻辑型变量决定了 gcarc 等参数是否会随着
-震源或台站的位置的改变而改变。<code>LCALDA</code> 为 <code>TRUE</code> 则会随着改变，为 <code>FALSE</code> 则不会改变。</p>
-<p>下面用一些测试来深入了解一下：</p>
-<pre><code>SAC&gt; fg seis
+震源或台站的位置的改变而改变。<code>LCALDA</code> 为 <code>TRUE</code> 则会随着改变，为 <code>FALSE</code> 则不会改变。</p><p>下面用一些测试来深入了解一下：</p><pre><code>SAC&gt; fg seis
 SAC&gt; lh dist gcarc az baz                     #看看原始文件的震中距和方位角
 
   FILE: SEISMOGR - 1
@@ -256,127 +88,22 @@ SAC&gt; lh dist gcarc az baz                    #震中距信息马上就修改�
      gcarc = 1.237276e+01
         az = 1.641464e+02
        baz = 3.482054e+02
-</code></pre>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2013-08-03
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/SAC%E6%8A%80%E5%B7%A7/">SAC技巧</a>
-          <a href="/tags/%E9%9C%87%E4%B8%AD%E8%B7%9D/">震中距</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/leap-year/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">闰年的判断</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/perl-single-quoted-string-literals/">
-            <span class="next-text nav-default">Perl 的单引号字符直接量</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+</code></pre></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2013-08-03</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/SAC%E6%8A%80%E5%B7%A7/>SAC技巧</a>
+<a href=/tags/%E9%9C%87%E4%B8%AD%E8%B7%9D/>震中距</a></div><nav class=post-nav><a class=prev href=/leap-year/><i class="iconfont icon-left"></i><span class="prev-text nav-default">闰年的判断</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/perl-single-quoted-string-literals/><span class="next-text nav-default">Perl 的单引号字符直接量</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

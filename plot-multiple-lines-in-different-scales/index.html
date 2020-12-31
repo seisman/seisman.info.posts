@@ -1,397 +1,68 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-
-  
-
-  <title>不同比例尺曲线的画法 - SeisMan</title>
-  <meta name="renderer" content="webkit" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
-
-
-<meta name="author" content="SeisMan" /><meta name="description" content="本文由 Joe Wang（cjmuqiao@163.com）投稿。
-目标效果图 " /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
-
-
-
-
-
-
-<meta name="generator" content="Hugo 0.79.1 with theme even" />
-
-
-<link rel="canonical" href="https://blog.seisman.info/plot-multiple-lines-in-different-scales/" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-
-
-<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
-<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
-
-
-<meta property="og:title" content="不同比例尺曲线的画法" />
-<meta property="og:description" content="本文由 Joe Wang（cjmuqiao@163.com）投稿。
-目标效果图
-" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.seisman.info/plot-multiple-lines-in-different-scales/" />
-<meta property="article:published_time" content="2015-02-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2015-02-01T00:00:00+00:00" />
-<meta itemprop="name" content="不同比例尺曲线的画法">
-<meta itemprop="description" content="本文由 Joe Wang（cjmuqiao@163.com）投稿。
-目标效果图
-">
-<meta itemprop="datePublished" content="2015-02-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2015-02-01T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1234">
-
-
-
-<meta itemprop="keywords" content="GMT技巧," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="不同比例尺曲线的画法"/>
-<meta name="twitter:description" content="本文由 Joe Wang（cjmuqiao@163.com）投稿。
-目标效果图
-"/>
-
-<!--[if lte IE 9]>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
-<![endif]-->
-
-<!--[if lt IE 9]>
-  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
-<![endif]-->
-
-</head>
-<body>
-  <div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/" class="logo">SeisMan</a>
-  </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="https://link.seisman.info/">
-        <li class="mobile-menu-item">链接</li>
-      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
-        <li class="mobile-menu-item">PDF</li>
-      </a><a href="/collections/">
-        <li class="mobile-menu-item">合集</li>
-      </a><a href="/donations/">
-        <li class="mobile-menu-item">捐赠</li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">关于</li>
-      </a>
-  </ul>
-</nav>
-  <div class="container" id="mobile-panel">
-    <header id="header" class="header">
-        <div class="logo-wrapper">
-  <a href="/" class="logo">SeisMan</a>
-</div>
-
-<nav class="site-navbar">
-  <ul id="menu" class="menu">
-    <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/collections/">合集</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/donations/">捐赠</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/about/">关于</a>
-      </li>
-  </ul>
-</nav>
-    </header>
-
-    <main id="main" class="main">
-      <div class="content-wrapper">
-        <div id="content" class="content">
-          <article class="post">
-    
-    <header class="post-header">
-      <h1 class="post-title">不同比例尺曲线的画法</h1>
-
-      <div class="post-meta">
-        <span class="post-time"> 2015-02-01 </span>
-        <div class="post-category">
-            <a href="/categories/GMT/"> GMT </a>
-            </div>
-        
-      </div>
-    </header>
-
-    <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
-  <div class="post-toc-content">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#目标效果图">目标效果图</a></li>
-    <li><a href="#问题的提出">问题的提出</a></li>
-    <li><a href="#解决思路">解决思路</a></li>
-    <li><a href="#脚本">脚本</a></li>
-    <li><a href="#修订历史">修订历史</a></li>
-  </ul>
-</nav>
-  </div>
-</div>
-    <div class="post-content">
-      <p>本文由 Joe Wang（cjmuqiao@163.com）投稿。</p>
-<h2 id="目标效果图">目标效果图</h2>
-<p><img src="/images/2015020101.png" alt=""></p>
-<h2 id="问题的提出">问题的提出</h2>
-<p>在地磁场中 X、Y、Z 三分量幅值两两之间通常相差一两个数量级。如果直接将其画到相同比例尺的一个
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>不同比例尺曲线的画法 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="本文由 Joe Wang（cjmuqiao@163.com）投稿。
+目标效果图"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.1 with theme even"><link rel=canonical href=https://blog.seisman.info/plot-multiple-lines-in-different-scales/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="不同比例尺曲线的画法"><meta property="og:description" content="本文由 Joe Wang（cjmuqiao@163.com）投稿。
+目标效果图"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/plot-multiple-lines-in-different-scales/"><meta property="article:published_time" content="2015-02-01T00:00:00+00:00"><meta property="article:modified_time" content="2015-02-01T00:00:00+00:00"><meta itemprop=name content="不同比例尺曲线的画法"><meta itemprop=description content="本文由 Joe Wang（cjmuqiao@163.com）投稿。
+目标效果图"><meta itemprop=datePublished content="2015-02-01T00:00:00+00:00"><meta itemprop=dateModified content="2015-02-01T00:00:00+00:00"><meta itemprop=wordCount content="1234"><meta itemprop=keywords content="GMT技巧,"><meta name=twitter:card content="summary"><meta name=twitter:title content="不同比例尺曲线的画法"><meta name=twitter:description content="本文由 Joe Wang（cjmuqiao@163.com）投稿。
+目标效果图"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>不同比例尺曲线的画法</h1><div class=post-meta><span class=post-time>2015-02-01</span><div class=post-category><a href=/categories/GMT/>GMT</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#目标效果图>目标效果图</a></li><li><a href=#问题的提出>问题的提出</a></li><li><a href=#解决思路>解决思路</a></li><li><a href=#脚本>脚本</a></li><li><a href=#修订历史>修订历史</a></li></ul></nav></div></div><div class=post-content><p>本文由 Joe Wang（cjmuqiao@163.com）投稿。</p><h2 id=目标效果图>目标效果图</h2><p><img src=/images/2015020101.png alt></p><h2 id=问题的提出>问题的提出</h2><p>在地磁场中 X、Y、Z 三分量幅值两两之间通常相差一两个数量级。如果直接将其画到相同比例尺的一个
 坐标系下，幅值小的通常就成了一条直线。此时需要将大幅值适当缩小，或者小幅值适当放大，即在一张图
 中绘制不同比例尺的曲线。在丁鉴海、卢振业、余素荣编著的《地震地磁学概论》中经常会看到不同比例
-尺的图。</p>
-<p>使用 GMT 的 <code>-Jx</code> 选项，绘图时 X 坐标或Ｙ坐标就会根据数据的范围进行缩放，但这种放大或
-缩小的显示方式，会带来一个刻度值显示的问题。即：</p>
-<ol>
-<li>若将数据点用线连起来，由于数据点连线的时候不支持 <code>-N</code> 选项，则 <code>-R</code> 的范围必须包括
-整个 Y 轴的取值范围，Y 轴的刻度会完全显示，这样有点啰嗦；</li>
-<li>若使用 <code>-S</code> 选项，将数据点用某种符号显示，此时再加上 <code>-N</code> 选项，则可以只显示部分比例尺，
-同时又可以把数据完整地表示出来，但是这样的散点图看起来断断续续的，无法连接起来；</li>
-</ol>
-<h2 id="解决思路">解决思路</h2>
-<ol>
-<li>使用 <code>psxy</code> 将数据点用线连起来，此时不绘制刻度；</li>
-<li>选择要绘制的刻度的范围，并使用 <code>psbasemap</code> 绘制部分数据的 Y 轴刻度，在此之前需要
-仔细计算坐标原点在 Y 轴的偏移量。</li>
-</ol>
-<h2 id="脚本">脚本</h2>
-<ul>
-<li>软件环境：GMT5 windows 版，gawk</li>
-<li>使用命令：<code>psxy</code>, <code>psbasemap</code>, <code>gmtmath</code>, <code>gawk</code> 等</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-batch" data-lang="batch"><span style="color:#66d9ef">set</span> sta=CHL
-<span style="color:#66d9ef">set</span> day=20120101
-<span style="color:#66d9ef">set</span> ps=%sta%%day%.ps
-<span style="color:#66d9ef">set</span> Rhour=0/24/0/5
-<span style="color:#66d9ef">set</span> Rsec=0/86400/0/5
-<span style="color:#66d9ef">set</span> Jhour=x0.72/0.1
-<span style="color:#66d9ef">set</span> Jsec=x0.0002/0.1
+尺的图。</p><p>使用 GMT 的 <code>-Jx</code> 选项，绘图时 X 坐标或Ｙ坐标就会根据数据的范围进行缩放，但这种放大或
+缩小的显示方式，会带来一个刻度值显示的问题。即：</p><ol><li>若将数据点用线连起来，由于数据点连线的时候不支持 <code>-N</code> 选项，则 <code>-R</code> 的范围必须包括
+整个 Y 轴的取值范围，Y 轴的刻度会完全显示，这样有点啰嗦；</li><li>若使用 <code>-S</code> 选项，将数据点用某种符号显示，此时再加上 <code>-N</code> 选项，则可以只显示部分比例尺，
+同时又可以把数据完整地表示出来，但是这样的散点图看起来断断续续的，无法连接起来；</li></ol><h2 id=解决思路>解决思路</h2><ol><li>使用 <code>psxy</code> 将数据点用线连起来，此时不绘制刻度；</li><li>选择要绘制的刻度的范围，并使用 <code>psbasemap</code> 绘制部分数据的 Y 轴刻度，在此之前需要
+仔细计算坐标原点在 Y 轴的偏移量。</li></ol><h2 id=脚本>脚本</h2><ul><li>软件环境：GMT5 windows 版，gawk</li><li>使用命令：<code>psxy</code>, <code>psbasemap</code>, <code>gmtmath</code>, <code>gawk</code> 等</li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-batch data-lang=batch><span style=color:#66d9ef>set</span> sta=CHL
+<span style=color:#66d9ef>set</span> day=20120101
+<span style=color:#66d9ef>set</span> ps=%sta%%day%.ps
+<span style=color:#66d9ef>set</span> Rhour=0/24/0/5
+<span style=color:#66d9ef>set</span> Rsec=0/86400/0/5
+<span style=color:#66d9ef>set</span> Jhour=x0.72/0.1
+<span style=color:#66d9ef>set</span> Jsec=x0.0002/0.1
 
-<span style="color:#75715e">REM preparing the input data</span>
-<span style="color:#75715e">REM 1. calculate mean value</span>
-<span style="color:#75715e">REM 2. subtract mean value from original data</span>
-<span style="color:#75715e">REM 3. output line number and data</span>
-gmt gmtmath CHL2_20120101Hx.dat CHL2_20120101Hx.dat MEAN SUB = | gawk <span style="color:#e6db74">&#34;{print NR, $1}&#34;</span> &gt; x.dat
-gmt gmtmath CHL2_20120101Hy.dat CHL2_20120101Hy.dat MEAN SUB = | gawk <span style="color:#e6db74">&#34;{print NR, $1}&#34;</span> &gt; y.dat
-gmt gmtmath CHL2_20120101Z.dat CHL2_20120101Z.dat MEAN SUB = | gawk <span style="color:#e6db74">&#34;{print NR, $1}&#34;</span> &gt; z.dat
+<span style=color:#75715e>REM preparing the input data</span>
+<span style=color:#75715e>REM 1. calculate mean value</span>
+<span style=color:#75715e>REM 2. subtract mean value from original data</span>
+<span style=color:#75715e>REM 3. output line number and data</span>
+gmt gmtmath CHL2_20120101Hx.dat CHL2_20120101Hx.dat MEAN SUB = | gawk <span style=color:#e6db74>&#34;{print NR, $1}&#34;</span> &gt; x.dat
+gmt gmtmath CHL2_20120101Hy.dat CHL2_20120101Hy.dat MEAN SUB = | gawk <span style=color:#e6db74>&#34;{print NR, $1}&#34;</span> &gt; y.dat
+gmt gmtmath CHL2_20120101Z.dat CHL2_20120101Z.dat MEAN SUB = | gawk <span style=color:#e6db74>&#34;{print NR, $1}&#34;</span> &gt; z.dat
 
 gmt psxy -R%Rhour% -J%Jhour% -T -K -P &gt;%ps%
 
-<span style="color:#75715e">REM plot x-axis</span>
+<span style=color:#75715e>REM plot x-axis</span>
 gmt psbasemap -R%Rhour% -J%Jhour% -Bxa2f1+lTime/hour -Bya5 -BS -K -O &gt;&gt;%ps%
 gmt psbasemap -R%Rsec% -J%Jsec% -Bxa7200f3600+lTime/s -Bya5 -BS -Y2c -O -K &gt;&gt;%ps%
 
-<span style="color:#75715e">REM plot Z</span>
+<span style=color:#75715e>REM plot Z</span>
 gmt psxy z.dat -R0/86400/-20/15 -Jx0.0002/0.1 -O -K&gt;&gt;%ps%
-<span style="color:#75715e">REM plot scale of z data</span>
-gmt psbasemap -R0/86400/0/5 -J -Y2c -Bya5 -BW+t<span style="color:#e6db74">&#34;@</span><span style="color:#ae81ff">%%</span><span style="color:#e6db74">12</span><span style="color:#ae81ff">%%</span><span style="color:#e6db74">\104@</span><span style="color:#ae81ff">%%</span><span style="color:#e6db74">6</span><span style="color:#ae81ff">%%</span><span style="color:#e6db74">Z&#34;</span> -K -O &gt;&gt;%ps%
+<span style=color:#75715e>REM plot scale of z data</span>
+gmt psbasemap -R0/86400/0/5 -J -Y2c -Bya5 -BW+t<span style=color:#e6db74>&#34;@</span><span style=color:#ae81ff>%%</span><span style=color:#e6db74>12</span><span style=color:#ae81ff>%%</span><span style=color:#e6db74>\104@</span><span style=color:#ae81ff>%%</span><span style=color:#e6db74>6</span><span style=color:#ae81ff>%%</span><span style=color:#e6db74>Z&#34;</span> -K -O &gt;&gt;%ps%
 
-<span style="color:#75715e">REM plot Hy</span>
+<span style=color:#75715e>REM plot Hy</span>
 gmt psxy y.dat -R0/86400/-400/400 -Jx0.0002/0.005 -Wblue -O -K &gt;&gt;%ps%
-gmt psbasemap -R0/86400/100/200 -J -Y2.5c -Bya100+l<span style="color:#e6db74">&#34;nT&#34;</span> -BW+t<span style="color:#e6db74">&#34;@;blue;@</span><span style="color:#ae81ff">%%</span><span style="color:#e6db74">12</span><span style="color:#ae81ff">%%</span><span style="color:#e6db74">\104@</span><span style="color:#ae81ff">%%</span><span style="color:#e6db74">6</span><span style="color:#ae81ff">%%</span><span style="color:#e6db74">Y&#34;</span> --FONT=blue --MAP_DEFAULT_PEN=+blue --MAP_TITLE_OFFSET=0p -O -K &gt;&gt;%ps%
+gmt psbasemap -R0/86400/100/200 -J -Y2.5c -Bya100+l<span style=color:#e6db74>&#34;nT&#34;</span> -BW+t<span style=color:#e6db74>&#34;@;blue;@</span><span style=color:#ae81ff>%%</span><span style=color:#e6db74>12</span><span style=color:#ae81ff>%%</span><span style=color:#e6db74>\104@</span><span style=color:#ae81ff>%%</span><span style=color:#e6db74>6</span><span style=color:#ae81ff>%%</span><span style=color:#e6db74>Y&#34;</span> --FONT=blue --MAP_DEFAULT_PEN=+blue --MAP_TITLE_OFFSET=0p -O -K &gt;&gt;%ps%
 
-<span style="color:#75715e">REM plot Hx</span>
+<span style=color:#75715e>REM plot Hx</span>
 gmt psxy x.dat -R0/86400/-55/30 -Jx0.0002/0.05 -Wred -O -K &gt;&gt;%ps%
-gmt psbasemap -R0/86400/10/20 -J -Y3.25c -Bya10 -BW+t<span style="color:#e6db74">&#34;@;red;@</span><span style="color:#ae81ff">%%</span><span style="color:#e6db74">12</span><span style="color:#ae81ff">%%</span><span style="color:#e6db74">\104@</span><span style="color:#ae81ff">%%</span><span style="color:#e6db74">6</span><span style="color:#ae81ff">%%</span><span style="color:#e6db74">X&#34;</span> --MAP_TITLE_OFFSET=0p --FONT=red --MAP_DEFAULT_PEN=+blue -O -K &gt;&gt;%ps%
+gmt psbasemap -R0/86400/10/20 -J -Y3.25c -Bya10 -BW+t<span style=color:#e6db74>&#34;@;red;@</span><span style=color:#ae81ff>%%</span><span style=color:#e6db74>12</span><span style=color:#ae81ff>%%</span><span style=color:#e6db74>\104@</span><span style=color:#ae81ff>%%</span><span style=color:#e6db74>6</span><span style=color:#ae81ff>%%</span><span style=color:#e6db74>X&#34;</span> --MAP_TITLE_OFFSET=0p --FONT=red --MAP_DEFAULT_PEN=+blue -O -K &gt;&gt;%ps%
 
 gmt psxy -R%Rhour% -J%Jhour% -T -O &gt;&gt;%ps%
 
-<span style="color:#66d9ef">del</span> x.dat y.dat z.dat
-<span style="color:#66d9ef">del</span> gmt.history
-</code></pre></div><p>一些说明：</p>
-<ul>
-<li><code>gmtmath</code> 命令实现是一个逆波兰式的计算器，此处其作用在于先计算数据的均值，然后从原始数据中减去，并将计算得到的结果通过管道传送给 <code>gawk</code>；</li>
-<li>绘制每个数据时，分别使用了两个命令，其中 <code>psxy</code> 用于绘制数据，而 <code>psbasemap</code> 用于绘制比例尺；</li>
-<li>脚本中的参数的选择是有技巧，也是有规律的，下面会说明；</li>
-<li>脚本中大部分数值都是可以从数据中自动计算得到的，因而将脚本改一改就可以实现完全的自动化；本文的脚本中没有对此进一步实现，如数据范围，移动距离等都是硬编码在脚本中；</li>
-<li>命令中使用了一些额外的选项，来达到更好的绘图效果；</li>
-</ul>
-<p>该脚本中某些参数的选取是很有技巧的，以 Z 分量数据为例：</p>
-<ul>
-<li>psxy 命令中 <code>-R0/86400/-20/15</code> 是 Z 数据的范围，其值可以通过 <code>gmtinfo</code> 命令自动获得；</li>
-<li>psxy 命令中 <code>-Jx0.0002/0.1</code>，即对于 Y 轴而言，数据的 1，在图上是 0.1 厘米，则 Z 数据的 35 的范围，对应于图上 3.5 厘米；</li>
-<li>为了在 Y 轴的 0 到 5 处绘制一个比例尺，需要使用 psbasemap 命令，该命令有两个需要注意的地方：
-<ul>
-<li><code>-R0/86400/0/5</code> 设定了 Y 轴范围为 0 到 5；</li>
-<li>为了在真正的 0 处绘制比例尺，需要移动坐标系原点，此处的移动距离为 $(0-(-20))*0.1=2cm$，即 <code>-Y2c</code> 选项；</li>
-</ul>
-</li>
-</ul>
-<h2 id="修订历史">修订历史</h2>
-<ul>
-<li>2015-02-01：Joe Wang 投稿；</li>
-<li>2015-02-01：SeisMan 整理语句、优化脚本；</li>
-<li>2015-02-02：使用 FONT 和 MAP_DEFAULT_PEN 代替其他参数；</li>
-</ul>
-    </div>
-
-    <div class="post-copyright">
-  <p class="copyright-item">
-    <span class="item-title">文章作者</span>
-    <span class="item-content">SeisMan</span>
-  </p>
-  <p class="copyright-item">
-    <span class="item-title">上次更新</span>
-    <span class="item-content">
-        2015-02-01
-        
-    </span>
-  </p>
-  
-  
-</div>
-<div class="post-reward">
-  <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
-  <div class="qr-code">
-    
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/wechatpay-qr-code.png">
-        <span>微信打赏</span>
-      </label>
-    <label class="qr-code-image" for="reward">
-        <img class="image" src="/images/alipay-qr-code.png">
-        <span>支付宝打赏</span>
-      </label>
-  </div>
-</div><footer class="post-footer">
-      <div class="post-tags">
-          <a href="/tags/GMT%E6%8A%80%E5%B7%A7/">GMT技巧</a>
-          </div>
-      <nav class="post-nav">
-        <a class="prev" href="/slowness-and-ray-parameter/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">慢度与射线参数</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/cpdf/">
-            <span class="next-text nav-default">强大的跨平台 PDF 处理工具：cpdf</span>
-            <span class="next-text nav-mobile">下一篇</span>
-            <i class="iconfont icon-right"></i>
-          </a>
-      </nav>
-    </footer>
-  </article>
-        </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'seisman';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-  
-
-  
-
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="social-links">
-      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
-      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
-  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
-</div>
-
-<div class="copyright">
-  <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    主题 - 
-    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
-  </span>
-
-  
-
-  <span class="copyright-year">
-    &copy; 
-    2013 - 
-    2020
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">SeisMan</span>
-  </span>
-</div>
-    </footer>
-
-    <div class="back-to-top" id="back-to-top">
-      <i class="iconfont icon-up"></i>
-    </div>
-  </div>
-  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
-<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
-  <script type="text/javascript">
-    window.MathJax = {
-      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      showProcessingMessages: false,
-      messageStyle: 'none'
-    };
-  </script>
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-</body>
-</html>
+<span style=color:#66d9ef>del</span> x.dat y.dat z.dat
+<span style=color:#66d9ef>del</span> gmt.history
+</code></pre></div><p>一些说明：</p><ul><li><code>gmtmath</code> 命令实现是一个逆波兰式的计算器，此处其作用在于先计算数据的均值，然后从原始数据中减去，并将计算得到的结果通过管道传送给 <code>gawk</code>；</li><li>绘制每个数据时，分别使用了两个命令，其中 <code>psxy</code> 用于绘制数据，而 <code>psbasemap</code> 用于绘制比例尺；</li><li>脚本中的参数的选择是有技巧，也是有规律的，下面会说明；</li><li>脚本中大部分数值都是可以从数据中自动计算得到的，因而将脚本改一改就可以实现完全的自动化；本文的脚本中没有对此进一步实现，如数据范围，移动距离等都是硬编码在脚本中；</li><li>命令中使用了一些额外的选项，来达到更好的绘图效果；</li></ul><p>该脚本中某些参数的选取是很有技巧的，以 Z 分量数据为例：</p><ul><li>psxy 命令中 <code>-R0/86400/-20/15</code> 是 Z 数据的范围，其值可以通过 <code>gmtinfo</code> 命令自动获得；</li><li>psxy 命令中 <code>-Jx0.0002/0.1</code>，即对于 Y 轴而言，数据的 1，在图上是 0.1 厘米，则 Z 数据的 35 的范围，对应于图上 3.5 厘米；</li><li>为了在 Y 轴的 0 到 5 处绘制一个比例尺，需要使用 psbasemap 命令，该命令有两个需要注意的地方：<ul><li><code>-R0/86400/0/5</code> 设定了 Y 轴范围为 0 到 5；</li><li>为了在真正的 0 处绘制比例尺，需要移动坐标系原点，此处的移动距离为 $(0-(-20))*0.1=2cm$，即 <code>-Y2c</code> 选项；</li></ul></li></ul><h2 id=修订历史>修订历史</h2><ul><li>2015-02-01：Joe Wang 投稿；</li><li>2015-02-01：SeisMan 整理语句、优化脚本；</li><li>2015-02-02：使用 FONT 和 MAP_DEFAULT_PEN 代替其他参数；</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2015-02-01</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/GMT%E6%8A%80%E5%B7%A7/>GMT技巧</a></div><nav class=post-nav><a class=prev href=/slowness-and-ray-parameter/><i class="iconfont icon-left"></i><span class="prev-text nav-default">慢度与射线参数</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/cpdf/><span class="next-text nav-default">强大的跨平台 PDF 处理工具：cpdf</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2020
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script></body></html>
