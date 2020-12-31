@@ -1,17 +1,63 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>数据申请 on SeisMan</title><link>https://blog.seisman.info/tags/%E6%95%B0%E6%8D%AE%E7%94%B3%E8%AF%B7/</link><description>Recent content in 数据申请 on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 24 Dec 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E6%95%B0%E6%8D%AE%E7%94%B3%E8%AF%B7/index.xml" rel="self" type="application/rss+xml"/><item><title>SOD 入门教程</title><link>https://blog.seisman.info/sod-notes/</link><pubDate>Sat, 24 Dec 2016 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/sod-notes/</guid><description>&lt;p>SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。&lt;/p>
-&lt;ul>
-&lt;li>官方网站： &lt;a href="http://www.seis.sc.edu/sod/">http://www.seis.sc.edu/sod/&lt;/a>&lt;/li>
-&lt;li>源码： &lt;a href="https://github.com/crotwell/sod">https://github.com/crotwell/sod&lt;/a>&lt;/li>
-&lt;li>源码语言： Java&lt;/li>
-&lt;li>最新版本： 3.2.8&lt;/li>
-&lt;/ul>
-&lt;p>本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。&lt;/p></description></item><item><title>地震数据申请</title><link>https://blog.seisman.info/seismic-waveform-data-request/</link><pubDate>Tue, 27 Oct 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/seismic-waveform-data-request/</guid><description>&lt;p>申请地震波形数据，按照具体的需求，大致可以分为两大类，即事件波形数据和连续波形数据。&lt;/p>
-&lt;p>这两者的主要区别在于如何确定要申请的数据时间窗，前者需要震相到时信息，后者则不需要。&lt;/p></description></item><item><title>用 Wilber 3 申请地震波形数据</title><link>https://blog.seisman.info/wilber3/</link><pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/wilber3/</guid><description>&lt;p>Wilber3 是 IRIS 提供的一个用于从 IRIS 申请地震事件波形数据的网页工具。&lt;/p>
-&lt;ul>
-&lt;li>官方页面： &lt;a href="http://ds.iris.edu/wilber3/find_event">http://ds.iris.edu/wilber3/find_event&lt;/a>&lt;/li>
-&lt;li>优点： 网页界面，简单直观&lt;/li>
-&lt;li>适用范围： 仅适用于申请单个或少量地震事件的波形数据&lt;/li>
-&lt;/ul>
-&lt;p>本文将以 2015 年 5 月 12 日的尼泊尔 7.3 级地震为例，展示如何利用 Wilber3 申请该事件的波形数据。&lt;/p></description></item><item><title>IRIS 数据申请工具: BREQ_FAST</title><link>https://blog.seisman.info/breq-fast/</link><pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/breq-fast/</guid><description>&lt;p>BREQ_FAST 是 Batch REQuests FAST 的简称。简单来说，就是通过发送特定格式的邮件到指定的
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据申请 on SeisMan</title>
+    <link>https://blog.seisman.info/tags/%E6%95%B0%E6%8D%AE%E7%94%B3%E8%AF%B7/</link>
+    <description>Recent content in 数据申请 on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 24 Dec 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E6%95%B0%E6%8D%AE%E7%94%B3%E8%AF%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SOD 入门教程</title>
+      <link>https://blog.seisman.info/sod-notes/</link>
+      <pubDate>Sat, 24 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/sod-notes/</guid>
+      <description>&lt;p&gt;SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;官方网站： &lt;a href=&#34;http://www.seis.sc.edu/sod/&#34;&gt;http://www.seis.sc.edu/sod/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;源码： &lt;a href=&#34;https://github.com/crotwell/sod&#34;&gt;https://github.com/crotwell/sod&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;源码语言： Java&lt;/li&gt;
+&lt;li&gt;最新版本： 3.2.8&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>地震数据申请</title>
+      <link>https://blog.seisman.info/seismic-waveform-data-request/</link>
+      <pubDate>Tue, 27 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/seismic-waveform-data-request/</guid>
+      <description>&lt;p&gt;申请地震波形数据，按照具体的需求，大致可以分为两大类，即事件波形数据和连续波形数据。&lt;/p&gt;
+&lt;p&gt;这两者的主要区别在于如何确定要申请的数据时间窗，前者需要震相到时信息，后者则不需要。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>用 Wilber 3 申请地震波形数据</title>
+      <link>https://blog.seisman.info/wilber3/</link>
+      <pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/wilber3/</guid>
+      <description>&lt;p&gt;Wilber3 是 IRIS 提供的一个用于从 IRIS 申请地震事件波形数据的网页工具。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;官方页面： &lt;a href=&#34;http://ds.iris.edu/wilber3/find_event&#34;&gt;http://ds.iris.edu/wilber3/find_event&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优点： 网页界面，简单直观&lt;/li&gt;
+&lt;li&gt;适用范围： 仅适用于申请单个或少量地震事件的波形数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文将以 2015 年 5 月 12 日的尼泊尔 7.3 级地震为例，展示如何利用 Wilber3 申请该事件的波形数据。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>IRIS 数据申请工具: BREQ_FAST</title>
+      <link>https://blog.seisman.info/breq-fast/</link>
+      <pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/breq-fast/</guid>
+      <description>&lt;p&gt;BREQ_FAST 是 Batch REQuests FAST 的简称。简单来说，就是通过发送特定格式的邮件到指定的
 邮箱来申请数据。这种数据申请的方法不同于常见的交互式方法，因而特别适合写脚本自动生成
-邮件内容、自动发送邮件、自动下载数据。&lt;/p></description></item></channel></rss>
+邮件内容、自动发送邮件、自动下载数据。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

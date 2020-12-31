@@ -1,17 +1,92 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>TauP on SeisMan</title><link>https://blog.seisman.info/tags/TauP/</link><description>Recent content in TauP on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 31 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/TauP/index.xml" rel="self" type="application/rss+xml"/><item><title>计算任意深度处下表面反射波走时</title><link>https://blog.seisman.info/taup-calculate-underside-reflection-traveltime/</link><pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/taup-calculate-underside-reflection-traveltime/</guid><description>&lt;p>地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 &lt;code>S410S&lt;/code>、&lt;code>S660S&lt;/code>。
-进一步推广到任意深度的下表面反射震相，比如 &lt;code>S1000S&lt;/code> 代表在1000 km深度处的界面的下表面反射的S波，比如 &lt;code>P1200P&lt;/code> 代表在1200 km深度处的界面的下表面反射的P波。&lt;/p></description></item><item><title>识别 TauP 输出中的多个 P 震相</title><link>https://blog.seisman.info/taup-identify-multiple-P-phases/</link><pubDate>Sun, 22 May 2016 11:46:41 +0000</pubDate><guid>https://blog.seisman.info/taup-identify-multiple-P-phases/</guid><description>&lt;p>在使用 TauP 计算 &lt;strong>浅源近震&lt;/strong> 的 P 波走时时，输出中经常会出现很多个 P 震相。这个事情让人很困扰，
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TauP on SeisMan</title>
+    <link>https://blog.seisman.info/tags/TauP/</link>
+    <description>Recent content in TauP on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 31 Mar 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/TauP/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>计算任意深度处下表面反射波走时</title>
+      <link>https://blog.seisman.info/taup-calculate-underside-reflection-traveltime/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-calculate-underside-reflection-traveltime/</guid>
+      <description>&lt;p&gt;地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 &lt;code&gt;S410S&lt;/code&gt;、&lt;code&gt;S660S&lt;/code&gt;。
+进一步推广到任意深度的下表面反射震相，比如 &lt;code&gt;S1000S&lt;/code&gt; 代表在1000 km深度处的界面的下表面反射的S波，比如 &lt;code&gt;P1200P&lt;/code&gt; 代表在1200 km深度处的界面的下表面反射的P波。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>识别 TauP 输出中的多个 P 震相</title>
+      <link>https://blog.seisman.info/taup-identify-multiple-P-phases/</link>
+      <pubDate>Sun, 22 May 2016 11:46:41 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-identify-multiple-P-phases/</guid>
+      <description>&lt;p&gt;在使用 TauP 计算 &lt;strong&gt;浅源近震&lt;/strong&gt; 的 P 波走时时，输出中经常会出现很多个 P 震相。这个事情让人很困扰，
 因为搞不清这些 P 震相到底谁是谁。如果需要的只是 P 波初至，那就无所谓了，直接用最早的到时即可。
-有些时候需要计算某个特定 P 震相的走时，这就需要清楚地了解每个 P 震相所代表的真正路径了。&lt;/p></description></item><item><title>TauP 自定义模型</title><link>https://blog.seisman.info/taup-custom-models/</link><pubDate>Sat, 21 May 2016 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/taup-custom-models/</guid><description>&lt;p>TauP 内置了常见的一维速度模型，比如 PREM、ak135、iasp91 等，这些标准速度模型
-位于 TauP 软件包的 &lt;code>StdModels&lt;/code> 目录下。日常科研中，这些标准速度模型是不能满足
-需求的，因而需要自定义速度模型。&lt;/p></description></item><item><title>用 taup_time 计算震相走时及射线信息</title><link>https://blog.seisman.info/taup-calculate-traveltime/</link><pubDate>Sat, 24 Jan 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/taup-calculate-traveltime/</guid><description>&lt;p>&lt;code>taup_time&lt;/code> 是 TauP 提供的一个工具，其主要用于计算震相理论走时，除此之外，
-还提供了一些与射线有关的信息。&lt;/p></description></item><item><title>利用 taup_setsac 为 SAC 文件标记理论到时</title><link>https://blog.seisman.info/taup-mark-traveltime/</link><pubDate>Mon, 10 Nov 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/taup-mark-traveltime/</guid><description>&lt;p>TauP 的 &lt;code>taup_time&lt;/code> 命令可以计算各震相的理论走时，但是不能帮我们把到时信息
-标记到 SAC 文件中，因而就需要写脚本处理 &lt;code>taup_time&lt;/code> 的输出，并修改 SAC 头段。&lt;/p>
-&lt;p>&lt;code>taup_setsac&lt;/code> 帮我们完成了这一点，可以直接计算理论到时并将到时信息写入到 SAC 文件中。&lt;/p></description></item><item><title>利用 taup_pierce 计算射线穿透点</title><link>https://blog.seisman.info/taup-calculate-pierce-points/</link><pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/taup-calculate-pierce-points/</guid><description>&lt;p>&lt;code>taup_pierce&lt;/code> 是 TauP 提供的一个命令行工具，用于计算各种震相在不同深度的穿透点信息。
-本文通过几个例子介绍一个 &lt;code>taup_pierce&lt;/code> 的使用方法。&lt;/p></description></item><item><title>走时计算软件包</title><link>https://blog.seisman.info/traveltime-packages/</link><pubDate>Sat, 29 Mar 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/traveltime-packages/</guid><description>&lt;p>地震波走时的计算是地震学的一个基本问题。下面列出几个目前已知的几个可以计算地震波走时的包。&lt;/p></description></item><item><title>走时计算软件TauP</title><link>https://blog.seisman.info/taup/</link><pubDate>Wed, 10 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/taup/</guid><description>&lt;h2 id="基本信息">基本信息&lt;/h2>
-&lt;ul>
-&lt;li>主页： &lt;a href="https://www.seis.sc.edu/taup/">https://www.seis.sc.edu/taup/&lt;/a>&lt;/li>
-&lt;li>源码： &lt;a href="https://github.com/crotwell/TauP">https://github.com/crotwell/TauP&lt;/a>&lt;/li>
-&lt;li>语言：Java&lt;/li>
-&lt;li>平台：跨平台，Windows、Linux、Mac 等&lt;/li>
-&lt;li>与 ttimes 一样，其原理基于 Buland 和 Chapman 于 1983 年提出的方法&lt;/li>
-&lt;/ul></description></item></channel></rss>
+有些时候需要计算某个特定 P 震相的走时，这就需要清楚地了解每个 P 震相所代表的真正路径了。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>TauP 自定义模型</title>
+      <link>https://blog.seisman.info/taup-custom-models/</link>
+      <pubDate>Sat, 21 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-custom-models/</guid>
+      <description>&lt;p&gt;TauP 内置了常见的一维速度模型，比如 PREM、ak135、iasp91 等，这些标准速度模型
+位于 TauP 软件包的 &lt;code&gt;StdModels&lt;/code&gt; 目录下。日常科研中，这些标准速度模型是不能满足
+需求的，因而需要自定义速度模型。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>用 taup_time 计算震相走时及射线信息</title>
+      <link>https://blog.seisman.info/taup-calculate-traveltime/</link>
+      <pubDate>Sat, 24 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-calculate-traveltime/</guid>
+      <description>&lt;p&gt;&lt;code&gt;taup_time&lt;/code&gt; 是 TauP 提供的一个工具，其主要用于计算震相理论走时，除此之外，
+还提供了一些与射线有关的信息。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>利用 taup_setsac 为 SAC 文件标记理论到时</title>
+      <link>https://blog.seisman.info/taup-mark-traveltime/</link>
+      <pubDate>Mon, 10 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-mark-traveltime/</guid>
+      <description>&lt;p&gt;TauP 的 &lt;code&gt;taup_time&lt;/code&gt; 命令可以计算各震相的理论走时，但是不能帮我们把到时信息
+标记到 SAC 文件中，因而就需要写脚本处理 &lt;code&gt;taup_time&lt;/code&gt; 的输出，并修改 SAC 头段。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;taup_setsac&lt;/code&gt; 帮我们完成了这一点，可以直接计算理论到时并将到时信息写入到 SAC 文件中。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>利用 taup_pierce 计算射线穿透点</title>
+      <link>https://blog.seisman.info/taup-calculate-pierce-points/</link>
+      <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-calculate-pierce-points/</guid>
+      <description>&lt;p&gt;&lt;code&gt;taup_pierce&lt;/code&gt; 是 TauP 提供的一个命令行工具，用于计算各种震相在不同深度的穿透点信息。
+本文通过几个例子介绍一个 &lt;code&gt;taup_pierce&lt;/code&gt; 的使用方法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>走时计算软件包</title>
+      <link>https://blog.seisman.info/traveltime-packages/</link>
+      <pubDate>Sat, 29 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/traveltime-packages/</guid>
+      <description>&lt;p&gt;地震波走时的计算是地震学的一个基本问题。下面列出几个目前已知的几个可以计算地震波走时的包。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>走时计算软件TauP</title>
+      <link>https://blog.seisman.info/taup/</link>
+      <pubDate>Wed, 10 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,54 +1,244 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SAC on SeisMan</title><link>https://blog.seisman.info/categories/SAC/</link><description>Recent content in SAC on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 19 Jul 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/categories/SAC/index.xml" rel="self" type="application/rss+xml"/><item><title>SAC 文件读写模块 sacio_Fortran</title><link>https://blog.seisman.info/sacio-fortran90/</link><pubDate>Tue, 19 Jul 2016 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/sacio-fortran90/</guid><description>sacio_Fortran 是一个用 Fortran 90 写的 SAC 读写模块。在自己的程序中调用该模块，即可实现 SAC 二进制文件的读写。 项目主页： http://wangliang1989.github.io/sacio_Fortran/ 文件列表 下载后，有如下文件: sacio.f9</description></item><item><title>判断 SAC 数据是否已去除仪器响应</title><link>https://blog.seisman.info/instrumental-response-removed-or-not/</link><pubDate>Sun, 13 Mar 2016 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/instrumental-response-removed-or-not/</guid><description>&lt;p>有些时候，波形数据拿到手了，但是却不知道波形数据是否有被处理过，尤其是有没有去除仪器响应。&lt;/p>
-&lt;p>先说结论，判断一个 SAC 数据是否已经去除仪器响应的准则是：&lt;/p>
-&lt;blockquote>
-&lt;p>若一个 SAC 数据中每个数据点的值都是整数，则这个数据的仪器响应没有被去除的概率为 99.9%&lt;/p>
-&lt;/blockquote></description></item><item><title>用 SAC 快速拾取震相</title><link>https://blog.seisman.info/faster-ppk/</link><pubDate>Fri, 19 Feb 2016 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/faster-ppk/</guid><description>&lt;p>震相拾取，是地震学的一个基本工作。SAC 提供了 &lt;code>plotpk&lt;/code> 命令，可以用于手动拾取
-震相到时，用起来还算是比较简单方便。&lt;/p></description></item><item><title>SAC 中将位移记录转换成速度记录</title><link>https://blog.seisman.info/sac-convert-displacement-to-velocity/</link><pubDate>Tue, 12 Jan 2016 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/sac-convert-displacement-to-velocity/</guid><description>将位移记录转换成速度记录，本质上就是微分，在 SAC 中有三种方法可以实现。 先生成测试用的数据: SAC&amp;gt; fg seis SAC&amp;gt; rmean; rtr; taper SAC&amp;gt; w seis.sac 直接对 diff 命令对波形做时间域微分:</description></item><item><title>修改 SAC 所允许的最大文件数目</title><link>https://blog.seisman.info/trash/sac-change-max-file-allowed/</link><pubDate>Sat, 12 Sep 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/sac-change-max-file-allowed/</guid><description>SAC 在处理数据时，一次性最多只能读入 1000 个 SAC 文件。当读入过多的 SAC 文件时，会出现如下警告: Max files: reading first 1000 files. 并只读入文件列表中的前 1000 个文件。 想要突破最多</description></item><item><title>调用 SAC 进行 Hilbert 变换</title><link>https://blog.seisman.info/trash/sac-hilbert-transform/</link><pubDate>Wed, 29 Apr 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/sac-hilbert-transform/</guid><description>&lt;p>需要在 C 程序中对数据做 Hilbert 变换，自己写显然是不可能的啦，重复造轮子不说，
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SAC on SeisMan</title>
+    <link>https://blog.seisman.info/categories/SAC/</link>
+    <description>Recent content in SAC on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 19 Jul 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/categories/SAC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SAC 文件读写模块 sacio_Fortran</title>
+      <link>https://blog.seisman.info/sacio-fortran90/</link>
+      <pubDate>Tue, 19 Jul 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/sacio-fortran90/</guid>
+      <description>sacio_Fortran 是一个用 Fortran 90 写的 SAC 读写模块。在自己的程序中调用该模块，即可实现 SAC 二进制文件的读写。 项目主页： http://wangliang1989.github.io/sacio_Fortran/ 文件列表 下载后，有如下文件: sacio.f9</description>
+    </item>
+    
+    <item>
+      <title>判断 SAC 数据是否已去除仪器响应</title>
+      <link>https://blog.seisman.info/instrumental-response-removed-or-not/</link>
+      <pubDate>Sun, 13 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/instrumental-response-removed-or-not/</guid>
+      <description>&lt;p&gt;有些时候，波形数据拿到手了，但是却不知道波形数据是否有被处理过，尤其是有没有去除仪器响应。&lt;/p&gt;
+&lt;p&gt;先说结论，判断一个 SAC 数据是否已经去除仪器响应的准则是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;若一个 SAC 数据中每个数据点的值都是整数，则这个数据的仪器响应没有被去除的概率为 99.9%&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>用 SAC 快速拾取震相</title>
+      <link>https://blog.seisman.info/faster-ppk/</link>
+      <pubDate>Fri, 19 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/faster-ppk/</guid>
+      <description>&lt;p&gt;震相拾取，是地震学的一个基本工作。SAC 提供了 &lt;code&gt;plotpk&lt;/code&gt; 命令，可以用于手动拾取
+震相到时，用起来还算是比较简单方便。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SAC 中将位移记录转换成速度记录</title>
+      <link>https://blog.seisman.info/sac-convert-displacement-to-velocity/</link>
+      <pubDate>Tue, 12 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/sac-convert-displacement-to-velocity/</guid>
+      <description>将位移记录转换成速度记录，本质上就是微分，在 SAC 中有三种方法可以实现。 先生成测试用的数据: SAC&amp;gt; fg seis SAC&amp;gt; rmean; rtr; taper SAC&amp;gt; w seis.sac 直接对 diff 命令对波形做时间域微分:</description>
+    </item>
+    
+    <item>
+      <title>修改 SAC 所允许的最大文件数目</title>
+      <link>https://blog.seisman.info/trash/sac-change-max-file-allowed/</link>
+      <pubDate>Sat, 12 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/sac-change-max-file-allowed/</guid>
+      <description>SAC 在处理数据时，一次性最多只能读入 1000 个 SAC 文件。当读入过多的 SAC 文件时，会出现如下警告: Max files: reading first 1000 files. 并只读入文件列表中的前 1000 个文件。 想要突破最多</description>
+    </item>
+    
+    <item>
+      <title>调用 SAC 进行 Hilbert 变换</title>
+      <link>https://blog.seisman.info/trash/sac-hilbert-transform/</link>
+      <pubDate>Wed, 29 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/sac-hilbert-transform/</guid>
+      <description>&lt;p&gt;需要在 C 程序中对数据做 Hilbert 变换，自己写显然是不可能的啦，重复造轮子不说，
 写的还不一定对。找了一些代码，发现都写的好复杂，后来发现 SAC 在函数库中提供了
-Hilbert 变换的接口，可以直接调用。&lt;/p>
-&lt;p>&lt;code>firtrn&lt;/code> 可以用于对数据进行 Hilbert 变换，但是官方没有给一个比较直白的例子。
-下面就贴一个我写的例子啦。&lt;/p></description></item><item><title>征集《SAC 参考手册》维护者</title><link>https://blog.seisman.info/trash/maintainers-for-sac-manual-wanted/</link><pubDate>Sat, 07 Mar 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/maintainers-for-sac-manual-wanted/</guid><description>&lt;p>如题，希望能够征集到多名志愿者参与《SAC 参考手册》的维护。&lt;/p></description></item><item><title>SAC 修改绘图窗口的背景色</title><link>https://blog.seisman.info/change-background-color-of-window-in-sac/</link><pubDate>Sun, 15 Jun 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/change-background-color-of-window-in-sac/</guid><description>SAC 在绘图时默认使用白色作为背景色、用黑色绘制波形数据。这样的配色对比很明显，看起来也很清晰。 但是在需要长期查看波形、拾取震相时，黑底白线这种</description></item><item><title>在 Fortran 程序中读写 SAC 文件</title><link>https://blog.seisman.info/trash/sacio-fortran/</link><pubDate>Mon, 12 May 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/sacio-fortran/</guid><description>&lt;p>SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 Fortran 程序中读写 SAC 文件。&lt;/p></description></item><item><title>在 C 程序中读写 SAC 文件</title><link>https://blog.seisman.info/trash/sacio-c/</link><pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/sacio-c/</guid><description>&lt;h2 id="序言">序言&lt;/h2>
-&lt;p>SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 C 程序中读写 SAC 文件。&lt;/p></description></item><item><title>freqlimits 的选取</title><link>https://blog.seisman.info/how-to-choose-freqlimits/</link><pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/how-to-choose-freqlimits/</guid><description>真实的地面运动，其频谱范围是非常广泛的，从 0 Hz 到几千 Hz 甚至更高。 下文全部假定采样间隔为 T=0.01s。 根据奈奎斯特采样定理，采样频率为 f=1/T=100 Hz</description></item><item><title>脚本中调用 SAC 时不显示版本信息</title><link>https://blog.seisman.info/sac-display-copyright/</link><pubDate>Thu, 26 Dec 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/sac-display-copyright/</guid><description>在终端使用 SAC 时默认会出现版本信息，如下: $ sac SEISMIC ANALYSIS CODE [11/11/2013 (Version 101.6a)] Copyright 1995 Regents of the University of California SAC&amp;gt; 若在 SAC 宏文件或者 bash、perl 脚本中多次调用 SAC 命令的话，则会重</description></item><item><title>SAC 容易忽略的一个陷阱</title><link>https://blog.seisman.info/trash/sac-traps/</link><pubDate>Sun, 17 Nov 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/sac-traps/</guid><description>&lt;p>事情大概是这样的：当前文件夹下有很多个 SAC 文件（约 700 个，没有超过 SAC 一次只能处理 1000 个数据的限制），需要对 SAC 文件进行简单的滤波处理，然后保存。&lt;/p></description></item><item><title>SAC 中与台站有关的头段</title><link>https://blog.seisman.info/trash/sac-station-headers/</link><pubDate>Tue, 03 Sep 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/sac-station-headers/</guid><description>&lt;p>SAC 头段中与台站有关的变量有：&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>KNETWK&lt;/code>：台网名；&lt;/li>
-&lt;li>&lt;code>KSTNM&lt;/code>：台站名；&lt;/li>
-&lt;li>&lt;code>ISTREG&lt;/code>：台站地理区域（未使用）；&lt;/li>
-&lt;li>&lt;code>STLA&lt;/code>：台站纬度（北为正）；&lt;/li>
-&lt;li>&lt;code>STLO&lt;/code>：台站经度（东为正）；&lt;/li>
-&lt;li>&lt;code>STEL&lt;/code>：台站高程（m，未使用）；&lt;/li>
-&lt;li>&lt;code>STDP&lt;/code>：台站相对地表深度（m，未使用）；&lt;/li>
-&lt;li>&lt;code>CMPAZ&lt;/code>：分量方位角；（从北开始顺时针度数）&lt;/li>
-&lt;li>&lt;code>CMPINC&lt;/code>：分量入射角；（从垂直开始的角度）&lt;/li>
-&lt;li>&lt;code>KCMPNM&lt;/code>：分量名称，比如 BHE&lt;/li>
-&lt;li>&lt;code>LPSPOL&lt;/code>：如果台站分量为正极性则为真（左手规则）；&lt;/li>
-&lt;/ul>
-&lt;p>其中与台站分量有关的头段变量有四个，即 &lt;code>CMPAZ&lt;/code>、&lt;code>CMPINC&lt;/code>、&lt;code>KCMPNM&lt;/code>、&lt;code>LPSPOL&lt;/code>。&lt;/p></description></item><item><title>PPK 标记震相到时的一些注意事项</title><link>https://blog.seisman.info/ppk-notes/</link><pubDate>Tue, 20 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/ppk-notes/</guid><description>&lt;p>SAC 中的 &lt;code>ppk&lt;/code> 命令用于拾取震相到时。在键入 &lt;code>ppk&lt;/code> 命令之后，进入震相拾取模式，此时键入相应的选项即可拾取震相到时。
-从 &lt;code>ppk&lt;/code> 的命令说明中可以看出，&lt;code>ppk&lt;/code> 支持的选项中与到时有关的有：&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>A&lt;/code>：定义初至波到时；&lt;/li>
-&lt;li>&lt;code>F&lt;/code>：定义事件结束时间；&lt;/li>
-&lt;li>&lt;code>P&lt;/code>：定义 P 波到时；&lt;/li>
-&lt;li>&lt;code>S&lt;/code>：定义 S 波到时；&lt;/li>
-&lt;li>&lt;code>Tn&lt;/code>：用户自定义到时（n=0~9）；&lt;/li>
-&lt;/ul></description></item><item><title>SAC 保存图像小结</title><link>https://blog.seisman.info/trash/sac-save-image/</link><pubDate>Tue, 13 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/sac-save-image/</guid><description>&lt;p>数据的处理很重要，数据的可视化更重要，数据可视化之后总会想把图保存起来，这里小结一下 SAC 中保存图像的方法。&lt;/p></description></item><item><title>SAC 不同格式间的转换</title><link>https://blog.seisman.info/conversion-of-different-sac-formats/</link><pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/conversion-of-different-sac-formats/</guid><description>&lt;p>SAC 文件格式包括二进制格式和 ASCII 格式，平常接触的都是二进制格式的，毕竟二进
+Hilbert 变换的接口，可以直接调用。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;firtrn&lt;/code&gt; 可以用于对数据进行 Hilbert 变换，但是官方没有给一个比较直白的例子。
+下面就贴一个我写的例子啦。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>征集《SAC 参考手册》维护者</title>
+      <link>https://blog.seisman.info/trash/maintainers-for-sac-manual-wanted/</link>
+      <pubDate>Sat, 07 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/maintainers-for-sac-manual-wanted/</guid>
+      <description>&lt;p&gt;如题，希望能够征集到多名志愿者参与《SAC 参考手册》的维护。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SAC 修改绘图窗口的背景色</title>
+      <link>https://blog.seisman.info/change-background-color-of-window-in-sac/</link>
+      <pubDate>Sun, 15 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/change-background-color-of-window-in-sac/</guid>
+      <description>SAC 在绘图时默认使用白色作为背景色、用黑色绘制波形数据。这样的配色对比很明显，看起来也很清晰。 但是在需要长期查看波形、拾取震相时，黑底白线这种</description>
+    </item>
+    
+    <item>
+      <title>在 Fortran 程序中读写 SAC 文件</title>
+      <link>https://blog.seisman.info/trash/sacio-fortran/</link>
+      <pubDate>Mon, 12 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/sacio-fortran/</guid>
+      <description>&lt;p&gt;SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 Fortran 程序中读写 SAC 文件。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在 C 程序中读写 SAC 文件</title>
+      <link>https://blog.seisman.info/trash/sacio-c/</link>
+      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/sacio-c/</guid>
+      <description>&lt;h2 id=&#34;序言&#34;&gt;序言&lt;/h2&gt;
+&lt;p&gt;SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 C 程序中读写 SAC 文件。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>freqlimits 的选取</title>
+      <link>https://blog.seisman.info/how-to-choose-freqlimits/</link>
+      <pubDate>Thu, 16 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/how-to-choose-freqlimits/</guid>
+      <description>真实的地面运动，其频谱范围是非常广泛的，从 0 Hz 到几千 Hz 甚至更高。 下文全部假定采样间隔为 T=0.01s。 根据奈奎斯特采样定理，采样频率为 f=1/T=100 Hz</description>
+    </item>
+    
+    <item>
+      <title>脚本中调用 SAC 时不显示版本信息</title>
+      <link>https://blog.seisman.info/sac-display-copyright/</link>
+      <pubDate>Thu, 26 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/sac-display-copyright/</guid>
+      <description>在终端使用 SAC 时默认会出现版本信息，如下: $ sac SEISMIC ANALYSIS CODE [11/11/2013 (Version 101.6a)] Copyright 1995 Regents of the University of California SAC&amp;gt; 若在 SAC 宏文件或者 bash、perl 脚本中多次调用 SAC 命令的话，则会重</description>
+    </item>
+    
+    <item>
+      <title>SAC 容易忽略的一个陷阱</title>
+      <link>https://blog.seisman.info/trash/sac-traps/</link>
+      <pubDate>Sun, 17 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/sac-traps/</guid>
+      <description>&lt;p&gt;事情大概是这样的：当前文件夹下有很多个 SAC 文件（约 700 个，没有超过 SAC 一次只能处理 1000 个数据的限制），需要对 SAC 文件进行简单的滤波处理，然后保存。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SAC 中与台站有关的头段</title>
+      <link>https://blog.seisman.info/trash/sac-station-headers/</link>
+      <pubDate>Tue, 03 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/sac-station-headers/</guid>
+      <description>&lt;p&gt;SAC 头段中与台站有关的变量有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;KNETWK&lt;/code&gt;：台网名；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;KSTNM&lt;/code&gt;：台站名；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ISTREG&lt;/code&gt;：台站地理区域（未使用）；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;STLA&lt;/code&gt;：台站纬度（北为正）；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;STLO&lt;/code&gt;：台站经度（东为正）；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;STEL&lt;/code&gt;：台站高程（m，未使用）；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;STDP&lt;/code&gt;：台站相对地表深度（m，未使用）；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CMPAZ&lt;/code&gt;：分量方位角；（从北开始顺时针度数）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CMPINC&lt;/code&gt;：分量入射角；（从垂直开始的角度）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;KCMPNM&lt;/code&gt;：分量名称，比如 BHE&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;LPSPOL&lt;/code&gt;：如果台站分量为正极性则为真（左手规则）；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其中与台站分量有关的头段变量有四个，即 &lt;code&gt;CMPAZ&lt;/code&gt;、&lt;code&gt;CMPINC&lt;/code&gt;、&lt;code&gt;KCMPNM&lt;/code&gt;、&lt;code&gt;LPSPOL&lt;/code&gt;。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PPK 标记震相到时的一些注意事项</title>
+      <link>https://blog.seisman.info/ppk-notes/</link>
+      <pubDate>Tue, 20 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/ppk-notes/</guid>
+      <description>&lt;p&gt;SAC 中的 &lt;code&gt;ppk&lt;/code&gt; 命令用于拾取震相到时。在键入 &lt;code&gt;ppk&lt;/code&gt; 命令之后，进入震相拾取模式，此时键入相应的选项即可拾取震相到时。
+从 &lt;code&gt;ppk&lt;/code&gt; 的命令说明中可以看出，&lt;code&gt;ppk&lt;/code&gt; 支持的选项中与到时有关的有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;A&lt;/code&gt;：定义初至波到时；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;F&lt;/code&gt;：定义事件结束时间；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;P&lt;/code&gt;：定义 P 波到时；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;S&lt;/code&gt;：定义 S 波到时；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Tn&lt;/code&gt;：用户自定义到时（n=0~9）；&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>SAC 保存图像小结</title>
+      <link>https://blog.seisman.info/trash/sac-save-image/</link>
+      <pubDate>Tue, 13 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/sac-save-image/</guid>
+      <description>&lt;p&gt;数据的处理很重要，数据的可视化更重要，数据可视化之后总会想把图保存起来，这里小结一下 SAC 中保存图像的方法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SAC 不同格式间的转换</title>
+      <link>https://blog.seisman.info/conversion-of-different-sac-formats/</link>
+      <pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/conversion-of-different-sac-formats/</guid>
+      <description>&lt;p&gt;SAC 文件格式包括二进制格式和 ASCII 格式，平常接触的都是二进制格式的，毕竟二进
 制格式相对于 ASCII 格式有很多优点，比如读写速度更快、文件大小更小。下面讨论 SAC
-的两种格式以及另外一种常见的数据格式（自变量 + 因变量两列数据）之间的转换。&lt;/p></description></item><item><title>SAC 的时间概念</title><link>https://blog.seisman.info/trash/sac-times/</link><pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/sac-times/</guid><description>&lt;h2 id="时间变量">时间变量&lt;/h2>
-&lt;p>SAC 用于处理时间序列，其头段变量中与时间有关的也很多，总的来说分为 2 类：&lt;/p>
-&lt;ol>
-&lt;li>&lt;strong>GMT时间&lt;/strong>：绝对时间，或参考时间，包括 &lt;code>NZYEAR&lt;/code>、&lt;code>NZJDAY&lt;/code>、&lt;code>NZHOUR&lt;/code>、&lt;code>NZMIN&lt;/code>、&lt;code>NZSEC&lt;/code>、&lt;code>NZMSEC&lt;/code>，
-分别代表年、日、时、分、秒、毫秒。注意这里没有月的概念，&lt;code>NZJDAY&lt;/code> 代表该年的第多少天。
-这 6 个变量构成了一个绝对时间，这个绝对时间以更易读的形式保存在变量 &lt;code>KZDATE&lt;/code> 和 &lt;code>KZTIME&lt;/code> 中
+的两种格式以及另外一种常见的数据格式（自变量 + 因变量两列数据）之间的转换。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SAC 的时间概念</title>
+      <link>https://blog.seisman.info/trash/sac-times/</link>
+      <pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/sac-times/</guid>
+      <description>&lt;h2 id=&#34;时间变量&#34;&gt;时间变量&lt;/h2&gt;
+&lt;p&gt;SAC 用于处理时间序列，其头段变量中与时间有关的也很多，总的来说分为 2 类：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;GMT时间&lt;/strong&gt;：绝对时间，或参考时间，包括 &lt;code&gt;NZYEAR&lt;/code&gt;、&lt;code&gt;NZJDAY&lt;/code&gt;、&lt;code&gt;NZHOUR&lt;/code&gt;、&lt;code&gt;NZMIN&lt;/code&gt;、&lt;code&gt;NZSEC&lt;/code&gt;、&lt;code&gt;NZMSEC&lt;/code&gt;，
+分别代表年、日、时、分、秒、毫秒。注意这里没有月的概念，&lt;code&gt;NZJDAY&lt;/code&gt; 代表该年的第多少天。
+这 6 个变量构成了一个绝对时间，这个绝对时间以更易读的形式保存在变量 &lt;code&gt;KZDATE&lt;/code&gt; 和 &lt;code&gt;KZTIME&lt;/code&gt; 中
 （这两个变量虽然说是头段变量，但是在文件中实际上并不对应这两个变量的存储空间），其是
-整个 SAC 文件中唯一的绝对时间，因而用作为参考时间去定义相对时间。&lt;/li>
-&lt;li>&lt;strong>相对时间&lt;/strong>：包括 &lt;code>B&lt;/code>、&lt;code>E&lt;/code>、&lt;code>O&lt;/code>、&lt;code>A&lt;/code>、&lt;code>F&lt;/code>、&lt;code>Tn&lt;/code> 等等，这些相对时间的值都是相对于绝对时间来定义的。
-&lt;code>O=100&lt;/code> 即意味着发震时刻为参考时间加上 100 秒所对应的 GMT 时间。&lt;/li>
-&lt;/ol></description></item><item><title>SAC 文件修改事件经纬度后震中距的自动计算</title><link>https://blog.seisman.info/calculate-gcarc-after-adding-event-location/</link><pubDate>Sat, 03 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/calculate-gcarc-after-adding-event-location/</guid><description>&lt;p>地震目录中包含震中的经度、纬度、深度等信息，有些时候下载的数据中没有这些事件信息，
-就需要自己手动添加进去。&lt;/p>
-&lt;p>很基础的操作:&lt;/p>
-&lt;pre>&lt;code>SAC &amp;gt; r *.BH*
+整个 SAC 文件中唯一的绝对时间，因而用作为参考时间去定义相对时间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;相对时间&lt;/strong&gt;：包括 &lt;code&gt;B&lt;/code&gt;、&lt;code&gt;E&lt;/code&gt;、&lt;code&gt;O&lt;/code&gt;、&lt;code&gt;A&lt;/code&gt;、&lt;code&gt;F&lt;/code&gt;、&lt;code&gt;Tn&lt;/code&gt; 等等，这些相对时间的值都是相对于绝对时间来定义的。
+&lt;code&gt;O=100&lt;/code&gt; 即意味着发震时刻为参考时间加上 100 秒所对应的 GMT 时间。&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>SAC 文件修改事件经纬度后震中距的自动计算</title>
+      <link>https://blog.seisman.info/calculate-gcarc-after-adding-event-location/</link>
+      <pubDate>Sat, 03 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/calculate-gcarc-after-adding-event-location/</guid>
+      <description>&lt;p&gt;地震目录中包含震中的经度、纬度、深度等信息，有些时候下载的数据中没有这些事件信息，
+就需要自己手动添加进去。&lt;/p&gt;
+&lt;p&gt;很基础的操作:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SAC &amp;gt; r *.BH*
 SAC &amp;gt; ch evla 30.5 evlo 120.5 evdp 5.0
 SAC &amp;gt; wh
 SAC &amp;gt; q
-&lt;/code>&lt;/pre>
-&lt;p>修改了地震经纬度及深度信息之后，一般来说，震中距 dist、gcarc 以及方位角 az、baz 也会
-随着一起改变。但是，有些时候这些量却没有随着事件位置的变化而变化，这是为什么呢？&lt;/p></description></item><item><title>SAC 参考手册中文版</title><link>https://blog.seisman.info/sac-manual/</link><pubDate>Sat, 06 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/sac-manual/</guid><description>网页版： https://seisman.github.io/SAC_Docs_zh/ PDF版： https://seisman.github.io/SAC_Docs_zh/SAC_Docs.pdf 2018-03-21 v3.6 下载地址：SAC 参考手册 v3.6.pdf 新增内容：调用SAC库中的 rms 子函数 新增示例： cut 2016-01-09 v3.5 版 下载地址：SAC 参考手册 v3.5.pdf 增加示例：</description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;修改了地震经纬度及深度信息之后，一般来说，震中距 dist、gcarc 以及方位角 az、baz 也会
+随着一起改变。但是，有些时候这些量却没有随着事件位置的变化而变化，这是为什么呢？&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SAC 参考手册中文版</title>
+      <link>https://blog.seisman.info/sac-manual/</link>
+      <pubDate>Sat, 06 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/sac-manual/</guid>
+      <description>网页版： https://seisman.github.io/SAC_Docs_zh/ PDF版： https://seisman.github.io/SAC_Docs_zh/SAC_Docs.pdf 2018-03-21 v3.6 下载地址：SAC 参考手册 v3.6.pdf 新增内容：调用SAC库中的 rms 子函数 新增示例： cut 2016-01-09 v3.5 版 下载地址：SAC 参考手册 v3.5.pdf 增加示例：</description>
+    </item>
+    
+  </channel>
+</rss>

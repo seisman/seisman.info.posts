@@ -1,6 +1,51 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>SOFI2D 笔记 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="SOFI2D 是一个二维 PSV 交错网格有限差分代码。要使用该程序，至少需要阅读如下几篇参考文献：
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+
+  <title>SOFI2D 笔记 - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="SOFI2D 是一个二维 PSV 交错网格有限差分代码。要使用该程序，至少需要阅读如下几篇参考文献：
  Virieux, J. 1986. P-SV wave propagation in heterogeneous media: velocity-stress finite- difference method. Geophysics, 51(4), 889–901. Levander, A.R. 1988. Fourth-order finite-difference P-SV seismograms. Geophysics, 53(11), 1425–1436. SOFI2D User Guide  具体的用法及每个参数的意义在官方文档已经介绍的很详细，本文是我使用 SOFI2D 过程中的经验总结。
-注：本文使用的是 2015 年 10 月 28 日发布的 SOFI2D。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.0 with theme even"><link rel=canonical href=https://blog.seisman.info/sofi2d-notes/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="SOFI2D 笔记"><meta property="og:description" content="SOFI2D 是一个二维 PSV 交错网格有限差分代码。要使用该程序，至少需要阅读如下几篇参考文献：
+注：本文使用的是 2015 年 10 月 28 日发布的 SOFI2D。
+" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.1 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/sofi2d-notes/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="SOFI2D 笔记" />
+<meta property="og:description" content="SOFI2D 是一个二维 PSV 交错网格有限差分代码。要使用该程序，至少需要阅读如下几篇参考文献：
 
 Virieux, J. 1986. P-SV wave propagation in heterogeneous media:
 velocity-stress finite- difference method. Geophysics, 51(4), 889–901.
@@ -8,7 +53,13 @@ Levander, A.R. 1988. Fourth-order finite-difference P-SV seismograms. Geophysics
 SOFI2D User Guide
 
 具体的用法及每个参数的意义在官方文档已经介绍的很详细，本文是我使用 SOFI2D 过程中的经验总结。
-注：本文使用的是 2015 年 10 月 28 日发布的 SOFI2D。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/sofi2d-notes/"><meta property="article:published_time" content="2015-12-08T00:00:00+00:00"><meta property="article:modified_time" content="2015-12-08T00:00:00+00:00"><meta itemprop=name content="SOFI2D 笔记"><meta itemprop=description content="SOFI2D 是一个二维 PSV 交错网格有限差分代码。要使用该程序，至少需要阅读如下几篇参考文献：
+注：本文使用的是 2015 年 10 月 28 日发布的 SOFI2D。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/sofi2d-notes/" />
+<meta property="article:published_time" content="2015-12-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-12-08T00:00:00+00:00" />
+<meta itemprop="name" content="SOFI2D 笔记">
+<meta itemprop="description" content="SOFI2D 是一个二维 PSV 交错网格有限差分代码。要使用该程序，至少需要阅读如下几篇参考文献：
 
 Virieux, J. 1986. P-SV wave propagation in heterogeneous media:
 velocity-stress finite- difference method. Geophysics, 51(4), 889–901.
@@ -16,7 +67,17 @@ Levander, A.R. 1988. Fourth-order finite-difference P-SV seismograms. Geophysics
 SOFI2D User Guide
 
 具体的用法及每个参数的意义在官方文档已经介绍的很详细，本文是我使用 SOFI2D 过程中的经验总结。
-注：本文使用的是 2015 年 10 月 28 日发布的 SOFI2D。"><meta itemprop=datePublished content="2015-12-08T00:00:00+00:00"><meta itemprop=dateModified content="2015-12-08T00:00:00+00:00"><meta itemprop=wordCount content="1238"><meta itemprop=keywords content="理论地震图,有限差分,笔记,"><meta name=twitter:card content="summary"><meta name=twitter:title content="SOFI2D 笔记"><meta name=twitter:description content="SOFI2D 是一个二维 PSV 交错网格有限差分代码。要使用该程序，至少需要阅读如下几篇参考文献：
+注：本文使用的是 2015 年 10 月 28 日发布的 SOFI2D。">
+<meta itemprop="datePublished" content="2015-12-08T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2015-12-08T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1238">
+
+
+
+<meta itemprop="keywords" content="理论地震图,有限差分,笔记," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SOFI2D 笔记"/>
+<meta name="twitter:description" content="SOFI2D 是一个二维 PSV 交错网格有限差分代码。要使用该程序，至少需要阅读如下几篇参考文献：
 
 Virieux, J. 1986. P-SV wave propagation in heterogeneous media:
 velocity-stress finite- difference method. Geophysics, 51(4), 889–901.
@@ -24,40 +85,344 @@ Levander, A.R. 1988. Fourth-order finite-difference P-SV seismograms. Geophysics
 SOFI2D User Guide
 
 具体的用法及每个参数的意义在官方文档已经介绍的很详细，本文是我使用 SOFI2D 过程中的经验总结。
-注：本文使用的是 2015 年 10 月 28 日发布的 SOFI2D。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>SOFI2D 笔记</h1><div class=post-meta><span class=post-time>2015-12-08</span><div class=post-category><a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/>地震学软件</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents></nav></div></div><div class=post-content><p>SOFI2D 是一个二维 PSV 交错网格有限差分代码。要使用该程序，至少需要阅读如下几篇参考文献：</p><ul><li>Virieux, J. 1986. P-SV wave propagation in heterogeneous media:
-velocity-stress finite- difference method. Geophysics, 51(4), 889–901.</li><li>Levander, A.R. 1988. Fourth-order finite-difference P-SV seismograms. Geophysics, 53(11), 1425–1436.</li><li>SOFI2D User Guide</li></ul><p>具体的用法及每个参数的意义在官方文档已经介绍的很详细，本文是我使用 SOFI2D 过程中的经验总结。</p><p>注：本文使用的是 2015 年 10 月 28 日发布的 SOFI2D。</p><p>运行 SOFI2D 所需的文件都在 <code>par</code> 目录下，其中需要修改的文件包括：</p><ul><li><code>in_and_out/sofi2D.json</code></li><li><code>model/test</code></li><li><code>source/source.dat</code></li><li><code>receiver/receiver.dat</code></li></ul><p><code>in_and_out/sofi2d.json</code> 是程序的输入配置文件，配置文件是用 json 语法写的，并且将众多的
-变量分成了若干类。在设计不同的速度模型时，某些变量基本不需要改动，某些变量则可能需要经常改动。</p><p>在设计模型时，可以按照如下顺序逐一修改或检查如下参数：</p><ol><li><p>生成速度模型：2D 速度模型需要自己写程序生成，参考 <code>src/hh_elastic.c</code>
-和 <code>genmod/2layer.c</code> ，并将生成的模型保存到 <code>model</code> 目录下</p></li><li><p><code>source/source.dat</code> 中指定震源时间函数的中心频率（也可从文件中读入震源时间函数）、振幅和时间延迟</p></li><li><p>估算震源时间函数的最大频率。如果是使用内置震源时间函数，可以近似认为最大频率是
-中心频率的两倍，如果是从文件中读入自定义的震源时间函数，可以对其做 FFT，将振幅谱中的拐点作为最大频率</p></li><li><p>频散条件要求一个波长内要至少有 n 个网格点，因而要根据最大频率和最小速度计算出最大的网格间隔。在满足公式</p><p>$$dh \le \frac{V_{min}}{n f_{max}}$$</p><p>的前提下选择 $dh$ ，其中 n 由 <code>FDORDER</code> 决定</p></li><li><p>为了满足稳定性条件，要根据网格间隔和模型中的最大速度选择合适的时间步长。在满足公式</p><p>$$dt \le \frac{dh}{h \sqrt{2} V_{max}}$$</p><p>的前提下选择 $dt$ 值，其中 h 由 <code>FDORDER</code> 决定</p></li><li><p>修改 <code>in_and_out/sofi2d.json</code> 中的 <code>DH</code> 和 <code>DT</code></p></li><li><p><code>source/source.dat</code> 中指定震源位置</p></li><li><p><code>receiver/receiver.dat</code> 中指定台站位置</p></li><li><p>修改配置文件中的 2-D Grid 部分，指定 <code>NX</code> 和 <code>NY</code></p></li><li><p>根据计算机的核数以及 <code>NX</code> 和 <code>NY</code> 的值，修改 Domain Decomposition 部分</p></li><li><p><code>startSOFI2D.sh</code> 中 <code>-np</code> 后面的进程数应与 <code>NPROCX*NPROCY</code> 相等</p></li><li><p>修改配置文件中的 Time Stepping 部分</p></li><li><p>如果要生成波场快照的话，则修改 Snapshots 部分</p></li></ol><p>然后就可以开始计算了，每次修改模型之后，都需要按照上面的顺序检查各个参数。</p><p>使用过程中需要注意的一些地方：</p><ol><li><p>运行 SOFI2D 时目录名必须为 <code>par</code> ，该目录下各个子目录的名字不可变</p><p>理论上运行目录是不是 <code>par</code> 都可以，各个子目录的名字在 <code>json</code>
+注：本文使用的是 2015 年 10 月 28 日发布的 SOFI2D。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">SOFI2D 笔记</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-12-08 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/"> 地震学软件 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>SOFI2D 是一个二维 PSV 交错网格有限差分代码。要使用该程序，至少需要阅读如下几篇参考文献：</p>
+<ul>
+<li>Virieux, J. 1986. P-SV wave propagation in heterogeneous media:
+velocity-stress finite- difference method. Geophysics, 51(4), 889–901.</li>
+<li>Levander, A.R. 1988. Fourth-order finite-difference P-SV seismograms. Geophysics, 53(11), 1425–1436.</li>
+<li>SOFI2D User Guide</li>
+</ul>
+<p>具体的用法及每个参数的意义在官方文档已经介绍的很详细，本文是我使用 SOFI2D 过程中的经验总结。</p>
+<p>注：本文使用的是 2015 年 10 月 28 日发布的 SOFI2D。</p>
+<p>运行 SOFI2D 所需的文件都在 <code>par</code> 目录下，其中需要修改的文件包括：</p>
+<ul>
+<li><code>in_and_out/sofi2D.json</code></li>
+<li><code>model/test</code></li>
+<li><code>source/source.dat</code></li>
+<li><code>receiver/receiver.dat</code></li>
+</ul>
+<p><code>in_and_out/sofi2d.json</code> 是程序的输入配置文件，配置文件是用 json 语法写的，并且将众多的
+变量分成了若干类。在设计不同的速度模型时，某些变量基本不需要改动，某些变量则可能需要经常改动。</p>
+<p>在设计模型时，可以按照如下顺序逐一修改或检查如下参数：</p>
+<ol>
+<li>
+<p>生成速度模型：2D 速度模型需要自己写程序生成，参考 <code>src/hh_elastic.c</code>
+和 <code>genmod/2layer.c</code> ，并将生成的模型保存到 <code>model</code> 目录下</p>
+</li>
+<li>
+<p><code>source/source.dat</code> 中指定震源时间函数的中心频率（也可从文件中读入震源时间函数）、振幅和时间延迟</p>
+</li>
+<li>
+<p>估算震源时间函数的最大频率。如果是使用内置震源时间函数，可以近似认为最大频率是
+中心频率的两倍，如果是从文件中读入自定义的震源时间函数，可以对其做 FFT，将振幅谱中的拐点作为最大频率</p>
+</li>
+<li>
+<p>频散条件要求一个波长内要至少有 n 个网格点，因而要根据最大频率和最小速度计算出最大的网格间隔。在满足公式</p>
+<p>$$dh \le \frac{V_{min}}{n f_{max}}$$</p>
+<p>的前提下选择 $dh$ ，其中 n 由 <code>FDORDER</code> 决定</p>
+</li>
+<li>
+<p>为了满足稳定性条件，要根据网格间隔和模型中的最大速度选择合适的时间步长。在满足公式</p>
+<p>$$dt \le \frac{dh}{h \sqrt{2} V_{max}}$$</p>
+<p>的前提下选择 $dt$ 值，其中 h 由 <code>FDORDER</code> 决定</p>
+</li>
+<li>
+<p>修改 <code>in_and_out/sofi2d.json</code> 中的 <code>DH</code> 和 <code>DT</code></p>
+</li>
+<li>
+<p><code>source/source.dat</code> 中指定震源位置</p>
+</li>
+<li>
+<p><code>receiver/receiver.dat</code> 中指定台站位置</p>
+</li>
+<li>
+<p>修改配置文件中的 2-D Grid 部分，指定 <code>NX</code> 和 <code>NY</code></p>
+</li>
+<li>
+<p>根据计算机的核数以及 <code>NX</code> 和 <code>NY</code> 的值，修改 Domain Decomposition 部分</p>
+</li>
+<li>
+<p><code>startSOFI2D.sh</code> 中 <code>-np</code> 后面的进程数应与 <code>NPROCX*NPROCY</code> 相等</p>
+</li>
+<li>
+<p>修改配置文件中的 Time Stepping 部分</p>
+</li>
+<li>
+<p>如果要生成波场快照的话，则修改 Snapshots 部分</p>
+</li>
+</ol>
+<p>然后就可以开始计算了，每次修改模型之后，都需要按照上面的顺序检查各个参数。</p>
+<p>使用过程中需要注意的一些地方：</p>
+<ol>
+<li>
+<p>运行 SOFI2D 时目录名必须为 <code>par</code> ，该目录下各个子目录的名字不可变</p>
+<p>理论上运行目录是不是 <code>par</code> 都可以，各个子目录的名字在 <code>json</code>
 文件中也是可以任意设定的。但实际运行的过程中如果运行目录不是 <code>par</code>
 或者各个子目录的名字与默认的子目录名不一样都会直接报错退出。这实际上是代码
 <code>src/check_fs.c</code> 的 bug 导致的，该代码的目的在于检查文件系统，即目录
 是否存在，以及文件是否可读、可写。由于该代码将所有目录名硬编码在源码中，
-所以导致各个目录名不可修改。解决办法有两个：</p><ol><li>把主程序中对 <code>check_fs</code> 的调用注释掉</li><li>保留原 par 目录，每次自己新建目录，这样 <code>check_fs</code> 每次都会检查
-<code>par</code> 目录，而不会检查新建的目录</li></ol></li><li><p>默认四个边界都是吸收边界， <code>FREE_SURF</code> 控制上表面是否为自由边界，
-<code>BOUNDARY</code> 控制左右是否为周期性边界条件</p></li><li><p>交错网格结构的定义如下:</p><pre><code>Txx,Tzz   Ux
+所以导致各个目录名不可修改。解决办法有两个：</p>
+<ol>
+<li>把主程序中对 <code>check_fs</code> 的调用注释掉</li>
+<li>保留原 par 目录，每次自己新建目录，这样 <code>check_fs</code> 每次都会检查
+<code>par</code> 目录，而不会检查新建的目录</li>
+</ol>
+</li>
+<li>
+<p>默认四个边界都是吸收边界， <code>FREE_SURF</code> 控制上表面是否为自由边界，
+<code>BOUNDARY</code> 控制左右是否为周期性边界条件</p>
+</li>
+<li>
+<p>交错网格结构的定义如下:</p>
+<pre><code>Txx,Tzz   Ux
 
 
 Uz        Txz
-</code></pre><p>因而同一个网格点内的垂直分量要比水平分量深半个网格点。</p></li><li><p>源码中 <code>src/update_v_interior.c</code> 是时间二阶，空间二阶有限差分格式，
-对应于 Virieux 1986，是最简单的一个</p></li><li><p>计算出的理论地震图，到时应以 onset 为准，而不是以 peak 为准。</p></li><li><p>sofi2d 与 fk，即便用完全相同的震源时间函数，其波形也是无法直接做对比的，
-因为 fk 计算的是点源三维波场，sofi2d 计算的是线源二维波场，因而 sofi2d 计算的结果需要做线源到点源的转换</p></li></ol></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
-<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
-<span class=item-content>2015-12-08</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
-<span>微信打赏</span></label>
-<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
-<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/%E7%90%86%E8%AE%BA%E5%9C%B0%E9%9C%87%E5%9B%BE/>理论地震图</a>
-<a href=/tags/%E6%9C%89%E9%99%90%E5%B7%AE%E5%88%86/>有限差分</a>
-<a href=/tags/%E7%AC%94%E8%AE%B0/>笔记</a></div><nav class=post-nav><a class=prev href=/plot-specified-gridline-on-maps/><i class="iconfont icon-left"></i><span class="prev-text nav-default">在地图上绘制特定的经纬线</span>
-<span class="prev-text nav-mobile">上一篇</span></a>
-<a class=next href=/raypath-between-events-and-stations/><span class="next-text nav-default">绘制事件与台站间的连线</span>
-<span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
-<span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
-<span class=copyright-year>&copy;
-2013 -
-2020
-<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script></body></html>
+</code></pre>
+<p>因而同一个网格点内的垂直分量要比水平分量深半个网格点。</p>
+</li>
+<li>
+<p>源码中 <code>src/update_v_interior.c</code> 是时间二阶，空间二阶有限差分格式，
+对应于 Virieux 1986，是最简单的一个</p>
+</li>
+<li>
+<p>计算出的理论地震图，到时应以 onset 为准，而不是以 peak 为准。</p>
+</li>
+<li>
+<p>sofi2d 与 fk，即便用完全相同的震源时间函数，其波形也是无法直接做对比的，
+因为 fk 计算的是点源三维波场，sofi2d 计算的是线源二维波场，因而 sofi2d 计算的结果需要做线源到点源的转换</p>
+</li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SeisMan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2015-12-08
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%90%86%E8%AE%BA%E5%9C%B0%E9%9C%87%E5%9B%BE/">理论地震图</a>
+          <a href="/tags/%E6%9C%89%E9%99%90%E5%B7%AE%E5%88%86/">有限差分</a>
+          <a href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/plot-specified-gridline-on-maps/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">在地图上绘制特定的经纬线</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/raypath-between-events-and-stations/">
+            <span class="next-text nav-default">绘制事件与台站间的连线</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

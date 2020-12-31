@@ -1,12 +1,187 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>GMT 区域填色 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="提出问题 GMT 中可以用 psxy 绘制多段数据，画出多个闭合的多边形。一个示例命令如下:
-gmt psxy input.dat -R0/360/-90/90 -JX15c/10c -Bx60 -By30 -W1p -L &amp;gt; test.ps"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.0 with theme even"><link rel=canonical href=https://blog.seisman.info/area-fill/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="GMT 区域填色"><meta property="og:description" content="提出问题
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+
+  <title>GMT 区域填色 - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="提出问题 GMT 中可以用 psxy 绘制多段数据，画出多个闭合的多边形。一个示例命令如下:
+gmt psxy input.dat -R0/360/-90/90 -JX15c/10c -Bx60 -By30 -W1p -L &amp;gt; test.ps " /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.1 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/area-fill/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="GMT 区域填色" />
+<meta property="og:description" content="提出问题
 GMT 中可以用 psxy 绘制多段数据，画出多个闭合的多边形。一个示例命令如下:
-gmt psxy input.dat -R0/360/-90/90 -JX15c/10c -Bx60 -By30 -W1p -L > test.ps"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/area-fill/"><meta property="article:published_time" content="2015-08-05T00:00:00+00:00"><meta property="article:modified_time" content="2015-08-05T00:00:00+00:00"><meta itemprop=name content="GMT 区域填色"><meta itemprop=description content="提出问题
+gmt psxy input.dat -R0/360/-90/90 -JX15c/10c -Bx60 -By30 -W1p -L &gt; test.ps
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/area-fill/" />
+<meta property="article:published_time" content="2015-08-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-08-05T00:00:00+00:00" />
+<meta itemprop="name" content="GMT 区域填色">
+<meta itemprop="description" content="提出问题
 GMT 中可以用 psxy 绘制多段数据，画出多个闭合的多边形。一个示例命令如下:
-gmt psxy input.dat -R0/360/-90/90 -JX15c/10c -Bx60 -By30 -W1p -L > test.ps"><meta itemprop=datePublished content="2015-08-05T00:00:00+00:00"><meta itemprop=dateModified content="2015-08-05T00:00:00+00:00"><meta itemprop=wordCount content="561"><meta itemprop=keywords content="GMT技巧,"><meta name=twitter:card content="summary"><meta name=twitter:title content="GMT 区域填色"><meta name=twitter:description content="提出问题
+gmt psxy input.dat -R0/360/-90/90 -JX15c/10c -Bx60 -By30 -W1p -L &gt; test.ps
+">
+<meta itemprop="datePublished" content="2015-08-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2015-08-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="561">
+
+
+
+<meta itemprop="keywords" content="GMT技巧," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GMT 区域填色"/>
+<meta name="twitter:description" content="提出问题
 GMT 中可以用 psxy 绘制多段数据，画出多个闭合的多边形。一个示例命令如下:
-gmt psxy input.dat -R0/360/-90/90 -JX15c/10c -Bx60 -By30 -W1p -L > test.ps"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>GMT 区域填色</h1><div class=post-meta><span class=post-time>2015-08-05</span><div class=post-category><a href=/categories/GMT/>GMT</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#提出问题>提出问题</a></li><li><a href=#-g-选项>-G 选项</a></li><li><a href=#-c-选项>-C 选项</a></li><li><a href=#说明>说明</a></li></ul></nav></div></div><div class=post-content><h2 id=提出问题>提出问题</h2><p>GMT 中可以用 <code>psxy</code> 绘制多段数据，画出多个闭合的多边形。一个示例命令如下:</p><pre><code>gmt psxy input.dat -R0/360/-90/90 -JX15c/10c -Bx60 -By30 -W1p -L &gt; test.ps
-</code></pre><p>本例中的输入数据 <code>input.dat</code> 的内容为:</p><pre><code>&gt;
+gmt psxy input.dat -R0/360/-90/90 -JX15c/10c -Bx60 -By30 -W1p -L &gt; test.ps
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">GMT 区域填色</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-08-05 </span>
+        <div class="post-category">
+            <a href="/categories/GMT/"> GMT </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#提出问题">提出问题</a></li>
+    <li><a href="#-g-选项">-G 选项</a></li>
+    <li><a href="#-c-选项">-C 选项</a></li>
+    <li><a href="#说明">说明</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="提出问题">提出问题</h2>
+<p>GMT 中可以用 <code>psxy</code> 绘制多段数据，画出多个闭合的多边形。一个示例命令如下:</p>
+<pre><code>gmt psxy input.dat -R0/360/-90/90 -JX15c/10c -Bx60 -By30 -W1p -L &gt; test.ps
+</code></pre>
+<p>本例中的输入数据 <code>input.dat</code> 的内容为:</p>
+<pre><code>&gt;
 30 20
 90 20
 90 60
@@ -23,7 +198,16 @@ gmt psxy input.dat -R0/360/-90/90 -JX15c/10c -Bx60 -By30 -W1p -L > test.ps"><!--
 240 40
 280 5
 300 -20
-</code></pre><p>画出来的图效果如下：</p><p><img src=/images/2015080501.png alt></p><p>现在想要给不同的区域填充不同的颜色，目标效果图如下：</p><p><img src=/images/2015080502.png alt></p><p>要实现区域填色，有两种方法，分别是使用 <code>-G</code> 选项和使用 <code>-C</code> 选项。</p><h2 id=-g-选项>-G 选项</h2><p>在每段数据的头段记录中加上 <code>-Gcolor</code> 选项以指定当前多边形的填充色。</p><p>还是同样的命令，此时输入数据变成:</p><pre><code>&gt; -Gred
+</code></pre>
+<p>画出来的图效果如下：</p>
+<p><img src="/images/2015080501.png" alt=""></p>
+<p>现在想要给不同的区域填充不同的颜色，目标效果图如下：</p>
+<p><img src="/images/2015080502.png" alt=""></p>
+<p>要实现区域填色，有两种方法，分别是使用 <code>-G</code> 选项和使用 <code>-C</code> 选项。</p>
+<h2 id="-g-选项">-G 选项</h2>
+<p>在每段数据的头段记录中加上 <code>-Gcolor</code> 选项以指定当前多边形的填充色。</p>
+<p>还是同样的命令，此时输入数据变成:</p>
+<pre><code>&gt; -Gred
 30 20
 90 20
 90 60
@@ -40,13 +224,23 @@ gmt psxy input.dat -R0/360/-90/90 -JX15c/10c -Bx60 -By30 -W1p -L > test.ps"><!--
 240 40
 280 5
 300 -20
-</code></pre><p><code>-G</code> 选项设置了第一个多边形填充红色，第二个多边形填充 <code>0/100/20</code>，第三个多边形填充 <code>0/0/120</code> 。</p><h2 id=-c-选项>-C 选项</h2><p>可以使用 <code>-C</code> 选项指定要使用的 cpt 文件，且每段数据的头段记录中加上 <code>-Zval</code> 。</p><p>下面的命令中使用了增加了 <code>-Carea.cpt</code> 选项:</p><pre><code>gmt psxy input.dat -R0/360/-90/90 -JX15c/10c -Bx60 -By30 -W1p -L -Carea.cpt &gt; test.ps
-</code></pre><p>CPT 文件 <code>area.cpt</code> 的内容为:</p><pre><code>0   red
+</code></pre>
+<p><code>-G</code> 选项设置了第一个多边形填充红色，第二个多边形填充 <code>0/100/20</code>，第三个多边形填充 <code>0/0/120</code> 。</p>
+<h2 id="-c-选项">-C 选项</h2>
+<p>可以使用 <code>-C</code> 选项指定要使用的 cpt 文件，且每段数据的头段记录中加上 <code>-Zval</code> 。</p>
+<p>下面的命令中使用了增加了 <code>-Carea.cpt</code> 选项:</p>
+<pre><code>gmt psxy input.dat -R0/360/-90/90 -JX15c/10c -Bx60 -By30 -W1p -L -Carea.cpt &gt; test.ps
+</code></pre>
+<p>CPT 文件 <code>area.cpt</code> 的内容为:</p>
+<pre><code>0   red
 1   blue
 2   200/0/20
 3   0/0/120
 4   100/100/100
-</code></pre><p>该 cpt 表明，若 Z 值取零，则填充红色，若 Z 值为 1，则填充蓝色，其他同理。</p><p>指定 <code>-C</code> 选项的同时，也需要在数据的头段记录中加上 <code>-Z</code> 选项，以指定每个多边形的填充色:</p><pre><code>&gt; -Z0
+</code></pre>
+<p>该 cpt 表明，若 Z 值取零，则填充红色，若 Z 值为 1，则填充蓝色，其他同理。</p>
+<p>指定 <code>-C</code> 选项的同时，也需要在数据的头段记录中加上 <code>-Z</code> 选项，以指定每个多边形的填充色:</p>
+<pre><code>&gt; -Z0
 30 20
 90 20
 90 60
@@ -63,22 +257,130 @@ gmt psxy input.dat -R0/360/-90/90 -JX15c/10c -Bx60 -By30 -W1p -L > test.ps"><!--
 240 40
 280 5
 300 -20
-</code></pre><p>此时，三个多边形的填充色分别是红色、 <code>200/0/20</code> 和 <code>0/0/120</code> 。</p><h2 id=说明>说明</h2><p>上面介绍的两种方法中， <code>-G</code> 选项比较简单，只需要少量的修改即可实现。
-<code>-C</code> 选项需要修改的地方较多，但更具有普适性，也更易于编程处理。</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
-<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
-<span class=item-content>2015-08-05</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
-<span>微信打赏</span></label>
-<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
-<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/GMT%E6%8A%80%E5%B7%A7/>GMT技巧</a></div><nav class=post-nav><a class=prev href=/gmt-insert-map/><i class="iconfont icon-left"></i><span class="prev-text nav-default">GMT 绘制图中图</span>
-<span class="prev-text nav-mobile">上一篇</span></a>
-<a class=next href=/evt2sac-install/><span class="next-text nav-default">安装 evt2sac</span>
-<span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
-<span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
-<span class=copyright-year>&copy;
-2013 -
-2020
-<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>
+</code></pre>
+<p>此时，三个多边形的填充色分别是红色、 <code>200/0/20</code> 和 <code>0/0/120</code> 。</p>
+<h2 id="说明">说明</h2>
+<p>上面介绍的两种方法中， <code>-G</code> 选项比较简单，只需要少量的修改即可实现。
+<code>-C</code> 选项需要修改的地方较多，但更具有普适性，也更易于编程处理。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SeisMan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2015-08-05
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/GMT%E6%8A%80%E5%B7%A7/">GMT技巧</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/gmt-insert-map/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">GMT 绘制图中图</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/evt2sac-install/">
+            <span class="next-text nav-default">安装 evt2sac</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

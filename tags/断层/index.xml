@@ -1,3 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>断层 on SeisMan</title><link>https://blog.seisman.info/tags/%E6%96%AD%E5%B1%82/</link><description>Recent content in 断层 on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 26 Sep 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E6%96%AD%E5%B1%82/index.xml" rel="self" type="application/rss+xml"/><item><title>地震学断层的定义</title><link>https://blog.seisman.info/faults-in-seismology/</link><pubDate>Thu, 26 Sep 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/faults-in-seismology/</guid><description>&lt;p>地震学中最重要的源是 double couple 源，也就是常说的位错源，位错源的产生实质就是断层的滑动。&lt;/p>
-&lt;p>断层及断层的滑动有几个基本参数：走向、倾角、滑移角以及滑移量。很多参数，地震学和地质学中的定义不同，
-即便是地震学里也有不同的定义。Aki and Richards (1980) 的定义应该是用得最多的定义。&lt;/p></description></item><item><title>由矩张量计算双力偶断层参数</title><link>https://blog.seisman.info/moment-tensor-to-double-couple/</link><pubDate>Tue, 16 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/moment-tensor-to-double-couple/</guid><description>Double Couple 由四个参数描述：Strike、Dip、Rake、Moment；Moment Tensor 由 9 个量描述， 由于对称性，减少到六个。 任意一个 double couple 都可以写成</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>断层 on SeisMan</title>
+    <link>https://blog.seisman.info/tags/%E6%96%AD%E5%B1%82/</link>
+    <description>Recent content in 断层 on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 26 Sep 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E6%96%AD%E5%B1%82/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>地震学断层的定义</title>
+      <link>https://blog.seisman.info/faults-in-seismology/</link>
+      <pubDate>Thu, 26 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/faults-in-seismology/</guid>
+      <description>&lt;p&gt;地震学中最重要的源是 double couple 源，也就是常说的位错源，位错源的产生实质就是断层的滑动。&lt;/p&gt;
+&lt;p&gt;断层及断层的滑动有几个基本参数：走向、倾角、滑移角以及滑移量。很多参数，地震学和地质学中的定义不同，
+即便是地震学里也有不同的定义。Aki and Richards (1980) 的定义应该是用得最多的定义。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>由矩张量计算双力偶断层参数</title>
+      <link>https://blog.seisman.info/moment-tensor-to-double-couple/</link>
+      <pubDate>Tue, 16 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/moment-tensor-to-double-couple/</guid>
+      <description>Double Couple 由四个参数描述：Strike、Dip、Rake、Moment；Moment Tensor 由 9 个量描述， 由于对称性，减少到六个。 任意一个 double couple 都可以写成</description>
+    </item>
+    
+  </channel>
+</rss>

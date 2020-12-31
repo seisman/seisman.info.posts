@@ -1,11 +1,84 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>震源机制解 on SeisMan</title><link>https://blog.seisman.info/tags/%E9%9C%87%E6%BA%90%E6%9C%BA%E5%88%B6%E8%A7%A3/</link><description>Recent content in 震源机制解 on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 13 Jun 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E9%9C%87%E6%BA%90%E6%9C%BA%E5%88%B6%E8%A7%A3/index.xml" rel="self" type="application/rss+xml"/><item><title>gCAP 的安装</title><link>https://blog.seisman.info/gcap-install/</link><pubDate>Fri, 13 Jun 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/gcap-install/</guid><description>&lt;p>gCAP 是 Prof. Lupei Zhu 发展的一种反演震源机制解的一种方法。目前该代码已经开源。&lt;/p></description></item><item><title>全球地震目录 PDE</title><link>https://blog.seisman.info/global-earthquake-catalog-pde/</link><pubDate>Wed, 15 Jan 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/global-earthquake-catalog-pde/</guid><description>&lt;h2 id="简介">简介&lt;/h2>
-&lt;p>PDE，是 USGS 的 NEIC 组织发布的全球地震目录，全称 Preliminary Determination of Epicenters。之所以称为 Preliminary，是因为一般认为 International Seismological Centre 发布的地震目录是终极版。&lt;/p>
-&lt;p>主页： &lt;a href="http://earthquake.usgs.gov/research/data/pde.php">http://earthquake.usgs.gov/research/data/pde.php&lt;/a>&lt;/p></description></item><item><title>CPS330 : Computer Programs in Seismology</title><link>https://blog.seisman.info/cps330/</link><pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/cps330/</guid><description>&lt;p>CPS 全称 Computer Programs in Seismology，是圣路易斯大学地震中心开发并维护的
-一款地震学软件包，其主要关注地震波在地壳和上地幔介质中的传播和解释。&lt;/p>
-&lt;p>主页： &lt;a href="http://www.eas.slu.edu/eqc/eqccps.html">http://www.eas.slu.edu/eqc/eqccps.html&lt;/a>&lt;/p></description></item><item><title>地震学断层的定义</title><link>https://blog.seisman.info/faults-in-seismology/</link><pubDate>Thu, 26 Sep 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/faults-in-seismology/</guid><description>&lt;p>地震学中最重要的源是 double couple 源，也就是常说的位错源，位错源的产生实质就是断层的滑动。&lt;/p>
-&lt;p>断层及断层的滑动有几个基本参数：走向、倾角、滑移角以及滑移量。很多参数，地震学和地质学中的定义不同，
-即便是地震学里也有不同的定义。Aki and Richards (1980) 的定义应该是用得最多的定义。&lt;/p></description></item><item><title>MoPaD:地震矩绘制和分析工具</title><link>https://blog.seisman.info/mopad/</link><pubDate>Tue, 27 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/mopad/</guid><description>&lt;p>MoPaD，全称Moment tensor Plotting and Decomposition，是一个用于分析地震矩的小工具，
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>震源机制解 on SeisMan</title>
+    <link>https://blog.seisman.info/tags/%E9%9C%87%E6%BA%90%E6%9C%BA%E5%88%B6%E8%A7%A3/</link>
+    <description>Recent content in 震源机制解 on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 13 Jun 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E9%9C%87%E6%BA%90%E6%9C%BA%E5%88%B6%E8%A7%A3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gCAP 的安装</title>
+      <link>https://blog.seisman.info/gcap-install/</link>
+      <pubDate>Fri, 13 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/gcap-install/</guid>
+      <description>&lt;p&gt;gCAP 是 Prof. Lupei Zhu 发展的一种反演震源机制解的一种方法。目前该代码已经开源。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>全球地震目录 PDE</title>
+      <link>https://blog.seisman.info/global-earthquake-catalog-pde/</link>
+      <pubDate>Wed, 15 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/global-earthquake-catalog-pde/</guid>
+      <description>&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+&lt;p&gt;PDE，是 USGS 的 NEIC 组织发布的全球地震目录，全称 Preliminary Determination of Epicenters。之所以称为 Preliminary，是因为一般认为 International Seismological Centre 发布的地震目录是终极版。&lt;/p&gt;
+&lt;p&gt;主页： &lt;a href=&#34;http://earthquake.usgs.gov/research/data/pde.php&#34;&gt;http://earthquake.usgs.gov/research/data/pde.php&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CPS330 : Computer Programs in Seismology</title>
+      <link>https://blog.seisman.info/cps330/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/cps330/</guid>
+      <description>&lt;p&gt;CPS 全称 Computer Programs in Seismology，是圣路易斯大学地震中心开发并维护的
+一款地震学软件包，其主要关注地震波在地壳和上地幔介质中的传播和解释。&lt;/p&gt;
+&lt;p&gt;主页： &lt;a href=&#34;http://www.eas.slu.edu/eqc/eqccps.html&#34;&gt;http://www.eas.slu.edu/eqc/eqccps.html&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>地震学断层的定义</title>
+      <link>https://blog.seisman.info/faults-in-seismology/</link>
+      <pubDate>Thu, 26 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/faults-in-seismology/</guid>
+      <description>&lt;p&gt;地震学中最重要的源是 double couple 源，也就是常说的位错源，位错源的产生实质就是断层的滑动。&lt;/p&gt;
+&lt;p&gt;断层及断层的滑动有几个基本参数：走向、倾角、滑移角以及滑移量。很多参数，地震学和地质学中的定义不同，
+即便是地震学里也有不同的定义。Aki and Richards (1980) 的定义应该是用得最多的定义。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MoPaD:地震矩绘制和分析工具</title>
+      <link>https://blog.seisman.info/mopad/</link>
+      <pubDate>Tue, 27 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/mopad/</guid>
+      <description>&lt;p&gt;MoPaD，全称Moment tensor Plotting and Decomposition，是一个用于分析地震矩的小工具，
 主要功能包括地震矩与断层面参数的转换、地震矩分解以及震源球的绘制。该工具可控参数非常丰富，因而
-具有非常强的灵活性，可以满足大多数需求。&lt;/p></description></item><item><title>由矩张量计算双力偶断层参数</title><link>https://blog.seisman.info/moment-tensor-to-double-couple/</link><pubDate>Tue, 16 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/moment-tensor-to-double-couple/</guid><description>Double Couple 由四个参数描述：Strike、Dip、Rake、Moment；Moment Tensor 由 9 个量描述， 由于对称性，减少到六个。 任意一个 double couple 都可以写成</description></item><item><title>Global CMT 信息整理</title><link>https://blog.seisman.info/global-cmt/</link><pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/global-cmt/</guid><description>&lt;p>Global CMT 全称 Global Centroid-Moment-Tensor Project，前身是 Harvard CMT，
+具有非常强的灵活性，可以满足大多数需求。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>由矩张量计算双力偶断层参数</title>
+      <link>https://blog.seisman.info/moment-tensor-to-double-couple/</link>
+      <pubDate>Tue, 16 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/moment-tensor-to-double-couple/</guid>
+      <description>Double Couple 由四个参数描述：Strike、Dip、Rake、Moment；Moment Tensor 由 9 个量描述， 由于对称性，减少到六个。 任意一个 double couple 都可以写成</description>
+    </item>
+    
+    <item>
+      <title>Global CMT 信息整理</title>
+      <link>https://blog.seisman.info/global-cmt/</link>
+      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/global-cmt/</guid>
+      <description>&lt;p&gt;Global CMT 全称 Global Centroid-Moment-Tensor Project，前身是 Harvard CMT，
 是地震学常用的地震目录和震源机制之一。其给出了自 1976 年以来上万个地震的
-地震目录以及震源机制。&lt;/p></description></item></channel></rss>
+地震目录以及震源机制。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

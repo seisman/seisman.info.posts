@@ -1,6 +1,51 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Hi-net Channel Table 文件 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="从 Hi-net 下载连续波形数据会得到 ZIP 压缩文件，其中包含了两个后缀为 ch 的文件， 即 Channel Table 文件。两个文件内容是相同的，区别在于一个是 euc 编码， 一个是 sjis 编码。只需要用其中一个即可，这里选择 euc 编码的文件。
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+
+  <title>Hi-net Channel Table 文件 - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="从 Hi-net 下载连续波形数据会得到 ZIP 压缩文件，其中包含了两个后缀为 ch 的文件， 即 Channel Table 文件。两个文件内容是相同的，区别在于一个是 euc 编码， 一个是 sjis 编码。只需要用其中一个即可，这里选择 euc 编码的文件。
 Channel Table 文件描述了每个 channel 的仪器信息，某种程度上等效于常见的 RESP 或 SAC PZ 仪器响应文件。但是实际上 Channel Table 有一定的局限性，无法理解 Hi-net 为什么会用这种格式来指定仪器响应信息。
-尤其需要注意的是，对于 Hinet 而言，channel table 可以完整的描述仪器响应， 而对于 Fnet 而言，channel table 给出的信息不足。因而关于 channel table 的内容， 仅适用于 Hinet，不适用于 Fnet，不确定是否适用于其他台网。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.0 with theme even"><link rel=canonical href=https://blog.seisman.info/hinet-channel-table/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="Hi-net Channel Table 文件"><meta property="og:description" content="从 Hi-net 下载连续波形数据会得到 ZIP 压缩文件，其中包含了两个后缀为 ch 的文件，
+尤其需要注意的是，对于 Hinet 而言，channel table 可以完整的描述仪器响应， 而对于 Fnet 而言，channel table 给出的信息不足。因而关于 channel table 的内容， 仅适用于 Hinet，不适用于 Fnet，不确定是否适用于其他台网。
+" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.1 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/hinet-channel-table/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Hi-net Channel Table 文件" />
+<meta property="og:description" content="从 Hi-net 下载连续波形数据会得到 ZIP 压缩文件，其中包含了两个后缀为 ch 的文件，
 即 Channel Table 文件。两个文件内容是相同的，区别在于一个是 euc 编码，
 一个是 sjis 编码。只需要用其中一个即可，这里选择 euc 编码的文件。
 Channel Table 文件描述了每个 channel 的仪器信息，某种程度上等效于常见的 RESP 或
@@ -8,7 +53,13 @@ SAC PZ 仪器响应文件。但是实际上 Channel Table 有一定的局限性�
 为什么会用这种格式来指定仪器响应信息。
 尤其需要注意的是，对于 Hinet 而言，channel table 可以完整的描述仪器响应，
 而对于 Fnet 而言，channel table 给出的信息不足。因而关于 channel table 的内容，
-仅适用于 Hinet，不适用于 Fnet，不确定是否适用于其他台网。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/hinet-channel-table/"><meta property="article:published_time" content="2014-09-05T00:00:00+00:00"><meta property="article:modified_time" content="2014-09-09T00:00:00+00:00"><meta itemprop=name content="Hi-net Channel Table 文件"><meta itemprop=description content="从 Hi-net 下载连续波形数据会得到 ZIP 压缩文件，其中包含了两个后缀为 ch 的文件，
+仅适用于 Hinet，不适用于 Fnet，不确定是否适用于其他台网。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/hinet-channel-table/" />
+<meta property="article:published_time" content="2014-09-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2014-09-09T00:00:00+00:00" />
+<meta itemprop="name" content="Hi-net Channel Table 文件">
+<meta itemprop="description" content="从 Hi-net 下载连续波形数据会得到 ZIP 压缩文件，其中包含了两个后缀为 ch 的文件，
 即 Channel Table 文件。两个文件内容是相同的，区别在于一个是 euc 编码，
 一个是 sjis 编码。只需要用其中一个即可，这里选择 euc 编码的文件。
 Channel Table 文件描述了每个 channel 的仪器信息，某种程度上等效于常见的 RESP 或
@@ -16,7 +67,17 @@ SAC PZ 仪器响应文件。但是实际上 Channel Table 有一定的局限性�
 为什么会用这种格式来指定仪器响应信息。
 尤其需要注意的是，对于 Hinet 而言，channel table 可以完整的描述仪器响应，
 而对于 Fnet 而言，channel table 给出的信息不足。因而关于 channel table 的内容，
-仅适用于 Hinet，不适用于 Fnet，不确定是否适用于其他台网。"><meta itemprop=datePublished content="2014-09-05T00:00:00+00:00"><meta itemprop=dateModified content="2014-09-09T00:00:00+00:00"><meta itemprop=wordCount content="1677"><meta itemprop=keywords content="Hinet,仪器响应,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Hi-net Channel Table 文件"><meta name=twitter:description content="从 Hi-net 下载连续波形数据会得到 ZIP 压缩文件，其中包含了两个后缀为 ch 的文件，
+仅适用于 Hinet，不适用于 Fnet，不确定是否适用于其他台网。">
+<meta itemprop="datePublished" content="2014-09-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2014-09-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1677">
+
+
+
+<meta itemprop="keywords" content="Hinet,仪器响应," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hi-net Channel Table 文件"/>
+<meta name="twitter:description" content="从 Hi-net 下载连续波形数据会得到 ZIP 压缩文件，其中包含了两个后缀为 ch 的文件，
 即 Channel Table 文件。两个文件内容是相同的，区别在于一个是 euc 编码，
 一个是 sjis 编码。只需要用其中一个即可，这里选择 euc 编码的文件。
 Channel Table 文件描述了每个 channel 的仪器信息，某种程度上等效于常见的 RESP 或
@@ -24,30 +85,321 @@ SAC PZ 仪器响应文件。但是实际上 Channel Table 有一定的局限性�
 为什么会用这种格式来指定仪器响应信息。
 尤其需要注意的是，对于 Hinet 而言，channel table 可以完整的描述仪器响应，
 而对于 Fnet 而言，channel table 给出的信息不足。因而关于 channel table 的内容，
-仅适用于 Hinet，不适用于 Fnet，不确定是否适用于其他台网。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Hi-net Channel Table 文件</h1><div class=post-meta><span class=post-time>2014-09-05</span><div class=post-category><a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E5%9F%BA%E7%A1%80/>地震学基础</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#规律分析>规律分析</a></li><li><a href=#格式>格式</a></li><li><a href=#补充说明>补充说明</a><ul><li><a href=#channel-id>Channel ID</a></li><li><a href=#motion-component-code>Motion component code</a></li><li><a href=#units-of-input>Units of input</a></li></ul></li><li><a href=#总结>总结</a></li><li><a href=#参考>参考</a></li><li><a href=#修订历史>修订历史</a></li></ul></nav></div></div><div class=post-content><p>从 Hi-net 下载连续波形数据会得到 ZIP 压缩文件，其中包含了两个后缀为 <code>ch</code> 的文件，
+仅适用于 Hinet，不适用于 Fnet，不确定是否适用于其他台网。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Hi-net Channel Table 文件</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2014-09-05 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E5%9F%BA%E7%A1%80/"> 地震学基础 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#规律分析">规律分析</a></li>
+    <li><a href="#格式">格式</a></li>
+    <li><a href="#补充说明">补充说明</a>
+      <ul>
+        <li><a href="#channel-id">Channel ID</a></li>
+        <li><a href="#motion-component-code">Motion component code</a></li>
+        <li><a href="#units-of-input">Units of input</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#参考">参考</a></li>
+    <li><a href="#修订历史">修订历史</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>从 Hi-net 下载连续波形数据会得到 ZIP 压缩文件，其中包含了两个后缀为 <code>ch</code> 的文件，
 即 Channel Table 文件。两个文件内容是相同的，区别在于一个是 <code>euc</code> 编码，
-一个是 <code>sjis</code> 编码。只需要用其中一个即可，这里选择 <code>euc</code> 编码的文件。</p><p>Channel Table 文件描述了每个 channel 的仪器信息，某种程度上等效于常见的 RESP 或
+一个是 <code>sjis</code> 编码。只需要用其中一个即可，这里选择 <code>euc</code> 编码的文件。</p>
+<p>Channel Table 文件描述了每个 channel 的仪器信息，某种程度上等效于常见的 RESP 或
 SAC PZ 仪器响应文件。但是实际上 Channel Table 有一定的局限性，无法理解 Hi-net
-为什么会用这种格式来指定仪器响应信息。</p><p>尤其需要注意的是，对于 Hinet 而言，channel table 可以完整的描述仪器响应，
+为什么会用这种格式来指定仪器响应信息。</p>
+<p>尤其需要注意的是，对于 Hinet 而言，channel table 可以完整的描述仪器响应，
 而对于 Fnet 而言，channel table 给出的信息不足。因而关于 channel table 的内容，
-仅适用于 Hinet，不适用于 Fnet，不确定是否适用于其他台网。</p><h2 id=规律分析>规律分析</h2><p>看一看 Channel Table 文件的内容，很容易总结出如下规律：</p><ul><li>每个台站的信息需要四行；</li><li>第一行以 <code>#</code> 开头，描述了台站名称及其他信息，可以认为是注释行；</li><li>第二至四行，分别为 U、N、E 三个分量的仪器信息；</li></ul><p>但细细看看文件内容会发现，存在很多不符合上述规律的特例，比如：</p><ul><li>有些台站只有一个或两个分量，而不是三个；</li><li>有些台站不包含 N、E 分量，而包含 X、Y 分量；</li></ul><p>因而，若按照上面总结出的规律去做文本处理，会出现很多问题。更严谨的处理方式应该是：
-将所有以 <code>#</code> 开头的行当作注释行，其余行平等对待，即最小单位是 channel 或分量，而不是台站。</p><h2 id=格式>格式</h2><p>一个 channel 包含了如下以 <strong>空格</strong> 分隔的 19 列信息:</p><pre><code>2903 1 0 N.AGWH U 6 27 154.30 m/s 0.96 0.70 0 1.023e-07 43.0842 140.8199 -77 0 0 Akaigawa
-</code></pre><p>每列的具体含义如下（后加问号则表示不那么确定）：</p><ol><li>Channle ID：16-bit，用四位的 16 进制数表示，用于唯一标识一个 channel；</li><li>Recording flag：若为 1 则表示该 channel 正常记录数据，值一般为 1（？）</li><li>Delay time on a circuit：电路中的时间延迟，值一般为 0</li><li>Station code：台站代码，Hi-net 的台站代码格式为 <code>N.xxxH</code> ；</li><li>Motion component code：分量名，可以取值包括 U、N、E、X、Y，除此之外，还有 wU、wE、wN 等奇怪的分量；</li><li>Reduction ratio of monitor waveform amplitude：显示器上的显示振幅与实际振幅之间的比例，其值为 2 的指数（？）</li><li>Quantization bit rate in A/D conversion：模数转换器的量化分辨率，一般值为 27，个别值为 20 或 24；</li><li>Sensor sensitivity：每单位输入所产生的输出为多少 V；</li><li>Unit of input：输入的单位，一般为 <code>m/s</code> ，即输入为速度；</li><li>Natural period of the seismometer：传感器的自然周期；</li><li>Damping constant of the seismometer：传感器的衰减常数；</li><li>Amplification factor applied to sensor output prior to A/D conversion：在对连续波形使用 ADC 之前，传感器的放大因子；单位 dB</li><li>LSB value：模数转换器的 LSB 值；</li><li>Latitude：台站纬度</li><li>Longitude：台站经度</li><li>Altitude：台站高程（单位为 m）</li><li>P 波台站校正：一般为 0</li><li>S 波台站校正：一般为 0</li><li>台站名称</li></ol><h2 id=补充说明>补充说明</h2><h3 id=channel-id>Channel ID</h3><p>常见的 Channel ID 为四位 16 进制数，实际上有另一类 ID 称为宽 Channel ID，其用八位 16 进制表示。一般用不到，所以在本文以及后面都不会再提到。</p><h3 id=motion-component-code>Motion component code</h3><p>Channel Table 中仅给出了分量代码，可以取值为 U、N、E、X、Y 以及其他。其中 U 表示分量为垂直方向。N、E 表示分量指向北向和东向。X、Y 以及其他分量代码的含义未知。</p><p>由于传感器安装在 borehole 的底部，所以很难精确知道传感器的真实方位。以分量代码为 N 的传感器为例，该传感器并不一定严格指向正北方向。一般而言，其与正北方向的夹角在 5 度以内，个别传感器的方向甚至与北向相差几十度。每个传感器的方位信息位于该 <a href="http://www.hinet.bosai.go.jp/REGS/direc/?subject=kekka">页面</a>。</p><p>关于每个分量的实际方位信息，在另一篇博文中会专门讨论。</p><h3 id=units-of-input>Units of input</h3><p>Hi-net 使用的是短周期速度地震仪，输入为速度场，单位为 <code>m/s</code>，而部分 channel 的输入单位为 <code>m/s/s</code> ，即输入为加速度场。</p><p>输入单位为 <code>m/s/s</code> 的 channel，与输入单位为 <code>m/s</code> 的 channel 相比，在后期的数据处理上差别很多，因而不建议提取输入单位为 <code>m/s/s</code> 的通道数据。</p><h2 id=总结>总结</h2><p>19 列信息：</p><ul><li>Channel 标识为：1</li><li>含义很明显，可以直接使用的有：4、5、14、15、16、19；</li><li>基本没用途，可以不必关心的有一：2、3、6、17、18；</li><li>与仪器有关的为 7、8、9、10、11、12、13；</li></ul><p>接下来会有专门的博文介绍如何根据 7-13 列确定该 channel 的仪器响应。</p><h2 id=参考>参考</h2><ol><li>从 Hi-net 下载连续波形数据得到的 ZIP 文件中的 <code>readme.txt</code> ；</li><li><a href="http://www.hinet.bosai.go.jp/faq/?LANG=en#Q08">Hi-net FAQ 08</a></li><li><a href="http://www.hinet.bosai.go.jp/REGS/direc/?LANG=en">Azimuth information of the Hi-net borehole sensors</a></li></ol><h2 id=修订历史>修订历史</h2><ul><li>2014-09-05：初稿；</li><li>2014-09-09：Hi-net 官方确定了第 10 列的含义；</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
-<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
-<span class=item-content>2014-09-09</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
-<span>微信打赏</span></label>
-<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
-<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/Hinet/>Hinet</a>
-<a href=/tags/%E4%BB%AA%E5%99%A8%E5%93%8D%E5%BA%94/>仪器响应</a></div><nav class=post-nav><a class=prev href=/hinet-instrumental-response/><i class="iconfont icon-left"></i><span class="prev-text nav-default">Hi-net 的仪器响应</span>
-<span class="prev-text nav-mobile">上一篇</span></a>
-<a class=next href=/hinet-win32-format/><span class="next-text nav-default">Hi-net WIN32 格式</span>
-<span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
-<span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
-<span class=copyright-year>&copy;
-2013 -
-2020
-<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>
+仅适用于 Hinet，不适用于 Fnet，不确定是否适用于其他台网。</p>
+<h2 id="规律分析">规律分析</h2>
+<p>看一看 Channel Table 文件的内容，很容易总结出如下规律：</p>
+<ul>
+<li>每个台站的信息需要四行；</li>
+<li>第一行以 <code>#</code> 开头，描述了台站名称及其他信息，可以认为是注释行；</li>
+<li>第二至四行，分别为 U、N、E 三个分量的仪器信息；</li>
+</ul>
+<p>但细细看看文件内容会发现，存在很多不符合上述规律的特例，比如：</p>
+<ul>
+<li>有些台站只有一个或两个分量，而不是三个；</li>
+<li>有些台站不包含 N、E 分量，而包含 X、Y 分量；</li>
+</ul>
+<p>因而，若按照上面总结出的规律去做文本处理，会出现很多问题。更严谨的处理方式应该是：
+将所有以 <code>#</code> 开头的行当作注释行，其余行平等对待，即最小单位是 channel 或分量，而不是台站。</p>
+<h2 id="格式">格式</h2>
+<p>一个 channel 包含了如下以 <strong>空格</strong> 分隔的 19 列信息:</p>
+<pre><code>2903 1 0 N.AGWH U 6 27 154.30 m/s 0.96 0.70 0 1.023e-07 43.0842 140.8199 -77 0 0 Akaigawa
+</code></pre>
+<p>每列的具体含义如下（后加问号则表示不那么确定）：</p>
+<ol>
+<li>Channle ID：16-bit，用四位的 16 进制数表示，用于唯一标识一个 channel；</li>
+<li>Recording flag：若为 1 则表示该 channel 正常记录数据，值一般为 1（？）</li>
+<li>Delay time on a circuit：电路中的时间延迟，值一般为 0</li>
+<li>Station code：台站代码，Hi-net 的台站代码格式为 <code>N.xxxH</code> ；</li>
+<li>Motion component code：分量名，可以取值包括 U、N、E、X、Y，除此之外，还有 wU、wE、wN 等奇怪的分量；</li>
+<li>Reduction ratio of monitor waveform amplitude：显示器上的显示振幅与实际振幅之间的比例，其值为 2 的指数（？）</li>
+<li>Quantization bit rate in A/D conversion：模数转换器的量化分辨率，一般值为 27，个别值为 20 或 24；</li>
+<li>Sensor sensitivity：每单位输入所产生的输出为多少 V；</li>
+<li>Unit of input：输入的单位，一般为 <code>m/s</code> ，即输入为速度；</li>
+<li>Natural period of the seismometer：传感器的自然周期；</li>
+<li>Damping constant of the seismometer：传感器的衰减常数；</li>
+<li>Amplification factor applied to sensor output prior to A/D conversion：在对连续波形使用 ADC 之前，传感器的放大因子；单位 dB</li>
+<li>LSB value：模数转换器的 LSB 值；</li>
+<li>Latitude：台站纬度</li>
+<li>Longitude：台站经度</li>
+<li>Altitude：台站高程（单位为 m）</li>
+<li>P 波台站校正：一般为 0</li>
+<li>S 波台站校正：一般为 0</li>
+<li>台站名称</li>
+</ol>
+<h2 id="补充说明">补充说明</h2>
+<h3 id="channel-id">Channel ID</h3>
+<p>常见的 Channel ID 为四位 16 进制数，实际上有另一类 ID 称为宽 Channel ID，其用八位 16 进制表示。一般用不到，所以在本文以及后面都不会再提到。</p>
+<h3 id="motion-component-code">Motion component code</h3>
+<p>Channel Table 中仅给出了分量代码，可以取值为 U、N、E、X、Y 以及其他。其中 U 表示分量为垂直方向。N、E 表示分量指向北向和东向。X、Y 以及其他分量代码的含义未知。</p>
+<p>由于传感器安装在 borehole 的底部，所以很难精确知道传感器的真实方位。以分量代码为 N 的传感器为例，该传感器并不一定严格指向正北方向。一般而言，其与正北方向的夹角在 5 度以内，个别传感器的方向甚至与北向相差几十度。每个传感器的方位信息位于该 <a href="http://www.hinet.bosai.go.jp/REGS/direc/?subject=kekka">页面</a>。</p>
+<p>关于每个分量的实际方位信息，在另一篇博文中会专门讨论。</p>
+<h3 id="units-of-input">Units of input</h3>
+<p>Hi-net 使用的是短周期速度地震仪，输入为速度场，单位为 <code>m/s</code>，而部分 channel 的输入单位为 <code>m/s/s</code> ，即输入为加速度场。</p>
+<p>输入单位为 <code>m/s/s</code> 的 channel，与输入单位为 <code>m/s</code> 的 channel 相比，在后期的数据处理上差别很多，因而不建议提取输入单位为 <code>m/s/s</code> 的通道数据。</p>
+<h2 id="总结">总结</h2>
+<p>19 列信息：</p>
+<ul>
+<li>Channel 标识为：1</li>
+<li>含义很明显，可以直接使用的有：4、5、14、15、16、19；</li>
+<li>基本没用途，可以不必关心的有一：2、3、6、17、18；</li>
+<li>与仪器有关的为 7、8、9、10、11、12、13；</li>
+</ul>
+<p>接下来会有专门的博文介绍如何根据 7-13 列确定该 channel 的仪器响应。</p>
+<h2 id="参考">参考</h2>
+<ol>
+<li>从 Hi-net 下载连续波形数据得到的 ZIP 文件中的 <code>readme.txt</code> ；</li>
+<li><a href="http://www.hinet.bosai.go.jp/faq/?LANG=en#Q08">Hi-net FAQ 08</a></li>
+<li><a href="http://www.hinet.bosai.go.jp/REGS/direc/?LANG=en">Azimuth information of the Hi-net borehole sensors</a></li>
+</ol>
+<h2 id="修订历史">修订历史</h2>
+<ul>
+<li>2014-09-05：初稿；</li>
+<li>2014-09-09：Hi-net 官方确定了第 10 列的含义；</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SeisMan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2014-09-09
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/Hinet/">Hinet</a>
+          <a href="/tags/%E4%BB%AA%E5%99%A8%E5%93%8D%E5%BA%94/">仪器响应</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/hinet-instrumental-response/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Hi-net 的仪器响应</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/hinet-win32-format/">
+            <span class="next-text nav-default">Hi-net WIN32 格式</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

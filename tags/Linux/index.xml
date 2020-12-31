@@ -1,13 +1,68 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on SeisMan</title><link>https://blog.seisman.info/tags/Linux/</link><description>Recent content in Linux on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 07 Apr 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/Linux/index.xml" rel="self" type="application/rss+xml"/><item><title>制作 Linux USB 安装镜像</title><link>https://blog.seisman.info/linux-usb-installer/</link><pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/linux-usb-installer/</guid><description>在下载 Linux ISO 镜像文件后，还需要制作 USB 启动盘方能安装。在不同的操作系统，制作所用的工具、过程不同。 macOS 下制作 USB 安装镜像 将安装文件转换成 dmg 格式： $ cd</description></item><item><title>Linux 下合并 PDF</title><link>https://blog.seisman.info/merge-pdf/</link><pubDate>Thu, 18 Sep 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/merge-pdf/</guid><description>&lt;p>经常需要将多个 PDF 合并为一个文件，这里收集了网上给出的一些方案，并总结一下。&lt;/p>
-&lt;p>&lt;strong>推荐使用cpdf&lt;/strong>&lt;/p></description></item><item><title>我所使用的软件/服务列表</title><link>https://blog.seisman.info/personal-preferences/</link><pubDate>Tue, 05 Aug 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/personal-preferences/</guid><description>&lt;p>本文罗列我个人正在使用或曾经使用过的一些软件或服务。&lt;/p></description></item><item><title>GMT 5.1.2 在 Linux 下的安装</title><link>https://blog.seisman.info/trash/install-gmt5-under-linux/</link><pubDate>Wed, 06 Nov 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/install-gmt5-under-linux/</guid><description>&lt;p>&lt;strong>本文不再维护更新！&lt;/strong>&lt;/p>
-&lt;p>本文介绍如何在 Linux 下安装 GMT 5.1.x。GMT 5.2.x 在 Linux 下的安装见 &lt;a href="https://blog.seisman.info/install-gmt5.2.x-under-linux/">GMT 5.2.x 在 Linux 下的安装&lt;/a>&lt;/p>
-&lt;p>说明：&lt;/p>
-&lt;ol>
-&lt;li>仅适用于 5.1.0、5.1.1 和 5.1.2&lt;/li>
-&lt;li>所有命令均在一般用户下完成，需要 root 权限的命令都用 &lt;code>sudo&lt;/code> 执行&lt;/li>
-&lt;/ol></description></item><item><title>Linux 下的 GMT 中文支持</title><link>https://blog.seisman.info/trash/gmt-chinese-under-linux/</link><pubDate>Tue, 13 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/gmt-chinese-under-linux/</guid><description>&lt;p>原生 GMT 是不支持中文的，想要让 GMT 支持中文，需要进行一番配置。想要理解整个问题，需要对
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on SeisMan</title>
+    <link>https://blog.seisman.info/tags/Linux/</link>
+    <description>Recent content in Linux on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 07 Apr 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/Linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>制作 Linux USB 安装镜像</title>
+      <link>https://blog.seisman.info/linux-usb-installer/</link>
+      <pubDate>Sat, 07 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/linux-usb-installer/</guid>
+      <description>在下载 Linux ISO 镜像文件后，还需要制作 USB 启动盘方能安装。在不同的操作系统，制作所用的工具、过程不同。 macOS 下制作 USB 安装镜像 将安装文件转换成 dmg 格式： $ cd</description>
+    </item>
+    
+    <item>
+      <title>Linux 下合并 PDF</title>
+      <link>https://blog.seisman.info/merge-pdf/</link>
+      <pubDate>Thu, 18 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/merge-pdf/</guid>
+      <description>&lt;p&gt;经常需要将多个 PDF 合并为一个文件，这里收集了网上给出的一些方案，并总结一下。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;推荐使用cpdf&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>我所使用的软件/服务列表</title>
+      <link>https://blog.seisman.info/personal-preferences/</link>
+      <pubDate>Tue, 05 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/personal-preferences/</guid>
+      <description>&lt;p&gt;本文罗列我个人正在使用或曾经使用过的一些软件或服务。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>GMT 5.1.2 在 Linux 下的安装</title>
+      <link>https://blog.seisman.info/trash/install-gmt5-under-linux/</link>
+      <pubDate>Wed, 06 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/install-gmt5-under-linux/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;本文不再维护更新！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;本文介绍如何在 Linux 下安装 GMT 5.1.x。GMT 5.2.x 在 Linux 下的安装见 &lt;a href=&#34;https://blog.seisman.info/install-gmt5.2.x-under-linux/&#34;&gt;GMT 5.2.x 在 Linux 下的安装&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;说明：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;仅适用于 5.1.0、5.1.1 和 5.1.2&lt;/li&gt;
+&lt;li&gt;所有命令均在一般用户下完成，需要 root 权限的命令都用 &lt;code&gt;sudo&lt;/code&gt; 执行&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>Linux 下的 GMT 中文支持</title>
+      <link>https://blog.seisman.info/trash/gmt-chinese-under-linux/</link>
+      <pubDate>Tue, 13 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/gmt-chinese-under-linux/</guid>
+      <description>&lt;p&gt;原生 GMT 是不支持中文的，想要让 GMT 支持中文，需要进行一番配置。想要理解整个问题，需要对
 PostScript、CID 字体有更深刻的理解，这未免有些过于复杂。所以这篇博文只介绍一些基本的原理，
-不一定准确但是却够用。&lt;/p>
-&lt;p>让 GMT 支持中文，需要修改 ghostscript 和 GMT 的配置文件。由于不同发行版对 ghostscript 的打包
+不一定准确但是却够用。&lt;/p&gt;
+&lt;p&gt;让 GMT 支持中文，需要修改 ghostscript 和 GMT 的配置文件。由于不同发行版对 ghostscript 的打包
 方式不同，不同的 ghostscript 版本之间的配置文件也有一些差异。因而这里以我在使用的 CentOS7
-来介绍整个原理，&lt;strong>其他发行版与CentOS7的差异会在文末列出&lt;/strong>。&lt;/p></description></item></channel></rss>
+来介绍整个原理，&lt;strong&gt;其他发行版与CentOS7的差异会在文末列出&lt;/strong&gt;。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,3 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SEED on SeisMan</title><link>https://blog.seisman.info/tags/SEED/</link><description>Recent content in SEED on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 13 Oct 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/SEED/index.xml" rel="self" type="application/rss+xml"/><item><title>rdseed 用法笔记</title><link>https://blog.seisman.info/rdseed-notes/</link><pubDate>Tue, 13 Oct 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/rdseed-notes/</guid><description>&lt;p>&lt;code>rdseed&lt;/code> 是 IRIS 提供的工具，用于读取 SEED 格式，从中提取出波形信息，并将波形数据保存为
-SAC、AH、CSS、SEGY 或 ASCII 等多种数据格式。&lt;/p></description></item><item><title>SEED 格式转 SAC 格式</title><link>https://blog.seisman.info/convert-seed-to-sac/</link><pubDate>Fri, 19 Jun 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/convert-seed-to-sac/</guid><description>&lt;p>本文会介绍将 SEED、miniSEED 等格式转换为 SAC 格式所使用的工具和用法。需要注意，
-本文并不会详细介绍工具的具体语法，只介绍常用的功能，其他功能及选项，读者应自行阅读相关文档。&lt;/p></description></item><item><title>rdseed 的安装</title><link>https://blog.seisman.info/rdseed-install/</link><pubDate>Tue, 07 Oct 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/rdseed-install/</guid><description>&lt;p>rdseed 用于将 SEED 格式的数据转换为 SAC 格式。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SEED on SeisMan</title>
+    <link>https://blog.seisman.info/tags/SEED/</link>
+    <description>Recent content in SEED on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 13 Oct 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/SEED/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rdseed 用法笔记</title>
+      <link>https://blog.seisman.info/rdseed-notes/</link>
+      <pubDate>Tue, 13 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/rdseed-notes/</guid>
+      <description>&lt;p&gt;&lt;code&gt;rdseed&lt;/code&gt; 是 IRIS 提供的工具，用于读取 SEED 格式，从中提取出波形信息，并将波形数据保存为
+SAC、AH、CSS、SEGY 或 ASCII 等多种数据格式。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SEED 格式转 SAC 格式</title>
+      <link>https://blog.seisman.info/convert-seed-to-sac/</link>
+      <pubDate>Fri, 19 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/convert-seed-to-sac/</guid>
+      <description>&lt;p&gt;本文会介绍将 SEED、miniSEED 等格式转换为 SAC 格式所使用的工具和用法。需要注意，
+本文并不会详细介绍工具的具体语法，只介绍常用的功能，其他功能及选项，读者应自行阅读相关文档。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>rdseed 的安装</title>
+      <link>https://blog.seisman.info/rdseed-install/</link>
+      <pubDate>Tue, 07 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/rdseed-install/</guid>
+      <description>&lt;p&gt;rdseed 用于将 SEED 格式的数据转换为 SAC 格式。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,27 +1,318 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>制作 Linux USB 安装镜像 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="王亮"><meta name=description content="在下载 Linux ISO 镜像文件后，还需要制作 USB 启动盘方能安装。在不同的操作系统，制作所用的工具、过程不同。 macOS 下制作 USB 安装镜像 将安装文件转换成 dmg 格式： $ cd"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.0 with theme even"><link rel=canonical href=https://blog.seisman.info/linux-usb-installer/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="制作 Linux USB 安装镜像"><meta property="og:description" content="在下载 Linux ISO 镜像文件后，还需要制作 USB 启动盘方能安装。在不同的操作系统，制作所用的工具、过程不同。 macOS 下制作 USB 安装镜像 将安装文件转换成 dmg 格式： $ cd"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/linux-usb-installer/"><meta property="article:published_time" content="2018-04-07T00:00:00+00:00"><meta property="article:modified_time" content="2018-04-07T00:00:00+00:00"><meta itemprop=name content="制作 Linux USB 安装镜像"><meta itemprop=description content="在下载 Linux ISO 镜像文件后，还需要制作 USB 启动盘方能安装。在不同的操作系统，制作所用的工具、过程不同。 macOS 下制作 USB 安装镜像 将安装文件转换成 dmg 格式： $ cd"><meta itemprop=datePublished content="2018-04-07T00:00:00+00:00"><meta itemprop=dateModified content="2018-04-07T00:00:00+00:00"><meta itemprop=wordCount content="329"><meta itemprop=keywords content="linux,macOS,"><meta name=twitter:card content="summary"><meta name=twitter:title content="制作 Linux USB 安装镜像"><meta name=twitter:description content="在下载 Linux ISO 镜像文件后，还需要制作 USB 启动盘方能安装。在不同的操作系统，制作所用的工具、过程不同。 macOS 下制作 USB 安装镜像 将安装文件转换成 dmg 格式： $ cd"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>制作 Linux USB 安装镜像</h1><div class=post-meta><span class=post-time>2018-04-07</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#macos-下制作-usb-安装镜像>macOS 下制作 USB 安装镜像</a></li><li><a href=#windows-下制作-usb-安装镜像>Windows 下制作 USB 安装镜像</a></li></ul></nav></div></div><div class=post-content><p>在下载 Linux ISO 镜像文件后，还需要制作 USB 启动盘方能安装。在不同的操作系统，制作所用的工具、过程不同。</p><h2 id=macos-下制作-usb-安装镜像>macOS 下制作 USB 安装镜像</h2><ol><li><p>将安装文件转换成 dmg 格式：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cd Downloads/
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+
+  <title>制作 Linux USB 安装镜像 - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="王亮" /><meta name="description" content="在下载 Linux ISO 镜像文件后，还需要制作 USB 启动盘方能安装。在不同的操作系统，制作所用的工具、过程不同。 macOS 下制作 USB 安装镜像 将安装文件转换成 dmg 格式： $ cd" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.1 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/linux-usb-installer/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="制作 Linux USB 安装镜像" />
+<meta property="og:description" content="在下载 Linux ISO 镜像文件后，还需要制作 USB 启动盘方能安装。在不同的操作系统，制作所用的工具、过程不同。 macOS 下制作 USB 安装镜像 将安装文件转换成 dmg 格式： $ cd" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/linux-usb-installer/" />
+<meta property="article:published_time" content="2018-04-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-04-07T00:00:00+00:00" />
+<meta itemprop="name" content="制作 Linux USB 安装镜像">
+<meta itemprop="description" content="在下载 Linux ISO 镜像文件后，还需要制作 USB 启动盘方能安装。在不同的操作系统，制作所用的工具、过程不同。 macOS 下制作 USB 安装镜像 将安装文件转换成 dmg 格式： $ cd">
+<meta itemprop="datePublished" content="2018-04-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-04-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="329">
+
+
+
+<meta itemprop="keywords" content="linux,macOS," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="制作 Linux USB 安装镜像"/>
+<meta name="twitter:description" content="在下载 Linux ISO 镜像文件后，还需要制作 USB 启动盘方能安装。在不同的操作系统，制作所用的工具、过程不同。 macOS 下制作 USB 安装镜像 将安装文件转换成 dmg 格式： $ cd"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">制作 Linux USB 安装镜像</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-04-07 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#macos-下制作-usb-安装镜像">macOS 下制作 USB 安装镜像</a></li>
+    <li><a href="#windows-下制作-usb-安装镜像">Windows 下制作 USB 安装镜像</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>在下载 Linux ISO 镜像文件后，还需要制作 USB 启动盘方能安装。在不同的操作系统，制作所用的工具、过程不同。</p>
+<h2 id="macos-下制作-usb-安装镜像">macOS 下制作 USB 安装镜像</h2>
+<ol>
+<li>
+<p>将安装文件转换成 dmg 格式：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cd Downloads/
 $ hdiutil convert -format UDRW -o centos.dmg CentOS-7-x86_64-LiveGNOME-1708.iso
-</code></pre></div></li><li><p>确定 U 盘盘符：</p><p>插入 U 盘，执行如下命令：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ diskutil list
+</code></pre></div></li>
+<li>
+<p>确定 U 盘盘符：</p>
+<p>插入 U 盘，执行如下命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ diskutil list
 </code></pre></div><p>通常最后一个盘符是 U 盘，请根据磁盘大小确认哪一个是 U 盘。如果觉得没有把握，可以使用
-磁盘工具来辅助判断。如果找错盘符，后续可能会导致其他盘数据丢失。</p></li><li><p>卸载 U 盘：</p><p>使用如下命令卸载 U 盘，但不要拔出。也不要使用图形界面推出 U 盘。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ diskutil unmountDisk /dev/disk2  <span style=color:#75715e># 根据自己的实际情况修改 /dev/disk2</span>
+磁盘工具来辅助判断。如果找错盘符，后续可能会导致其他盘数据丢失。</p>
+</li>
+<li>
+<p>卸载 U 盘：</p>
+<p>使用如下命令卸载 U 盘，但不要拔出。也不要使用图形界面推出 U 盘。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ diskutil unmountDisk /dev/disk2  <span style="color:#75715e"># 根据自己的实际情况修改 /dev/disk2</span>
 Unmount of all volumes on disk2 was successful
-</code></pre></div></li><li><p>将镜像写入 U 盘</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo dd <span style=color:#66d9ef>if</span><span style=color:#f92672>=</span>./centos.dmg of<span style=color:#f92672>=</span>/dev/rdisk2 bs<span style=color:#f92672>=</span>1m
-</code></pre></div><p>这里的盘符千万别写错。如果正常，这里需要等一小会，完成后就可以在 Finder 推出 U 盘了。</p></li></ol><h2 id=windows-下制作-usb-安装镜像>Windows 下制作 USB 安装镜像</h2><p>Windows 下制作 USB 安装镜像可以使用 <a href=http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/>Universal USB installer</a>，
-点击鼠标执行即可。</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
-<span class=item-content>王亮</span></p><p class=copyright-item><span class=item-title>上次更新</span>
-<span class=item-content>2018-04-07</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
-<span>微信打赏</span></label>
-<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
-<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/linux/>linux</a>
-<a href=/tags/macOS/>macOS</a></div><nav class=post-nav><a class=prev href=/manage-references/><i class="iconfont icon-left"></i><span class="prev-text nav-default">参考文献管理最佳实践</span>
-<span class="prev-text nav-mobile">上一篇</span></a>
-<a class=next href=/beachballs-on-google-earth/><span class="next-text nav-default">在Google Earth上绘制震源球</span>
-<span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
-<span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
-<span class=copyright-year>&copy;
-2013 -
-2020
-<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>
+</code></pre></div></li>
+<li>
+<p>将镜像写入 U 盘</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>./centos.dmg of<span style="color:#f92672">=</span>/dev/rdisk2 bs<span style="color:#f92672">=</span>1m
+</code></pre></div><p>这里的盘符千万别写错。如果正常，这里需要等一小会，完成后就可以在 Finder 推出 U 盘了。</p>
+</li>
+</ol>
+<h2 id="windows-下制作-usb-安装镜像">Windows 下制作 USB 安装镜像</h2>
+<p>Windows 下制作 USB 安装镜像可以使用 <a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/">Universal USB installer</a>，
+点击鼠标执行即可。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">王亮</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-04-07
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">linux</a>
+          <a href="/tags/macOS/">macOS</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/manage-references/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">参考文献管理最佳实践</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/beachballs-on-google-earth/">
+            <span class="next-text nav-default">在Google Earth上绘制震源球</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

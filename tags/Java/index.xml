@@ -1,6 +1,52 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Java on SeisMan</title><link>https://blog.seisman.info/tags/Java/</link><description>Recent content in Java on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 08 Oct 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/Java/index.xml" rel="self" type="application/rss+xml"/><item><title>TauP 的安装</title><link>https://blog.seisman.info/taup-install/</link><pubDate>Wed, 08 Oct 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/taup-install/</guid><description/></item><item><title>JPlotResp：绘制地震仪器响应</title><link>https://blog.seisman.info/jplotresp/</link><pubDate>Fri, 19 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/jplotresp/</guid><description>&lt;p>要理解仪器响应，就要看 RESP 的格式，更重要是直观地看仪器响应的振幅相位谱。&lt;/p>
-&lt;p>前面介绍的 &lt;a href="https://blog.seisman.info/simple-analysis-of-resp/">RESP 文件&lt;/a> 和 &lt;a href="https://blog.seisman.info/simple-analysis-of-sac-pz/">SAC PZ&lt;/a>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on SeisMan</title>
+    <link>https://blog.seisman.info/tags/Java/</link>
+    <description>Recent content in Java on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 08 Oct 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/Java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TauP 的安装</title>
+      <link>https://blog.seisman.info/taup-install/</link>
+      <pubDate>Wed, 08 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-install/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JPlotResp：绘制地震仪器响应</title>
+      <link>https://blog.seisman.info/jplotresp/</link>
+      <pubDate>Fri, 19 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/jplotresp/</guid>
+      <description>&lt;p&gt;要理解仪器响应，就要看 RESP 的格式，更重要是直观地看仪器响应的振幅相位谱。&lt;/p&gt;
+&lt;p&gt;前面介绍的 &lt;a href=&#34;https://blog.seisman.info/simple-analysis-of-resp/&#34;&gt;RESP 文件&lt;/a&gt; 和 &lt;a href=&#34;https://blog.seisman.info/simple-analysis-of-sac-pz/&#34;&gt;SAC PZ&lt;/a&gt;
 文件都只是给出了一堆零极点以及放大系数等各种参数。JPlotResp 是用来绘制地震仪器响应的
-软件，可以帮助直观地看到任意台站的仪器响应。&lt;/p>
-&lt;p>主页： &lt;a href="http://www.isti2.com/JPlotResp/">http://www.isti2.com/JPlotResp/&lt;/a>&lt;/p></description></item><item><title>Firefox 安装 Java 插件</title><link>https://blog.seisman.info/firefox-java-plugin/</link><pubDate>Thu, 11 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/firefox-java-plugin/</guid><description>由于某个变态网站，需要 Java 插件才能使用，所以需要在 Firefox 上安装 Java 插件。在 Oracle 的网站上搜到解决办法，原文在 这里， 排版难看的要死，故而重新排版。 我的计算</description></item><item><title>震中距、方位角和反方位角的计算</title><link>https://blog.seisman.info/calculate-dist-az-baz/</link><pubDate>Wed, 03 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/calculate-dist-az-baz/</guid><description>&lt;p>给定震中经纬度以及球面上任意一点（一般是台站）的经纬度，计算震中距、方位角以及反方位角。
-这是地震学的一个基本问题。&lt;/p></description></item></channel></rss>
+软件，可以帮助直观地看到任意台站的仪器响应。&lt;/p&gt;
+&lt;p&gt;主页： &lt;a href=&#34;http://www.isti2.com/JPlotResp/&#34;&gt;http://www.isti2.com/JPlotResp/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Firefox 安装 Java 插件</title>
+      <link>https://blog.seisman.info/firefox-java-plugin/</link>
+      <pubDate>Thu, 11 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/firefox-java-plugin/</guid>
+      <description>由于某个变态网站，需要 Java 插件才能使用，所以需要在 Firefox 上安装 Java 插件。在 Oracle 的网站上搜到解决办法，原文在 这里， 排版难看的要死，故而重新排版。 我的计算</description>
+    </item>
+    
+    <item>
+      <title>震中距、方位角和反方位角的计算</title>
+      <link>https://blog.seisman.info/calculate-dist-az-baz/</link>
+      <pubDate>Wed, 03 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/calculate-dist-az-baz/</guid>
+      <description>&lt;p&gt;给定震中经纬度以及球面上任意一点（一般是台站）的经纬度，计算震中距、方位角以及反方位角。
+这是地震学的一个基本问题。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

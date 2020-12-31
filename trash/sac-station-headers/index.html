@@ -1,5 +1,50 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>SAC 中与台站有关的头段 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="SAC 头段中与台站有关的变量有：
- KNETWK：台网名； KSTNM：台站名； ISTREG：台站地理区域（未使用）； STLA：台站纬度（北为正）； STLO：台站经度（东为正）； STEL：台站高程（m，未使用）； STDP：台站相对地表深度（m，未使用）； CMPAZ：分量方位角；（从北开始顺时针度数） CMPINC：分量入射角；（从垂直开始的角度） KCMPNM：分量名称，比如 BHE LPSPOL：如果台站分量为正极性则为真（左手规则）；  其中与台站分量有关的头段变量有四个，即 CMPAZ、CMPINC、KCMPNM、LPSPOL。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.0 with theme even"><link rel=canonical href=https://blog.seisman.info/trash/sac-station-headers/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="SAC 中与台站有关的头段"><meta property="og:description" content="SAC 头段中与台站有关的变量有：
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+
+  <title>SAC 中与台站有关的头段 - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="SAC 头段中与台站有关的变量有：
+ KNETWK：台网名； KSTNM：台站名； ISTREG：台站地理区域（未使用）； STLA：台站纬度（北为正）； STLO：台站经度（东为正）； STEL：台站高程（m，未使用）； STDP：台站相对地表深度（m，未使用）； CMPAZ：分量方位角；（从北开始顺时针度数） CMPINC：分量入射角；（从垂直开始的角度） KCMPNM：分量名称，比如 BHE LPSPOL：如果台站分量为正极性则为真（左手规则）；  其中与台站分量有关的头段变量有四个，即 CMPAZ、CMPINC、KCMPNM、LPSPOL。
+" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.1 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/trash/sac-station-headers/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="SAC 中与台站有关的头段" />
+<meta property="og:description" content="SAC 头段中与台站有关的变量有：
 
 KNETWK：台网名；
 KSTNM：台站名；
@@ -13,7 +58,13 @@ CMPINC：分量入射角；（从垂直开始的角度）
 KCMPNM：分量名称，比如 BHE
 LPSPOL：如果台站分量为正极性则为真（左手规则）；
 
-其中与台站分量有关的头段变量有四个，即 CMPAZ、CMPINC、KCMPNM、LPSPOL。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/trash/sac-station-headers/"><meta property="article:published_time" content="2013-09-03T00:00:00+00:00"><meta property="article:modified_time" content="2013-09-03T00:00:00+00:00"><meta itemprop=name content="SAC 中与台站有关的头段"><meta itemprop=description content="SAC 头段中与台站有关的变量有：
+其中与台站分量有关的头段变量有四个，即 CMPAZ、CMPINC、KCMPNM、LPSPOL。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/trash/sac-station-headers/" />
+<meta property="article:published_time" content="2013-09-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2013-09-03T00:00:00+00:00" />
+<meta itemprop="name" content="SAC 中与台站有关的头段">
+<meta itemprop="description" content="SAC 头段中与台站有关的变量有：
 
 KNETWK：台网名；
 KSTNM：台站名；
@@ -27,7 +78,17 @@ CMPINC：分量入射角；（从垂直开始的角度）
 KCMPNM：分量名称，比如 BHE
 LPSPOL：如果台站分量为正极性则为真（左手规则）；
 
-其中与台站分量有关的头段变量有四个，即 CMPAZ、CMPINC、KCMPNM、LPSPOL。"><meta itemprop=datePublished content="2013-09-03T00:00:00+00:00"><meta itemprop=dateModified content="2013-09-03T00:00:00+00:00"><meta itemprop=wordCount content="722"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="SAC 中与台站有关的头段"><meta name=twitter:description content="SAC 头段中与台站有关的变量有：
+其中与台站分量有关的头段变量有四个，即 CMPAZ、CMPINC、KCMPNM、LPSPOL。">
+<meta itemprop="datePublished" content="2013-09-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2013-09-03T00:00:00+00:00" />
+<meta itemprop="wordCount" content="722">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SAC 中与台站有关的头段"/>
+<meta name="twitter:description" content="SAC 头段中与台站有关的变量有：
 
 KNETWK：台网名；
 KSTNM：台站名；
@@ -41,12 +102,189 @@ CMPINC：分量入射角；（从垂直开始的角度）
 KCMPNM：分量名称，比如 BHE
 LPSPOL：如果台站分量为正极性则为真（左手规则）；
 
-其中与台站分量有关的头段变量有四个，即 CMPAZ、CMPINC、KCMPNM、LPSPOL。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><div class=post-content><p>SAC 头段中与台站有关的变量有：</p><ul><li><code>KNETWK</code>：台网名；</li><li><code>KSTNM</code>：台站名；</li><li><code>ISTREG</code>：台站地理区域（未使用）；</li><li><code>STLA</code>：台站纬度（北为正）；</li><li><code>STLO</code>：台站经度（东为正）；</li><li><code>STEL</code>：台站高程（m，未使用）；</li><li><code>STDP</code>：台站相对地表深度（m，未使用）；</li><li><code>CMPAZ</code>：分量方位角；（从北开始顺时针度数）</li><li><code>CMPINC</code>：分量入射角；（从垂直开始的角度）</li><li><code>KCMPNM</code>：分量名称，比如 BHE</li><li><code>LPSPOL</code>：如果台站分量为正极性则为真（左手规则）；</li></ul><p>其中与台站分量有关的头段变量有四个，即 <code>CMPAZ</code>、<code>CMPINC</code>、<code>KCMPNM</code>、<code>LPSPOL</code>。</p><p><code>CMPAZ</code> 和 <code>CMPINC</code> 在进行波形旋转的时候很重要。根据 <code>CMPAZ</code> 和 <code>CMPINC</code> 的定义可知，对于标准三分量台站有：</p><ul><li>N 向：<code>CMPAZ=0</code>；<code>CMPINC=90</code>；</li><li>E 向：<code>CMPAZ=90</code>；<code>CMPINC=90</code>；</li><li>Z 向：<code>CMPAZ=0</code>；<code>CMPINC=0</code>；</li></ul><p><code>KCMPNM</code> 标记了分量的名称，SEED 格式中一般使用三个字符表示，比如 BHE，第一个字符表示宽频带，第二个
-字符表示高增益，第三个字符表示 E 向分量。有兴趣的可以参考 SEED 中关于 <a href=http://www.iris.edu/manuals/SEED_appA.htm>Channel 命名的说明</a>。</p><p>变量 LPSPOL 是个很有意思的头段变量，若三分量的正极性方向符合左手规则则该变量为真。</p><p>关于左手定则，可以参考维基百科的 <a href=http://zh.wikipedia.org/wiki/%E5%8F%B3%E6%89%8B%E5%AE%9A%E5%89%87>右手定则</a> 条目。</p><p>下图简单给出了左手定则和右手定则的示意图，图中左图符合左手定则，右图符合右手定则。</p><p><img src=/images/2013090301.jpg alt></p><p>在地震学中，一般取北向为 x 轴，东向为 y 轴，向上为 z 轴，即符合上图的左手定则，也就是常说的 NEU 坐标系。但是，在有些情况下，取向下为 z 轴正向，此时符合右手定则（倒过来看），也就是更常见的 NED 坐标系。</p><p>目前已经搞清楚的一些事实是，Aki & Richards(1980) 中的坐标主要以 NED 坐标系为主，而常用的计算理论地震图的程序 fk 采用的则是 NEU 坐标系。除此之外，还有其他坐标系，以后整理清楚再说。</p></div></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
-<span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
-<span class=copyright-year>&copy;
-2013 -
-2020
-<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>
+其中与台站分量有关的头段变量有四个，即 CMPAZ、CMPINC、KCMPNM、LPSPOL。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <p>SAC 头段中与台站有关的变量有：</p>
+<ul>
+<li><code>KNETWK</code>：台网名；</li>
+<li><code>KSTNM</code>：台站名；</li>
+<li><code>ISTREG</code>：台站地理区域（未使用）；</li>
+<li><code>STLA</code>：台站纬度（北为正）；</li>
+<li><code>STLO</code>：台站经度（东为正）；</li>
+<li><code>STEL</code>：台站高程（m，未使用）；</li>
+<li><code>STDP</code>：台站相对地表深度（m，未使用）；</li>
+<li><code>CMPAZ</code>：分量方位角；（从北开始顺时针度数）</li>
+<li><code>CMPINC</code>：分量入射角；（从垂直开始的角度）</li>
+<li><code>KCMPNM</code>：分量名称，比如 BHE</li>
+<li><code>LPSPOL</code>：如果台站分量为正极性则为真（左手规则）；</li>
+</ul>
+<p>其中与台站分量有关的头段变量有四个，即 <code>CMPAZ</code>、<code>CMPINC</code>、<code>KCMPNM</code>、<code>LPSPOL</code>。</p>
+<p><code>CMPAZ</code> 和 <code>CMPINC</code> 在进行波形旋转的时候很重要。根据 <code>CMPAZ</code> 和 <code>CMPINC</code> 的定义可知，对于标准三分量台站有：</p>
+<ul>
+<li>N 向：<code>CMPAZ=0</code>；<code>CMPINC=90</code>；</li>
+<li>E 向：<code>CMPAZ=90</code>；<code>CMPINC=90</code>；</li>
+<li>Z 向：<code>CMPAZ=0</code>；<code>CMPINC=0</code>；</li>
+</ul>
+<p><code>KCMPNM</code> 标记了分量的名称，SEED 格式中一般使用三个字符表示，比如 BHE，第一个字符表示宽频带，第二个
+字符表示高增益，第三个字符表示 E 向分量。有兴趣的可以参考 SEED 中关于 <a href="http://www.iris.edu/manuals/SEED_appA.htm">Channel 命名的说明</a>。</p>
+<p>变量 LPSPOL 是个很有意思的头段变量，若三分量的正极性方向符合左手规则则该变量为真。</p>
+<p>关于左手定则，可以参考维基百科的 <a href="http://zh.wikipedia.org/wiki/%E5%8F%B3%E6%89%8B%E5%AE%9A%E5%89%87">右手定则</a> 条目。</p>
+<p>下图简单给出了左手定则和右手定则的示意图，图中左图符合左手定则，右图符合右手定则。</p>
+<p><img src="/images/2013090301.jpg" alt=""></p>
+<p>在地震学中，一般取北向为 x 轴，东向为 y 轴，向上为 z 轴，即符合上图的左手定则，也就是常说的 NEU 坐标系。但是，在有些情况下，取向下为 z 轴正向，此时符合右手定则（倒过来看），也就是更常见的 NED 坐标系。</p>
+<p>目前已经搞清楚的一些事实是，Aki &amp; Richards(1980) 中的坐标主要以 NED 坐标系为主，而常用的计算理论地震图的程序 fk 采用的则是 NEU 坐标系。除此之外，还有其他坐标系，以后整理清楚再说。</p>
+  </div>
+</article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

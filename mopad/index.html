@@ -1,30 +1,246 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>MoPaD:地震矩绘制和分析工具 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="MoPaD，全称Moment tensor Plotting and Decomposition，是一个用于分析地震矩的小工具， 主要功能包括地震矩与断层面参数的转换、地震矩分解以及震源球的绘制。该工具可控参数非常丰富，因而 具有非常强的灵活性，可以满足大多数需求。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.0 with theme even"><link rel=canonical href=https://blog.seisman.info/mopad/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="MoPaD:地震矩绘制和分析工具"><meta property="og:description" content="MoPaD，全称Moment tensor Plotting and Decomposition，是一个用于分析地震矩的小工具，
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+
+  <title>MoPaD:地震矩绘制和分析工具 - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="MoPaD，全称Moment tensor Plotting and Decomposition，是一个用于分析地震矩的小工具， 主要功能包括地震矩与断层面参数的转换、地震矩分解以及震源球的绘制。该工具可控参数非常丰富，因而 具有非常强的灵活性，可以满足大多数需求。
+" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.1 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/mopad/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="MoPaD:地震矩绘制和分析工具" />
+<meta property="og:description" content="MoPaD，全称Moment tensor Plotting and Decomposition，是一个用于分析地震矩的小工具，
 主要功能包括地震矩与断层面参数的转换、地震矩分解以及震源球的绘制。该工具可控参数非常丰富，因而
-具有非常强的灵活性，可以满足大多数需求。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/mopad/"><meta property="article:published_time" content="2013-08-27T00:00:00+00:00"><meta property="article:modified_time" content="2013-08-27T00:00:00+00:00"><meta itemprop=name content="MoPaD:地震矩绘制和分析工具"><meta itemprop=description content="MoPaD，全称Moment tensor Plotting and Decomposition，是一个用于分析地震矩的小工具，
+具有非常强的灵活性，可以满足大多数需求。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/mopad/" />
+<meta property="article:published_time" content="2013-08-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2013-08-27T00:00:00+00:00" />
+<meta itemprop="name" content="MoPaD:地震矩绘制和分析工具">
+<meta itemprop="description" content="MoPaD，全称Moment tensor Plotting and Decomposition，是一个用于分析地震矩的小工具，
 主要功能包括地震矩与断层面参数的转换、地震矩分解以及震源球的绘制。该工具可控参数非常丰富，因而
-具有非常强的灵活性，可以满足大多数需求。"><meta itemprop=datePublished content="2013-08-27T00:00:00+00:00"><meta itemprop=dateModified content="2013-08-27T00:00:00+00:00"><meta itemprop=wordCount content="1595"><meta itemprop=keywords content="震源机制解,震源球,Python,"><meta name=twitter:card content="summary"><meta name=twitter:title content="MoPaD:地震矩绘制和分析工具"><meta name=twitter:description content="MoPaD，全称Moment tensor Plotting and Decomposition，是一个用于分析地震矩的小工具，
+具有非常强的灵活性，可以满足大多数需求。">
+<meta itemprop="datePublished" content="2013-08-27T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2013-08-27T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1595">
+
+
+
+<meta itemprop="keywords" content="震源机制解,震源球,Python," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MoPaD:地震矩绘制和分析工具"/>
+<meta name="twitter:description" content="MoPaD，全称Moment tensor Plotting and Decomposition，是一个用于分析地震矩的小工具，
 主要功能包括地震矩与断层面参数的转换、地震矩分解以及震源球的绘制。该工具可控参数非常丰富，因而
-具有非常强的灵活性，可以满足大多数需求。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>MoPaD:地震矩绘制和分析工具</h1><div class=post-meta><span class=post-time>2013-08-27</span><div class=post-category><a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/>地震学软件</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#基本信息>基本信息</a></li><li><a href=#基本语法>基本语法</a></li><li><a href=#method>Method</a><ul><li><a href=#plot>Plot</a></li><li><a href=#describe>describe</a></li><li><a href=#decompose>decompose</a></li><li><a href=#gmt>gmt</a></li></ul></li><li><a href=#小结>小结</a></li></ul></nav></div></div><div class=post-content><p>MoPaD，全称Moment tensor Plotting and Decomposition，是一个用于分析地震矩的小工具，
+具有非常强的灵活性，可以满足大多数需求。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">MoPaD:地震矩绘制和分析工具</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2013-08-27 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/"> 地震学软件 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#基本信息">基本信息</a></li>
+    <li><a href="#基本语法">基本语法</a></li>
+    <li><a href="#method">Method</a>
+      <ul>
+        <li><a href="#plot">Plot</a></li>
+        <li><a href="#describe">describe</a></li>
+        <li><a href="#decompose">decompose</a></li>
+        <li><a href="#gmt">gmt</a></li>
+      </ul>
+    </li>
+    <li><a href="#小结">小结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>MoPaD，全称Moment tensor Plotting and Decomposition，是一个用于分析地震矩的小工具，
 主要功能包括地震矩与断层面参数的转换、地震矩分解以及震源球的绘制。该工具可控参数非常丰富，因而
-具有非常强的灵活性，可以满足大多数需求。</p><h2 id=基本信息>基本信息</h2><p>**作者：**Lars Krieger and Sebastian Heimann</p><p>**语言：**Python2，需要安装numpy和matplotlib模块</p><p><strong>官方主页：</strong> <a href=http://www.larskrieger.de/mopad/>http://www.larskrieger.de/mopad/</a></p><p><strong>下载地址：</strong> <a href=https://github.com/geophysics/MoPaD>https://github.com/geophysics/MoPaD</a></p><p>**许可：**LGPL</p><p>**引用：**Lars Krieger and Sebastian Heimann, MoPaD - moment tensor
+具有非常强的灵活性，可以满足大多数需求。</p>
+<h2 id="基本信息">基本信息</h2>
+<p>**作者：**Lars Krieger and Sebastian Heimann</p>
+<p>**语言：**Python2，需要安装numpy和matplotlib模块</p>
+<p><strong>官方主页：</strong> <a href="http://www.larskrieger.de/mopad/">http://www.larskrieger.de/mopad/</a></p>
+<p><strong>下载地址：</strong> <a href="https://github.com/geophysics/MoPaD">https://github.com/geophysics/MoPaD</a></p>
+<p>**许可：**LGPL</p>
+<p>**引用：**Lars Krieger and Sebastian Heimann, MoPaD - moment tensor
 plotting and decomposition: <em>A tool for graphical and numerical analysis
-of seismic moment tensors</em>, Seismol. Res. Lett., 83(3):589-595, 2012</p><h2 id=基本语法>基本语法</h2><pre><code>mopad &lt;method&gt; &lt;source-mechanism&gt; [options]
-</code></pre><p>source-mechanism可以取如下几种形式：</p><ul><li>strike,dip,rake</li><li>strike,dip,rake,moment</li><li>M11,M22,M33,M12,M13,M23</li><li>M11,M22,M33,M12,M13,M23,moment</li><li>M11,M12,M13,M21,M22,M23,M31,M32,M33</li></ul><p>每种形式的参数个数不同，因而容易区分。各参数以逗号分隔。角度的单位为度，地震矩分量以及标量矩的单位为N.m。
+of seismic moment tensors</em>, Seismol. Res. Lett., 83(3):589-595, 2012</p>
+<h2 id="基本语法">基本语法</h2>
+<pre><code>mopad &lt;method&gt; &lt;source-mechanism&gt; [options]
+</code></pre>
+<p>source-mechanism可以取如下几种形式：</p>
+<ul>
+<li>strike,dip,rake</li>
+<li>strike,dip,rake,moment</li>
+<li>M11,M22,M33,M12,M13,M23</li>
+<li>M11,M22,M33,M12,M13,M23,moment</li>
+<li>M11,M12,M13,M21,M22,M23,M31,M32,M33</li>
+</ul>
+<p>每种形式的参数个数不同，因而容易区分。各参数以逗号分隔。角度的单位为度，地震矩分量以及标量矩的单位为N.m。
 这里不直接支持矩震级Mw，有些可惜。地震矩的默认坐标系为1为北向（N），2为东向（E），3向下（D），符合
-右手定则，记为NED</p><p>method可以取如下四种形式：</p><ul><li>plot</li><li>describe</li><li>decompose</li><li>gmt</li></ul><p>四种method，各自有自己独立的options，options太多，主要是调节一些细节参数，不细说。可以使用
-<code>mopad method --help</code> 查看每个method对应的选项。</p><h2 id=method>Method</h2><h3 id=plot>Plot</h3><p>用于绘制震源球。震源球默认使用立体等角度投影方式，垂向视角，下半球投影，压缩区为白色，拉伸区为红色，
-默认只绘制地震矩的偏张量部分。</p><p>下面的例子使用矩张量的震源表示形式，-I选项表明绘制地震矩的各向同性部分，-f指定了输出图像文件名。若未
-指定文件后缀，默认为svg格式，目前支持的格式包括svg、png、ps、eps、pdf。</p><pre><code>mopad plot 1,2,3,-4,-5,-10 -I -f FSD_xmpl.png
-</code></pre><p><img src=/images/2013082701.png alt></p><p>这是个更复杂的例子，体现了mopad强大的可控性，具体选项参考<code>mopad plot -h</code>：</p><pre><code>mopad plot 1,2,3,-4,-5,-10 -s 10 -v -50,30,-0 -U
+右手定则，记为NED</p>
+<p>method可以取如下四种形式：</p>
+<ul>
+<li>plot</li>
+<li>describe</li>
+<li>decompose</li>
+<li>gmt</li>
+</ul>
+<p>四种method，各自有自己独立的options，options太多，主要是调节一些细节参数，不细说。可以使用
+<code>mopad method --help</code> 查看每个method对应的选项。</p>
+<h2 id="method">Method</h2>
+<h3 id="plot">Plot</h3>
+<p>用于绘制震源球。震源球默认使用立体等角度投影方式，垂向视角，下半球投影，压缩区为白色，拉伸区为红色，
+默认只绘制地震矩的偏张量部分。</p>
+<p>下面的例子使用矩张量的震源表示形式，-I选项表明绘制地震矩的各向同性部分，-f指定了输出图像文件名。若未
+指定文件后缀，默认为svg格式，目前支持的格式包括svg、png、ps、eps、pdf。</p>
+<pre><code>mopad plot 1,2,3,-4,-5,-10 -I -f FSD_xmpl.png
+</code></pre>
+<p><img src="/images/2013082701.png" alt=""></p>
+<p>这是个更复杂的例子，体现了mopad强大的可控性，具体选项参考<code>mopad plot -h</code>：</p>
+<pre><code>mopad plot 1,2,3,-4,-5,-10 -s 10 -v -50,30,-0 -U
       -p o -f FSD_complex.svg -r 252,233,79 -w 117,80,123
       -d 1 3 red 0.5 -e 15 4 1 -b
-</code></pre><p><img src=/images/2013082702.png alt></p><p>mopad可以做地震矩分解，当然也就可以将矩张量不同部分绘制出来。目前可以绘制完整的矩张量、各向同性部分、
-偏张量部分、double couple部分以及clvd部分，下面5个命令为例子，不再秀图。</p><pre><code>mopad plot 1,2,3,-4,-5,-10 -I -s 1 -f FSD_xmpl_full.png
+</code></pre>
+<p><img src="/images/2013082702.png" alt=""></p>
+<p>mopad可以做地震矩分解，当然也就可以将矩张量不同部分绘制出来。目前可以绘制完整的矩张量、各向同性部分、
+偏张量部分、double couple部分以及clvd部分，下面5个命令为例子，不再秀图。</p>
+<pre><code>mopad plot 1,2,3,-4,-5,-10 -I -s 1 -f FSD_xmpl_full.png
 mopad plot 1,2,3,-4,-5,-10 -P iso -s 0.36  -f FSD_xmpl_iso.png
 mopad plot 1,2,3,-4,-5,-10 -s 0.93 -f FSD_xmpl_devi.png
 mopad plot 1,2,3,-4,-5,-10 -P dc -s 0.74 -f FSD_xmpl_dc.png
 mopad plot 1,2,3,-4,-5,-10 -P clvd -s 0.57 -f FSD_xmpl_clvd.png
-</code></pre><h3 id=describe>describe</h3><p>对地震矩以及断层参数进行描述。</p><pre><code>$ mopad describe 1,2,3,-4,-5,-10 -i USE
+</code></pre>
+<h3 id="describe">describe</h3>
+<p>对地震矩以及断层参数进行描述。</p>
+<pre><code>$ mopad describe 1,2,3,-4,-5,-10 -i USE
 
 Scalar Moment: M0 = 14.9031 Nm (Mw = -5.3)
 Moment Tensor: Mnn =  0.200,  Mee =  0.300, Mdd =  0.100,
@@ -32,8 +248,13 @@ Moment Tensor: Mnn =  0.200,  Mee =  0.300, Mdd =  0.100,
 
 Fault plane 1: strike =  95°, dip =  67°, slip-rake = -163°
 Fault plane 2: strike = 358°, dip =  74°, slip-rake =  -24°
-</code></pre><h3 id=decompose>decompose</h3><p>矩张量分解。</p><pre><code>$ mopad decompose 1,2,3,-4,-5,-10 -o USE
-</code></pre><p>分解结果如下：</p><pre><code>Basis system of the input:
+</code></pre>
+<h3 id="decompose">decompose</h3>
+<p>矩张量分解。</p>
+<pre><code>$ mopad decompose 1,2,3,-4,-5,-10 -o USE
+</code></pre>
+<p>分解结果如下：</p>
+<pre><code>Basis system of the input:
 
 NED
 
@@ -169,28 +390,144 @@ ISO + DC + CLVD
   / -0.74 \
   |  0.09  |
   \ -0.67 /
-</code></pre><h3 id=gmt>gmt</h3><p>GMT能绘制的震源球类型很有限，因而mopad可以作为一个补充。mopad gmt返回（x，y），其可以作为psxy
-命令的输入。输出的x、y值中心位于(0,0)，因而在利用GMT的psxy绘制的时候需要进行位置的转换。</p><p>mopad与psxy联合需要使用一些cpt文件，以控制一些颜色。</p><pre><code>makecpt -Cpolar -Z &gt; psxy_fill.cpt
-</code></pre><p>psxy_fill.cpt控制震源球压缩区（颜色代码为1）和拉伸区（颜色代码为0）的颜色，这个例子中分别为红色（1）和白色（0）。</p><pre><code>makecpt -I -Chot -Z &gt;psxy_lines.cpt
-</code></pre><p>psxy_lines.cpt控制震源球边界和界面线的颜色，本例中为黑色。</p><pre><code>mopad gmt 1,2,3,-4,-5,-10 -t fill -p s | psxy -Jx4/4 -R-2/2/-2/2 -P -Cpsxy_fill.cpt -M -K -L  &gt; BB1.ps
+</code></pre>
+<h3 id="gmt">gmt</h3>
+<p>GMT能绘制的震源球类型很有限，因而mopad可以作为一个补充。mopad gmt返回（x，y），其可以作为psxy
+命令的输入。输出的x、y值中心位于(0,0)，因而在利用GMT的psxy绘制的时候需要进行位置的转换。</p>
+<p>mopad与psxy联合需要使用一些cpt文件，以控制一些颜色。</p>
+<pre><code>makecpt -Cpolar -Z &gt; psxy_fill.cpt
+</code></pre>
+<p>psxy_fill.cpt控制震源球压缩区（颜色代码为1）和拉伸区（颜色代码为0）的颜色，这个例子中分别为红色（1）和白色（0）。</p>
+<pre><code>makecpt -I -Chot -Z &gt;psxy_lines.cpt
+</code></pre>
+<p>psxy_lines.cpt控制震源球边界和界面线的颜色，本例中为黑色。</p>
+<pre><code>mopad gmt 1,2,3,-4,-5,-10 -t fill -p s | psxy -Jx4/4 -R-2/2/-2/2 -P -Cpsxy_fill.cpt -M -K -L  &gt; BB1.ps
 mopad gmt 1,2,3,-4,-5,-10 -t lines -p s | psxy -Jx4/4 -R-2/2/-2/2 -W5 -P -Cpsxy_lines.cpt -M -O &gt;&gt; BB1.ps
-</code></pre><p><img src=/images/2013082703.jpg alt></p><h2 id=小结>小结</h2><p>工具本身很强大，与GMT的结合不太完美，另外虽然是命令行工具，但是不太适合批量处理。</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
-<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
-<span class=item-content>2013-08-27</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
-<span>微信打赏</span></label>
-<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
-<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/%E9%9C%87%E6%BA%90%E6%9C%BA%E5%88%B6%E8%A7%A3/>震源机制解</a>
-<a href=/tags/%E9%9C%87%E6%BA%90%E7%90%83/>震源球</a>
-<a href=/tags/Python/>Python</a></div><nav class=post-nav><a class=prev href=/fk-install/><i class="iconfont icon-left"></i><span class="prev-text nav-default">fk3.3 编译</span>
-<span class="prev-text nav-mobile">上一篇</span></a>
-<a class=next href=/ppk-notes/><span class="next-text nav-default">PPK 标记震相到时的一些注意事项</span>
-<span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
-<span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
-<span class=copyright-year>&copy;
-2013 -
-2020
-<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>
+</code></pre>
+<p><img src="/images/2013082703.jpg" alt=""></p>
+<h2 id="小结">小结</h2>
+<p>工具本身很强大，与GMT的结合不太完美，另外虽然是命令行工具，但是不太适合批量处理。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SeisMan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2013-08-27
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E9%9C%87%E6%BA%90%E6%9C%BA%E5%88%B6%E8%A7%A3/">震源机制解</a>
+          <a href="/tags/%E9%9C%87%E6%BA%90%E7%90%83/">震源球</a>
+          <a href="/tags/Python/">Python</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/fk-install/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">fk3.3 编译</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/ppk-notes/">
+            <span class="next-text nav-default">PPK 标记震相到时的一些注意事项</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

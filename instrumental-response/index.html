@@ -1,9 +1,54 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>地震学的仪器响应 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="地震仪观测到的地面运动记录可以表示为 $$u(t)=s(t) \ast g(t) \ast i(t)$$
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+
+  <title>地震学的仪器响应 - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="地震仪观测到的地面运动记录可以表示为 $$u(t)=s(t) \ast g(t) \ast i(t)$$
 其中 $s(t)$ 代表震源项，$g(t)$ 代表路径效应，$i(t)$ 代表仪器响应，星号代表卷积。
 翻译成中文就是
  地面运动记录是震源项、路径项以及仪器响应三者卷积得到的。
  四个量中：
- $u(t)$ 是仪器记录的结果，已知； $i(t)$ 在仪器设计的时候会给出各种参数，已知； $s(t)$ 为震源项，包括震源机制、震源时间函数等，未知； $g(t)$ 为地球内部结构，未知。  震源和结构是地震学研究的两个主要内容。因而理解仪器响应 $i(t)$ 的基本原理并 准确地去除仪器响应是研究的关键一步。这篇博文将介绍一下原始地面运动 $s(t) \ast g(t)$ 是如何卷积上仪器响应 $i(t)$ 从而变成地震记录 $u(t)$ 的。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.0 with theme even"><link rel=canonical href=https://blog.seisman.info/instrumental-response/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="地震学的仪器响应"><meta property="og:description" content="地震仪观测到的地面运动记录可以表示为 $$u(t)=s(t) \ast g(t) \ast i(t)$$
+ $u(t)$ 是仪器记录的结果，已知； $i(t)$ 在仪器设计的时候会给出各种参数，已知； $s(t)$ 为震源项，包括震源机制、震源时间函数等，未知； $g(t)$ 为地球内部结构，未知。  震源和结构是地震学研究的两个主要内容。因而理解仪器响应 $i(t)$ 的基本原理并 准确地去除仪器响应是研究的关键一步。这篇博文将介绍一下原始地面运动 $s(t) \ast g(t)$ 是如何卷积上仪器响应 $i(t)$ 从而变成地震记录 $u(t)$ 的。
+" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.1 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/instrumental-response/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="地震学的仪器响应" />
+<meta property="og:description" content="地震仪观测到的地面运动记录可以表示为 $$u(t)=s(t) \ast g(t) \ast i(t)$$
 其中 $s(t)$ 代表震源项，$g(t)$ 代表路径效应，$i(t)$ 代表仪器响应，星号代表卷积。
 翻译成中文就是
 
@@ -18,7 +63,13 @@ $g(t)$ 为地球内部结构，未知。
 
 震源和结构是地震学研究的两个主要内容。因而理解仪器响应 $i(t)$ 的基本原理并
 准确地去除仪器响应是研究的关键一步。这篇博文将介绍一下原始地面运动
-$s(t) \ast g(t)$ 是如何卷积上仪器响应 $i(t)$ 从而变成地震记录 $u(t)$ 的。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/instrumental-response/"><meta property="article:published_time" content="2013-06-23T00:00:00+00:00"><meta property="article:modified_time" content="2014-07-06T00:00:00+00:00"><meta itemprop=name content="地震学的仪器响应"><meta itemprop=description content="地震仪观测到的地面运动记录可以表示为 $$u(t)=s(t) \ast g(t) \ast i(t)$$
+$s(t) \ast g(t)$ 是如何卷积上仪器响应 $i(t)$ 从而变成地震记录 $u(t)$ 的。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/instrumental-response/" />
+<meta property="article:published_time" content="2013-06-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2014-07-06T00:00:00+00:00" />
+<meta itemprop="name" content="地震学的仪器响应">
+<meta itemprop="description" content="地震仪观测到的地面运动记录可以表示为 $$u(t)=s(t) \ast g(t) \ast i(t)$$
 其中 $s(t)$ 代表震源项，$g(t)$ 代表路径效应，$i(t)$ 代表仪器响应，星号代表卷积。
 翻译成中文就是
 
@@ -33,7 +84,17 @@ $g(t)$ 为地球内部结构，未知。
 
 震源和结构是地震学研究的两个主要内容。因而理解仪器响应 $i(t)$ 的基本原理并
 准确地去除仪器响应是研究的关键一步。这篇博文将介绍一下原始地面运动
-$s(t) \ast g(t)$ 是如何卷积上仪器响应 $i(t)$ 从而变成地震记录 $u(t)$ 的。"><meta itemprop=datePublished content="2013-06-23T00:00:00+00:00"><meta itemprop=dateModified content="2014-07-06T00:00:00+00:00"><meta itemprop=wordCount content="1845"><meta itemprop=keywords content="仪器响应,"><meta name=twitter:card content="summary"><meta name=twitter:title content="地震学的仪器响应"><meta name=twitter:description content="地震仪观测到的地面运动记录可以表示为 $$u(t)=s(t) \ast g(t) \ast i(t)$$
+$s(t) \ast g(t)$ 是如何卷积上仪器响应 $i(t)$ 从而变成地震记录 $u(t)$ 的。">
+<meta itemprop="datePublished" content="2013-06-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2014-07-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1845">
+
+
+
+<meta itemprop="keywords" content="仪器响应," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="地震学的仪器响应"/>
+<meta name="twitter:description" content="地震仪观测到的地面运动记录可以表示为 $$u(t)=s(t) \ast g(t) \ast i(t)$$
 其中 $s(t)$ 代表震源项，$g(t)$ 代表路径效应，$i(t)$ 代表仪器响应，星号代表卷积。
 翻译成中文就是
 
@@ -48,48 +109,316 @@ $g(t)$ 为地球内部结构，未知。
 
 震源和结构是地震学研究的两个主要内容。因而理解仪器响应 $i(t)$ 的基本原理并
 准确地去除仪器响应是研究的关键一步。这篇博文将介绍一下原始地面运动
-$s(t) \ast g(t)$ 是如何卷积上仪器响应 $i(t)$ 从而变成地震记录 $u(t)$ 的。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>地震学的仪器响应</h1><div class=post-meta><span class=post-time>2013-06-23</span><div class=post-category><a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E5%9F%BA%E7%A1%80/>地震学基础</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#原始地面运动>原始地面运动</a></li><li><a href=#仪器响应>仪器响应</a></li><li><a href=#地震仪的真实记录>地震仪的真实记录</a></li><li><a href=#小结>小结</a></li><li><a href=#备注>备注</a></li><li><a href=#修订历史>修订历史</a></li></ul></nav></div></div><div class=post-content><p>地震仪观测到的地面运动记录可以表示为 $$u(t)=s(t) \ast g(t) \ast i(t)$$</p><p>其中 $s(t)$ 代表震源项，$g(t)$ 代表路径效应，$i(t)$ 代表仪器响应，星号代表卷积。</p><p>翻译成中文就是</p><blockquote><p>地面运动记录是震源项、路径项以及仪器响应三者卷积得到的。</p></blockquote><p>四个量中：</p><ul><li>$u(t)$ 是仪器记录的结果，已知；</li><li>$i(t)$ 在仪器设计的时候会给出各种参数，已知；</li><li>$s(t)$ 为震源项，包括震源机制、震源时间函数等，未知；</li><li>$g(t)$ 为地球内部结构，未知。</li></ul><p>震源和结构是地震学研究的两个主要内容。因而理解仪器响应 $i(t)$ 的基本原理并
+$s(t) \ast g(t)$ 是如何卷积上仪器响应 $i(t)$ 从而变成地震记录 $u(t)$ 的。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">地震学的仪器响应</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2013-06-23 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E5%9F%BA%E7%A1%80/"> 地震学基础 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#原始地面运动">原始地面运动</a></li>
+    <li><a href="#仪器响应">仪器响应</a></li>
+    <li><a href="#地震仪的真实记录">地震仪的真实记录</a></li>
+    <li><a href="#小结">小结</a></li>
+    <li><a href="#备注">备注</a></li>
+    <li><a href="#修订历史">修订历史</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>地震仪观测到的地面运动记录可以表示为 $$u(t)=s(t) \ast g(t) \ast i(t)$$</p>
+<p>其中 $s(t)$ 代表震源项，$g(t)$ 代表路径效应，$i(t)$ 代表仪器响应，星号代表卷积。</p>
+<p>翻译成中文就是</p>
+<blockquote>
+<p>地面运动记录是震源项、路径项以及仪器响应三者卷积得到的。</p>
+</blockquote>
+<p>四个量中：</p>
+<ul>
+<li>$u(t)$ 是仪器记录的结果，已知；</li>
+<li>$i(t)$ 在仪器设计的时候会给出各种参数，已知；</li>
+<li>$s(t)$ 为震源项，包括震源机制、震源时间函数等，未知；</li>
+<li>$g(t)$ 为地球内部结构，未知。</li>
+</ul>
+<p>震源和结构是地震学研究的两个主要内容。因而理解仪器响应 $i(t)$ 的基本原理并
 准确地去除仪器响应是研究的关键一步。这篇博文将介绍一下原始地面运动
-$s(t) \ast g(t)$ 是如何卷积上仪器响应 $i(t)$ 从而变成地震记录 $u(t)$ 的。</p><h2 id=原始地面运动>原始地面运动</h2><p>有很多因素可以导致地面发生运动，比如地震波、长周期潮汐波、背景噪声，因而
+$s(t) \ast g(t)$ 是如何卷积上仪器响应 $i(t)$ 从而变成地震记录 $u(t)$ 的。</p>
+<h2 id="原始地面运动">原始地面运动</h2>
+<p>有很多因素可以导致地面发生运动，比如地震波、长周期潮汐波、背景噪声，因而
 实际的地面运动是很复杂的。下图给出了 COLA 台站 Z 分量记录到的持续时间为22000秒左右的
-地面原始运动记录，即 $s(t) \ast g(t)$ 所对应的波形：</p><p><img src=/images/2013062301.png alt=原始地面运动；横轴代表时间，纵轴代表振幅。></p><p>整个地面运动最明显的地方是弯弯曲曲类似正弦的波形，其周期大概是6000秒，
+地面原始运动记录，即 $s(t) \ast g(t)$ 所对应的波形：</p>
+<p><img src="/images/2013062301.png" alt="原始地面运动；横轴代表时间，纵轴代表振幅。"></p>
+<p>整个地面运动最明显的地方是弯弯曲曲类似正弦的波形，其周期大概是6000秒，
 也就是两个小时，这是潮汐波引起的地面运动。波形的最大振幅大概是 $2\times10^7$。
 在1000秒左右有一个明显的振动信号，这是一个震级为Mw 8.3级的大地震的信号，
-其振幅大概在 $2\times10^6$ 的量级，比长周期波小了一个量级。</p><p>这就是真实的地面运动，即便是如此大的地震，其引起的地面运动相对来说也是很小的。
+其振幅大概在 $2\times10^6$ 的量级，比长周期波小了一个量级。</p>
+<p>这就是真实的地面运动，即便是如此大的地震，其引起的地面运动相对来说也是很小的。
 这样的记录因为有太多其它类型的地面运动的干扰，因而对于地震学来说是没有用处的，
-所以就需要设计合适的仪器尽量去除其它类型地面运动的干扰，也就是地震仪。</p><h2 id=仪器响应>仪器响应</h2><p>从信号处理的角度来看，仪器本质上就是一个滤波器。每个仪器在出厂时都会提供准确的
+所以就需要设计合适的仪器尽量去除其它类型地面运动的干扰，也就是地震仪。</p>
+<h2 id="仪器响应">仪器响应</h2>
+<p>从信号处理的角度来看，仪器本质上就是一个滤波器。每个仪器在出厂时都会提供准确的
 响应参数，但随着仪器的使用，可能会出现老化或其它偏差，因而仪器的实际响应参数
-需要定期测定、修改。</p><p>图1中的波形中包含了地震波、潮汐波以及背景噪声的信息，因而从低频到高频都有信号。
+需要定期测定、修改。</p>
+<p>图1中的波形中包含了地震波、潮汐波以及背景噪声的信息，因而从低频到高频都有信号。
 而低频的潮汐波能量太强，正所谓功高盖主，压制一下还是有必要的。常见的地震仪是一个
-带通滤波器，可以有效压制超高频和超低频的信息。下图给出了该台站的仪器响应，即 $i(t)$：</p><p><img src=/images/2013062302.png alt=仪器响应频谱图。横轴为频率，上图为振幅谱，下图为相位谱。></p><p>从图2中振幅谱可以看出，频率在 0.02 Hz 到 8 Hz 内的信号具有相同的振幅增益（被增强），而小于
-0.02 Hz、大于 8 Hz 的信号则被压制。图1中的周期为1000秒量级的信号被压制到了原来的千分之一。</p><h2 id=地震仪的真实记录>地震仪的真实记录</h2><p>图1中的原始地面运动 $s(t) \ast g(t)$ 在经过图2中的仪器响应 $i(t)$ 处理之后，即得到图3。
-超低频和超高频的信号被压制，留下地震学感兴趣的频段，即前面说的 $u(t)$：</p><p><img src=/images/2013062303.png alt=COLA台站的地震记录></p><p>与图1相比，长周期的正弦信号没了，地震信号被凸显出来了，最大振幅约为 $2.4\times10^6$。
+带通滤波器，可以有效压制超高频和超低频的信息。下图给出了该台站的仪器响应，即 $i(t)$：</p>
+<p><img src="/images/2013062302.png" alt="仪器响应频谱图。横轴为频率，上图为振幅谱，下图为相位谱。"></p>
+<p>从图2中振幅谱可以看出，频率在 0.02 Hz 到 8 Hz 内的信号具有相同的振幅增益（被增强），而小于
+0.02 Hz、大于 8 Hz 的信号则被压制。图1中的周期为1000秒量级的信号被压制到了原来的千分之一。</p>
+<h2 id="地震仪的真实记录">地震仪的真实记录</h2>
+<p>图1中的原始地面运动 $s(t) \ast g(t)$ 在经过图2中的仪器响应 $i(t)$ 处理之后，即得到图3。
+超低频和超高频的信号被压制，留下地震学感兴趣的频段，即前面说的 $u(t)$：</p>
+<p><img src="/images/2013062303.png" alt="COLA台站的地震记录"></p>
+<p>与图1相比，长周期的正弦信号没了，地震信号被凸显出来了，最大振幅约为 $2.4\times10^6$。
 在0-300秒内，“地面”很安静，300秒左右，强烈的地震信号开始出现，持续了很长一段时间后，又恢复了平静。
-这里可以很明显地看到“平静-震动-平静”的过程。这才是地震数据处理理想的波形。</p><h2 id=小结>小结</h2><p>原始的地面运动 $s(t) \ast g(t)$（图1）中包含了震源以及介质的信息，当地面运动被仪器感知到之后，
-地面运动会卷积上仪器响应 $i(t)$（图2），最终得到地震仪的输出 $u(t)$（图3）。</p><p>实际在使用地震数据的时候，我们直接从seed文件中解压得到的是类似图3的波形。由于不同台站的仪器响应
+这里可以很明显地看到“平静-震动-平静”的过程。这才是地震数据处理理想的波形。</p>
+<h2 id="小结">小结</h2>
+<p>原始的地面运动 $s(t) \ast g(t)$（图1）中包含了震源以及介质的信息，当地面运动被仪器感知到之后，
+地面运动会卷积上仪器响应 $i(t)$（图2），最终得到地震仪的输出 $u(t)$（图3）。</p>
+<p>实际在使用地震数据的时候，我们直接从seed文件中解压得到的是类似图3的波形。由于不同台站的仪器响应
 可能不同，比如有长周期、短周期、宽频带等等。为了使得波形数据具有可比性，所有台站需要将各自的仪器响应
-去除（有时候需要将所有台站再卷积上某个特定的仪器响应）。</p><p>去仪器响应一般使用SAC的 <code>transfer</code> 命令，形式为 <code>transfer from xxx to none</code>。显然，直接
+去除（有时候需要将所有台站再卷积上某个特定的仪器响应）。</p>
+<p>去仪器响应一般使用SAC的 <code>transfer</code> 命令，形式为 <code>transfer from xxx to none</code>。显然，直接
 从地震仪的真实记录 $u(t)$ 中去除仪器响应 $i(t)$ 之后得到的图1（$s(t) \ast g(t)$）对用户来说
 是很糟糕的，毕竟潮汐波所在的周期不是我们地震学所关注的。所以在使用 <code>transfer</code> 命令时通常指定 <code>freq</code>
 选项，给定一个地震学所关注的频率段，形如 <code>transfer from xxx to none freq 0.05 0.1 10.0 15.0</code>。
-在去仪器响应时，应尽量选择一个较宽的频段，在后期数据处理时可以使用 <code>bandpass</code> 命令进行更窄的滤波。</p><p>最终得到的地震图如下：</p><p><img src=/images/2013062304.png alt=理想的地震图，由原始数据经过transfer之后得到。></p><h2 id=备注>备注</h2><ul><li>现实情况下，是很难获取地面的原始运动情况的。图1所谓的地面原始记录是通过地震记录图3直接去仪器响应
+在去仪器响应时，应尽量选择一个较宽的频段，在后期数据处理时可以使用 <code>bandpass</code> 命令进行更窄的滤波。</p>
+<p>最终得到的地震图如下：</p>
+<p><img src="/images/2013062304.png" alt="理想的地震图，由原始数据经过transfer之后得到。"></p>
+<h2 id="备注">备注</h2>
+<ul>
+<li>现实情况下，是很难获取地面的原始运动情况的。图1所谓的地面原始记录是通过地震记录图3直接去仪器响应
 得到的。说图1是地面原始记录只是为了帮助理解，实际上其应该不是真正的地面运动，而是<strong>仪器所能感知到</strong>
-的地面运动。</li><li>一般 <code>transfer</code> 的时候 <code>freq</code> 选项都会给一个很宽的频带，在后期处理数据的时候可能需要不断的调整
-滤波频段范围，所以把 <code>transfer</code> 之后的结果做一个备份是很重要的。</li></ul><h2 id=修订历史>修订历史</h2><ul><li>2013-06-23：初稿；</li><li>2013-07-05：修改了备注中关于“地面原始运动记录”的说明；</li><li>2014-02-17：修订了一些语句；</li><li>2014-07-06：修订了一些描述；</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
-<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
-<span class=item-content>2014-07-06</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
-<span>微信打赏</span></label>
-<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
-<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/%E4%BB%AA%E5%99%A8%E5%93%8D%E5%BA%94/>仪器响应</a></div><nav class=post-nav><a class=prev href=/instrumental-response-physical-details/><i class="iconfont icon-left"></i><span class="prev-text nav-default">仪器响应的物理细节</span>
-<span class="prev-text nav-mobile">上一篇</span></a>
-<a class=next href=/sitelog/><span class="next-text nav-default">建站日志</span>
-<span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
-<span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
-<span class=copyright-year>&copy;
-2013 -
-2020
-<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script><script type=text/javascript>window.MathJax={tex2jax:{inlineMath:[['$','$'],['\\(','\\)']]},showProcessingMessages:false,messageStyle:'none'};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin=anonymous></script></body></html>
+的地面运动。</li>
+<li>一般 <code>transfer</code> 的时候 <code>freq</code> 选项都会给一个很宽的频带，在后期处理数据的时候可能需要不断的调整
+滤波频段范围，所以把 <code>transfer</code> 之后的结果做一个备份是很重要的。</li>
+</ul>
+<h2 id="修订历史">修订历史</h2>
+<ul>
+<li>2013-06-23：初稿；</li>
+<li>2013-07-05：修改了备注中关于“地面原始运动记录”的说明；</li>
+<li>2014-02-17：修订了一些语句；</li>
+<li>2014-07-06：修订了一些描述；</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SeisMan</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2014-07-06
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E4%BB%AA%E5%99%A8%E5%93%8D%E5%BA%94/">仪器响应</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/instrumental-response-physical-details/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">仪器响应的物理细节</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/sitelog/">
+            <span class="next-text nav-default">建站日志</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,35 +1,213 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Linux 下的 GMT 中文支持 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="原生 GMT 是不支持中文的，想要让 GMT 支持中文，需要进行一番配置。想要理解整个问题，需要对 PostScript、CID 字体有更深刻的理解，这未免有些过于复杂。所以这篇博文只介绍一些基本的原理， 不一定准确但是却够用。
-让 GMT 支持中文，需要修改 ghostscript 和 GMT 的配置文件。由于不同发行版对 ghostscript 的打包 方式不同，不同的 ghostscript 版本之间的配置文件也有一些差异。因而这里以我在使用的 CentOS7 来介绍整个原理，其他发行版与CentOS7的差异会在文末列出。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.0 with theme even"><link rel=canonical href=https://blog.seisman.info/trash/gmt-chinese-under-linux/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="Linux 下的 GMT 中文支持"><meta property="og:description" content="原生 GMT 是不支持中文的，想要让 GMT 支持中文，需要进行一番配置。想要理解整个问题，需要对
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+
+  <title>Linux 下的 GMT 中文支持 - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="原生 GMT 是不支持中文的，想要让 GMT 支持中文，需要进行一番配置。想要理解整个问题，需要对 PostScript、CID 字体有更深刻的理解，这未免有些过于复杂。所以这篇博文只介绍一些基本的原理， 不一定准确但是却够用。
+让 GMT 支持中文，需要修改 ghostscript 和 GMT 的配置文件。由于不同发行版对 ghostscript 的打包 方式不同，不同的 ghostscript 版本之间的配置文件也有一些差异。因而这里以我在使用的 CentOS7 来介绍整个原理，其他发行版与CentOS7的差异会在文末列出。
+" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.1 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/trash/gmt-chinese-under-linux/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Linux 下的 GMT 中文支持" />
+<meta property="og:description" content="原生 GMT 是不支持中文的，想要让 GMT 支持中文，需要进行一番配置。想要理解整个问题，需要对
 PostScript、CID 字体有更深刻的理解，这未免有些过于复杂。所以这篇博文只介绍一些基本的原理，
 不一定准确但是却够用。
 让 GMT 支持中文，需要修改 ghostscript 和 GMT 的配置文件。由于不同发行版对 ghostscript 的打包
 方式不同，不同的 ghostscript 版本之间的配置文件也有一些差异。因而这里以我在使用的 CentOS7
-来介绍整个原理，其他发行版与CentOS7的差异会在文末列出。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/trash/gmt-chinese-under-linux/"><meta property="article:published_time" content="2013-08-13T00:00:00+00:00"><meta property="article:modified_time" content="2015-08-31T00:00:00+00:00"><meta itemprop=name content="Linux 下的 GMT 中文支持"><meta itemprop=description content="原生 GMT 是不支持中文的，想要让 GMT 支持中文，需要进行一番配置。想要理解整个问题，需要对
+来介绍整个原理，其他发行版与CentOS7的差异会在文末列出。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/trash/gmt-chinese-under-linux/" />
+<meta property="article:published_time" content="2013-08-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-08-31T00:00:00+00:00" />
+<meta itemprop="name" content="Linux 下的 GMT 中文支持">
+<meta itemprop="description" content="原生 GMT 是不支持中文的，想要让 GMT 支持中文，需要进行一番配置。想要理解整个问题，需要对
 PostScript、CID 字体有更深刻的理解，这未免有些过于复杂。所以这篇博文只介绍一些基本的原理，
 不一定准确但是却够用。
 让 GMT 支持中文，需要修改 ghostscript 和 GMT 的配置文件。由于不同发行版对 ghostscript 的打包
 方式不同，不同的 ghostscript 版本之间的配置文件也有一些差异。因而这里以我在使用的 CentOS7
-来介绍整个原理，其他发行版与CentOS7的差异会在文末列出。"><meta itemprop=datePublished content="2013-08-13T00:00:00+00:00"><meta itemprop=dateModified content="2015-08-31T00:00:00+00:00"><meta itemprop=wordCount content="2850"><meta itemprop=keywords content="GMT技巧,中文,Linux,"><meta name=twitter:card content="summary"><meta name=twitter:title content="Linux 下的 GMT 中文支持"><meta name=twitter:description content="原生 GMT 是不支持中文的，想要让 GMT 支持中文，需要进行一番配置。想要理解整个问题，需要对
+来介绍整个原理，其他发行版与CentOS7的差异会在文末列出。">
+<meta itemprop="datePublished" content="2013-08-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2015-08-31T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2850">
+
+
+
+<meta itemprop="keywords" content="GMT技巧,中文,Linux," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux 下的 GMT 中文支持"/>
+<meta name="twitter:description" content="原生 GMT 是不支持中文的，想要让 GMT 支持中文，需要进行一番配置。想要理解整个问题，需要对
 PostScript、CID 字体有更深刻的理解，这未免有些过于复杂。所以这篇博文只介绍一些基本的原理，
 不一定准确但是却够用。
 让 GMT 支持中文，需要修改 ghostscript 和 GMT 的配置文件。由于不同发行版对 ghostscript 的打包
 方式不同，不同的 ghostscript 版本之间的配置文件也有一些差异。因而这里以我在使用的 CentOS7
-来介绍整个原理，其他发行版与CentOS7的差异会在文末列出。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><div class=post-content><p>原生 GMT 是不支持中文的，想要让 GMT 支持中文，需要进行一番配置。想要理解整个问题，需要对
+来介绍整个原理，其他发行版与CentOS7的差异会在文末列出。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <p>原生 GMT 是不支持中文的，想要让 GMT 支持中文，需要进行一番配置。想要理解整个问题，需要对
 PostScript、CID 字体有更深刻的理解，这未免有些过于复杂。所以这篇博文只介绍一些基本的原理，
-不一定准确但是却够用。</p><p>让 GMT 支持中文，需要修改 ghostscript 和 GMT 的配置文件。由于不同发行版对 ghostscript 的打包
+不一定准确但是却够用。</p>
+<p>让 GMT 支持中文，需要修改 ghostscript 和 GMT 的配置文件。由于不同发行版对 ghostscript 的打包
 方式不同，不同的 ghostscript 版本之间的配置文件也有一些差异。因而这里以我在使用的 CentOS7
-来介绍整个原理，<strong>其他发行版与CentOS7的差异会在文末列出</strong>。</p><p>本文所使用的 Linux 环境：</p><ul><li>操作系统：CentOS 7.1</li><li>ghostscript：9.07</li><li>GMT：4.5.13（同样适用于 GMT 5.x）</li></ul><h2 id=准备工作>准备工作</h2><h3 id=gs-中文配置文件>gs 中文配置文件</h3><p>大多数发行版都已经默认安装了 gs。除此之外，还需要安装简体中文配置文件。CentOS
-7 下中文配置文件可以通过如下命令安装:</p><pre><code>sudo yum install ghostscript-chinese-zh_CN
-</code></pre><p>安装完成后，中文配置文件的路径为 <code>/usr/share/ghostscript/conf.d/cidfmap.zh_CN</code>，
-以下称为 ghostscript 中文配置文件。</p><h3 id=gmt-字体配置文件>GMT 字体配置文件</h3><p>假定 GMT 的安装路径为 <code>/opt/GMT-4.5.13</code> ，则字体配置文件的路径为 <code>/opt/GMT-4.5.13/share/pslib/PS_font_info.d</code> 。</p><p>PS：GMT 5.2.1 之后，字体配置文件的路径变成 <code>/opt/GMT-5.2.1/share/postscriptlight/PSL_standard_fonts.txt</code> 。</p><h2 id=使-gs-支持中文>使 gs 支持中文</h2><h3 id=gs-中文配置文件-1>gs 中文配置文件</h3><p>CentOS 7 中 ghostscript 中文配置文件的默认内容为:</p><pre><code>/BousungEG-Light-GB &lt;&lt;/FileType /TrueType /Path (/usr/share/fonts/wqy-zenhei/wqy-zenhei.ttc) /SubfontId 0 /CSI [(GB1) 4] &gt;&gt; ;
+来介绍整个原理，<strong>其他发行版与CentOS7的差异会在文末列出</strong>。</p>
+<p>本文所使用的 Linux 环境：</p>
+<ul>
+<li>操作系统：CentOS 7.1</li>
+<li>ghostscript：9.07</li>
+<li>GMT：4.5.13（同样适用于 GMT 5.x）</li>
+</ul>
+<h2 id="准备工作">准备工作</h2>
+<h3 id="gs-中文配置文件">gs 中文配置文件</h3>
+<p>大多数发行版都已经默认安装了 gs。除此之外，还需要安装简体中文配置文件。CentOS
+7 下中文配置文件可以通过如下命令安装:</p>
+<pre><code>sudo yum install ghostscript-chinese-zh_CN
+</code></pre>
+<p>安装完成后，中文配置文件的路径为 <code>/usr/share/ghostscript/conf.d/cidfmap.zh_CN</code>，
+以下称为 ghostscript 中文配置文件。</p>
+<h3 id="gmt-字体配置文件">GMT 字体配置文件</h3>
+<p>假定 GMT 的安装路径为 <code>/opt/GMT-4.5.13</code> ，则字体配置文件的路径为 <code>/opt/GMT-4.5.13/share/pslib/PS_font_info.d</code> 。</p>
+<p>PS：GMT 5.2.1 之后，字体配置文件的路径变成 <code>/opt/GMT-5.2.1/share/postscriptlight/PSL_standard_fonts.txt</code> 。</p>
+<h2 id="使-gs-支持中文">使 gs 支持中文</h2>
+<h3 id="gs-中文配置文件-1">gs 中文配置文件</h3>
+<p>CentOS 7 中 ghostscript 中文配置文件的默认内容为:</p>
+<pre><code>/BousungEG-Light-GB &lt;&lt;/FileType /TrueType /Path (/usr/share/fonts/wqy-zenhei/wqy-zenhei.ttc) /SubfontId 0 /CSI [(GB1) 4] &gt;&gt; ;
 /GBZenKai-Medium    &lt;&lt;/FileType /TrueType /Path (/usr/share/fonts/wqy-zenhei/wqy-zenhei.ttc) /SubfontId 0 /CSI [(GB1) 4] &gt;&gt; ;
 /MSungGBK-Light     /BousungEG-Light-GB ;
 /Adobe-GB1      /BousungEG-Light-GB ;
-</code></pre><p>其中的细节可能看不懂，但是可以大概总（xia）结（cai）如下：</p><ul><li>第一行定义了字体名为 <code>/BousungEG-Light-GB</code> ，对应的字体文件为 <code>/usr/share/fonts/wqy-zenhei/wqy-zenhei.ttc</code> ，也就是文泉驿正黑；</li><li>第二行定义了字体名为 <code>/GBZenKai-Medium</code>，对应的字体文件也是文泉驿正黑；</li><li>第三行和第四行分别定义了字体名 <code>/MSungGBK-Light</code> 和 <code>/Adobe-GB1</code>，这两种
-都对应于 <code>/BousungEG-Light-GB</code> ，相当于给字体定义了别名。</li></ul><p>关于配置文件的几点说明：</p><ul><li>字体名是任意的，比如字体名可以取为 <code>/ABC</code> ；</li><li>字体文件似乎只能是 <code>ttc</code> 或 <code>ttf</code> 格式的，当然修改参数也有可能可以使用其他格式的字体；</li><li>要注意确认字体文件是否存在，比如 CentOS7 下的 <code>wqy-zenhei.ttc</code> 字体实际上位于软件包
-<code>wqy-zenhei-fonts</code> 中。若字体不存在，则需要安装相应软件包。</li></ul><h3 id=测试-gs-对-linux-默认字体的支持>测试 gs 对 Linux 默认字体的支持</h3><p>CentOS7 的 ghostscript 中文配置文件中，默认有四行，分别定义了四个字体名，尽管本质上这四个
-字体名都指向同一个字体。下面先测试一下如何让 gs 显示 Linux 的默认字体。</p><p>用<strong>编辑器</strong>新建一个 PS 文件（是的，PS 文件其中就是纯文本，可以直接用编辑器编辑!），名为
-<code>linux_fonts.ps</code> ，其内容为:</p><pre><code>%! PS-Adobe-3. 0
+</code></pre>
+<p>其中的细节可能看不懂，但是可以大概总（xia）结（cai）如下：</p>
+<ul>
+<li>第一行定义了字体名为 <code>/BousungEG-Light-GB</code> ，对应的字体文件为   <code>/usr/share/fonts/wqy-zenhei/wqy-zenhei.ttc</code> ，也就是文泉驿正黑；</li>
+<li>第二行定义了字体名为 <code>/GBZenKai-Medium</code>，对应的字体文件也是文泉驿正黑；</li>
+<li>第三行和第四行分别定义了字体名 <code>/MSungGBK-Light</code> 和 <code>/Adobe-GB1</code>，这两种
+都对应于 <code>/BousungEG-Light-GB</code> ，相当于给字体定义了别名。</li>
+</ul>
+<p>关于配置文件的几点说明：</p>
+<ul>
+<li>字体名是任意的，比如字体名可以取为 <code>/ABC</code> ；</li>
+<li>字体文件似乎只能是 <code>ttc</code> 或 <code>ttf</code> 格式的，当然修改参数也有可能可以使用其他格式的字体；</li>
+<li>要注意确认字体文件是否存在，比如 CentOS7 下的 <code>wqy-zenhei.ttc</code> 字体实际上位于软件包
+<code>wqy-zenhei-fonts</code> 中。若字体不存在，则需要安装相应软件包。</li>
+</ul>
+<h3 id="测试-gs-对-linux-默认字体的支持">测试 gs 对 Linux 默认字体的支持</h3>
+<p>CentOS7 的 ghostscript 中文配置文件中，默认有四行，分别定义了四个字体名，尽管本质上这四个
+字体名都指向同一个字体。下面先测试一下如何让 gs 显示 Linux 的默认字体。</p>
+<p>用<strong>编辑器</strong>新建一个 PS 文件（是的，PS 文件其中就是纯文本，可以直接用编辑器编辑!），名为
+<code>linux_fonts.ps</code> ，其内容为:</p>
+<pre><code>%! PS-Adobe-3. 0
 /BousungEG-Light-GB--UniGB-UTF8-H findfont 20 scalefont setfont
 150 400 moveto
 (BousungEG 字体) show
@@ -49,11 +227,17 @@ PostScript、CID 字体有更深刻的理解，这未免有些过于复杂。所
 showpage
 %%Trailer
 %%EOF
-</code></pre><p>简单解释一下，PS 文件中要使用某个中文字体，需要用 <code>FontName--CMap</code> 的格式来调用。其中
+</code></pre>
+<p>简单解释一下，PS 文件中要使用某个中文字体，需要用 <code>FontName--CMap</code> 的格式来调用。其中
 <code>FontName</code> 即 gs 中文配置文件中给定的字体名。CMap 可以取 <code>UniGB-UTF8-H</code> 和 <code>GB-EUC-H</code>，
-Linux 下一般用前者，Windows 下一般用后者，应该是用于指定汉字或中文字体的编码，具体原理不知。</p><p>用 gs 查看该 PS 文件，正常情况下显示如下图，表明 gs 可以正常显示 Linux 下的默认中文字体。</p><p><img src=/images/2013081301.png alt></p><h3 id=添加-windows-中文字体>添加 Windows 中文字体</h3><p>Linux 的中文字体较少，所以这里使用 Windows 下中的中文字体，这里只考虑 Windows 下的宋体、仿宋、
+Linux 下一般用前者，Windows 下一般用后者，应该是用于指定汉字或中文字体的编码，具体原理不知。</p>
+<p>用 gs 查看该 PS 文件，正常情况下显示如下图，表明 gs 可以正常显示 Linux 下的默认中文字体。</p>
+<p><img src="/images/2013081301.png" alt=""></p>
+<h3 id="添加-windows-中文字体">添加 Windows 中文字体</h3>
+<p>Linux 的中文字体较少，所以这里使用 Windows 下中的中文字体，这里只考虑 Windows 下的宋体、仿宋、
 黑体和楷体四个基本字体。将这四个字体文件复制到 <code>/usr/share/fonts/winfonts/</code> 目录下，
-然后对 gs 的中文配置文件做如下修改:</p><pre><code>% 原内容保持不变
+然后对 gs 的中文配置文件做如下修改:</p>
+<pre><code>% 原内容保持不变
 /BousungEG-Light-GB &lt;&lt;/FileType /TrueType /Path (/usr/share/fonts/wqy-zenhei/wqy-zenhei.ttc) /SubfontId 0 /CSI [(GB1) 4] &gt;&gt; ;
 /GBZenKai-Medium    &lt;&lt;/FileType /TrueType /Path (/usr/share/fonts/wqy-zenhei/wqy-zenhei.ttc) /SubfontId 0 /CSI [(GB1) 4] &gt;&gt; ;
 /MSungGBK-Light     /BousungEG-Light-GB ;
@@ -64,8 +248,12 @@ Linux 下一般用前者，Windows 下一般用后者，应该是用于指定汉
 /STFangsong-Light &lt;&lt;/FileType /TrueType /Path (/usr/share/fonts/winfonts/simfang.ttf) /SubfontId 0 /CSI [(GB1) 4] &gt;&gt; ;
 /STHeiti-Regular &lt;&lt;/FileType /TrueType /Path (/usr/share/fonts/winfonts/simhei.ttf) /SubfontId 0 /CSI [(GB1) 4] &gt;&gt; ;
 /STKaiti-Regular &lt;&lt;/FileType /TrueType /Path (/usr/share/fonts/winfonts/simkai.ttf) /SubfontId 0 /CSI [(GB1) 4] &gt;&gt; ;
-</code></pre><p>这里仅以 Windows 下的常用四大字体为例。对于 Windows 下的其他中文字体、Linux 的其他中文字体甚至
-日韩字体来说，方法类似。</p><h3 id=测试-gs-对-windows-中文字体的支持>测试 gs 对 Windows 中文字体的支持</h3><p>用<strong>编辑器</strong>新建一个 PS 文件，名为 <code>windows_fonts.ps</code> ，其内容为:</p><pre><code>%! PS-Adobe-3. 0
+</code></pre>
+<p>这里仅以 Windows 下的常用四大字体为例。对于 Windows 下的其他中文字体、Linux 的其他中文字体甚至
+日韩字体来说，方法类似。</p>
+<h3 id="测试-gs-对-windows-中文字体的支持">测试 gs 对 Windows 中文字体的支持</h3>
+<p>用<strong>编辑器</strong>新建一个 PS 文件，名为 <code>windows_fonts.ps</code> ，其内容为:</p>
+<pre><code>%! PS-Adobe-3. 0
 /STSong-Light--UniGB-UTF8-H findfont 20 scalefont setfont
 150 400 moveto
 (Song Typeface 宋体) show
@@ -85,53 +273,99 @@ Linux 下一般用前者，Windows 下一般用后者，应该是用于指定汉
 showpage
 %%Trailer
 %%EOF
-</code></pre><p>用 gs 查看该 PS 文件，若正确显示中文如下图，则表明 gs 已支持 Windows 字体。</p><p><img src=/images/2013081302.png alt></p><h2 id=使-gmt-支持中文>使 GMT 支持中文</h2><h3 id=修改-gmt-字体配置文件>修改 GMT 字体配置文件</h3><p>打开 GMT 字体配置文件 <code>/opt/GMT-4.5.13/share/pslib/PS_font_info.d</code>，在文件最后加入
-如下语句（以 Windows 下的四大常用字体为例）:</p><pre><code>STSong-Light--UniGB-UTF8-H  0.700    1
+</code></pre>
+<p>用 gs 查看该 PS 文件，若正确显示中文如下图，则表明 gs 已支持 Windows 字体。</p>
+<p><img src="/images/2013081302.png" alt=""></p>
+<h2 id="使-gmt-支持中文">使 GMT 支持中文</h2>
+<h3 id="修改-gmt-字体配置文件">修改 GMT 字体配置文件</h3>
+<p>打开 GMT 字体配置文件 <code>/opt/GMT-4.5.13/share/pslib/PS_font_info.d</code>，在文件最后加入
+如下语句（以 Windows 下的四大常用字体为例）:</p>
+<pre><code>STSong-Light--UniGB-UTF8-H  0.700    1
 STFangsong-Light--UniGB-UTF8-H  0.700    1
 STHeiti-Regular--UniGB-UTF8-H   0.700   1
 STKaiti-Regular--UniGB-UTF8-H   0.700   1
-</code></pre><p>第一列为字体名，第二列为字母 A 的高度，第三列与编码有关。</p><h3 id=查看-gmt-当前支持的字体>查看 GMT 当前支持的字体</h3><p>用 <code>pstext -L</code> 命令查看 GMT 当前的字体配置：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ pstext -L
-Font <span style=color:#75715e>#  Font Name</span>
+</code></pre>
+<p>第一列为字体名，第二列为字母 A 的高度，第三列与编码有关。</p>
+<h3 id="查看-gmt-当前支持的字体">查看 GMT 当前支持的字体</h3>
+<p>用 <code>pstext -L</code> 命令查看 GMT 当前的字体配置：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ pstext -L
+Font <span style="color:#75715e">#  Font Name</span>
 ------------------------------------
-<span style=color:#ae81ff>0</span>   Helvetica
-<span style=color:#ae81ff>1</span>   Helvetica-Bold
+<span style="color:#ae81ff">0</span>   Helvetica
+<span style="color:#ae81ff">1</span>   Helvetica-Bold
 ...    ......
-<span style=color:#ae81ff>32</span>  Palatino-BoldItalic
-<span style=color:#ae81ff>33</span>  ZapfChancery-MediumItalic
-<span style=color:#ae81ff>34</span>  ZapfDingbats
-<span style=color:#ae81ff>35</span> STSong-Light--UniGB-UTF8-H
-<span style=color:#ae81ff>36</span> STFangsong-Light--UniGB-UTF8-H
-<span style=color:#ae81ff>37</span> STHeiti-Regular--UniGB-UTF8-H
-<span style=color:#ae81ff>38</span> STKaiti-Regular--UniGB-UTF8-H
-</code></pre></div><p>其中 0-34 为 GMT/gs 默认支持的西文字体，35 至 38 为新添加的中文字体。</p><h3 id=gmt-中文测试>GMT 中文测试</h3><p>GMT4 测试脚本：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e>#!/bin/bash
-</span><span style=color:#75715e></span>gmtset HEADER_FONT <span style=color:#ae81ff>35</span>
+<span style="color:#ae81ff">32</span>  Palatino-BoldItalic
+<span style="color:#ae81ff">33</span>  ZapfChancery-MediumItalic
+<span style="color:#ae81ff">34</span>  ZapfDingbats
+<span style="color:#ae81ff">35</span> STSong-Light--UniGB-UTF8-H
+<span style="color:#ae81ff">36</span> STFangsong-Light--UniGB-UTF8-H
+<span style="color:#ae81ff">37</span> STHeiti-Regular--UniGB-UTF8-H
+<span style="color:#ae81ff">38</span> STKaiti-Regular--UniGB-UTF8-H
+</code></pre></div><p>其中 0-34 为 GMT/gs 默认支持的西文字体，35 至 38 为新添加的中文字体。</p>
+<h3 id="gmt-中文测试">GMT 中文测试</h3>
+<p>GMT4 测试脚本：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>gmtset HEADER_FONT <span style="color:#ae81ff">35</span>
 
-pstext -R0/10/0/3 -JX15c/3c -B1/1:.<span style=color:#e6db74>&#34;GMT中文支持&#34;</span>: -P &gt; cn.ps <span style=color:#e6db74>&lt;&lt;EOF
-</span><span style=color:#e6db74>1.5 2 30 0 35 LM GMT宋体
-</span><span style=color:#e6db74>1.5 1 30 0 36 LM GMT仿宋
-</span><span style=color:#e6db74>5.5 2 30 0 37 LM GMT黑体
-</span><span style=color:#e6db74>5.5 1 30 0 38 LM GMT楷体
-</span><span style=color:#e6db74>EOF</span>
+pstext -R0/10/0/3 -JX15c/3c -B1/1:.<span style="color:#e6db74">&#34;GMT中文支持&#34;</span>: -P &gt; cn.ps <span style="color:#e6db74">&lt;&lt;EOF
+</span><span style="color:#e6db74">1.5 2 30 0 35 LM GMT宋体
+</span><span style="color:#e6db74">1.5 1 30 0 36 LM GMT仿宋
+</span><span style="color:#e6db74">5.5 2 30 0 37 LM GMT黑体
+</span><span style="color:#e6db74">5.5 1 30 0 38 LM GMT楷体
+</span><span style="color:#e6db74">EOF</span>
 
 rm .gmt*
-</code></pre></div><p>成图效果如下</p><p><img src=/images/2013081303.png alt></p><p>GMT5 测试脚本：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e>#!/bin/bash
-</span><span style=color:#75715e></span>gmt gmtset FONT_TITLE 40p,35,black
+</code></pre></div><p>成图效果如下</p>
+<p><img src="/images/2013081303.png" alt=""></p>
+<p>GMT5 测试脚本：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>gmt gmtset FONT_TITLE 40p,35,black
 
-gmt pstext -R0/10/0/3 -JX15c/3c -Bafg -B+t<span style=color:#e6db74>&#34;GMT中文支持&#34;</span> -F+a+c+f -P &gt; gmt5_cn.ps <span style=color:#e6db74>&lt;&lt; EOF
-</span><span style=color:#e6db74>3 2.1 0 LM 35p,35,red   GMT宋体
-</span><span style=color:#e6db74>3 0.9 0 LM 35p,36,blue  GMT仿宋
-</span><span style=color:#e6db74>7 2.1 0 LM 35p,37,black GMT黑体
-</span><span style=color:#e6db74>7 0.9 0 LM 35p,38,green GMT楷体
-</span><span style=color:#e6db74>EOF</span>
+gmt pstext -R0/10/0/3 -JX15c/3c -Bafg -B+t<span style="color:#e6db74">&#34;GMT中文支持&#34;</span> -F+a+c+f -P &gt; gmt5_cn.ps <span style="color:#e6db74">&lt;&lt; EOF
+</span><span style="color:#e6db74">3 2.1 0 LM 35p,35,red   GMT宋体
+</span><span style="color:#e6db74">3 0.9 0 LM 35p,36,blue  GMT仿宋
+</span><span style="color:#e6db74">7 2.1 0 LM 35p,37,black GMT黑体
+</span><span style="color:#e6db74">7 0.9 0 LM 35p,38,green GMT楷体
+</span><span style="color:#e6db74">EOF</span>
 
 rm gmt.*
-</code></pre></div><p>成图效果如下</p><p><img src=/images/2013081304.png alt></p><h2 id=对其他发行版的若干说明>对其他发行版的若干说明</h2><p>其他发行版与 CentOS 7 之间或多或少有一些区别，列举如下。</p><h3 id=centos-6>CentOS 6</h3><ol><li><p>gs 中文配置文件需要用如下命令安装:</p><pre><code>sudo yum install cjkuni-fonts-ghostscript
-</code></pre><p>在安装配置文件的同时会安装中文字体 uming 和 ukai</p></li><li><p>gs 中文配置文件中给定的字体路径： <code>/usr/share/fonts/cjkuni/uming.ttc</code>
+</code></pre></div><p>成图效果如下</p>
+<p><img src="/images/2013081304.png" alt=""></p>
+<h2 id="对其他发行版的若干说明">对其他发行版的若干说明</h2>
+<p>其他发行版与 CentOS 7 之间或多或少有一些区别，列举如下。</p>
+<h3 id="centos-6">CentOS 6</h3>
+<ol>
+<li>
+<p>gs 中文配置文件需要用如下命令安装:</p>
+<pre><code>sudo yum install cjkuni-fonts-ghostscript
+</code></pre>
+<p>在安装配置文件的同时会安装中文字体 uming 和 ukai</p>
+</li>
+<li>
+<p>gs 中文配置文件中给定的字体路径： <code>/usr/share/fonts/cjkuni/uming.ttc</code>
 和 <code>/usr/share/fonts/cjkuni/ukai.ttc</code> 是错误的。正确的字体路径是
 <code>/usr/share/fonts/cjkui-uming/uming.ttc</code>` 和
-<code>/usr/share/fonts/cjkuni-ukai/ukai.ttc</code> ，要注意改正。</p></li></ol><h3 id=ubuntu-14041504>Ubuntu 14.04/15.04</h3><ol><li><p>gs 中文配置文件可以用如下命令安装（默认已安装）:</p><pre><code>sudo apt-get install poppler-data
-</code></pre></li><li><p>gs 中文配置文件路径为：<code>/etc/ghostscript/cidfmap.d/90gs-cjk-resource-gb1.conf</code></p></li><li><p>gs 中文配置文件中默认使用的 Linux 字体为 uming 和 ukai，需要通过如下命令安装:</p><pre><code>sudo apt-get install fonts-arphic-uming fonts-arphic-ukai
-</code></pre></li><li><p>gs 中文配置文件的默认内容为:</p><pre><code>/BousungEG-Light-GB &lt;&lt;/FileType /TrueType /Path (/usr/share/fonts/truetype/arphic/uming.ttc) /SubfontId 0 /CSI [(GB1) 4] &gt;&gt; ;
+<code>/usr/share/fonts/cjkuni-ukai/ukai.ttc</code> ，要注意改正。</p>
+</li>
+</ol>
+<h3 id="ubuntu-14041504">Ubuntu 14.04/15.04</h3>
+<ol>
+<li>
+<p>gs 中文配置文件可以用如下命令安装（默认已安装）:</p>
+<pre><code>sudo apt-get install poppler-data
+</code></pre>
+</li>
+<li>
+<p>gs 中文配置文件路径为：<code>/etc/ghostscript/cidfmap.d/90gs-cjk-resource-gb1.conf</code></p>
+</li>
+<li>
+<p>gs 中文配置文件中默认使用的 Linux 字体为 uming 和 ukai，需要通过如下命令安装:</p>
+<pre><code>sudo apt-get install fonts-arphic-uming fonts-arphic-ukai
+</code></pre>
+</li>
+<li>
+<p>gs 中文配置文件的默认内容为:</p>
+<pre><code>/BousungEG-Light-GB &lt;&lt;/FileType /TrueType /Path (/usr/share/fonts/truetype/arphic/uming.ttc) /SubfontId 0 /CSI [(GB1) 4] &gt;&gt; ;
 /GBZenKai-Medium    &lt;&lt;/FileType /TrueType /Path (/usr/share/fonts/truetype/arphic/ukai.ttc) /SubfontId 0 /CSI [(GB1) 4] &gt;&gt; ;
 /Song-Medium /GBZenKai-Medium ;
 /STSong-Light /BousungEG-Light-GB ;
@@ -140,7 +374,9 @@ rm gmt.*
 /STKaiti-Regular /BousungEG-Light-GB ;
 /Adobe-GB1      /BousungEG-Light-GB ;
 /Adobe-GB1-Bold /GBZenKai-Medium ;
-</code></pre><p>需要将该文件改成:</p><pre><code>% 原配置文件的内容，与 STSong-Light 等相关的四行必须删除
+</code></pre>
+<p>需要将该文件改成:</p>
+<pre><code>% 原配置文件的内容，与 STSong-Light 等相关的四行必须删除
 /BousungEG-Light-GB &lt;&lt;/FileType /TrueType /Path (/usr/share/fonts/truetype/arphic/uming.ttc) /SubfontId 0 /CSI [(GB1) 4] &gt;&gt; ;
 /GBZenKai-Medium    &lt;&lt;/FileType /TrueType /Path (/usr/share/fonts/truetype/arphic/ukai.ttc) /SubfontId 0 /CSI [(GB1) 4] &gt;&gt; ;
 /Song-Medium /GBZenKai-Medium ;
@@ -152,17 +388,125 @@ rm gmt.*
 /STFangsong-Light &lt;&lt;/FileType /TrueType /Path (/usr/share/fonts/winfonts/simfang.ttf) /SubfontId 0 /CSI [(GB1) 4] &gt;&gt; ;
 /STHeiti-Regular &lt;&lt;/FileType /TrueType /Path (/usr/share/fonts/winfonts/simhei.ttf) /SubfontId 0 /CSI [(GB1) 4] &gt;&gt; ;
 /STKaiti-Regular &lt;&lt;/FileType /TrueType /Path (/usr/share/fonts/winfonts/simkai.ttf) /SubfontId 0 /CSI [(GB1) 4] &gt;&gt; ;
-</code></pre><p>修改完 gs 中文配置文件后，必须要执行如下命令:</p><pre><code>$ sudo update-gsfontmap
-</code></pre><p>该命令会将 <code>/etc/ghostscript/cidfmap.d/*.conf</code> 合并成单独的文件
+</code></pre>
+<p>修改完 gs 中文配置文件后，必须要执行如下命令:</p>
+<pre><code>$ sudo update-gsfontmap
+</code></pre>
+<p>该命令会将 <code>/etc/ghostscript/cidfmap.d/*.conf</code> 合并成单独的文件
 <code>/var/lib/ghostscript/fonts/cidfmap</code> 。gs 在需要中文字体时会读取
 <code>/var/lib/ghostscript/fonts/cidfmap</code> 而不是
 <code>/etc/ghostscript/cidfmap.d/*.conf</code>
-。这是 Ubuntu/Debian 和 CentOS 的一个很大不同。</p></li></ol><h3 id=ubuntu-1204>Ubuntu 12.04</h3><ol><li><p>gs 中文配置文件需要用如下命令安装:</p><pre><code>sudo apt-get install gs-cjk-resource
-</code></pre></li><li><p>其他部分未做测试，估计跟 Ubuntu 15.05 差不多。</p></li></ol><h2 id=可移植性的测试>可移植性的测试</h2><ul><li>本机：用 vi 打开 PS 文件，中文正常显示；</li><li>本机：gs 查看正常；</li><li>本机：ps2raster 转换为 PDF，用 evince、zathura 查看正常；</li><li>本机：ps2pdf 转换为 PDF，用 evince、zathura 查看正常；</li><li>复制到 Windows：用 gs 查看正常；</li></ul><h2 id=参考资料>参考资料</h2><ol><li>GMT 软件显示汉字的技术原理与实现*，赵桂儒，《测绘通报》*</li><li><a href=http://guoyoooping.blog.163.com/blog/static/13570518320101291442176>ghostscript 中文打印经验</a></li><li><a href=http://xxqhome.blog.163.com/blog/static/1967330202011112810120598/>GMT 中文支持</a></li><li><a href=http://hi.baidu.com/guyueshuiming/item/0052df53852ee4494fff20c3>GMT chinese support</a></li><li><a href=https://en.wikipedia.org/wiki/PostScript>维基词条：PostScript</a></li><li><a href=https://wiki.debian.org/gs-undefoma>Debian Wiki</a></li></ol><h2 id=更新历史>更新历史</h2><ul><li>2013-05-15：修正了中文测试脚本的一个 bug。</li><li>2013-05-16：系统默认未安装 ghostscript 的中文字体包，conf.d 文件夹为空，通过安装相应中文包解决该问题。</li><li>2013-08-17：添加了字体以及 ghostscript 可能需要的几个安装包的信息；以及在新增字体后要重建字体缓存。</li><li>2014-10-14：重写整个文档，使其更具有普遍性；</li><li>2015-08-31：Ubuntu 下需要使用 <code>update-gsfontmap</code> 命令来更新中文配置文件；</li></ul></div></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
-<span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
-<span class=copyright-year>&copy;
-2013 -
-2020
-<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>
+。这是 Ubuntu/Debian 和 CentOS 的一个很大不同。</p>
+</li>
+</ol>
+<h3 id="ubuntu-1204">Ubuntu 12.04</h3>
+<ol>
+<li>
+<p>gs 中文配置文件需要用如下命令安装:</p>
+<pre><code>sudo apt-get install gs-cjk-resource
+</code></pre>
+</li>
+<li>
+<p>其他部分未做测试，估计跟 Ubuntu 15.05 差不多。</p>
+</li>
+</ol>
+<h2 id="可移植性的测试">可移植性的测试</h2>
+<ul>
+<li>本机：用 vi 打开 PS 文件，中文正常显示；</li>
+<li>本机：gs 查看正常；</li>
+<li>本机：ps2raster 转换为 PDF，用 evince、zathura 查看正常；</li>
+<li>本机：ps2pdf 转换为 PDF，用 evince、zathura 查看正常；</li>
+<li>复制到 Windows：用 gs 查看正常；</li>
+</ul>
+<h2 id="参考资料">参考资料</h2>
+<ol>
+<li>GMT 软件显示汉字的技术原理与实现*，赵桂儒，《测绘通报》*</li>
+<li><a href="http://guoyoooping.blog.163.com/blog/static/13570518320101291442176">ghostscript 中文打印经验</a></li>
+<li><a href="http://xxqhome.blog.163.com/blog/static/1967330202011112810120598/">GMT 中文支持</a></li>
+<li><a href="http://hi.baidu.com/guyueshuiming/item/0052df53852ee4494fff20c3">GMT chinese support</a></li>
+<li><a href="https://en.wikipedia.org/wiki/PostScript">维基词条：PostScript</a></li>
+<li><a href="https://wiki.debian.org/gs-undefoma">Debian Wiki</a></li>
+</ol>
+<h2 id="更新历史">更新历史</h2>
+<ul>
+<li>2013-05-15：修正了中文测试脚本的一个 bug。</li>
+<li>2013-05-16：系统默认未安装 ghostscript 的中文字体包，conf.d 文件夹为空，通过安装相应中文包解决该问题。</li>
+<li>2013-08-17：添加了字体以及 ghostscript 可能需要的几个安装包的信息；以及在新增字体后要重建字体缓存。</li>
+<li>2014-10-14：重写整个文档，使其更具有普遍性；</li>
+<li>2015-08-31：Ubuntu 下需要使用 <code>update-gsfontmap</code> 命令来更新中文配置文件；</li>
+</ul>
+  </div>
+</article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

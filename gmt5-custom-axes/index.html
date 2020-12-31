@@ -1,33 +1,227 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>GMT5 自定义坐标轴 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Joe Wang"><meta name=description content="问题的提出 GMT 绘图时可以使用 -B 选项指定每个坐标轴的刻度、标注以及网格线。默认情况下的设置有时可能无法 满足需求，比如想要在特定位置设置刻度，比如任意格式的日期、非 log10 的刻度等，就需要自己设置了。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.0 with theme even"><link rel=canonical href=https://blog.seisman.info/gmt5-custom-axes/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="GMT5 自定义坐标轴"><meta property="og:description" content="问题的提出
-GMT 绘图时可以使用 -B 选项指定每个坐标轴的刻度、标注以及网格线。默认情况下的设置有时可能无法
-满足需求，比如想要在特定位置设置刻度，比如任意格式的日期、非 log10 的刻度等，就需要自己设置了。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/gmt5-custom-axes/"><meta property="article:published_time" content="2015-06-06T00:00:00+00:00"><meta property="article:modified_time" content="2015-06-06T00:00:00+00:00"><meta itemprop=name content="GMT5 自定义坐标轴"><meta itemprop=description content="问题的提出
-GMT 绘图时可以使用 -B 选项指定每个坐标轴的刻度、标注以及网格线。默认情况下的设置有时可能无法
-满足需求，比如想要在特定位置设置刻度，比如任意格式的日期、非 log10 的刻度等，就需要自己设置了。"><meta itemprop=datePublished content="2015-06-06T00:00:00+00:00"><meta itemprop=dateModified content="2015-06-06T00:00:00+00:00"><meta itemprop=wordCount content="649"><meta itemprop=keywords content="GMT技巧,"><meta name=twitter:card content="summary"><meta name=twitter:title content="GMT5 自定义坐标轴"><meta name=twitter:description content="问题的提出
-GMT 绘图时可以使用 -B 选项指定每个坐标轴的刻度、标注以及网格线。默认情况下的设置有时可能无法
-满足需求，比如想要在特定位置设置刻度，比如任意格式的日期、非 log10 的刻度等，就需要自己设置了。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>GMT5 自定义坐标轴</h1><div class=post-meta><span class=post-time>2015-06-06</span><div class=post-category><a href=/categories/GMT/>GMT</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#问题的提出>问题的提出</a></li><li><a href=#解决方案>解决方案</a></li><li><a href=#示例>示例</a></li><li><a href=#修订历史>修订历史</a></li></ul></nav></div></div><div class=post-content><h2 id=问题的提出>问题的提出</h2><p>GMT 绘图时可以使用 <code>-B</code> 选项指定每个坐标轴的刻度、标注以及网格线。默认情况下的设置有时可能无法
-满足需求，比如想要在特定位置设置刻度，比如任意格式的日期、非 log10 的刻度等，就需要自己设置了。</p><h2 id=解决方案>解决方案</h2><p>GMT5 的 <code>-B</code> 选项，使用 <code>-B[p|s]x|ycYourTickFileName</code> 语法可以自定义轴的标注及刻度。</p><h2 id=示例>示例</h2><p>想要画一张中国西南地区 2008~2013 年地震活动性的 XY 图，要求：</p><ol><li>X 坐标的 Primary 标注是 <code>yyyymmdd</code> 日期格式；</li><li>Secondary 刻度位于每个季度的最后一天，比如，2008 年第一季度 20080331，第二季度 20080630，第三季度 20080930。</li></ol><p>代码如下：</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>input<span style=color:#f92672>=</span>chuandian_eq.txt
-title<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Southwest China Seismicity&#34;</span>
-PS<span style=color:#f92672>=</span>chuandian_seismicity.ps
-J<span style=color:#f92672>=</span>X6i/2i
-R<span style=color:#f92672>=</span>1/2192/3/9
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-gmt psbasemap -J$J -R$R -BWSen+t<span style=color:#e6db74>&#34;</span>$title<span style=color:#e6db74>&#34;</span>  -Bya1f0.5+lMagnitude -BpxcDateTick_px.txt -P -K &gt; $PS
+  
+
+  <title>GMT5 自定义坐标轴 - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Joe Wang" /><meta name="description" content="问题的提出 GMT 绘图时可以使用 -B 选项指定每个坐标轴的刻度、标注以及网格线。默认情况下的设置有时可能无法 满足需求，比如想要在特定位置设置刻度，比如任意格式的日期、非 log10 的刻度等，就需要自己设置了。
+" /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.1 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/gmt5-custom-axes/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="GMT5 自定义坐标轴" />
+<meta property="og:description" content="问题的提出
+GMT 绘图时可以使用 -B 选项指定每个坐标轴的刻度、标注以及网格线。默认情况下的设置有时可能无法
+满足需求，比如想要在特定位置设置刻度，比如任意格式的日期、非 log10 的刻度等，就需要自己设置了。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/gmt5-custom-axes/" />
+<meta property="article:published_time" content="2015-06-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-06-06T00:00:00+00:00" />
+<meta itemprop="name" content="GMT5 自定义坐标轴">
+<meta itemprop="description" content="问题的提出
+GMT 绘图时可以使用 -B 选项指定每个坐标轴的刻度、标注以及网格线。默认情况下的设置有时可能无法
+满足需求，比如想要在特定位置设置刻度，比如任意格式的日期、非 log10 的刻度等，就需要自己设置了。">
+<meta itemprop="datePublished" content="2015-06-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2015-06-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="649">
+
+
+
+<meta itemprop="keywords" content="GMT技巧," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GMT5 自定义坐标轴"/>
+<meta name="twitter:description" content="问题的提出
+GMT 绘图时可以使用 -B 选项指定每个坐标轴的刻度、标注以及网格线。默认情况下的设置有时可能无法
+满足需求，比如想要在特定位置设置刻度，比如任意格式的日期、非 log10 的刻度等，就需要自己设置了。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">GMT5 自定义坐标轴</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2015-06-06 </span>
+        <div class="post-category">
+            <a href="/categories/GMT/"> GMT </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#问题的提出">问题的提出</a></li>
+    <li><a href="#解决方案">解决方案</a></li>
+    <li><a href="#示例">示例</a></li>
+    <li><a href="#修订历史">修订历史</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="问题的提出">问题的提出</h2>
+<p>GMT 绘图时可以使用 <code>-B</code> 选项指定每个坐标轴的刻度、标注以及网格线。默认情况下的设置有时可能无法
+满足需求，比如想要在特定位置设置刻度，比如任意格式的日期、非 log10 的刻度等，就需要自己设置了。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>GMT5 的 <code>-B</code> 选项，使用 <code>-B[p|s]x|ycYourTickFileName</code> 语法可以自定义轴的标注及刻度。</p>
+<h2 id="示例">示例</h2>
+<p>想要画一张中国西南地区 2008~2013 年地震活动性的 XY 图，要求：</p>
+<ol>
+<li>X 坐标的 Primary 标注是 <code>yyyymmdd</code> 日期格式；</li>
+<li>Secondary 刻度位于每个季度的最后一天，比如，2008 年第一季度 20080331，第二季度 20080630，第三季度 20080930。</li>
+</ol>
+<p>代码如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">input<span style="color:#f92672">=</span>chuandian_eq.txt
+title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Southwest China Seismicity&#34;</span>
+PS<span style="color:#f92672">=</span>chuandian_seismicity.ps
+J<span style="color:#f92672">=</span>X6i/2i
+R<span style="color:#f92672">=</span>1/2192/3/9
+
+gmt psbasemap -J$J -R$R -BWSen+t<span style="color:#e6db74">&#34;</span>$title<span style="color:#e6db74">&#34;</span>  -Bya1f0.5+lMagnitude -BpxcDateTick_px.txt -P -K &gt; $PS
 gmt psbasemap -J$J -R$R -BsxcDateTick_sx.txt -K -O &gt;&gt; $PS
-awk <span style=color:#e6db74>&#39;{print $1, $3}&#39;</span> $input | gmt psxy -JX6i/2i -R1/2192/3/9 -Sc0.1c -W1p,black -O &gt;&gt; $PS
+awk <span style="color:#e6db74">&#39;{print $1, $3}&#39;</span> $input | gmt psxy -JX6i/2i -R1/2192/3/9 -Sc0.1c -W1p,black -O &gt;&gt; $PS
 rm gmt.*
-</code></pre></div><p>成图效果：</p><p><img src=/images/2015060601.png alt></p><p>代码说明：</p><ol><li><p><code>chuandian_eq.txt</code> 中包含了中国西南 2008~2013 年大于等于 4 级地震事件，文件有三列，第一列是从 20080101 为第一天起算的日期序号，第二列是日期，第三列是震级，格式如下:</p><pre><code>32 20080201 4.800000
+</code></pre></div><p>成图效果：</p>
+<p><img src="/images/2015060601.png" alt=""></p>
+<p>代码说明：</p>
+<ol>
+<li>
+<p><code>chuandian_eq.txt</code> 中包含了中国西南 2008~2013 年大于等于 4 级地震事件，文件有三列，第一列是从 20080101 为第一天起算的日期序号，第二列是日期，第三列是震级，格式如下:</p>
+<pre><code>32 20080201 4.800000
 47 20080216 4.400000
 58 20080227 5.000000
 95 20080404 4.100000
 ...
-</code></pre></li><li><p><code>DateTick_px.txt</code> 用于控制 Primary 标注。其内容有三列，第一列是标注的 X 坐标，第二列可以是 <code>a</code> 或 <code>f</code> 或 <code>g</code>，这里使用的是 <code>a</code>，表示当前文件控制的是标注 (annotations)，第三列是用户自定义的要显示的标注，如:</p><pre><code>1 a 20080101
+</code></pre>
+</li>
+<li>
+<p><code>DateTick_px.txt</code> 用于控制 Primary 标注。其内容有三列，第一列是标注的 X 坐标，第二列可以是 <code>a</code> 或 <code>f</code> 或 <code>g</code>，这里使用的是 <code>a</code>，表示当前文件控制的是标注 (annotations)，第三列是用户自定义的要显示的标注，如:</p>
+<pre><code>1 a 20080101
 367 a 20090101
 732 a 20100101
 1097 a 20110101
 1462 a 20120101
 1828 a 20130101
 2192 a 20131231
-</code></pre></li><li><p><code>DateTick_sx.txt</code> 用于控制 Secondary 刻度 (frame)，其内容如下:</p><pre><code>91  f 20080331
+</code></pre>
+</li>
+<li>
+<p><code>DateTick_sx.txt</code> 用于控制 Secondary 刻度 (frame)，其内容如下:</p>
+<pre><code>91  f 20080331
 182 f 20080630
 274 f 20080930
 456 f 20090331
@@ -45,22 +239,136 @@ rm gmt.*
 1917 f 20130331
 2008 f 20130630
 2100 f 20130930
-</code></pre></li><li><p>似乎一个命令中只能使用一次自定义轴语法，故而这里使用了两次 <code>psbasemap</code>，分别完成
-Primary 标注和 Secondary 刻度的绘制，然后再调用 <code>psxy</code> 绘制具体数据。</p></li></ol><h2 id=修订历史>修订历史</h2><ol><li>初稿 By Joe Wang(<a href=mailto:cjmuqiao@163.com>cjmuqiao@163.com</a>)；</li></ol></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
-<span class=item-content>Joe Wang</span></p><p class=copyright-item><span class=item-title>上次更新</span>
-<span class=item-content>2015-06-06</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
-<span>微信打赏</span></label>
-<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
-<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/GMT%E6%8A%80%E5%B7%A7/>GMT技巧</a></div><nav class=post-nav><a class=prev href=/convert-seed-to-sac/><i class="iconfont icon-left"></i><span class="prev-text nav-default">SEED 格式转 SAC 格式</span>
-<span class="prev-text nav-mobile">上一篇</span></a>
-<a class=next href=/tau-integral-in-spherical-earth/><span class="next-text nav-default">球状模型下的 tau 积分</span>
-<span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
-<span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
-<span class=copyright-year>&copy;
-2013 -
-2020
-<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>
+</code></pre>
+</li>
+<li>
+<p>似乎一个命令中只能使用一次自定义轴语法，故而这里使用了两次 <code>psbasemap</code>，分别完成
+Primary 标注和 Secondary 刻度的绘制，然后再调用 <code>psxy</code> 绘制具体数据。</p>
+</li>
+</ol>
+<h2 id="修订历史">修订历史</h2>
+<ol>
+<li>初稿 By Joe Wang(<a href="mailto:cjmuqiao@163.com">cjmuqiao@163.com</a>)；</li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Joe Wang</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2015-06-06
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">赞赏支持</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/wechatpay-qr-code.png">
+        <span>微信打赏</span>
+      </label>
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/images/alipay-qr-code.png">
+        <span>支付宝打赏</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/GMT%E6%8A%80%E5%B7%A7/">GMT技巧</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/convert-seed-to-sac/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">SEED 格式转 SAC 格式</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/tau-integral-in-spherical-earth/">
+            <span class="next-text nav-default">球状模型下的 tau 积分</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,8 +1,81 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>C on SeisMan</title><link>https://blog.seisman.info/tags/C/</link><description>Recent content in C on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 29 Apr 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/C/index.xml" rel="self" type="application/rss+xml"/><item><title>调用 SAC 进行 Hilbert 变换</title><link>https://blog.seisman.info/trash/sac-hilbert-transform/</link><pubDate>Wed, 29 Apr 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/sac-hilbert-transform/</guid><description>&lt;p>需要在 C 程序中对数据做 Hilbert 变换，自己写显然是不可能的啦，重复造轮子不说，
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C on SeisMan</title>
+    <link>https://blog.seisman.info/tags/C/</link>
+    <description>Recent content in C on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 29 Apr 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>调用 SAC 进行 Hilbert 变换</title>
+      <link>https://blog.seisman.info/trash/sac-hilbert-transform/</link>
+      <pubDate>Wed, 29 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/sac-hilbert-transform/</guid>
+      <description>&lt;p&gt;需要在 C 程序中对数据做 Hilbert 变换，自己写显然是不可能的啦，重复造轮子不说，
 写的还不一定对。找了一些代码，发现都写的好复杂，后来发现 SAC 在函数库中提供了
-Hilbert 变换的接口，可以直接调用。&lt;/p>
-&lt;p>&lt;code>firtrn&lt;/code> 可以用于对数据进行 Hilbert 变换，但是官方没有给一个比较直白的例子。
-下面就贴一个我写的例子啦。&lt;/p></description></item><item><title>在 C 程序中读写 SAC 文件</title><link>https://blog.seisman.info/trash/sacio-c/</link><pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/sacio-c/</guid><description>&lt;h2 id="序言">序言&lt;/h2>
-&lt;p>SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 C 程序中读写 SAC 文件。&lt;/p></description></item><item><title>计算某日是一年中的第几天</title><link>https://blog.seisman.info/calculate-jday/</link><pubDate>Sat, 18 Jan 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/calculate-jday/</guid><description>&lt;p>两个子程序， &lt;code>ymd2doy&lt;/code> 用于从年月日计算该日为当年的第几天， &lt;code>doy2ymd&lt;/code> 用于根据年份以及
-该年的第几天来确定月和日。&lt;/p></description></item><item><title>Intel 非商业开发工具</title><link>https://blog.seisman.info/intel-non-commercial-software/</link><pubDate>Tue, 10 Sep 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/intel-non-commercial-software/</guid><description>Intel 的软件开发工具包括：C/C++ 编译器、Fortran 编译器、MKL 数学库、MPI 并行库等。 这一套开发工具价格很贵，但是 Intel 为科研工作者、学生</description></item><item><title>fk3.3 编译</title><link>https://blog.seisman.info/fk-install/</link><pubDate>Sun, 01 Sep 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/fk-install/</guid><description>&lt;p>fk 是 &lt;a href="http://www.eas.slu.edu/People/LZhu/home.html">Prof. Lupei Zhu&lt;/a> 写的一个计算水平分层介质中理论地震图的小程序。&lt;/p></description></item><item><title>闰年的判断</title><link>https://blog.seisman.info/leap-year/</link><pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/leap-year/</guid><description>判定某年为闰年的标准是： 能被 4 整除且不能被 100 整除的 能被 400 整除的 用 C 语言实现代码就是 if ((year % 100 != 0) &amp;amp;&amp;amp; (year % 4 == 0) || (year % 400 == 0)) { // 输出该年是闰年; }</description></item><item><title>震中距、方位角和反方位角的计算</title><link>https://blog.seisman.info/calculate-dist-az-baz/</link><pubDate>Wed, 03 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/calculate-dist-az-baz/</guid><description>&lt;p>给定震中经纬度以及球面上任意一点（一般是台站）的经纬度，计算震中距、方位角以及反方位角。
-这是地震学的一个基本问题。&lt;/p></description></item></channel></rss>
+Hilbert 变换的接口，可以直接调用。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;firtrn&lt;/code&gt; 可以用于对数据进行 Hilbert 变换，但是官方没有给一个比较直白的例子。
+下面就贴一个我写的例子啦。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>在 C 程序中读写 SAC 文件</title>
+      <link>https://blog.seisman.info/trash/sacio-c/</link>
+      <pubDate>Sun, 11 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/sacio-c/</guid>
+      <description>&lt;h2 id=&#34;序言&#34;&gt;序言&lt;/h2&gt;
+&lt;p&gt;SAC 是进行地震数据预处理的好工具，但是无法实现所有的数据分析功能，这就需要能够在自己的程序中读写 SAC 文件。这篇博文介绍如何在 C 程序中读写 SAC 文件。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>计算某日是一年中的第几天</title>
+      <link>https://blog.seisman.info/calculate-jday/</link>
+      <pubDate>Sat, 18 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/calculate-jday/</guid>
+      <description>&lt;p&gt;两个子程序， &lt;code&gt;ymd2doy&lt;/code&gt; 用于从年月日计算该日为当年的第几天， &lt;code&gt;doy2ymd&lt;/code&gt; 用于根据年份以及
+该年的第几天来确定月和日。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Intel 非商业开发工具</title>
+      <link>https://blog.seisman.info/intel-non-commercial-software/</link>
+      <pubDate>Tue, 10 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/intel-non-commercial-software/</guid>
+      <description>Intel 的软件开发工具包括：C/C++ 编译器、Fortran 编译器、MKL 数学库、MPI 并行库等。 这一套开发工具价格很贵，但是 Intel 为科研工作者、学生</description>
+    </item>
+    
+    <item>
+      <title>fk3.3 编译</title>
+      <link>https://blog.seisman.info/fk-install/</link>
+      <pubDate>Sun, 01 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/fk-install/</guid>
+      <description>&lt;p&gt;fk 是 &lt;a href=&#34;http://www.eas.slu.edu/People/LZhu/home.html&#34;&gt;Prof. Lupei Zhu&lt;/a&gt; 写的一个计算水平分层介质中理论地震图的小程序。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>闰年的判断</title>
+      <link>https://blog.seisman.info/leap-year/</link>
+      <pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/leap-year/</guid>
+      <description>判定某年为闰年的标准是： 能被 4 整除且不能被 100 整除的 能被 400 整除的 用 C 语言实现代码就是 if ((year % 100 != 0) &amp;amp;&amp;amp; (year % 4 == 0) || (year % 400 == 0)) { // 输出该年是闰年; }</description>
+    </item>
+    
+    <item>
+      <title>震中距、方位角和反方位角的计算</title>
+      <link>https://blog.seisman.info/calculate-dist-az-baz/</link>
+      <pubDate>Wed, 03 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/calculate-dist-az-baz/</guid>
+      <description>&lt;p&gt;给定震中经纬度以及球面上任意一点（一般是台站）的经纬度，计算震中距、方位角以及反方位角。
+这是地震学的一个基本问题。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,98 +1,443 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>地震学软件 on SeisMan</title><link>https://blog.seisman.info/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/</link><description>Recent content in 地震学软件 on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 03 Mar 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml"/><item><title>在Google Earth上绘制震源球</title><link>https://blog.seisman.info/beachballs-on-google-earth/</link><pubDate>Sat, 03 Mar 2018 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/beachballs-on-google-earth/</guid><description>&lt;p>Google Earth可以方便地放大缩小区域范围。将震源球画在Google Earth上可以方便地
-查看不同地区地震的震源机制。本文介绍如何把震源球显示在Google Earth上。&lt;/p>
-&lt;p>原理其实很简单，&lt;/p>
-&lt;ol>
-&lt;li>利用 &lt;a href="https://docs.obspy.org/packages/obspy.imaging.html#beachballs">obspy.imaging.beachball&lt;/a>
-绘制震源球并保存为PNG格式的图片&lt;/li>
-&lt;li>利用 &lt;a href="https://simplekml.readthedocs.io/">simplekml&lt;/a> 生成KML文件，其中包含
-一堆点，每个点对应一个地震，点的图标设置为地震对应的震源球图片即可&lt;/li>
-&lt;/ol></description></item><item><title>HinetPy: Hi-net 数据申请与处理模块</title><link>https://blog.seisman.info/hinetpy/</link><pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/hinetpy/</guid><description>&lt;p>HinetPy 是一个用于从日本 NIED Hi-net 网站下载地震波形数据并进行数据格式转换的Python模块。&lt;/p>
-&lt;ul>
-&lt;li>项目主页： &lt;a href="https://github.com/seisman/HinetPy">https://github.com/seisman/HinetPy&lt;/a>&lt;/li>
-&lt;li>官方文档： &lt;a href="https://seisman.github.io/HinetPy">https://seisman.github.io/HinetPy&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>计算任意深度处下表面反射波走时</title><link>https://blog.seisman.info/taup-calculate-underside-reflection-traveltime/</link><pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/taup-calculate-underside-reflection-traveltime/</guid><description>&lt;p>地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 &lt;code>S410S&lt;/code>、&lt;code>S660S&lt;/code>。
-进一步推广到任意深度的下表面反射震相，比如 &lt;code>S1000S&lt;/code> 代表在1000 km深度处的界面的下表面反射的S波，比如 &lt;code>P1200P&lt;/code> 代表在1200 km深度处的界面的下表面反射的P波。&lt;/p></description></item><item><title>SOD 入门教程</title><link>https://blog.seisman.info/sod-notes/</link><pubDate>Sat, 24 Dec 2016 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/sod-notes/</guid><description>&lt;p>SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。&lt;/p>
-&lt;ul>
-&lt;li>官方网站： &lt;a href="http://www.seis.sc.edu/sod/">http://www.seis.sc.edu/sod/&lt;/a>&lt;/li>
-&lt;li>源码： &lt;a href="https://github.com/crotwell/sod">https://github.com/crotwell/sod&lt;/a>&lt;/li>
-&lt;li>源码语言： Java&lt;/li>
-&lt;li>最新版本： 3.2.8&lt;/li>
-&lt;/ul>
-&lt;p>本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。&lt;/p></description></item><item><title>使用 Web Services 获取地震数据</title><link>https://blog.seisman.info/web-service-clients/</link><pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/web-service-clients/</guid><description>地震数据通常包含三类：地震目录、台站信息、波形数据。当然，还有一些其他的地震数据，比如震源机制等等。 世界上最大的地震数据中心是 IRIS DMC。除了</description></item><item><title>IRIS 的理论地震图生成引擎</title><link>https://blog.seisman.info/iris-syngine/</link><pubDate>Thu, 26 May 2016 12:41:18 +0000</pubDate><guid>https://blog.seisman.info/iris-syngine/</guid><description>通过看理论地震图有助于我们理解实际数据中的很多现象，但自己算理论地震图却不是 一个简单的事情，既需要有相关代码还需要理解理论地震图计算的原理，</description></item><item><title>识别 TauP 输出中的多个 P 震相</title><link>https://blog.seisman.info/taup-identify-multiple-P-phases/</link><pubDate>Sun, 22 May 2016 11:46:41 +0000</pubDate><guid>https://blog.seisman.info/taup-identify-multiple-P-phases/</guid><description>&lt;p>在使用 TauP 计算 &lt;strong>浅源近震&lt;/strong> 的 P 波走时时，输出中经常会出现很多个 P 震相。这个事情让人很困扰，
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>地震学软件 on SeisMan</title>
+    <link>https://blog.seisman.info/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/</link>
+    <description>Recent content in 地震学软件 on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 03 Mar 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在Google Earth上绘制震源球</title>
+      <link>https://blog.seisman.info/beachballs-on-google-earth/</link>
+      <pubDate>Sat, 03 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/beachballs-on-google-earth/</guid>
+      <description>&lt;p&gt;Google Earth可以方便地放大缩小区域范围。将震源球画在Google Earth上可以方便地
+查看不同地区地震的震源机制。本文介绍如何把震源球显示在Google Earth上。&lt;/p&gt;
+&lt;p&gt;原理其实很简单，&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;利用 &lt;a href=&#34;https://docs.obspy.org/packages/obspy.imaging.html#beachballs&#34;&gt;obspy.imaging.beachball&lt;/a&gt;
+绘制震源球并保存为PNG格式的图片&lt;/li&gt;
+&lt;li&gt;利用 &lt;a href=&#34;https://simplekml.readthedocs.io/&#34;&gt;simplekml&lt;/a&gt; 生成KML文件，其中包含
+一堆点，每个点对应一个地震，点的图标设置为地震对应的震源球图片即可&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>HinetPy: Hi-net 数据申请与处理模块</title>
+      <link>https://blog.seisman.info/hinetpy/</link>
+      <pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/hinetpy/</guid>
+      <description>&lt;p&gt;HinetPy 是一个用于从日本 NIED Hi-net 网站下载地震波形数据并进行数据格式转换的Python模块。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;项目主页： &lt;a href=&#34;https://github.com/seisman/HinetPy&#34;&gt;https://github.com/seisman/HinetPy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;官方文档： &lt;a href=&#34;https://seisman.github.io/HinetPy&#34;&gt;https://seisman.github.io/HinetPy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>计算任意深度处下表面反射波走时</title>
+      <link>https://blog.seisman.info/taup-calculate-underside-reflection-traveltime/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-calculate-underside-reflection-traveltime/</guid>
+      <description>&lt;p&gt;地震学中的某些研究会用到 SS 前驱波的理论走时，比如常见的 &lt;code&gt;S410S&lt;/code&gt;、&lt;code&gt;S660S&lt;/code&gt;。
+进一步推广到任意深度的下表面反射震相，比如 &lt;code&gt;S1000S&lt;/code&gt; 代表在1000 km深度处的界面的下表面反射的S波，比如 &lt;code&gt;P1200P&lt;/code&gt; 代表在1200 km深度处的界面的下表面反射的P波。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SOD 入门教程</title>
+      <link>https://blog.seisman.info/sod-notes/</link>
+      <pubDate>Sat, 24 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/sod-notes/</guid>
+      <description>&lt;p&gt;SOD，全称是 Standing Order for Data，是一个可以自动筛选、下载以及预处理地震数据的工具，其具有高度可定制的特点，可以满足日常科研中数据申请的几乎全部需求。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;官方网站： &lt;a href=&#34;http://www.seis.sc.edu/sod/&#34;&gt;http://www.seis.sc.edu/sod/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;源码： &lt;a href=&#34;https://github.com/crotwell/sod&#34;&gt;https://github.com/crotwell/sod&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;源码语言： Java&lt;/li&gt;
+&lt;li&gt;最新版本： 3.2.8&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文是 SOD 的入门教程，目的是使读者对 SOD 有初步的认识，详细教程及用法见官方网站。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>使用 Web Services 获取地震数据</title>
+      <link>https://blog.seisman.info/web-service-clients/</link>
+      <pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/web-service-clients/</guid>
+      <description>地震数据通常包含三类：地震目录、台站信息、波形数据。当然，还有一些其他的地震数据，比如震源机制等等。 世界上最大的地震数据中心是 IRIS DMC。除了</description>
+    </item>
+    
+    <item>
+      <title>IRIS 的理论地震图生成引擎</title>
+      <link>https://blog.seisman.info/iris-syngine/</link>
+      <pubDate>Thu, 26 May 2016 12:41:18 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/iris-syngine/</guid>
+      <description>通过看理论地震图有助于我们理解实际数据中的很多现象，但自己算理论地震图却不是 一个简单的事情，既需要有相关代码还需要理解理论地震图计算的原理，</description>
+    </item>
+    
+    <item>
+      <title>识别 TauP 输出中的多个 P 震相</title>
+      <link>https://blog.seisman.info/taup-identify-multiple-P-phases/</link>
+      <pubDate>Sun, 22 May 2016 11:46:41 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-identify-multiple-P-phases/</guid>
+      <description>&lt;p&gt;在使用 TauP 计算 &lt;strong&gt;浅源近震&lt;/strong&gt; 的 P 波走时时，输出中经常会出现很多个 P 震相。这个事情让人很困扰，
 因为搞不清这些 P 震相到底谁是谁。如果需要的只是 P 波初至，那就无所谓了，直接用最早的到时即可。
-有些时候需要计算某个特定 P 震相的走时，这就需要清楚地了解每个 P 震相所代表的真正路径了。&lt;/p></description></item><item><title>TauP 自定义模型</title><link>https://blog.seisman.info/taup-custom-models/</link><pubDate>Sat, 21 May 2016 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/taup-custom-models/</guid><description>&lt;p>TauP 内置了常见的一维速度模型，比如 PREM、ak135、iasp91 等，这些标准速度模型
-位于 TauP 软件包的 &lt;code>StdModels&lt;/code> 目录下。日常科研中，这些标准速度模型是不能满足
-需求的，因而需要自定义速度模型。&lt;/p></description></item><item><title>SOFI2D 笔记</title><link>https://blog.seisman.info/sofi2d-notes/</link><pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/sofi2d-notes/</guid><description>&lt;p>SOFI2D 是一个二维 PSV 交错网格有限差分代码。要使用该程序，至少需要阅读如下几篇参考文献：&lt;/p>
-&lt;ul>
-&lt;li>Virieux, J. 1986. P-SV wave propagation in heterogeneous media:
-velocity-stress finite- difference method. Geophysics, 51(4), 889–901.&lt;/li>
-&lt;li>Levander, A.R. 1988. Fourth-order finite-difference P-SV seismograms. Geophysics, 53(11), 1425–1436.&lt;/li>
-&lt;li>SOFI2D User Guide&lt;/li>
-&lt;/ul>
-&lt;p>具体的用法及每个参数的意义在官方文档已经介绍的很详细，本文是我使用 SOFI2D 过程中的经验总结。&lt;/p>
-&lt;p>注：本文使用的是 2015 年 10 月 28 日发布的 SOFI2D。&lt;/p></description></item><item><title>rdseed 用法笔记</title><link>https://blog.seisman.info/rdseed-notes/</link><pubDate>Tue, 13 Oct 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/rdseed-notes/</guid><description>&lt;p>&lt;code>rdseed&lt;/code> 是 IRIS 提供的工具，用于读取 SEED 格式，从中提取出波形信息，并将波形数据保存为
-SAC、AH、CSS、SEGY 或 ASCII 等多种数据格式。&lt;/p></description></item><item><title>用 Wilber 3 申请地震波形数据</title><link>https://blog.seisman.info/wilber3/</link><pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/wilber3/</guid><description>&lt;p>Wilber3 是 IRIS 提供的一个用于从 IRIS 申请地震事件波形数据的网页工具。&lt;/p>
-&lt;ul>
-&lt;li>官方页面： &lt;a href="http://ds.iris.edu/wilber3/find_event">http://ds.iris.edu/wilber3/find_event&lt;/a>&lt;/li>
-&lt;li>优点： 网页界面，简单直观&lt;/li>
-&lt;li>适用范围： 仅适用于申请单个或少量地震事件的波形数据&lt;/li>
-&lt;/ul>
-&lt;p>本文将以 2015 年 5 月 12 日的尼泊尔 7.3 级地震为例，展示如何利用 Wilber3 申请该事件的波形数据。&lt;/p></description></item><item><title>安装 evt2sac</title><link>https://blog.seisman.info/evt2sac-install/</link><pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/evt2sac-install/</guid><description>&lt;p>&lt;code>evt2sac&lt;/code> 用于将 NEIC 的 EVT 格式的数据转换为 SAC 格式。&lt;/p>
-&lt;p>主页： &lt;a href="https://seiscode.iris.washington.edu/projects/evt2sac">https://seiscode.iris.washington.edu/projects/evt2sac&lt;/a>&lt;/p></description></item><item><title>pssac2 使用教程</title><link>https://blog.seisman.info/pssac2-notes/</link><pubDate>Sun, 19 Jul 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/pssac2-notes/</guid><description>&lt;p>&lt;code>pssac2&lt;/code> 是 &lt;code>pssac&lt;/code> 的升级版。相比于 &lt;code>pssac&lt;/code> 而言增加了更多的功能，选项也更加符合 GMT 的风格。&lt;/p>
-&lt;p>&lt;code>pssac2&lt;/code> 与 &lt;code>pssac&lt;/code> 的选项之间有很多相似之处，所以本文只介绍二者之间的不同之处，读者应首先阅读《&lt;a href="https://blog.seisman.info/pssac-notes/">pssac 使用教程&lt;/a>》。&lt;/p></description></item><item><title>pssac 使用教程</title><link>https://blog.seisman.info/pssac-notes/</link><pubDate>Fri, 17 Jul 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/pssac-notes/</guid><description>&lt;p>&lt;strong>注意：本文仅针对 Prof. Lupei Zhu 的 pssac 程序，其仅可在 GMT 4下使用。
-对于GMT5用户，GMT 在 5.3.1 之后自带了 pssac，可以使用 &lt;code>gmt pssac&lt;/code> 直接调用。&lt;/strong>&lt;/p>
-&lt;p>相关文档见:&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html">http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html&lt;/a>&lt;/li>
-&lt;li>&lt;a href="http://modules.gmt-china.org/pssac">http://modules.gmt-china.org/pssac&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;p>&lt;code>pssac&lt;/code> 可以读取 SAC 波形数据，并利用 GMT 的绘图功能将波形数据绘制在 PS 文件中。
-&lt;code>pssac&lt;/code> 绘制的波形图，大致可以分为三类：&lt;/p>
-&lt;ol>
-&lt;li>波形振幅图：横轴是时间，纵轴是振幅；&lt;/li>
-&lt;li>剖面图：横轴是时间，纵轴是其他物理量（比如震中距、方位角、反方位角以及文件号）；&lt;/li>
-&lt;li>任意位置图：将波形文件绘制在图上的任意位置；&lt;/li>
-&lt;/ol>
-&lt;p>本文首先简单介绍 &lt;code>pssac&lt;/code> 的各个选项，然后依次介绍如何绘制波形振幅图、剖面图以及任意位置图，在这个过程中会详细介绍较复杂的选项。&lt;/p></description></item><item><title>CPS330 的安装</title><link>https://blog.seisman.info/cps330-install/</link><pubDate>Tue, 12 May 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/cps330-install/</guid><description>&lt;p>CPS330 全称 Computer Programs in Seismology，是圣路易斯大学地震中心开发并维护的
-一款地震学软件包，其主要关注地震波在地壳和上地幔介质中的传播和解释。&lt;/p>
-&lt;p>本文介绍如何在 Linux 系统下编译安装 CPS330。&lt;/p></description></item><item><title>fk 用法笔记</title><link>https://blog.seisman.info/fk-notes/</link><pubDate>Sat, 28 Feb 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/fk-notes/</guid><description>&lt;p>fk 是 Prof. Lupei Zhu 写的一个用于计算 &lt;strong>水平分层模型&lt;/strong> 下的理论格林函数并合成
-理论地震图的代码包。代码是开源的，可以直接编译使用。&lt;/p></description></item><item><title>用 taup_time 计算震相走时及射线信息</title><link>https://blog.seisman.info/taup-calculate-traveltime/</link><pubDate>Sat, 24 Jan 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/taup-calculate-traveltime/</guid><description>&lt;p>&lt;code>taup_time&lt;/code> 是 TauP 提供的一个工具，其主要用于计算震相理论走时，除此之外，
-还提供了一些与射线有关的信息。&lt;/p></description></item><item><title>利用 taup_setsac 为 SAC 文件标记理论到时</title><link>https://blog.seisman.info/taup-mark-traveltime/</link><pubDate>Mon, 10 Nov 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/taup-mark-traveltime/</guid><description>&lt;p>TauP 的 &lt;code>taup_time&lt;/code> 命令可以计算各震相的理论走时，但是不能帮我们把到时信息
-标记到 SAC 文件中，因而就需要写脚本处理 &lt;code>taup_time&lt;/code> 的输出，并修改 SAC 头段。&lt;/p>
-&lt;p>&lt;code>taup_setsac&lt;/code> 帮我们完成了这一点，可以直接计算理论到时并将到时信息写入到 SAC 文件中。&lt;/p></description></item><item><title>利用 taup_pierce 计算射线穿透点</title><link>https://blog.seisman.info/taup-calculate-pierce-points/</link><pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/taup-calculate-pierce-points/</guid><description>&lt;p>&lt;code>taup_pierce&lt;/code> 是 TauP 提供的一个命令行工具，用于计算各种震相在不同深度的穿透点信息。
-本文通过几个例子介绍一个 &lt;code>taup_pierce&lt;/code> 的使用方法。&lt;/p></description></item><item><title>TauP 的安装</title><link>https://blog.seisman.info/taup-install/</link><pubDate>Wed, 08 Oct 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/taup-install/</guid><description/></item><item><title>rdseed 的安装</title><link>https://blog.seisman.info/rdseed-install/</link><pubDate>Tue, 07 Oct 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/rdseed-install/</guid><description>&lt;p>rdseed 用于将 SEED 格式的数据转换为 SAC 格式。&lt;/p></description></item><item><title>gCAP 的安装</title><link>https://blog.seisman.info/gcap-install/</link><pubDate>Fri, 13 Jun 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/gcap-install/</guid><description>&lt;p>gCAP 是 Prof. Lupei Zhu 发展的一种反演震源机制解的一种方法。目前该代码已经开源。&lt;/p></description></item><item><title>走时计算软件包</title><link>https://blog.seisman.info/traveltime-packages/</link><pubDate>Sat, 29 Mar 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/traveltime-packages/</guid><description>&lt;p>地震波走时的计算是地震学的一个基本问题。下面列出几个目前已知的几个可以计算地震波走时的包。&lt;/p></description></item><item><title>IRIS FTP 数据下载脚本</title><link>https://blog.seisman.info/perl-script-for-downloading-iris-ftp-data/</link><pubDate>Sat, 25 Jan 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/perl-script-for-downloading-iris-ftp-data/</guid><description>&lt;p>前文说到了 IRIS 官方给出的几种 FTP 数据下载方式，除此之外，还有很多方法。比如直接浏览器右键另存为，比如 Windows 下迅雷的下载链接自动识别，再比如 Firefox 浏览器 + 附加组件 &amp;ldquo;DownThemAll!&amp;quot;。这些工具其实和前文说的下载方法类似，都有各种各样的缺点。&lt;/p></description></item><item><title>CPS330 : Computer Programs in Seismology</title><link>https://blog.seisman.info/cps330/</link><pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/cps330/</guid><description>&lt;p>CPS 全称 Computer Programs in Seismology，是圣路易斯大学地震中心开发并维护的
-一款地震学软件包，其主要关注地震波在地壳和上地幔介质中的传播和解释。&lt;/p>
-&lt;p>主页： &lt;a href="http://www.eas.slu.edu/eqc/eqccps.html">http://www.eas.slu.edu/eqc/eqccps.html&lt;/a>&lt;/p></description></item><item><title>CCP1.0 编译</title><link>https://blog.seisman.info/ccp-install/</link><pubDate>Fri, 29 Nov 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/ccp-install/</guid><description>&lt;p>Prof. Lupei Zhu 最近又在网上公开了两个程序包，CCP 和 CAP。&lt;/p>
-&lt;p>CCP，即 Common-Conversion-Point，用于共转换点地震数据的叠加，这个程序主要与
-&lt;a href="https://blog.seisman.info/compilation-of-hk/">hk1.3&lt;/a> 一起使用，用于接收函数的研究。&lt;/p></description></item><item><title>用 Matlab 处理 SAC 数据的一些脚本</title><link>https://blog.seisman.info/trash/sac-matlab-scripts/</link><pubDate>Mon, 14 Oct 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/sac-matlab-scripts/</guid><description>&lt;p>我是那种乖乖用 SAC 处理 sac 数据的人。身边有些老师及其学生比较喜欢用 matlab 处理 sac 数据，
-故而这里还是收集一下相关脚本，以造福部分人。&lt;/p></description></item><item><title>hk1.3 编译</title><link>https://blog.seisman.info/hk-install/</link><pubDate>Sun, 08 Sep 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/hk-install/</guid><description>&lt;p>hk 是 Prof. Lupei Zhu 写的一个程序包，利用接收函数方法计算 Moho 厚度以及地壳波速比。整个程序包包含了接收函数所需的关键代码，但是想要高效地用于接收函数研究，还需要自己写一些代码作为补充。而网络上实际上有很多更加成熟和高效的接收函数代码，所以此程序的实际用途不大。但该程序的代码比较简单，可以帮助理解接收函数的原理与实现。&lt;/p></description></item><item><title>fk3.3 编译</title><link>https://blog.seisman.info/fk-install/</link><pubDate>Sun, 01 Sep 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/fk-install/</guid><description>&lt;p>fk 是 &lt;a href="http://www.eas.slu.edu/People/LZhu/home.html">Prof. Lupei Zhu&lt;/a> 写的一个计算水平分层介质中理论地震图的小程序。&lt;/p></description></item><item><title>MoPaD:地震矩绘制和分析工具</title><link>https://blog.seisman.info/mopad/</link><pubDate>Tue, 27 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/mopad/</guid><description>&lt;p>MoPaD，全称Moment tensor Plotting and Decomposition，是一个用于分析地震矩的小工具，
+有些时候需要计算某个特定 P 震相的走时，这就需要清楚地了解每个 P 震相所代表的真正路径了。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>TauP 自定义模型</title>
+      <link>https://blog.seisman.info/taup-custom-models/</link>
+      <pubDate>Sat, 21 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-custom-models/</guid>
+      <description>&lt;p&gt;TauP 内置了常见的一维速度模型，比如 PREM、ak135、iasp91 等，这些标准速度模型
+位于 TauP 软件包的 &lt;code&gt;StdModels&lt;/code&gt; 目录下。日常科研中，这些标准速度模型是不能满足
+需求的，因而需要自定义速度模型。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SOFI2D 笔记</title>
+      <link>https://blog.seisman.info/sofi2d-notes/</link>
+      <pubDate>Tue, 08 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/sofi2d-notes/</guid>
+      <description>&lt;p&gt;SOFI2D 是一个二维 PSV 交错网格有限差分代码。要使用该程序，至少需要阅读如下几篇参考文献：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Virieux, J. 1986. P-SV wave propagation in heterogeneous media:
+velocity-stress finite- difference method. Geophysics, 51(4), 889–901.&lt;/li&gt;
+&lt;li&gt;Levander, A.R. 1988. Fourth-order finite-difference P-SV seismograms. Geophysics, 53(11), 1425–1436.&lt;/li&gt;
+&lt;li&gt;SOFI2D User Guide&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;具体的用法及每个参数的意义在官方文档已经介绍的很详细，本文是我使用 SOFI2D 过程中的经验总结。&lt;/p&gt;
+&lt;p&gt;注：本文使用的是 2015 年 10 月 28 日发布的 SOFI2D。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>rdseed 用法笔记</title>
+      <link>https://blog.seisman.info/rdseed-notes/</link>
+      <pubDate>Tue, 13 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/rdseed-notes/</guid>
+      <description>&lt;p&gt;&lt;code&gt;rdseed&lt;/code&gt; 是 IRIS 提供的工具，用于读取 SEED 格式，从中提取出波形信息，并将波形数据保存为
+SAC、AH、CSS、SEGY 或 ASCII 等多种数据格式。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>用 Wilber 3 申请地震波形数据</title>
+      <link>https://blog.seisman.info/wilber3/</link>
+      <pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/wilber3/</guid>
+      <description>&lt;p&gt;Wilber3 是 IRIS 提供的一个用于从 IRIS 申请地震事件波形数据的网页工具。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;官方页面： &lt;a href=&#34;http://ds.iris.edu/wilber3/find_event&#34;&gt;http://ds.iris.edu/wilber3/find_event&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;优点： 网页界面，简单直观&lt;/li&gt;
+&lt;li&gt;适用范围： 仅适用于申请单个或少量地震事件的波形数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本文将以 2015 年 5 月 12 日的尼泊尔 7.3 级地震为例，展示如何利用 Wilber3 申请该事件的波形数据。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>安装 evt2sac</title>
+      <link>https://blog.seisman.info/evt2sac-install/</link>
+      <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/evt2sac-install/</guid>
+      <description>&lt;p&gt;&lt;code&gt;evt2sac&lt;/code&gt; 用于将 NEIC 的 EVT 格式的数据转换为 SAC 格式。&lt;/p&gt;
+&lt;p&gt;主页： &lt;a href=&#34;https://seiscode.iris.washington.edu/projects/evt2sac&#34;&gt;https://seiscode.iris.washington.edu/projects/evt2sac&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>pssac2 使用教程</title>
+      <link>https://blog.seisman.info/pssac2-notes/</link>
+      <pubDate>Sun, 19 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/pssac2-notes/</guid>
+      <description>&lt;p&gt;&lt;code&gt;pssac2&lt;/code&gt; 是 &lt;code&gt;pssac&lt;/code&gt; 的升级版。相比于 &lt;code&gt;pssac&lt;/code&gt; 而言增加了更多的功能，选项也更加符合 GMT 的风格。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pssac2&lt;/code&gt; 与 &lt;code&gt;pssac&lt;/code&gt; 的选项之间有很多相似之处，所以本文只介绍二者之间的不同之处，读者应首先阅读《&lt;a href=&#34;https://blog.seisman.info/pssac-notes/&#34;&gt;pssac 使用教程&lt;/a&gt;》。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>pssac 使用教程</title>
+      <link>https://blog.seisman.info/pssac-notes/</link>
+      <pubDate>Fri, 17 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/pssac-notes/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;注意：本文仅针对 Prof. Lupei Zhu 的 pssac 程序，其仅可在 GMT 4下使用。
+对于GMT5用户，GMT 在 5.3.1 之后自带了 pssac，可以使用 &lt;code&gt;gmt pssac&lt;/code&gt; 直接调用。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;相关文档见:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html&#34;&gt;http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://modules.gmt-china.org/pssac&#34;&gt;http://modules.gmt-china.org/pssac&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;pssac&lt;/code&gt; 可以读取 SAC 波形数据，并利用 GMT 的绘图功能将波形数据绘制在 PS 文件中。
+&lt;code&gt;pssac&lt;/code&gt; 绘制的波形图，大致可以分为三类：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;波形振幅图：横轴是时间，纵轴是振幅；&lt;/li&gt;
+&lt;li&gt;剖面图：横轴是时间，纵轴是其他物理量（比如震中距、方位角、反方位角以及文件号）；&lt;/li&gt;
+&lt;li&gt;任意位置图：将波形文件绘制在图上的任意位置；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;本文首先简单介绍 &lt;code&gt;pssac&lt;/code&gt; 的各个选项，然后依次介绍如何绘制波形振幅图、剖面图以及任意位置图，在这个过程中会详细介绍较复杂的选项。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CPS330 的安装</title>
+      <link>https://blog.seisman.info/cps330-install/</link>
+      <pubDate>Tue, 12 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/cps330-install/</guid>
+      <description>&lt;p&gt;CPS330 全称 Computer Programs in Seismology，是圣路易斯大学地震中心开发并维护的
+一款地震学软件包，其主要关注地震波在地壳和上地幔介质中的传播和解释。&lt;/p&gt;
+&lt;p&gt;本文介绍如何在 Linux 系统下编译安装 CPS330。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>fk 用法笔记</title>
+      <link>https://blog.seisman.info/fk-notes/</link>
+      <pubDate>Sat, 28 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/fk-notes/</guid>
+      <description>&lt;p&gt;fk 是 Prof. Lupei Zhu 写的一个用于计算 &lt;strong&gt;水平分层模型&lt;/strong&gt; 下的理论格林函数并合成
+理论地震图的代码包。代码是开源的，可以直接编译使用。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>用 taup_time 计算震相走时及射线信息</title>
+      <link>https://blog.seisman.info/taup-calculate-traveltime/</link>
+      <pubDate>Sat, 24 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-calculate-traveltime/</guid>
+      <description>&lt;p&gt;&lt;code&gt;taup_time&lt;/code&gt; 是 TauP 提供的一个工具，其主要用于计算震相理论走时，除此之外，
+还提供了一些与射线有关的信息。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>利用 taup_setsac 为 SAC 文件标记理论到时</title>
+      <link>https://blog.seisman.info/taup-mark-traveltime/</link>
+      <pubDate>Mon, 10 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-mark-traveltime/</guid>
+      <description>&lt;p&gt;TauP 的 &lt;code&gt;taup_time&lt;/code&gt; 命令可以计算各震相的理论走时，但是不能帮我们把到时信息
+标记到 SAC 文件中，因而就需要写脚本处理 &lt;code&gt;taup_time&lt;/code&gt; 的输出，并修改 SAC 头段。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;taup_setsac&lt;/code&gt; 帮我们完成了这一点，可以直接计算理论到时并将到时信息写入到 SAC 文件中。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>利用 taup_pierce 计算射线穿透点</title>
+      <link>https://blog.seisman.info/taup-calculate-pierce-points/</link>
+      <pubDate>Sat, 08 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-calculate-pierce-points/</guid>
+      <description>&lt;p&gt;&lt;code&gt;taup_pierce&lt;/code&gt; 是 TauP 提供的一个命令行工具，用于计算各种震相在不同深度的穿透点信息。
+本文通过几个例子介绍一个 &lt;code&gt;taup_pierce&lt;/code&gt; 的使用方法。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>TauP 的安装</title>
+      <link>https://blog.seisman.info/taup-install/</link>
+      <pubDate>Wed, 08 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup-install/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rdseed 的安装</title>
+      <link>https://blog.seisman.info/rdseed-install/</link>
+      <pubDate>Tue, 07 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/rdseed-install/</guid>
+      <description>&lt;p&gt;rdseed 用于将 SEED 格式的数据转换为 SAC 格式。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>gCAP 的安装</title>
+      <link>https://blog.seisman.info/gcap-install/</link>
+      <pubDate>Fri, 13 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/gcap-install/</guid>
+      <description>&lt;p&gt;gCAP 是 Prof. Lupei Zhu 发展的一种反演震源机制解的一种方法。目前该代码已经开源。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>走时计算软件包</title>
+      <link>https://blog.seisman.info/traveltime-packages/</link>
+      <pubDate>Sat, 29 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/traveltime-packages/</guid>
+      <description>&lt;p&gt;地震波走时的计算是地震学的一个基本问题。下面列出几个目前已知的几个可以计算地震波走时的包。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>IRIS FTP 数据下载脚本</title>
+      <link>https://blog.seisman.info/perl-script-for-downloading-iris-ftp-data/</link>
+      <pubDate>Sat, 25 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/perl-script-for-downloading-iris-ftp-data/</guid>
+      <description>&lt;p&gt;前文说到了 IRIS 官方给出的几种 FTP 数据下载方式，除此之外，还有很多方法。比如直接浏览器右键另存为，比如 Windows 下迅雷的下载链接自动识别，再比如 Firefox 浏览器 + 附加组件 &amp;ldquo;DownThemAll!&amp;quot;。这些工具其实和前文说的下载方法类似，都有各种各样的缺点。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CPS330 : Computer Programs in Seismology</title>
+      <link>https://blog.seisman.info/cps330/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/cps330/</guid>
+      <description>&lt;p&gt;CPS 全称 Computer Programs in Seismology，是圣路易斯大学地震中心开发并维护的
+一款地震学软件包，其主要关注地震波在地壳和上地幔介质中的传播和解释。&lt;/p&gt;
+&lt;p&gt;主页： &lt;a href=&#34;http://www.eas.slu.edu/eqc/eqccps.html&#34;&gt;http://www.eas.slu.edu/eqc/eqccps.html&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CCP1.0 编译</title>
+      <link>https://blog.seisman.info/ccp-install/</link>
+      <pubDate>Fri, 29 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/ccp-install/</guid>
+      <description>&lt;p&gt;Prof. Lupei Zhu 最近又在网上公开了两个程序包，CCP 和 CAP。&lt;/p&gt;
+&lt;p&gt;CCP，即 Common-Conversion-Point，用于共转换点地震数据的叠加，这个程序主要与
+&lt;a href=&#34;https://blog.seisman.info/compilation-of-hk/&#34;&gt;hk1.3&lt;/a&gt; 一起使用，用于接收函数的研究。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>用 Matlab 处理 SAC 数据的一些脚本</title>
+      <link>https://blog.seisman.info/trash/sac-matlab-scripts/</link>
+      <pubDate>Mon, 14 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/trash/sac-matlab-scripts/</guid>
+      <description>&lt;p&gt;我是那种乖乖用 SAC 处理 sac 数据的人。身边有些老师及其学生比较喜欢用 matlab 处理 sac 数据，
+故而这里还是收集一下相关脚本，以造福部分人。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>hk1.3 编译</title>
+      <link>https://blog.seisman.info/hk-install/</link>
+      <pubDate>Sun, 08 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/hk-install/</guid>
+      <description>&lt;p&gt;hk 是 Prof. Lupei Zhu 写的一个程序包，利用接收函数方法计算 Moho 厚度以及地壳波速比。整个程序包包含了接收函数所需的关键代码，但是想要高效地用于接收函数研究，还需要自己写一些代码作为补充。而网络上实际上有很多更加成熟和高效的接收函数代码，所以此程序的实际用途不大。但该程序的代码比较简单，可以帮助理解接收函数的原理与实现。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>fk3.3 编译</title>
+      <link>https://blog.seisman.info/fk-install/</link>
+      <pubDate>Sun, 01 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/fk-install/</guid>
+      <description>&lt;p&gt;fk 是 &lt;a href=&#34;http://www.eas.slu.edu/People/LZhu/home.html&#34;&gt;Prof. Lupei Zhu&lt;/a&gt; 写的一个计算水平分层介质中理论地震图的小程序。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MoPaD:地震矩绘制和分析工具</title>
+      <link>https://blog.seisman.info/mopad/</link>
+      <pubDate>Tue, 27 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/mopad/</guid>
+      <description>&lt;p&gt;MoPaD，全称Moment tensor Plotting and Decomposition，是一个用于分析地震矩的小工具，
 主要功能包括地震矩与断层面参数的转换、地震矩分解以及震源球的绘制。该工具可控参数非常丰富，因而
-具有非常强的灵活性，可以满足大多数需求。&lt;/p></description></item><item><title>pssac2 的安装</title><link>https://blog.seisman.info/pssac2-install/</link><pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/pssac2-install/</guid><description>&lt;p>&lt;code>pssac2&lt;/code> 是由 Brian Savage 基于 Lupei Zhu 的 &lt;code>pssac&lt;/code> 修改得到的，其继承了 &lt;code>pssac&lt;/code>
-的优质特性，同时在很多方面又有了进一步的提高。&lt;/p>
-&lt;p>&lt;code>pssac2&lt;/code> 目前有两个版本，一个支持 GMT4，一个支持 GMT5。&lt;/p></description></item><item><title>利用 Web Service Fetch scripts 申请和下载数据</title><link>https://blog.seisman.info/web-service-fetch-scripts/</link><pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/web-service-fetch-scripts/</guid><description>&lt;h2 id="iris-web-service">IRIS Web Service&lt;/h2>
-&lt;p>IRIS DMC 提供了一系列网页服务，用于获取台站数据、仪器响应、走时以及波形数据等。
+具有非常强的灵活性，可以满足大多数需求。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>pssac2 的安装</title>
+      <link>https://blog.seisman.info/pssac2-install/</link>
+      <pubDate>Fri, 09 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/pssac2-install/</guid>
+      <description>&lt;p&gt;&lt;code&gt;pssac2&lt;/code&gt; 是由 Brian Savage 基于 Lupei Zhu 的 &lt;code&gt;pssac&lt;/code&gt; 修改得到的，其继承了 &lt;code&gt;pssac&lt;/code&gt;
+的优质特性，同时在很多方面又有了进一步的提高。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pssac2&lt;/code&gt; 目前有两个版本，一个支持 GMT4，一个支持 GMT5。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>利用 Web Service Fetch scripts 申请和下载数据</title>
+      <link>https://blog.seisman.info/web-service-fetch-scripts/</link>
+      <pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/web-service-fetch-scripts/</guid>
+      <description>&lt;h2 id=&#34;iris-web-service&#34;&gt;IRIS Web Service&lt;/h2&gt;
+&lt;p&gt;IRIS DMC 提供了一系列网页服务，用于获取台站数据、仪器响应、走时以及波形数据等。
 简而言之，其原理大概就是根据某种特定的格式要求发送网页请求，然后 IRIS 会返回相应的
-信息供用户解析。&lt;/p>
-&lt;p>IRIS 网页服务的主页位于： &lt;a href="http://service.iris.edu/">http://service.iris.edu/&lt;/a> ，有兴趣的可以研究一下。&lt;/p>
-&lt;h2 id="web-service-fetch-script">Web Service Fetch Script&lt;/h2>
-&lt;p>主页：&lt;a href="https://seiscode.iris.washington.edu/projects/ws-fetch-scripts">https://seiscode.iris.washington.edu/projects/ws-fetch-scripts&lt;/a>&lt;/p>
-&lt;p>这是一个利用 IRIS 提供的网页服务来实现数据下载的工具，其源代码用 perl 写成，
-因而几乎可以在任何平台上直接运行。整个工具包含了三个 perl 脚本：&lt;code>FetchData&lt;/code>、
-&lt;code>FetchEvent&lt;/code> 和 &lt;code>FetchMetadata&lt;/code>。&lt;/p></description></item><item><title>安装 pssac</title><link>https://blog.seisman.info/pssac-install/</link><pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/pssac-install/</guid><description>&lt;p>&lt;code>pssac&lt;/code> 是 Prof. Lupei Zhu 根据 GMT 的 &lt;code>psxy&lt;/code> 命令修改得到，用于绘制 SAC 格式的波形数据的
-一个小程序。&lt;/p>
-&lt;p>该程序调用了 GMT 的绘图库，因而安装该程序之前需要首先安装 GMT4。&lt;/p>
-&lt;p>&lt;strong>GMT5用户请注意，GMT 从 5.3.1 起自带了 pssac 模块，可以直接使用 &lt;code>gmt pssac&lt;/code> 来调用。&lt;/strong>&lt;/p></description></item><item><title>IRIS 数据申请工具: BREQ_FAST</title><link>https://blog.seisman.info/breq-fast/</link><pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/breq-fast/</guid><description>&lt;p>BREQ_FAST 是 Batch REQuests FAST 的简称。简单来说，就是通过发送特定格式的邮件到指定的
+信息供用户解析。&lt;/p&gt;
+&lt;p&gt;IRIS 网页服务的主页位于： &lt;a href=&#34;http://service.iris.edu/&#34;&gt;http://service.iris.edu/&lt;/a&gt; ，有兴趣的可以研究一下。&lt;/p&gt;
+&lt;h2 id=&#34;web-service-fetch-script&#34;&gt;Web Service Fetch Script&lt;/h2&gt;
+&lt;p&gt;主页：&lt;a href=&#34;https://seiscode.iris.washington.edu/projects/ws-fetch-scripts&#34;&gt;https://seiscode.iris.washington.edu/projects/ws-fetch-scripts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这是一个利用 IRIS 提供的网页服务来实现数据下载的工具，其源代码用 perl 写成，
+因而几乎可以在任何平台上直接运行。整个工具包含了三个 perl 脚本：&lt;code&gt;FetchData&lt;/code&gt;、
+&lt;code&gt;FetchEvent&lt;/code&gt; 和 &lt;code&gt;FetchMetadata&lt;/code&gt;。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>安装 pssac</title>
+      <link>https://blog.seisman.info/pssac-install/</link>
+      <pubDate>Sun, 04 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/pssac-install/</guid>
+      <description>&lt;p&gt;&lt;code&gt;pssac&lt;/code&gt; 是 Prof. Lupei Zhu 根据 GMT 的 &lt;code&gt;psxy&lt;/code&gt; 命令修改得到，用于绘制 SAC 格式的波形数据的
+一个小程序。&lt;/p&gt;
+&lt;p&gt;该程序调用了 GMT 的绘图库，因而安装该程序之前需要首先安装 GMT4。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GMT5用户请注意，GMT 从 5.3.1 起自带了 pssac 模块，可以直接使用 &lt;code&gt;gmt pssac&lt;/code&gt; 来调用。&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>IRIS 数据申请工具: BREQ_FAST</title>
+      <link>https://blog.seisman.info/breq-fast/</link>
+      <pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/breq-fast/</guid>
+      <description>&lt;p&gt;BREQ_FAST 是 Batch REQuests FAST 的简称。简单来说，就是通过发送特定格式的邮件到指定的
 邮箱来申请数据。这种数据申请的方法不同于常见的交互式方法，因而特别适合写脚本自动生成
-邮件内容、自动发送邮件、自动下载数据。&lt;/p></description></item><item><title>JPlotResp：绘制地震仪器响应</title><link>https://blog.seisman.info/jplotresp/</link><pubDate>Fri, 19 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/jplotresp/</guid><description>&lt;p>要理解仪器响应，就要看 RESP 的格式，更重要是直观地看仪器响应的振幅相位谱。&lt;/p>
-&lt;p>前面介绍的 &lt;a href="https://blog.seisman.info/simple-analysis-of-resp/">RESP 文件&lt;/a> 和 &lt;a href="https://blog.seisman.info/simple-analysis-of-sac-pz/">SAC PZ&lt;/a>
+邮件内容、自动发送邮件、自动下载数据。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>JPlotResp：绘制地震仪器响应</title>
+      <link>https://blog.seisman.info/jplotresp/</link>
+      <pubDate>Fri, 19 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/jplotresp/</guid>
+      <description>&lt;p&gt;要理解仪器响应，就要看 RESP 的格式，更重要是直观地看仪器响应的振幅相位谱。&lt;/p&gt;
+&lt;p&gt;前面介绍的 &lt;a href=&#34;https://blog.seisman.info/simple-analysis-of-resp/&#34;&gt;RESP 文件&lt;/a&gt; 和 &lt;a href=&#34;https://blog.seisman.info/simple-analysis-of-sac-pz/&#34;&gt;SAC PZ&lt;/a&gt;
 文件都只是给出了一堆零极点以及放大系数等各种参数。JPlotResp 是用来绘制地震仪器响应的
-软件，可以帮助直观地看到任意台站的仪器响应。&lt;/p>
-&lt;p>主页： &lt;a href="http://www.isti2.com/JPlotResp/">http://www.isti2.com/JPlotResp/&lt;/a>&lt;/p></description></item><item><title>由矩张量计算双力偶断层参数</title><link>https://blog.seisman.info/moment-tensor-to-double-couple/</link><pubDate>Tue, 16 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/moment-tensor-to-double-couple/</guid><description>Double Couple 由四个参数描述：Strike、Dip、Rake、Moment；Moment Tensor 由 9 个量描述， 由于对称性，减少到六个。 任意一个 double couple 都可以写成</description></item><item><title>走时计算软件TauP</title><link>https://blog.seisman.info/taup/</link><pubDate>Wed, 10 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/taup/</guid><description>&lt;h2 id="基本信息">基本信息&lt;/h2>
-&lt;ul>
-&lt;li>主页： &lt;a href="https://www.seis.sc.edu/taup/">https://www.seis.sc.edu/taup/&lt;/a>&lt;/li>
-&lt;li>源码： &lt;a href="https://github.com/crotwell/TauP">https://github.com/crotwell/TauP&lt;/a>&lt;/li>
-&lt;li>语言：Java&lt;/li>
-&lt;li>平台：跨平台，Windows、Linux、Mac 等&lt;/li>
-&lt;li>与 ttimes 一样，其原理基于 Buland 和 Chapman 于 1983 年提出的方法&lt;/li>
-&lt;/ul></description></item><item><title>震中距、方位角和反方位角的计算</title><link>https://blog.seisman.info/calculate-dist-az-baz/</link><pubDate>Wed, 03 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/calculate-dist-az-baz/</guid><description>&lt;p>给定震中经纬度以及球面上任意一点（一般是台站）的经纬度，计算震中距、方位角以及反方位角。
-这是地震学的一个基本问题。&lt;/p></description></item></channel></rss>
+软件，可以帮助直观地看到任意台站的仪器响应。&lt;/p&gt;
+&lt;p&gt;主页： &lt;a href=&#34;http://www.isti2.com/JPlotResp/&#34;&gt;http://www.isti2.com/JPlotResp/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>由矩张量计算双力偶断层参数</title>
+      <link>https://blog.seisman.info/moment-tensor-to-double-couple/</link>
+      <pubDate>Tue, 16 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/moment-tensor-to-double-couple/</guid>
+      <description>Double Couple 由四个参数描述：Strike、Dip、Rake、Moment；Moment Tensor 由 9 个量描述， 由于对称性，减少到六个。 任意一个 double couple 都可以写成</description>
+    </item>
+    
+    <item>
+      <title>走时计算软件TauP</title>
+      <link>https://blog.seisman.info/taup/</link>
+      <pubDate>Wed, 10 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/taup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>震中距、方位角和反方位角的计算</title>
+      <link>https://blog.seisman.info/calculate-dist-az-baz/</link>
+      <pubDate>Wed, 03 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/calculate-dist-az-baz/</guid>
+      <description>&lt;p&gt;给定震中经纬度以及球面上任意一点（一般是台站）的经纬度，计算震中距、方位角以及反方位角。
+这是地震学的一个基本问题。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

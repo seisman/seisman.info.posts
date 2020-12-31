@@ -1,10 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>震中距 on SeisMan</title><link>https://blog.seisman.info/tags/%E9%9C%87%E4%B8%AD%E8%B7%9D/</link><description>Recent content in 震中距 on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 03 Aug 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E9%9C%87%E4%B8%AD%E8%B7%9D/index.xml" rel="self" type="application/rss+xml"/><item><title>SAC 文件修改事件经纬度后震中距的自动计算</title><link>https://blog.seisman.info/calculate-gcarc-after-adding-event-location/</link><pubDate>Sat, 03 Aug 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/calculate-gcarc-after-adding-event-location/</guid><description>&lt;p>地震目录中包含震中的经度、纬度、深度等信息，有些时候下载的数据中没有这些事件信息，
-就需要自己手动添加进去。&lt;/p>
-&lt;p>很基础的操作:&lt;/p>
-&lt;pre>&lt;code>SAC &amp;gt; r *.BH*
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>震中距 on SeisMan</title>
+    <link>https://blog.seisman.info/tags/%E9%9C%87%E4%B8%AD%E8%B7%9D/</link>
+    <description>Recent content in 震中距 on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 03 Aug 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E9%9C%87%E4%B8%AD%E8%B7%9D/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SAC 文件修改事件经纬度后震中距的自动计算</title>
+      <link>https://blog.seisman.info/calculate-gcarc-after-adding-event-location/</link>
+      <pubDate>Sat, 03 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/calculate-gcarc-after-adding-event-location/</guid>
+      <description>&lt;p&gt;地震目录中包含震中的经度、纬度、深度等信息，有些时候下载的数据中没有这些事件信息，
+就需要自己手动添加进去。&lt;/p&gt;
+&lt;p&gt;很基础的操作:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;SAC &amp;gt; r *.BH*
 SAC &amp;gt; ch evla 30.5 evlo 120.5 evdp 5.0
 SAC &amp;gt; wh
 SAC &amp;gt; q
-&lt;/code>&lt;/pre>
-&lt;p>修改了地震经纬度及深度信息之后，一般来说，震中距 dist、gcarc 以及方位角 az、baz 也会
-随着一起改变。但是，有些时候这些量却没有随着事件位置的变化而变化，这是为什么呢？&lt;/p></description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;修改了地震经纬度及深度信息之后，一般来说，震中距 dist、gcarc 以及方位角 az、baz 也会
+随着一起改变。但是，有些时候这些量却没有随着事件位置的变化而变化，这是为什么呢？&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

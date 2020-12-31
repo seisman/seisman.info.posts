@@ -1,5 +1,49 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>SAC 的时间概念 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="时间变量 SAC 用于处理时间序列，其头段变量中与时间有关的也很多，总的来说分为 2 类：
- GMT时间：绝对时间，或参考时间，包括 NZYEAR、NZJDAY、NZHOUR、NZMIN、NZSEC、NZMSEC， 分别代表年、日、时、分、秒、毫秒。注意这里没有月的概念，NZJDAY 代表该年的第多少天。 这 6 个变量构成了一个绝对时间，这个绝对时间以更易读的形式保存在变量 KZDATE 和 KZTIME 中 （这两个变量虽然说是头段变量，但是在文件中实际上并不对应这两个变量的存储空间），其是 整个 SAC 文件中唯一的绝对时间，因而用作为参考时间去定义相对时间。 相对时间：包括 B、E、O、A、F、Tn 等等，这些相对时间的值都是相对于绝对时间来定义的。 O=100 即意味着发震时刻为参考时间加上 100 秒所对应的 GMT 时间。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.0 with theme even"><link rel=canonical href=https://blog.seisman.info/trash/sac-times/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="SAC 的时间概念"><meta property="og:description" content="时间变量
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  
+
+  <title>SAC 的时间概念 - SeisMan</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SeisMan" /><meta name="description" content="时间变量 SAC 用于处理时间序列，其头段变量中与时间有关的也很多，总的来说分为 2 类：
+ GMT时间：绝对时间，或参考时间，包括 NZYEAR、NZJDAY、NZHOUR、NZMIN、NZSEC、NZMSEC， 分别代表年、日、时、分、秒、毫秒。注意这里没有月的概念，NZJDAY 代表该年的第多少天。 这 6 个变量构成了一个绝对时间，这个绝对时间以更易读的形式保存在变量 KZDATE 和 KZTIME 中 （这两个变量虽然说是头段变量，但是在文件中实际上并不对应这两个变量的存储空间），其是 整个 SAC 文件中唯一的绝对时间，因而用作为参考时间去定义相对时间。 相对时间：包括 B、E、O、A、F、Tn 等等，这些相对时间的值都是相对于绝对时间来定义的。 O=100 即意味着发震时刻为参考时间加上 100 秒所对应的 GMT 时间。 " /><meta name="keywords" content="地球物理学, 地震学, SAC, 软件, 开源" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.1 with theme even" />
+
+
+<link rel="canonical" href="https://blog.seisman.info/trash/sac-times/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="SAC 的时间概念" />
+<meta property="og:description" content="时间变量
 SAC 用于处理时间序列，其头段变量中与时间有关的也很多，总的来说分为 2 类：
 
 GMT时间：绝对时间，或参考时间，包括 NZYEAR、NZJDAY、NZHOUR、NZMIN、NZSEC、NZMSEC，
@@ -8,7 +52,14 @@ GMT时间：绝对时间，或参考时间，包括 NZYEAR、NZJDAY、NZHOUR、N
 （这两个变量虽然说是头段变量，但是在文件中实际上并不对应这两个变量的存储空间），其是
 整个 SAC 文件中唯一的绝对时间，因而用作为参考时间去定义相对时间。
 相对时间：包括 B、E、O、A、F、Tn 等等，这些相对时间的值都是相对于绝对时间来定义的。
-O=100 即意味着发震时刻为参考时间加上 100 秒所对应的 GMT 时间。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/trash/sac-times/"><meta property="article:published_time" content="2013-08-04T00:00:00+00:00"><meta property="article:modified_time" content="2013-08-04T00:00:00+00:00"><meta itemprop=name content="SAC 的时间概念"><meta itemprop=description content="时间变量
+O=100 即意味着发震时刻为参考时间加上 100 秒所对应的 GMT 时间。
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.seisman.info/trash/sac-times/" />
+<meta property="article:published_time" content="2013-08-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2013-08-04T00:00:00+00:00" />
+<meta itemprop="name" content="SAC 的时间概念">
+<meta itemprop="description" content="时间变量
 SAC 用于处理时间序列，其头段变量中与时间有关的也很多，总的来说分为 2 类：
 
 GMT时间：绝对时间，或参考时间，包括 NZYEAR、NZJDAY、NZHOUR、NZMIN、NZSEC、NZMSEC，
@@ -17,7 +68,18 @@ GMT时间：绝对时间，或参考时间，包括 NZYEAR、NZJDAY、NZHOUR、N
 （这两个变量虽然说是头段变量，但是在文件中实际上并不对应这两个变量的存储空间），其是
 整个 SAC 文件中唯一的绝对时间，因而用作为参考时间去定义相对时间。
 相对时间：包括 B、E、O、A、F、Tn 等等，这些相对时间的值都是相对于绝对时间来定义的。
-O=100 即意味着发震时刻为参考时间加上 100 秒所对应的 GMT 时间。"><meta itemprop=datePublished content="2013-08-04T00:00:00+00:00"><meta itemprop=dateModified content="2013-08-04T00:00:00+00:00"><meta itemprop=wordCount content="1931"><meta itemprop=keywords content="SAC技巧,时间,"><meta name=twitter:card content="summary"><meta name=twitter:title content="SAC 的时间概念"><meta name=twitter:description content="时间变量
+O=100 即意味着发震时刻为参考时间加上 100 秒所对应的 GMT 时间。
+">
+<meta itemprop="datePublished" content="2013-08-04T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2013-08-04T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1931">
+
+
+
+<meta itemprop="keywords" content="SAC技巧,时间," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SAC 的时间概念"/>
+<meta name="twitter:description" content="时间变量
 SAC 用于处理时间序列，其头段变量中与时间有关的也很多，总的来说分为 2 类：
 
 GMT时间：绝对时间，或参考时间，包括 NZYEAR、NZJDAY、NZHOUR、NZMIN、NZSEC、NZMSEC，
@@ -26,31 +88,142 @@ GMT时间：绝对时间，或参考时间，包括 NZYEAR、NZJDAY、NZHOUR、N
 （这两个变量虽然说是头段变量，但是在文件中实际上并不对应这两个变量的存储空间），其是
 整个 SAC 文件中唯一的绝对时间，因而用作为参考时间去定义相对时间。
 相对时间：包括 B、E、O、A、F、Tn 等等，这些相对时间的值都是相对于绝对时间来定义的。
-O=100 即意味着发震时刻为参考时间加上 100 秒所对应的 GMT 时间。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><div class=post-content><h2 id=时间变量>时间变量</h2><p>SAC 用于处理时间序列，其头段变量中与时间有关的也很多，总的来说分为 2 类：</p><ol><li><strong>GMT时间</strong>：绝对时间，或参考时间，包括 <code>NZYEAR</code>、<code>NZJDAY</code>、<code>NZHOUR</code>、<code>NZMIN</code>、<code>NZSEC</code>、<code>NZMSEC</code>，
+O=100 即意味着发震时刻为参考时间加上 100 秒所对应的 GMT 时间。
+"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SeisMan</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="https://link.seisman.info/">
+        <li class="mobile-menu-item">链接</li>
+      </a><a href="http://seisman.qiniudn.com/seisman-blog.pdf">
+        <li class="mobile-menu-item">PDF</li>
+      </a><a href="/collections/">
+        <li class="mobile-menu-item">合集</li>
+      </a><a href="/donations/">
+        <li class="mobile-menu-item">捐赠</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SeisMan</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://link.seisman.info/">链接</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="http://seisman.qiniudn.com/seisman-blog.pdf">PDF</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/collections/">合集</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/donations/">捐赠</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <h2 id="时间变量">时间变量</h2>
+<p>SAC 用于处理时间序列，其头段变量中与时间有关的也很多，总的来说分为 2 类：</p>
+<ol>
+<li><strong>GMT时间</strong>：绝对时间，或参考时间，包括 <code>NZYEAR</code>、<code>NZJDAY</code>、<code>NZHOUR</code>、<code>NZMIN</code>、<code>NZSEC</code>、<code>NZMSEC</code>，
 分别代表年、日、时、分、秒、毫秒。注意这里没有月的概念，<code>NZJDAY</code> 代表该年的第多少天。
 这 6 个变量构成了一个绝对时间，这个绝对时间以更易读的形式保存在变量 <code>KZDATE</code> 和 <code>KZTIME</code> 中
 （这两个变量虽然说是头段变量，但是在文件中实际上并不对应这两个变量的存储空间），其是
-整个 SAC 文件中唯一的绝对时间，因而用作为参考时间去定义相对时间。</li><li><strong>相对时间</strong>：包括 <code>B</code>、<code>E</code>、<code>O</code>、<code>A</code>、<code>F</code>、<code>Tn</code> 等等，这些相对时间的值都是相对于绝对时间来定义的。
-<code>O=100</code> 即意味着发震时刻为参考时间加上 100 秒所对应的 GMT 时间。</li></ol><h2 id=测试>测试</h2><p>下面针对这些时间变量做一些测试，试着更深刻地理解 SAC 的时间。</p><h3 id=原始数据>原始数据</h3><p>选取了一个地震的三分量，列出其 <code>kzdate</code>、<code>kztime</code>、<code>b</code>、<code>e</code> 如下：</p><pre><code>kzdate = MAR 11 (070), 2011
+整个 SAC 文件中唯一的绝对时间，因而用作为参考时间去定义相对时间。</li>
+<li><strong>相对时间</strong>：包括 <code>B</code>、<code>E</code>、<code>O</code>、<code>A</code>、<code>F</code>、<code>Tn</code> 等等，这些相对时间的值都是相对于绝对时间来定义的。
+<code>O=100</code> 即意味着发震时刻为参考时间加上 100 秒所对应的 GMT 时间。</li>
+</ol>
+<h2 id="测试">测试</h2>
+<p>下面针对这些时间变量做一些测试，试着更深刻地理解 SAC 的时间。</p>
+<h3 id="原始数据">原始数据</h3>
+<p>选取了一个地震的三分量，列出其 <code>kzdate</code>、<code>kztime</code>、<code>b</code>、<code>e</code> 如下：</p>
+<pre><code>kzdate = MAR 11 (070), 2011
 kztime = 05:46:23.019
 b = 5.380000e-04
 e = 4.499951e+03
-</code></pre><h3 id=修改文件起始时间-b>修改文件起始时间 b</h3><p>用如下命令直接修改文件起始时间</p><pre><code>ch b 10
-</code></pre><p>得到结果如下：</p><pre><code>kzdate = MAR 11 (070), 2011
+</code></pre>
+<h3 id="修改文件起始时间-b">修改文件起始时间 b</h3>
+<p>用如下命令直接修改文件起始时间</p>
+<pre><code>ch b 10
+</code></pre>
+<p>得到结果如下：</p>
+<pre><code>kzdate = MAR 11 (070), 2011
 kztime = 05:46:23.019
 b = 1.000000e+01
 e = 4.509950e+03
-</code></pre><p>文件的参考时间没有发生变化，<code>b</code> 和 <code>e</code> 都向后推迟了 10s，这意味着整段 SAC 数据任一点的绝对时间
+</code></pre>
+<p>文件的参考时间没有发生变化，<code>b</code> 和 <code>e</code> 都向后推迟了 10s，这意味着整段 SAC 数据任一点的绝对时间
 延迟了 10s，因而这一点可以用来校正时间零飘以及时区差异（但是前提是当前文件中 <code>o</code>、<code>a</code>、<code>f</code>、
-<code>tn</code> 未定义）。</p><h3 id=修改文件结束时间-e>修改文件结束时间 e</h3><p>用如下命令直接修改文件结束时间</p><pre><code>ch e 0
-</code></pre><p>得到结果如下：</p><pre><code>kzdate = MAR 11 (070), 2011
+<code>tn</code> 未定义）。</p>
+<h3 id="修改文件结束时间-e">修改文件结束时间 e</h3>
+<p>用如下命令直接修改文件结束时间</p>
+<pre><code>ch e 0
+</code></pre>
+<p>得到结果如下：</p>
+<pre><code>kzdate = MAR 11 (070), 2011
 kztime = 05:46:23.019
 b = 5.380000e-04
 e = 4.499951e+03
-</code></pre><p>文件的参考时间以及 <code>e</code> 均没有发生变化，这意味着 <code>e</code> 的值不是可以任意改变的，而是根据 <code>b</code>、<code>delta</code>
+</code></pre>
+<p>文件的参考时间以及 <code>e</code> 均没有发生变化，这意味着 <code>e</code> 的值不是可以任意改变的，而是根据 <code>b</code>、<code>delta</code>
 及 <code>npts</code> 动态决定的，尝试修改 <code>delta</code>，<code>e</code> 值随之改变；尝试修改 <code>npts</code> 以达到类似 cut 的效果时，
-出现警告：</p><pre><code>WARNING: NVHDR, NPTS, NWFID, NORID, and NEVID cannot be changed with CHNHDR
-</code></pre><h3 id=修改-oaftn>修改 o、a、f、tn</h3><p>这些变量是用于标记时刻的变量，不是必须的，用户可以随意修改，不会对参考时间等产生任何的影响。</p><h3 id=修改参考时间>修改参考时间</h3><p>随便定义了几个 <code>o</code>、<code>a</code>、<code>f</code>、<code>t0</code> 的值，以验证修改参考时间对这些时间变量的影响，原始变量值如下：</p><pre><code>kzdate = MAR 11 (070), 2011
+出现警告：</p>
+<pre><code>WARNING: NVHDR, NPTS, NWFID, NORID, and NEVID cannot be changed with CHNHDR
+</code></pre>
+<h3 id="修改-oaftn">修改 o、a、f、tn</h3>
+<p>这些变量是用于标记时刻的变量，不是必须的，用户可以随意修改，不会对参考时间等产生任何的影响。</p>
+<h3 id="修改参考时间">修改参考时间</h3>
+<p>随便定义了几个 <code>o</code>、<code>a</code>、<code>f</code>、<code>t0</code> 的值，以验证修改参考时间对这些时间变量的影响，原始变量值如下：</p>
+<pre><code>kzdate = MAR 11 (070), 2011
 kztime = 05:46:23.019
 b = 5.380000e-04
 e = 4.499951e+03
@@ -58,8 +231,12 @@ o = 2.000000e+01
 a = 4.000000e+01
 f = 9.000000e+01
 t0 = 6.000000e+01
-</code></pre><p>用如下命令修改参考时间</p><pre><code>ch nzmin 50
-</code></pre><p>得到结果如下：</p><pre><code>kzdate = MAR 11 (070), 2011
+</code></pre>
+<p>用如下命令修改参考时间</p>
+<pre><code>ch nzmin 50
+</code></pre>
+<p>得到结果如下：</p>
+<pre><code>kzdate = MAR 11 (070), 2011
 kztime = 05:50:23.019
 b = 5.380000e-04
 e = 4.499951e+03
@@ -67,14 +244,23 @@ o = 2.000000e+01
 a = 4.000000e+01
 f = 9.000000e+01
 t0 = 6.000000e+01
-</code></pre><p>整个 SAC 文件中除参考时间外其他时间都没有发生变化。参考时间变化了而相对时间没有变化，这导致 SAC 数据点的
+</code></pre>
+<p>整个 SAC 文件中除参考时间外其他时间都没有发生变化。参考时间变化了而相对时间没有变化，这导致 SAC 数据点的
 绝对时间发生了平移，与第一条中直接修改 <code>b</code> 的情况类似。可以通过修改参考时间的方式来校正时钟漂移和时区差异，
-当然一般不这么做。</p><h3 id=修改参考时间为发震时刻>修改参考时间为发震时刻</h3><p>很多情况下，需要将参考时间修改为发震时刻，从第四条可以看出，直接修改参考时间的方案是不可行的。</p><p>当我们将参考时间提前 10s 的时候，为了保证其他时间变量所对应的绝对时间不发生变化，我们需要同时将各个
+当然一般不这么做。</p>
+<h3 id="修改参考时间为发震时刻">修改参考时间为发震时刻</h3>
+<p>很多情况下，需要将参考时间修改为发震时刻，从第四条可以看出，直接修改参考时间的方案是不可行的。</p>
+<p>当我们将参考时间提前 10s 的时候，为了保证其他时间变量所对应的绝对时间不发生变化，我们需要同时将各个
 相对时间加上 10s（这样才能保证在某个参考时间下标记的震相到时等信息可以完全映射到另一个参考时间下的
-震相到时，这或许可以理解为时间坐标系下的坐标变换）。</p><p>因为修改参考时间，而使得每个相对时间都要一一修改，这工作量有点大。SAC 自身提供了一个更为简单的选项
+震相到时，这或许可以理解为时间坐标系下的坐标变换）。</p>
+<p>因为修改参考时间，而使得每个相对时间都要一一修改，这工作量有点大。SAC 自身提供了一个更为简单的选项
 帮助我们实现了这一功能，如 manaul 中所说：“你可以使用 <code>allt</code> 选项改变这个参考时间和其他所有的相对时间，
-这个秒数 t 增加到每个给定的相对时间上，同样的秒数也从参考时间中减去，这样就使数据实际的 GMT 时间保持不变”。</p><p>还是上面那个例子，使用</p><pre><code>ch allt 10
-</code></pre><p>得到结果如下：</p><pre><code>kzdate = MAR 11 (070), 2011
+这个秒数 t 增加到每个给定的相对时间上，同样的秒数也从参考时间中减去，这样就使数据实际的 GMT 时间保持不变”。</p>
+<p>还是上面那个例子，使用</p>
+<pre><code>ch allt 10
+</code></pre>
+<p>得到结果如下：</p>
+<pre><code>kzdate = MAR 11 (070), 2011
 kztime = 05:46:13.019
 b = 1.000054e+01
 e = 4.509951e+03
@@ -82,10 +268,16 @@ o = 3.000000e+01
 a = 5.000000e+01
 f = 1.000000e+02
 t0 = 7.000000e+01
-</code></pre><p>相对时间都增加了 10s，参考时间减少了 10s。</p><h3 id=直接使用-gmt-时间>直接使用 GMT 时间</h3><p>为方便起见，你可以输入一个 GMT 时间而不是输入一个相对时间。当输入 GMT 时间时，SAC 首先将其变为相对时间
+</code></pre>
+<p>相对时间都增加了 10s，参考时间减少了 10s。</p>
+<h3 id="直接使用-gmt-时间">直接使用 GMT 时间</h3>
+<p>为方便起见，你可以输入一个 GMT 时间而不是输入一个相对时间。当输入 GMT 时间时，SAC 首先将其变为相对时间
 再存储到头段变量中。已知某事件的发震时刻，想要将发震时刻作为参考时间，其他所有的相对时间都变成相对
-这个参考时间的秒数，可以使用</p><pre><code>ch o gmt 2011 070 05 50 23 019
-</code></pre><p>得到如下结果：</p><pre><code>kzdate = MAR 11 (070), 2011
+这个参考时间的秒数，可以使用</p>
+<pre><code>ch o gmt 2011 070 05 50 23 019
+</code></pre>
+<p>得到如下结果：</p>
+<pre><code>kzdate = MAR 11 (070), 2011
 kztime = 05:46:23.019
 b = 5.380000e-04
 e = 4.499951e+03
@@ -93,9 +285,13 @@ o = 2.400000e+02
 a = 4.000000e+01
 f = 9.000000e+01
 t0 = 6.000000e+01
-</code></pre><p>发震时刻被转换为相对时间 240 存储在头段变量 <code>o</code> 中，为了修改参考时间为发震时刻，需要将所有相对时间减去 240 s，
-参考时间加上 240 s，命令为</p><pre><code>ch allt －240 iztype io
-</code></pre><p>结果如下：</p><pre><code>kzdate = MAR 11 (070), 2011
+</code></pre>
+<p>发震时刻被转换为相对时间 240 存储在头段变量 <code>o</code> 中，为了修改参考时间为发震时刻，需要将所有相对时间减去 240 s，
+参考时间加上 240 s，命令为</p>
+<pre><code>ch allt －240 iztype io
+</code></pre>
+<p>结果如下：</p>
+<pre><code>kzdate = MAR 11 (070), 2011
 kztime = 05:50:23.019
 b = -2.399995e+02
 e = 4.259951e+03
@@ -103,13 +299,90 @@ o = 0.000000e+00
 a = -2.000000e+02
 f = -1.500000e+02
 t0 = -1.800000e+02
-</code></pre><p>由结果可以看出，这么做达到了我们想要的目的。</p><h2 id=总结>总结</h2><p>将 SAC 中的时间变量可以细分为三类：</p><ul><li>第一类为参考时间，即 <code>NZYEAR</code>、<code>NZJDAY</code>、<code>NZHOUR</code>、<code>NZMIN</code>、<code>NZSEC</code>、<code>NZMSEC</code>；</li><li>第二类为相对时间，即 <code>o</code>、<code>a</code>、<code>f</code>、<code>tn</code>；</li><li>第三类为特殊的相对时间，即 <code>b</code>、<code>e</code>。</li></ul><p>在第三类中 <code>e</code> 是不能随意改变的，所以可以不考虑。单独修改这三类时间变量都不会影响其他时间变量，修改第二
+</code></pre>
+<p>由结果可以看出，这么做达到了我们想要的目的。</p>
+<h2 id="总结">总结</h2>
+<p>将 SAC 中的时间变量可以细分为三类：</p>
+<ul>
+<li>第一类为参考时间，即 <code>NZYEAR</code>、<code>NZJDAY</code>、<code>NZHOUR</code>、<code>NZMIN</code>、<code>NZSEC</code>、<code>NZMSEC</code>；</li>
+<li>第二类为相对时间，即 <code>o</code>、<code>a</code>、<code>f</code>、<code>tn</code>；</li>
+<li>第三类为特殊的相对时间，即 <code>b</code>、<code>e</code>。</li>
+</ul>
+<p>在第三类中 <code>e</code> 是不能随意改变的，所以可以不考虑。单独修改这三类时间变量都不会影响其他时间变量，修改第二
 类时间不会造成整个数据的绝对时间的改变，修改第一、三类时间变量时数据绝对时间会发生改变（该特性可用于
-校正时间零漂或时区不一致）。为了保证数据的绝对时间不发生改变，通常使用 <code>allt</code> 选项来实现。</p></div></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
-<span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
-<span class=copyright-year>&copy;
-2013 -
-2020
-<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>
+校正时间零漂或时区不一致）。为了保证数据的绝对时间不发生改变，通常使用 <code>allt</code> 选项来实现。</p>
+  </div>
+</article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'seisman';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:seisman.info@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/seisman" class="iconfont icon-github" title="github"></a>
+      <a href="https://movie.douban.com/people/131919859" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://blog.seisman.info/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2013 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">SeisMan</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

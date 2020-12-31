@@ -1,1 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>距离 on SeisMan</title><link>https://blog.seisman.info/tags/%E8%B7%9D%E7%A6%BB/</link><description>Recent content in 距离 on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 21 Feb 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E8%B7%9D%E7%A6%BB/index.xml" rel="self" type="application/rss+xml"/><item><title>计算某点离海岸线的距离</title><link>https://blog.seisman.info/calculate-distance-to-coast/</link><pubDate>Fri, 21 Feb 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/calculate-distance-to-coast/</guid><description>&lt;p>要计算某个点到海岸线的距离，思路很简单，先获取离散的海岸线数据，然后计算该点到所有海岸线数据点的距离，取其中的最小值即可认为是海岸线的距离。&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>距离 on SeisMan</title>
+    <link>https://blog.seisman.info/tags/%E8%B7%9D%E7%A6%BB/</link>
+    <description>Recent content in 距离 on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 21 Feb 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E8%B7%9D%E7%A6%BB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>计算某点离海岸线的距离</title>
+      <link>https://blog.seisman.info/calculate-distance-to-coast/</link>
+      <pubDate>Fri, 21 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/calculate-distance-to-coast/</guid>
+      <description>&lt;p&gt;要计算某个点到海岸线的距离，思路很简单，先获取离散的海岸线数据，然后计算该点到所有海岸线数据点的距离，取其中的最小值即可认为是海岸线的距离。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

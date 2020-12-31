@@ -1,1 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>macOS on SeisMan</title><link>https://blog.seisman.info/categories/macOS/</link><description>Recent content in macOS on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 29 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/categories/macOS/index.xml" rel="self" type="application/rss+xml"/><item><title>用 Mac 打造合适的科研环境</title><link>https://blog.seisman.info/macOS/</link><pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/macOS/</guid><description>这篇文章既为地震学科研人员适应 Mac 给出最基本的指引，也为一般的新手给出一些指南。 Mac 的购买 如果是学生，任何时候凭借身份证和学生证都可以在 Apple 官网或</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>macOS on SeisMan</title>
+    <link>https://blog.seisman.info/categories/macOS/</link>
+    <description>Recent content in macOS on SeisMan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 29 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/categories/macOS/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用 Mac 打造合适的科研环境</title>
+      <link>https://blog.seisman.info/macOS/</link>
+      <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://blog.seisman.info/macOS/</guid>
+      <description>这篇文章既为地震学科研人员适应 Mac 给出最基本的指引，也为一般的新手给出一些指南。 Mac 的购买 如果是学生，任何时候凭借身份证和学生证都可以在 Apple 官网或</description>
+    </item>
+    
+  </channel>
+</rss>
