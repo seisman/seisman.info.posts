@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>台站 on SeisMan</title><link>https://blog.seisman.info/tags/%E5%8F%B0%E7%AB%99/</link><description>Recent content in 台站 on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 28 Jan 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E5%8F%B0%E7%AB%99/index.xml" rel="self" type="application/rss+xml"/><item><title>查看 IRIS 台站分布</title><link>https://blog.seisman.info/trash/iris-station-distribution/</link><pubDate>Tue, 28 Jan 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/iris-station-distribution/</guid><description>&lt;p>IRIS 利用 Google Map 服务，提供了直观查看台站分布的方法。&lt;/p>
-&lt;p>主页： &lt;a href="http://www.iris.edu/gmap/">http://www.iris.edu/gmap/&lt;/a>&lt;/p>
-&lt;p>这个服务比较特别，不包含常见的按钮或选项。用户需要根据网站介绍的格式，创建自己需要的 URL，直接输入到浏览器中即可查看相关台站分布，并可以查看每个台站的具体信息。&lt;/p>
-&lt;p>基本格式为:&lt;/p>
-&lt;pre>&lt;code>http://www.iris.edu/gmap/[network]/[station]?key1=value1&amp;amp;key2=value2
-&lt;/code>&lt;/pre>
-&lt;p>其中中括号包围的项为可选项，问号后接 (key,value) 对。具体参见原网站。&lt;/p></description></item></channel></rss>
