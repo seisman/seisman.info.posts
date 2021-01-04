@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hinet on SeisMan</title><link>https://blog.seisman.info/tags/Hinet/</link><description>Recent content in Hinet on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 01 Apr 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/Hinet/index.xml" rel="self" type="application/rss+xml"/><item><title>HinetPy: Hi-net 数据申请与处理模块</title><link>https://blog.seisman.info/hinetpy/</link><pubDate>Sat, 01 Apr 2017 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/hinetpy/</guid><description>&lt;p>HinetPy 是一个用于从日本 NIED Hi-net 网站下载地震波形数据并进行数据格式转换的Python模块。&lt;/p>
+&lt;ul>
+&lt;li>项目主页： &lt;a href="https://github.com/seisman/HinetPy">https://github.com/seisman/HinetPy&lt;/a>&lt;/li>
+&lt;li>官方文档： &lt;a href="https://seisman.github.io/HinetPy">https://seisman.github.io/HinetPy&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Hinet/Fnet 台站选择工具</title><link>https://blog.seisman.info/trash/hinet-station-selector/</link><pubDate>Tue, 08 Mar 2016 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/hinet-station-selector/</guid><description>&lt;p>Hinet 大概有不到 800 个台站，Fnet 大概有 150 个左右的台站。在从 Hinet 网站上下载
+数据时，默认是会下载所有台站的波形数据的。若只需要申请其中部分台站的数据，
+则需要使用 Hinet 网站自带的台站选择工具。&lt;/p>
+&lt;p>Hinet 网站自带的台站工具有如下优缺点：&lt;/p>
+&lt;ol>
+&lt;li>图形界面，直观得显示了每个台站的位置&lt;/li>
+&lt;li>无法通过某些条件进行筛选，一次只能选中或删除一个台站&lt;/li>
+&lt;li>似乎需要一个 Java 的浏览器工具才能使用&lt;/li>
+&lt;/ol>
+&lt;p>因此，写了一个可以用于选择台站的 Python 工具，即 &lt;code>StationSelector.py&lt;/code>，其是
+&lt;a href="https://github.com/seisman/HinetScripts">HinetScripts&lt;/a> 项目下中的一个脚本。&lt;/p></description></item><item><title>Hinet 配置检查脚本</title><link>https://blog.seisman.info/trash/hinetdoctor/</link><pubDate>Mon, 07 Mar 2016 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/hinetdoctor/</guid><description>HinetDoctor.py 是 HinetScripts 项目中的一个 Python 脚本。 该脚本主要有如下功能： 检查 Python 版本是否大于 3.3 检查是否已安装所有依赖 检查配置文件是否可正常读取 检查账号密码是否正确，或</description></item><item><title>Hi-net 生成仪器响应 SAC PZ 文件</title><link>https://blog.seisman.info/trash/hinet-convert-channel-table-to-sac-pz-file/</link><pubDate>Sat, 13 Sep 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/hinet-convert-channel-table-to-sac-pz-file/</guid><description>&lt;p>前文 &lt;a href="https://blog.seisman.info/hinet-instrumental-response/">Hinet 仪器响应&lt;/a> 中介绍了 Hi-net 的
+仪器响应的详细信息。据此，用 Python 写了一个脚本，将 Hi-net 的 Channel Table
+文件转换为常用的 SAC PZ 文件。&lt;/p>
+&lt;p>脚本位于：&lt;a href="https://github.com/seisman/HinetScripts/blob/master/ch2pz.py">ch2pz.py&lt;/a>。&lt;/p></description></item><item><title>Hi-net WIN32 转 SAC 脚本</title><link>https://blog.seisman.info/trash/hinet-convert-win32-files-to-sac/</link><pubDate>Fri, 12 Sep 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/hinet-convert-win32-files-to-sac/</guid><description>&lt;p>该脚本用于实现 Hinet WIN32 格式到 SAC 格式的转换，脚本位于 &lt;a href="https://github.com/seisman/HinetScripts/blob/master/rdhinet.py">rdhinet.py&lt;/a>。&lt;/p></description></item><item><title>Hi-net win32tools</title><link>https://blog.seisman.info/hinet-win32tools/</link><pubDate>Sun, 07 Sep 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/hinet-win32tools/</guid><description>&lt;p>从 Hi-net 获取的波形数据为不常见/用的WIN32 格式，Hi-net 提供了 win32tools 来实现波形数据的基本处理和转换。&lt;/p></description></item><item><title>Hi-net 的仪器响应</title><link>https://blog.seisman.info/hinet-instrumental-response/</link><pubDate>Sat, 06 Sep 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/hinet-instrumental-response/</guid><description>&lt;p>前文介绍了 channel table 文件的格式以及每一列的含义，其中 7-13 列记录了 channel 的
+仪器信息。由于 Hi-net 并没有像 IRIS 那样提供 RESP 或 SAC_PZ 文件，因而需要用户根据
+7-13 列的信息手动推导仪器响应。&lt;/p></description></item><item><title>Hi-net Channel Table 文件</title><link>https://blog.seisman.info/hinet-channel-table/</link><pubDate>Fri, 05 Sep 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/hinet-channel-table/</guid><description>&lt;p>从 Hi-net 下载连续波形数据会得到 ZIP 压缩文件，其中包含了两个后缀为 &lt;code>ch&lt;/code> 的文件，
+即 Channel Table 文件。两个文件内容是相同的，区别在于一个是 &lt;code>euc&lt;/code> 编码，
+一个是 &lt;code>sjis&lt;/code> 编码。只需要用其中一个即可，这里选择 &lt;code>euc&lt;/code> 编码的文件。&lt;/p>
+&lt;p>Channel Table 文件描述了每个 channel 的仪器信息，某种程度上等效于常见的 RESP 或
+SAC PZ 仪器响应文件。但是实际上 Channel Table 有一定的局限性，无法理解 Hi-net
+为什么会用这种格式来指定仪器响应信息。&lt;/p>
+&lt;p>尤其需要注意的是，对于 Hinet 而言，channel table 可以完整的描述仪器响应，
+而对于 Fnet 而言，channel table 给出的信息不足。因而关于 channel table 的内容，
+仅适用于 Hinet，不适用于 Fnet，不确定是否适用于其他台网。&lt;/p></description></item><item><title>Hi-net WIN32 格式</title><link>https://blog.seisman.info/hinet-win32-format/</link><pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/hinet-win32-format/</guid><description>对于连续波形数据而言，从 Hi-net 下载的文件为 zip 压缩文件，其中包含了多个后缀为 cnt 的文件。每个 cnt 文件中包含了多台站多分量的一分钟的波形数据。 这些 cnt 文件</description></item><item><title>Hi-net 事件波形数据</title><link>https://blog.seisman.info/trash/hinet-event-waveform-data/</link><pubDate>Wed, 03 Sep 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/hinet-event-waveform-data/</guid><description>Hi-net 基于 JMA Unified Hypocenter Catalog 提供的事件信息，提供了事件波形数据。 事件波形申请地址 事件波形下载地址 查看网页源代码可以发现，申请的实质是调用另一个 openRequest 函数，其中</description></item><item><title>Hi-net 走时和震源机制数据</title><link>https://blog.seisman.info/trash/hinet-arrival-time-and-focal-mechanism-catalog/</link><pubDate>Tue, 02 Sep 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/hinet-arrival-time-and-focal-mechanism-catalog/</guid><description>&lt;p>Hi-net 基于 JMA Unified Hypocenter Catalog，提供了到时数据以及震源机制解目录。&lt;/p>
+&lt;p>&lt;a href="https://hinetwww11.bosai.go.jp/auth/JMA/?LANG=en">数据下载地址&lt;/a>
+&lt;a href="https://hinetwww11.bosai.go.jp/auth/manual/dlDialogue.php?r=jmaformat&amp;amp;LANG=en">数据格式官方文档&lt;/a>&lt;/p>
+&lt;p>本文不谈数据格式，只讨论数据的下载问题。&lt;/p></description></item><item><title>JMA 统一地震目录</title><link>https://blog.seisman.info/trash/jma-unified-hypocenter-catalog/</link><pubDate>Mon, 01 Sep 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/jma-unified-hypocenter-catalog/</guid><description>JMA 提供了日本及其周边地区的区域地震目录。JMA首先提供了一个初级的地震目录，并不定期发布最终版的地震目录。 Hi-net 网站中可以直接获取 JMA 初级地震目录</description></item><item><title>Hinet 连续波形数据申请及下载的脚本实现</title><link>https://blog.seisman.info/trash/hinet-continuous-waveform-data-request-script/</link><pubDate>Sat, 30 Aug 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/hinet-continuous-waveform-data-request-script/</guid><description>&lt;p>前文已经说到，Hi-net 连续波形数据申请的本质可以简化为如下几步：&lt;/p>
+&lt;ol>
+&lt;li>指定参数，构建 query string&lt;/li>
+&lt;li>向 Hi-net 发送数据请求&lt;/li>
+&lt;li>等待数据准备&lt;/li>
+&lt;li>下载数据&lt;/li>
+&lt;/ol></description></item><item><title>Hi-net 连续数据申请的源码分析</title><link>https://blog.seisman.info/hinet-continuous-waveform-data-source-code/</link><pubDate>Fri, 29 Aug 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/hinet-continuous-waveform-data-source-code/</guid><description>&lt;p>上一篇博文介绍了 Hi-net 数据申请的流程以及其中的一些限制。从表面上看，数据申请的过程其实就是鼠标点点点。&lt;/p></description></item><item><title>Hi-net 连续波形数据</title><link>https://blog.seisman.info/hinet-continuous-waveform-data/</link><pubDate>Wed, 27 Aug 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/hinet-continuous-waveform-data/</guid><description>&lt;p>本文将介绍如何从 Hi-net 申请并下载连续波形数据，并介绍 Hi-net 数据的一些细节。&lt;/p>
+&lt;p>连续波形数据申请地址： &lt;a href="https://hinetwww11.bosai.go.jp/auth/download/cont/?LANG=en">https://hinetwww11.bosai.go.jp/auth/download/cont/?LANG=en&lt;/a>&lt;/p></description></item><item><title>日本高密度地震台网 Hi-net</title><link>https://blog.seisman.info/hinet/</link><pubDate>Mon, 25 Aug 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/hinet/</guid><description>&lt;p>Hi-net，全称为 High Sensitivity Seismograph Network，是 NIED 下的一个覆盖日本
+全境的高质量、高密度的短周期地震台网。&lt;/p></description></item></channel></rss>

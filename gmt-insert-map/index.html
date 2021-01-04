@@ -1,0 +1,76 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>GMT 绘制图中图 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="英文一般称为 inset map 或 insert map，中文还不确定有没有专门的名词，一般常称为图中图、小图、嵌入图。
+所谓 insert map，即在绘制小区域地图时，在图上的某个角落里绘制一张更大范围的地图，并在大范围地图上绘制一个方框，以更清楚地表明小区域的地理位置。
+若是了解 GMT 中图层的概念以及图层叠加的原理，就可以很容易地把 insert map 画出来。由于 GMT4 和 GMT5 语法上的差异，这里同时给出 GMT4 和 GMT5 两个版本的绘图脚本。二者原理是差不多的，只是语法上有些差异，因而下面只解释 GMT5 脚本中的细节，对 GMT4 脚本不做过多介绍。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.1 with theme even"><link rel=canonical href=https://blog.seisman.info/gmt-insert-map/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="GMT 绘制图中图"><meta property="og:description" content="英文一般称为 inset map 或 insert map，中文还不确定有没有专门的名词，一般常称为图中图、小图、嵌入图。
+所谓 insert map，即在绘制小区域地图时，在图上的某个角落里绘制一张更大范围的地图，并在大范围地图上绘制一个方框，以更清楚地表明小区域的地理位置。
+若是了解 GMT 中图层的概念以及图层叠加的原理，就可以很容易地把 insert map 画出来。由于 GMT4 和 GMT5 语法上的差异，这里同时给出 GMT4 和 GMT5 两个版本的绘图脚本。二者原理是差不多的，只是语法上有些差异，因而下面只解释 GMT5 脚本中的细节，对 GMT4 脚本不做过多介绍。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/gmt-insert-map/"><meta property="article:published_time" content="2015-08-16T00:00:00+00:00"><meta property="article:modified_time" content="2015-08-16T00:00:00+00:00"><meta itemprop=name content="GMT 绘制图中图"><meta itemprop=description content="英文一般称为 inset map 或 insert map，中文还不确定有没有专门的名词，一般常称为图中图、小图、嵌入图。
+所谓 insert map，即在绘制小区域地图时，在图上的某个角落里绘制一张更大范围的地图，并在大范围地图上绘制一个方框，以更清楚地表明小区域的地理位置。
+若是了解 GMT 中图层的概念以及图层叠加的原理，就可以很容易地把 insert map 画出来。由于 GMT4 和 GMT5 语法上的差异，这里同时给出 GMT4 和 GMT5 两个版本的绘图脚本。二者原理是差不多的，只是语法上有些差异，因而下面只解释 GMT5 脚本中的细节，对 GMT4 脚本不做过多介绍。"><meta itemprop=datePublished content="2015-08-16T00:00:00+00:00"><meta itemprop=dateModified content="2015-08-16T00:00:00+00:00"><meta itemprop=wordCount content="984"><meta itemprop=keywords content="GMT技巧,"><meta name=twitter:card content="summary"><meta name=twitter:title content="GMT 绘制图中图"><meta name=twitter:description content="英文一般称为 inset map 或 insert map，中文还不确定有没有专门的名词，一般常称为图中图、小图、嵌入图。
+所谓 insert map，即在绘制小区域地图时，在图上的某个角落里绘制一张更大范围的地图，并在大范围地图上绘制一个方框，以更清楚地表明小区域的地理位置。
+若是了解 GMT 中图层的概念以及图层叠加的原理，就可以很容易地把 insert map 画出来。由于 GMT4 和 GMT5 语法上的差异，这里同时给出 GMT4 和 GMT5 两个版本的绘图脚本。二者原理是差不多的，只是语法上有些差异，因而下面只解释 GMT5 脚本中的细节，对 GMT4 脚本不做过多介绍。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>GMT 绘制图中图</h1><div class=post-meta><span class=post-time>2015-08-16</span><div class=post-category><a href=/categories/GMT/>GMT</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#效果图>效果图</a></li><li><a href=#gmt5-脚本>GMT5 脚本</a></li><li><a href=#gmt4-脚本>GMT4 脚本</a></li><li><a href=#修订历史>修订历史</a></li></ul></nav></div></div><div class=post-content><p>英文一般称为 inset map 或 insert map，中文还不确定有没有专门的名词，一般常称为图中图、小图、嵌入图。</p><p>所谓 insert map，即在绘制小区域地图时，在图上的某个角落里绘制一张更大范围的地图，并在大范围地图上绘制一个方框，以更清楚地表明小区域的地理位置。</p><p>若是了解 GMT 中图层的概念以及图层叠加的原理，就可以很容易地把 insert map 画出来。由于 GMT4 和 GMT5 语法上的差异，这里同时给出 GMT4 和 GMT5 两个版本的绘图脚本。二者原理是差不多的，只是语法上有些差异，因而下面只解释 GMT5 脚本中的细节，对 GMT4 脚本不做过多介绍。</p><h2 id=效果图>效果图</h2><p><img src=/images/2015081601.png alt></p><h2 id=gmt5-脚本>GMT5 脚本</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e>#!/bin/bash
+</span><span style=color:#75715e></span>R<span style=color:#f92672>=</span>115/123/35/40             <span style=color:#75715e># 小区域地图的范围 - R</span>
+J<span style=color:#f92672>=</span>M20c                      <span style=color:#75715e># 小区域的投影方式 - J</span>
+PS<span style=color:#f92672>=</span>map.ps
+
+<span style=color:#75715e># 打开 GMT</span>
+gmt psxy -R$R -J$J -T -K &gt; $PS
+
+<span style=color:#75715e># 绘制小区域的地图</span>
+gmt pscoast -R$R -J$J -B1 -Df -W2p -I2p -N1/2p -A1000 -K -O &gt;&gt; $PS
+<span style=color:#75715e># ...</span>
+<span style=color:#75715e># 此处可以任意添加其他绘图命令</span>
+<span style=color:#75715e># ...</span>
+
+<span style=color:#75715e># 开始绘制 insert map</span>
+Rg<span style=color:#f92672>=</span>72/135/16/55     <span style=color:#75715e># 大区域地图的范围 - R</span>
+Jg<span style=color:#f92672>=</span>M7c              <span style=color:#75715e># 大区域地图的投影方式 - J</span>
+<span style=color:#75715e># 绘制大区域地图的海岸线及边框</span>
+gmt pscoast -R$Rg -J$Jg -B0 -B+gwhite -Df -N1 -W -A5000 -K -O --MAP_FRAME_TYPE<span style=color:#f92672>=</span>plain &gt;&gt; $PS
+<span style=color:#75715e># 利用 psbasemap 在大区域地图内绘制小区域所在的方框</span>
+gmt psbasemap -R$Rg -J$Jg -D$R -F+p2p,blue -K -O &gt;&gt; $PS
+
+<span style=color:#75715e># 结束 GMT 绘图</span>
+gmt psxy -R$R -J$J -T -O &gt;&gt; $PS
+</code></pre></div><p>整个脚本的思路已经在脚本注释中做了解释。本质上就是先绘制小区域地图而不去管 insert map，待小区域地图绘制完成后，再单独绘制一个 insert map。</p><p>绘制 insert map 时，使用了两个命令：pscoast 和 psbasemap。其中，pscoast 的作用是绘制大区域地图的边框以及海岸线，psbasemap 用于在大区域地图内绘制一个矩形区域，当然也可以用 psxy 命令代替。</p><p>在使用 pscoast 命令绘制大区域地图时，有几个需要解释的地方：</p><ol><li><code>-B0</code> 使得大区域地图的边框不显示刻度；</li><li>默认情况下，边框内部是透明的，此时会在 insert map 内看到下一图层里的一些元素，<code>-B+gwhite</code> 使得边框内填充白色；</li><li><code>--MAP_FRAME_TYPE=plain</code> 设置边框类型为一般的直线，默认值是 fancy 即火车轨道边框；</li><li>可以设置 <code>MAP_FRAME_PEN</code> 以修改边框的粗细；</li><li>pscoast 命令中可以使用 - X 和 - Y 选项以调整 insert map 在图中的位置；</li></ol><h2 id=gmt4-脚本>GMT4 脚本</h2><p>GMT4 脚本相对于 GMT5 脚本的主要区别在于：GMT5 中任意命令都可以通过 <code>-B+gwhite</code> 的语法指定边框内填充白色，而 GMT4 中只有 psbasemap 命令可以通过 <code>-Gwhite</code> 选项来实现填充白色。因而 GMT4 的脚本中，需要先使用 psbasemap 绘制一个白色填充的边框，再使用 pscoast 绘制海岸线。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e>#!/bin/bash
+</span><span style=color:#75715e></span>
+xmin<span style=color:#f92672>=</span><span style=color:#ae81ff>115</span>
+xmax<span style=color:#f92672>=</span><span style=color:#ae81ff>123</span>
+ymin<span style=color:#f92672>=</span><span style=color:#ae81ff>35</span>
+ymax<span style=color:#f92672>=</span><span style=color:#ae81ff>40</span>
+R<span style=color:#f92672>=</span>$xmin/$xmax/$ymin/$ymax
+J<span style=color:#f92672>=</span>M20c
+PS<span style=color:#f92672>=</span>map.ps
+
+psxy -R$R -J$J -T -K &gt; $PS
+
+pscoast -R$R -J$J -B1 -Df -W2p -I2p -N1/2p -A1000 -K -O &gt;&gt; $PS
+
+Rg<span style=color:#f92672>=</span>72/135/16/55
+Jg<span style=color:#f92672>=</span>M7c
+psbasemap -R$Rg -J$Jg -B0 -Gwhite -K -O --BASEMAP_TYPE<span style=color:#f92672>=</span>plain &gt;&gt; $PS
+pscoast -R$Rg -J$Jg -Df -N1 -W -A5000 -K -O &gt;&gt; $PS
+psxy -R$Rg -J$Jg -W2p,blue -K -O -L &gt;&gt; $PS <span style=color:#e6db74>&lt;&lt; EOF
+</span><span style=color:#e6db74>$xmin $ymin
+</span><span style=color:#e6db74>$xmin $ymax
+</span><span style=color:#e6db74>$xmax $ymax
+</span><span style=color:#e6db74>$xmax $ymin
+</span><span style=color:#e6db74>EOF</span>
+
+psxy -R$R -J$J -T -O &gt;&gt; $PS
+</code></pre></div><h2 id=修订历史>修订历史</h2><ul><li>2015-08-16：初稿</li><li>2015-11-02：GMT5 脚本使用 <code>psbasemap</code> 的 <code>-D</code> 选项以简化代码</li></ul></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2015-08-16</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/GMT%E6%8A%80%E5%B7%A7/>GMT技巧</a></div><nav class=post-nav><a class=prev href=/plot-fault-names/><i class="iconfont icon-left"></i><span class="prev-text nav-default">GMT 添加断层名</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/area-fill/><span class="next-text nav-default">GMT 区域填色</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2021
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

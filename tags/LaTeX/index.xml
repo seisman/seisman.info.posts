@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LaTeX on SeisMan</title><link>https://blog.seisman.info/tags/LaTeX/</link><description>Recent content in LaTeX on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 01 Mar 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/LaTeX/index.xml" rel="self" type="application/rss+xml"/><item><title>sphinx 生成中文 PDF</title><link>https://blog.seisman.info/trash/sphinx-chinese-support/</link><pubDate>Sat, 01 Mar 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/trash/sphinx-chinese-support/</guid><description>&lt;p>&lt;a href="http://sphinx-doc.org/">sphinx&lt;/a> 是 Python 提供的文档生成工具，其可以将 rST 源文件
+转换成网页、PDF 等多种格式。目前，sphinx 1.3.1 在生成中文 PDF 时有一堆问题，所以
+需要做一些额外的处理才能解决。&lt;/p>
+&lt;p>&lt;a href="https://readthedocs.org">readthedocs&lt;/a> 可以直接用于托管 sphinx 生成的网页文档，
+由于 sphinx 不支持中文 PDF，所以 readthedocs 也不支持。readthedocs 的服务器是 Ubuntu，
+具体版本未知，TeXLive 版本未知，但是肯定早于 TeXLive 2014。所以 readthedocs 上中文
+支持就更是一个问题。因而在 readthedocs 网站上以及在本地，有两套不同的做法。&lt;/p></description></item><item><title>使用 xeCJK 解决中文问题的最小模板</title><link>https://blog.seisman.info/xeCJK-mini-template/</link><pubDate>Fri, 28 Feb 2014 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/xeCJK-mini-template/</guid><description>&lt;p>LaTeX 的中文支持一直是个问题，11 年左右刚开始学习 LaTeX 的时候，那时的中文解决
+办法是 CJK 宏包。到了 12 年或 13 年的时候，再接触 LaTeX 的时候，LaTeX 中文支持的最优
+解决办法变成了 &lt;code>xeLaTeX+xeCJK&lt;/code> ，这大概是目前为止最优的中文解决方案。&lt;/p>
+&lt;p>后来，CTEX 学会将 xeCJK 的功能进行打包，发布了 ctex 宏包，进一步简化了用 LaTeX
+写中文文档的问题。&lt;/p></description></item><item><title>在 GMT 中使用 LaTeX</title><link>https://blog.seisman.info/gmt-latex/</link><pubDate>Thu, 24 Oct 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/gmt-latex/</guid><description>&lt;p>GMT 的 &lt;code>pstext&lt;/code> 命令支持一些简单的文本特效以及特殊字符，但是如果想在 GMT 中显示一些
+更复杂的公式或者其他，GMT 则无能为力了。&lt;/p>
+&lt;p>这个时候自然而然就会想到功能强大的 LaTeX 了，写公式、画图都算是强项。显然 GMT 自身
+是无法直接支持 LaTeX 的语法的（若要支持 LaTeX 的语法，在绘图时必须调用 LaTeX 引擎，
+这样 GMT 对其他软件的依赖性过大，而且从技术上来说对于 GMT 的开发者来说也有些难度）。&lt;/p>
+&lt;p>虽然说用 GMT 绘图时在图上显示公式算是一个很小众的需求，从折腾的角度来看，还是很值得的。&lt;/p></description></item><item><title>Linux 下安装 TeXLive 2018</title><link>https://blog.seisman.info/texlive-install/</link><pubDate>Thu, 11 Jul 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/texlive-install/</guid><description>&lt;p>本文将介绍如何在 Linux 下安装 TeXLive 2018。&lt;/p></description></item></channel></rss>

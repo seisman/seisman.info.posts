@@ -1,0 +1,89 @@
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>利用 taup_pierce 计算射线穿透点 - SeisMan</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="SeisMan"><meta name=description content="taup_pierce 是 TauP 提供的一个命令行工具，用于计算各种震相在不同深度的穿透点信息。 本文通过几个例子介绍一个 taup_pierce 的使用方法。"><meta name=keywords content="地球物理学,地震学,SAC,软件,开源"><meta name=generator content="Hugo 0.79.1 with theme even"><link rel=canonical href=https://blog.seisman.info/taup-calculate-pierce-points/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link href=/lib/fancybox/jquery.fancybox-3.1.20.min.css rel=stylesheet><meta property="og:title" content="利用 taup_pierce 计算射线穿透点"><meta property="og:description" content="taup_pierce 是 TauP 提供的一个命令行工具，用于计算各种震相在不同深度的穿透点信息。
+本文通过几个例子介绍一个 taup_pierce 的使用方法。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.seisman.info/taup-calculate-pierce-points/"><meta property="article:published_time" content="2014-11-08T00:00:00+00:00"><meta property="article:modified_time" content="2014-11-08T00:00:00+00:00"><meta itemprop=name content="利用 taup_pierce 计算射线穿透点"><meta itemprop=description content="taup_pierce 是 TauP 提供的一个命令行工具，用于计算各种震相在不同深度的穿透点信息。
+本文通过几个例子介绍一个 taup_pierce 的使用方法。"><meta itemprop=datePublished content="2014-11-08T00:00:00+00:00"><meta itemprop=dateModified content="2014-11-08T00:00:00+00:00"><meta itemprop=wordCount content="1264"><meta itemprop=keywords content="射线,TauP,"><meta name=twitter:card content="summary"><meta name=twitter:title content="利用 taup_pierce 计算射线穿透点"><meta name=twitter:description content="taup_pierce 是 TauP 提供的一个命令行工具，用于计算各种震相在不同深度的穿透点信息。
+本文通过几个例子介绍一个 taup_pierce 的使用方法。"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>SeisMan</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>首页</li></a><a href=/post/><li class=mobile-menu-item>归档</li></a><a href=/categories/><li class=mobile-menu-item>分类</li></a><a href=/tags/><li class=mobile-menu-item>标签</li></a><a href=https://link.seisman.info/><li class=mobile-menu-item>链接</li></a><a href=http://seisman.qiniudn.com/seisman-blog.pdf><li class=mobile-menu-item>PDF</li></a><a href=/collections/><li class=mobile-menu-item>合集</li></a><a href=/donations/><li class=mobile-menu-item>捐赠</li></a><a href=/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>SeisMan</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>首页</a></li><li class=menu-item><a class=menu-item-link href=/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/categories/>分类</a></li><li class=menu-item><a class=menu-item-link href=/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=https://link.seisman.info/>链接</a></li><li class=menu-item><a class=menu-item-link href=http://seisman.qiniudn.com/seisman-blog.pdf>PDF</a></li><li class=menu-item><a class=menu-item-link href=/collections/>合集</a></li><li class=menu-item><a class=menu-item-link href=/donations/>捐赠</a></li><li class=menu-item><a class=menu-item-link href=/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>利用 taup_pierce 计算射线穿透点</h1><div class=post-meta><span class=post-time>2014-11-08</span><div class=post-category><a href=/categories/%E5%9C%B0%E9%9C%87%E5%AD%A6%E8%BD%AF%E4%BB%B6/>地震学软件</a></div></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class=post-toc-content><nav id=TableOfContents><ul><li><a href=#震相在不同深度穿透对应的震中距>震相在不同深度穿透对应的震中距</a></li><li><a href=#震相在不同深度处的穿透点位置>震相在不同深度处的穿透点位置</a></li><li><a href=#获取反射点>获取反射点</a></li><li><a href=#获取特定深度的穿透点位置>获取特定深度的穿透点位置</a></li></ul></nav></div></div><div class=post-content><p><code>taup_pierce</code> 是 TauP 提供的一个命令行工具，用于计算各种震相在不同深度的穿透点信息。
+本文通过几个例子介绍一个 <code>taup_pierce</code> 的使用方法。</p><p>下面的所有例子使用如下参数：</p><ul><li>地球模型：PREM 模型</li><li>震源深度：200 km</li><li>地震位置为（0,0）</li><li>台站位置为（15,15）</li><li>震中距为 21.025 度</li><li>方位角为 44.199；</li><li>反方位角为 226.172</li></ul><p>在已知如上参数的前提下，计算内核边界的反射波 PKiKP 震相在不同深度的穿透点信息；</p><h2 id=震相在不同深度穿透对应的震中距>震相在不同深度穿透对应的震中距</h2><p>本例中使用了地震深度和震中距信息，其输出有三列，分别为不同深度处的 <code>震中距</code> 、 <code>深度</code> 和 <code>震相走时</code>，
+这里的深度是地球模型的主要间断面，比如常见到的 410 间断、660 间断、CMB（2891）和 ICB（5150）。</p><pre><code>$ taup_pierce -ph PKiKP -mod prem -h 200 -deg 21.024
+&gt; PKiKP at 971.23 seconds at 21.02 degrees for a 200.0 km deep source in the prem model with rayParam 0.469 s/deg.
+    0.00   200.0     0.0
+    0.01   220.0     2.5
+    0.07   400.0    23.1
+    0.19   670.0    50.8
+    2.39  2891.0   230.0
+   10.48  5149.5   472.7
+   18.57  2891.0   715.5
+   20.77   670.0   894.7
+   20.89   400.0   922.3
+   20.96   220.0   942.9
+   20.96   200.0   945.4
+   21.02    24.4   967.3
+   21.02    15.0   968.6
+   21.02     0.0   971.2
+</code></pre><p>从输出中可以看到，PKiKP 震相在 2.39 度处穿过核幔边界进入外核，在 10.48 度处于内核边界处反射，并于 18.57 度时再次穿过核幔边界回到地幔。</p><h2 id=震相在不同深度处的穿透点位置>震相在不同深度处的穿透点位置</h2><p>有时候不仅仅想要知道震相在某个深度穿透所走过的距离，还想精确的知道是在哪个位置穿透点的。</p><p>本例使用事件和台站的经纬度信息，输出为 <code>震中距</code> 、 <code>深度</code> 、 <code>走时</code> 以及
+穿透点的 <code>纬度</code> 和 <code>经度</code> 。</p><pre><code>$ taup_pierce -ph PKiKP -mod prem -h 200 -evt 0 0 -sta 15 15
+&gt; PKiKP at 971.26 seconds at 21.09 degrees for a 200.0 km deep source in the prem model with rayParam 0.470 s/deg.
+    0.00   200.0     0.0      0.00      0.00
+    0.01   220.0     2.5      0.00      0.00
+    0.07   400.0    23.1      0.05      0.05
+    0.19   670.0    50.8      0.14      0.13
+    2.40  2891.0   230.0      1.72      1.67
+   10.51  5149.5   472.7      7.54      7.35
+   18.63  2891.0   715.5     13.29     13.18
+   20.84   670.0   894.7     14.82     14.81
+   20.96   400.0   922.3     14.91     14.90
+   21.02   220.0   943.0     14.95     14.95
+   21.03   200.0   945.5     14.96     14.95
+   21.08    24.4   967.3     15.00     15.00
+   21.09    15.0   968.7     15.00     15.00
+   21.09     0.0   971.3     15.00     15.00
+</code></pre><p>从输出可以看到，PKiKP 震相在 CMB 的入射点位于 (1.67,1.72) 处，出射点位于
+(13.18, 13.29)处，在 ICB 的反射点位于 (7.35, 7.54) 处。</p><p>还可以用事件位置、震中距和方位角得到同样的结果:</p><pre><code>taup_pierce -ph PKiKP -mod prem -h 200 -evt 0 0 -deg 21.025 -az 44.199
+</code></pre><p>或者用台站位置、震中距、反方位角得到同样的结果:</p><pre><code>taup_pierce -ph PKiKP -mod prem -h 200 -sta 15 15 -deg 21.025 -baz 226.172
+</code></pre><h2 id=获取反射点>获取反射点</h2><p>穿透点分为两种，一种是反射点，另一种是真正意义上的穿透点。比如 PKiKP 震相在 ICB 上是反射点，在 CMB 上只能称为穿透点。</p><p>反射点又分为两种，bottom turning points 和 underside reflection points，可以形象的表示为 <code>v</code> 和 <code>^</code> 。</p><p>获取 bottom turing points:</p><pre><code>$ taup_pierce -ph PKiKP -mod prem -h 200 -evt 0 0 -sta 15 15 -turn
+&gt; PKiKP at 971.26 seconds at 21.09 degrees for a 200.0 km deep source in the prem model with rayParam 0.470 s/deg.
+   10.51  5149.5   472.7      7.54      7.35
+</code></pre><p>获取 underside reflection points（这里以 sScS 为例）:</p><pre><code>$ taup_pierce -ph sScS -mod prem -h 200 -evt 0 0 -sta 15 15 -under
+&gt; sScS at  1020.00 seconds at    21.09 degrees for a    200.0 km deep source in the prem model with rayParam    3.495 s/deg.
+    0.26     0.0    46.9      0.18      0.18
+   21.09     0.0  1020.0     15.00     15.00
+</code></pre><p>当然也可以用 <code>-rev</code> 选项获取所有反射点。</p><h2 id=获取特定深度的穿透点位置>获取特定深度的穿透点位置</h2><p>默认只输出地球模型主要间断面处的穿透点信息，有些时候会需要震相在特定深度处的穿透点信息，比如深度为 5000km 处:</p><pre><code>$ taup_pierce -ph PKiKP -mod prem -h 200 -evt 0 0 -sta 15 15 -pierce 5000
+&gt; PKiKP at   971.26 seconds at    21.09 degrees for a    200.0 km deep source in the prem model with rayParam    0.470 s/deg.
+    0.00   200.0     0.0      0.00      0.00
+    0.01   220.0     2.5      0.00      0.00
+    0.07   400.0    23.1      0.05      0.05
+    0.19   670.0    50.8      0.14      0.13
+    2.40  2891.0   230.0      1.72      1.67
+    9.06  5000.0   457.9      6.50      6.32
+   10.51  5149.5   472.7      7.54      7.35
+   11.97  5000.0   487.6      8.58      8.38
+   18.63  2891.0   715.5     13.29     13.18
+   20.84   670.0   894.7     14.82     14.81
+   20.96   400.0   922.3     14.91     14.90
+   21.02   220.0   943.0     14.95     14.95
+   21.03   200.0   945.5     14.96     14.95
+   21.08    24.4   967.3     15.00     15.00
+   21.09    15.0   968.7     15.00     15.00
+   21.09     0.0   971.3     15.00     15.00
+</code></pre><p>在输出中多了两个 5000km 处的穿透点信息，有时候只想要这个深度的信息，而不需要其他深度的穿透点信息，此时可以使用 <code>-nodiscon</code> 选项:</p><pre><code>$ taup_pierce -ph PKiKP -mod prem -h 200 -evt 0 0 -sta 15 15 -pierce 5000 -nodiscon
+&gt; PKiKP at   971.26 seconds at    21.09 degrees for a    200.0 km deep source in the prem model with rayParam    0.470 s/deg.
+    9.06  5000.0   457.9      6.50      6.32
+   11.97  5000.0   487.6      8.58      8.38
+</code></pre></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>SeisMan</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2014-11-08</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/images/wechatpay-qr-code.png>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/images/alipay-qr-code.png>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/tags/%E5%B0%84%E7%BA%BF/>射线</a>
+<a href=/tags/TauP/>TauP</a></div><nav class=post-nav><a class=prev href=/taup-mark-traveltime/><i class="iconfont icon-left"></i><span class="prev-text nav-default">利用 taup_setsac 为 SAC 文件标记理论到时</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/taup-install/><span class="next-text nav-default">TauP 的安装</span>
+<span class="next-text nav-mobile">下一篇</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname==='localhost')return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='seisman';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:seisman.info@gmail.com class="iconfont icon-email" title=email></a><a href=https://github.com/seisman class="iconfont icon-github" title=github></a><a href=https://movie.douban.com/people/131919859 class="iconfont icon-douban" title=douban></a><a href=https://blog.seisman.info/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class=division>|</span>
+<span class=theme-info>主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span>
+<span class=copyright-year>&copy;
+2013 -
+2021
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>SeisMan</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script type=text/javascript src=/lib/jquery/jquery-3.2.1.min.js></script><script type=text/javascript src=/lib/slideout/slideout-1.0.1.min.js></script><script type=text/javascript src=/lib/fancybox/jquery.fancybox-3.1.20.min.js></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

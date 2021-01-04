@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>震源 on SeisMan</title><link>https://blog.seisman.info/tags/%E9%9C%87%E6%BA%90/</link><description>Recent content in 震源 on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 16 Sep 2013 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E9%9C%87%E6%BA%90/index.xml" rel="self" type="application/rss+xml"/><item><title>体力与等效体力</title><link>https://blog.seisman.info/body-force-equivalents/</link><pubDate>Mon, 16 Sep 2013 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/body-force-equivalents/</guid><description>&lt;p>地震学里最基本的运动方程是&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>其中 $f_i$ 是体力项，最常见的体力是重力。&lt;/p>
+&lt;p>除非是研究地球的自由震荡，在一般的地震波传播问题中，重力都是可忽略的，因而运动方程简化为：&lt;/p>
+&lt;!-- raw HTML omitted --></description></item></channel></rss>

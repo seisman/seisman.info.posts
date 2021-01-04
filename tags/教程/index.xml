@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>教程 on SeisMan</title><link>https://blog.seisman.info/tags/%E6%95%99%E7%A8%8B/</link><description>Recent content in 教程 on SeisMan</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 17 Jul 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.seisman.info/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>pssac 使用教程</title><link>https://blog.seisman.info/pssac-notes/</link><pubDate>Fri, 17 Jul 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/pssac-notes/</guid><description>&lt;p>&lt;strong>注意：本文仅针对 Prof. Lupei Zhu 的 pssac 程序，其仅可在 GMT 4下使用。
+对于GMT5用户，GMT 在 5.3.1 之后自带了 pssac，可以使用 &lt;code>gmt pssac&lt;/code> 直接调用。&lt;/strong>&lt;/p>
+&lt;p>相关文档见:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html">http://gmt.soest.hawaii.edu/doc/latest/supplements/meca/pssac.html&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://modules.gmt-china.org/pssac">http://modules.gmt-china.org/pssac&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>pssac&lt;/code> 可以读取 SAC 波形数据，并利用 GMT 的绘图功能将波形数据绘制在 PS 文件中。
+&lt;code>pssac&lt;/code> 绘制的波形图，大致可以分为三类：&lt;/p>
+&lt;ol>
+&lt;li>波形振幅图：横轴是时间，纵轴是振幅；&lt;/li>
+&lt;li>剖面图：横轴是时间，纵轴是其他物理量（比如震中距、方位角、反方位角以及文件号）；&lt;/li>
+&lt;li>任意位置图：将波形文件绘制在图上的任意位置；&lt;/li>
+&lt;/ol>
+&lt;p>本文首先简单介绍 &lt;code>pssac&lt;/code> 的各个选项，然后依次介绍如何绘制波形振幅图、剖面图以及任意位置图，在这个过程中会详细介绍较复杂的选项。&lt;/p></description></item></channel></rss>
