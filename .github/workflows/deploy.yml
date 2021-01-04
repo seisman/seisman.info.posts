@@ -11,10 +11,8 @@ jobs:
     runs-on: macos-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v2
-        with:
-          repository: seisman/blog.seisman.info
-          submodules: recursive
+      - name: Checkout the blog
+        run: git clone --recursive https://github.com/seisman/blog.seisman.info.git
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -23,7 +21,9 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --minify
+        run: |
+          cd blog.seisman.info
+          hugo --minify
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
