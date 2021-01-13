@@ -133,9 +133,7 @@ SAC、AH、CSS、SEGY 或 ASCII 等多种数据格式。&lt;/p></description></i
 &lt;li>示例采用 GMT5 语法，但方法对于 GMT4 也同样适用；&lt;/li>
 &lt;li>想不起来当初为什么会有只绘制网格线的需求了，所以这里只写如何实现，而不说为什么会有如此奇怪的需求。&lt;/li>
 &lt;/ol></description></item><item><title>球状模型下的 tau 积分</title><link>https://blog.seisman.info/tau-integral-in-spherical-earth/</link><pubDate>Fri, 15 May 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/tau-integral-in-spherical-earth/</guid><description>&lt;p>在计算震相走时的过程中，对 $\tau(p)$ 函数的积分是其中比较重要的一步，
-具体 $\tau(p)$ 函数如何使用，在地震学教材里都有介绍。&lt;/p></description></item><item><title>CPS330 的安装</title><link>https://blog.seisman.info/cps330-install/</link><pubDate>Tue, 12 May 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/cps330-install/</guid><description>&lt;p>CPS330 全称 Computer Programs in Seismology，是圣路易斯大学地震中心开发并维护的
-一款地震学软件包，其主要关注地震波在地壳和上地幔介质中的传播和解释。&lt;/p>
-&lt;p>本文介绍如何在 Linux 系统下编译安装 CPS330。&lt;/p></description></item><item><title>震相走时的计算</title><link>https://blog.seisman.info/traveltime-calculation/</link><pubDate>Sat, 02 May 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/traveltime-calculation/</guid><description>&lt;p>震相走时的计算是地震学的基本问题之一。&lt;/p>
+具体 $\tau(p)$ 函数如何使用，在地震学教材里都有介绍。&lt;/p></description></item><item><title>CPS330 的安装</title><link>https://blog.seisman.info/cps330-install/</link><pubDate>Tue, 12 May 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/cps330-install/</guid><description/></item><item><title>震相走时的计算</title><link>https://blog.seisman.info/traveltime-calculation/</link><pubDate>Sat, 02 May 2015 00:00:00 +0000</pubDate><guid>https://blog.seisman.info/traveltime-calculation/</guid><description>&lt;p>震相走时的计算是地震学的基本问题之一。&lt;/p>
 &lt;p>目前，计算一维分层模型下的震相走时，主要使用两个程序包：ttimes 和 TauP。
 ttimes 相对来说有些古老，所以多数情况下更推荐使用 TauP。但 TauP 不支持 PKPab、
 PKPbc 这种震相名，所以偶尔可能还是需要使用 ttimes。&lt;/p>
