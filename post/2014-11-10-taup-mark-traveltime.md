@@ -10,3 +10,5 @@ tags:
 slug: taup-mark-traveltime
 redirect: https://seismo-learn.org/software/taup/taup_setsac
 ---
+
+本文已迁移至 https://seismo-learn.org/software/taup/taup_setsac/

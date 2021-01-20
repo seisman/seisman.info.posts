@@ -8,3 +8,4 @@ slug: file-organization
 redirect: https://seismo-learn.org/seismology101/best-practices/file-organization/
 ---
 
+本文已迁移至 https://seismo-learn.org/seismology101/best-practices/file-organization/

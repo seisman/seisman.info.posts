@@ -14,3 +14,5 @@ tags:
 slug: fk-install
 redirect: https://seismo-learn.org/software/fk/install/
 ---
+
+本文已迁移至 https://seismo-learn.org/software/fk/install/

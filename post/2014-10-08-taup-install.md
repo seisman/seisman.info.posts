@@ -10,3 +10,5 @@ tags:
 slug: taup-install
 redirect: https://seismo-learn.org/software/taup/install/
 ---
+
+本文已迁移至 https://seismo-learn.org/software/taup/install/
